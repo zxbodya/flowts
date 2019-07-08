@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": true,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "member-ordering": false,
+    "no-console": false
+  }
+}
