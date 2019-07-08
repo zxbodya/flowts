@@ -16,7 +16,7 @@ async function main(cwd: string) {
     ignore: [
       '**/node_modules/**',
       // '**/__tests__/**',
-      // '**/dist/**',
+      '**/dist/**',
     ],
   });
 

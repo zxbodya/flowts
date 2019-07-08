@@ -1,9 +1,9 @@
 {
   "name": "flowts",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.3",
+  "description": "Utility script to convert flowtyped code to typescript",
   "bin": {
-    "flowts": "./dist/cli.js"
+    "flowts": "./bin/flowts.js"
   },
   "scripts": {
     "test": "jest",
@@ -12,6 +12,11 @@
     "compile": "tsc -p .",
     "ts-node": "ts-node"
   },
+  "files": [
+    "bin/*",
+    "dist/*",
+    "README.md"
+  ],
   "keywords": [],
   "author": "Bogdan Savluk <savluk.bogdan@gmail.com>",
   "license": "MIT",
