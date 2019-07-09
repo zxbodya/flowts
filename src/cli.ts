@@ -1,11 +1,11 @@
 import * as babel from '@babel/core';
 import traverse from '@babel/traverse';
+import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
 import fs from 'fs';
 import glob from 'glob';
 import * as path from 'path';
 import prettier from 'prettier';
-
-import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
+import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';
 
 async function main(cwd: string) {
@@ -60,7 +60,7 @@ async function main(cwd: string) {
     }
 
     const flow = babel.transformSync(source, {
-      plugins: [tsToFlowPlugin],
+      plugins: [recastPlugin, tsToFlowPlugin],
     });
 
     if (flow === null) {
@@ -71,7 +71,7 @@ async function main(cwd: string) {
 
     const ts = babel.transformSync(flow.code as string, {
       filenameRelative: targetFileName,
-      plugins: [tsTypesPlugin],
+      plugins: [recastPlugin, tsTypesPlugin],
     });
 
     if (ts === null) {
