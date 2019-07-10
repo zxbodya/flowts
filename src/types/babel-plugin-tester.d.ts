@@ -19,4 +19,4 @@ declare namespace pluginTester {
 
 declare function pluginTester(option: pluginTester.TesterOption): void;
 
-export default pluginTester;
+export = pluginTester;
