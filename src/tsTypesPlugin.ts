@@ -1,5 +1,5 @@
 import { PluginObj, Visitor } from '@babel/core';
-import traverse, { Node, NodePath } from '@babel/traverse';
+import traverse, { NodePath } from '@babel/traverse';
 import {
   identifier,
   ImportDeclaration,
@@ -11,7 +11,7 @@ import {
   Program,
   stringLiteral,
 } from '@babel/types';
-import rules from "./rules";
+import rules from './rules';
 
 const visitor: Visitor = {
   Program: {
