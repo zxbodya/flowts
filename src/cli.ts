@@ -22,7 +22,7 @@ async function main(cwd: string, opts: Options) {
     transformPlugins.push(recastPlugin);
   }
 
-  const files = glob.sync('**/*.{js,jsx}', {
+  const files = glob.sync('**/*.{js,jsx,js.flow}', {
     cwd,
     nodir: true,
     dot: true,
@@ -58,7 +58,13 @@ async function main(cwd: string, opts: Options) {
       );
     }
 
-    const targetFileName = file.replace(/\.js$/, isJSX ? '.tsx' : '.ts');
+    const targetExt = isJSX
+      ? '.tsx'
+      : /\.js\.flow$/i.test(file)
+      ? '.d.ts'
+      : '.ts';
+
+    const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
 
     const ts = babel.transformSync(tsSyntax.code as string, {
       babelrc: false,

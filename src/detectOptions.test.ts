@@ -32,4 +32,10 @@ let b: N.B;
       )
     ).toMatchSnapshot();
   });
+  it('use file extension to detect jsx', () => {
+    expect(detectOptions(`// @flow`, 'flow.jsx')).toMatchSnapshot();
+  });
+  it('use file extension to detect flow', () => {
+    expect(detectOptions(`let a = 1;`, 'test.js.flow')).toMatchSnapshot();
+  });
 });

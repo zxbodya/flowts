@@ -29,8 +29,8 @@ export function detectOptions(source: string, filename: string) {
     filename,
   });
 
-  let isJSX = false;
-  let isFlow = /@flow/.test(source);
+  let isJSX = /\.jsx$/i.test(filename);
+  let isFlow = /@flow/.test(source) || /\.js\.flow$/i.test(filename);
 
   if (flowAst === null) {
     throw new Error(
