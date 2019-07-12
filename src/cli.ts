@@ -80,7 +80,7 @@ async function main(cwd: string, opts: Options) {
 
     const ts = babel.transformSync(flow.code as string, {
       filenameRelative: targetFileName,
-      plugins: [...transformPlugins, tsTypesPlugin],
+      plugins: [...transformPlugins, [tsTypesPlugin, { isJSX }]],
     });
 
     if (ts === null) {
