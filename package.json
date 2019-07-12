@@ -1,22 +1,27 @@
 {
-  "name": "babel-plugin-flow-to-typescript",
+  "name": "@zxbodya/babel-plugin-flow-to-typescript",
   "description": "Babel plugin to convert Flow into TypeScript",
   "license": "MIT",
-  "author": {
-    "name": "Yuichiro Kikura",
-    "email": "y.kikura@gmail.com",
-    "url": "https://github.com/Kiikurage"
-  },
   "contributors": [
     {
+      "name": "Yuichiro Kikura",
+      "email": "y.kikura@gmail.com",
+      "url": "https://github.com/Kiikurage"
+    },
+    {
       "name": "CureApp"
+    },
+    {
+      "name": "Bogdan Savluk",
+      "email": "savluk.bogdan@gmail.com",
+      "url": "https://github.com/zxbodya"
     }
   ],
   "files": [
     "dist/*",
     "README.md"
   ],
-  "version": "0.6.0",
+  "version": "0.7.5",
   "scripts": {
     "prepare": "npm run build",
     "test": "jest",
@@ -36,7 +41,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kiikurage/babel-plugin-flow-to-typescript.git"
+    "url": "https://github.com/zxbodya/babel-plugin-flow-to-typescript.git"
   },
   "peerDependencies": {
     "@babel/core": "^7.4.4"
