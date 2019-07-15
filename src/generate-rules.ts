@@ -1,3 +1,4 @@
+/* tslint:disable:no-shadowed-variable */
 import * as babel from '@babel/core';
 import { NodePath } from '@babel/core';
 import traverse from '@babel/traverse';
@@ -30,6 +31,7 @@ import {
   objectProperty,
   OpaqueType,
   program,
+  Statement,
   stringLiteral,
   tsAsExpression,
   tsTypeReference,
@@ -39,7 +41,7 @@ import * as fs from 'fs';
 import * as prettier from 'prettier';
 import recastPlugin from './recastPlugin';
 
-type Declaratios = Map<string, NodePath[]>;
+type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
 
 function print(
   generatedAst: recast.types.ASTNode,
@@ -89,10 +91,10 @@ async function main(
   function register(target: Declaratios, name: string, path: NodePath) {
     let ent = target.get(name);
     if (ent === undefined) {
-      ent = [];
+      ent = { paths: [], fix: [] };
       target.set(name, ent);
     }
-    ent.push(path);
+    ent.paths.push(path);
   }
 
   const registerGlobal = (name: string, path: NodePath) =>
@@ -224,7 +226,30 @@ async function main(
   if (hasExports) {
     modules.exports = defaultModule;
   }
+
   // console.log(globals, modules);
+  // very often globals are re-exported as aliases in modules below
+  for (const [globalName, state] of globals) {
+    const parts = globalName.split('$');
+    if (parts.length === 2) {
+      const moduleName = parts[0].toLowerCase();
+      const exportName = parts[1];
+      if (modules[moduleName]) {
+        state.fix.push(
+          expressionStatement(
+            callExpression(
+              memberExpression(
+                identifier('context'),
+                identifier('importFlow'),
+                false
+              ),
+              [stringLiteral(moduleName), stringLiteral(exportName)]
+            )
+          )
+        );
+      }
+    }
+  }
 
   const prettierConfig = (await prettier.resolveConfig('./')) || {};
   prettierConfig.parser = 'typescript';
@@ -253,7 +278,7 @@ async function main(
     [
       importDeclaration(
         [importSpecifier(identifier('RuleSet'), identifier('RuleSet'))],
-        stringLiteral('../ruleTypes')
+        stringLiteral('../../ruleTypes')
       ),
 
       exportDefaultDeclaration(
@@ -262,37 +287,40 @@ async function main(
             objectProperty(
               stringLiteral('globals'),
               objectExpression(
-                [...globals.entries()].map(([declarationName, nodes]) => ({
-                  ...objectProperty(
-                    stringLiteral(declarationName),
-                    objectExpression([
-                      objectMethod(
-                        'method',
-                        stringLiteral('fix'),
-                        [identifier('context')],
-                        blockStatement([
-                          expressionStatement(
-                            callExpression(
-                              memberExpression(
-                                identifier('context'),
-                                identifier('warnOnce'),
-                                false
-                              ),
-                              [
-                                stringLiteral(
-                                  `Rule for global "${declarationName}" is not verified`
+                [...globals.entries()].map(
+                  ([declarationName, { paths, fix }]) => ({
+                    ...objectProperty(
+                      stringLiteral(declarationName),
+                      objectExpression([
+                        objectMethod(
+                          'method',
+                          stringLiteral('fix'),
+                          [identifier('context')],
+                          blockStatement([
+                            ...fix,
+                            expressionStatement(
+                              callExpression(
+                                memberExpression(
+                                  identifier('context'),
+                                  identifier('warnOnce'),
+                                  false
                                 ),
-                              ]
-                            )
-                          ),
-                        ])
-                      ),
-                    ])
-                  ),
-                  comments: nodes.map(node => {
-                    return getNodeComment(node);
-                  }),
-                }))
+                                [
+                                  stringLiteral(
+                                    `Rule for global "${declarationName}" is not verified`
+                                  ),
+                                ]
+                              )
+                            ),
+                          ])
+                        ),
+                      ])
+                    ),
+                    comments: paths.map(path => {
+                      return getNodeComment(path);
+                    }),
+                  })
+                )
               )
             ),
             objectProperty(
@@ -306,7 +334,7 @@ async function main(
                         stringLiteral('exports'),
                         objectExpression(
                           [...declarations.entries()].map(
-                            ([declarationName, nodes]) => ({
+                            ([declarationName, { paths }]) => ({
                               ...objectProperty(
                                 stringLiteral(declarationName),
                                 objectExpression([
@@ -333,8 +361,8 @@ async function main(
                                   ),
                                 ])
                               ),
-                              comments: nodes.map(node => {
-                                return getNodeComment(node);
+                              comments: paths.map(path => {
+                                return getNodeComment(path);
                               }),
                             })
                           )

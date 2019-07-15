@@ -4,49 +4,49 @@ npm run build
 
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/bom.js \
-          ./src/lib-rules/bom.ts \
+          ./src/rules/lib/bom.ts \
           lib/bom.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/core.js \
-          ./src/lib-rules/core.ts \
+          ./src/rules/lib/core.ts \
           lib/core.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/cssom.js \
-          ./src/lib-rules/cssom.ts \
+          ./src/rules/lib/cssom.ts \
           lib/cssom.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/dom.js \
-          ./src/lib-rules/dom.ts \
+          ./src/rules/lib/dom.ts \
           lib/dom.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/indexeddb.js \
-          ./src/lib-rules/indexeddb.ts \
+          ./src/rules/lib/indexeddb.ts \
           lib/indexeddb.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/intl.js \
-          ./src/lib-rules/intl.ts \
+          ./src/rules/lib/intl.ts \
           lib/intl.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/node.js \
-          ./src/lib-rules/node.ts \
+          ./src/rules/lib/node.ts \
           lib/node.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/react.js \
-          ./src/lib-rules/react.ts \
+          ./src/rules/lib/react.ts \
           lib/react.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/react-dom.js \
-          ./src/lib-rules/react-dom.ts \
+          ./src/rules/lib/react-dom.ts \
           lib/react-dom.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/serviceworkers.js \
-          ./src/lib-rules/serviceworkers.ts \
+          ./src/rules/lib/serviceworkers.ts \
           lib/serviceworkers.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/streams.js \
-          ./src/lib-rules/streams.ts \
+          ./src/rules/lib/streams.ts \
           lib/streams.js
 node ./dist/generate-rules.js \
           ./flow-0.102.0/lib/webassembly.js \
-          ./src/lib-rules/webassembly.ts \
+          ./src/rules/lib/webassembly.ts \
           lib/webassembly.js

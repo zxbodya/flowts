@@ -1,5 +1,9 @@
 interface Context {
   warnOnce(...args: any): void;
+  // import from typescript module
+  import(moduleName: string, exportName: string): void;
+  // import form other flow module which is also to be fixed
+  importFlow(moduleName: string, exportName: string): void;
 }
 
 interface Fix {
