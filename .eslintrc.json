@@ -21,7 +21,9 @@
         "allowExpressions": true
       }
     ],
-    "@typescript-eslint/no-non-null-assertion": "warn"
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-object-literal-type-assertion": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0
   },
   "overrides": [
     {

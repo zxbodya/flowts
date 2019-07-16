@@ -199,7 +199,7 @@ async function main(
           }
         } else if (isOpaqueType(declaration.node)) {
           const decl = declaration as NodePath<OpaqueType>;
-          // todo: @babel/types path.isOpaqueType()
+          // todo: improve @babel/types to include path.isOpaqueType()
           if (!isModule) {
             registerDefaultModule(decl.node.id.name, path);
           } else {
@@ -234,7 +234,7 @@ async function main(
     if (parts.length === 2) {
       const moduleName = parts[0].toLowerCase();
       const exportName = parts[1];
-      if (modules[moduleName]) {
+      if (modules[moduleName] && modules[moduleName].has(exportName)) {
         state.fix.push(
           expressionStatement(
             callExpression(

@@ -6,13 +6,17 @@ pluginTester({
   tests: [
     {
       title: 'simple case',
-      code: `import React from 'react';
+      code: `import { Component } from 'react';
 type A = React$Node;
 type B = SyntheticInputEvent<HTMLInputElement>;
+
+class C extends Component {}
 `,
-      output: `import React, { ChangeEvent, ReactNode } from 'react';
+      output: `import { Component, ReactNode, ChangeEvent } from 'react';
 type A = ReactNode;
 type B = ChangeEvent<HTMLInputElement>;
+
+class C extends Component {}
 `,
     },
     {
@@ -29,8 +33,8 @@ type A = ReactNode;
       code: `import * as React from 'react';
 type A = React$Node;
 `,
-      output: `import { ReactNode } from "react";
-import * as React from 'react';
+      output: `import * as React from 'react';
+import { ReactNode } from "react";
 type A = ReactNode;
 `,
     },
