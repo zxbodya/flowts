@@ -49,6 +49,19 @@ type A = React.ReactNode;
 let a = 0;
 `,
     },
+    {
+      title: 'forwardRef<T,P>',
+      code: `import * as React from 'react';
+let a = React.forwardRef<T,P>();
+let b = React.forwardRef<T>();
+let c = React.forwardRef();
+`,
+      output: `import * as React from 'react';
+let a = React.forwardRef<P, T>();
+let b = React.forwardRef<{}, T>();
+let c = React.forwardRef();
+`,
+    },
     // todo:
     // bug: local variable got renamed from `Element` to `ReactElement`
     //

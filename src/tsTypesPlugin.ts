@@ -15,7 +15,7 @@ import {
   isImportDeclaration,
   isImportDefaultSpecifier,
   isImportNamespaceSpecifier,
-  isImportSpecifier,
+  isImportSpecifier, isMemberExpression,
   isTSQualifiedName,
   Node,
   Program,
@@ -269,6 +269,18 @@ const visitor: Visitor = {
                     new NamespaceImportContext(
                       moduleName,
                       path.parent.right.name,
+                      [path.parentPath]
+                    )
+                  );
+                }
+              }
+              if (isMemberExpression(path.parent)) {
+                const rule = moduleRules.exports[path.parent.property.name];
+                if (rule) {
+                  rule.fix(
+                    new NamespaceImportContext(
+                      moduleName,
+                      path.parent.property.name,
                       [path.parentPath]
                     )
                   );

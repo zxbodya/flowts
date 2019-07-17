@@ -1,4 +1,5 @@
 /* tslint:disable:no-empty */
+import { tsTypeLiteral } from '@babel/types';
 import { RuleSet } from '../../ruleTypes';
 
 export default {
@@ -502,9 +503,7 @@ export default {
                 */
         AbstractComponent: {
           fix(context) {
-            context.warnOnce(
-              'Rule for export "AbstractComponent" in module "react" is not verified'
-            );
+            context.renameExport('ComponentClass');
           },
         },
 
@@ -541,9 +540,7 @@ export default {
                 */
         Element: {
           fix(context) {
-            context.warnOnce(
-              'Rule for export "Element" in module "react" is not verified'
-            );
+            context.renameExport('ReactElement');
           },
         },
 
@@ -699,9 +696,7 @@ export default {
                 */
         ElementRef: {
           fix(context) {
-            context.warnOnce(
-              'Rule for export "ElementRef" in module "react" is not verified'
-            );
+            context.renameExport('RefObject');
           },
         },
 
@@ -771,9 +766,25 @@ export default {
                 */
         forwardRef: {
           fix(context) {
-            context.warnOnce(
-              'Rule for export "forwardRef" in module "react" is not verified'
-            );
+            for (const path of context.referencePaths) {
+              if (
+                path.parentPath.isCallExpression() &&
+                path.parentPath.node.typeParameters
+              ) {
+                if (path.parentPath.node.typeParameters.params.length === 2) {
+                  const [T, P] = path.parentPath.node.typeParameters.params;
+                  path.parentPath.node.typeParameters.params = [P, T];
+                }
+
+                if (path.parentPath.node.typeParameters.params.length === 1) {
+                  const [T] = path.parentPath.node.typeParameters.params;
+                  path.parentPath.node.typeParameters.params = [
+                    tsTypeLiteral([]),
+                    T,
+                  ];
+                }
+              }
+            }
           },
         },
 
