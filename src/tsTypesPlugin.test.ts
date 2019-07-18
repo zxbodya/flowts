@@ -62,6 +62,18 @@ let b = React.forwardRef<{}, T>();
 let c = React.forwardRef();
 `,
     },
+    {
+      title: 'import for replaced global value',
+      code: `export type ButtonPropsT = {
+  children?: React$Node
+}
+`,
+      output: `import { ReactNode } from "react";
+export type ButtonPropsT = {
+  children?: ReactNode;
+};
+`,
+    },
     // todo:
     // bug: local variable got renamed from `Element` to `ReactElement`
     //

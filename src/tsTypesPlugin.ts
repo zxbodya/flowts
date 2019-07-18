@@ -15,7 +15,8 @@ import {
   isImportDeclaration,
   isImportDefaultSpecifier,
   isImportNamespaceSpecifier,
-  isImportSpecifier, isMemberExpression,
+  isImportSpecifier,
+  isMemberExpression,
   isTSQualifiedName,
   Node,
   Program,
@@ -135,6 +136,7 @@ const visitor: Visitor = {
               named: [],
               namespace: [],
             };
+            importState.set(moduleName, moduleState);
           }
           moduleState.named.push({
             imported: exportName,

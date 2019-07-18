@@ -363,11 +363,7 @@ export default {
                 declare export var createClass: React$CreateClass;
                 */
         createClass: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "createClass" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -379,11 +375,7 @@ export default {
                   ): React$Context<T>;
                 */
         createContext: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "createContext" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -405,11 +397,7 @@ export default {
                 declare export var cloneElement: React$CloneElement;
                 */
         cloneElement: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "cloneElement" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -434,11 +422,7 @@ export default {
                   ): {|current: null | T|};
                 */
         createRef: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "createRef" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -480,7 +464,7 @@ export default {
                 */
         StatelessFunctionalComponent: {
           fix(context) {
-            context.renameExport('SFC');
+            context.renameExport('FunctionComponent');
           },
         },
 
@@ -563,11 +547,7 @@ export default {
                 declare export type Key = React$Key;
                 */
         Key: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "Key" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -600,11 +580,7 @@ export default {
                 declare export type Context<T> = React$Context<T>;
                 */
         Context: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "Context" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -683,9 +659,7 @@ export default {
                 */
         ElementConfig: {
           fix(context) {
-            context.warnOnce(
-              'Rule for export "ElementConfig" in module "react" is not verified'
-            );
+            context.renameExport('ComponentProps');
           },
         },
 
@@ -720,6 +694,8 @@ export default {
                 */
         ChildrenArray: {
           fix(context) {
+            // todo: introduce helper type ChildrenArray<T> = T[] | T
+            // if T is reference transform directly to reduce bloat
             context.warnOnce(
               'Rule for export "ChildrenArray" in module "react" is not verified'
             );
@@ -841,11 +817,7 @@ export default {
                   ): T;
                 */
         useContext: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "useContext" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
@@ -856,11 +828,7 @@ export default {
                   ): [S, ((S => S) | S) => void];
                 */
         useState: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "useState" in module "react" is not verified'
-            );
-          },
+          fix(context) {},
         },
 
         /*
