@@ -4,6 +4,7 @@ import { sharedParserPlugins } from './sharedParserPlugins';
 
 export function detectOptions(source: string, filename: string) {
   const flowAst = babel.parseSync(source, {
+    babelrc: false,
     ast: true,
     parserOpts: {
       plugins: ['flow', 'jsx', ...sharedParserPlugins],

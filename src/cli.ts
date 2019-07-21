@@ -43,6 +43,7 @@ async function main(cwd: string, opts: Options) {
     }
 
     const tsSyntax = babel.transformSync(source, {
+      babelrc: false,
       plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
     });
 
@@ -55,6 +56,7 @@ async function main(cwd: string, opts: Options) {
     const targetFileName = file.replace(/\.js$/, isJSX ? '.tsx' : '.ts');
 
     const ts = babel.transformSync(tsSyntax.code as string, {
+      babelrc: false,
       filename: targetFileName,
       plugins: [...transformPlugins, tsTypesPlugin],
     });
