@@ -64,7 +64,7 @@ const visitor: Visitor = {
         moduleImports.add(name);
       }
 
-      function renameImport(module: string, from: string, to: string) {
+      function renameImport(module: string, from: string, to: string): void {
         let renames = renamedImports.get(module);
         if (!renames) {
           renames = new Map();
@@ -136,17 +136,16 @@ const visitor: Visitor = {
   },
 };
 
-export default () =>
-  ({
-    name: 'ts-types-plugin',
-    visitor,
+export default (): PluginObj => ({
+  name: 'ts-types-plugin',
+  visitor,
 
-    manipulateOptions(opts, parserOpts) {
-      parserOpts.plugins.push('typescript');
-      parserOpts.plugins.push('jsx');
-      parserOpts.plugins.push('classProperties');
-      parserOpts.plugins.push('objectRestSpread');
-      parserOpts.plugins.push('optionalChaining');
-      parserOpts.plugins.push('dynamicImport');
-    },
-  } as PluginObj);
+  manipulateOptions(opts, parserOpts) {
+    parserOpts.plugins.push('typescript');
+    parserOpts.plugins.push('jsx');
+    parserOpts.plugins.push('classProperties');
+    parserOpts.plugins.push('objectRestSpread');
+    parserOpts.plugins.push('optionalChaining');
+    parserOpts.plugins.push('dynamicImport');
+  },
+});

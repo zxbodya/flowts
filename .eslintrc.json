@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "@typescript-eslint/array-type": [
+      "error",
+      "array-simple"
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": true
+      }
+    ],
+    "@typescript-eslint/no-non-null-assertion": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.*"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

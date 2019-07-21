@@ -29,7 +29,11 @@ async function main(cwd: string, opts: Options) {
     ignore: ['**/node_modules/**', '**/dist/**'],
   });
 
-  const state = new Map<string, { isConverted: boolean }>();
+  // todo: collect modules info to use for:
+  // - renaming imports having '.js' extension
+  // - adding missing @types/* to package.json
+
+  const state = new Map();
 
   for (const file of files) {
     console.log(file);

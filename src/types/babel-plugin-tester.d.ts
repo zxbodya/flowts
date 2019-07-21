@@ -17,6 +17,7 @@ declare namespace pluginTester {
   }
 }
 
+// eslint-disable-next-line no-redeclare
 declare function pluginTester(option: pluginTester.TesterOption): void;
 
 export = pluginTester;

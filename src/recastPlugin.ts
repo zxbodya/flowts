@@ -1,5 +1,6 @@
 import * as babel from '@babel/core';
 import * as recast from '@zxbodya/recast';
+import { File } from '@babel/types';
 
 export default () => ({
   name: 'recast-plugin',
