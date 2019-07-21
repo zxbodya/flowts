@@ -15,8 +15,6 @@ function getReferenceExportName(ref: NodePath): string | undefined {
     }
   } else if (ref.parentPath.isQualifiedTypeIdentifier()) {
     name = ref.parentPath.node.id.name;
-  } else {
-    throw ref;
   }
   return name;
 }
