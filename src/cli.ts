@@ -29,12 +29,13 @@ async function main(cwd: string, opts: Options) {
     ignore: ['**/node_modules/**', '**/dist/**'],
   });
 
-  const state = new Map();
+  const state = new Map<string, { isConverted: boolean }>();
 
   for (const file of files) {
     console.log(file);
 
     const source = fs.readFileSync(path.join(cwd, file), { encoding: 'utf8' });
+
     const { isJSX, isFlow } = detectOptions(source, file);
 
     console.log({ isFlow, isJSX });
