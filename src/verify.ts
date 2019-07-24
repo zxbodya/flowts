@@ -1,9 +1,16 @@
 import * as babel from '@babel/core';
 import * as prettier from 'prettier';
 import { sharedParserPlugins } from './sharedParserPlugins';
+import removeImportsPlugin from './removeImportsExportsPlugin';
 
-// verification - remove types, remove comments, reformat and compare the text
-// todo: make it ignore import/export differences caused by babel not removing type imports/exports for typescript
+// self verification
+//  - remove types
+//  - remove comments
+//  - remove imports and exports (due to how babel works there might be difference about imports/exports)
+//  - reformat using prettier
+//  - compare the text
+//
+// assumption is that if converter works correctly - there should be no difference in resulting js code
 
 export function verify(
   source: string,
@@ -14,25 +21,66 @@ export function verify(
 ) {
   const jsxPlugin = isJSX ? (['jsx'] as const) : [];
 
-  const src = prettier.format(babel.transformSync(source, {
+  let srcNoTypes = babel.transformSync(source, {
+    babelrc: false,
     filename,
-    comments: false,
-    compact: true,
     presets: ['@babel/preset-flow'],
     parserOpts: {
       plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
     },
-  })!.code as string);
+  });
+  if (srcNoTypes === null) {
+    throw new Error(
+      'result of babel transform is null, likely configuration error'
+    );
+  }
 
-  const tgt = prettier.format(babel.transformSync(result, {
-    filename: target,
+  srcNoTypes = babel.transformSync(srcNoTypes.code!, {
+    babelrc: false,
+    filename,
     comments: false,
-    compact: true,
+    plugins: [removeImportsPlugin],
+    parserOpts: {
+      plugins: [...jsxPlugin, ...sharedParserPlugins],
+    },
+  });
+  if (srcNoTypes === null) {
+    throw new Error(
+      'result of babel transform is null, likely configuration error'
+    );
+  }
+
+  let resultNoTypes = babel.transformSync(result, {
+    babelrc: false,
+    filename: target,
     presets: ['@babel/preset-typescript'],
     parserOpts: {
       plugins: ['typescript', ...jsxPlugin, ...sharedParserPlugins],
     },
-  })!.code as string);
+  });
+  if (resultNoTypes === null) {
+    throw new Error(
+      'result of babel transform is null, likely configuration error'
+    );
+  }
+
+  resultNoTypes = babel.transformSync(resultNoTypes.code!, {
+    babelrc: false,
+    filename: target,
+    comments: false,
+    plugins: [removeImportsPlugin],
+    parserOpts: {
+      plugins: [...jsxPlugin, ...sharedParserPlugins],
+    },
+  });
+  if (resultNoTypes === null) {
+    throw new Error(
+      'result of babel transform is null, likely configuration error'
+    );
+  }
+
+  const src = prettier.format(srcNoTypes.code!, { parser: 'babel' });
+  const tgt = prettier.format(resultNoTypes.code!, { parser: 'babel' });
 
   return { isEqual: src !== tgt, src, tgt };
 }

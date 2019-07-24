@@ -5,9 +5,11 @@ import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
 import * as prettier from 'prettier';
+import jestDiff from 'jest-diff';
 import { detectOptions } from './detectOptions';
 import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';
+import { verify } from './verify';
 
 interface Options {
   recast: boolean;
@@ -38,7 +40,8 @@ async function main(cwd: string, opts: Options) {
   for (const file of files) {
     console.log(file);
 
-    const source = fs.readFileSync(path.join(cwd, file), { encoding: 'utf8' });
+    let filepath = path.join(cwd, file);
+    const source = fs.readFileSync(filepath, { encoding: 'utf8' });
 
     const { isJSX, isFlow } = detectOptions(source, file);
 
@@ -49,6 +52,7 @@ async function main(cwd: string, opts: Options) {
 
     const tsSyntax = babel.transformSync(source, {
       babelrc: false,
+      filename: filepath,
       plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
     });
 
@@ -65,10 +69,11 @@ async function main(cwd: string, opts: Options) {
       : '.ts';
 
     const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
+    const targetFile = path.join(cwd, targetFileName);
 
     const ts = babel.transformSync(tsSyntax.code as string, {
       babelrc: false,
-      filename: targetFileName,
+      filename: targetFile,
       plugins: [...transformPlugins, tsTypesPlugin],
     });
 
@@ -78,12 +83,26 @@ async function main(cwd: string, opts: Options) {
       );
     }
 
-    const targetFile = path.join(cwd, targetFileName);
     const prettierConfig = (await prettier.resolveConfig(targetFile)) || {};
     prettierConfig.parser = 'typescript';
     const result = prettier.format(ts.code as string, prettierConfig);
 
     fs.writeFileSync(targetFile, result);
+
+    const verificationResult = verify(
+      source,
+      result,
+      isJSX,
+      filepath,
+      targetFile
+    );
+    if (verificationResult.isEqual) {
+      console.log(
+        'verification failed, diff after stripping type annotations:'
+      );
+      const changes = jestDiff(verificationResult.src, verificationResult.tgt);
+      console.log(changes);
+    }
   }
 }
 

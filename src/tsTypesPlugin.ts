@@ -402,6 +402,7 @@ export default () =>
 
     manipulateOptions(opts, parserOpts) {
       parserOpts.plugins.push('typescript');
+      // todo: isJSX
       parserOpts.plugins.push('jsx');
       parserOpts.plugins.push('classProperties');
       parserOpts.plugins.push('objectRestSpread');

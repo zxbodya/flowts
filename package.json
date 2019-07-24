@@ -33,10 +33,11 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/traverse": "^7.4.5",
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.5.12",
+    "@zxbodya/recast": "^0.18.2",
     "commander": "^2.20.0",
     "glob": "^7.1.4",
+    "jest-diff": "^24.8.0",
     "prettier": "^1.18.2",
-    "@zxbodya/recast": "^0.18.2",
     "source-map-support": "^0.5.12"
   },
   "devDependencies": {
