@@ -1,7 +1,6 @@
 import template, { TemplateBuilderOptions } from '@babel/template';
 import {
   stringLiteral,
-  Program,
   ExportDefaultDeclaration,
   ObjectExpression,
   CallExpression,
@@ -18,6 +17,7 @@ import {
   arrayExpression,
   ArrayExpression,
   File,
+  ExpressionStatement,
 } from '@babel/types';
 import traverse, { NodePath } from '@babel/traverse';
 import * as recast from '@zxbodya/recast';
@@ -44,16 +44,10 @@ const buildTestTemplate = template.program(
   `
 describe(%%moduleName%%, () => {
   describe('globals', () => {
-    describe('React$Node', () => {
-      it('is renamed', () => {});
-    });
+    test('has no globals', () => {});
   });
   describe('modules', () => {
-    describe('react', () => {
-      describe('Node', () => {
-        it('is renamed', () => {});
-      });
-    });
+    test('has no modules', () => {});
   });
 });
 `,
@@ -68,14 +62,15 @@ function print(
   return prettier.format(code.code, prettierConfig);
 }
 
-function ifDescribe(
+function ifJestCall(
+  functionName: string,
   path: NodePath,
   fn: (name: string, body: NodePath<BlockStatement>) => void
 ) {
   if (path.isCallExpression()) {
     let callee = path.get('callee');
     if (callee.isIdentifier()) {
-      if (callee.node.name === 'describe') {
+      if (callee.node.name === functionName) {
         let args = path.get('arguments');
         if (args.length === 2) {
           const testNameArg = args[0];
@@ -103,13 +98,14 @@ function ifDescribe(
   }
 }
 
-function findDescribes(
+function findJestCalls(
+  functionName: string,
   globalsDescribeBody: NodePath<BlockStatement>
 ): Map<string, NodePath<BlockStatement>> {
   const tests = new Map();
   for (const path of globalsDescribeBody.get('body') as NodePath[]) {
     if (path.isExpressionStatement()) {
-      ifDescribe(path.get('expression'), (name, body) => {
+      ifJestCall(functionName, path.get('expression'), (name, body) => {
         tests.set(name, body);
       });
     }
@@ -176,6 +172,112 @@ function getModuleDescr(moduleObj: NodePath<ObjectExpression>) {
   };
 }
 
+interface RuleDescribe {
+  path: NodePath<BlockStatement>;
+  tests: Map<string, NodePath<BlockStatement>>;
+}
+
+interface RulesDescribe {
+  path: NodePath<BlockStatement>;
+  describes: Map<string, RuleDescribe>;
+  tests: Map<string, NodePath<BlockStatement>>;
+}
+
+interface ModulesRulesDescribe {
+  path: NodePath<BlockStatement>;
+  describes: Map<string, RulesDescribe>;
+  tests: Map<string, NodePath<BlockStatement>>;
+}
+
+const HAS_NO_MODULES_TEST_NAME = 'has no modules';
+const HAS_NO_GLOBALS_TEST_NAME = 'has no globals';
+function getModuleRulesDescribe(
+  target: ModulesRulesDescribe,
+  moduleName: string,
+  noDescribesTest: string,
+  newDescribePlaceholderTest: string
+): RulesDescribe {
+  let moduleDescribe = target.describes.get(moduleName);
+  if (!moduleDescribe) {
+    const ruleDescribeNode = template.statement(templateOpts)(
+      `describe(%%moduleName%%, () => {
+          test(%%newDescribePlaceholderTest%%, () => {});
+       });`
+    )({
+      moduleName: stringLiteral(moduleName),
+      newDescribePlaceholderTest: stringLiteral(newDescribePlaceholderTest),
+    });
+
+    target.path.node.body.push(ruleDescribeNode);
+    const body = target.path.get('body');
+    const path = (body[body.length - 1] as NodePath<ExpressionStatement>).get(
+      'expression.arguments.1.body'
+    ) as NodePath<BlockStatement>;
+
+    moduleDescribe = {
+      path: path,
+      describes: new Map(
+        [...findJestCalls('describe', path)].map(([ruleName, path]) => [
+          ruleName,
+          {
+            path,
+            tests: findJestCalls('test', path),
+          },
+        ])
+      ),
+      tests: findJestCalls('test', path),
+    };
+    target.describes.set(moduleName, moduleDescribe);
+  }
+
+  const placeholderTest = target.tests.get(noDescribesTest);
+  if (placeholderTest) {
+    // arrow expression - expression statement
+    placeholderTest.parentPath.parentPath.remove();
+    target.tests.delete(noDescribesTest);
+  }
+  return moduleDescribe;
+}
+
+function getRulesDescribe(
+  target: RulesDescribe,
+  declarationName: string,
+  noDescribesTest: string,
+  newDescribePlaceholderTest: string
+): RuleDescribe {
+  let ruleTests = target.describes.get(declarationName);
+  if (!ruleTests) {
+    const ruleDescribeNode = template.statement(templateOpts)(
+      `describe(%%declarationName%%, () => {
+          test(%%newDescribePlaceholderTest%%, () => {});
+       });`
+    )({
+      declarationName: stringLiteral(declarationName),
+      newDescribePlaceholderTest: stringLiteral(newDescribePlaceholderTest),
+    });
+
+    target.path.node.body.push(ruleDescribeNode);
+    const body = target.path.get('body');
+    const path = (body[body.length - 1] as NodePath<ExpressionStatement>).get(
+      'expression.arguments.1.body'
+    ) as NodePath<BlockStatement>;
+
+    ruleTests = {
+      path,
+      tests: findJestCalls('test', path),
+    };
+    target.describes.set(declarationName, ruleTests);
+  }
+
+  const placeholderTest = target.tests.get(noDescribesTest);
+  if (placeholderTest) {
+    // arrow expression - expression statement
+    placeholderTest.parentPath.parentPath.remove();
+    target.tests.delete(noDescribesTest);
+  }
+  return ruleTests;
+}
+
 export class Rule {
   private ruleAst: File;
   private testAst: File;
@@ -192,8 +294,8 @@ export class Rule {
       exports: Map<string, NodePath<ObjectMethod>>;
     }
   >;
-  private globalRuleTests: Map<string, NodePath<BlockStatement>>;
-  private moduleRuleTests: Map<string, Map<string, NodePath<BlockStatement>>>;
+  private globalRuleTests: RulesDescribe;
+  private moduleRuleTests: ModulesRulesDescribe;
 
   constructor(moduleName: string, ruleAst: File, testAst: File) {
     this.moduleName = moduleName;
@@ -308,7 +410,7 @@ export class Rule {
     let testDescribeBody: NodePath<BlockStatement> | undefined;
     traverse(testAst, {
       CallExpression: (path: NodePath<CallExpression>) => {
-        ifDescribe(path, (name, body) => {
+        ifJestCall('describe', path, (name, body) => {
           if (name === this.moduleName) {
             testDescribeBody = body;
           }
@@ -322,7 +424,7 @@ export class Rule {
         `can not find "describe('${this.moduleName}', () => { … })" in test file`
       );
     }
-    const testRootDescribes = findDescribes(testDescribeBody);
+    const testRootDescribes = findJestCalls('describe', testDescribeBody);
 
     let globalsDescribeBody = testRootDescribes.get('globals');
     let modulesDescribeBody = testRootDescribes.get('modules');
@@ -337,22 +439,48 @@ export class Rule {
         `can not find "describe('modules', () => { … })" in test file`
       );
     }
+    const globalRuleTests: RulesDescribe = {
+      describes: new Map(
+        [...findJestCalls('describe', globalsDescribeBody)].map(
+          ([ruleName, path]) => [
+            ruleName,
+            {
+              path,
+              tests: findJestCalls('test', path),
+            },
+          ]
+        )
+      ),
+      path: globalsDescribeBody,
+      tests: findJestCalls('test', globalsDescribeBody),
+    };
 
-    const globalRuleTests: Map<
-      string,
-      NodePath<BlockStatement>
-    > = findDescribes(globalsDescribeBody);
-    const moduleRuleTests = new Map<
-      string,
-      Map<string, NodePath<BlockStatement>>
-    >(
-      [...findDescribes(modulesDescribeBody)].map(
-        ([moduleName, moduleTestBody]) => [
-          moduleName,
-          findDescribes(moduleTestBody),
-        ]
-      )
-    );
+    const moduleRuleTests: ModulesRulesDescribe = {
+      describes: new Map<string, RulesDescribe>(
+        [...findJestCalls('describe', modulesDescribeBody)].map(
+          ([moduleName, moduleTestBody]) => [
+            moduleName,
+            {
+              describes: new Map(
+                [...findJestCalls('describe', moduleTestBody)].map(
+                  ([ruleName, path]) => [
+                    ruleName,
+                    {
+                      path,
+                      tests: findJestCalls('test', path),
+                    },
+                  ]
+                )
+              ),
+              tests: findJestCalls('test', moduleTestBody),
+              path: moduleTestBody,
+            },
+          ]
+        )
+      ),
+      path: modulesDescribeBody,
+      tests: findJestCalls('test', modulesDescribeBody),
+    };
 
     this.globalRules = globalRules;
     this.moduleRules = modulesRules;
@@ -382,7 +510,7 @@ export class Rule {
     prettierConfig: prettier.Options | undefined
   ): { ruleCode: string; testCode: string } {
     const ruleCode = print(this.ruleAst, prettierConfig);
-    const testCode = '';
+    const testCode = print(this.testAst, prettierConfig);
     return { ruleCode, testCode };
   }
 
@@ -405,6 +533,13 @@ export class Rule {
       this.globalsObjPath.node.properties.length - 1
     ] as NodePath<ObjectMethod>;
     this.globalRules.set(declarationName, methodPath);
+
+    const rulesDescribe = getRulesDescribe(
+      this.globalRuleTests,
+      declarationName,
+      HAS_NO_GLOBALS_TEST_NAME,
+      'has no test'
+    );
   }
 
   setModuleRule(
@@ -446,5 +581,19 @@ export class Rule {
       moduleRules.exportsPath.node.properties.length - 1
     ] as NodePath<ObjectMethod>;
     moduleRules.exports.set(declarationName, methodPath);
+
+    const moduleRulesDescribe = getModuleRulesDescribe(
+      this.moduleRuleTests,
+      moduleName,
+      HAS_NO_MODULES_TEST_NAME,
+      'has no test'
+    );
+
+    const rulesDescribe = getRulesDescribe(
+      moduleRulesDescribe,
+      declarationName,
+      'has no test',
+      'has no test'
+    );
   }
 }

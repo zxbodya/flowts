@@ -4,7 +4,6 @@ import { NodePath } from '@babel/core';
 import traverse from '@babel/traverse';
 
 import {
-  blockStatement,
   callExpression,
   CommentBlock,
   DeclareClass,
@@ -17,26 +16,16 @@ import {
   DeclareOpaqueType,
   DeclareTypeAlias,
   DeclareVariable,
-  exportDefaultDeclaration,
   expressionStatement,
   identifier,
-  importDeclaration,
-  importSpecifier,
   isDeclareExportDeclaration,
   isIdentifier,
   isOpaqueType,
   memberExpression,
-  objectExpression,
-  objectMethod,
-  objectProperty,
   OpaqueType,
-  program,
   Statement,
   stringLiteral,
-  tsAsExpression,
-  tsTypeReference,
 } from '@babel/types';
-import * as recast from '@zxbodya/recast';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
 import recastPlugin from './recastPlugin';
@@ -337,9 +326,10 @@ async function main(
   const prettierConfig = (await prettier.resolveConfig('./')) || {};
   prettierConfig.parser = 'typescript';
 
-  const { ruleCode: result } = rule.print(prettierConfig);
+  const { ruleCode, testCode } = rule.print(prettierConfig);
 
-  fs.writeFileSync(outputPath, result);
+  fs.writeFileSync(outputPath, ruleCode);
+  fs.writeFileSync(outputPath.replace(/\.ts$/, '.test.ts'), testCode);
 }
 
 main(process.argv[2], process.argv[3], process.argv[4], true).then(
