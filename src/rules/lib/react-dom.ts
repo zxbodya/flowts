@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { RuleSet } from '../../ruleTypes';
 
 export default {
@@ -26,10 +25,8 @@ export default {
           persist(): void;
         }
         */
-    SyntheticEvent: {
-      fix(context) {
-        context.import('react', 'SyntheticEvent');
-      },
+    SyntheticEvent(context) {
+      context.import('react', 'SyntheticEvent');
     },
 
     /*
@@ -43,10 +40,8 @@ export default {
           pseudoElement: string;
         }
         */
-    SyntheticAnimationEvent: {
-      fix(context) {
-        context.import('react', 'AnimationEvent');
-      },
+    SyntheticAnimationEvent(context) {
+      context.import('react', 'AnimationEvent');
     },
 
     /*
@@ -58,10 +53,8 @@ export default {
           clipboardData: any;
         }
         */
-    SyntheticClipboardEvent: {
-      fix(context) {
-        context.import('react', 'ClipboardEvent');
-      },
+    SyntheticClipboardEvent(context) {
+      context.import('react', 'ClipboardEvent');
     },
 
     /*
@@ -73,10 +66,8 @@ export default {
           data: any;
         }
         */
-    SyntheticCompositionEvent: {
-      fix(context) {
-        context.import('react', 'CompositionEvent');
-      },
+    SyntheticCompositionEvent(context) {
+      context.import('react', 'CompositionEvent');
     },
 
     /*
@@ -89,10 +80,8 @@ export default {
           data: any;
         }
         */
-    SyntheticInputEvent: {
-      fix(context) {
-        context.import('react', 'ChangeEvent');
-      },
+    SyntheticInputEvent(context) {
+      context.import('react', 'ChangeEvent');
     },
 
     /*
@@ -106,10 +95,8 @@ export default {
           view: any;
         }
         */
-    SyntheticUIEvent: {
-      fix(context) {
-        context.import('react', 'UIEvent');
-      },
+    SyntheticUIEvent(context) {
+      context.import('react', 'UIEvent');
     },
 
     /*
@@ -121,10 +108,8 @@ export default {
           relatedTarget: EventTarget;
         }
         */
-    SyntheticFocusEvent: {
-      fix(context) {
-        context.import('react', 'FocusEvent');
-      },
+    SyntheticFocusEvent(context) {
+      context.import('react', 'FocusEvent');
     },
 
     /*
@@ -147,10 +132,8 @@ export default {
           which: number;
         }
         */
-    SyntheticKeyboardEvent: {
-      fix(context) {
-        context.import('react', 'KeyboardEvent');
-      },
+    SyntheticKeyboardEvent(context) {
+      context.import('react', 'KeyboardEvent');
     },
 
     /*
@@ -176,10 +159,8 @@ export default {
           shiftKey: boolean;
         }
         */
-    SyntheticMouseEvent: {
-      fix(context) {
-        context.import('react', 'MouseEvent');
-      },
+    SyntheticMouseEvent(context) {
+      context.import('react', 'MouseEvent');
     },
 
     /*
@@ -191,10 +172,8 @@ export default {
           dataTransfer: any;
         }
         */
-    SyntheticDragEvent: {
-      fix(context) {
-        context.import('react', 'DragEvent');
-      },
+    SyntheticDragEvent(context) {
+      context.import('react', 'DragEvent');
     },
 
     /*
@@ -209,10 +188,8 @@ export default {
           deltaZ: number;
         }
         */
-    SyntheticWheelEvent: {
-      fix(context) {
-        context.import('react', 'WheelEvent');
-      },
+    SyntheticWheelEvent(context) {
+      context.import('react', 'WheelEvent');
     },
 
     /*
@@ -233,10 +210,8 @@ export default {
           isPrimary: boolean;
         }
         */
-    SyntheticPointerEvent: {
-      fix(context) {
-        context.import('react', 'PointerEvent');
-      },
+    SyntheticPointerEvent(context) {
+      context.import('react', 'PointerEvent');
     },
 
     /*
@@ -255,10 +230,8 @@ export default {
           touches: any;
         }
         */
-    SyntheticTouchEvent: {
-      fix(context) {
-        context.import('react', 'TouchEvent');
-      },
+    SyntheticTouchEvent(context) {
+      context.import('react', 'TouchEvent');
     },
 
     /*
@@ -272,10 +245,8 @@ export default {
           pseudoElement: string;
         }
         */
-    SyntheticTransitionEvent: {
-      fix(context) {
-        context.import('react', 'TransitionEvent');
-      },
+    SyntheticTransitionEvent(context) {
+      context.import('react', 'TransitionEvent');
     },
 
     /*
@@ -792,10 +763,8 @@ export default {
           ...
         };
         */
-    $JSXIntrinsics: {
-      fix(context) {
-        context.warnOnce('Rule for global "$JSXIntrinsics" is not verified');
-      },
+    $JSXIntrinsics(context) {
+      context.warnOnce('Rule for global "$JSXIntrinsics" is not verified');
     },
   },
 
@@ -809,12 +778,10 @@ export default {
                     componentOrElement: Element | ?React$Component<any, any>,
                   ): null | Element | Text;
                 */
-        findDOMNode: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "findDOMNode" in module "react-dom" is not verified'
-            );
-          },
+        findDOMNode(context) {
+          context.warnOnce(
+            'Rule for export "findDOMNode" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -826,12 +793,10 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        render: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "render" in module "react-dom" is not verified'
-            );
-          },
+        render(context) {
+          context.warnOnce(
+            'Rule for export "render" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -843,12 +808,10 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        hydrate: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "hydrate" in module "react-dom" is not verified'
-            );
-          },
+        hydrate(context) {
+          context.warnOnce(
+            'Rule for export "hydrate" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -859,12 +822,10 @@ export default {
                     container: Element,
                   ): React$Portal;
                 */
-        createPortal: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "createPortal" in module "react-dom" is not verified'
-            );
-          },
+        createPortal(context) {
+          context.warnOnce(
+            'Rule for export "createPortal" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -872,12 +833,10 @@ export default {
 
                 declare function unmountComponentAtNode(container: any): boolean;
                 */
-        unmountComponentAtNode: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "unmountComponentAtNode" in module "react-dom" is not verified'
-            );
-          },
+        unmountComponentAtNode(context) {
+          context.warnOnce(
+            'Rule for export "unmountComponentAtNode" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -885,12 +844,10 @@ export default {
 
                 declare var version: string;
                 */
-        version: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "version" in module "react-dom" is not verified'
-            );
-          },
+        version(context) {
+          context.warnOnce(
+            'Rule for export "version" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -905,12 +862,10 @@ export default {
                     e: E,
                   ): void;
                 */
-        unstable_batchedUpdates: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "unstable_batchedUpdates" in module "react-dom" is not verified'
-            );
-          },
+        unstable_batchedUpdates(context) {
+          context.warnOnce(
+            'Rule for export "unstable_batchedUpdates" in module "react-dom" is not verified'
+          );
         },
 
         /*
@@ -925,12 +880,10 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        unstable_renderSubtreeIntoContainer: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "unstable_renderSubtreeIntoContainer" in module "react-dom" is not verified'
-            );
-          },
+        unstable_renderSubtreeIntoContainer(context) {
+          context.warnOnce(
+            'Rule for export "unstable_renderSubtreeIntoContainer" in module "react-dom" is not verified'
+          );
         },
       },
     },
@@ -942,12 +895,10 @@ export default {
 
                 declare function renderToString(element: React$Node): string;
                 */
-        renderToString: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "renderToString" in module "react-dom/server" is not verified'
-            );
-          },
+        renderToString(context) {
+          context.warnOnce(
+            'Rule for export "renderToString" in module "react-dom/server" is not verified'
+          );
         },
 
         /*
@@ -955,12 +906,10 @@ export default {
 
                 declare function renderToStaticMarkup(element: React$Node): string;
                 */
-        renderToStaticMarkup: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "renderToStaticMarkup" in module "react-dom/server" is not verified'
-            );
-          },
+        renderToStaticMarkup(context) {
+          context.warnOnce(
+            'Rule for export "renderToStaticMarkup" in module "react-dom/server" is not verified'
+          );
         },
 
         /*
@@ -968,12 +917,10 @@ export default {
 
                 declare function renderToNodeStream(element: React$Node): stream$Readable;
                 */
-        renderToNodeStream: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "renderToNodeStream" in module "react-dom/server" is not verified'
-            );
-          },
+        renderToNodeStream(context) {
+          context.warnOnce(
+            'Rule for export "renderToNodeStream" in module "react-dom/server" is not verified'
+          );
         },
 
         /*
@@ -983,12 +930,10 @@ export default {
                     element: React$Node,
                   ): stream$Readable;
                 */
-        renderToStaticNodeStream: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "renderToStaticNodeStream" in module "react-dom/server" is not verified'
-            );
-          },
+        renderToStaticNodeStream(context) {
+          context.warnOnce(
+            'Rule for export "renderToStaticNodeStream" in module "react-dom/server" is not verified'
+          );
         },
 
         /*
@@ -996,12 +941,10 @@ export default {
 
                 declare var version: string;
                 */
-        version: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "version" in module "react-dom/server" is not verified'
-            );
-          },
+        version(context) {
+          context.warnOnce(
+            'Rule for export "version" in module "react-dom/server" is not verified'
+          );
         },
       },
     },
@@ -1013,12 +956,10 @@ export default {
 
                 declare var Simulate: { [eventName: string]: (element: Element, eventData?: Object) => void, ... };
                 */
-        Simulate: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "Simulate" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        Simulate(context) {
+          context.warnOnce(
+            'Rule for export "Simulate" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1028,12 +969,10 @@ export default {
                     instance: React$Element<any>,
                   ): React$Component<any, any>;
                 */
-        renderIntoDocument: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "renderIntoDocument" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        renderIntoDocument(context) {
+          context.warnOnce(
+            'Rule for export "renderIntoDocument" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1044,12 +983,10 @@ export default {
                     mockTagName?: string,
                   ): Object;
                 */
-        mockComponent: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "mockComponent" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        mockComponent(context) {
+          context.warnOnce(
+            'Rule for export "mockComponent" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1057,12 +994,10 @@ export default {
 
                 declare function isElement(element: React$Element<any>): boolean;
                 */
-        isElement: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "isElement" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        isElement(context) {
+          context.warnOnce(
+            'Rule for export "isElement" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1073,12 +1008,10 @@ export default {
                     componentClass: React$ElementType,
                   ): boolean;
                 */
-        isElementOfType: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "isElementOfType" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        isElementOfType(context) {
+          context.warnOnce(
+            'Rule for export "isElementOfType" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1086,12 +1019,10 @@ export default {
 
                 declare function isDOMComponent(instance: any): boolean;
                 */
-        isDOMComponent: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "isDOMComponent" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        isDOMComponent(context) {
+          context.warnOnce(
+            'Rule for export "isDOMComponent" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1101,12 +1032,10 @@ export default {
                     instance: React$Component<any, any>,
                   ): boolean;
                 */
-        isCompositeComponent: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "isCompositeComponent" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        isCompositeComponent(context) {
+          context.warnOnce(
+            'Rule for export "isCompositeComponent" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1117,12 +1046,10 @@ export default {
                     componentClass: React$ElementType,
                   ): boolean;
                 */
-        isCompositeComponentWithType: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "isCompositeComponentWithType" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        isCompositeComponentWithType(context) {
+          context.warnOnce(
+            'Rule for export "isCompositeComponentWithType" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1133,12 +1060,10 @@ export default {
                     test: (child: React$Component<any, any>) => boolean,
                   ): Array<React$Component<any, any>>;
                 */
-        findAllInRenderedTree: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "findAllInRenderedTree" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        findAllInRenderedTree(context) {
+          context.warnOnce(
+            'Rule for export "findAllInRenderedTree" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1149,12 +1074,10 @@ export default {
                     className: string,
                   ): Array<Element>;
                 */
-        scryRenderedDOMComponentsWithClass: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "scryRenderedDOMComponentsWithClass" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        scryRenderedDOMComponentsWithClass(context) {
+          context.warnOnce(
+            'Rule for export "scryRenderedDOMComponentsWithClass" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1165,12 +1088,10 @@ export default {
                     className: string,
                   ): ?Element;
                 */
-        findRenderedDOMComponentWithClass: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "findRenderedDOMComponentWithClass" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        findRenderedDOMComponentWithClass(context) {
+          context.warnOnce(
+            'Rule for export "findRenderedDOMComponentWithClass" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1181,12 +1102,10 @@ export default {
                     tagName: string,
                   ): Array<Element>;
                 */
-        scryRenderedDOMComponentsWithTag: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "scryRenderedDOMComponentsWithTag" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        scryRenderedDOMComponentsWithTag(context) {
+          context.warnOnce(
+            'Rule for export "scryRenderedDOMComponentsWithTag" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1197,12 +1116,10 @@ export default {
                     tagName: string,
                   ): ?Element;
                 */
-        findRenderedDOMComponentWithTag: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "findRenderedDOMComponentWithTag" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        findRenderedDOMComponentWithTag(context) {
+          context.warnOnce(
+            'Rule for export "findRenderedDOMComponentWithTag" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1213,12 +1130,10 @@ export default {
                     componentClass: React$ElementType,
                   ): Array<React$Component<any, any>>;
                 */
-        scryRenderedComponentsWithType: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "scryRenderedComponentsWithType" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        scryRenderedComponentsWithType(context) {
+          context.warnOnce(
+            'Rule for export "scryRenderedComponentsWithType" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1229,12 +1144,10 @@ export default {
                     componentClass: React$ElementType,
                   ): ?React$Component<any, any>;
                 */
-        findRenderedComponentWithType: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "findRenderedComponentWithType" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        findRenderedComponentWithType(context) {
+          context.warnOnce(
+            'Rule for export "findRenderedComponentWithType" in module "react-dom/test-utils" is not verified'
+          );
         },
 
         /*
@@ -1242,12 +1155,10 @@ export default {
 
                 declare function act(callback: () => void | Thenable): Thenable;
                 */
-        act: {
-          fix(context) {
-            context.warnOnce(
-              'Rule for export "act" in module "react-dom/test-utils" is not verified'
-            );
-          },
+        act(context) {
+          context.warnOnce(
+            'Rule for export "act" in module "react-dom/test-utils" is not verified'
+          );
         },
       },
     },

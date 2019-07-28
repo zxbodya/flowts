@@ -289,30 +289,25 @@ async function main(
               objectExpression(
                 [...globals.entries()].map(
                   ([declarationName, { paths, fix }]) => ({
-                    ...objectProperty(
+                    ...objectMethod(
+                      'method',
                       stringLiteral(declarationName),
-                      objectExpression([
-                        objectMethod(
-                          'method',
-                          stringLiteral('fix'),
-                          [identifier('context')],
-                          blockStatement([
-                            ...fix,
-                            expressionStatement(
-                              callExpression(
-                                memberExpression(
-                                  identifier('context'),
-                                  identifier('warnOnce'),
-                                  false
-                                ),
-                                [
-                                  stringLiteral(
-                                    `Rule for global "${declarationName}" is not verified`
-                                  ),
-                                ]
-                              )
+                      [identifier('context')],
+                      blockStatement([
+                        ...fix,
+                        expressionStatement(
+                          callExpression(
+                            memberExpression(
+                              identifier('context'),
+                              identifier('warnOnce'),
+                              false
                             ),
-                          ])
+                            [
+                              stringLiteral(
+                                `Rule for global "${declarationName}" is not verified`
+                              ),
+                            ]
+                          )
                         ),
                       ])
                     ),
@@ -335,29 +330,24 @@ async function main(
                         objectExpression(
                           [...declarations.entries()].map(
                             ([declarationName, { paths }]) => ({
-                              ...objectProperty(
+                              ...objectMethod(
+                                'method',
                                 stringLiteral(declarationName),
-                                objectExpression([
-                                  objectMethod(
-                                    'method',
-                                    stringLiteral('fix'),
-                                    [identifier('context')],
-                                    blockStatement([
-                                      expressionStatement(
-                                        callExpression(
-                                          memberExpression(
-                                            identifier('context'),
-                                            identifier('warnOnce'),
-                                            false
-                                          ),
-                                          [
-                                            stringLiteral(
-                                              `Rule for export "${declarationName}" in module "${name}" is not verified`
-                                            ),
-                                          ]
-                                        )
+                                [identifier('context')],
+                                blockStatement([
+                                  expressionStatement(
+                                    callExpression(
+                                      memberExpression(
+                                        identifier('context'),
+                                        identifier('warnOnce'),
+                                        false
                                       ),
-                                    ])
+                                      [
+                                        stringLiteral(
+                                          `Rule for export "${declarationName}" in module "${name}" is not verified`
+                                        ),
+                                      ]
+                                    )
                                   ),
                                 ])
                               ),

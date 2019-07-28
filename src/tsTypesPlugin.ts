@@ -178,7 +178,7 @@ const visitor: Visitor = {
           });
 
           const context = new GlobalContext(references);
-          globalFix.fix(context);
+          globalFix(context);
         }
       }
 
@@ -252,7 +252,7 @@ const visitor: Visitor = {
           for (const namedImport of moduleState.named) {
             const rule = moduleRules.exports[namedImport.imported];
             if (rule) {
-              rule.fix(
+              rule(
                 new NamedImportContext(
                   moduleName,
                   namedImport.imported,
@@ -267,7 +267,7 @@ const visitor: Visitor = {
               if (isTSQualifiedName(path.parent)) {
                 const rule = moduleRules.exports[path.parent.right.name];
                 if (rule) {
-                  rule.fix(
+                  rule(
                     new NamespaceImportContext(
                       moduleName,
                       path.parent.right.name,
@@ -279,7 +279,7 @@ const visitor: Visitor = {
               if (isMemberExpression(path.parent)) {
                 const rule = moduleRules.exports[path.parent.property.name];
                 if (rule) {
-                  rule.fix(
+                  rule(
                     new NamespaceImportContext(
                       moduleName,
                       path.parent.property.name,

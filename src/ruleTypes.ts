@@ -19,18 +19,14 @@ export interface NamedFixContext {
 
 export interface RuleSet {
   globals: {
-    [k: string]: {
-      fix(context: GlobalFixContext): void;
-    };
+    [k: string]: (context: GlobalFixContext) => void;
   };
   modules: {
     [k: string]: {
       // typings package to install for module
       types?: string;
       exports: {
-        [k: string]: {
-          fix(context: NamedFixContext): void;
-        };
+        [k: string]: (context: NamedFixContext) => void;
       };
     };
   };
