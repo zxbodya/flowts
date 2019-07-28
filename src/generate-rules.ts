@@ -42,17 +42,9 @@ import * as prettier from 'prettier';
 import recastPlugin from './recastPlugin';
 
 import { tsLibDefinitions } from './tsLibDefinitions';
+import { Rule } from './rule';
 
 type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
-
-function print(
-  generatedAst: recast.types.ASTNode,
-  prettierConfig: prettier.Options | undefined
-) {
-  const code = recast.print(generatedAst);
-
-  return prettier.format(code.code, prettierConfig);
-}
 
 const libGlobalsIndex = new Map<string, string>(
   ([] as Array<[string, string]>).concat(
@@ -71,6 +63,8 @@ async function main(
   isLib: boolean
 ) {
   console.log(`geenratign rules stub for ${inputPath}`);
+
+  const rule = Rule.create(referenceName);
 
   const sharedParserPlugins = [
     'jsx',
@@ -309,91 +303,42 @@ async function main(
     };
   }
 
-  const generatedAst = program(
-    [
-      importDeclaration(
-        [importSpecifier(identifier('RuleSet'), identifier('RuleSet'))],
-        stringLiteral('../../ruleTypes')
-      ),
-
-      exportDefaultDeclaration(
-        tsAsExpression(
-          objectExpression([
-            objectProperty(
-              stringLiteral('globals'),
-              objectExpression(
-                [...globals.entries()].map(
-                  ([declarationName, { paths, fix }]) => ({
-                    ...objectMethod(
-                      'method',
-                      stringLiteral(declarationName),
-                      [identifier('context')],
-                      blockStatement(fix)
-                    ),
-                    comments: paths.map(path => {
-                      return getNodeComment(path);
-                    }),
-                  })
-                )
-              )
+  for (const [declarationName, { paths, fix }] of globals) {
+    const comments = paths.map(path => {
+      return getNodeComment(path);
+    });
+    rule.setGlobalRule(declarationName, fix, comments);
+  }
+  for (const [moduleName, declarations] of Object.entries(modules)) {
+    for (const [declarationName, { paths }] of declarations) {
+      const fix = [
+        expressionStatement(
+          callExpression(
+            memberExpression(
+              identifier('context'),
+              identifier('warnOnce'),
+              false
             ),
-            objectProperty(
-              stringLiteral('modules'),
-              objectExpression(
-                Object.entries(modules).map(([name, declarations]) =>
-                  objectProperty(
-                    stringLiteral(name),
-                    objectExpression([
-                      objectProperty(
-                        stringLiteral('exports'),
-                        objectExpression(
-                          [...declarations.entries()].map(
-                            ([declarationName, { paths }]) => ({
-                              ...objectMethod(
-                                'method',
-                                stringLiteral(declarationName),
-                                [identifier('context')],
-                                blockStatement([
-                                  expressionStatement(
-                                    callExpression(
-                                      memberExpression(
-                                        identifier('context'),
-                                        identifier('warnOnce'),
-                                        false
-                                      ),
-                                      [
-                                        stringLiteral(
-                                          `Rule for export "${declarationName}" in module "${name}" is not verified`
-                                        ),
-                                      ]
-                                    )
-                                  ),
-                                ])
-                              ),
-                              comments: paths.map(path => {
-                                return getNodeComment(path);
-                              }),
-                            })
-                          )
-                        )
-                      ),
-                    ])
-                  )
-                )
-              )
-            ),
-          ]),
-          tsTypeReference(identifier('RuleSet'))
-        )
-      ),
-    ],
-    undefined,
-    'module'
-  );
+            [
+              stringLiteral(
+                `Rule for export "${declarationName}" in module "${moduleName}" is not verified`
+              ),
+            ]
+          )
+        ),
+      ];
+      const comments = paths.map(path => {
+        return getNodeComment(path);
+      });
+      rule.setModuleRule(moduleName, declarationName, fix, comments);
+    }
+  }
 
   const prettierConfig = (await prettier.resolveConfig('./')) || {};
   prettierConfig.parser = 'typescript';
-  const result = print(generatedAst, prettierConfig);
+
+  const { ruleCode: result } = rule.print(prettierConfig);
+
   fs.writeFileSync(outputPath, result);
 }
 
