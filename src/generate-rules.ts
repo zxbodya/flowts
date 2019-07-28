@@ -41,6 +41,8 @@ import * as fs from 'fs';
 import * as prettier from 'prettier';
 import recastPlugin from './recastPlugin';
 
+import { tsLibDefinitions } from './tsLibDefinitions';
+
 type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
 
 function print(
@@ -52,10 +54,21 @@ function print(
   return prettier.format(code.code, prettierConfig);
 }
 
+const libGlobalsIndex = new Map<string, string>(
+  ([] as Array<[string, string]>).concat(
+    ...tsLibDefinitions.map(tsLibDefinition =>
+      [...tsLibDefinition.declarations.allNames.keys()].map(
+        key => [key, tsLibDefinition.name] as [string, string]
+      )
+    )
+  )
+);
+
 async function main(
   inputPath: string,
   outputPath: string,
-  referenceName: string
+  referenceName: string,
+  isLib: boolean
 ) {
   console.log(`geenratign rules stub for ${inputPath}`);
 
@@ -227,9 +240,22 @@ async function main(
     modules.exports = defaultModule;
   }
 
-  // console.log(globals, modules);
-  // very often globals are re-exported as aliases in modules below
   for (const [globalName, state] of globals) {
+    if (isLib) {
+      const libName = libGlobalsIndex.get(globalName);
+      if (libName) {
+        state.fix.push(
+          expressionStatement(
+            callExpression(
+              memberExpression(identifier('context'), identifier('lib'), false),
+              [stringLiteral(libName)]
+            )
+          )
+        );
+      }
+    }
+    // console.log(globals, modules);
+    // very often globals are re-exported as aliases in modules below
     const parts = globalName.split('$');
     if (parts.length === 2) {
       const moduleName = parts[0].toLowerCase();
@@ -249,10 +275,19 @@ async function main(
         );
       }
     }
+    state.fix.push(
+      expressionStatement(
+        callExpression(
+          memberExpression(
+            identifier('context'),
+            identifier('warnOnce'),
+            false
+          ),
+          [stringLiteral(`Rule for global "${globalName}" is not verified`)]
+        )
+      )
+    );
   }
-
-  const prettierConfig = (await prettier.resolveConfig('./')) || {};
-  prettierConfig.parser = 'typescript';
 
   function getNodeComment(path: NodePath) {
     const blocks = [
@@ -293,23 +328,7 @@ async function main(
                       'method',
                       stringLiteral(declarationName),
                       [identifier('context')],
-                      blockStatement([
-                        ...fix,
-                        expressionStatement(
-                          callExpression(
-                            memberExpression(
-                              identifier('context'),
-                              identifier('warnOnce'),
-                              false
-                            ),
-                            [
-                              stringLiteral(
-                                `Rule for global "${declarationName}" is not verified`
-                              ),
-                            ]
-                          )
-                        ),
-                      ])
+                      blockStatement(fix)
                     ),
                     comments: paths.map(path => {
                       return getNodeComment(path);
@@ -372,11 +391,13 @@ async function main(
     'module'
   );
 
+  const prettierConfig = (await prettier.resolveConfig('./')) || {};
+  prettierConfig.parser = 'typescript';
   const result = print(generatedAst, prettierConfig);
   fs.writeFileSync(outputPath, result);
 }
 
-main(process.argv[2], process.argv[3], process.argv[4]).then(
+main(process.argv[2], process.argv[3], process.argv[4], true).then(
   () => {
     console.log('done');
   },

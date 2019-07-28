@@ -1,6 +1,7 @@
 import { NodePath } from '@babel/traverse';
 
 export interface GlobalFixContext {
+  lib(...libs: string[]): void;
   warnOnce(...args: any): void;
   // import from typescript module
   import(moduleName: string, exportName: string): void;
@@ -25,6 +26,7 @@ export interface RuleSet {
     [k: string]: {
       // typings package to install for module
       types?: string;
+      // libs: string[];
       exports: {
         [k: string]: (context: NamedFixContext) => void;
       };

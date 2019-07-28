@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as babel from '@babel/core';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import traverse from '@babel/traverse';
-import { Node, NodePath, Visitor } from '@babel/core';
+import { Node, NodePath } from '@babel/core';
 import {
   File,
   ClassDeclaration,
@@ -32,12 +32,35 @@ interface ModuleDeclaration extends BaseDeclaration<TSModuleDeclaration> {
 }
 
 class Declarations {
-  classes: Array<ParametrizedDeclaration<ClassDeclaration>> = [];
-  functions: Array<ParametrizedDeclaration<TSDeclareFunction>> = [];
-  interfaces: Array<ParametrizedDeclaration<TSInterfaceDeclaration>> = [];
-  modules: ModuleDeclaration[] = [];
-  types: Array<ParametrizedDeclaration<TSTypeAliasDeclaration>> = [];
-  variables: Array<BaseDeclaration<VariableDeclarator>> = [];
+  classes: Map<string, ParametrizedDeclaration<ClassDeclaration>> = new Map();
+  functions: Map<
+    string,
+    Array<ParametrizedDeclaration<TSDeclareFunction>>
+  > = new Map();
+  interfaces: Map<
+    string,
+    Array<ParametrizedDeclaration<TSInterfaceDeclaration>>
+  > = new Map();
+  modules: Map<string, ModuleDeclaration> = new Map();
+  types: Map<
+    string,
+    ParametrizedDeclaration<TSTypeAliasDeclaration>
+  > = new Map();
+  variables: Map<
+    string,
+    Array<BaseDeclaration<VariableDeclarator>>
+  > = new Map();
+
+  allNames: Set<string> = new Set();
+  update() {
+    this.allNames = new Set<string>([
+      ...this.classes.keys(),
+      ...this.functions.keys(),
+      ...this.interfaces.keys(),
+      ...this.types.keys(),
+      ...this.variables.keys(),
+    ]);
+  }
 }
 
 function paramsData(
@@ -70,7 +93,10 @@ class DState {
     let { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
-    this.declarations.classes.push({
+    if (this.declarations.classes.has(name)) {
+      throw path.buildCodeFrameError('duplicate class declaration');
+    }
+    this.declarations.classes.set(name, {
       name,
       path,
       paramsCount,
@@ -85,7 +111,12 @@ class DState {
     let { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
-    this.declarations.functions.push({
+    let functions = this.declarations.functions.get(name);
+    if (!functions) {
+      functions = [];
+      this.declarations.functions.set(name, functions);
+    }
+    functions.push({
       name,
       path,
       paramsCount,
@@ -100,7 +131,12 @@ class DState {
     let { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
-    this.declarations.interfaces.push({
+    let interfaces = this.declarations.interfaces.get(name);
+    if (!interfaces) {
+      interfaces = [];
+      this.declarations.interfaces.set(name, interfaces);
+    }
+    interfaces.push({
       name,
       path,
       paramsCount,
@@ -112,20 +148,27 @@ class DState {
     this.declarations = new Declarations();
   }
   exitTSModuleDeclaration(path: NodePath<TSModuleDeclaration>) {
-    const module: Declarations['modules'][0] = {
-      name: isIdentifier(path.node.id) ? path.node.id.name : path.node.id.value,
+    let name = isIdentifier(path.node.id)
+      ? path.node.id.name
+      : path.node.id.value;
+    const module: ModuleDeclaration = {
+      name,
       path,
       declarations: this.declarations,
     };
+    this.declarations.update();
     this.declarations = this.moduleStack.pop()!;
-    this.declarations.modules.push(module);
+    this.declarations.modules.set(name, module);
   }
   enterTSTypeAliasDeclaration(path: NodePath<TSTypeAliasDeclaration>) {
     let name = path.node.id.name;
     let { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
-    this.declarations.types.push({
+    if (this.declarations.types.has(name)) {
+      throw path.buildCodeFrameError('duplicate type declaration');
+    }
+    this.declarations.types.set(name, {
       name,
       path,
       paramsCount,
@@ -142,8 +185,12 @@ class DState {
       let name = decl.id.name;
       // todo: add function/class declarations detection (not needed for ts libs, but might be useful for externals)
       // let typeAnnotation = decl.id.typeAnnotation;
-
-      this.declarations.variables.push({
+      let variables = this.declarations.variables.get(name);
+      if (!variables) {
+        variables = [];
+        this.declarations.variables.set(name, variables);
+      }
+      variables.push({
         name,
         path: declPath,
       });
@@ -240,7 +287,7 @@ const libNames = [
 
 const LIB_REFERENCE_REGEX = /^\/ <reference lib="([^"]+)" \/>/;
 
-export const libs: Array<{
+export const tsLibDefinitions: Array<{
   name: string;
   declarations: Declarations;
   references: string[];
@@ -279,7 +326,8 @@ for (const libName of libNames) {
 
   let state = new DState();
   traverse<DState>(ast, extractDefinitionsVisitor, undefined, state);
-  libs.push({
+  state.declarations.update();
+  tsLibDefinitions.push({
     name: libName,
     declarations: state.declarations,
     references,
