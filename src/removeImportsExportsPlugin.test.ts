@@ -1,20 +1,18 @@
-import pluginTester from 'babel-plugin-tester';
 import plugin from './removeImportsExportsPlugin';
+import { createTransform } from './createTransform';
 
-pluginTester({
-  plugin,
-  tests: [
-    {
-      title: 'imports are removed',
-      code: `import { Component } from 'react';
+const transform = createTransform([plugin]);
+
+describe('removeImportsExportsPlugin', () => {
+  test('imports are removed', () => {
+    expect(
+      transform(`
+import { Component } from 'react';
 import R from 'react-dom';
 import 'a.css';
 
 class C extends Component {}
-`,
-      output: `
-class C extends Component {}
-`,
-    },
-  ],
+`)
+    ).toMatchSnapshot();
+  });
 });

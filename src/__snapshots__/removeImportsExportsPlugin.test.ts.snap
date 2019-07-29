@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`removeImportsExportsPlugin imports are removed 1`] = `
+"class C extends Component {}
+"
+`;

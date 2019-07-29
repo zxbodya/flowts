@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tsTypesPlugin forwardRef<T,P> 1`] = `
+"import * as React from \\"react\\";
+let a = React.forwardRef<P, T>();
+let b = React.forwardRef<{}, T>();
+let c = React.forwardRef();
+"
+`;
+
+exports[`tsTypesPlugin import for replaced global value 1`] = `
+"import { ReactNode } from \\"react\\";
+export type ButtonPropsT = {
+  children?: ReactNode;
+};
+"
+`;
+
+exports[`tsTypesPlugin namespace and named imports can not be mixed 1`] = `
+"import * as React from \\"react\\";
+import { ReactNode } from \\"react\\";
+type A = ReactNode;
+"
+`;
+
+exports[`tsTypesPlugin rename exports used from imported namespace 1`] = `
+"import * as React from \\"react\\";
+type A = React.ReactNode;
+let a = 0;
+"
+`;
+
+exports[`tsTypesPlugin rename imported 1`] = `
+"import { ReactNode } from \\"react\\";
+type A = ReactNode;
+"
+`;
+
+exports[`tsTypesPlugin simple case 1`] = `
+"import { Component, ReactNode, ChangeEvent } from \\"react\\";
+type A = ReactNode;
+type B = ChangeEvent<HTMLInputElement>;
+
+class C extends Component {}
+"
+`;
