@@ -282,151 +282,1907 @@ describe('lib/react.js', () => {
   describe('modules', () => {
     describe('react', () => {
       describe('DOM', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = DOM;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('PropTypes', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = PropTypes;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('version', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = version;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('checkPropTypes', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = checkPropTypes;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { checkPropTypes } from "react";
+            
+            new checkPropTypes();
+            
+            class A1 extends checkPropTypes<P0> {}
+            let a1 = new checkPropTypes<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { checkPropTypes } from "react";
+            
+            checkPropTypes();
+            
+            let a1 = checkPropTypes<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.checkPropTypes();
+            
+            class A1 extends M.checkPropTypes<P0> {}
+            let a1 = new M.checkPropTypes<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.checkPropTypes();
+            
+            let a1 = M.checkPropTypes<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { checkPropTypes as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { checkPropTypes as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('createClass', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createClass;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('createContext', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createContext;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createContext } from "react";
+            
+            new createContext();
+            
+            class A1 extends createContext<P0> {}
+            let a1 = new createContext<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createContext } from "react";
+            
+            createContext();
+            
+            let a1 = createContext<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.createContext();
+            
+            class A1 extends M.createContext<P0> {}
+            let a1 = new M.createContext<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.createContext();
+            
+            let a1 = M.createContext<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createContext as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createContext as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('createElement', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createElement;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('cloneElement', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = cloneElement;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('createFactory', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createFactory;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createFactory } from "react";
+            
+            new createFactory();
+            
+            class A1 extends createFactory<P0> {}
+            let a1 = new createFactory<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createFactory } from "react";
+            
+            createFactory();
+            
+            let a1 = createFactory<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.createFactory();
+            
+            class A1 extends M.createFactory<P0> {}
+            let a1 = new M.createFactory<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.createFactory();
+            
+            let a1 = M.createFactory<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createFactory as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createFactory as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('createRef', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createRef;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createRef } from "react";
+            
+            new createRef();
+            
+            class A1 extends createRef<P0> {}
+            let a1 = new createRef<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createRef } from "react";
+            
+            createRef();
+            
+            let a1 = createRef<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.createRef();
+            
+            class A1 extends M.createRef<P0> {}
+            let a1 = new M.createRef<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.createRef();
+            
+            let a1 = M.createRef<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createRef as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { createRef as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('isValidElement', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = isValidElement;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { isValidElement } from "react";
+            
+            new isValidElement();
+            
+            class A1 extends isValidElement {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { isValidElement } from "react";
+            
+            isValidElement();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.isValidElement();
+            
+            class A1 extends M.isValidElement {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.isValidElement();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { isValidElement as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { isValidElement as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Component', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Component;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('PureComponent', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = PureComponent;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('StatelessFunctionalComponent', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { StatelessFunctionalComponent } from "react";
+            
+            let a1: StatelessFunctionalComponent<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { StatelessFunctionalComponent } from "react";
+            
+            class A1 implements StatelessFunctionalComponent<P0> {}
+            interface I1 extends StatelessFunctionalComponent<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.StatelessFunctionalComponent<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.StatelessFunctionalComponent<P0> {}
+            interface I1 extends M.StatelessFunctionalComponent<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { StatelessFunctionalComponent as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { StatelessFunctionalComponent as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ComponentType', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ComponentType } from "react";
+            
+            let a1: ComponentType<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ComponentType } from "react";
+            
+            class A1 implements ComponentType<P0> {}
+            interface I1 extends ComponentType<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.ComponentType<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.ComponentType<P0> {}
+            interface I1 extends M.ComponentType<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ComponentType as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ComponentType as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('AbstractComponent', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { AbstractComponent } from "react";
+            
+            let a1: AbstractComponent<P0>;
+            let a2: AbstractComponent<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { AbstractComponent } from "react";
+            
+            class A1 implements AbstractComponent<P0> {}
+            interface I1 extends AbstractComponent<P0> {}
+            
+            class A2 implements AbstractComponent<P0, P1> {}
+            interface I2 extends AbstractComponent<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.AbstractComponent<P0>;
+            let a2: M.AbstractComponent<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.AbstractComponent<P0> {}
+            interface I1 extends M.AbstractComponent<P0> {}
+            
+            class A2 implements M.AbstractComponent<P0, P1> {}
+            interface I2 extends M.AbstractComponent<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { AbstractComponent as t } from "react";
+            
+            let a1: t<P0>;
+            let a2: t<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { AbstractComponent as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+            class A2 implements t<P0, P1> {}
+            interface I2 extends t<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('MixedElement', () => {
-        test('has no test', () => {});
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { MixedElement } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { MixedElement } from "react";
+            
+            class A1 extends MixedElement {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.MixedElement {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { MixedElement as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { MixedElement as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ElementType', () => {
-        test('has no test', () => {});
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { ElementType } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { ElementType } from "react";
+            
+            class A1 extends ElementType {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.ElementType {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { ElementType as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { ElementType as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Element', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Element } from "react";
+            
+            let a1: Element<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Element } from "react";
+            
+            class A1 implements Element<P0> {}
+            interface I1 extends Element<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.Element<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.Element<P0> {}
+            interface I1 extends M.Element<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Element as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Element as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Fragment', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Fragment;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Key', () => {
-        test('has no test', () => {});
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Key } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Key } from "react";
+            
+            class A1 extends Key {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.Key {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Key as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Key as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Ref', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Ref } from "react";
+            
+            let a1: Ref<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Ref } from "react";
+            
+            class A1 implements Ref<P0> {}
+            interface I1 extends Ref<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.Ref<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.Ref<P0> {}
+            interface I1 extends M.Ref<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Ref as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Ref as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Node', () => {
-        test('has no test', () => {});
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Node } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Node } from "react";
+            
+            class A1 extends Node {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.Node {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Node as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Node as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Context', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Context } from "react";
+            
+            let a1: Context<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Context } from "react";
+            
+            class A1 implements Context<P0> {}
+            interface I1 extends Context<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.Context<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.Context<P0> {}
+            interface I1 extends M.Context<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Context as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { Context as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Portal', () => {
-        test('has no test', () => {});
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Portal } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Portal } from "react";
+            
+            class A1 extends Portal {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.Portal {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Portal as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Portal as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ConcurrentMode', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = ConcurrentMode;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('StrictMode', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = StrictMode;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Suspense', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Suspense;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ElementProps', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementProps } from "react";
+            
+            let a1: ElementProps<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementProps } from "react";
+            
+            class A1 implements ElementProps<P0> {}
+            interface I1 extends ElementProps<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.ElementProps<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.ElementProps<P0> {}
+            interface I1 extends M.ElementProps<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementProps as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementProps as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ElementConfig', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementConfig } from "react";
+            
+            let a1: ElementConfig<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementConfig } from "react";
+            
+            class A1 implements ElementConfig<P0> {}
+            interface I1 extends ElementConfig<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.ElementConfig<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.ElementConfig<P0> {}
+            interface I1 extends M.ElementConfig<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementConfig as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementConfig as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ElementRef', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementRef } from "react";
+            
+            let a1: ElementRef<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementRef } from "react";
+            
+            class A1 implements ElementRef<P0> {}
+            interface I1 extends ElementRef<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.ElementRef<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.ElementRef<P0> {}
+            interface I1 extends M.ElementRef<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementRef as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ElementRef as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Config', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { Config } from "react";
+            
+            let a1: Config<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { Config } from "react";
+            
+            class A1 implements Config<P0, P1> {}
+            interface I1 extends Config<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.Config<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.Config<P0, P1> {}
+            interface I1 extends M.Config<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { Config as t } from "react";
+            
+            let a1: t<P0, P1>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { Config as t } from "react";
+            
+            class A1 implements t<P0, P1> {}
+            interface I1 extends t<P0, P1> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('ChildrenArray', () => {
-        test('has no test', () => {});
+        test('generated - type - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ChildrenArray } from "react";
+            
+            let a1: ChildrenArray<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ChildrenArray } from "react";
+            
+            class A1 implements ChildrenArray<P0> {}
+            interface I1 extends ChildrenArray<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            let a1: M.ChildrenArray<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 implements M.ChildrenArray<P0> {}
+            interface I1 extends M.ChildrenArray<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ChildrenArray as t } from "react";
+            
+            let a1: t<P0>;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { ChildrenArray as t } from "react";
+            
+            class A1 implements t<P0> {}
+            interface I1 extends t<P0> {}
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Children', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Children;
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('forwardRef', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = forwardRef;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { forwardRef } from "react";
+            
+            new forwardRef();
+            
+            class A1 extends forwardRef<P0, P1> {}
+            let a1 = new forwardRef<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { forwardRef } from "react";
+            
+            forwardRef();
+            
+            let a1 = forwardRef<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.forwardRef();
+            
+            class A1 extends M.forwardRef<P0, P1> {}
+            let a1 = new M.forwardRef<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.forwardRef();
+            
+            let a1 = M.forwardRef<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { forwardRef as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0, P1> {}
+            let a1 = new t<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { forwardRef as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('memo', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = memo;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { memo } from "react";
+            
+            new memo();
+            
+            class A1 extends memo<P0> {}
+            let a1 = new memo<P0>();
+            
+            class A2 extends memo<P0, P1> {}
+            let a2 = new memo<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { memo } from "react";
+            
+            memo();
+            
+            let a1 = memo<P0>();
+            let a2 = memo<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.memo();
+            
+            class A1 extends M.memo<P0> {}
+            let a1 = new M.memo<P0>();
+            
+            class A2 extends M.memo<P0, P1> {}
+            let a2 = new M.memo<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.memo();
+            
+            let a1 = M.memo<P0>();
+            let a2 = M.memo<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { memo as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+            class A2 extends t<P0, P1> {}
+            let a2 = new t<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { memo as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+            let a2 = t<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('lazy', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = lazy;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { lazy } from "react";
+            
+            new lazy();
+            
+            class A1 extends lazy<P0> {}
+            let a1 = new lazy<P0>();
+            
+            class A2 extends lazy<P0, P1> {}
+            let a2 = new lazy<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { lazy } from "react";
+            
+            lazy();
+            
+            let a1 = lazy<P0>();
+            let a2 = lazy<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.lazy();
+            
+            class A1 extends M.lazy<P0> {}
+            let a1 = new M.lazy<P0>();
+            
+            class A2 extends M.lazy<P0, P1> {}
+            let a2 = new M.lazy<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.lazy();
+            
+            let a1 = M.lazy<P0>();
+            let a2 = M.lazy<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { lazy as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+            class A2 extends t<P0, P1> {}
+            let a2 = new t<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1 - 2)', () => {
+          expect(
+            transform(`
+            import { lazy as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+            let a2 = t<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('MaybeCleanUpFn', () => {
@@ -489,11 +2245,179 @@ describe('lib/react.js', () => {
       });
 
       describe('useContext', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useContext;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useContext } from "react";
+            
+            new useContext();
+            
+            class A1 extends useContext<P0> {}
+            let a1 = new useContext<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useContext } from "react";
+            
+            useContext();
+            
+            let a1 = useContext<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useContext();
+            
+            class A1 extends M.useContext<P0> {}
+            let a1 = new M.useContext<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useContext();
+            
+            let a1 = M.useContext<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useContext as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useContext as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useState', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useState;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useState } from "react";
+            
+            new useState();
+            
+            class A1 extends useState<P0> {}
+            let a1 = new useState<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useState } from "react";
+            
+            useState();
+            
+            let a1 = useState<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useState();
+            
+            class A1 extends M.useState<P0> {}
+            let a1 = new M.useState<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useState();
+            
+            let a1 = M.useState<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useState as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useState as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('Dispatch', () => {
@@ -565,35 +2489,758 @@ describe('lib/react.js', () => {
       });
 
       describe('useReducer', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useReducer;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { useReducer } from "react";
+            
+            new useReducer();
+            
+            class A1 extends useReducer<P0, P1> {}
+            let a1 = new useReducer<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import { useReducer } from "react";
+            
+            new useReducer();
+            
+            class A1 extends useReducer<P0, P1, P2> {}
+            let a1 = new useReducer<P0, P1, P2>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { useReducer } from "react";
+            
+            useReducer();
+            
+            let a1 = useReducer<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import { useReducer } from "react";
+            
+            useReducer();
+            
+            let a1 = useReducer<P0, P1, P2>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useReducer();
+            
+            class A1 extends M.useReducer<P0, P1> {}
+            let a1 = new M.useReducer<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useReducer();
+            
+            class A1 extends M.useReducer<P0, P1, P2> {}
+            let a1 = new M.useReducer<P0, P1, P2>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(2)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useReducer();
+            
+            let a1 = M.useReducer<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useReducer();
+            
+            let a1 = M.useReducer<P0, P1, P2>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { useReducer as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0, P1> {}
+            let a1 = new t<P0, P1>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import { useReducer as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0, P1, P2> {}
+            let a1 = new t<P0, P1, P2>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(2)', () => {
+          expect(
+            transform(`
+            import { useReducer as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0, P1>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(2) - typePrams(3)', () => {
+          expect(
+            transform(`
+            import { useReducer as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0, P1, P2>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useRef', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useRef;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useRef } from "react";
+            
+            new useRef();
+            
+            class A1 extends useRef<P0> {}
+            let a1 = new useRef<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useRef } from "react";
+            
+            useRef();
+            
+            let a1 = useRef<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useRef();
+            
+            class A1 extends M.useRef<P0> {}
+            let a1 = new M.useRef<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useRef();
+            
+            let a1 = M.useRef<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useRef as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useRef as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useDebugValue', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useDebugValue;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { useDebugValue } from "react";
+            
+            new useDebugValue();
+            
+            class A1 extends useDebugValue {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { useDebugValue } from "react";
+            
+            useDebugValue();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useDebugValue();
+            
+            class A1 extends M.useDebugValue {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useDebugValue();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { useDebugValue as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { useDebugValue as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useEffect', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useEffect;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { useEffect } from "react";
+            
+            new useEffect();
+            
+            class A1 extends useEffect {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { useEffect } from "react";
+            
+            useEffect();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useEffect();
+            
+            class A1 extends M.useEffect {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useEffect();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { useEffect as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { useEffect as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useLayoutEffect', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useLayoutEffect;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { useLayoutEffect } from "react";
+            
+            new useLayoutEffect();
+            
+            class A1 extends useLayoutEffect {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { useLayoutEffect } from "react";
+            
+            useLayoutEffect();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useLayoutEffect();
+            
+            class A1 extends M.useLayoutEffect {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useLayoutEffect();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { useLayoutEffect as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { useLayoutEffect as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useCallback', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useCallback;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useCallback } from "react";
+            
+            new useCallback();
+            
+            class A1 extends useCallback<P0> {}
+            let a1 = new useCallback<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useCallback } from "react";
+            
+            useCallback();
+            
+            let a1 = useCallback<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useCallback();
+            
+            class A1 extends M.useCallback<P0> {}
+            let a1 = new M.useCallback<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useCallback();
+            
+            let a1 = M.useCallback<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useCallback as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useCallback as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useMemo', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useMemo;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useMemo } from "react";
+            
+            new useMemo();
+            
+            class A1 extends useMemo<P0> {}
+            let a1 = new useMemo<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useMemo } from "react";
+            
+            useMemo();
+            
+            let a1 = useMemo<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useMemo();
+            
+            class A1 extends M.useMemo<P0> {}
+            let a1 = new M.useMemo<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useMemo();
+            
+            let a1 = M.useMemo<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useMemo as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useMemo as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('useImperativeHandle', () => {
-        test('has no test', () => {});
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useImperativeHandle;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useImperativeHandle } from "react";
+            
+            new useImperativeHandle();
+            
+            class A1 extends useImperativeHandle<P0> {}
+            let a1 = new useImperativeHandle<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useImperativeHandle } from "react";
+            
+            useImperativeHandle();
+            
+            let a1 = useImperativeHandle<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useImperativeHandle();
+            
+            class A1 extends M.useImperativeHandle<P0> {}
+            let a1 = new M.useImperativeHandle<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typePrams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useImperativeHandle();
+            
+            let a1 = M.useImperativeHandle<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useImperativeHandle as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typePrams(1)', () => {
+          expect(
+            transform(`
+            import { useImperativeHandle as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
       });
 
       describe('default', () => {

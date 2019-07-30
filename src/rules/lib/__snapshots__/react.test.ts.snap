@@ -161,6 +161,263 @@ let a1: FunctionComponent<P0>;
 "
 `;
 
+exports[`lib/react.js modules react AbstractComponent generated - interface - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ComponentClass<P0> {}
+interface I1 extends M.ComponentClass<P0> {}
+
+class A2 implements M.ComponentClass<P0, P1> {}
+interface I2 extends M.ComponentClass<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react AbstractComponent generated - interface - import renamed - typePrams(1 - 2) 1`] = `
+"import { ComponentClass } from \\"react\\";
+
+class A1 implements ComponentClass<P0> {}
+interface I1 extends ComponentClass<P0> {}
+
+class A2 implements ComponentClass<P0, P1> {}
+interface I2 extends ComponentClass<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react AbstractComponent generated - interface - typePrams(1 - 2) 1`] = `
+"import { ComponentClass } from \\"react\\";
+
+class A1 implements ComponentClass<P0> {}
+interface I1 extends ComponentClass<P0> {}
+
+class A2 implements ComponentClass<P0, P1> {}
+interface I2 extends ComponentClass<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react AbstractComponent generated - type - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ComponentClass<P0>;
+let a2: M.ComponentClass<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react AbstractComponent generated - type - import renamed - typePrams(1 - 2) 1`] = `
+"import { ComponentClass } from \\"react\\";
+
+let a1: ComponentClass<P0>;
+let a2: ComponentClass<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react AbstractComponent generated - type - typePrams(1 - 2) 1`] = `
+"import { ComponentClass } from \\"react\\";
+
+let a1: ComponentClass<P0>;
+let a2: ComponentClass<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react Children variable 1`] = `
+"var a = Children;
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ChildrenArray<P0> {}
+interface I1 extends M.ChildrenArray<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - interface - import renamed - typePrams(1) 1`] = `
+"import { ChildrenArray as t } from \\"react\\";
+
+class A1 implements t<P0> {}
+interface I1 extends t<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - interface - typePrams(1) 1`] = `
+"import { ChildrenArray } from \\"react\\";
+
+class A1 implements ChildrenArray<P0> {}
+interface I1 extends ChildrenArray<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ChildrenArray<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - type - import renamed - typePrams(1) 1`] = `
+"import { ChildrenArray as t } from \\"react\\";
+
+let a1: t<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ChildrenArray generated - type - typePrams(1) 1`] = `
+"import { ChildrenArray } from \\"react\\";
+
+let a1: ChildrenArray<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Component variable 1`] = `
+"var a = Component;
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ComponentType<P0> {}
+interface I1 extends M.ComponentType<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - interface - import renamed - typePrams(1) 1`] = `
+"import { ComponentType as t } from \\"react\\";
+
+class A1 implements t<P0> {}
+interface I1 extends t<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - interface - typePrams(1) 1`] = `
+"import { ComponentType } from \\"react\\";
+
+class A1 implements ComponentType<P0> {}
+interface I1 extends ComponentType<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ComponentType<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - type - import renamed - typePrams(1) 1`] = `
+"import { ComponentType as t } from \\"react\\";
+
+let a1: t<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ComponentType generated - type - typePrams(1) 1`] = `
+"import { ComponentType } from \\"react\\";
+
+let a1: ComponentType<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ConcurrentMode variable 1`] = `
+"var a = ConcurrentMode;
+"
+`;
+
+exports[`lib/react.js modules react Config generated - interface - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.Config<P0, P1> {}
+interface I1 extends M.Config<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react Config generated - interface - import renamed - typePrams(2) 1`] = `
+"import { Config as t } from \\"react\\";
+
+class A1 implements t<P0, P1> {}
+interface I1 extends t<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react Config generated - interface - typePrams(2) 1`] = `
+"import { Config } from \\"react\\";
+
+class A1 implements Config<P0, P1> {}
+interface I1 extends Config<P0, P1> {}
+"
+`;
+
+exports[`lib/react.js modules react Config generated - type - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.Config<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react Config generated - type - import renamed - typePrams(2) 1`] = `
+"import { Config as t } from \\"react\\";
+
+let a1: t<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react Config generated - type - typePrams(2) 1`] = `
+"import { Config } from \\"react\\";
+
+let a1: Config<P0, P1>;
+"
+`;
+
+exports[`lib/react.js modules react Context generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.Context<P0> {}
+interface I1 extends M.Context<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Context generated - interface - import renamed - typePrams(1) 1`] = `
+"import { Context as t } from \\"react\\";
+
+class A1 implements t<P0> {}
+interface I1 extends t<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Context generated - interface - typePrams(1) 1`] = `
+"import { Context } from \\"react\\";
+
+class A1 implements Context<P0> {}
+interface I1 extends Context<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Context generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.Context<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Context generated - type - import renamed - typePrams(1) 1`] = `
+"import { Context as t } from \\"react\\";
+
+let a1: t<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Context generated - type - typePrams(1) 1`] = `
+"import { Context } from \\"react\\";
+
+let a1: Context<P0>;
+"
+`;
+
+exports[`lib/react.js modules react DOM variable 1`] = `
+"var a = DOM;
+"
+`;
+
 exports[`lib/react.js modules react Dispatch generated - interface - import namespace - typePrams(1) 1`] = `
 "import * as M from \\"react\\";
 
@@ -206,6 +463,263 @@ let a1: Dispatch<P0>;
 "
 `;
 
+exports[`lib/react.js modules react Element generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ReactElement<P0> {}
+interface I1 extends M.ReactElement<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Element generated - interface - import renamed - typePrams(1) 1`] = `
+"import { ReactElement } from \\"react\\";
+
+class A1 implements ReactElement<P0> {}
+interface I1 extends ReactElement<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Element generated - interface - typePrams(1) 1`] = `
+"import { ReactElement } from \\"react\\";
+
+class A1 implements ReactElement<P0> {}
+interface I1 extends ReactElement<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Element generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ReactElement<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Element generated - type - import renamed - typePrams(1) 1`] = `
+"import { ReactElement } from \\"react\\";
+
+let a1: ReactElement<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Element generated - type - typePrams(1) 1`] = `
+"import { ReactElement } from \\"react\\";
+
+let a1: ReactElement<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ComponentProps<P0> {}
+interface I1 extends M.ComponentProps<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - interface - import renamed - typePrams(1) 1`] = `
+"import { ComponentProps } from \\"react\\";
+
+class A1 implements ComponentProps<P0> {}
+interface I1 extends ComponentProps<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - interface - typePrams(1) 1`] = `
+"import { ComponentProps } from \\"react\\";
+
+class A1 implements ComponentProps<P0> {}
+interface I1 extends ComponentProps<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ComponentProps<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - type - import renamed - typePrams(1) 1`] = `
+"import { ComponentProps } from \\"react\\";
+
+let a1: ComponentProps<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementConfig generated - type - typePrams(1) 1`] = `
+"import { ComponentProps } from \\"react\\";
+
+let a1: ComponentProps<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.ElementProps<P0> {}
+interface I1 extends M.ElementProps<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - interface - import renamed - typePrams(1) 1`] = `
+"import { ElementProps as t } from \\"react\\";
+
+class A1 implements t<P0> {}
+interface I1 extends t<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - interface - typePrams(1) 1`] = `
+"import { ElementProps } from \\"react\\";
+
+class A1 implements ElementProps<P0> {}
+interface I1 extends ElementProps<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.ElementProps<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - type - import renamed - typePrams(1) 1`] = `
+"import { ElementProps as t } from \\"react\\";
+
+let a1: t<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementProps generated - type - typePrams(1) 1`] = `
+"import { ElementProps } from \\"react\\";
+
+let a1: ElementProps<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.RefObject<P0> {}
+interface I1 extends M.RefObject<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - interface - import renamed - typePrams(1) 1`] = `
+"import { RefObject } from \\"react\\";
+
+class A1 implements RefObject<P0> {}
+interface I1 extends RefObject<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - interface - typePrams(1) 1`] = `
+"import { RefObject } from \\"react\\";
+
+class A1 implements RefObject<P0> {}
+interface I1 extends RefObject<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.RefObject<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - type - import renamed - typePrams(1) 1`] = `
+"import { RefObject } from \\"react\\";
+
+let a1: RefObject<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementRef generated - type - typePrams(1) 1`] = `
+"import { RefObject } from \\"react\\";
+
+let a1: RefObject<P0>;
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.ElementType {}
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - interface - import renamed 1`] = `
+"import { ElementType as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - interface 1`] = `
+"import { ElementType } from \\"react\\";
+
+class A1 extends ElementType {}
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - type - import renamed 1`] = `
+"import { ElementType as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react ElementType generated - type 1`] = `
+"import { ElementType } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Fragment variable 1`] = `
+"var a = Fragment;
+"
+`;
+
+exports[`lib/react.js modules react Key generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.Key {}
+"
+`;
+
+exports[`lib/react.js modules react Key generated - interface - import renamed 1`] = `
+"import { Key as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react Key generated - interface 1`] = `
+"import { Key } from \\"react\\";
+
+class A1 extends Key {}
+"
+`;
+
+exports[`lib/react.js modules react Key generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Key generated - type - import renamed 1`] = `
+"import { Key as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Key generated - type 1`] = `
+"import { Key } from \\"react\\";
+"
+`;
+
 exports[`lib/react.js modules react MaybeCleanUpFn generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
@@ -239,5 +753,1404 @@ exports[`lib/react.js modules react MaybeCleanUpFn generated - type - import ren
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - type 1`] = `
 "import { MaybeCleanUpFn } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.MixedElement {}
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - interface - import renamed 1`] = `
+"import { MixedElement as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - interface 1`] = `
+"import { MixedElement } from \\"react\\";
+
+class A1 extends MixedElement {}
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - type - import renamed 1`] = `
+"import { MixedElement as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react MixedElement generated - type 1`] = `
+"import { MixedElement } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Node generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.ReactNode {}
+"
+`;
+
+exports[`lib/react.js modules react Node generated - interface - import renamed 1`] = `
+"import { ReactNode } from \\"react\\";
+
+class A1 extends ReactNode {}
+"
+`;
+
+exports[`lib/react.js modules react Node generated - interface 1`] = `
+"import { ReactNode } from \\"react\\";
+
+class A1 extends ReactNode {}
+"
+`;
+
+exports[`lib/react.js modules react Node generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Node generated - type - import renamed 1`] = `
+"import { ReactNode } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Node generated - type 1`] = `
+"import { ReactNode } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.Portal {}
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - interface - import renamed 1`] = `
+"import { Portal as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - interface 1`] = `
+"import { Portal } from \\"react\\";
+
+class A1 extends Portal {}
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - type - import renamed 1`] = `
+"import { Portal as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Portal generated - type 1`] = `
+"import { Portal } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react PropTypes variable 1`] = `
+"var a = PropTypes;
+"
+`;
+
+exports[`lib/react.js modules react PureComponent variable 1`] = `
+"var a = PureComponent;
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.Ref<P0> {}
+interface I1 extends M.Ref<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - interface - import renamed - typePrams(1) 1`] = `
+"import { Ref as t } from \\"react\\";
+
+class A1 implements t<P0> {}
+interface I1 extends t<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - interface - typePrams(1) 1`] = `
+"import { Ref } from \\"react\\";
+
+class A1 implements Ref<P0> {}
+interface I1 extends Ref<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.Ref<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - type - import renamed - typePrams(1) 1`] = `
+"import { Ref as t } from \\"react\\";
+
+let a1: t<P0>;
+"
+`;
+
+exports[`lib/react.js modules react Ref generated - type - typePrams(1) 1`] = `
+"import { Ref } from \\"react\\";
+
+let a1: Ref<P0>;
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - interface - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+class A1 implements M.FunctionComponent<P0> {}
+interface I1 extends M.FunctionComponent<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - interface - import renamed - typePrams(1) 1`] = `
+"import { FunctionComponent } from \\"react\\";
+
+class A1 implements FunctionComponent<P0> {}
+interface I1 extends FunctionComponent<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - interface - typePrams(1) 1`] = `
+"import { FunctionComponent } from \\"react\\";
+
+class A1 implements FunctionComponent<P0> {}
+interface I1 extends FunctionComponent<P0> {}
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - type - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+let a1: M.FunctionComponent<P0>;
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - type - import renamed - typePrams(1) 1`] = `
+"import { FunctionComponent } from \\"react\\";
+
+let a1: FunctionComponent<P0>;
+"
+`;
+
+exports[`lib/react.js modules react StatelessFunctionalComponent generated - type - typePrams(1) 1`] = `
+"import { FunctionComponent } from \\"react\\";
+
+let a1: FunctionComponent<P0>;
+"
+`;
+
+exports[`lib/react.js modules react StrictMode variable 1`] = `
+"var a = StrictMode;
+"
+`;
+
+exports[`lib/react.js modules react Suspense variable 1`] = `
+"var a = Suspense;
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.checkPropTypes();
+
+let a1 = M.checkPropTypes<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - callable - import renamed - typePrams(1) 1`] = `
+"import { checkPropTypes as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - callable - typePrams(1) 1`] = `
+"import { checkPropTypes } from \\"react\\";
+
+checkPropTypes();
+
+let a1 = checkPropTypes<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.checkPropTypes();
+
+class A1 extends M.checkPropTypes<P0> {}
+let a1 = new M.checkPropTypes<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - class - import renamed - typePrams(1) 1`] = `
+"import { checkPropTypes as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes generated - class - typePrams(1) 1`] = `
+"import { checkPropTypes } from \\"react\\";
+
+new checkPropTypes();
+
+class A1 extends checkPropTypes<P0> {}
+let a1 = new checkPropTypes<P0>();
+"
+`;
+
+exports[`lib/react.js modules react checkPropTypes variable 1`] = `
+"var a = checkPropTypes;
+"
+`;
+
+exports[`lib/react.js modules react cloneElement variable 1`] = `
+"var a = cloneElement;
+"
+`;
+
+exports[`lib/react.js modules react createClass variable 1`] = `
+"var a = createClass;
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.createContext();
+
+let a1 = M.createContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - callable - import renamed - typePrams(1) 1`] = `
+"import { createContext as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - callable - typePrams(1) 1`] = `
+"import { createContext } from \\"react\\";
+
+createContext();
+
+let a1 = createContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.createContext();
+
+class A1 extends M.createContext<P0> {}
+let a1 = new M.createContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - class - import renamed - typePrams(1) 1`] = `
+"import { createContext as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext generated - class - typePrams(1) 1`] = `
+"import { createContext } from \\"react\\";
+
+new createContext();
+
+class A1 extends createContext<P0> {}
+let a1 = new createContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createContext variable 1`] = `
+"var a = createContext;
+"
+`;
+
+exports[`lib/react.js modules react createElement variable 1`] = `
+"var a = createElement;
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.createFactory();
+
+let a1 = M.createFactory<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - callable - import renamed - typePrams(1) 1`] = `
+"import { createFactory as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - callable - typePrams(1) 1`] = `
+"import { createFactory } from \\"react\\";
+
+createFactory();
+
+let a1 = createFactory<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.createFactory();
+
+class A1 extends M.createFactory<P0> {}
+let a1 = new M.createFactory<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - class - import renamed - typePrams(1) 1`] = `
+"import { createFactory as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory generated - class - typePrams(1) 1`] = `
+"import { createFactory } from \\"react\\";
+
+new createFactory();
+
+class A1 extends createFactory<P0> {}
+let a1 = new createFactory<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createFactory variable 1`] = `
+"var a = createFactory;
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.createRef();
+
+let a1 = M.createRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - callable - import renamed - typePrams(1) 1`] = `
+"import { createRef as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - callable - typePrams(1) 1`] = `
+"import { createRef } from \\"react\\";
+
+createRef();
+
+let a1 = createRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.createRef();
+
+class A1 extends M.createRef<P0> {}
+let a1 = new M.createRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - class - import renamed - typePrams(1) 1`] = `
+"import { createRef as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef generated - class - typePrams(1) 1`] = `
+"import { createRef } from \\"react\\";
+
+new createRef();
+
+class A1 extends createRef<P0> {}
+let a1 = new createRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react createRef variable 1`] = `
+"var a = createRef;
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - callable - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+M.forwardRef();
+
+let a1 = M.forwardRef<P1, P0>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - callable - import renamed - typePrams(2) 1`] = `
+"import { forwardRef as t } from \\"react\\";
+
+t();
+
+let a1 = t<P1, P0>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - callable - typePrams(2) 1`] = `
+"import { forwardRef } from \\"react\\";
+
+forwardRef();
+
+let a1 = forwardRef<P1, P0>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - class - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+new M.forwardRef();
+
+class A1 extends M.forwardRef<P0, P1> {}
+let a1 = new M.forwardRef<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - class - import renamed - typePrams(2) 1`] = `
+"import { forwardRef as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0, P1> {}
+let a1 = new t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef generated - class - typePrams(2) 1`] = `
+"import { forwardRef } from \\"react\\";
+
+new forwardRef();
+
+class A1 extends forwardRef<P0, P1> {}
+let a1 = new forwardRef<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react forwardRef variable 1`] = `
+"var a = forwardRef;
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.isValidElement();
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - callable - import renamed 1`] = `
+"import { isValidElement as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - callable 1`] = `
+"import { isValidElement } from \\"react\\";
+
+isValidElement();
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.isValidElement();
+
+class A1 extends M.isValidElement {}
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - class - import renamed 1`] = `
+"import { isValidElement as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react isValidElement generated - class 1`] = `
+"import { isValidElement } from \\"react\\";
+
+new isValidElement();
+
+class A1 extends isValidElement {}
+"
+`;
+
+exports[`lib/react.js modules react isValidElement variable 1`] = `
+"var a = isValidElement;
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - callable - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+M.lazy();
+
+let a1 = M.lazy<P0>();
+let a2 = M.lazy<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - callable - import renamed - typePrams(1 - 2) 1`] = `
+"import { lazy as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+let a2 = t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - callable - typePrams(1 - 2) 1`] = `
+"import { lazy } from \\"react\\";
+
+lazy();
+
+let a1 = lazy<P0>();
+let a2 = lazy<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - class - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+new M.lazy();
+
+class A1 extends M.lazy<P0> {}
+let a1 = new M.lazy<P0>();
+
+class A2 extends M.lazy<P0, P1> {}
+let a2 = new M.lazy<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - class - import renamed - typePrams(1 - 2) 1`] = `
+"import { lazy as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+
+class A2 extends t<P0, P1> {}
+let a2 = new t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy generated - class - typePrams(1 - 2) 1`] = `
+"import { lazy } from \\"react\\";
+
+new lazy();
+
+class A1 extends lazy<P0> {}
+let a1 = new lazy<P0>();
+
+class A2 extends lazy<P0, P1> {}
+let a2 = new lazy<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react lazy variable 1`] = `
+"var a = lazy;
+"
+`;
+
+exports[`lib/react.js modules react memo generated - callable - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+M.memo();
+
+let a1 = M.memo<P0>();
+let a2 = M.memo<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo generated - callable - import renamed - typePrams(1 - 2) 1`] = `
+"import { memo as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+let a2 = t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo generated - callable - typePrams(1 - 2) 1`] = `
+"import { memo } from \\"react\\";
+
+memo();
+
+let a1 = memo<P0>();
+let a2 = memo<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo generated - class - import namespace - typePrams(1 - 2) 1`] = `
+"import * as M from \\"react\\";
+
+new M.memo();
+
+class A1 extends M.memo<P0> {}
+let a1 = new M.memo<P0>();
+
+class A2 extends M.memo<P0, P1> {}
+let a2 = new M.memo<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo generated - class - import renamed - typePrams(1 - 2) 1`] = `
+"import { memo as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+
+class A2 extends t<P0, P1> {}
+let a2 = new t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo generated - class - typePrams(1 - 2) 1`] = `
+"import { memo } from \\"react\\";
+
+new memo();
+
+class A1 extends memo<P0> {}
+let a1 = new memo<P0>();
+
+class A2 extends memo<P0, P1> {}
+let a2 = new memo<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react memo variable 1`] = `
+"var a = memo;
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useCallback();
+
+let a1 = M.useCallback<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useCallback as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - callable - typePrams(1) 1`] = `
+"import { useCallback } from \\"react\\";
+
+useCallback();
+
+let a1 = useCallback<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useCallback();
+
+class A1 extends M.useCallback<P0> {}
+let a1 = new M.useCallback<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - class - import renamed - typePrams(1) 1`] = `
+"import { useCallback as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback generated - class - typePrams(1) 1`] = `
+"import { useCallback } from \\"react\\";
+
+new useCallback();
+
+class A1 extends useCallback<P0> {}
+let a1 = new useCallback<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useCallback variable 1`] = `
+"var a = useCallback;
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useContext();
+
+let a1 = M.useContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useContext as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - callable - typePrams(1) 1`] = `
+"import { useContext } from \\"react\\";
+
+useContext();
+
+let a1 = useContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useContext();
+
+class A1 extends M.useContext<P0> {}
+let a1 = new M.useContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - class - import renamed - typePrams(1) 1`] = `
+"import { useContext as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext generated - class - typePrams(1) 1`] = `
+"import { useContext } from \\"react\\";
+
+new useContext();
+
+class A1 extends useContext<P0> {}
+let a1 = new useContext<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useContext variable 1`] = `
+"var a = useContext;
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.useDebugValue();
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - callable - import renamed 1`] = `
+"import { useDebugValue as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - callable 1`] = `
+"import { useDebugValue } from \\"react\\";
+
+useDebugValue();
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.useDebugValue();
+
+class A1 extends M.useDebugValue {}
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - class - import renamed 1`] = `
+"import { useDebugValue as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue generated - class 1`] = `
+"import { useDebugValue } from \\"react\\";
+
+new useDebugValue();
+
+class A1 extends useDebugValue {}
+"
+`;
+
+exports[`lib/react.js modules react useDebugValue variable 1`] = `
+"var a = useDebugValue;
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.useEffect();
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - callable - import renamed 1`] = `
+"import { useEffect as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - callable 1`] = `
+"import { useEffect } from \\"react\\";
+
+useEffect();
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.useEffect();
+
+class A1 extends M.useEffect {}
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - class - import renamed 1`] = `
+"import { useEffect as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react useEffect generated - class 1`] = `
+"import { useEffect } from \\"react\\";
+
+new useEffect();
+
+class A1 extends useEffect {}
+"
+`;
+
+exports[`lib/react.js modules react useEffect variable 1`] = `
+"var a = useEffect;
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useImperativeHandle();
+
+let a1 = M.useImperativeHandle<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useImperativeHandle as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - callable - typePrams(1) 1`] = `
+"import { useImperativeHandle } from \\"react\\";
+
+useImperativeHandle();
+
+let a1 = useImperativeHandle<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useImperativeHandle();
+
+class A1 extends M.useImperativeHandle<P0> {}
+let a1 = new M.useImperativeHandle<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - class - import renamed - typePrams(1) 1`] = `
+"import { useImperativeHandle as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle generated - class - typePrams(1) 1`] = `
+"import { useImperativeHandle } from \\"react\\";
+
+new useImperativeHandle();
+
+class A1 extends useImperativeHandle<P0> {}
+let a1 = new useImperativeHandle<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useImperativeHandle variable 1`] = `
+"var a = useImperativeHandle;
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.useLayoutEffect();
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - callable - import renamed 1`] = `
+"import { useLayoutEffect as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - callable 1`] = `
+"import { useLayoutEffect } from \\"react\\";
+
+useLayoutEffect();
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.useLayoutEffect();
+
+class A1 extends M.useLayoutEffect {}
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - class - import renamed 1`] = `
+"import { useLayoutEffect as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect generated - class 1`] = `
+"import { useLayoutEffect } from \\"react\\";
+
+new useLayoutEffect();
+
+class A1 extends useLayoutEffect {}
+"
+`;
+
+exports[`lib/react.js modules react useLayoutEffect variable 1`] = `
+"var a = useLayoutEffect;
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useMemo();
+
+let a1 = M.useMemo<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useMemo as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - callable - typePrams(1) 1`] = `
+"import { useMemo } from \\"react\\";
+
+useMemo();
+
+let a1 = useMemo<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useMemo();
+
+class A1 extends M.useMemo<P0> {}
+let a1 = new M.useMemo<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - class - import renamed - typePrams(1) 1`] = `
+"import { useMemo as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo generated - class - typePrams(1) 1`] = `
+"import { useMemo } from \\"react\\";
+
+new useMemo();
+
+class A1 extends useMemo<P0> {}
+let a1 = new useMemo<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useMemo variable 1`] = `
+"var a = useMemo;
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - import namespace - typePrams(2) - typePrams(3) 1`] = `
+"import * as M from \\"react\\";
+
+M.useReducer();
+
+let a1 = M.useReducer<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+M.useReducer();
+
+let a1 = M.useReducer<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - import renamed - typePrams(2) - typePrams(3) 1`] = `
+"import { useReducer as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - import renamed - typePrams(2) 1`] = `
+"import { useReducer as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - typePrams(2) - typePrams(3) 1`] = `
+"import { useReducer } from \\"react\\";
+
+useReducer();
+
+let a1 = useReducer<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - callable - typePrams(2) 1`] = `
+"import { useReducer } from \\"react\\";
+
+useReducer();
+
+let a1 = useReducer<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - import namespace - typePrams(2) - typePrams(3) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useReducer();
+
+class A1 extends M.useReducer<P0, P1, P2> {}
+let a1 = new M.useReducer<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - import namespace - typePrams(2) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useReducer();
+
+class A1 extends M.useReducer<P0, P1> {}
+let a1 = new M.useReducer<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - import renamed - typePrams(2) - typePrams(3) 1`] = `
+"import { useReducer as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0, P1, P2> {}
+let a1 = new t<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - import renamed - typePrams(2) 1`] = `
+"import { useReducer as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0, P1> {}
+let a1 = new t<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - typePrams(2) - typePrams(3) 1`] = `
+"import { useReducer } from \\"react\\";
+
+new useReducer();
+
+class A1 extends useReducer<P0, P1, P2> {}
+let a1 = new useReducer<P0, P1, P2>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer generated - class - typePrams(2) 1`] = `
+"import { useReducer } from \\"react\\";
+
+new useReducer();
+
+class A1 extends useReducer<P0, P1> {}
+let a1 = new useReducer<P0, P1>();
+"
+`;
+
+exports[`lib/react.js modules react useReducer variable 1`] = `
+"var a = useReducer;
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useRef();
+
+let a1 = M.useRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useRef as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - callable - typePrams(1) 1`] = `
+"import { useRef } from \\"react\\";
+
+useRef();
+
+let a1 = useRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useRef();
+
+class A1 extends M.useRef<P0> {}
+let a1 = new M.useRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - class - import renamed - typePrams(1) 1`] = `
+"import { useRef as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef generated - class - typePrams(1) 1`] = `
+"import { useRef } from \\"react\\";
+
+new useRef();
+
+class A1 extends useRef<P0> {}
+let a1 = new useRef<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useRef variable 1`] = `
+"var a = useRef;
+"
+`;
+
+exports[`lib/react.js modules react useState generated - callable - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useState();
+
+let a1 = M.useState<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState generated - callable - import renamed - typePrams(1) 1`] = `
+"import { useState as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState generated - callable - typePrams(1) 1`] = `
+"import { useState } from \\"react\\";
+
+useState();
+
+let a1 = useState<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState generated - class - import namespace - typePrams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useState();
+
+class A1 extends M.useState<P0> {}
+let a1 = new M.useState<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState generated - class - import renamed - typePrams(1) 1`] = `
+"import { useState as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState generated - class - typePrams(1) 1`] = `
+"import { useState } from \\"react\\";
+
+new useState();
+
+class A1 extends useState<P0> {}
+let a1 = new useState<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useState variable 1`] = `
+"var a = useState;
+"
+`;
+
+exports[`lib/react.js modules react version variable 1`] = `
+"var a = version;
 "
 `;
