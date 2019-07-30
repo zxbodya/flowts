@@ -241,6 +241,8 @@ const visitor: Visitor = {
             const node = path.node;
             if (isTSQualifiedName(node)) {
               node.right.name = newExportName;
+            } else if (isMemberExpression(node)) {
+              node.property.name = newExportName;
             } else {
               throw new Error('Unexpected reference of type' + path.node.type);
             }
