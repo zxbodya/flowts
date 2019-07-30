@@ -7,7 +7,7 @@ exports[`lib/react-dom.js globals $JSXIntrinsics generated - interface 1`] = `
 
 exports[`lib/react-dom.js globals $JSXIntrinsics generated - type 1`] = `""`;
 
-exports[`lib/react-dom.js globals SyntheticAnimationEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticAnimationEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { AnimationEvent } from \\"react\\";
 new AnimationEvent();
 
@@ -23,7 +23,7 @@ var a = AnimationEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticClipboardEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticClipboardEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { ClipboardEvent } from \\"react\\";
 new ClipboardEvent();
 
@@ -39,7 +39,7 @@ var a = ClipboardEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticCompositionEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticCompositionEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { CompositionEvent } from \\"react\\";
 new CompositionEvent();
 
@@ -55,7 +55,7 @@ var a = CompositionEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticDragEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticDragEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { DragEvent } from \\"react\\";
 new DragEvent();
 
@@ -71,7 +71,7 @@ var a = DragEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticEvent generated - class - typePrams(0 - 2) 1`] = `
+exports[`lib/react-dom.js globals SyntheticEvent generated - class - typeParams(0 - 2) 1`] = `
 "import { SyntheticEvent } from \\"react\\";
 new SyntheticEvent();
 
@@ -90,7 +90,7 @@ var a = SyntheticEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticFocusEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticFocusEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { FocusEvent } from \\"react\\";
 new FocusEvent();
 
@@ -106,7 +106,7 @@ var a = FocusEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticInputEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticInputEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { ChangeEvent } from \\"react\\";
 new ChangeEvent();
 
@@ -122,7 +122,7 @@ var a = ChangeEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticKeyboardEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticKeyboardEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { KeyboardEvent } from \\"react\\";
 new KeyboardEvent();
 
@@ -138,7 +138,7 @@ var a = KeyboardEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticMouseEvent generated - class - typePrams(0 - 2) 1`] = `
+exports[`lib/react-dom.js globals SyntheticMouseEvent generated - class - typeParams(0 - 2) 1`] = `
 "import { MouseEvent } from \\"react\\";
 new MouseEvent();
 
@@ -157,7 +157,7 @@ var a = MouseEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticPointerEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticPointerEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { PointerEvent } from \\"react\\";
 new PointerEvent();
 
@@ -173,7 +173,7 @@ var a = PointerEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticTouchEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticTouchEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { TouchEvent } from \\"react\\";
 new TouchEvent();
 
@@ -189,7 +189,7 @@ var a = TouchEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticTransitionEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticTransitionEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { TransitionEvent } from \\"react\\";
 new TransitionEvent();
 
@@ -205,7 +205,7 @@ var a = TransitionEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticUIEvent generated - class - typePrams(0 - 2) 1`] = `
+exports[`lib/react-dom.js globals SyntheticUIEvent generated - class - typeParams(0 - 2) 1`] = `
 "import { UIEvent } from \\"react\\";
 new UIEvent();
 
@@ -224,7 +224,7 @@ var a = UIEvent;
 "
 `;
 
-exports[`lib/react-dom.js globals SyntheticWheelEvent generated - class - typePrams(0 - 1) 1`] = `
+exports[`lib/react-dom.js globals SyntheticWheelEvent generated - class - typeParams(0 - 1) 1`] = `
 "import { WheelEvent } from \\"react\\";
 new WheelEvent();
 
@@ -346,7 +346,7 @@ exports[`lib/react-dom.js modules react-dom findDOMNode variable 1`] = `
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - callable - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - callable - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 M.hydrate();
@@ -355,7 +355,7 @@ let a1 = M.hydrate<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - callable - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - callable - import renamed - typeParams(1) 1`] = `
 "import { hydrate as t } from \\"react-dom\\";
 
 t();
@@ -364,7 +364,7 @@ let a1 = t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - callable - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - callable - typeParams(1) 1`] = `
 "import { hydrate } from \\"react-dom\\";
 
 hydrate();
@@ -373,7 +373,7 @@ let a1 = hydrate<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - class - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - class - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 new M.hydrate();
@@ -383,7 +383,7 @@ let a1 = new M.hydrate<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - class - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - class - import renamed - typeParams(1) 1`] = `
 "import { hydrate as t } from \\"react-dom\\";
 
 new t();
@@ -393,7 +393,7 @@ let a1 = new t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom hydrate generated - class - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom hydrate generated - class - typeParams(1) 1`] = `
 "import { hydrate } from \\"react-dom\\";
 
 new hydrate();
@@ -408,7 +408,7 @@ exports[`lib/react-dom.js modules react-dom hydrate variable 1`] = `
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - callable - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - callable - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 M.render();
@@ -417,7 +417,7 @@ let a1 = M.render<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - callable - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - callable - import renamed - typeParams(1) 1`] = `
 "import { render as t } from \\"react-dom\\";
 
 t();
@@ -426,7 +426,7 @@ let a1 = t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - callable - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - callable - typeParams(1) 1`] = `
 "import { render } from \\"react-dom\\";
 
 render();
@@ -435,7 +435,7 @@ let a1 = render<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - class - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - class - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 new M.render();
@@ -445,7 +445,7 @@ let a1 = new M.render<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - class - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - class - import renamed - typeParams(1) 1`] = `
 "import { render as t } from \\"react-dom\\";
 
 new t();
@@ -455,7 +455,7 @@ let a1 = new t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom render generated - class - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom render generated - class - typeParams(1) 1`] = `
 "import { render } from \\"react-dom\\";
 
 new render();
@@ -523,7 +523,7 @@ exports[`lib/react-dom.js modules react-dom unmountComponentAtNode variable 1`] 
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - import namespace - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - import namespace - typeParams(5) 1`] = `
 "import * as M from \\"react-dom\\";
 
 M.unstable_batchedUpdates();
@@ -532,7 +532,7 @@ let a1 = M.unstable_batchedUpdates<P0, P1, P2, P3, P4>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - import renamed - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - import renamed - typeParams(5) 1`] = `
 "import { unstable_batchedUpdates as t } from \\"react-dom\\";
 
 t();
@@ -541,7 +541,7 @@ let a1 = t<P0, P1, P2, P3, P4>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - callable - typeParams(5) 1`] = `
 "import { unstable_batchedUpdates } from \\"react-dom\\";
 
 unstable_batchedUpdates();
@@ -550,7 +550,7 @@ let a1 = unstable_batchedUpdates<P0, P1, P2, P3, P4>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - import namespace - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - import namespace - typeParams(5) 1`] = `
 "import * as M from \\"react-dom\\";
 
 new M.unstable_batchedUpdates();
@@ -560,7 +560,7 @@ let a1 = new M.unstable_batchedUpdates<P0, P1, P2, P3, P4>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - import renamed - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - import renamed - typeParams(5) 1`] = `
 "import { unstable_batchedUpdates as t } from \\"react-dom\\";
 
 new t();
@@ -570,7 +570,7 @@ let a1 = new t<P0, P1, P2, P3, P4>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - typePrams(5) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates generated - class - typeParams(5) 1`] = `
 "import { unstable_batchedUpdates } from \\"react-dom\\";
 
 new unstable_batchedUpdates();
@@ -585,7 +585,7 @@ exports[`lib/react-dom.js modules react-dom unstable_batchedUpdates variable 1`]
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 M.unstable_renderSubtreeIntoContainer();
@@ -594,7 +594,7 @@ let a1 = M.unstable_renderSubtreeIntoContainer<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - import renamed - typeParams(1) 1`] = `
 "import { unstable_renderSubtreeIntoContainer as t } from \\"react-dom\\";
 
 t();
@@ -603,7 +603,7 @@ let a1 = t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - callable - typeParams(1) 1`] = `
 "import { unstable_renderSubtreeIntoContainer } from \\"react-dom\\";
 
 unstable_renderSubtreeIntoContainer();
@@ -612,7 +612,7 @@ let a1 = unstable_renderSubtreeIntoContainer<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - import namespace - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react-dom\\";
 
 new M.unstable_renderSubtreeIntoContainer();
@@ -622,7 +622,7 @@ let a1 = new M.unstable_renderSubtreeIntoContainer<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - import renamed - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - import renamed - typeParams(1) 1`] = `
 "import { unstable_renderSubtreeIntoContainer as t } from \\"react-dom\\";
 
 new t();
@@ -632,7 +632,7 @@ let a1 = new t<P0>();
 "
 `;
 
-exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - typePrams(1) 1`] = `
+exports[`lib/react-dom.js modules react-dom unstable_renderSubtreeIntoContainer generated - class - typeParams(1) 1`] = `
 "import { unstable_renderSubtreeIntoContainer } from \\"react-dom\\";
 
 new unstable_renderSubtreeIntoContainer();

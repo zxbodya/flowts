@@ -13,7 +13,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 2)', () => {
+      test('generated - class - typeParams(0 - 2)', () => {
         expect(
           transform(`
             new SyntheticEvent();
@@ -39,7 +39,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticAnimationEvent();
@@ -62,7 +62,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticClipboardEvent();
@@ -85,7 +85,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticCompositionEvent();
@@ -108,7 +108,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticInputEvent();
@@ -131,7 +131,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 2)', () => {
+      test('generated - class - typeParams(0 - 2)', () => {
         expect(
           transform(`
             new SyntheticUIEvent();
@@ -157,7 +157,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticFocusEvent();
@@ -180,7 +180,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticKeyboardEvent();
@@ -203,7 +203,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 2)', () => {
+      test('generated - class - typeParams(0 - 2)', () => {
         expect(
           transform(`
             new SyntheticMouseEvent();
@@ -229,7 +229,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticDragEvent();
@@ -252,7 +252,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticWheelEvent();
@@ -275,7 +275,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticPointerEvent();
@@ -298,7 +298,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticTouchEvent();
@@ -321,7 +321,7 @@ describe('lib/react-dom.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(0 - 1)', () => {
+      test('generated - class - typeParams(0 - 1)', () => {
         expect(
           transform(`
             new SyntheticTransitionEvent();
@@ -443,7 +443,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { render } from "react-dom";
@@ -457,7 +457,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { render } from "react-dom";
@@ -469,7 +469,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -483,7 +483,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -495,7 +495,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { render as t } from "react-dom";
@@ -509,7 +509,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { render as t } from "react-dom";
@@ -531,7 +531,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { hydrate } from "react-dom";
@@ -545,7 +545,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { hydrate } from "react-dom";
@@ -557,7 +557,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -571,7 +571,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -583,7 +583,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { hydrate as t } from "react-dom";
@@ -597,7 +597,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { hydrate as t } from "react-dom";
@@ -787,7 +787,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(5)', () => {
+        test('generated - class - typeParams(5)', () => {
           expect(
             transform(`
             import { unstable_batchedUpdates } from "react-dom";
@@ -801,7 +801,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(5)', () => {
+        test('generated - callable - typeParams(5)', () => {
           expect(
             transform(`
             import { unstable_batchedUpdates } from "react-dom";
@@ -813,7 +813,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(5)', () => {
+        test('generated - class - import namespace - typeParams(5)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -827,7 +827,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(5)', () => {
+        test('generated - callable - import namespace - typeParams(5)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -839,7 +839,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(5)', () => {
+        test('generated - class - import renamed - typeParams(5)', () => {
           expect(
             transform(`
             import { unstable_batchedUpdates as t } from "react-dom";
@@ -853,7 +853,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(5)', () => {
+        test('generated - callable - import renamed - typeParams(5)', () => {
           expect(
             transform(`
             import { unstable_batchedUpdates as t } from "react-dom";
@@ -875,7 +875,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { unstable_renderSubtreeIntoContainer } from "react-dom";
@@ -889,7 +889,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { unstable_renderSubtreeIntoContainer } from "react-dom";
@@ -901,7 +901,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -915,7 +915,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react-dom";
@@ -927,7 +927,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { unstable_renderSubtreeIntoContainer as t } from "react-dom";
@@ -941,7 +941,7 @@ describe('lib/react-dom.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { unstable_renderSubtreeIntoContainer as t } from "react-dom";

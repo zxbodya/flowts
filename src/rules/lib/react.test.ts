@@ -30,7 +30,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(1 - 2)', () => {
+      test('generated - class - typeParams(1 - 2)', () => {
         expect(
           transform(`
             new React$Component();
@@ -55,7 +55,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(1 - 2)', () => {
+      test('generated - class - typeParams(1 - 2)', () => {
         expect(
           transform(`
             new React$PureComponent();
@@ -80,7 +80,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - class - typePrams(2)', () => {
+      test('generated - class - typeParams(2)', () => {
         expect(
           transform(`
             new LegacyReactComponent();
@@ -111,7 +111,7 @@ describe('lib/react.js', () => {
     });
 
     describe('React$StatelessFunctionalComponent', () => {
-      test('generated - type - typePrams(1)', () => {
+      test('generated - type - typeParams(1)', () => {
         expect(
           transform(`
             let a1: React$StatelessFunctionalComponent<P0>;
@@ -119,7 +119,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - interface - typePrams(1)', () => {
+      test('generated - interface - typeParams(1)', () => {
         expect(
           transform(`
             class A1 implements React$StatelessFunctionalComponent<P0> {}
@@ -131,7 +131,7 @@ describe('lib/react.js', () => {
     });
 
     describe('React$ComponentType', () => {
-      test('generated - type - typePrams(1)', () => {
+      test('generated - type - typeParams(1)', () => {
         expect(
           transform(`
             let a1: React$ComponentType<P0>;
@@ -139,7 +139,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - interface - typePrams(1)', () => {
+      test('generated - interface - typeParams(1)', () => {
         expect(
           transform(`
             class A1 implements React$ComponentType<P0> {}
@@ -168,7 +168,7 @@ describe('lib/react.js', () => {
     });
 
     describe('React$Element', () => {
-      test('generated - type - typePrams(1)', () => {
+      test('generated - type - typeParams(1)', () => {
         expect(
           transform(`
             let a1: React$Element<P0>;
@@ -176,7 +176,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - interface - typePrams(1)', () => {
+      test('generated - interface - typeParams(1)', () => {
         expect(
           transform(`
             class A1 implements React$Element<P0> {}
@@ -222,7 +222,7 @@ describe('lib/react.js', () => {
     });
 
     describe('React$Ref', () => {
-      test('generated - type - typePrams(1)', () => {
+      test('generated - type - typeParams(1)', () => {
         expect(
           transform(`
             let a1: React$Ref<P0>;
@@ -230,7 +230,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - interface - typePrams(1)', () => {
+      test('generated - interface - typeParams(1)', () => {
         expect(
           transform(`
             class A1 implements React$Ref<P0> {}
@@ -242,7 +242,7 @@ describe('lib/react.js', () => {
     });
 
     describe('React$Context', () => {
-      test('generated - type - typePrams(1)', () => {
+      test('generated - type - typeParams(1)', () => {
         expect(
           transform(`
             let a1: React$Context<P0>;
@@ -250,7 +250,7 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
 
-      test('generated - interface - typePrams(1)', () => {
+      test('generated - interface - typeParams(1)', () => {
         expect(
           transform(`
             class A1 implements React$Context<P0> {}
@@ -320,7 +320,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { checkPropTypes } from "react";
@@ -334,7 +334,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { checkPropTypes } from "react";
@@ -346,7 +346,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -360,7 +360,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -372,7 +372,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { checkPropTypes as t } from "react";
@@ -386,7 +386,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { checkPropTypes as t } from "react";
@@ -418,7 +418,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { createContext } from "react";
@@ -432,7 +432,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { createContext } from "react";
@@ -444,7 +444,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -458,7 +458,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -470,7 +470,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createContext as t } from "react";
@@ -484,7 +484,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createContext as t } from "react";
@@ -526,7 +526,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { createFactory } from "react";
@@ -540,7 +540,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { createFactory } from "react";
@@ -552,7 +552,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -566,7 +566,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -578,7 +578,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createFactory as t } from "react";
@@ -592,7 +592,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createFactory as t } from "react";
@@ -614,7 +614,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { createRef } from "react";
@@ -628,7 +628,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { createRef } from "react";
@@ -640,7 +640,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -654,7 +654,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -666,7 +666,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createRef as t } from "react";
@@ -680,7 +680,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { createRef as t } from "react";
@@ -793,7 +793,7 @@ describe('lib/react.js', () => {
       });
 
       describe('StatelessFunctionalComponent', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { StatelessFunctionalComponent } from "react";
@@ -803,7 +803,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { StatelessFunctionalComponent } from "react";
@@ -815,7 +815,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -825,7 +825,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -837,7 +837,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { StatelessFunctionalComponent as t } from "react";
@@ -847,7 +847,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { StatelessFunctionalComponent as t } from "react";
@@ -861,7 +861,7 @@ describe('lib/react.js', () => {
       });
 
       describe('ComponentType', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { ComponentType } from "react";
@@ -871,7 +871,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { ComponentType } from "react";
@@ -883,7 +883,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -893,7 +893,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -905,7 +905,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ComponentType as t } from "react";
@@ -915,7 +915,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ComponentType as t } from "react";
@@ -929,7 +929,7 @@ describe('lib/react.js', () => {
       });
 
       describe('AbstractComponent', () => {
-        test('generated - type - typePrams(1 - 2)', () => {
+        test('generated - type - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { AbstractComponent } from "react";
@@ -940,7 +940,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1 - 2)', () => {
+        test('generated - interface - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { AbstractComponent } from "react";
@@ -955,7 +955,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1 - 2)', () => {
+        test('generated - type - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -966,7 +966,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1 - 2)', () => {
+        test('generated - interface - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -981,7 +981,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1 - 2)', () => {
+        test('generated - type - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { AbstractComponent as t } from "react";
@@ -992,7 +992,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1 - 2)', () => {
+        test('generated - interface - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { AbstractComponent as t } from "react";
@@ -1127,7 +1127,7 @@ describe('lib/react.js', () => {
       });
 
       describe('Element', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { Element } from "react";
@@ -1137,7 +1137,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { Element } from "react";
@@ -1149,7 +1149,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1159,7 +1159,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1171,7 +1171,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Element as t } from "react";
@@ -1181,7 +1181,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Element as t } from "react";
@@ -1264,7 +1264,7 @@ describe('lib/react.js', () => {
       });
 
       describe('Ref', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { Ref } from "react";
@@ -1274,7 +1274,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { Ref } from "react";
@@ -1286,7 +1286,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1296,7 +1296,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1308,7 +1308,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Ref as t } from "react";
@@ -1318,7 +1318,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Ref as t } from "react";
@@ -1391,7 +1391,7 @@ describe('lib/react.js', () => {
       });
 
       describe('Context', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { Context } from "react";
@@ -1401,7 +1401,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { Context } from "react";
@@ -1413,7 +1413,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1423,7 +1423,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1435,7 +1435,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Context as t } from "react";
@@ -1445,7 +1445,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Context as t } from "react";
@@ -1548,7 +1548,7 @@ describe('lib/react.js', () => {
       });
 
       describe('ElementProps', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementProps } from "react";
@@ -1558,7 +1558,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementProps } from "react";
@@ -1570,7 +1570,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1580,7 +1580,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1592,7 +1592,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementProps as t } from "react";
@@ -1602,7 +1602,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementProps as t } from "react";
@@ -1616,7 +1616,7 @@ describe('lib/react.js', () => {
       });
 
       describe('ElementConfig', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementConfig } from "react";
@@ -1626,7 +1626,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementConfig } from "react";
@@ -1638,7 +1638,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1648,7 +1648,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1660,7 +1660,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementConfig as t } from "react";
@@ -1670,7 +1670,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementConfig as t } from "react";
@@ -1684,7 +1684,7 @@ describe('lib/react.js', () => {
       });
 
       describe('ElementRef', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementRef } from "react";
@@ -1694,7 +1694,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementRef } from "react";
@@ -1706,7 +1706,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1716,7 +1716,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1728,7 +1728,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementRef as t } from "react";
@@ -1738,7 +1738,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ElementRef as t } from "react";
@@ -1752,7 +1752,7 @@ describe('lib/react.js', () => {
       });
 
       describe('Config', () => {
-        test('generated - type - typePrams(2)', () => {
+        test('generated - type - typeParams(2)', () => {
           expect(
             transform(`
             import { Config } from "react";
@@ -1762,7 +1762,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(2)', () => {
+        test('generated - interface - typeParams(2)', () => {
           expect(
             transform(`
             import { Config } from "react";
@@ -1774,7 +1774,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(2)', () => {
+        test('generated - type - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1784,7 +1784,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(2)', () => {
+        test('generated - interface - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1796,7 +1796,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(2)', () => {
+        test('generated - type - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { Config as t } from "react";
@@ -1806,7 +1806,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(2)', () => {
+        test('generated - interface - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { Config as t } from "react";
@@ -1820,7 +1820,7 @@ describe('lib/react.js', () => {
       });
 
       describe('ChildrenArray', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { ChildrenArray } from "react";
@@ -1830,7 +1830,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { ChildrenArray } from "react";
@@ -1842,7 +1842,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1852,7 +1852,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1864,7 +1864,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ChildrenArray as t } from "react";
@@ -1874,7 +1874,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { ChildrenArray as t } from "react";
@@ -1906,7 +1906,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(2)', () => {
+        test('generated - class - typeParams(2)', () => {
           expect(
             transform(`
             import { forwardRef } from "react";
@@ -1920,7 +1920,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(2)', () => {
+        test('generated - callable - typeParams(2)', () => {
           expect(
             transform(`
             import { forwardRef } from "react";
@@ -1932,7 +1932,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(2)', () => {
+        test('generated - class - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1946,7 +1946,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(2)', () => {
+        test('generated - callable - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -1958,7 +1958,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(2)', () => {
+        test('generated - class - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { forwardRef as t } from "react";
@@ -1972,7 +1972,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(2)', () => {
+        test('generated - callable - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { forwardRef as t } from "react";
@@ -1994,7 +1994,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1 - 2)', () => {
+        test('generated - class - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { memo } from "react";
@@ -2011,7 +2011,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1 - 2)', () => {
+        test('generated - callable - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { memo } from "react";
@@ -2024,7 +2024,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1 - 2)', () => {
+        test('generated - class - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2041,7 +2041,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1 - 2)', () => {
+        test('generated - callable - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2054,7 +2054,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1 - 2)', () => {
+        test('generated - class - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { memo as t } from "react";
@@ -2071,7 +2071,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1 - 2)', () => {
+        test('generated - callable - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { memo as t } from "react";
@@ -2094,7 +2094,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1 - 2)', () => {
+        test('generated - class - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { lazy } from "react";
@@ -2111,7 +2111,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1 - 2)', () => {
+        test('generated - callable - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { lazy } from "react";
@@ -2124,7 +2124,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1 - 2)', () => {
+        test('generated - class - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2141,7 +2141,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1 - 2)', () => {
+        test('generated - callable - import namespace - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2154,7 +2154,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1 - 2)', () => {
+        test('generated - class - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { lazy as t } from "react";
@@ -2171,7 +2171,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1 - 2)', () => {
+        test('generated - callable - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
             import { lazy as t } from "react";
@@ -2253,7 +2253,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useContext } from "react";
@@ -2267,7 +2267,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useContext } from "react";
@@ -2279,7 +2279,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2293,7 +2293,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2305,7 +2305,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useContext as t } from "react";
@@ -2319,7 +2319,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useContext as t } from "react";
@@ -2341,7 +2341,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useState } from "react";
@@ -2355,7 +2355,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useState } from "react";
@@ -2367,7 +2367,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2381,7 +2381,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2393,7 +2393,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useState as t } from "react";
@@ -2407,7 +2407,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useState as t } from "react";
@@ -2421,7 +2421,7 @@ describe('lib/react.js', () => {
       });
 
       describe('Dispatch', () => {
-        test('generated - type - typePrams(1)', () => {
+        test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
             import { Dispatch } from "react";
@@ -2431,7 +2431,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - typePrams(1)', () => {
+        test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
             import { Dispatch } from "react";
@@ -2443,7 +2443,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import namespace - typePrams(1)', () => {
+        test('generated - type - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2453,7 +2453,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import namespace - typePrams(1)', () => {
+        test('generated - interface - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2465,7 +2465,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - type - import renamed - typePrams(1)', () => {
+        test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Dispatch as t } from "react";
@@ -2475,7 +2475,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - interface - import renamed - typePrams(1)', () => {
+        test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { Dispatch as t } from "react";
@@ -2497,7 +2497,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(2)', () => {
+        test('generated - class - typeParams(2)', () => {
           expect(
             transform(`
             import { useReducer } from "react";
@@ -2511,7 +2511,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(2) - typePrams(3)', () => {
+        test('generated - class - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import { useReducer } from "react";
@@ -2525,7 +2525,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(2)', () => {
+        test('generated - callable - typeParams(2)', () => {
           expect(
             transform(`
             import { useReducer } from "react";
@@ -2537,7 +2537,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(2) - typePrams(3)', () => {
+        test('generated - callable - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import { useReducer } from "react";
@@ -2549,7 +2549,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(2)', () => {
+        test('generated - class - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2563,7 +2563,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(2) - typePrams(3)', () => {
+        test('generated - class - import namespace - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2577,7 +2577,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(2)', () => {
+        test('generated - callable - import namespace - typeParams(2)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2589,7 +2589,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(2) - typePrams(3)', () => {
+        test('generated - callable - import namespace - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2601,7 +2601,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(2)', () => {
+        test('generated - class - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { useReducer as t } from "react";
@@ -2615,7 +2615,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(2) - typePrams(3)', () => {
+        test('generated - class - import renamed - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import { useReducer as t } from "react";
@@ -2629,7 +2629,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(2)', () => {
+        test('generated - callable - import renamed - typeParams(2)', () => {
           expect(
             transform(`
             import { useReducer as t } from "react";
@@ -2641,7 +2641,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(2) - typePrams(3)', () => {
+        test('generated - callable - import renamed - typeParams(2) - typeParams(3)', () => {
           expect(
             transform(`
             import { useReducer as t } from "react";
@@ -2663,7 +2663,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useRef } from "react";
@@ -2677,7 +2677,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useRef } from "react";
@@ -2689,7 +2689,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2703,7 +2703,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -2715,7 +2715,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useRef as t } from "react";
@@ -2729,7 +2729,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useRef as t } from "react";
@@ -2988,7 +2988,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useCallback } from "react";
@@ -3002,7 +3002,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useCallback } from "react";
@@ -3014,7 +3014,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3028,7 +3028,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3040,7 +3040,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useCallback as t } from "react";
@@ -3054,7 +3054,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useCallback as t } from "react";
@@ -3076,7 +3076,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useMemo } from "react";
@@ -3090,7 +3090,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useMemo } from "react";
@@ -3102,7 +3102,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3116,7 +3116,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3128,7 +3128,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useMemo as t } from "react";
@@ -3142,7 +3142,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useMemo as t } from "react";
@@ -3164,7 +3164,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - typePrams(1)', () => {
+        test('generated - class - typeParams(1)', () => {
           expect(
             transform(`
             import { useImperativeHandle } from "react";
@@ -3178,7 +3178,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - typePrams(1)', () => {
+        test('generated - callable - typeParams(1)', () => {
           expect(
             transform(`
             import { useImperativeHandle } from "react";
@@ -3190,7 +3190,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace - typePrams(1)', () => {
+        test('generated - class - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3204,7 +3204,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import namespace - typePrams(1)', () => {
+        test('generated - callable - import namespace - typeParams(1)', () => {
           expect(
             transform(`
             import * as M from "react";
@@ -3216,7 +3216,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed - typePrams(1)', () => {
+        test('generated - class - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useImperativeHandle as t } from "react";
@@ -3230,7 +3230,7 @@ describe('lib/react.js', () => {
           ).toMatchSnapshot();
         });
 
-        test('generated - callable - import renamed - typePrams(1)', () => {
+        test('generated - callable - import renamed - typeParams(1)', () => {
           expect(
             transform(`
             import { useImperativeHandle as t } from "react";

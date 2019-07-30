@@ -70,9 +70,9 @@ function createTest(name: string, content: string[], identation: number) {
 function getTypeParamName(paramsConfig: TypeParamsConfig) {
   if (paramsConfig.requiredParamsCount === paramsConfig.paramsCount) {
     if (paramsConfig.requiredParamsCount === 0) return '';
-    return `typePrams(${paramsConfig.requiredParamsCount})`;
+    return `typeParams(${paramsConfig.requiredParamsCount})`;
   } else {
-    return `typePrams(${paramsConfig.requiredParamsCount} - ${paramsConfig.paramsCount})`;
+    return `typeParams(${paramsConfig.requiredParamsCount} - ${paramsConfig.paramsCount})`;
   }
 }
 
