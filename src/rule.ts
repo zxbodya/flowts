@@ -42,6 +42,11 @@ export default {
 
 const buildTestTemplate = template.program(
   `
+import plugin from '../../tsTypesPlugin';
+import { createTransform } from '../../createTransform';
+
+const transform = createTransform([plugin]);
+
 describe(%%moduleName%%, () => {
   describe('globals', () => {
     test('has no globals', () => {});
@@ -191,6 +196,7 @@ interface ModulesRulesDescribe {
 
 const HAS_NO_MODULES_TEST_NAME = 'has no modules';
 const HAS_NO_GLOBALS_TEST_NAME = 'has no globals';
+const HAS_NO_TEST = 'has no test';
 function getModuleRulesDescribe(
   target: ModulesRulesDescribe,
   moduleName: string,
@@ -276,6 +282,15 @@ function getRulesDescribe(
     target.tests.delete(noDescribesTest);
   }
   return ruleTests;
+}
+
+function refreshTests(rulesDescribe: RuleDescribe) {
+  rulesDescribe.tests = findJestCalls('test', rulesDescribe.path);
+  const noTest = rulesDescribe.tests.get(HAS_NO_TEST);
+  if (rulesDescribe.tests.size > 1 && noTest) {
+    noTest.parentPath.parentPath.remove();
+    rulesDescribe.tests.delete(HAS_NO_TEST);
+  }
 }
 
 export class Rule {
@@ -514,6 +529,17 @@ export class Rule {
     return { ruleCode, testCode };
   }
 
+  setGlobalRuleTests(declarationName: string, tests: Statement[]) {
+    const rulesDescribe = getRulesDescribe(
+      this.globalRuleTests,
+      declarationName,
+      HAS_NO_GLOBALS_TEST_NAME,
+      'has no test'
+    );
+
+    rulesDescribe.path.node.body.push(...tests);
+    refreshTests(rulesDescribe);
+  }
   setGlobalRule(
     declarationName: string,
     fix: Statement[],
@@ -533,15 +559,28 @@ export class Rule {
       this.globalsObjPath.node.properties.length - 1
     ] as NodePath<ObjectMethod>;
     this.globalRules.set(declarationName, methodPath);
-
-    const rulesDescribe = getRulesDescribe(
-      this.globalRuleTests,
-      declarationName,
-      HAS_NO_GLOBALS_TEST_NAME,
+  }
+  setModuleRuleTests(
+    moduleName: string,
+    declarationName: string,
+    tests: Statement[]
+  ) {
+    const moduleRulesDescribe = getModuleRulesDescribe(
+      this.moduleRuleTests,
+      moduleName,
+      HAS_NO_MODULES_TEST_NAME,
       'has no test'
     );
-  }
 
+    const rulesDescribe = getRulesDescribe(
+      moduleRulesDescribe,
+      declarationName,
+      'has no test',
+      'has no test'
+    );
+    rulesDescribe.path.node.body.push(...tests);
+    refreshTests(rulesDescribe);
+  }
   setModuleRule(
     moduleName: string,
     declarationName: string,
@@ -581,19 +620,5 @@ export class Rule {
       moduleRules.exportsPath.node.properties.length - 1
     ] as NodePath<ObjectMethod>;
     moduleRules.exports.set(declarationName, methodPath);
-
-    const moduleRulesDescribe = getModuleRulesDescribe(
-      this.moduleRuleTests,
-      moduleName,
-      HAS_NO_MODULES_TEST_NAME,
-      'has no test'
-    );
-
-    const rulesDescribe = getRulesDescribe(
-      moduleRulesDescribe,
-      declarationName,
-      'has no test',
-      'has no test'
-    );
   }
 }

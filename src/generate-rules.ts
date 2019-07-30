@@ -25,6 +25,7 @@ import {
   OpaqueType,
   Statement,
   stringLiteral,
+  TypeParameterDeclaration,
 } from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
@@ -32,6 +33,7 @@ import recastPlugin from './recastPlugin';
 
 import { tsLibDefinitions } from './tsLibDefinitions';
 import { Rule } from './rule';
+import { generateGlobalTests, generateModuleTests } from './generateTests';
 
 type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
 
@@ -297,6 +299,10 @@ async function main(
       return getNodeComment(path);
     });
     rule.setGlobalRule(declarationName, fix, comments);
+    rule.setGlobalRuleTests(
+      declarationName,
+      generateGlobalTests(declarationName, paths)
+    );
   }
   for (const [moduleName, declarations] of Object.entries(modules)) {
     for (const [declarationName, { paths }] of declarations) {
@@ -320,6 +326,11 @@ async function main(
         return getNodeComment(path);
       });
       rule.setModuleRule(moduleName, declarationName, fix, comments);
+      rule.setModuleRuleTests(
+        moduleName,
+        declarationName,
+        generateModuleTests(moduleName, declarationName, paths)
+      );
     }
   }
 
