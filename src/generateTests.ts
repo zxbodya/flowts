@@ -322,17 +322,17 @@ export function generateModuleTests(
   }
   const confs = [
     {
-      prepend: [`import { ${name} } form "${moduleName}";`],
+      prepend: [`import { ${name} } from "${moduleName}";`],
       importName: name,
       prefix: '',
     },
     {
-      prepend: [`import * as M form "${moduleName}";`],
+      prepend: [`import * as M from "${moduleName}";`],
       importName: 'M.' + name,
       prefix: ' - import namespace',
     },
     {
-      prepend: [`import { ${name} as t } form "${moduleName}";`],
+      prepend: [`import { ${name} as t } from "${moduleName}";`],
       importName: 't',
       prefix: ' - import renamed',
     },
