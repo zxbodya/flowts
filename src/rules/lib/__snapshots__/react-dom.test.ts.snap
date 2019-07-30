@@ -8,63 +8,72 @@ exports[`lib/react-dom.js globals $JSXIntrinsics generated - interface 1`] = `
 exports[`lib/react-dom.js globals $JSXIntrinsics generated - type 1`] = `""`;
 
 exports[`lib/react-dom.js globals SyntheticAnimationEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticAnimationEvent();
+"import { AnimationEvent } from \\"react\\";
+new AnimationEvent();
 
-class A1 extends SyntheticAnimationEvent {}
-class A2 extends SyntheticAnimationEvent<P0> {}
-let a2 = new SyntheticAnimationEvent<P0>();
+class A1 extends AnimationEvent {}
+class A2 extends AnimationEvent<P0> {}
+let a2 = new AnimationEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticAnimationEvent variable 1`] = `
-"var a = SyntheticAnimationEvent;
+"import { AnimationEvent } from \\"react\\";
+var a = AnimationEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticClipboardEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticClipboardEvent();
+"import { ClipboardEvent } from \\"react\\";
+new ClipboardEvent();
 
-class A1 extends SyntheticClipboardEvent {}
-class A2 extends SyntheticClipboardEvent<P0> {}
-let a2 = new SyntheticClipboardEvent<P0>();
+class A1 extends ClipboardEvent {}
+class A2 extends ClipboardEvent<P0> {}
+let a2 = new ClipboardEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticClipboardEvent variable 1`] = `
-"var a = SyntheticClipboardEvent;
+"import { ClipboardEvent } from \\"react\\";
+var a = ClipboardEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticCompositionEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticCompositionEvent();
+"import { CompositionEvent } from \\"react\\";
+new CompositionEvent();
 
-class A1 extends SyntheticCompositionEvent {}
-class A2 extends SyntheticCompositionEvent<P0> {}
-let a2 = new SyntheticCompositionEvent<P0>();
+class A1 extends CompositionEvent {}
+class A2 extends CompositionEvent<P0> {}
+let a2 = new CompositionEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticCompositionEvent variable 1`] = `
-"var a = SyntheticCompositionEvent;
+"import { CompositionEvent } from \\"react\\";
+var a = CompositionEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticDragEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticDragEvent();
+"import { DragEvent } from \\"react\\";
+new DragEvent();
 
-class A1 extends SyntheticDragEvent {}
-class A2 extends SyntheticDragEvent<P0> {}
-let a2 = new SyntheticDragEvent<P0>();
+class A1 extends DragEvent {}
+class A2 extends DragEvent<P0> {}
+let a2 = new DragEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticDragEvent variable 1`] = `
-"var a = SyntheticDragEvent;
+"import { DragEvent } from \\"react\\";
+var a = DragEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticEvent generated - class - typePrams(0 - 2) 1`] = `
-"new SyntheticEvent();
+"import { SyntheticEvent } from \\"react\\";
+new SyntheticEvent();
 
 class A1 extends SyntheticEvent {}
 class A2 extends SyntheticEvent<P0> {}
@@ -76,139 +85,158 @@ let a3 = new SyntheticEvent<P0, P1>();
 `;
 
 exports[`lib/react-dom.js globals SyntheticEvent variable 1`] = `
-"var a = SyntheticEvent;
+"import { SyntheticEvent } from \\"react\\";
+var a = SyntheticEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticFocusEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticFocusEvent();
+"import { FocusEvent } from \\"react\\";
+new FocusEvent();
 
-class A1 extends SyntheticFocusEvent {}
-class A2 extends SyntheticFocusEvent<P0> {}
-let a2 = new SyntheticFocusEvent<P0>();
+class A1 extends FocusEvent {}
+class A2 extends FocusEvent<P0> {}
+let a2 = new FocusEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticFocusEvent variable 1`] = `
-"var a = SyntheticFocusEvent;
+"import { FocusEvent } from \\"react\\";
+var a = FocusEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticInputEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticInputEvent();
+"import { ChangeEvent } from \\"react\\";
+new ChangeEvent();
 
-class A1 extends SyntheticInputEvent {}
-class A2 extends SyntheticInputEvent<P0> {}
-let a2 = new SyntheticInputEvent<P0>();
+class A1 extends ChangeEvent {}
+class A2 extends ChangeEvent<P0> {}
+let a2 = new ChangeEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticInputEvent variable 1`] = `
-"var a = SyntheticInputEvent;
+"import { ChangeEvent } from \\"react\\";
+var a = ChangeEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticKeyboardEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticKeyboardEvent();
+"import { KeyboardEvent } from \\"react\\";
+new KeyboardEvent();
 
-class A1 extends SyntheticKeyboardEvent {}
-class A2 extends SyntheticKeyboardEvent<P0> {}
-let a2 = new SyntheticKeyboardEvent<P0>();
+class A1 extends KeyboardEvent {}
+class A2 extends KeyboardEvent<P0> {}
+let a2 = new KeyboardEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticKeyboardEvent variable 1`] = `
-"var a = SyntheticKeyboardEvent;
+"import { KeyboardEvent } from \\"react\\";
+var a = KeyboardEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticMouseEvent generated - class - typePrams(0 - 2) 1`] = `
-"new SyntheticMouseEvent();
+"import { MouseEvent } from \\"react\\";
+new MouseEvent();
 
-class A1 extends SyntheticMouseEvent {}
-class A2 extends SyntheticMouseEvent<P0> {}
-let a2 = new SyntheticMouseEvent<P0>();
+class A1 extends MouseEvent {}
+class A2 extends MouseEvent<P0> {}
+let a2 = new MouseEvent<P0>();
 
-class A3 extends SyntheticMouseEvent<P0, P1> {}
-let a3 = new SyntheticMouseEvent<P0, P1>();
+class A3 extends MouseEvent<P0, P1> {}
+let a3 = new MouseEvent<P0, P1>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticMouseEvent variable 1`] = `
-"var a = SyntheticMouseEvent;
+"import { MouseEvent } from \\"react\\";
+var a = MouseEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticPointerEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticPointerEvent();
+"import { PointerEvent } from \\"react\\";
+new PointerEvent();
 
-class A1 extends SyntheticPointerEvent {}
-class A2 extends SyntheticPointerEvent<P0> {}
-let a2 = new SyntheticPointerEvent<P0>();
+class A1 extends PointerEvent {}
+class A2 extends PointerEvent<P0> {}
+let a2 = new PointerEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticPointerEvent variable 1`] = `
-"var a = SyntheticPointerEvent;
+"import { PointerEvent } from \\"react\\";
+var a = PointerEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticTouchEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticTouchEvent();
+"import { TouchEvent } from \\"react\\";
+new TouchEvent();
 
-class A1 extends SyntheticTouchEvent {}
-class A2 extends SyntheticTouchEvent<P0> {}
-let a2 = new SyntheticTouchEvent<P0>();
+class A1 extends TouchEvent {}
+class A2 extends TouchEvent<P0> {}
+let a2 = new TouchEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticTouchEvent variable 1`] = `
-"var a = SyntheticTouchEvent;
+"import { TouchEvent } from \\"react\\";
+var a = TouchEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticTransitionEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticTransitionEvent();
+"import { TransitionEvent } from \\"react\\";
+new TransitionEvent();
 
-class A1 extends SyntheticTransitionEvent {}
-class A2 extends SyntheticTransitionEvent<P0> {}
-let a2 = new SyntheticTransitionEvent<P0>();
+class A1 extends TransitionEvent {}
+class A2 extends TransitionEvent<P0> {}
+let a2 = new TransitionEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticTransitionEvent variable 1`] = `
-"var a = SyntheticTransitionEvent;
+"import { TransitionEvent } from \\"react\\";
+var a = TransitionEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticUIEvent generated - class - typePrams(0 - 2) 1`] = `
-"new SyntheticUIEvent();
+"import { UIEvent } from \\"react\\";
+new UIEvent();
 
-class A1 extends SyntheticUIEvent {}
-class A2 extends SyntheticUIEvent<P0> {}
-let a2 = new SyntheticUIEvent<P0>();
+class A1 extends UIEvent {}
+class A2 extends UIEvent<P0> {}
+let a2 = new UIEvent<P0>();
 
-class A3 extends SyntheticUIEvent<P0, P1> {}
-let a3 = new SyntheticUIEvent<P0, P1>();
+class A3 extends UIEvent<P0, P1> {}
+let a3 = new UIEvent<P0, P1>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticUIEvent variable 1`] = `
-"var a = SyntheticUIEvent;
+"import { UIEvent } from \\"react\\";
+var a = UIEvent;
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticWheelEvent generated - class - typePrams(0 - 1) 1`] = `
-"new SyntheticWheelEvent();
+"import { WheelEvent } from \\"react\\";
+new WheelEvent();
 
-class A1 extends SyntheticWheelEvent {}
-class A2 extends SyntheticWheelEvent<P0> {}
-let a2 = new SyntheticWheelEvent<P0>();
+class A1 extends WheelEvent {}
+class A2 extends WheelEvent<P0> {}
+let a2 = new WheelEvent<P0>();
 "
 `;
 
 exports[`lib/react-dom.js globals SyntheticWheelEvent variable 1`] = `
-"var a = SyntheticWheelEvent;
+"import { WheelEvent } from \\"react\\";
+var a = WheelEvent;
 "
 `;
 

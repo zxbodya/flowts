@@ -26,7 +26,7 @@ export default {
         }
         */
     SyntheticEvent(context) {
-      context.warnOnce('Rule for global "SyntheticEvent" is not verified');
+      context.import('react', 'SyntheticEvent');
     },
 
     /*
@@ -41,9 +41,7 @@ export default {
         }
         */
     SyntheticAnimationEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticAnimationEvent" is not verified'
-      );
+      context.import('react', 'AnimationEvent');
     },
 
     /*
@@ -56,9 +54,7 @@ export default {
         }
         */
     SyntheticClipboardEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticClipboardEvent" is not verified'
-      );
+      context.import('react', 'ClipboardEvent');
     },
 
     /*
@@ -71,9 +67,7 @@ export default {
         }
         */
     SyntheticCompositionEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticCompositionEvent" is not verified'
-      );
+      context.import('react', 'CompositionEvent');
     },
 
     /*
@@ -87,7 +81,7 @@ export default {
         }
         */
     SyntheticInputEvent(context) {
-      context.warnOnce('Rule for global "SyntheticInputEvent" is not verified');
+      context.import('react', 'ChangeEvent');
     },
 
     /*
@@ -102,7 +96,7 @@ export default {
         }
         */
     SyntheticUIEvent(context) {
-      context.warnOnce('Rule for global "SyntheticUIEvent" is not verified');
+      context.import('react', 'UIEvent');
     },
 
     /*
@@ -115,7 +109,7 @@ export default {
         }
         */
     SyntheticFocusEvent(context) {
-      context.warnOnce('Rule for global "SyntheticFocusEvent" is not verified');
+      context.import('react', 'FocusEvent');
     },
 
     /*
@@ -139,9 +133,7 @@ export default {
         }
         */
     SyntheticKeyboardEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticKeyboardEvent" is not verified'
-      );
+      context.import('react', 'KeyboardEvent');
     },
 
     /*
@@ -168,7 +160,7 @@ export default {
         }
         */
     SyntheticMouseEvent(context) {
-      context.warnOnce('Rule for global "SyntheticMouseEvent" is not verified');
+      context.import('react', 'MouseEvent');
     },
 
     /*
@@ -181,7 +173,7 @@ export default {
         }
         */
     SyntheticDragEvent(context) {
-      context.warnOnce('Rule for global "SyntheticDragEvent" is not verified');
+      context.import('react', 'DragEvent');
     },
 
     /*
@@ -197,7 +189,7 @@ export default {
         }
         */
     SyntheticWheelEvent(context) {
-      context.warnOnce('Rule for global "SyntheticWheelEvent" is not verified');
+      context.import('react', 'WheelEvent');
     },
 
     /*
@@ -219,9 +211,7 @@ export default {
         }
         */
     SyntheticPointerEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticPointerEvent" is not verified'
-      );
+      context.import('react', 'PointerEvent');
     },
 
     /*
@@ -241,7 +231,7 @@ export default {
         }
         */
     SyntheticTouchEvent(context) {
-      context.warnOnce('Rule for global "SyntheticTouchEvent" is not verified');
+      context.import('react', 'TouchEvent');
     },
 
     /*
@@ -256,9 +246,7 @@ export default {
         }
         */
     SyntheticTransitionEvent(context) {
-      context.warnOnce(
-        'Rule for global "SyntheticTransitionEvent" is not verified'
-      );
+      context.import('react', 'TransitionEvent');
     },
 
     /*

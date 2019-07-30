@@ -65,15 +65,15 @@ let a1: Context<P0>;
 `;
 
 exports[`lib/react.js globals React$Element generated - interface - typePrams(1) 1`] = `
-"import { Element } from \\"react\\";
-class A1 implements Element<P0> {}
-interface I1 extends Element<P0> {}
+"import { ReactElement } from \\"react\\";
+class A1 implements ReactElement<P0> {}
+interface I1 extends ReactElement<P0> {}
 "
 `;
 
 exports[`lib/react.js globals React$Element generated - type - typePrams(1) 1`] = `
-"import { Element } from \\"react\\";
-let a1: Element<P0>;
+"import { ReactElement } from \\"react\\";
+let a1: ReactElement<P0>;
 "
 `;
 
@@ -102,8 +102,8 @@ class A1 extends MixedElement {}
 exports[`lib/react.js globals React$MixedElement generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$Node generated - interface 1`] = `
-"import { Node } from \\"react\\";
-class A1 extends Node {}
+"import { ReactNode } from \\"react\\";
+class A1 extends ReactNode {}
 "
 `;
 
@@ -149,15 +149,15 @@ let a1: Ref<P0>;
 `;
 
 exports[`lib/react.js globals React$StatelessFunctionalComponent generated - interface - typePrams(1) 1`] = `
-"import { StatelessFunctionalComponent } from \\"react\\";
-class A1 implements StatelessFunctionalComponent<P0> {}
-interface I1 extends StatelessFunctionalComponent<P0> {}
+"import { FunctionComponent } from \\"react\\";
+class A1 implements FunctionComponent<P0> {}
+interface I1 extends FunctionComponent<P0> {}
 "
 `;
 
 exports[`lib/react.js globals React$StatelessFunctionalComponent generated - type - typePrams(1) 1`] = `
-"import { StatelessFunctionalComponent } from \\"react\\";
-let a1: StatelessFunctionalComponent<P0>;
+"import { FunctionComponent } from \\"react\\";
+let a1: FunctionComponent<P0>;
 "
 `;
 
