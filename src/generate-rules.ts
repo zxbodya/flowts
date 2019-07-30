@@ -25,7 +25,6 @@ import {
   OpaqueType,
   Statement,
   stringLiteral,
-  TypeParameterDeclaration,
 } from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
@@ -34,6 +33,7 @@ import recastPlugin from './recastPlugin';
 import { tsLibDefinitions } from './tsLibDefinitions';
 import { Rule } from './rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
+import { RuleTest } from './RuleTest';
 
 type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
 
@@ -56,6 +56,7 @@ async function main(
   console.log(`geenratign rules stub for ${inputPath}`);
 
   const rule = Rule.create(referenceName);
+  const ruleTest = RuleTest.create(referenceName);
 
   const sharedParserPlugins = [
     'jsx',
@@ -299,7 +300,7 @@ async function main(
       return getNodeComment(path);
     });
     rule.setGlobalRule(declarationName, fix, comments);
-    rule.setGlobalRuleTests(
+    ruleTest.setGlobalRuleTests(
       declarationName,
       generateGlobalTests(declarationName, paths)
     );
@@ -326,7 +327,7 @@ async function main(
         return getNodeComment(path);
       });
       rule.setModuleRule(moduleName, declarationName, fix, comments);
-      rule.setModuleRuleTests(
+      ruleTest.setModuleRuleTests(
         moduleName,
         declarationName,
         generateModuleTests(moduleName, declarationName, paths)
@@ -337,7 +338,8 @@ async function main(
   const prettierConfig = (await prettier.resolveConfig('./')) || {};
   prettierConfig.parser = 'typescript';
 
-  const { ruleCode, testCode } = rule.print(prettierConfig);
+  const ruleCode = rule.print(prettierConfig);
+  const testCode = ruleTest.print(prettierConfig);
 
   fs.writeFileSync(outputPath, ruleCode);
   fs.writeFileSync(outputPath.replace(/\.ts$/, '.test.ts'), testCode);
