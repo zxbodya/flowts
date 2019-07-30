@@ -250,7 +250,12 @@ function collectPathsData(paths: NodePath[]) {
   let classes = new Map<string, TypeParamsConfig>();
   let interfaceType = new Map<string, TypeParamsConfig>();
   let type = new Map<string, TypeParamsConfig>();
-  for (const path of paths) {
+  for (const basePath of paths) {
+    const path =
+      basePath.node.type === 'DeclareExportDeclaration'
+        ? (basePath.get('declaration') as NodePath)
+        : basePath;
+
     if (path.isDeclareClass()) {
       const typeParameters = path.node.typeParameters;
       const paramsConfig = getParamsConfig(typeParameters);
@@ -278,7 +283,7 @@ function collectPathsData(paths: NodePath[]) {
       type.set(getTypeParamName(paramsConfig), paramsConfig);
       interfaceType.set(getTypeParamName(paramsConfig), paramsConfig);
     }
-    if (path.isDeclareTypeAlias()) {
+    if (path.isDeclareTypeAlias() || path.isTypeAlias()) {
       const paramsConfig = getParamsConfig(path.node.typeParameters);
       type.set(getTypeParamName(paramsConfig), paramsConfig);
     }
