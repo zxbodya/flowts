@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/serviceworkers.js globals Cache generated - class 1`] = `
+"new Cache();
+
+class A1 extends Cache {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals Cache variable 1`] = `
+"var a = Cache;
+"
+`;
+
+exports[`lib/serviceworkers.js globals CacheStorage generated - class 1`] = `
+"new CacheStorage();
+
+class A1 extends CacheStorage {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals CacheStorage variable 1`] = `
+"var a = CacheStorage;
+"
+`;
+
+exports[`lib/serviceworkers.js globals Client generated - class 1`] = `
+"new Client();
+
+class A1 extends Client {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals Client variable 1`] = `
+"var a = Client;
+"
+`;
+
+exports[`lib/serviceworkers.js globals Clients generated - class 1`] = `
+"new Clients();
+
+class A1 extends Clients {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals Clients variable 1`] = `
+"var a = Clients;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ExtendableEvent generated - class 1`] = `
+"new ExtendableEvent();
+
+class A1 extends ExtendableEvent {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ExtendableEvent variable 1`] = `
+"var a = ExtendableEvent;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ExtendableMessageEvent generated - class 1`] = `
+"new ExtendableMessageEvent();
+
+class A1 extends ExtendableMessageEvent {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ExtendableMessageEvent variable 1`] = `
+"var a = ExtendableMessageEvent;
+"
+`;
+
+exports[`lib/serviceworkers.js globals FetchEvent generated - class 1`] = `
+"new FetchEvent();
+
+class A1 extends FetchEvent {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals FetchEvent variable 1`] = `
+"var a = FetchEvent;
+"
+`;
+
+exports[`lib/serviceworkers.js globals InstallEvent generated - class 1`] = `
+"new InstallEvent();
+
+class A1 extends InstallEvent {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals InstallEvent variable 1`] = `
+"var a = InstallEvent;
+"
+`;
+
+exports[`lib/serviceworkers.js globals NavigationPreloadManager generated - class 1`] = `
+"new NavigationPreloadManager();
+
+class A1 extends NavigationPreloadManager {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals NavigationPreloadManager variable 1`] = `
+"var a = NavigationPreloadManager;
+"
+`;
+
+exports[`lib/serviceworkers.js globals NavigationPreloadState generated - class 1`] = `
+"new NavigationPreloadState();
+
+class A1 extends NavigationPreloadState {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals NavigationPreloadState variable 1`] = `
+"var a = NavigationPreloadState;
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushManager generated - class 1`] = `
+"new PushManager();
+
+class A1 extends PushManager {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushManager variable 1`] = `
+"var a = PushManager;
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushSubscription generated - class 1`] = `
+"new PushSubscription();
+
+class A1 extends PushSubscription {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushSubscription variable 1`] = `
+"var a = PushSubscription;
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushSubscriptionJSON generated - class 1`] = `
+"new PushSubscriptionJSON();
+
+class A1 extends PushSubscriptionJSON {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals PushSubscriptionJSON variable 1`] = `
+"var a = PushSubscriptionJSON;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorker generated - class 1`] = `
+"new ServiceWorker();
+
+class A1 extends ServiceWorker {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorker variable 1`] = `
+"var a = ServiceWorker;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerContainer generated - class 1`] = `
+"new ServiceWorkerContainer();
+
+class A1 extends ServiceWorkerContainer {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerContainer variable 1`] = `
+"var a = ServiceWorkerContainer;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerMessageEvent generated - class 1`] = `
+"new ServiceWorkerMessageEvent();
+
+class A1 extends ServiceWorkerMessageEvent {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerMessageEvent variable 1`] = `
+"var a = ServiceWorkerMessageEvent;
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerRegistration generated - class 1`] = `
+"new ServiceWorkerRegistration();
+
+class A1 extends ServiceWorkerRegistration {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals ServiceWorkerRegistration variable 1`] = `
+"var a = ServiceWorkerRegistration;
+"
+`;
+
+exports[`lib/serviceworkers.js globals WindowClient generated - class 1`] = `
+"new WindowClient();
+
+class A1 extends WindowClient {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals WindowClient variable 1`] = `
+"var a = WindowClient;
+"
+`;
+
+exports[`lib/serviceworkers.js globals caches variable 1`] = `
+"var a = caches;
+"
+`;
+
+exports[`lib/serviceworkers.js globals clients variable 1`] = `
+"var a = clients;
+"
+`;
+
+exports[`lib/serviceworkers.js globals onactivate variable 1`] = `
+"var a = onactivate;
+"
+`;
+
+exports[`lib/serviceworkers.js globals onfetch variable 1`] = `
+"var a = onfetch;
+"
+`;
+
+exports[`lib/serviceworkers.js globals onforeignfetch variable 1`] = `
+"var a = onforeignfetch;
+"
+`;
+
+exports[`lib/serviceworkers.js globals oninstall variable 1`] = `
+"var a = oninstall;
+"
+`;
+
+exports[`lib/serviceworkers.js globals onmessage variable 1`] = `
+"var a = onmessage;
+"
+`;
+
+exports[`lib/serviceworkers.js globals registration variable 1`] = `
+"var a = registration;
+"
+`;
+
+exports[`lib/serviceworkers.js globals skipWaiting generated - callable 1`] = `
+"skipWaiting();
+"
+`;
+
+exports[`lib/serviceworkers.js globals skipWaiting generated - class 1`] = `
+"new skipWaiting();
+
+class A1 extends skipWaiting {}
+"
+`;
+
+exports[`lib/serviceworkers.js globals skipWaiting variable 1`] = `
+"var a = skipWaiting;
+"
+`;

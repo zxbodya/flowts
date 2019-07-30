@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/intl.js globals Intl variable 1`] = `
+"var a = Intl;
+"
+`;
+
+exports[`lib/intl.js globals Intl$Collator generated - class 1`] = `
+"new Intl$Collator();
+
+class A1 extends Intl$Collator {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$Collator variable 1`] = `
+"var a = Intl$Collator;
+"
+`;
+
+exports[`lib/intl.js globals Intl$CollatorOptions generated - interface 1`] = `
+"class A1 extends Intl$CollatorOptions {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$CollatorOptions generated - type 1`] = `""`;
+
+exports[`lib/intl.js globals Intl$DateTimeFormat generated - class 1`] = `
+"new Intl$DateTimeFormat();
+
+class A1 extends Intl$DateTimeFormat {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$DateTimeFormat variable 1`] = `
+"var a = Intl$DateTimeFormat;
+"
+`;
+
+exports[`lib/intl.js globals Intl$DateTimeFormatOptions generated - interface 1`] = `
+"class A1 extends Intl$DateTimeFormatOptions {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$DateTimeFormatOptions generated - type 1`] = `""`;
+
+exports[`lib/intl.js globals Intl$NumberFormat generated - class 1`] = `
+"new Intl$NumberFormat();
+
+class A1 extends Intl$NumberFormat {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$NumberFormat variable 1`] = `
+"var a = Intl$NumberFormat;
+"
+`;
+
+exports[`lib/intl.js globals Intl$NumberFormatOptions generated - interface 1`] = `
+"class A1 extends Intl$NumberFormatOptions {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$NumberFormatOptions generated - type 1`] = `""`;
+
+exports[`lib/intl.js globals Intl$PluralRules generated - class 1`] = `
+"new Intl$PluralRules();
+
+class A1 extends Intl$PluralRules {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$PluralRules variable 1`] = `
+"var a = Intl$PluralRules;
+"
+`;
+
+exports[`lib/intl.js globals Intl$PluralRulesOptions generated - interface 1`] = `
+"class A1 extends Intl$PluralRulesOptions {}
+"
+`;
+
+exports[`lib/intl.js globals Intl$PluralRulesOptions generated - type 1`] = `""`;

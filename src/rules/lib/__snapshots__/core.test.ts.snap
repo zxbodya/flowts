@@ -1,0 +1,1046 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/core.js globals $Flow$ModuleRef generated - interface 1`] = `
+"class A1 extends $Flow$ModuleRef {}
+"
+`;
+
+exports[`lib/core.js globals $Flow$ModuleRef generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $ReadOnlyArray generated - class - typeParams(1) 1`] = `
+"new $ReadOnlyArray();
+
+class A1 extends $ReadOnlyArray<P0> {}
+let a1 = new $ReadOnlyArray<P0>();
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyArray variable 1`] = `
+"var a = $ReadOnlyArray;
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyMap generated - class - typeParams(2) 1`] = `
+"new $ReadOnlyMap();
+
+class A1 extends $ReadOnlyMap<P0, P1> {}
+let a1 = new $ReadOnlyMap<P0, P1>();
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyMap variable 1`] = `
+"var a = $ReadOnlyMap;
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlySet generated - class - typeParams(1) 1`] = `
+"new $ReadOnlySet();
+
+class A1 extends $ReadOnlySet<P0> {}
+let a1 = new $ReadOnlySet<P0>();
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlySet variable 1`] = `
+"var a = $ReadOnlySet;
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyWeakMap generated - class - typeParams(2) 1`] = `
+"new $ReadOnlyWeakMap();
+
+class A1 extends $ReadOnlyWeakMap<P0, P1> {}
+let a1 = new $ReadOnlyWeakMap<P0, P1>();
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyWeakMap variable 1`] = `
+"var a = $ReadOnlyWeakMap;
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyWeakSet generated - class - typeParams(1) 1`] = `
+"new $ReadOnlyWeakSet();
+
+class A1 extends $ReadOnlyWeakSet<P0> {}
+let a1 = new $ReadOnlyWeakSet<P0>();
+"
+`;
+
+exports[`lib/core.js globals $ReadOnlyWeakSet variable 1`] = `
+"var a = $ReadOnlyWeakSet;
+"
+`;
+
+exports[`lib/core.js globals $SymboIsConcatSpreadable generated - class 1`] = `
+"new $SymboIsConcatSpreadable();
+
+class A1 extends $SymboIsConcatSpreadable {}
+"
+`;
+
+exports[`lib/core.js globals $SymboIsConcatSpreadable variable 1`] = `
+"var a = $SymboIsConcatSpreadable;
+"
+`;
+
+exports[`lib/core.js globals $SymbolHasInstance generated - class 1`] = `
+"new $SymbolHasInstance();
+
+class A1 extends $SymbolHasInstance {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolHasInstance variable 1`] = `
+"var a = $SymbolHasInstance;
+"
+`;
+
+exports[`lib/core.js globals $SymbolIterator generated - class 1`] = `
+"new $SymbolIterator();
+
+class A1 extends $SymbolIterator {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolIterator variable 1`] = `
+"var a = $SymbolIterator;
+"
+`;
+
+exports[`lib/core.js globals $SymbolMatch generated - class 1`] = `
+"new $SymbolMatch();
+
+class A1 extends $SymbolMatch {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolMatch variable 1`] = `
+"var a = $SymbolMatch;
+"
+`;
+
+exports[`lib/core.js globals $SymbolReplace generated - class 1`] = `
+"new $SymbolReplace();
+
+class A1 extends $SymbolReplace {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolReplace variable 1`] = `
+"var a = $SymbolReplace;
+"
+`;
+
+exports[`lib/core.js globals $SymbolSearch generated - class 1`] = `
+"new $SymbolSearch();
+
+class A1 extends $SymbolSearch {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolSearch variable 1`] = `
+"var a = $SymbolSearch;
+"
+`;
+
+exports[`lib/core.js globals $SymbolSpecies generated - class 1`] = `
+"new $SymbolSpecies();
+
+class A1 extends $SymbolSpecies {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolSpecies variable 1`] = `
+"var a = $SymbolSpecies;
+"
+`;
+
+exports[`lib/core.js globals $SymbolSplit generated - class 1`] = `
+"new $SymbolSplit();
+
+class A1 extends $SymbolSplit {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolSplit variable 1`] = `
+"var a = $SymbolSplit;
+"
+`;
+
+exports[`lib/core.js globals $SymbolToPrimitive generated - class 1`] = `
+"new $SymbolToPrimitive();
+
+class A1 extends $SymbolToPrimitive {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolToPrimitive variable 1`] = `
+"var a = $SymbolToPrimitive;
+"
+`;
+
+exports[`lib/core.js globals $SymbolToStringTag generated - class 1`] = `
+"new $SymbolToStringTag();
+
+class A1 extends $SymbolToStringTag {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolToStringTag variable 1`] = `
+"var a = $SymbolToStringTag;
+"
+`;
+
+exports[`lib/core.js globals $SymbolUnscopables generated - class 1`] = `
+"new $SymbolUnscopables();
+
+class A1 extends $SymbolUnscopables {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolUnscopables variable 1`] = `
+"var a = $SymbolUnscopables;
+"
+`;
+
+exports[`lib/core.js globals $TypedArray generated - class 1`] = `
+"new $TypedArray();
+
+class A1 extends $TypedArray {}
+"
+`;
+
+exports[`lib/core.js globals $TypedArray variable 1`] = `
+"var a = $TypedArray;
+"
+`;
+
+exports[`lib/core.js globals $asyncIterator generated - callable - typeParams(1) 1`] = `
+"$asyncIterator();
+
+let a1 = $asyncIterator<P0>();
+"
+`;
+
+exports[`lib/core.js globals $asyncIterator generated - class - typeParams(1) 1`] = `
+"new $asyncIterator();
+
+class A1 extends $asyncIterator<P0> {}
+let a1 = new $asyncIterator<P0>();
+"
+`;
+
+exports[`lib/core.js globals $asyncIterator variable 1`] = `
+"var a = $asyncIterator;
+"
+`;
+
+exports[`lib/core.js globals $await generated - callable - typeParams(1) 1`] = `
+"$await();
+
+let a1 = $await<P0>();
+"
+`;
+
+exports[`lib/core.js globals $await generated - class - typeParams(1) 1`] = `
+"new $await();
+
+class A1 extends $await<P0> {}
+let a1 = new $await<P0>();
+"
+`;
+
+exports[`lib/core.js globals $await variable 1`] = `
+"var a = $await;
+"
+`;
+
+exports[`lib/core.js globals $iterate generated - callable - typeParams(1) 1`] = `
+"$iterate();
+
+let a1 = $iterate<P0>();
+"
+`;
+
+exports[`lib/core.js globals $iterate generated - class - typeParams(1) 1`] = `
+"new $iterate();
+
+class A1 extends $iterate<P0> {}
+let a1 = new $iterate<P0>();
+"
+`;
+
+exports[`lib/core.js globals $iterate variable 1`] = `
+"var a = $iterate;
+"
+`;
+
+exports[`lib/core.js globals Array generated - class - typeParams(1) 1`] = `
+"new Array();
+
+class A1 extends Array<P0> {}
+let a1 = new Array<P0>();
+"
+`;
+
+exports[`lib/core.js globals Array variable 1`] = `
+"var a = Array;
+"
+`;
+
+exports[`lib/core.js globals ArrayBuffer generated - class 1`] = `
+"new ArrayBuffer();
+
+class A1 extends ArrayBuffer {}
+"
+`;
+
+exports[`lib/core.js globals ArrayBuffer variable 1`] = `
+"var a = ArrayBuffer;
+"
+`;
+
+exports[`lib/core.js globals Boolean generated - class 1`] = `
+"new Boolean();
+
+class A1 extends Boolean {}
+"
+`;
+
+exports[`lib/core.js globals Boolean variable 1`] = `
+"var a = Boolean;
+"
+`;
+
+exports[`lib/core.js globals CallSite generated - class 1`] = `
+"new CallSite();
+
+class A1 extends CallSite {}
+"
+`;
+
+exports[`lib/core.js globals CallSite variable 1`] = `
+"var a = CallSite;
+"
+`;
+
+exports[`lib/core.js globals DataView generated - class 1`] = `
+"new DataView();
+
+class A1 extends DataView {}
+"
+`;
+
+exports[`lib/core.js globals DataView variable 1`] = `
+"var a = DataView;
+"
+`;
+
+exports[`lib/core.js globals Date generated - class 1`] = `
+"new Date();
+
+class A1 extends Date {}
+"
+`;
+
+exports[`lib/core.js globals Date variable 1`] = `
+"var a = Date;
+"
+`;
+
+exports[`lib/core.js globals Error generated - class 1`] = `
+"new Error();
+
+class A1 extends Error {}
+"
+`;
+
+exports[`lib/core.js globals Error variable 1`] = `
+"var a = Error;
+"
+`;
+
+exports[`lib/core.js globals EvalError generated - class 1`] = `
+"new EvalError();
+
+class A1 extends EvalError {}
+"
+`;
+
+exports[`lib/core.js globals EvalError variable 1`] = `
+"var a = EvalError;
+"
+`;
+
+exports[`lib/core.js globals Float32Array generated - class 1`] = `
+"new Float32Array();
+
+class A1 extends Float32Array {}
+"
+`;
+
+exports[`lib/core.js globals Float32Array variable 1`] = `
+"var a = Float32Array;
+"
+`;
+
+exports[`lib/core.js globals Float64Array generated - class 1`] = `
+"new Float64Array();
+
+class A1 extends Float64Array {}
+"
+`;
+
+exports[`lib/core.js globals Float64Array variable 1`] = `
+"var a = Float64Array;
+"
+`;
+
+exports[`lib/core.js globals Function generated - class 1`] = `
+"new Function();
+
+class A1 extends Function {}
+"
+`;
+
+exports[`lib/core.js globals Function variable 1`] = `
+"var a = Function;
+"
+`;
+
+exports[`lib/core.js globals Infinity variable 1`] = `
+"var a = Infinity;
+"
+`;
+
+exports[`lib/core.js globals Int8Array generated - class 1`] = `
+"new Int8Array();
+
+class A1 extends Int8Array {}
+"
+`;
+
+exports[`lib/core.js globals Int8Array variable 1`] = `
+"var a = Int8Array;
+"
+`;
+
+exports[`lib/core.js globals Int16Array generated - class 1`] = `
+"new Int16Array();
+
+class A1 extends Int16Array {}
+"
+`;
+
+exports[`lib/core.js globals Int16Array variable 1`] = `
+"var a = Int16Array;
+"
+`;
+
+exports[`lib/core.js globals Int32Array generated - class 1`] = `
+"new Int32Array();
+
+class A1 extends Int32Array {}
+"
+`;
+
+exports[`lib/core.js globals Int32Array variable 1`] = `
+"var a = Int32Array;
+"
+`;
+
+exports[`lib/core.js globals IntervalID generated - interface 1`] = `
+"class A1 extends IntervalID {}
+"
+`;
+
+exports[`lib/core.js globals IntervalID generated - type 1`] = `""`;
+
+exports[`lib/core.js globals JSON generated - class 1`] = `
+"new JSON();
+
+class A1 extends JSON {}
+"
+`;
+
+exports[`lib/core.js globals JSON variable 1`] = `
+"var a = JSON;
+"
+`;
+
+exports[`lib/core.js globals Map generated - class - typeParams(2) 1`] = `
+"new Map();
+
+class A1 extends Map<P0, P1> {}
+let a1 = new Map<P0, P1>();
+"
+`;
+
+exports[`lib/core.js globals Map variable 1`] = `
+"var a = Map;
+"
+`;
+
+exports[`lib/core.js globals Math variable 1`] = `
+"var a = Math;
+"
+`;
+
+exports[`lib/core.js globals NaN variable 1`] = `
+"var a = NaN;
+"
+`;
+
+exports[`lib/core.js globals Number generated - class 1`] = `
+"new Number();
+
+class A1 extends Number {}
+"
+`;
+
+exports[`lib/core.js globals Number variable 1`] = `
+"var a = Number;
+"
+`;
+
+exports[`lib/core.js globals Object generated - class 1`] = `
+"new Object();
+
+class A1 extends Object {}
+"
+`;
+
+exports[`lib/core.js globals Object variable 1`] = `
+"var a = Object;
+"
+`;
+
+exports[`lib/core.js globals Promise generated - class - typeParams(1) 1`] = `
+"new Promise();
+
+class A1 extends Promise<P0> {}
+let a1 = new Promise<P0>();
+"
+`;
+
+exports[`lib/core.js globals Promise variable 1`] = `
+"var a = Promise;
+"
+`;
+
+exports[`lib/core.js globals Proxy generated - class - typeParams(1) 1`] = `
+"new Proxy();
+
+class A1 extends Proxy<P0> {}
+let a1 = new Proxy<P0>();
+"
+`;
+
+exports[`lib/core.js globals Proxy variable 1`] = `
+"var a = Proxy;
+"
+`;
+
+exports[`lib/core.js globals RangeError generated - class 1`] = `
+"new RangeError();
+
+class A1 extends RangeError {}
+"
+`;
+
+exports[`lib/core.js globals RangeError variable 1`] = `
+"var a = RangeError;
+"
+`;
+
+exports[`lib/core.js globals ReferenceError generated - class 1`] = `
+"new ReferenceError();
+
+class A1 extends ReferenceError {}
+"
+`;
+
+exports[`lib/core.js globals ReferenceError variable 1`] = `
+"var a = ReferenceError;
+"
+`;
+
+exports[`lib/core.js globals Reflect variable 1`] = `
+"var a = Reflect;
+"
+`;
+
+exports[`lib/core.js globals RegExp generated - class 1`] = `
+"new RegExp();
+
+class A1 extends RegExp {}
+"
+`;
+
+exports[`lib/core.js globals RegExp variable 1`] = `
+"var a = RegExp;
+"
+`;
+
+exports[`lib/core.js globals Set generated - class - typeParams(1) 1`] = `
+"new Set();
+
+class A1 extends Set<P0> {}
+let a1 = new Set<P0>();
+"
+`;
+
+exports[`lib/core.js globals Set variable 1`] = `
+"var a = Set;
+"
+`;
+
+exports[`lib/core.js globals String generated - class 1`] = `
+"new String();
+
+class A1 extends String {}
+"
+`;
+
+exports[`lib/core.js globals String variable 1`] = `
+"var a = String;
+"
+`;
+
+exports[`lib/core.js globals Symbol generated - class 1`] = `
+"new Symbol();
+
+class A1 extends Symbol {}
+"
+`;
+
+exports[`lib/core.js globals Symbol variable 1`] = `
+"var a = Symbol;
+"
+`;
+
+exports[`lib/core.js globals SyntaxError generated - class 1`] = `
+"new SyntaxError();
+
+class A1 extends SyntaxError {}
+"
+`;
+
+exports[`lib/core.js globals SyntaxError variable 1`] = `
+"var a = SyntaxError;
+"
+`;
+
+exports[`lib/core.js globals TimeoutID generated - interface 1`] = `
+"class A1 extends TimeoutID {}
+"
+`;
+
+exports[`lib/core.js globals TimeoutID generated - type 1`] = `""`;
+
+exports[`lib/core.js globals TypeError generated - class 1`] = `
+"new TypeError();
+
+class A1 extends TypeError {}
+"
+`;
+
+exports[`lib/core.js globals TypeError variable 1`] = `
+"var a = TypeError;
+"
+`;
+
+exports[`lib/core.js globals URIError generated - class 1`] = `
+"new URIError();
+
+class A1 extends URIError {}
+"
+`;
+
+exports[`lib/core.js globals URIError variable 1`] = `
+"var a = URIError;
+"
+`;
+
+exports[`lib/core.js globals Uint8Array generated - class 1`] = `
+"new Uint8Array();
+
+class A1 extends Uint8Array {}
+"
+`;
+
+exports[`lib/core.js globals Uint8Array variable 1`] = `
+"var a = Uint8Array;
+"
+`;
+
+exports[`lib/core.js globals Uint8ClampedArray generated - class 1`] = `
+"new Uint8ClampedArray();
+
+class A1 extends Uint8ClampedArray {}
+"
+`;
+
+exports[`lib/core.js globals Uint8ClampedArray variable 1`] = `
+"var a = Uint8ClampedArray;
+"
+`;
+
+exports[`lib/core.js globals Uint16Array generated - class 1`] = `
+"new Uint16Array();
+
+class A1 extends Uint16Array {}
+"
+`;
+
+exports[`lib/core.js globals Uint16Array variable 1`] = `
+"var a = Uint16Array;
+"
+`;
+
+exports[`lib/core.js globals Uint32Array generated - class 1`] = `
+"new Uint32Array();
+
+class A1 extends Uint32Array {}
+"
+`;
+
+exports[`lib/core.js globals Uint32Array variable 1`] = `
+"var a = Uint32Array;
+"
+`;
+
+exports[`lib/core.js globals WeakMap generated - class - typeParams(2) 1`] = `
+"new WeakMap();
+
+class A1 extends WeakMap<P0, P1> {}
+let a1 = new WeakMap<P0, P1>();
+"
+`;
+
+exports[`lib/core.js globals WeakMap variable 1`] = `
+"var a = WeakMap;
+"
+`;
+
+exports[`lib/core.js globals WeakSet generated - class - typeParams(1) 1`] = `
+"new WeakSet();
+
+class A1 extends WeakSet<P0> {}
+let a1 = new WeakSet<P0>();
+"
+`;
+
+exports[`lib/core.js globals WeakSet variable 1`] = `
+"var a = WeakSet;
+"
+`;
+
+exports[`lib/core.js globals atob generated - callable 1`] = `
+"atob();
+"
+`;
+
+exports[`lib/core.js globals atob generated - class 1`] = `
+"new atob();
+
+class A1 extends atob {}
+"
+`;
+
+exports[`lib/core.js globals atob variable 1`] = `
+"var a = atob;
+"
+`;
+
+exports[`lib/core.js globals btoa generated - callable 1`] = `
+"btoa();
+"
+`;
+
+exports[`lib/core.js globals btoa generated - class 1`] = `
+"new btoa();
+
+class A1 extends btoa {}
+"
+`;
+
+exports[`lib/core.js globals btoa variable 1`] = `
+"var a = btoa;
+"
+`;
+
+exports[`lib/core.js globals clearInterval generated - callable 1`] = `
+"clearInterval();
+"
+`;
+
+exports[`lib/core.js globals clearInterval generated - class 1`] = `
+"new clearInterval();
+
+class A1 extends clearInterval {}
+"
+`;
+
+exports[`lib/core.js globals clearInterval variable 1`] = `
+"var a = clearInterval;
+"
+`;
+
+exports[`lib/core.js globals clearTimeout generated - callable 1`] = `
+"clearTimeout();
+"
+`;
+
+exports[`lib/core.js globals clearTimeout generated - class 1`] = `
+"new clearTimeout();
+
+class A1 extends clearTimeout {}
+"
+`;
+
+exports[`lib/core.js globals clearTimeout variable 1`] = `
+"var a = clearTimeout;
+"
+`;
+
+exports[`lib/core.js globals console variable 1`] = `
+"var a = console;
+"
+`;
+
+exports[`lib/core.js globals decodeURI generated - callable 1`] = `
+"decodeURI();
+"
+`;
+
+exports[`lib/core.js globals decodeURI generated - class 1`] = `
+"new decodeURI();
+
+class A1 extends decodeURI {}
+"
+`;
+
+exports[`lib/core.js globals decodeURI variable 1`] = `
+"var a = decodeURI;
+"
+`;
+
+exports[`lib/core.js globals decodeURIComponent generated - callable 1`] = `
+"decodeURIComponent();
+"
+`;
+
+exports[`lib/core.js globals decodeURIComponent generated - class 1`] = `
+"new decodeURIComponent();
+
+class A1 extends decodeURIComponent {}
+"
+`;
+
+exports[`lib/core.js globals decodeURIComponent variable 1`] = `
+"var a = decodeURIComponent;
+"
+`;
+
+exports[`lib/core.js globals encodeURI generated - callable 1`] = `
+"encodeURI();
+"
+`;
+
+exports[`lib/core.js globals encodeURI generated - class 1`] = `
+"new encodeURI();
+
+class A1 extends encodeURI {}
+"
+`;
+
+exports[`lib/core.js globals encodeURI variable 1`] = `
+"var a = encodeURI;
+"
+`;
+
+exports[`lib/core.js globals encodeURIComponent generated - callable 1`] = `
+"encodeURIComponent();
+"
+`;
+
+exports[`lib/core.js globals encodeURIComponent generated - class 1`] = `
+"new encodeURIComponent();
+
+class A1 extends encodeURIComponent {}
+"
+`;
+
+exports[`lib/core.js globals encodeURIComponent variable 1`] = `
+"var a = encodeURIComponent;
+"
+`;
+
+exports[`lib/core.js globals escape generated - callable 1`] = `
+"escape();
+"
+`;
+
+exports[`lib/core.js globals escape generated - class 1`] = `
+"new escape();
+
+class A1 extends escape {}
+"
+`;
+
+exports[`lib/core.js globals escape variable 1`] = `
+"var a = escape;
+"
+`;
+
+exports[`lib/core.js globals exports variable 1`] = `
+"var a = exports;
+"
+`;
+
+exports[`lib/core.js globals global variable 1`] = `
+"var a = global;
+"
+`;
+
+exports[`lib/core.js globals isFinite generated - callable 1`] = `
+"isFinite();
+"
+`;
+
+exports[`lib/core.js globals isFinite generated - class 1`] = `
+"new isFinite();
+
+class A1 extends isFinite {}
+"
+`;
+
+exports[`lib/core.js globals isFinite variable 1`] = `
+"var a = isFinite;
+"
+`;
+
+exports[`lib/core.js globals isNaN generated - callable 1`] = `
+"isNaN();
+"
+`;
+
+exports[`lib/core.js globals isNaN generated - class 1`] = `
+"new isNaN();
+
+class A1 extends isNaN {}
+"
+`;
+
+exports[`lib/core.js globals isNaN variable 1`] = `
+"var a = isNaN;
+"
+`;
+
+exports[`lib/core.js globals module variable 1`] = `
+"var a = module;
+"
+`;
+
+exports[`lib/core.js globals parseFloat generated - callable 1`] = `
+"parseFloat();
+"
+`;
+
+exports[`lib/core.js globals parseFloat generated - class 1`] = `
+"new parseFloat();
+
+class A1 extends parseFloat {}
+"
+`;
+
+exports[`lib/core.js globals parseFloat variable 1`] = `
+"var a = parseFloat;
+"
+`;
+
+exports[`lib/core.js globals parseInt generated - callable 1`] = `
+"parseInt();
+"
+`;
+
+exports[`lib/core.js globals parseInt generated - class 1`] = `
+"new parseInt();
+
+class A1 extends parseInt {}
+"
+`;
+
+exports[`lib/core.js globals parseInt variable 1`] = `
+"var a = parseInt;
+"
+`;
+
+exports[`lib/core.js globals require variable 1`] = `
+"var a = require;
+"
+`;
+
+exports[`lib/core.js globals setInterval generated - callable - typeParams(1) 1`] = `
+"setInterval();
+
+let a1 = setInterval<P0>();
+"
+`;
+
+exports[`lib/core.js globals setInterval generated - class - typeParams(1) 1`] = `
+"new setInterval();
+
+class A1 extends setInterval<P0> {}
+let a1 = new setInterval<P0>();
+"
+`;
+
+exports[`lib/core.js globals setInterval variable 1`] = `
+"var a = setInterval;
+"
+`;
+
+exports[`lib/core.js globals setTimeout generated - callable - typeParams(1) 1`] = `
+"setTimeout();
+
+let a1 = setTimeout<P0>();
+"
+`;
+
+exports[`lib/core.js globals setTimeout generated - class - typeParams(1) 1`] = `
+"new setTimeout();
+
+class A1 extends setTimeout<P0> {}
+let a1 = new setTimeout<P0>();
+"
+`;
+
+exports[`lib/core.js globals setTimeout variable 1`] = `
+"var a = setTimeout;
+"
+`;
+
+exports[`lib/core.js globals undefined variable 1`] = `
+"var a = undefined;
+"
+`;
+
+exports[`lib/core.js globals unescape generated - callable 1`] = `
+"unescape();
+"
+`;
+
+exports[`lib/core.js globals unescape generated - class 1`] = `
+"new unescape();
+
+class A1 extends unescape {}
+"
+`;
+
+exports[`lib/core.js globals unescape variable 1`] = `
+"var a = unescape;
+"
+`;

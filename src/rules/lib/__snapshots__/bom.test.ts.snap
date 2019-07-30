@@ -1,0 +1,1561 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/bom.js globals AbortController generated - class 1`] = `
+"new AbortController();
+
+class A1 extends AbortController {}
+"
+`;
+
+exports[`lib/bom.js globals AbortController variable 1`] = `
+"var a = AbortController;
+"
+`;
+
+exports[`lib/bom.js globals AbortSignal generated - class 1`] = `
+"new AbortSignal();
+
+class A1 extends AbortSignal {}
+"
+`;
+
+exports[`lib/bom.js globals AbortSignal variable 1`] = `
+"var a = AbortSignal;
+"
+`;
+
+exports[`lib/bom.js globals AnalyserNode generated - class 1`] = `
+"new AnalyserNode();
+
+class A1 extends AnalyserNode {}
+"
+`;
+
+exports[`lib/bom.js globals AnalyserNode variable 1`] = `
+"var a = AnalyserNode;
+"
+`;
+
+exports[`lib/bom.js globals AudioBuffer generated - class 1`] = `
+"new AudioBuffer();
+
+class A1 extends AudioBuffer {}
+"
+`;
+
+exports[`lib/bom.js globals AudioBuffer variable 1`] = `
+"var a = AudioBuffer;
+"
+`;
+
+exports[`lib/bom.js globals AudioBufferSourceNode generated - class 1`] = `
+"new AudioBufferSourceNode();
+
+class A1 extends AudioBufferSourceNode {}
+"
+`;
+
+exports[`lib/bom.js globals AudioBufferSourceNode variable 1`] = `
+"var a = AudioBufferSourceNode;
+"
+`;
+
+exports[`lib/bom.js globals AudioContext generated - class 1`] = `
+"new AudioContext();
+
+class A1 extends AudioContext {}
+"
+`;
+
+exports[`lib/bom.js globals AudioContext variable 1`] = `
+"var a = AudioContext;
+"
+`;
+
+exports[`lib/bom.js globals AudioDestinationNode generated - class 1`] = `
+"new AudioDestinationNode();
+
+class A1 extends AudioDestinationNode {}
+"
+`;
+
+exports[`lib/bom.js globals AudioDestinationNode variable 1`] = `
+"var a = AudioDestinationNode;
+"
+`;
+
+exports[`lib/bom.js globals AudioListener generated - class 1`] = `
+"new AudioListener();
+
+class A1 extends AudioListener {}
+"
+`;
+
+exports[`lib/bom.js globals AudioListener variable 1`] = `
+"var a = AudioListener;
+"
+`;
+
+exports[`lib/bom.js globals AudioNode generated - class 1`] = `
+"new AudioNode();
+
+class A1 extends AudioNode {}
+"
+`;
+
+exports[`lib/bom.js globals AudioNode variable 1`] = `
+"var a = AudioNode;
+"
+`;
+
+exports[`lib/bom.js globals AudioParam generated - class 1`] = `
+"new AudioParam();
+
+class A1 extends AudioParam {}
+"
+`;
+
+exports[`lib/bom.js globals AudioParam variable 1`] = `
+"var a = AudioParam;
+"
+`;
+
+exports[`lib/bom.js globals AudioProcessingEvent generated - class 1`] = `
+"new AudioProcessingEvent();
+
+class A1 extends AudioProcessingEvent {}
+"
+`;
+
+exports[`lib/bom.js globals AudioProcessingEvent variable 1`] = `
+"var a = AudioProcessingEvent;
+"
+`;
+
+exports[`lib/bom.js globals AudioTimestamp generated - class 1`] = `
+"new AudioTimestamp();
+
+class A1 extends AudioTimestamp {}
+"
+`;
+
+exports[`lib/bom.js globals AudioTimestamp variable 1`] = `
+"var a = AudioTimestamp;
+"
+`;
+
+exports[`lib/bom.js globals BaseAudioContext generated - class 1`] = `
+"new BaseAudioContext();
+
+class A1 extends BaseAudioContext {}
+"
+`;
+
+exports[`lib/bom.js globals BaseAudioContext variable 1`] = `
+"var a = BaseAudioContext;
+"
+`;
+
+exports[`lib/bom.js globals BiquadFilterNode generated - class 1`] = `
+"new BiquadFilterNode();
+
+class A1 extends BiquadFilterNode {}
+"
+`;
+
+exports[`lib/bom.js globals BiquadFilterNode variable 1`] = `
+"var a = BiquadFilterNode;
+"
+`;
+
+exports[`lib/bom.js globals CanvasCaptureMediaStream generated - class 1`] = `
+"new CanvasCaptureMediaStream();
+
+class A1 extends CanvasCaptureMediaStream {}
+"
+`;
+
+exports[`lib/bom.js globals CanvasCaptureMediaStream variable 1`] = `
+"var a = CanvasCaptureMediaStream;
+"
+`;
+
+exports[`lib/bom.js globals ChannelMergerNode generated - class 1`] = `
+"new ChannelMergerNode();
+
+class A1 extends ChannelMergerNode {}
+"
+`;
+
+exports[`lib/bom.js globals ChannelMergerNode variable 1`] = `
+"var a = ChannelMergerNode;
+"
+`;
+
+exports[`lib/bom.js globals ChannelSplitterNode generated - class 1`] = `
+"new ChannelSplitterNode();
+
+class A1 extends ChannelSplitterNode {}
+"
+`;
+
+exports[`lib/bom.js globals ChannelSplitterNode variable 1`] = `
+"var a = ChannelSplitterNode;
+"
+`;
+
+exports[`lib/bom.js globals Clipboard generated - class 1`] = `
+"new Clipboard();
+
+class A1 extends Clipboard {}
+"
+`;
+
+exports[`lib/bom.js globals Clipboard variable 1`] = `
+"var a = Clipboard;
+"
+`;
+
+exports[`lib/bom.js globals CloseEvent generated - class 1`] = `
+"new CloseEvent();
+
+class A1 extends CloseEvent {}
+"
+`;
+
+exports[`lib/bom.js globals CloseEvent variable 1`] = `
+"var a = CloseEvent;
+"
+`;
+
+exports[`lib/bom.js globals ConstantSourceNode generated - class 1`] = `
+"new ConstantSourceNode();
+
+class A1 extends ConstantSourceNode {}
+"
+`;
+
+exports[`lib/bom.js globals ConstantSourceNode variable 1`] = `
+"var a = ConstantSourceNode;
+"
+`;
+
+exports[`lib/bom.js globals ConvolverNode generated - class 1`] = `
+"new ConvolverNode();
+
+class A1 extends ConvolverNode {}
+"
+`;
+
+exports[`lib/bom.js globals ConvolverNode variable 1`] = `
+"var a = ConvolverNode;
+"
+`;
+
+exports[`lib/bom.js globals Coordinates generated - class 1`] = `
+"new Coordinates();
+
+class A1 extends Coordinates {}
+"
+`;
+
+exports[`lib/bom.js globals Coordinates variable 1`] = `
+"var a = Coordinates;
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtCredential generated - interface 1`] = `
+"class A1 extends CredMgmtCredential {}
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtCredential generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals CredMgmtCredentialCreationOptions generated - interface 1`] = `
+"class A1 extends CredMgmtCredentialCreationOptions {}
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtCredentialCreationOptions generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals CredMgmtCredentialRequestOptions generated - interface 1`] = `
+"class A1 extends CredMgmtCredentialRequestOptions {}
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtCredentialRequestOptions generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals CredMgmtCredentialsContainer generated - interface 1`] = `
+"class A1 extends CredMgmtCredentialsContainer {}
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtCredentialsContainer generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals CredMgmtPasswordCredential generated - interface 1`] = `
+"class A1 extends CredMgmtPasswordCredential {}
+"
+`;
+
+exports[`lib/bom.js globals CredMgmtPasswordCredential generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals DOMHighResTimeStamp generated - interface 1`] = `
+"class A1 extends DOMHighResTimeStamp {}
+"
+`;
+
+exports[`lib/bom.js globals DOMHighResTimeStamp generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals DOMParser generated - class 1`] = `
+"new DOMParser();
+
+class A1 extends DOMParser {}
+"
+`;
+
+exports[`lib/bom.js globals DOMParser variable 1`] = `
+"var a = DOMParser;
+"
+`;
+
+exports[`lib/bom.js globals DOMRect generated - class 1`] = `
+"new DOMRect();
+
+class A1 extends DOMRect {}
+"
+`;
+
+exports[`lib/bom.js globals DOMRect variable 1`] = `
+"var a = DOMRect;
+"
+`;
+
+exports[`lib/bom.js globals DOMRectList generated - class 1`] = `
+"new DOMRectList();
+
+class A1 extends DOMRectList {}
+"
+`;
+
+exports[`lib/bom.js globals DOMRectList variable 1`] = `
+"var a = DOMRectList;
+"
+`;
+
+exports[`lib/bom.js globals DOMRectReadOnly generated - class 1`] = `
+"new DOMRectReadOnly();
+
+class A1 extends DOMRectReadOnly {}
+"
+`;
+
+exports[`lib/bom.js globals DOMRectReadOnly variable 1`] = `
+"var a = DOMRectReadOnly;
+"
+`;
+
+exports[`lib/bom.js globals DedicatedWorkerGlobalScope generated - class 1`] = `
+"new DedicatedWorkerGlobalScope();
+
+class A1 extends DedicatedWorkerGlobalScope {}
+"
+`;
+
+exports[`lib/bom.js globals DedicatedWorkerGlobalScope variable 1`] = `
+"var a = DedicatedWorkerGlobalScope;
+"
+`;
+
+exports[`lib/bom.js globals DelayNode generated - class 1`] = `
+"new DelayNode();
+
+class A1 extends DelayNode {}
+"
+`;
+
+exports[`lib/bom.js globals DelayNode variable 1`] = `
+"var a = DelayNode;
+"
+`;
+
+exports[`lib/bom.js globals DynamicsCompressorNode generated - class 1`] = `
+"new DynamicsCompressorNode();
+
+class A1 extends DynamicsCompressorNode {}
+"
+`;
+
+exports[`lib/bom.js globals DynamicsCompressorNode variable 1`] = `
+"var a = DynamicsCompressorNode;
+"
+`;
+
+exports[`lib/bom.js globals FormData generated - class 1`] = `
+"new FormData();
+
+class A1 extends FormData {}
+"
+`;
+
+exports[`lib/bom.js globals FormData variable 1`] = `
+"var a = FormData;
+"
+`;
+
+exports[`lib/bom.js globals GainNode generated - class 1`] = `
+"new GainNode();
+
+class A1 extends GainNode {}
+"
+`;
+
+exports[`lib/bom.js globals GainNode variable 1`] = `
+"var a = GainNode;
+"
+`;
+
+exports[`lib/bom.js globals Geolocation generated - class 1`] = `
+"new Geolocation();
+
+class A1 extends Geolocation {}
+"
+`;
+
+exports[`lib/bom.js globals Geolocation variable 1`] = `
+"var a = Geolocation;
+"
+`;
+
+exports[`lib/bom.js globals Headers generated - class 1`] = `
+"new Headers();
+
+class A1 extends Headers {}
+"
+`;
+
+exports[`lib/bom.js globals Headers variable 1`] = `
+"var a = Headers;
+"
+`;
+
+exports[`lib/bom.js globals History generated - class 1`] = `
+"new History();
+
+class A1 extends History {}
+"
+`;
+
+exports[`lib/bom.js globals History variable 1`] = `
+"var a = History;
+"
+`;
+
+exports[`lib/bom.js globals IIRFilterNode generated - class 1`] = `
+"new IIRFilterNode();
+
+class A1 extends IIRFilterNode {}
+"
+`;
+
+exports[`lib/bom.js globals IIRFilterNode variable 1`] = `
+"var a = IIRFilterNode;
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserver generated - class 1`] = `
+"new IntersectionObserver();
+
+class A1 extends IntersectionObserver {}
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserver variable 1`] = `
+"var a = IntersectionObserver;
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserverCallback generated - interface 1`] = `
+"class A1 extends IntersectionObserverCallback {}
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserverCallback generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals IntersectionObserverEntry generated - interface 1`] = `
+"class A1 extends IntersectionObserverEntry {}
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserverEntry generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals IntersectionObserverOptions generated - interface 1`] = `
+"class A1 extends IntersectionObserverOptions {}
+"
+`;
+
+exports[`lib/bom.js globals IntersectionObserverOptions generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals Location generated - class 1`] = `
+"new Location();
+
+class A1 extends Location {}
+"
+`;
+
+exports[`lib/bom.js globals Location variable 1`] = `
+"var a = Location;
+"
+`;
+
+exports[`lib/bom.js globals MIDIAccess generated - class 1`] = `
+"new MIDIAccess();
+
+class A1 extends MIDIAccess {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIAccess variable 1`] = `
+"var a = MIDIAccess;
+"
+`;
+
+exports[`lib/bom.js globals MIDIConnectionEvent generated - class 1`] = `
+"new MIDIConnectionEvent();
+
+class A1 extends MIDIConnectionEvent {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIConnectionEvent variable 1`] = `
+"var a = MIDIConnectionEvent;
+"
+`;
+
+exports[`lib/bom.js globals MIDIInput generated - class 1`] = `
+"new MIDIInput();
+
+class A1 extends MIDIInput {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIInput variable 1`] = `
+"var a = MIDIInput;
+"
+`;
+
+exports[`lib/bom.js globals MIDIInputMap generated - class 1`] = `
+"new MIDIInputMap();
+
+class A1 extends MIDIInputMap {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIInputMap variable 1`] = `
+"var a = MIDIInputMap;
+"
+`;
+
+exports[`lib/bom.js globals MIDIMessageEvent generated - class 1`] = `
+"new MIDIMessageEvent();
+
+class A1 extends MIDIMessageEvent {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIMessageEvent variable 1`] = `
+"var a = MIDIMessageEvent;
+"
+`;
+
+exports[`lib/bom.js globals MIDIOutput generated - class 1`] = `
+"new MIDIOutput();
+
+class A1 extends MIDIOutput {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIOutput variable 1`] = `
+"var a = MIDIOutput;
+"
+`;
+
+exports[`lib/bom.js globals MIDIOutputMap generated - class 1`] = `
+"new MIDIOutputMap();
+
+class A1 extends MIDIOutputMap {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIOutputMap variable 1`] = `
+"var a = MIDIOutputMap;
+"
+`;
+
+exports[`lib/bom.js globals MIDIPort generated - class 1`] = `
+"new MIDIPort();
+
+class A1 extends MIDIPort {}
+"
+`;
+
+exports[`lib/bom.js globals MIDIPort variable 1`] = `
+"var a = MIDIPort;
+"
+`;
+
+exports[`lib/bom.js globals MediaDeviceInfo generated - class 1`] = `
+"new MediaDeviceInfo();
+
+class A1 extends MediaDeviceInfo {}
+"
+`;
+
+exports[`lib/bom.js globals MediaDeviceInfo variable 1`] = `
+"var a = MediaDeviceInfo;
+"
+`;
+
+exports[`lib/bom.js globals MediaDevices generated - class 1`] = `
+"new MediaDevices();
+
+class A1 extends MediaDevices {}
+"
+`;
+
+exports[`lib/bom.js globals MediaDevices variable 1`] = `
+"var a = MediaDevices;
+"
+`;
+
+exports[`lib/bom.js globals MediaElementAudioSourceNode generated - class 1`] = `
+"new MediaElementAudioSourceNode();
+
+class A1 extends MediaElementAudioSourceNode {}
+"
+`;
+
+exports[`lib/bom.js globals MediaElementAudioSourceNode variable 1`] = `
+"var a = MediaElementAudioSourceNode;
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryList generated - class 1`] = `
+"new MediaQueryList();
+
+class A1 extends MediaQueryList {}
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryList variable 1`] = `
+"var a = MediaQueryList;
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryListEvent generated - class 1`] = `
+"new MediaQueryListEvent();
+
+class A1 extends MediaQueryListEvent {}
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryListEvent variable 1`] = `
+"var a = MediaQueryListEvent;
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryListListener generated - interface 1`] = `
+"class A1 extends MediaQueryListListener {}
+"
+`;
+
+exports[`lib/bom.js globals MediaQueryListListener generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals MediaStream generated - class 1`] = `
+"new MediaStream();
+
+class A1 extends MediaStream {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStream variable 1`] = `
+"var a = MediaStream;
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamAudioDestinationNode generated - class 1`] = `
+"new MediaStreamAudioDestinationNode();
+
+class A1 extends MediaStreamAudioDestinationNode {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamAudioDestinationNode variable 1`] = `
+"var a = MediaStreamAudioDestinationNode;
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamAudioSourceNode generated - class 1`] = `
+"new MediaStreamAudioSourceNode();
+
+class A1 extends MediaStreamAudioSourceNode {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamAudioSourceNode variable 1`] = `
+"var a = MediaStreamAudioSourceNode;
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrack generated - class 1`] = `
+"new MediaStreamTrack();
+
+class A1 extends MediaStreamTrack {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrack variable 1`] = `
+"var a = MediaStreamTrack;
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrackAudioSourceNode generated - class 1`] = `
+"new MediaStreamTrackAudioSourceNode();
+
+class A1 extends MediaStreamTrackAudioSourceNode {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrackAudioSourceNode variable 1`] = `
+"var a = MediaStreamTrackAudioSourceNode;
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrackEvent generated - class 1`] = `
+"new MediaStreamTrackEvent();
+
+class A1 extends MediaStreamTrackEvent {}
+"
+`;
+
+exports[`lib/bom.js globals MediaStreamTrackEvent variable 1`] = `
+"var a = MediaStreamTrackEvent;
+"
+`;
+
+exports[`lib/bom.js globals MessageChannel generated - class 1`] = `
+"new MessageChannel();
+
+class A1 extends MessageChannel {}
+"
+`;
+
+exports[`lib/bom.js globals MessageChannel variable 1`] = `
+"var a = MessageChannel;
+"
+`;
+
+exports[`lib/bom.js globals MessagePort generated - class 1`] = `
+"new MessagePort();
+
+class A1 extends MessagePort {}
+"
+`;
+
+exports[`lib/bom.js globals MessagePort variable 1`] = `
+"var a = MessagePort;
+"
+`;
+
+exports[`lib/bom.js globals MimeType generated - class 1`] = `
+"new MimeType();
+
+class A1 extends MimeType {}
+"
+`;
+
+exports[`lib/bom.js globals MimeType variable 1`] = `
+"var a = MimeType;
+"
+`;
+
+exports[`lib/bom.js globals MimeTypeArray generated - class 1`] = `
+"new MimeTypeArray();
+
+class A1 extends MimeTypeArray {}
+"
+`;
+
+exports[`lib/bom.js globals MimeTypeArray variable 1`] = `
+"var a = MimeTypeArray;
+"
+`;
+
+exports[`lib/bom.js globals MutationObserver generated - class 1`] = `
+"new MutationObserver();
+
+class A1 extends MutationObserver {}
+"
+`;
+
+exports[`lib/bom.js globals MutationObserver variable 1`] = `
+"var a = MutationObserver;
+"
+`;
+
+exports[`lib/bom.js globals MutationObserverInit generated - interface 1`] = `
+"class A1 extends MutationObserverInit {}
+"
+`;
+
+exports[`lib/bom.js globals MutationObserverInit generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals MutationRecord generated - class 1`] = `
+"new MutationRecord();
+
+class A1 extends MutationRecord {}
+"
+`;
+
+exports[`lib/bom.js globals MutationRecord variable 1`] = `
+"var a = MutationRecord;
+"
+`;
+
+exports[`lib/bom.js globals Navigator generated - class 1`] = `
+"new Navigator();
+
+class A1 extends Navigator {}
+"
+`;
+
+exports[`lib/bom.js globals Navigator variable 1`] = `
+"var a = Navigator;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorConcurrentHardware generated - class 1`] = `
+"new NavigatorConcurrentHardware();
+
+class A1 extends NavigatorConcurrentHardware {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorConcurrentHardware variable 1`] = `
+"var a = NavigatorConcurrentHardware;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorContentUtils generated - class 1`] = `
+"new NavigatorContentUtils();
+
+class A1 extends NavigatorContentUtils {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorContentUtils variable 1`] = `
+"var a = NavigatorContentUtils;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorCookies generated - class 1`] = `
+"new NavigatorCookies();
+
+class A1 extends NavigatorCookies {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorCookies variable 1`] = `
+"var a = NavigatorCookies;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorID generated - class 1`] = `
+"new NavigatorID();
+
+class A1 extends NavigatorID {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorID variable 1`] = `
+"var a = NavigatorID;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorLanguage generated - class 1`] = `
+"new NavigatorLanguage();
+
+class A1 extends NavigatorLanguage {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorLanguage variable 1`] = `
+"var a = NavigatorLanguage;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorOnLine generated - class 1`] = `
+"new NavigatorOnLine();
+
+class A1 extends NavigatorOnLine {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorOnLine variable 1`] = `
+"var a = NavigatorOnLine;
+"
+`;
+
+exports[`lib/bom.js globals NavigatorPlugins generated - class 1`] = `
+"new NavigatorPlugins();
+
+class A1 extends NavigatorPlugins {}
+"
+`;
+
+exports[`lib/bom.js globals NavigatorPlugins variable 1`] = `
+"var a = NavigatorPlugins;
+"
+`;
+
+exports[`lib/bom.js globals NodeFilter variable 1`] = `
+"var a = NodeFilter;
+"
+`;
+
+exports[`lib/bom.js globals OfflineAudioCompletionEvent generated - class 1`] = `
+"new OfflineAudioCompletionEvent();
+
+class A1 extends OfflineAudioCompletionEvent {}
+"
+`;
+
+exports[`lib/bom.js globals OfflineAudioCompletionEvent variable 1`] = `
+"var a = OfflineAudioCompletionEvent;
+"
+`;
+
+exports[`lib/bom.js globals OfflineAudioContext generated - class 1`] = `
+"new OfflineAudioContext();
+
+class A1 extends OfflineAudioContext {}
+"
+`;
+
+exports[`lib/bom.js globals OfflineAudioContext variable 1`] = `
+"var a = OfflineAudioContext;
+"
+`;
+
+exports[`lib/bom.js globals OscillatorNode generated - class 1`] = `
+"new OscillatorNode();
+
+class A1 extends OscillatorNode {}
+"
+`;
+
+exports[`lib/bom.js globals OscillatorNode variable 1`] = `
+"var a = OscillatorNode;
+"
+`;
+
+exports[`lib/bom.js globals PannerNode generated - class 1`] = `
+"new PannerNode();
+
+class A1 extends PannerNode {}
+"
+`;
+
+exports[`lib/bom.js globals PannerNode variable 1`] = `
+"var a = PannerNode;
+"
+`;
+
+exports[`lib/bom.js globals Performance generated - class 1`] = `
+"new Performance();
+
+class A1 extends Performance {}
+"
+`;
+
+exports[`lib/bom.js globals Performance variable 1`] = `
+"var a = Performance;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceEntry generated - class 1`] = `
+"new PerformanceEntry();
+
+class A1 extends PerformanceEntry {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceEntry variable 1`] = `
+"var a = PerformanceEntry;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceNavigation generated - class 1`] = `
+"new PerformanceNavigation();
+
+class A1 extends PerformanceNavigation {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceNavigation variable 1`] = `
+"var a = PerformanceNavigation;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceNavigationTiming generated - class 1`] = `
+"new PerformanceNavigationTiming();
+
+class A1 extends PerformanceNavigationTiming {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceNavigationTiming variable 1`] = `
+"var a = PerformanceNavigationTiming;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceResourceTiming generated - class 1`] = `
+"new PerformanceResourceTiming();
+
+class A1 extends PerformanceResourceTiming {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceResourceTiming variable 1`] = `
+"var a = PerformanceResourceTiming;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceTiming generated - class 1`] = `
+"new PerformanceTiming();
+
+class A1 extends PerformanceTiming {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceTiming variable 1`] = `
+"var a = PerformanceTiming;
+"
+`;
+
+exports[`lib/bom.js globals PeriodicWave generated - class 1`] = `
+"new PeriodicWave();
+
+class A1 extends PeriodicWave {}
+"
+`;
+
+exports[`lib/bom.js globals PeriodicWave variable 1`] = `
+"var a = PeriodicWave;
+"
+`;
+
+exports[`lib/bom.js globals PermissionStatus generated - class 1`] = `
+"new PermissionStatus();
+
+class A1 extends PermissionStatus {}
+"
+`;
+
+exports[`lib/bom.js globals PermissionStatus variable 1`] = `
+"var a = PermissionStatus;
+"
+`;
+
+exports[`lib/bom.js globals Permissions generated - class 1`] = `
+"new Permissions();
+
+class A1 extends Permissions {}
+"
+`;
+
+exports[`lib/bom.js globals Permissions variable 1`] = `
+"var a = Permissions;
+"
+`;
+
+exports[`lib/bom.js globals Plugin generated - class 1`] = `
+"new Plugin();
+
+class A1 extends Plugin {}
+"
+`;
+
+exports[`lib/bom.js globals Plugin variable 1`] = `
+"var a = Plugin;
+"
+`;
+
+exports[`lib/bom.js globals PluginArray generated - class 1`] = `
+"new PluginArray();
+
+class A1 extends PluginArray {}
+"
+`;
+
+exports[`lib/bom.js globals PluginArray variable 1`] = `
+"var a = PluginArray;
+"
+`;
+
+exports[`lib/bom.js globals Position generated - class 1`] = `
+"new Position();
+
+class A1 extends Position {}
+"
+`;
+
+exports[`lib/bom.js globals Position variable 1`] = `
+"var a = Position;
+"
+`;
+
+exports[`lib/bom.js globals PositionError generated - class 1`] = `
+"new PositionError();
+
+class A1 extends PositionError {}
+"
+`;
+
+exports[`lib/bom.js globals PositionError variable 1`] = `
+"var a = PositionError;
+"
+`;
+
+exports[`lib/bom.js globals Request generated - class 1`] = `
+"new Request();
+
+class A1 extends Request {}
+"
+`;
+
+exports[`lib/bom.js globals Request variable 1`] = `
+"var a = Request;
+"
+`;
+
+exports[`lib/bom.js globals ResizeObserver generated - class 1`] = `
+"new ResizeObserver();
+
+class A1 extends ResizeObserver {}
+"
+`;
+
+exports[`lib/bom.js globals ResizeObserver variable 1`] = `
+"var a = ResizeObserver;
+"
+`;
+
+exports[`lib/bom.js globals ResizeObserverEntry generated - class 1`] = `
+"new ResizeObserverEntry();
+
+class A1 extends ResizeObserverEntry {}
+"
+`;
+
+exports[`lib/bom.js globals ResizeObserverEntry variable 1`] = `
+"var a = ResizeObserverEntry;
+"
+`;
+
+exports[`lib/bom.js globals Response generated - class 1`] = `
+"new Response();
+
+class A1 extends Response {}
+"
+`;
+
+exports[`lib/bom.js globals Response variable 1`] = `
+"var a = Response;
+"
+`;
+
+exports[`lib/bom.js globals Screen generated - class 1`] = `
+"new Screen();
+
+class A1 extends Screen {}
+"
+`;
+
+exports[`lib/bom.js globals Screen variable 1`] = `
+"var a = Screen;
+"
+`;
+
+exports[`lib/bom.js globals ScriptProcessorNode generated - class 1`] = `
+"new ScriptProcessorNode();
+
+class A1 extends ScriptProcessorNode {}
+"
+`;
+
+exports[`lib/bom.js globals ScriptProcessorNode variable 1`] = `
+"var a = ScriptProcessorNode;
+"
+`;
+
+exports[`lib/bom.js globals SharedWorker generated - class 1`] = `
+"new SharedWorker();
+
+class A1 extends SharedWorker {}
+"
+`;
+
+exports[`lib/bom.js globals SharedWorker variable 1`] = `
+"var a = SharedWorker;
+"
+`;
+
+exports[`lib/bom.js globals SharedWorkerGlobalScope generated - class 1`] = `
+"new SharedWorkerGlobalScope();
+
+class A1 extends SharedWorkerGlobalScope {}
+"
+`;
+
+exports[`lib/bom.js globals SharedWorkerGlobalScope variable 1`] = `
+"var a = SharedWorkerGlobalScope;
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesis generated - class 1`] = `
+"new SpeechSynthesis();
+
+class A1 extends SpeechSynthesis {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesis variable 1`] = `
+"var a = SpeechSynthesis;
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisErrorEvent generated - class 1`] = `
+"new SpeechSynthesisErrorEvent();
+
+class A1 extends SpeechSynthesisErrorEvent {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisErrorEvent variable 1`] = `
+"var a = SpeechSynthesisErrorEvent;
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisEvent generated - class 1`] = `
+"new SpeechSynthesisEvent();
+
+class A1 extends SpeechSynthesisEvent {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisEvent variable 1`] = `
+"var a = SpeechSynthesisEvent;
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisUtterance generated - class 1`] = `
+"new SpeechSynthesisUtterance();
+
+class A1 extends SpeechSynthesisUtterance {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisUtterance variable 1`] = `
+"var a = SpeechSynthesisUtterance;
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisVoice generated - class 1`] = `
+"new SpeechSynthesisVoice();
+
+class A1 extends SpeechSynthesisVoice {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechSynthesisVoice variable 1`] = `
+"var a = SpeechSynthesisVoice;
+"
+`;
+
+exports[`lib/bom.js globals StereoPannerNode generated - class 1`] = `
+"new StereoPannerNode();
+
+class A1 extends StereoPannerNode {}
+"
+`;
+
+exports[`lib/bom.js globals StereoPannerNode variable 1`] = `
+"var a = StereoPannerNode;
+"
+`;
+
+exports[`lib/bom.js globals TextDecoder generated - class 1`] = `
+"new TextDecoder();
+
+class A1 extends TextDecoder {}
+"
+`;
+
+exports[`lib/bom.js globals TextDecoder variable 1`] = `
+"var a = TextDecoder;
+"
+`;
+
+exports[`lib/bom.js globals TextEncoder generated - class 1`] = `
+"new TextEncoder();
+
+class A1 extends TextEncoder {}
+"
+`;
+
+exports[`lib/bom.js globals TextEncoder variable 1`] = `
+"var a = TextEncoder;
+"
+`;
+
+exports[`lib/bom.js globals URLSearchParams generated - class 1`] = `
+"new URLSearchParams();
+
+class A1 extends URLSearchParams {}
+"
+`;
+
+exports[`lib/bom.js globals URLSearchParams variable 1`] = `
+"var a = URLSearchParams;
+"
+`;
+
+exports[`lib/bom.js globals VRDisplay generated - class 1`] = `
+"new VRDisplay();
+
+class A1 extends VRDisplay {}
+"
+`;
+
+exports[`lib/bom.js globals VRDisplay variable 1`] = `
+"var a = VRDisplay;
+"
+`;
+
+exports[`lib/bom.js globals VRDisplayEvent generated - class 1`] = `
+"new VRDisplayEvent();
+
+class A1 extends VRDisplayEvent {}
+"
+`;
+
+exports[`lib/bom.js globals VRDisplayEvent variable 1`] = `
+"var a = VRDisplayEvent;
+"
+`;
+
+exports[`lib/bom.js globals VRFrameData generated - class 1`] = `
+"new VRFrameData();
+
+class A1 extends VRFrameData {}
+"
+`;
+
+exports[`lib/bom.js globals VRFrameData variable 1`] = `
+"var a = VRFrameData;
+"
+`;
+
+exports[`lib/bom.js globals WaveShaperNode generated - class 1`] = `
+"new WaveShaperNode();
+
+class A1 extends WaveShaperNode {}
+"
+`;
+
+exports[`lib/bom.js globals WaveShaperNode variable 1`] = `
+"var a = WaveShaperNode;
+"
+`;
+
+exports[`lib/bom.js globals WebSocket generated - class 1`] = `
+"new WebSocket();
+
+class A1 extends WebSocket {}
+"
+`;
+
+exports[`lib/bom.js globals WebSocket variable 1`] = `
+"var a = WebSocket;
+"
+`;
+
+exports[`lib/bom.js globals Worker generated - class 1`] = `
+"new Worker();
+
+class A1 extends Worker {}
+"
+`;
+
+exports[`lib/bom.js globals Worker variable 1`] = `
+"var a = Worker;
+"
+`;
+
+exports[`lib/bom.js globals WorkerGlobalScope generated - class 1`] = `
+"new WorkerGlobalScope();
+
+class A1 extends WorkerGlobalScope {}
+"
+`;
+
+exports[`lib/bom.js globals WorkerGlobalScope variable 1`] = `
+"var a = WorkerGlobalScope;
+"
+`;
+
+exports[`lib/bom.js globals WorkerLocation generated - class 1`] = `
+"new WorkerLocation();
+
+class A1 extends WorkerLocation {}
+"
+`;
+
+exports[`lib/bom.js globals WorkerLocation variable 1`] = `
+"var a = WorkerLocation;
+"
+`;
+
+exports[`lib/bom.js globals WorkerNavigator generated - class 1`] = `
+"new WorkerNavigator();
+
+class A1 extends WorkerNavigator {}
+"
+`;
+
+exports[`lib/bom.js globals WorkerNavigator variable 1`] = `
+"var a = WorkerNavigator;
+"
+`;
+
+exports[`lib/bom.js globals XDomainRequest generated - class 1`] = `
+"new XDomainRequest();
+
+class A1 extends XDomainRequest {}
+"
+`;
+
+exports[`lib/bom.js globals XDomainRequest variable 1`] = `
+"var a = XDomainRequest;
+"
+`;
+
+exports[`lib/bom.js globals XMLHttpRequest generated - class 1`] = `
+"new XMLHttpRequest();
+
+class A1 extends XMLHttpRequest {}
+"
+`;
+
+exports[`lib/bom.js globals XMLHttpRequest variable 1`] = `
+"var a = XMLHttpRequest;
+"
+`;
+
+exports[`lib/bom.js globals XMLHttpRequestEventTarget generated - class 1`] = `
+"new XMLHttpRequestEventTarget();
+
+class A1 extends XMLHttpRequestEventTarget {}
+"
+`;
+
+exports[`lib/bom.js globals XMLHttpRequestEventTarget variable 1`] = `
+"var a = XMLHttpRequestEventTarget;
+"
+`;
+
+exports[`lib/bom.js globals XMLSerializer generated - class 1`] = `
+"new XMLSerializer();
+
+class A1 extends XMLSerializer {}
+"
+`;
+
+exports[`lib/bom.js globals XMLSerializer variable 1`] = `
+"var a = XMLSerializer;
+"
+`;
+
+exports[`lib/bom.js globals fetch generated - callable 1`] = `
+"fetch();
+"
+`;
+
+exports[`lib/bom.js globals fetch generated - class 1`] = `
+"new fetch();
+
+class A1 extends fetch {}
+"
+`;
+
+exports[`lib/bom.js globals fetch variable 1`] = `
+"var a = fetch;
+"
+`;
+
+exports[`lib/bom.js globals history variable 1`] = `
+"var a = history;
+"
+`;
+
+exports[`lib/bom.js globals importScripts generated - callable 1`] = `
+"importScripts();
+"
+`;
+
+exports[`lib/bom.js globals importScripts generated - class 1`] = `
+"new importScripts();
+
+class A1 extends importScripts {}
+"
+`;
+
+exports[`lib/bom.js globals importScripts variable 1`] = `
+"var a = importScripts;
+"
+`;
+
+exports[`lib/bom.js globals location variable 1`] = `
+"var a = location;
+"
+`;
+
+exports[`lib/bom.js globals matchMedia variable 1`] = `
+"var a = matchMedia;
+"
+`;
+
+exports[`lib/bom.js globals navigator variable 1`] = `
+"var a = navigator;
+"
+`;
+
+exports[`lib/bom.js globals performance variable 1`] = `
+"var a = performance;
+"
+`;
+
+exports[`lib/bom.js globals screen variable 1`] = `
+"var a = screen;
+"
+`;
+
+exports[`lib/bom.js globals speechSynthesis variable 1`] = `
+"var a = speechSynthesis;
+"
+`;
+
+exports[`lib/bom.js globals window variable 1`] = `
+"var a = window;
+"
+`;

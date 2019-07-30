@@ -1,0 +1,2255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/dom.js globals AnimationEvent generated - class 1`] = `
+"new AnimationEvent();
+
+class A1 extends AnimationEvent {}
+"
+`;
+
+exports[`lib/dom.js globals AnimationEvent variable 1`] = `
+"var a = AnimationEvent;
+"
+`;
+
+exports[`lib/dom.js globals AnimationFrameID generated - interface 1`] = `
+"class A1 extends AnimationFrameID {}
+"
+`;
+
+exports[`lib/dom.js globals AnimationFrameID generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals Attr generated - class 1`] = `
+"new Attr();
+
+class A1 extends Attr {}
+"
+`;
+
+exports[`lib/dom.js globals Attr variable 1`] = `
+"var a = Attr;
+"
+`;
+
+exports[`lib/dom.js globals Audio generated - class 1`] = `
+"new Audio();
+
+class A1 extends Audio {}
+"
+`;
+
+exports[`lib/dom.js globals Audio variable 1`] = `
+"var a = Audio;
+"
+`;
+
+exports[`lib/dom.js globals AudioTrack generated - class 1`] = `
+"new AudioTrack();
+
+class A1 extends AudioTrack {}
+"
+`;
+
+exports[`lib/dom.js globals AudioTrack variable 1`] = `
+"var a = AudioTrack;
+"
+`;
+
+exports[`lib/dom.js globals AudioTrackList generated - class 1`] = `
+"new AudioTrackList();
+
+class A1 extends AudioTrackList {}
+"
+`;
+
+exports[`lib/dom.js globals AudioTrackList variable 1`] = `
+"var a = AudioTrackList;
+"
+`;
+
+exports[`lib/dom.js globals BeforeUnloadEvent generated - class 1`] = `
+"new BeforeUnloadEvent();
+
+class A1 extends BeforeUnloadEvent {}
+"
+`;
+
+exports[`lib/dom.js globals BeforeUnloadEvent variable 1`] = `
+"var a = BeforeUnloadEvent;
+"
+`;
+
+exports[`lib/dom.js globals Blob generated - class 1`] = `
+"new Blob();
+
+class A1 extends Blob {}
+"
+`;
+
+exports[`lib/dom.js globals Blob variable 1`] = `
+"var a = Blob;
+"
+`;
+
+exports[`lib/dom.js globals BroadcastChannel generated - class 1`] = `
+"new BroadcastChannel();
+
+class A1 extends BroadcastChannel {}
+"
+`;
+
+exports[`lib/dom.js globals BroadcastChannel variable 1`] = `
+"var a = BroadcastChannel;
+"
+`;
+
+exports[`lib/dom.js globals CanvasDrawingStyles generated - class 1`] = `
+"new CanvasDrawingStyles();
+
+class A1 extends CanvasDrawingStyles {}
+"
+`;
+
+exports[`lib/dom.js globals CanvasDrawingStyles variable 1`] = `
+"var a = CanvasDrawingStyles;
+"
+`;
+
+exports[`lib/dom.js globals CanvasGradient generated - class 1`] = `
+"new CanvasGradient();
+
+class A1 extends CanvasGradient {}
+"
+`;
+
+exports[`lib/dom.js globals CanvasGradient variable 1`] = `
+"var a = CanvasGradient;
+"
+`;
+
+exports[`lib/dom.js globals CanvasPattern generated - class 1`] = `
+"new CanvasPattern();
+
+class A1 extends CanvasPattern {}
+"
+`;
+
+exports[`lib/dom.js globals CanvasPattern variable 1`] = `
+"var a = CanvasPattern;
+"
+`;
+
+exports[`lib/dom.js globals CanvasRenderingContext2D generated - class 1`] = `
+"new CanvasRenderingContext2D();
+
+class A1 extends CanvasRenderingContext2D {}
+"
+`;
+
+exports[`lib/dom.js globals CanvasRenderingContext2D variable 1`] = `
+"var a = CanvasRenderingContext2D;
+"
+`;
+
+exports[`lib/dom.js globals CharacterData generated - class 1`] = `
+"new CharacterData();
+
+class A1 extends CharacterData {}
+"
+`;
+
+exports[`lib/dom.js globals CharacterData variable 1`] = `
+"var a = CharacterData;
+"
+`;
+
+exports[`lib/dom.js globals ClientRect generated - class 1`] = `
+"new ClientRect();
+
+class A1 extends ClientRect {}
+"
+`;
+
+exports[`lib/dom.js globals ClientRect variable 1`] = `
+"var a = ClientRect;
+"
+`;
+
+exports[`lib/dom.js globals ClientRectList generated - class 1`] = `
+"new ClientRectList();
+
+class A1 extends ClientRectList {}
+"
+`;
+
+exports[`lib/dom.js globals ClientRectList variable 1`] = `
+"var a = ClientRectList;
+"
+`;
+
+exports[`lib/dom.js globals ClipboardEvent generated - class 1`] = `
+"new ClipboardEvent();
+
+class A1 extends ClipboardEvent {}
+"
+`;
+
+exports[`lib/dom.js globals ClipboardEvent variable 1`] = `
+"var a = ClipboardEvent;
+"
+`;
+
+exports[`lib/dom.js globals Comment generated - class 1`] = `
+"new Comment();
+
+class A1 extends Comment {}
+"
+`;
+
+exports[`lib/dom.js globals Comment variable 1`] = `
+"var a = Comment;
+"
+`;
+
+exports[`lib/dom.js globals CustomElementRegistry generated - interface 1`] = `
+"class A1 extends CustomElementRegistry {}
+"
+`;
+
+exports[`lib/dom.js globals CustomElementRegistry generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals CustomEvent generated - class 1`] = `
+"new CustomEvent();
+
+class A1 extends CustomEvent {}
+"
+`;
+
+exports[`lib/dom.js globals CustomEvent variable 1`] = `
+"var a = CustomEvent;
+"
+`;
+
+exports[`lib/dom.js globals DOMError generated - class 1`] = `
+"new DOMError();
+
+class A1 extends DOMError {}
+"
+`;
+
+exports[`lib/dom.js globals DOMError variable 1`] = `
+"var a = DOMError;
+"
+`;
+
+exports[`lib/dom.js globals DOMImplementation generated - class 1`] = `
+"new DOMImplementation();
+
+class A1 extends DOMImplementation {}
+"
+`;
+
+exports[`lib/dom.js globals DOMImplementation variable 1`] = `
+"var a = DOMImplementation;
+"
+`;
+
+exports[`lib/dom.js globals DOMStringMap generated - interface 1`] = `
+"class A1 extends DOMStringMap {}
+"
+`;
+
+exports[`lib/dom.js globals DOMStringMap generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals DOMTokenList generated - class 1`] = `
+"new DOMTokenList();
+
+class A1 extends DOMTokenList {}
+"
+`;
+
+exports[`lib/dom.js globals DOMTokenList variable 1`] = `
+"var a = DOMTokenList;
+"
+`;
+
+exports[`lib/dom.js globals DataTransfer generated - class 1`] = `
+"new DataTransfer();
+
+class A1 extends DataTransfer {}
+"
+`;
+
+exports[`lib/dom.js globals DataTransfer variable 1`] = `
+"var a = DataTransfer;
+"
+`;
+
+exports[`lib/dom.js globals DataTransferItem generated - class 1`] = `
+"new DataTransferItem();
+
+class A1 extends DataTransferItem {}
+"
+`;
+
+exports[`lib/dom.js globals DataTransferItem variable 1`] = `
+"var a = DataTransferItem;
+"
+`;
+
+exports[`lib/dom.js globals DataTransferItemList generated - class 1`] = `
+"new DataTransferItemList();
+
+class A1 extends DataTransferItemList {}
+"
+`;
+
+exports[`lib/dom.js globals DataTransferItemList variable 1`] = `
+"var a = DataTransferItemList;
+"
+`;
+
+exports[`lib/dom.js globals Document generated - class 1`] = `
+"new Document();
+
+class A1 extends Document {}
+"
+`;
+
+exports[`lib/dom.js globals Document variable 1`] = `
+"var a = Document;
+"
+`;
+
+exports[`lib/dom.js globals DocumentFragment generated - class 1`] = `
+"new DocumentFragment();
+
+class A1 extends DocumentFragment {}
+"
+`;
+
+exports[`lib/dom.js globals DocumentFragment variable 1`] = `
+"var a = DocumentFragment;
+"
+`;
+
+exports[`lib/dom.js globals DocumentType generated - class 1`] = `
+"new DocumentType();
+
+class A1 extends DocumentType {}
+"
+`;
+
+exports[`lib/dom.js globals DocumentType variable 1`] = `
+"var a = DocumentType;
+"
+`;
+
+exports[`lib/dom.js globals DragEvent generated - class 1`] = `
+"new DragEvent();
+
+class A1 extends DragEvent {}
+"
+`;
+
+exports[`lib/dom.js globals DragEvent variable 1`] = `
+"var a = DragEvent;
+"
+`;
+
+exports[`lib/dom.js globals Element generated - class 1`] = `
+"new Element();
+
+class A1 extends Element {}
+"
+`;
+
+exports[`lib/dom.js globals Element variable 1`] = `
+"var a = Element;
+"
+`;
+
+exports[`lib/dom.js globals ElementDefinitionOptions generated - interface 1`] = `
+"class A1 extends ElementDefinitionOptions {}
+"
+`;
+
+exports[`lib/dom.js globals ElementDefinitionOptions generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals Event generated - class 1`] = `
+"new Event();
+
+class A1 extends Event {}
+"
+`;
+
+exports[`lib/dom.js globals Event variable 1`] = `
+"var a = Event;
+"
+`;
+
+exports[`lib/dom.js globals EventSource generated - class 1`] = `
+"new EventSource();
+
+class A1 extends EventSource {}
+"
+`;
+
+exports[`lib/dom.js globals EventSource variable 1`] = `
+"var a = EventSource;
+"
+`;
+
+exports[`lib/dom.js globals EventTarget generated - class 1`] = `
+"new EventTarget();
+
+class A1 extends EventTarget {}
+"
+`;
+
+exports[`lib/dom.js globals EventTarget variable 1`] = `
+"var a = EventTarget;
+"
+`;
+
+exports[`lib/dom.js globals File generated - class 1`] = `
+"new File();
+
+class A1 extends File {}
+"
+`;
+
+exports[`lib/dom.js globals File variable 1`] = `
+"var a = File;
+"
+`;
+
+exports[`lib/dom.js globals FileList generated - class 1`] = `
+"new FileList();
+
+class A1 extends FileList {}
+"
+`;
+
+exports[`lib/dom.js globals FileList variable 1`] = `
+"var a = FileList;
+"
+`;
+
+exports[`lib/dom.js globals FilePropertyBag generated - interface 1`] = `
+"class A1 extends FilePropertyBag {}
+"
+`;
+
+exports[`lib/dom.js globals FilePropertyBag generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals FileReader generated - class 1`] = `
+"new FileReader();
+
+class A1 extends FileReader {}
+"
+`;
+
+exports[`lib/dom.js globals FileReader variable 1`] = `
+"var a = FileReader;
+"
+`;
+
+exports[`lib/dom.js globals FocusEvent generated - class 1`] = `
+"new FocusEvent();
+
+class A1 extends FocusEvent {}
+"
+`;
+
+exports[`lib/dom.js globals FocusEvent variable 1`] = `
+"var a = FocusEvent;
+"
+`;
+
+exports[`lib/dom.js globals HTMLAnchorElement generated - class 1`] = `
+"new HTMLAnchorElement();
+
+class A1 extends HTMLAnchorElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLAnchorElement variable 1`] = `
+"var a = HTMLAnchorElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLAppletElement generated - class 1`] = `
+"new HTMLAppletElement();
+
+class A1 extends HTMLAppletElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLAppletElement variable 1`] = `
+"var a = HTMLAppletElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLAreaElement generated - class 1`] = `
+"new HTMLAreaElement();
+
+class A1 extends HTMLAreaElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLAreaElement variable 1`] = `
+"var a = HTMLAreaElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLAudioElement generated - class 1`] = `
+"new HTMLAudioElement();
+
+class A1 extends HTMLAudioElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLAudioElement variable 1`] = `
+"var a = HTMLAudioElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLBRElement generated - class 1`] = `
+"new HTMLBRElement();
+
+class A1 extends HTMLBRElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLBRElement variable 1`] = `
+"var a = HTMLBRElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLBaseElement generated - class 1`] = `
+"new HTMLBaseElement();
+
+class A1 extends HTMLBaseElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLBaseElement variable 1`] = `
+"var a = HTMLBaseElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLBodyElement generated - class 1`] = `
+"new HTMLBodyElement();
+
+class A1 extends HTMLBodyElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLBodyElement variable 1`] = `
+"var a = HTMLBodyElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLButtonElement generated - class 1`] = `
+"new HTMLButtonElement();
+
+class A1 extends HTMLButtonElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLButtonElement variable 1`] = `
+"var a = HTMLButtonElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLCanvasElement generated - class 1`] = `
+"new HTMLCanvasElement();
+
+class A1 extends HTMLCanvasElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLCanvasElement variable 1`] = `
+"var a = HTMLCanvasElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLCollection generated - class - typeParams(1) 1`] = `
+"new HTMLCollection();
+
+class A1 extends HTMLCollection<P0> {}
+let a1 = new HTMLCollection<P0>();
+"
+`;
+
+exports[`lib/dom.js globals HTMLCollection variable 1`] = `
+"var a = HTMLCollection;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDListElement generated - class 1`] = `
+"new HTMLDListElement();
+
+class A1 extends HTMLDListElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDListElement variable 1`] = `
+"var a = HTMLDListElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDataElement generated - class 1`] = `
+"new HTMLDataElement();
+
+class A1 extends HTMLDataElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDataElement variable 1`] = `
+"var a = HTMLDataElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDataListElement generated - class 1`] = `
+"new HTMLDataListElement();
+
+class A1 extends HTMLDataListElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDataListElement variable 1`] = `
+"var a = HTMLDataListElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDetailsElement generated - class 1`] = `
+"new HTMLDetailsElement();
+
+class A1 extends HTMLDetailsElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDetailsElement variable 1`] = `
+"var a = HTMLDetailsElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDialogElement generated - class 1`] = `
+"new HTMLDialogElement();
+
+class A1 extends HTMLDialogElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDialogElement variable 1`] = `
+"var a = HTMLDialogElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLDivElement generated - class 1`] = `
+"new HTMLDivElement();
+
+class A1 extends HTMLDivElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLDivElement variable 1`] = `
+"var a = HTMLDivElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLElement generated - class 1`] = `
+"new HTMLElement();
+
+class A1 extends HTMLElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLElement variable 1`] = `
+"var a = HTMLElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLEmbedElement generated - class 1`] = `
+"new HTMLEmbedElement();
+
+class A1 extends HTMLEmbedElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLEmbedElement variable 1`] = `
+"var a = HTMLEmbedElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLFieldSetElement generated - class 1`] = `
+"new HTMLFieldSetElement();
+
+class A1 extends HTMLFieldSetElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLFieldSetElement variable 1`] = `
+"var a = HTMLFieldSetElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLFormElement generated - class 1`] = `
+"new HTMLFormElement();
+
+class A1 extends HTMLFormElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLFormElement variable 1`] = `
+"var a = HTMLFormElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLHRElement generated - class 1`] = `
+"new HTMLHRElement();
+
+class A1 extends HTMLHRElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLHRElement variable 1`] = `
+"var a = HTMLHRElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLHeadElement generated - class 1`] = `
+"new HTMLHeadElement();
+
+class A1 extends HTMLHeadElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLHeadElement variable 1`] = `
+"var a = HTMLHeadElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLHeadingElement generated - class 1`] = `
+"new HTMLHeadingElement();
+
+class A1 extends HTMLHeadingElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLHeadingElement variable 1`] = `
+"var a = HTMLHeadingElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLHtmlElement generated - class 1`] = `
+"new HTMLHtmlElement();
+
+class A1 extends HTMLHtmlElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLHtmlElement variable 1`] = `
+"var a = HTMLHtmlElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLIFrameElement generated - class 1`] = `
+"new HTMLIFrameElement();
+
+class A1 extends HTMLIFrameElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLIFrameElement variable 1`] = `
+"var a = HTMLIFrameElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLImageElement generated - class 1`] = `
+"new HTMLImageElement();
+
+class A1 extends HTMLImageElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLImageElement variable 1`] = `
+"var a = HTMLImageElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLInputElement generated - class 1`] = `
+"new HTMLInputElement();
+
+class A1 extends HTMLInputElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLInputElement variable 1`] = `
+"var a = HTMLInputElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLLIElement generated - class 1`] = `
+"new HTMLLIElement();
+
+class A1 extends HTMLLIElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLLIElement variable 1`] = `
+"var a = HTMLLIElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLLabelElement generated - class 1`] = `
+"new HTMLLabelElement();
+
+class A1 extends HTMLLabelElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLLabelElement variable 1`] = `
+"var a = HTMLLabelElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLLegendElement generated - class 1`] = `
+"new HTMLLegendElement();
+
+class A1 extends HTMLLegendElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLLegendElement variable 1`] = `
+"var a = HTMLLegendElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLLinkElement generated - class 1`] = `
+"new HTMLLinkElement();
+
+class A1 extends HTMLLinkElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLLinkElement variable 1`] = `
+"var a = HTMLLinkElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLMapElement generated - class 1`] = `
+"new HTMLMapElement();
+
+class A1 extends HTMLMapElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLMapElement variable 1`] = `
+"var a = HTMLMapElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLMediaElement generated - class 1`] = `
+"new HTMLMediaElement();
+
+class A1 extends HTMLMediaElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLMediaElement variable 1`] = `
+"var a = HTMLMediaElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLMenuElement generated - class 1`] = `
+"new HTMLMenuElement();
+
+class A1 extends HTMLMenuElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLMenuElement variable 1`] = `
+"var a = HTMLMenuElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLMetaElement generated - class 1`] = `
+"new HTMLMetaElement();
+
+class A1 extends HTMLMetaElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLMetaElement variable 1`] = `
+"var a = HTMLMetaElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLMeterElement generated - class 1`] = `
+"new HTMLMeterElement();
+
+class A1 extends HTMLMeterElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLMeterElement variable 1`] = `
+"var a = HTMLMeterElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLModElement generated - class 1`] = `
+"new HTMLModElement();
+
+class A1 extends HTMLModElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLModElement variable 1`] = `
+"var a = HTMLModElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLOListElement generated - class 1`] = `
+"new HTMLOListElement();
+
+class A1 extends HTMLOListElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLOListElement variable 1`] = `
+"var a = HTMLOListElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLObjectElement generated - class 1`] = `
+"new HTMLObjectElement();
+
+class A1 extends HTMLObjectElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLObjectElement variable 1`] = `
+"var a = HTMLObjectElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptGroupElement generated - class 1`] = `
+"new HTMLOptGroupElement();
+
+class A1 extends HTMLOptGroupElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptGroupElement variable 1`] = `
+"var a = HTMLOptGroupElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptionElement generated - class 1`] = `
+"new HTMLOptionElement();
+
+class A1 extends HTMLOptionElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptionElement variable 1`] = `
+"var a = HTMLOptionElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptionsCollection generated - class 1`] = `
+"new HTMLOptionsCollection();
+
+class A1 extends HTMLOptionsCollection {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLOptionsCollection variable 1`] = `
+"var a = HTMLOptionsCollection;
+"
+`;
+
+exports[`lib/dom.js globals HTMLOutputElement generated - class 1`] = `
+"new HTMLOutputElement();
+
+class A1 extends HTMLOutputElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLOutputElement variable 1`] = `
+"var a = HTMLOutputElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLParagraphElement generated - class 1`] = `
+"new HTMLParagraphElement();
+
+class A1 extends HTMLParagraphElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLParagraphElement variable 1`] = `
+"var a = HTMLParagraphElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLParamElement generated - class 1`] = `
+"new HTMLParamElement();
+
+class A1 extends HTMLParamElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLParamElement variable 1`] = `
+"var a = HTMLParamElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLPictureElement generated - class 1`] = `
+"new HTMLPictureElement();
+
+class A1 extends HTMLPictureElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLPictureElement variable 1`] = `
+"var a = HTMLPictureElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLPreElement generated - class 1`] = `
+"new HTMLPreElement();
+
+class A1 extends HTMLPreElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLPreElement variable 1`] = `
+"var a = HTMLPreElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLProgressElement generated - class 1`] = `
+"new HTMLProgressElement();
+
+class A1 extends HTMLProgressElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLProgressElement variable 1`] = `
+"var a = HTMLProgressElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLQuoteElement generated - class 1`] = `
+"new HTMLQuoteElement();
+
+class A1 extends HTMLQuoteElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLQuoteElement variable 1`] = `
+"var a = HTMLQuoteElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLScriptElement generated - class 1`] = `
+"new HTMLScriptElement();
+
+class A1 extends HTMLScriptElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLScriptElement variable 1`] = `
+"var a = HTMLScriptElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLSelectElement generated - class 1`] = `
+"new HTMLSelectElement();
+
+class A1 extends HTMLSelectElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLSelectElement variable 1`] = `
+"var a = HTMLSelectElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLSlotElement generated - class 1`] = `
+"new HTMLSlotElement();
+
+class A1 extends HTMLSlotElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLSlotElement variable 1`] = `
+"var a = HTMLSlotElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLSourceElement generated - class 1`] = `
+"new HTMLSourceElement();
+
+class A1 extends HTMLSourceElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLSourceElement variable 1`] = `
+"var a = HTMLSourceElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLSpanElement generated - class 1`] = `
+"new HTMLSpanElement();
+
+class A1 extends HTMLSpanElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLSpanElement variable 1`] = `
+"var a = HTMLSpanElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLStyleElement generated - class 1`] = `
+"new HTMLStyleElement();
+
+class A1 extends HTMLStyleElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLStyleElement variable 1`] = `
+"var a = HTMLStyleElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableCaptionElement generated - class 1`] = `
+"new HTMLTableCaptionElement();
+
+class A1 extends HTMLTableCaptionElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableCaptionElement variable 1`] = `
+"var a = HTMLTableCaptionElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableCellElement generated - class 1`] = `
+"new HTMLTableCellElement();
+
+class A1 extends HTMLTableCellElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableCellElement variable 1`] = `
+"var a = HTMLTableCellElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableColElement generated - class 1`] = `
+"new HTMLTableColElement();
+
+class A1 extends HTMLTableColElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableColElement variable 1`] = `
+"var a = HTMLTableColElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableElement generated - class 1`] = `
+"new HTMLTableElement();
+
+class A1 extends HTMLTableElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableElement variable 1`] = `
+"var a = HTMLTableElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableRowElement generated - class 1`] = `
+"new HTMLTableRowElement();
+
+class A1 extends HTMLTableRowElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableRowElement variable 1`] = `
+"var a = HTMLTableRowElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableSectionElement generated - class 1`] = `
+"new HTMLTableSectionElement();
+
+class A1 extends HTMLTableSectionElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTableSectionElement variable 1`] = `
+"var a = HTMLTableSectionElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTemplateElement generated - class 1`] = `
+"new HTMLTemplateElement();
+
+class A1 extends HTMLTemplateElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTemplateElement variable 1`] = `
+"var a = HTMLTemplateElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTextAreaElement generated - class 1`] = `
+"new HTMLTextAreaElement();
+
+class A1 extends HTMLTextAreaElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTextAreaElement variable 1`] = `
+"var a = HTMLTextAreaElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTimeElement generated - class 1`] = `
+"new HTMLTimeElement();
+
+class A1 extends HTMLTimeElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTimeElement variable 1`] = `
+"var a = HTMLTimeElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTitleElement generated - class 1`] = `
+"new HTMLTitleElement();
+
+class A1 extends HTMLTitleElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTitleElement variable 1`] = `
+"var a = HTMLTitleElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLTrackElement generated - class 1`] = `
+"new HTMLTrackElement();
+
+class A1 extends HTMLTrackElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLTrackElement variable 1`] = `
+"var a = HTMLTrackElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLUListElement generated - class 1`] = `
+"new HTMLUListElement();
+
+class A1 extends HTMLUListElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLUListElement variable 1`] = `
+"var a = HTMLUListElement;
+"
+`;
+
+exports[`lib/dom.js globals HTMLVideoElement generated - class 1`] = `
+"new HTMLVideoElement();
+
+class A1 extends HTMLVideoElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLVideoElement variable 1`] = `
+"var a = HTMLVideoElement;
+"
+`;
+
+exports[`lib/dom.js globals HitRegionOptions generated - class 1`] = `
+"new HitRegionOptions();
+
+class A1 extends HitRegionOptions {}
+"
+`;
+
+exports[`lib/dom.js globals HitRegionOptions variable 1`] = `
+"var a = HitRegionOptions;
+"
+`;
+
+exports[`lib/dom.js globals IdleCallbackID generated - interface 1`] = `
+"class A1 extends IdleCallbackID {}
+"
+`;
+
+exports[`lib/dom.js globals IdleCallbackID generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals Image generated - class 1`] = `
+"new Image();
+
+class A1 extends Image {}
+"
+`;
+
+exports[`lib/dom.js globals Image variable 1`] = `
+"var a = Image;
+"
+`;
+
+exports[`lib/dom.js globals ImageBitmap generated - class 1`] = `
+"new ImageBitmap();
+
+class A1 extends ImageBitmap {}
+"
+`;
+
+exports[`lib/dom.js globals ImageBitmap variable 1`] = `
+"var a = ImageBitmap;
+"
+`;
+
+exports[`lib/dom.js globals ImageData generated - class 1`] = `
+"new ImageData();
+
+class A1 extends ImageData {}
+"
+`;
+
+exports[`lib/dom.js globals ImageData variable 1`] = `
+"var a = ImageData;
+"
+`;
+
+exports[`lib/dom.js globals InputEvent generated - class 1`] = `
+"new InputEvent();
+
+class A1 extends InputEvent {}
+"
+`;
+
+exports[`lib/dom.js globals InputEvent variable 1`] = `
+"var a = InputEvent;
+"
+`;
+
+exports[`lib/dom.js globals KeyboardEvent generated - class 1`] = `
+"new KeyboardEvent();
+
+class A1 extends KeyboardEvent {}
+"
+`;
+
+exports[`lib/dom.js globals KeyboardEvent variable 1`] = `
+"var a = KeyboardEvent;
+"
+`;
+
+exports[`lib/dom.js globals MediaError generated - class 1`] = `
+"new MediaError();
+
+class A1 extends MediaError {}
+"
+`;
+
+exports[`lib/dom.js globals MediaError variable 1`] = `
+"var a = MediaError;
+"
+`;
+
+exports[`lib/dom.js globals MediaKeySession generated - class 1`] = `
+"new MediaKeySession();
+
+class A1 extends MediaKeySession {}
+"
+`;
+
+exports[`lib/dom.js globals MediaKeySession variable 1`] = `
+"var a = MediaKeySession;
+"
+`;
+
+exports[`lib/dom.js globals MediaKeyStatusMap generated - class - typeParams(2) 1`] = `
+"new MediaKeyStatusMap();
+
+class A1 extends MediaKeyStatusMap<P0, P1> {}
+let a1 = new MediaKeyStatusMap<P0, P1>();
+"
+`;
+
+exports[`lib/dom.js globals MediaKeyStatusMap variable 1`] = `
+"var a = MediaKeyStatusMap;
+"
+`;
+
+exports[`lib/dom.js globals MediaKeys generated - class 1`] = `
+"new MediaKeys();
+
+class A1 extends MediaKeys {}
+"
+`;
+
+exports[`lib/dom.js globals MediaKeys variable 1`] = `
+"var a = MediaKeys;
+"
+`;
+
+exports[`lib/dom.js globals MediaSource generated - class 1`] = `
+"new MediaSource();
+
+class A1 extends MediaSource {}
+"
+`;
+
+exports[`lib/dom.js globals MediaSource variable 1`] = `
+"var a = MediaSource;
+"
+`;
+
+exports[`lib/dom.js globals MessageEvent generated - class 1`] = `
+"new MessageEvent();
+
+class A1 extends MessageEvent {}
+"
+`;
+
+exports[`lib/dom.js globals MessageEvent variable 1`] = `
+"var a = MessageEvent;
+"
+`;
+
+exports[`lib/dom.js globals MouseEvent generated - class 1`] = `
+"new MouseEvent();
+
+class A1 extends MouseEvent {}
+"
+`;
+
+exports[`lib/dom.js globals MouseEvent variable 1`] = `
+"var a = MouseEvent;
+"
+`;
+
+exports[`lib/dom.js globals NamedNodeMap generated - class 1`] = `
+"new NamedNodeMap();
+
+class A1 extends NamedNodeMap {}
+"
+`;
+
+exports[`lib/dom.js globals NamedNodeMap variable 1`] = `
+"var a = NamedNodeMap;
+"
+`;
+
+exports[`lib/dom.js globals Node generated - class 1`] = `
+"new Node();
+
+class A1 extends Node {}
+"
+`;
+
+exports[`lib/dom.js globals Node variable 1`] = `
+"var a = Node;
+"
+`;
+
+exports[`lib/dom.js globals NodeFilter generated - class 1`] = `
+"new NodeFilter();
+
+class A1 extends NodeFilter {}
+"
+`;
+
+exports[`lib/dom.js globals NodeFilter variable 1`] = `
+"var a = NodeFilter;
+"
+`;
+
+exports[`lib/dom.js globals NodeIterator generated - class - typeParams(2) 1`] = `
+"new NodeIterator();
+
+class A1 extends NodeIterator<P0, P1> {}
+let a1 = new NodeIterator<P0, P1>();
+"
+`;
+
+exports[`lib/dom.js globals NodeIterator variable 1`] = `
+"var a = NodeIterator;
+"
+`;
+
+exports[`lib/dom.js globals NodeList generated - class - typeParams(1) 1`] = `
+"new NodeList();
+
+class A1 extends NodeList<P0> {}
+let a1 = new NodeList<P0>();
+"
+`;
+
+exports[`lib/dom.js globals NodeList variable 1`] = `
+"var a = NodeList;
+"
+`;
+
+exports[`lib/dom.js globals Notification generated - class 1`] = `
+"new Notification();
+
+class A1 extends Notification {}
+"
+`;
+
+exports[`lib/dom.js globals Notification variable 1`] = `
+"var a = Notification;
+"
+`;
+
+exports[`lib/dom.js globals Path2D generated - class 1`] = `
+"new Path2D();
+
+class A1 extends Path2D {}
+"
+`;
+
+exports[`lib/dom.js globals Path2D variable 1`] = `
+"var a = Path2D;
+"
+`;
+
+exports[`lib/dom.js globals PointerEvent generated - class 1`] = `
+"new PointerEvent();
+
+class A1 extends PointerEvent {}
+"
+`;
+
+exports[`lib/dom.js globals PointerEvent variable 1`] = `
+"var a = PointerEvent;
+"
+`;
+
+exports[`lib/dom.js globals ProgressEvent generated - class 1`] = `
+"new ProgressEvent();
+
+class A1 extends ProgressEvent {}
+"
+`;
+
+exports[`lib/dom.js globals ProgressEvent variable 1`] = `
+"var a = ProgressEvent;
+"
+`;
+
+exports[`lib/dom.js globals PromiseRejectionEvent generated - class 1`] = `
+"new PromiseRejectionEvent();
+
+class A1 extends PromiseRejectionEvent {}
+"
+`;
+
+exports[`lib/dom.js globals PromiseRejectionEvent variable 1`] = `
+"var a = PromiseRejectionEvent;
+"
+`;
+
+exports[`lib/dom.js globals Range generated - class 1`] = `
+"new Range();
+
+class A1 extends Range {}
+"
+`;
+
+exports[`lib/dom.js globals Range variable 1`] = `
+"var a = Range;
+"
+`;
+
+exports[`lib/dom.js globals SVGMatrix generated - class 1`] = `
+"new SVGMatrix();
+
+class A1 extends SVGMatrix {}
+"
+`;
+
+exports[`lib/dom.js globals SVGMatrix variable 1`] = `
+"var a = SVGMatrix;
+"
+`;
+
+exports[`lib/dom.js globals Selection generated - class 1`] = `
+"new Selection();
+
+class A1 extends Selection {}
+"
+`;
+
+exports[`lib/dom.js globals Selection variable 1`] = `
+"var a = Selection;
+"
+`;
+
+exports[`lib/dom.js globals ShadowRoot generated - interface 1`] = `
+"class A1 extends ShadowRoot {}
+"
+`;
+
+exports[`lib/dom.js globals ShadowRoot generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals ShadowRootInit generated - interface 1`] = `
+"class A1 extends ShadowRootInit {}
+"
+`;
+
+exports[`lib/dom.js globals ShadowRootInit generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals ShadowRootMode generated - interface 1`] = `
+"class A1 extends ShadowRootMode {}
+"
+`;
+
+exports[`lib/dom.js globals ShadowRootMode generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals SourceBuffer generated - class 1`] = `
+"new SourceBuffer();
+
+class A1 extends SourceBuffer {}
+"
+`;
+
+exports[`lib/dom.js globals SourceBuffer variable 1`] = `
+"var a = SourceBuffer;
+"
+`;
+
+exports[`lib/dom.js globals SourceBufferList generated - class 1`] = `
+"new SourceBufferList();
+
+class A1 extends SourceBufferList {}
+"
+`;
+
+exports[`lib/dom.js globals SourceBufferList variable 1`] = `
+"var a = SourceBufferList;
+"
+`;
+
+exports[`lib/dom.js globals Storage generated - class 1`] = `
+"new Storage();
+
+class A1 extends Storage {}
+"
+`;
+
+exports[`lib/dom.js globals Storage variable 1`] = `
+"var a = Storage;
+"
+`;
+
+exports[`lib/dom.js globals StorageEvent generated - class 1`] = `
+"new StorageEvent();
+
+class A1 extends StorageEvent {}
+"
+`;
+
+exports[`lib/dom.js globals StorageEvent variable 1`] = `
+"var a = StorageEvent;
+"
+`;
+
+exports[`lib/dom.js globals Text generated - class 1`] = `
+"new Text();
+
+class A1 extends Text {}
+"
+`;
+
+exports[`lib/dom.js globals Text variable 1`] = `
+"var a = Text;
+"
+`;
+
+exports[`lib/dom.js globals TextMetrics generated - class 1`] = `
+"new TextMetrics();
+
+class A1 extends TextMetrics {}
+"
+`;
+
+exports[`lib/dom.js globals TextMetrics variable 1`] = `
+"var a = TextMetrics;
+"
+`;
+
+exports[`lib/dom.js globals TextRange generated - class 1`] = `
+"new TextRange();
+
+class A1 extends TextRange {}
+"
+`;
+
+exports[`lib/dom.js globals TextRange variable 1`] = `
+"var a = TextRange;
+"
+`;
+
+exports[`lib/dom.js globals TextTrack generated - class 1`] = `
+"new TextTrack();
+
+class A1 extends TextTrack {}
+"
+`;
+
+exports[`lib/dom.js globals TextTrack variable 1`] = `
+"var a = TextTrack;
+"
+`;
+
+exports[`lib/dom.js globals TextTrackCue generated - class 1`] = `
+"new TextTrackCue();
+
+class A1 extends TextTrackCue {}
+"
+`;
+
+exports[`lib/dom.js globals TextTrackCue variable 1`] = `
+"var a = TextTrackCue;
+"
+`;
+
+exports[`lib/dom.js globals TextTrackCueList generated - class 1`] = `
+"new TextTrackCueList();
+
+class A1 extends TextTrackCueList {}
+"
+`;
+
+exports[`lib/dom.js globals TextTrackCueList variable 1`] = `
+"var a = TextTrackCueList;
+"
+`;
+
+exports[`lib/dom.js globals TextTrackList generated - class 1`] = `
+"new TextTrackList();
+
+class A1 extends TextTrackList {}
+"
+`;
+
+exports[`lib/dom.js globals TextTrackList variable 1`] = `
+"var a = TextTrackList;
+"
+`;
+
+exports[`lib/dom.js globals TimeRanges generated - class 1`] = `
+"new TimeRanges();
+
+class A1 extends TimeRanges {}
+"
+`;
+
+exports[`lib/dom.js globals TimeRanges variable 1`] = `
+"var a = TimeRanges;
+"
+`;
+
+exports[`lib/dom.js globals Touch generated - class 1`] = `
+"new Touch();
+
+class A1 extends Touch {}
+"
+`;
+
+exports[`lib/dom.js globals Touch variable 1`] = `
+"var a = Touch;
+"
+`;
+
+exports[`lib/dom.js globals TouchEvent generated - class 1`] = `
+"new TouchEvent();
+
+class A1 extends TouchEvent {}
+"
+`;
+
+exports[`lib/dom.js globals TouchEvent variable 1`] = `
+"var a = TouchEvent;
+"
+`;
+
+exports[`lib/dom.js globals TouchList generated - class 1`] = `
+"new TouchList();
+
+class A1 extends TouchList {}
+"
+`;
+
+exports[`lib/dom.js globals TouchList variable 1`] = `
+"var a = TouchList;
+"
+`;
+
+exports[`lib/dom.js globals TrackDefault generated - class 1`] = `
+"new TrackDefault();
+
+class A1 extends TrackDefault {}
+"
+`;
+
+exports[`lib/dom.js globals TrackDefault variable 1`] = `
+"var a = TrackDefault;
+"
+`;
+
+exports[`lib/dom.js globals TrackDefaultList generated - class 1`] = `
+"new TrackDefaultList();
+
+class A1 extends TrackDefaultList {}
+"
+`;
+
+exports[`lib/dom.js globals TrackDefaultList variable 1`] = `
+"var a = TrackDefaultList;
+"
+`;
+
+exports[`lib/dom.js globals TransitionEvent generated - class 1`] = `
+"new TransitionEvent();
+
+class A1 extends TransitionEvent {}
+"
+`;
+
+exports[`lib/dom.js globals TransitionEvent variable 1`] = `
+"var a = TransitionEvent;
+"
+`;
+
+exports[`lib/dom.js globals TreeWalker generated - class - typeParams(2) 1`] = `
+"new TreeWalker();
+
+class A1 extends TreeWalker<P0, P1> {}
+let a1 = new TreeWalker<P0, P1>();
+"
+`;
+
+exports[`lib/dom.js globals TreeWalker variable 1`] = `
+"var a = TreeWalker;
+"
+`;
+
+exports[`lib/dom.js globals UIEvent generated - class 1`] = `
+"new UIEvent();
+
+class A1 extends UIEvent {}
+"
+`;
+
+exports[`lib/dom.js globals UIEvent variable 1`] = `
+"var a = UIEvent;
+"
+`;
+
+exports[`lib/dom.js globals URL generated - class 1`] = `
+"new URL();
+
+class A1 extends URL {}
+"
+`;
+
+exports[`lib/dom.js globals URL variable 1`] = `
+"var a = URL;
+"
+`;
+
+exports[`lib/dom.js globals ValidityState generated - class 1`] = `
+"new ValidityState();
+
+class A1 extends ValidityState {}
+"
+`;
+
+exports[`lib/dom.js globals ValidityState variable 1`] = `
+"var a = ValidityState;
+"
+`;
+
+exports[`lib/dom.js globals VideoTrack generated - class 1`] = `
+"new VideoTrack();
+
+class A1 extends VideoTrack {}
+"
+`;
+
+exports[`lib/dom.js globals VideoTrack variable 1`] = `
+"var a = VideoTrack;
+"
+`;
+
+exports[`lib/dom.js globals VideoTrackList generated - class 1`] = `
+"new VideoTrackList();
+
+class A1 extends VideoTrackList {}
+"
+`;
+
+exports[`lib/dom.js globals VideoTrackList variable 1`] = `
+"var a = VideoTrackList;
+"
+`;
+
+exports[`lib/dom.js globals WebGLContextEvent generated - class 1`] = `
+"new WebGLContextEvent();
+
+class A1 extends WebGLContextEvent {}
+"
+`;
+
+exports[`lib/dom.js globals WebGLContextEvent variable 1`] = `
+"var a = WebGLContextEvent;
+"
+`;
+
+exports[`lib/dom.js globals WebGLRenderingContext generated - class 1`] = `
+"new WebGLRenderingContext();
+
+class A1 extends WebGLRenderingContext {}
+"
+`;
+
+exports[`lib/dom.js globals WebGLRenderingContext variable 1`] = `
+"var a = WebGLRenderingContext;
+"
+`;
+
+exports[`lib/dom.js globals WheelEvent generated - class 1`] = `
+"new WheelEvent();
+
+class A1 extends WheelEvent {}
+"
+`;
+
+exports[`lib/dom.js globals WheelEvent variable 1`] = `
+"var a = WheelEvent;
+"
+`;
+
+exports[`lib/dom.js globals WindowProxy generated - interface 1`] = `
+"class A1 extends WindowProxy {}
+"
+`;
+
+exports[`lib/dom.js globals WindowProxy generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals alert generated - callable 1`] = `
+"alert();
+"
+`;
+
+exports[`lib/dom.js globals alert generated - class 1`] = `
+"new alert();
+
+class A1 extends alert {}
+"
+`;
+
+exports[`lib/dom.js globals alert variable 1`] = `
+"var a = alert;
+"
+`;
+
+exports[`lib/dom.js globals cancelAnimationFrame generated - callable 1`] = `
+"cancelAnimationFrame();
+"
+`;
+
+exports[`lib/dom.js globals cancelAnimationFrame generated - class 1`] = `
+"new cancelAnimationFrame();
+
+class A1 extends cancelAnimationFrame {}
+"
+`;
+
+exports[`lib/dom.js globals cancelAnimationFrame variable 1`] = `
+"var a = cancelAnimationFrame;
+"
+`;
+
+exports[`lib/dom.js globals cancelIdleCallback generated - callable 1`] = `
+"cancelIdleCallback();
+"
+`;
+
+exports[`lib/dom.js globals cancelIdleCallback generated - class 1`] = `
+"new cancelIdleCallback();
+
+class A1 extends cancelIdleCallback {}
+"
+`;
+
+exports[`lib/dom.js globals cancelIdleCallback variable 1`] = `
+"var a = cancelIdleCallback;
+"
+`;
+
+exports[`lib/dom.js globals close generated - callable 1`] = `
+"close();
+"
+`;
+
+exports[`lib/dom.js globals close generated - class 1`] = `
+"new close();
+
+class A1 extends close {}
+"
+`;
+
+exports[`lib/dom.js globals close variable 1`] = `
+"var a = close;
+"
+`;
+
+exports[`lib/dom.js globals confirm generated - callable 1`] = `
+"confirm();
+"
+`;
+
+exports[`lib/dom.js globals confirm generated - class 1`] = `
+"new confirm();
+
+class A1 extends confirm {}
+"
+`;
+
+exports[`lib/dom.js globals confirm variable 1`] = `
+"var a = confirm;
+"
+`;
+
+exports[`lib/dom.js globals customElements variable 1`] = `
+"var a = customElements;
+"
+`;
+
+exports[`lib/dom.js globals document variable 1`] = `
+"var a = document;
+"
+`;
+
+exports[`lib/dom.js globals focus generated - callable 1`] = `
+"focus();
+"
+`;
+
+exports[`lib/dom.js globals focus generated - class 1`] = `
+"new focus();
+
+class A1 extends focus {}
+"
+`;
+
+exports[`lib/dom.js globals focus variable 1`] = `
+"var a = focus;
+"
+`;
+
+exports[`lib/dom.js globals getComputedStyle generated - callable 1`] = `
+"getComputedStyle();
+"
+`;
+
+exports[`lib/dom.js globals getComputedStyle generated - class 1`] = `
+"new getComputedStyle();
+
+class A1 extends getComputedStyle {}
+"
+`;
+
+exports[`lib/dom.js globals getComputedStyle variable 1`] = `
+"var a = getComputedStyle;
+"
+`;
+
+exports[`lib/dom.js globals getSelection generated - callable 1`] = `
+"getSelection();
+"
+`;
+
+exports[`lib/dom.js globals getSelection generated - class 1`] = `
+"new getSelection();
+
+class A1 extends getSelection {}
+"
+`;
+
+exports[`lib/dom.js globals getSelection variable 1`] = `
+"var a = getSelection;
+"
+`;
+
+exports[`lib/dom.js globals localStorage variable 1`] = `
+"var a = localStorage;
+"
+`;
+
+exports[`lib/dom.js globals onfocus generated - callable 1`] = `
+"onfocus();
+"
+`;
+
+exports[`lib/dom.js globals onfocus generated - class 1`] = `
+"new onfocus();
+
+class A1 extends onfocus {}
+"
+`;
+
+exports[`lib/dom.js globals onfocus variable 1`] = `
+"var a = onfocus;
+"
+`;
+
+exports[`lib/dom.js globals onmessage generated - callable 1`] = `
+"onmessage();
+"
+`;
+
+exports[`lib/dom.js globals onmessage generated - class 1`] = `
+"new onmessage();
+
+class A1 extends onmessage {}
+"
+`;
+
+exports[`lib/dom.js globals onmessage variable 1`] = `
+"var a = onmessage;
+"
+`;
+
+exports[`lib/dom.js globals open generated - callable 1`] = `
+"open();
+"
+`;
+
+exports[`lib/dom.js globals open generated - class 1`] = `
+"new open();
+
+class A1 extends open {}
+"
+`;
+
+exports[`lib/dom.js globals open variable 1`] = `
+"var a = open;
+"
+`;
+
+exports[`lib/dom.js globals parent variable 1`] = `
+"var a = parent;
+"
+`;
+
+exports[`lib/dom.js globals print generated - callable 1`] = `
+"print();
+"
+`;
+
+exports[`lib/dom.js globals print generated - class 1`] = `
+"new print();
+
+class A1 extends print {}
+"
+`;
+
+exports[`lib/dom.js globals print variable 1`] = `
+"var a = print;
+"
+`;
+
+exports[`lib/dom.js globals prompt generated - callable 1`] = `
+"prompt();
+"
+`;
+
+exports[`lib/dom.js globals prompt generated - class 1`] = `
+"new prompt();
+
+class A1 extends prompt {}
+"
+`;
+
+exports[`lib/dom.js globals prompt variable 1`] = `
+"var a = prompt;
+"
+`;
+
+exports[`lib/dom.js globals requestAnimationFrame generated - callable 1`] = `
+"requestAnimationFrame();
+"
+`;
+
+exports[`lib/dom.js globals requestAnimationFrame generated - class 1`] = `
+"new requestAnimationFrame();
+
+class A1 extends requestAnimationFrame {}
+"
+`;
+
+exports[`lib/dom.js globals requestAnimationFrame variable 1`] = `
+"var a = requestAnimationFrame;
+"
+`;
+
+exports[`lib/dom.js globals requestIdleCallback generated - callable 1`] = `
+"requestIdleCallback();
+"
+`;
+
+exports[`lib/dom.js globals requestIdleCallback generated - class 1`] = `
+"new requestIdleCallback();
+
+class A1 extends requestIdleCallback {}
+"
+`;
+
+exports[`lib/dom.js globals requestIdleCallback variable 1`] = `
+"var a = requestIdleCallback;
+"
+`;
+
+exports[`lib/dom.js globals self variable 1`] = `
+"var a = self;
+"
+`;
+
+exports[`lib/dom.js globals sessionStorage variable 1`] = `
+"var a = sessionStorage;
+"
+`;
+
+exports[`lib/dom.js globals status variable 1`] = `
+"var a = status;
+"
+`;
+
+exports[`lib/dom.js globals top variable 1`] = `
+"var a = top;
+"
+`;

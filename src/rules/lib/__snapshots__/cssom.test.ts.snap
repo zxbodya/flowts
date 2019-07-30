@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/cssom.js globals Animation generated - class 1`] = `
+"new Animation();
+
+class A1 extends Animation {}
+"
+`;
+
+exports[`lib/cssom.js globals Animation variable 1`] = `
+"var a = Animation;
+"
+`;
+
+exports[`lib/cssom.js globals AnimationEffect generated - class 1`] = `
+"new AnimationEffect();
+
+class A1 extends AnimationEffect {}
+"
+`;
+
+exports[`lib/cssom.js globals AnimationEffect variable 1`] = `
+"var a = AnimationEffect;
+"
+`;
+
+exports[`lib/cssom.js globals AnimationPlaybackEvent generated - class 1`] = `
+"new AnimationPlaybackEvent();
+
+class A1 extends AnimationPlaybackEvent {}
+"
+`;
+
+exports[`lib/cssom.js globals AnimationPlaybackEvent variable 1`] = `
+"var a = AnimationPlaybackEvent;
+"
+`;
+
+exports[`lib/cssom.js globals AnimationTimeline generated - class 1`] = `
+"new AnimationTimeline();
+
+class A1 extends AnimationTimeline {}
+"
+`;
+
+exports[`lib/cssom.js globals AnimationTimeline variable 1`] = `
+"var a = AnimationTimeline;
+"
+`;
+
+exports[`lib/cssom.js globals CSSKeyframeRule generated - class 1`] = `
+"new CSSKeyframeRule();
+
+class A1 extends CSSKeyframeRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSKeyframeRule variable 1`] = `
+"var a = CSSKeyframeRule;
+"
+`;
+
+exports[`lib/cssom.js globals CSSKeyframesRule generated - class 1`] = `
+"new CSSKeyframesRule();
+
+class A1 extends CSSKeyframesRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSKeyframesRule variable 1`] = `
+"var a = CSSKeyframesRule;
+"
+`;
+
+exports[`lib/cssom.js globals CSSRule generated - class 1`] = `
+"new CSSRule();
+
+class A1 extends CSSRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSRule variable 1`] = `
+"var a = CSSRule;
+"
+`;
+
+exports[`lib/cssom.js globals CSSRuleList generated - class 1`] = `
+"new CSSRuleList();
+
+class A1 extends CSSRuleList {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSRuleList variable 1`] = `
+"var a = CSSRuleList;
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleDeclaration generated - class 1`] = `
+"new CSSStyleDeclaration();
+
+class A1 extends CSSStyleDeclaration {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleDeclaration variable 1`] = `
+"var a = CSSStyleDeclaration;
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleSheet generated - class 1`] = `
+"new CSSStyleSheet();
+
+class A1 extends CSSStyleSheet {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleSheet variable 1`] = `
+"var a = CSSStyleSheet;
+"
+`;
+
+exports[`lib/cssom.js globals DocumentTimeline generated - class 1`] = `
+"new DocumentTimeline();
+
+class A1 extends DocumentTimeline {}
+"
+`;
+
+exports[`lib/cssom.js globals DocumentTimeline variable 1`] = `
+"var a = DocumentTimeline;
+"
+`;
+
+exports[`lib/cssom.js globals KeyframeEffect generated - class 1`] = `
+"new KeyframeEffect();
+
+class A1 extends KeyframeEffect {}
+"
+`;
+
+exports[`lib/cssom.js globals KeyframeEffect variable 1`] = `
+"var a = KeyframeEffect;
+"
+`;
+
+exports[`lib/cssom.js globals MediaList generated - class 1`] = `
+"new MediaList();
+
+class A1 extends MediaList {}
+"
+`;
+
+exports[`lib/cssom.js globals MediaList variable 1`] = `
+"var a = MediaList;
+"
+`;
+
+exports[`lib/cssom.js globals StyleSheet generated - class 1`] = `
+"new StyleSheet();
+
+class A1 extends StyleSheet {}
+"
+`;
+
+exports[`lib/cssom.js globals StyleSheet variable 1`] = `
+"var a = StyleSheet;
+"
+`;
+
+exports[`lib/cssom.js globals StyleSheetList generated - class 1`] = `
+"new StyleSheetList();
+
+class A1 extends StyleSheetList {}
+"
+`;
+
+exports[`lib/cssom.js globals StyleSheetList variable 1`] = `
+"var a = StyleSheetList;
+"
+`;
+
+exports[`lib/cssom.js globals TransitionEvent generated - class 1`] = `
+"new TransitionEvent();
+
+class A1 extends TransitionEvent {}
+"
+`;
+
+exports[`lib/cssom.js globals TransitionEvent variable 1`] = `
+"var a = TransitionEvent;
+"
+`;

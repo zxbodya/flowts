@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/webassembly.js globals ExportedFunctionExoticObject generated - class 1`] = `
+"new ExportedFunctionExoticObject();
+
+class A1 extends ExportedFunctionExoticObject {}
+"
+`;
+
+exports[`lib/webassembly.js globals ExportedFunctionExoticObject variable 1`] = `
+"var a = ExportedFunctionExoticObject;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly variable 1`] = `
+"var a = WebAssembly;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$CompileError generated - class 1`] = `
+"new WebAssembly$CompileError();
+
+class A1 extends WebAssembly$CompileError {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$CompileError variable 1`] = `
+"var a = WebAssembly$CompileError;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Instance generated - class 1`] = `
+"new WebAssembly$Instance();
+
+class A1 extends WebAssembly$Instance {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Instance variable 1`] = `
+"var a = WebAssembly$Instance;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$LinkError generated - class 1`] = `
+"new WebAssembly$LinkError();
+
+class A1 extends WebAssembly$LinkError {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$LinkError variable 1`] = `
+"var a = WebAssembly$LinkError;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Memory generated - class 1`] = `
+"new WebAssembly$Memory();
+
+class A1 extends WebAssembly$Memory {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Memory variable 1`] = `
+"var a = WebAssembly$Memory;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Module generated - class 1`] = `
+"new WebAssembly$Module();
+
+class A1 extends WebAssembly$Module {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Module variable 1`] = `
+"var a = WebAssembly$Module;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$RuntimeError generated - class 1`] = `
+"new WebAssembly$RuntimeError();
+
+class A1 extends WebAssembly$RuntimeError {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$RuntimeError variable 1`] = `
+"var a = WebAssembly$RuntimeError;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Table generated - class 1`] = `
+"new WebAssembly$Table();
+
+class A1 extends WebAssembly$Table {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$Table variable 1`] = `
+"var a = WebAssembly$Table;
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$instantiate generated - callable 1`] = `
+"WebAssembly$instantiate();
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$instantiate generated - class 1`] = `
+"new WebAssembly$instantiate();
+
+class A1 extends WebAssembly$instantiate {}
+"
+`;
+
+exports[`lib/webassembly.js globals WebAssembly$instantiate variable 1`] = `
+"var a = WebAssembly$instantiate;
+"
+`;

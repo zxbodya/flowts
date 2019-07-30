@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/streams.js globals ReadableByteStreamController generated - class 1`] = `
+"new ReadableByteStreamController();
+
+class A1 extends ReadableByteStreamController {}
+"
+`;
+
+exports[`lib/streams.js globals ReadableByteStreamController variable 1`] = `
+"var a = ReadableByteStreamController;
+"
+`;
+
+exports[`lib/streams.js globals ReadableStream generated - class 1`] = `
+"new ReadableStream();
+
+class A1 extends ReadableStream {}
+"
+`;
+
+exports[`lib/streams.js globals ReadableStream variable 1`] = `
+"var a = ReadableStream;
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamBYOBRequest generated - class 1`] = `
+"new ReadableStreamBYOBRequest();
+
+class A1 extends ReadableStreamBYOBRequest {}
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamBYOBRequest variable 1`] = `
+"var a = ReadableStreamBYOBRequest;
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamController generated - class 1`] = `
+"new ReadableStreamController();
+
+class A1 extends ReadableStreamController {}
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamController variable 1`] = `
+"var a = ReadableStreamController;
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamReader generated - class 1`] = `
+"new ReadableStreamReader();
+
+class A1 extends ReadableStreamReader {}
+"
+`;
+
+exports[`lib/streams.js globals ReadableStreamReader variable 1`] = `
+"var a = ReadableStreamReader;
+"
+`;
+
+exports[`lib/streams.js globals TextEncoder generated - class 1`] = `
+"new TextEncoder();
+
+class A1 extends TextEncoder {}
+"
+`;
+
+exports[`lib/streams.js globals TextEncoder variable 1`] = `
+"var a = TextEncoder;
+"
+`;
+
+exports[`lib/streams.js globals TransformStream generated - class 1`] = `
+"new TransformStream();
+
+class A1 extends TransformStream {}
+"
+`;
+
+exports[`lib/streams.js globals TransformStream variable 1`] = `
+"var a = TransformStream;
+"
+`;
+
+exports[`lib/streams.js globals UnderlyingSink generated - interface 1`] = `
+"class A1 extends UnderlyingSink {}
+"
+`;
+
+exports[`lib/streams.js globals UnderlyingSink generated - type 1`] = `""`;
+
+exports[`lib/streams.js globals UnderlyingSource generated - interface 1`] = `
+"class A1 extends UnderlyingSource {}
+"
+`;
+
+exports[`lib/streams.js globals UnderlyingSource generated - type 1`] = `""`;
+
+exports[`lib/streams.js globals WritableStream generated - class 1`] = `
+"new WritableStream();
+
+class A1 extends WritableStream {}
+"
+`;
+
+exports[`lib/streams.js globals WritableStream variable 1`] = `
+"var a = WritableStream;
+"
+`;
+
+exports[`lib/streams.js globals WritableStreamController generated - interface 1`] = `
+"class A1 extends WritableStreamController {}
+"
+`;
+
+exports[`lib/streams.js globals WritableStreamController generated - type 1`] = `""`;
+
+exports[`lib/streams.js globals WritableStreamWriter generated - interface 1`] = `
+"class A1 extends WritableStreamWriter {}
+"
+`;
+
+exports[`lib/streams.js globals WritableStreamWriter generated - type 1`] = `""`;
