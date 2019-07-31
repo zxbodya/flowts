@@ -9,11 +9,7 @@ export default {
           (): mixed;
         }
         */
-    ExportedFunctionExoticObject(context) {
-      context.warnOnce(
-        'Rule for global "ExportedFunctionExoticObject" is not verified'
-      );
-    },
+    ExportedFunctionExoticObject(context) {},
 
     /*
         lib/webassembly.js:19:0
@@ -35,9 +31,7 @@ export default {
           static customSections(moduleObject: WebAssembly$Module, sectionName: string): Array<ArrayBuffer>;
         }
         */
-    WebAssembly$Module(context) {
-      context.warnOnce('Rule for global "WebAssembly$Module" is not verified');
-    },
+    WebAssembly$Module(context) {},
 
     /*
         lib/webassembly.js:36:0
@@ -48,11 +42,7 @@ export default {
           +exports: { [exportedFunction: string]: ExportedFunctionExoticObject, ... };
         }
         */
-    WebAssembly$Instance(context) {
-      context.warnOnce(
-        'Rule for global "WebAssembly$Instance" is not verified'
-      );
-    },
+    WebAssembly$Instance(context) {},
 
     /*
         lib/webassembly.js:48:0
@@ -65,9 +55,7 @@ export default {
           grow(delta: number): number;
         }
         */
-    WebAssembly$Memory(context) {
-      context.warnOnce('Rule for global "WebAssembly$Memory" is not verified');
-    },
+    WebAssembly$Memory(context) {},
 
     /*
         lib/webassembly.js:63:0
@@ -82,42 +70,28 @@ export default {
           set(index: number, value: ExportedFunctionExoticObject): void;
         }
         */
-    WebAssembly$Table(context) {
-      context.warnOnce('Rule for global "WebAssembly$Table" is not verified');
-    },
+    WebAssembly$Table(context) {},
 
     /*
         lib/webassembly.js:73:0
 
         declare class WebAssembly$CompileError extends Error {}
         */
-    WebAssembly$CompileError(context) {
-      context.warnOnce(
-        'Rule for global "WebAssembly$CompileError" is not verified'
-      );
-    },
+    WebAssembly$CompileError(context) {},
 
     /*
         lib/webassembly.js:74:0
 
         declare class WebAssembly$LinkError extends Error {}
         */
-    WebAssembly$LinkError(context) {
-      context.warnOnce(
-        'Rule for global "WebAssembly$LinkError" is not verified'
-      );
-    },
+    WebAssembly$LinkError(context) {},
 
     /*
         lib/webassembly.js:75:0
 
         declare class WebAssembly$RuntimeError extends Error {}
         */
-    WebAssembly$RuntimeError(context) {
-      context.warnOnce(
-        'Rule for global "WebAssembly$RuntimeError" is not verified'
-      );
-    },
+    WebAssembly$RuntimeError(context) {},
 
     /*
         lib/webassembly.js:77:0
@@ -129,11 +103,7 @@ export default {
 
         declare function WebAssembly$instantiate(moduleObject: WebAssembly$Module, importObject?: ImportObject): Promise<WebAssembly$Instance>;
         */
-    WebAssembly$instantiate(context) {
-      context.warnOnce(
-        'Rule for global "WebAssembly$instantiate" is not verified'
-      );
-    },
+    WebAssembly$instantiate(context) {},
 
     /*
         lib/webassembly.js:80:0
@@ -155,9 +125,7 @@ export default {
           ...
         }
         */
-    WebAssembly(context) {
-      context.warnOnce('Rule for global "WebAssembly" is not verified');
-    },
+    WebAssembly(context) {},
   },
 
   modules: {},

@@ -14,7 +14,6 @@ export default {
         */
     WindowClient(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WindowClient" is not verified');
     },
 
     /*
@@ -30,7 +29,6 @@ export default {
         */
     Client(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Client" is not verified');
     },
 
     /*
@@ -42,7 +40,6 @@ export default {
         */
     ExtendableEvent(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "ExtendableEvent" is not verified');
     },
 
     /*
@@ -52,9 +49,7 @@ export default {
           registerForeignFetch(options: ForeignFetchOptions): void,
         }
         */
-    InstallEvent(context) {
-      context.warnOnce('Rule for global "InstallEvent" is not verified');
-    },
+    InstallEvent(context) {},
 
     /*
         lib/serviceworkers.js:40:0
@@ -69,7 +64,6 @@ export default {
         */
     FetchEvent(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "FetchEvent" is not verified');
     },
 
     /*
@@ -84,7 +78,6 @@ export default {
         */
     Clients(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Clients" is not verified');
     },
 
     /*
@@ -101,7 +94,6 @@ export default {
         */
     ServiceWorker(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "ServiceWorker" is not verified');
     },
 
     /*
@@ -114,9 +106,6 @@ export default {
         */
     NavigationPreloadState(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "NavigationPreloadState" is not verified'
-      );
     },
 
     /*
@@ -131,9 +120,6 @@ export default {
         */
     NavigationPreloadManager(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "NavigationPreloadManager" is not verified'
-      );
     },
 
     /*
@@ -147,9 +133,6 @@ export default {
         */
     PushSubscriptionJSON(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "PushSubscriptionJSON" is not verified'
-      );
     },
 
     /*
@@ -166,7 +149,6 @@ export default {
         */
     PushSubscription(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "PushSubscription" is not verified');
     },
 
     /*
@@ -181,7 +163,6 @@ export default {
         */
     PushManager(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "PushManager" is not verified');
     },
 
     /*
@@ -204,9 +185,6 @@ export default {
         */
     ServiceWorkerRegistration(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ServiceWorkerRegistration" is not verified'
-      );
     },
 
     /*
@@ -231,9 +209,6 @@ export default {
         */
     ServiceWorkerContainer(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ServiceWorkerContainer" is not verified'
-      );
     },
 
     /*
@@ -249,9 +224,6 @@ export default {
         */
     ServiceWorkerMessageEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "ServiceWorkerMessageEvent" is not verified'
-      );
     },
 
     /*
@@ -267,9 +239,6 @@ export default {
         */
     ExtendableMessageEvent(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ExtendableMessageEvent" is not verified'
-      );
     },
 
     /*
@@ -293,7 +262,6 @@ export default {
         */
     Cache(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Cache" is not verified');
     },
 
     /*
@@ -309,7 +277,6 @@ export default {
         */
     CacheStorage(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "CacheStorage" is not verified');
     },
 
     /*
@@ -317,9 +284,7 @@ export default {
 
         declare var clients: Clients;
         */
-    clients(context) {
-      context.warnOnce('Rule for global "clients" is not verified');
-    },
+    clients(context) {},
 
     /*
         lib/serviceworkers.js:215:0
@@ -328,7 +293,6 @@ export default {
         */
     caches(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "caches" is not verified');
     },
 
     /*
@@ -336,54 +300,42 @@ export default {
 
         declare var registration: ServiceWorkerRegistration;
         */
-    registration(context) {
-      context.warnOnce('Rule for global "registration" is not verified');
-    },
+    registration(context) {},
 
     /*
         lib/serviceworkers.js:217:0
 
         declare function skipWaiting(): Promise<void>;
         */
-    skipWaiting(context) {
-      context.warnOnce('Rule for global "skipWaiting" is not verified');
-    },
+    skipWaiting(context) {},
 
     /*
         lib/serviceworkers.js:218:0
 
         declare var onactivate: ?EventHandler;
         */
-    onactivate(context) {
-      context.warnOnce('Rule for global "onactivate" is not verified');
-    },
+    onactivate(context) {},
 
     /*
         lib/serviceworkers.js:219:0
 
         declare var oninstall: ?EventHandler;
         */
-    oninstall(context) {
-      context.warnOnce('Rule for global "oninstall" is not verified');
-    },
+    oninstall(context) {},
 
     /*
         lib/serviceworkers.js:220:0
 
         declare var onfetch: ?EventHandler;
         */
-    onfetch(context) {
-      context.warnOnce('Rule for global "onfetch" is not verified');
-    },
+    onfetch(context) {},
 
     /*
         lib/serviceworkers.js:221:0
 
         declare var onforeignfetch: ?EventHandler;
         */
-    onforeignfetch(context) {
-      context.warnOnce('Rule for global "onforeignfetch" is not verified');
-    },
+    onforeignfetch(context) {},
 
     /*
         lib/serviceworkers.js:222:0
@@ -392,7 +344,6 @@ export default {
         */
     onmessage(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "onmessage" is not verified');
     },
   },
 

@@ -14,9 +14,7 @@ export default {
           ...
         }
         */
-    Intl(context) {
-      context.warnOnce('Rule for global "Intl" is not verified');
-    },
+    Intl(context) {},
 
     /*
         lib/intl.js:20:0
@@ -48,9 +46,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$Collator(context) {
-      context.warnOnce('Rule for global "Intl$Collator" is not verified');
-    },
+    Intl$Collator(context) {},
 
     /*
         lib/intl.js:47:0
@@ -65,11 +61,7 @@ export default {
           ...
         }
         */
-    Intl$CollatorOptions(context) {
-      context.warnOnce(
-        'Rule for global "Intl$CollatorOptions" is not verified'
-      );
-    },
+    Intl$CollatorOptions(context) {},
 
     /*
         lib/intl.js:60:0
@@ -114,9 +106,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$DateTimeFormat(context) {
-      context.warnOnce('Rule for global "Intl$DateTimeFormat" is not verified');
-    },
+    Intl$DateTimeFormat(context) {},
 
     /*
         lib/intl.js:100:0
@@ -138,11 +128,7 @@ export default {
           ...
         }
         */
-    Intl$DateTimeFormatOptions(context) {
-      context.warnOnce(
-        'Rule for global "Intl$DateTimeFormatOptions" is not verified'
-      );
-    },
+    Intl$DateTimeFormatOptions(context) {},
 
     /*
         lib/intl.js:117:0
@@ -178,9 +164,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$NumberFormat(context) {
-      context.warnOnce('Rule for global "Intl$NumberFormat" is not verified');
-    },
+    Intl$NumberFormat(context) {},
 
     /*
         lib/intl.js:148:0
@@ -199,11 +183,7 @@ export default {
           ...
         }
         */
-    Intl$NumberFormatOptions(context) {
-      context.warnOnce(
-        'Rule for global "Intl$NumberFormatOptions" is not verified'
-      );
-    },
+    Intl$NumberFormatOptions(context) {},
 
     /*
         lib/intl.js:162:0
@@ -231,9 +211,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$PluralRules(context) {
-      context.warnOnce('Rule for global "Intl$PluralRules" is not verified');
-    },
+    Intl$PluralRules(context) {},
 
     /*
         lib/intl.js:187:0
@@ -249,11 +227,7 @@ export default {
           ...
         }
         */
-    Intl$PluralRulesOptions(context) {
-      context.warnOnce(
-        'Rule for global "Intl$PluralRulesOptions" is not verified'
-      );
-    },
+    Intl$PluralRulesOptions(context) {},
   },
 
   modules: {},

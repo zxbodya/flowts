@@ -11,7 +11,6 @@ export default {
         */
     IDBEnvironment(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "IDBEnvironment" is not verified');
     },
 
     /*
@@ -25,7 +24,6 @@ export default {
         */
     IDBFactory(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBFactory" is not verified');
     },
 
     /*
@@ -43,7 +41,6 @@ export default {
         */
     IDBRequest(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBRequest" is not verified');
     },
 
     /*
@@ -56,7 +53,6 @@ export default {
         */
     IDBOpenDBRequest(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBOpenDBRequest" is not verified');
     },
 
     /*
@@ -82,7 +78,6 @@ export default {
         */
     IDBDatabase(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBDatabase" is not verified');
     },
 
     /*
@@ -102,7 +97,6 @@ export default {
         */
     IDBTransaction(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBTransaction" is not verified');
     },
 
     /*
@@ -133,7 +127,6 @@ export default {
         */
     IDBObjectStore(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBObjectStore" is not verified');
     },
 
     /*
@@ -154,7 +147,6 @@ export default {
         */
     IDBIndex(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBIndex" is not verified');
     },
 
     /*
@@ -173,7 +165,6 @@ export default {
         */
     IDBKeyRange(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBKeyRange" is not verified');
     },
 
     /*
@@ -192,7 +183,6 @@ export default {
         */
     IDBCursor(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBCursor" is not verified');
     },
 
     /*
@@ -204,7 +194,6 @@ export default {
         */
     IDBCursorWithValue(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "IDBCursorWithValue" is not verified');
     },
   },
 

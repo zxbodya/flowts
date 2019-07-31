@@ -261,18 +261,6 @@ async function main(
         );
       }
     }
-    state.fix.push(
-      expressionStatement(
-        callExpression(
-          memberExpression(
-            identifier('context'),
-            identifier('warnOnce'),
-            false
-          ),
-          [stringLiteral(`Rule for global "${globalName}" is not verified`)]
-        )
-      )
-    );
   }
 
   function getNodeComment(path: NodePath) {
@@ -307,26 +295,10 @@ async function main(
   }
   for (const [moduleName, declarations] of Object.entries(modules)) {
     for (const [declarationName, { paths }] of declarations) {
-      const fix = [
-        expressionStatement(
-          callExpression(
-            memberExpression(
-              identifier('context'),
-              identifier('warnOnce'),
-              false
-            ),
-            [
-              stringLiteral(
-                `Rule for export "${declarationName}" in module "${moduleName}" is not verified`
-              ),
-            ]
-          )
-        ),
-      ];
       const comments = paths.map(path => {
         return getNodeComment(path);
       });
-      rule.setModuleRule(moduleName, declarationName, fix, comments);
+      rule.setModuleRule(moduleName, declarationName, [], comments);
       ruleTest.setModuleRuleTests(
         moduleName,
         declarationName,

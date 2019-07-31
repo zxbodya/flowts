@@ -9,7 +9,6 @@ export default {
         */
     NaN(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "NaN" is not verified');
     },
 
     /*
@@ -19,7 +18,6 @@ export default {
         */
     Infinity(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "Infinity" is not verified');
     },
 
     /*
@@ -27,9 +25,7 @@ export default {
 
         declare var undefined: void;
         */
-    undefined(context) {
-      context.warnOnce('Rule for global "undefined" is not verified');
-    },
+    undefined(context) {},
 
     /*
         lib/core.js:15:0
@@ -38,7 +34,6 @@ export default {
         */
     parseInt(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "parseInt" is not verified');
     },
 
     /*
@@ -48,7 +43,6 @@ export default {
         */
     parseFloat(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "parseFloat" is not verified');
     },
 
     /*
@@ -58,7 +52,6 @@ export default {
         */
     isNaN(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "isNaN" is not verified');
     },
 
     /*
@@ -68,7 +61,6 @@ export default {
         */
     isFinite(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "isFinite" is not verified');
     },
 
     /*
@@ -78,7 +70,6 @@ export default {
         */
     decodeURI(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "decodeURI" is not verified');
     },
 
     /*
@@ -88,7 +79,6 @@ export default {
         */
     decodeURIComponent(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "decodeURIComponent" is not verified');
     },
 
     /*
@@ -98,7 +88,6 @@ export default {
         */
     encodeURI(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "encodeURI" is not verified');
     },
 
     /*
@@ -108,7 +97,6 @@ export default {
         */
     encodeURIComponent(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "encodeURIComponent" is not verified');
     },
 
     /*
@@ -160,7 +148,6 @@ export default {
         */
     Object(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "Object" is not verified');
     },
 
     /*
@@ -168,101 +155,77 @@ export default {
 
         declare class $SymbolHasInstance mixins Symbol {}
         */
-    $SymbolHasInstance(context) {
-      context.warnOnce('Rule for global "$SymbolHasInstance" is not verified');
-    },
+    $SymbolHasInstance(context) {},
 
     /*
         lib/core.js:90:0
 
         declare class $SymboIsConcatSpreadable mixins Symbol {}
         */
-    $SymboIsConcatSpreadable(context) {
-      context.warnOnce(
-        'Rule for global "$SymboIsConcatSpreadable" is not verified'
-      );
-    },
+    $SymboIsConcatSpreadable(context) {},
 
     /*
         lib/core.js:91:0
 
         declare class $SymbolIterator mixins Symbol {}
         */
-    $SymbolIterator(context) {
-      context.warnOnce('Rule for global "$SymbolIterator" is not verified');
-    },
+    $SymbolIterator(context) {},
 
     /*
         lib/core.js:92:0
 
         declare class $SymbolMatch mixins Symbol {}
         */
-    $SymbolMatch(context) {
-      context.warnOnce('Rule for global "$SymbolMatch" is not verified');
-    },
+    $SymbolMatch(context) {},
 
     /*
         lib/core.js:93:0
 
         declare class $SymbolReplace mixins Symbol {}
         */
-    $SymbolReplace(context) {
-      context.warnOnce('Rule for global "$SymbolReplace" is not verified');
-    },
+    $SymbolReplace(context) {},
 
     /*
         lib/core.js:94:0
 
         declare class $SymbolSearch mixins Symbol {}
         */
-    $SymbolSearch(context) {
-      context.warnOnce('Rule for global "$SymbolSearch" is not verified');
-    },
+    $SymbolSearch(context) {},
 
     /*
         lib/core.js:95:0
 
         declare class $SymbolSpecies mixins Symbol {}
         */
-    $SymbolSpecies(context) {
-      context.warnOnce('Rule for global "$SymbolSpecies" is not verified');
-    },
+    $SymbolSpecies(context) {},
 
     /*
         lib/core.js:96:0
 
         declare class $SymbolSplit mixins Symbol {}
         */
-    $SymbolSplit(context) {
-      context.warnOnce('Rule for global "$SymbolSplit" is not verified');
-    },
+    $SymbolSplit(context) {},
 
     /*
         lib/core.js:97:0
 
         declare class $SymbolToPrimitive mixins Symbol {}
         */
-    $SymbolToPrimitive(context) {
-      context.warnOnce('Rule for global "$SymbolToPrimitive" is not verified');
-    },
+    $SymbolToPrimitive(context) {},
 
     /*
         lib/core.js:98:0
 
         declare class $SymbolToStringTag mixins Symbol {}
         */
-    $SymbolToStringTag(context) {
-      context.warnOnce('Rule for global "$SymbolToStringTag" is not verified');
-    },
+    $SymbolToStringTag(context) {},
 
     /*
         lib/core.js:99:0
 
         declare class $SymbolUnscopables mixins Symbol {}
         */
-    $SymbolUnscopables(context) {
-      context.warnOnce('Rule for global "$SymbolUnscopables" is not verified');
-    },
+    $SymbolUnscopables(context) {},
 
     /*
         lib/core.js:101:0
@@ -290,7 +253,6 @@ export default {
         */
     Symbol(context) {
       context.lib('esnext.symbol');
-      context.warnOnce('Rule for global "Symbol" is not verified');
     },
 
     /*
@@ -309,7 +271,6 @@ export default {
         */
     Function(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "Function" is not verified');
     },
 
     /*
@@ -324,7 +285,6 @@ export default {
         */
     Boolean(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "Boolean" is not verified');
     },
 
     /*
@@ -357,7 +317,6 @@ export default {
         */
     Number(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "Number" is not verified');
     },
 
     /*
@@ -412,7 +371,6 @@ export default {
         */
     Math(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "Math" is not verified');
     },
 
     /*
@@ -461,9 +419,7 @@ export default {
             +length: number;
         }
         */
-    $ReadOnlyArray(context) {
-      context.warnOnce('Rule for global "$ReadOnlyArray" is not verified');
-    },
+    $ReadOnlyArray(context) {},
 
     /*
         lib/core.js:258:0
@@ -520,7 +476,6 @@ export default {
         */
     Array(context) {
       context.lib('esnext.array');
-      context.warnOnce('Rule for global "Array" is not verified');
     },
 
     /*
@@ -574,7 +529,6 @@ export default {
         */
     String(context) {
       context.lib('es2020.string');
-      context.warnOnce('Rule for global "String" is not verified');
     },
 
     /*
@@ -599,7 +553,6 @@ export default {
         */
     RegExp(context) {
       context.lib('es2020.symbol.wellknown');
-      context.warnOnce('Rule for global "RegExp" is not verified');
     },
 
     /*
@@ -664,7 +617,6 @@ export default {
         */
     Date(context) {
       context.lib('scripthost');
-      context.warnOnce('Rule for global "Date" is not verified');
     },
 
     /*
@@ -688,9 +640,7 @@ export default {
             toString(): string;
         }
         */
-    CallSite(context) {
-      context.warnOnce('Rule for global "CallSite" is not verified');
-    },
+    CallSite(context) {},
 
     /*
         lib/core.js:460:0
@@ -721,7 +671,6 @@ export default {
         */
     Error(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "Error" is not verified');
     },
 
     /*
@@ -733,7 +682,6 @@ export default {
         */
     EvalError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "EvalError" is not verified');
     },
 
     /*
@@ -745,7 +693,6 @@ export default {
         */
     RangeError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "RangeError" is not verified');
     },
 
     /*
@@ -757,7 +704,6 @@ export default {
         */
     ReferenceError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "ReferenceError" is not verified');
     },
 
     /*
@@ -769,7 +715,6 @@ export default {
         */
     SyntaxError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "SyntaxError" is not verified');
     },
 
     /*
@@ -781,7 +726,6 @@ export default {
         */
     TypeError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "TypeError" is not verified');
     },
 
     /*
@@ -793,7 +737,6 @@ export default {
         */
     URIError(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "URIError" is not verified');
     },
 
     /*
@@ -815,7 +758,6 @@ export default {
         */
     JSON(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "JSON" is not verified');
     },
 
     /*
@@ -823,18 +765,14 @@ export default {
 
         declare function $iterate<T>(p: Iterable<T>): T;
         */
-    $iterate(context) {
-      context.warnOnce('Rule for global "$iterate" is not verified');
-    },
+    $iterate(context) {},
 
     /*
         lib/core.js:576:0
 
         declare function $asyncIterator<T>(p: AsyncIterable<T>): T;
         */
-    $asyncIterator(context) {
-      context.warnOnce('Rule for global "$asyncIterator" is not verified');
-    },
+    $asyncIterator(context) {},
 
     /*
         lib/core.js:580:0
@@ -850,9 +788,7 @@ export default {
             values(): Iterator<V>;
         }
         */
-    $ReadOnlyMap(context) {
-      context.warnOnce('Rule for global "$ReadOnlyMap" is not verified');
-    },
+    $ReadOnlyMap(context) {},
 
     /*
         lib/core.js:591:0
@@ -876,7 +812,6 @@ export default {
         */
     Map(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "Map" is not verified');
     },
 
     /*
@@ -887,9 +822,7 @@ export default {
             has(key: K): boolean;
         }
         */
-    $ReadOnlyWeakMap(context) {
-      context.warnOnce('Rule for global "$ReadOnlyWeakMap" is not verified');
-    },
+    $ReadOnlyWeakMap(context) {},
 
     /*
         lib/core.js:613:0
@@ -904,7 +837,6 @@ export default {
         */
     WeakMap(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "WeakMap" is not verified');
     },
 
     /*
@@ -920,9 +852,7 @@ export default {
             values(): Iterator<T>;
         }
         */
-    $ReadOnlySet(context) {
-      context.warnOnce('Rule for global "$ReadOnlySet" is not verified');
-    },
+    $ReadOnlySet(context) {},
 
     /*
         lib/core.js:631:0
@@ -944,7 +874,6 @@ export default {
         */
     Set(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "Set" is not verified');
     },
 
     /*
@@ -954,9 +883,7 @@ export default {
             has(value: T): boolean;
         }
         */
-    $ReadOnlyWeakSet(context) {
-      context.warnOnce('Rule for global "$ReadOnlyWeakSet" is not verified');
-    },
+    $ReadOnlyWeakSet(context) {},
 
     /*
         lib/core.js:650:0
@@ -970,7 +897,6 @@ export default {
         */
     WeakSet(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "WeakSet" is not verified');
     },
 
     /*
@@ -1007,7 +933,6 @@ export default {
         */
     Promise(context) {
       context.lib('es2018.promise');
-      context.warnOnce('Rule for global "Promise" is not verified');
     },
 
     /*
@@ -1015,9 +940,7 @@ export default {
 
         declare function $await<T>(p: Promise<T> | T): T;
         */
-    $await(context) {
-      context.warnOnce('Rule for global "$await" is not verified');
-    },
+    $await(context) {},
 
     /*
         lib/core.js:695:0
@@ -1032,7 +955,6 @@ export default {
         */
     ArrayBuffer(context) {
       context.lib('es2015.symbol.wellknown');
-      context.warnOnce('Rule for global "ArrayBuffer" is not verified');
     },
 
     /*
@@ -1096,9 +1018,7 @@ export default {
             values(): Iterator<number>;
         }
         */
-    $TypedArray(context) {
-      context.warnOnce('Rule for global "$TypedArray" is not verified');
-    },
+    $TypedArray(context) {},
 
     /*
         lib/core.js:769:0
@@ -1107,7 +1027,6 @@ export default {
         */
     Int8Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Int8Array" is not verified');
     },
 
     /*
@@ -1117,7 +1036,6 @@ export default {
         */
     Uint8Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Uint8Array" is not verified');
     },
 
     /*
@@ -1127,7 +1045,6 @@ export default {
         */
     Uint8ClampedArray(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Uint8ClampedArray" is not verified');
     },
 
     /*
@@ -1137,7 +1054,6 @@ export default {
         */
     Int16Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Int16Array" is not verified');
     },
 
     /*
@@ -1147,7 +1063,6 @@ export default {
         */
     Uint16Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Uint16Array" is not verified');
     },
 
     /*
@@ -1157,7 +1072,6 @@ export default {
         */
     Int32Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Int32Array" is not verified');
     },
 
     /*
@@ -1167,7 +1081,6 @@ export default {
         */
     Uint32Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Uint32Array" is not verified');
     },
 
     /*
@@ -1177,7 +1090,6 @@ export default {
         */
     Float32Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Float32Array" is not verified');
     },
 
     /*
@@ -1187,7 +1099,6 @@ export default {
         */
     Float64Array(context) {
       context.lib('es2016.array.include');
-      context.warnOnce('Rule for global "Float64Array" is not verified');
     },
 
     /*
@@ -1218,7 +1129,6 @@ export default {
         */
     DataView(context) {
       context.lib('esnext.bigint');
-      context.warnOnce('Rule for global "DataView" is not verified');
     },
 
     /*
@@ -1228,7 +1138,6 @@ export default {
         */
     btoa(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "btoa" is not verified');
     },
 
     /*
@@ -1238,7 +1147,6 @@ export default {
         */
     atob(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "atob" is not verified');
     },
 
     /*
@@ -1248,7 +1156,6 @@ export default {
         */
     escape(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "escape" is not verified');
     },
 
     /*
@@ -1258,7 +1165,6 @@ export default {
         */
     unescape(context) {
       context.lib('es5');
-      context.warnOnce('Rule for global "unescape" is not verified');
     },
 
     /*
@@ -1266,18 +1172,14 @@ export default {
 
         declare opaque type TimeoutID;
         */
-    TimeoutID(context) {
-      context.warnOnce('Rule for global "TimeoutID" is not verified');
-    },
+    TimeoutID(context) {},
 
     /*
         lib/core.js:809:0
 
         declare opaque type IntervalID;
         */
-    IntervalID(context) {
-      context.warnOnce('Rule for global "IntervalID" is not verified');
-    },
+    IntervalID(context) {},
 
     /*
         lib/core.js:810:0
@@ -1286,7 +1188,6 @@ export default {
         */
     clearInterval(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "clearInterval" is not verified');
     },
 
     /*
@@ -1296,7 +1197,6 @@ export default {
         */
     clearTimeout(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "clearTimeout" is not verified');
     },
 
     /*
@@ -1310,7 +1210,6 @@ export default {
         */
     setTimeout(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "setTimeout" is not verified');
     },
 
     /*
@@ -1324,7 +1223,6 @@ export default {
         */
     setInterval(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "setInterval" is not verified');
     },
 
     /*
@@ -1347,9 +1245,7 @@ export default {
             ...
         }
         */
-    Reflect(context) {
-      context.warnOnce('Rule for global "Reflect" is not verified');
-    },
+    Reflect(context) {},
 
     /*
         lib/core.js:863:0
@@ -1362,7 +1258,6 @@ export default {
         */
     Proxy(context) {
       context.lib('es2015.proxy');
-      context.warnOnce('Rule for global "Proxy" is not verified');
     },
 
     /*
@@ -1370,9 +1265,7 @@ export default {
 
         declare var global: any;
         */
-    global(context) {
-      context.warnOnce('Rule for global "global" is not verified');
-    },
+    global(context) {},
 
     /*
         lib/core.js:873:0
@@ -1389,9 +1282,7 @@ export default {
             ...
         };
         */
-    module(context) {
-      context.warnOnce('Rule for global "module" is not verified');
-    },
+    module(context) {},
 
     /*
         lib/core.js:884:0
@@ -1404,27 +1295,21 @@ export default {
             ...
         };
         */
-    require(context) {
-      context.warnOnce('Rule for global "require" is not verified');
-    },
+    require(context) {},
 
     /*
         lib/core.js:891:0
 
         declare var exports: any;
         */
-    exports(context) {
-      context.warnOnce('Rule for global "exports" is not verified');
-    },
+    exports(context) {},
 
     /*
         lib/core.js:894:0
 
         declare opaque type $Flow$ModuleRef<T>;
         */
-    $Flow$ModuleRef(context) {
-      context.warnOnce('Rule for global "$Flow$ModuleRef" is not verified');
-    },
+    $Flow$ModuleRef(context) {},
 
     /*
         lib/core.js:897:0
@@ -1456,7 +1341,6 @@ export default {
         */
     console(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "console" is not verified');
     },
   },
 

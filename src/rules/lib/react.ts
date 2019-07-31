@@ -137,11 +137,7 @@ export default {
           state: State;
         }
         */
-    LegacyReactComponent(context) {
-      context.warnOnce(
-        'Rule for global "LegacyReactComponent" is not verified'
-      );
-    },
+    LegacyReactComponent(context) {},
 
     /*
         lib/react.js:130:0
@@ -154,11 +150,7 @@ export default {
           ...
         };
         */
-    React$AbstractComponentStatics(context) {
-      context.warnOnce(
-        'Rule for global "React$AbstractComponentStatics" is not verified'
-      );
-    },
+    React$AbstractComponentStatics(context) {},
 
     /*
         lib/react.js:143:0
@@ -278,33 +270,21 @@ export default {
 
                 declare export var DOM: any;
                 */
-        DOM(context) {
-          context.warnOnce(
-            'Rule for export "DOM" in module "react" is not verified'
-          );
-        },
+        DOM(context) {},
 
         /*
                 lib/react.js:224:2
 
                 declare export var PropTypes: ReactPropTypes;
                 */
-        PropTypes(context) {
-          context.warnOnce(
-            'Rule for export "PropTypes" in module "react" is not verified'
-          );
-        },
+        PropTypes(context) {},
 
         /*
                 lib/react.js:225:2
 
                 declare export var version: string;
                 */
-        version(context) {
-          context.warnOnce(
-            'Rule for export "version" in module "react" is not verified'
-          );
-        },
+        version(context) {},
 
         /*
                 lib/react.js:227:2
@@ -317,11 +297,7 @@ export default {
                     getStack: ?(() => ?string)
                   ) : void;
                 */
-        checkPropTypes(context) {
-          context.warnOnce(
-            'Rule for export "checkPropTypes" in module "react" is not verified'
-          );
-        },
+        checkPropTypes(context) {},
 
         /*
                 lib/react.js:235:2
@@ -345,11 +321,7 @@ export default {
 
                 declare export var createElement: React$CreateElement;
                 */
-        createElement(context) {
-          context.warnOnce(
-            'Rule for export "createElement" in module "react" is not verified'
-          );
-        },
+        createElement(context) {},
 
         /*
                 lib/react.js:241:2
@@ -365,11 +337,7 @@ export default {
                     type: ElementType,
                   ): React$ElementFactory<ElementType>;
                 */
-        createFactory(context) {
-          context.warnOnce(
-            'Rule for export "createFactory" in module "react" is not verified'
-          );
-        },
+        createFactory(context) {},
 
         /*
                 lib/react.js:245:2
@@ -384,11 +352,7 @@ export default {
 
                 declare export function isValidElement(element: any): boolean;
                 */
-        isValidElement(context) {
-          context.warnOnce(
-            'Rule for export "isValidElement" in module "react" is not verified'
-          );
-        },
+        isValidElement(context) {},
 
         /*
                 lib/react.js:250:2
@@ -438,22 +402,14 @@ export default {
 
                 declare export type MixedElement = React$MixedElement;
                 */
-        MixedElement(context) {
-          context.warnOnce(
-            'Rule for export "MixedElement" in module "react" is not verified'
-          );
-        },
+        MixedElement(context) {},
 
         /*
                 lib/react.js:260:2
 
                 declare export type ElementType = React$ElementType;
                 */
-        ElementType(context) {
-          context.warnOnce(
-            'Rule for export "ElementType" in module "react" is not verified'
-          );
-        },
+        ElementType(context) {},
 
         /*
                 lib/react.js:261:2
@@ -469,11 +425,7 @@ export default {
 
                 declare export var Fragment: ({ children?: React$Node, ... }) => React$Node;
                 */
-        Fragment(context) {
-          context.warnOnce(
-            'Rule for export "Fragment" in module "react" is not verified'
-          );
-        },
+        Fragment(context) {},
 
         /*
                 lib/react.js:263:2
@@ -487,11 +439,7 @@ export default {
 
                 declare export type Ref<C> = React$Ref<C>;
                 */
-        Ref(context) {
-          context.warnOnce(
-            'Rule for export "Ref" in module "react" is not verified'
-          );
-        },
+        Ref(context) {},
 
         /*
                 lib/react.js:265:2
@@ -514,33 +462,21 @@ export default {
 
                 declare export type Portal = React$Portal;
                 */
-        Portal(context) {
-          context.warnOnce(
-            'Rule for export "Portal" in module "react" is not verified'
-          );
-        },
+        Portal(context) {},
 
         /*
                 lib/react.js:268:2
 
                 declare export var ConcurrentMode: ({ children?: React$Node, ... }) => React$Node;
                 */
-        ConcurrentMode(context) {
-          context.warnOnce(
-            'Rule for export "ConcurrentMode" in module "react" is not verified'
-          );
-        },
+        ConcurrentMode(context) {},
 
         /*
                 lib/react.js:269:2
 
                 declare export var StrictMode: ({ children?: React$Node, ... }) => React$Node;
                 */
-        StrictMode(context) {
-          context.warnOnce(
-            'Rule for export "StrictMode" in module "react" is not verified'
-          );
-        },
+        StrictMode(context) {},
 
         /*
                 lib/react.js:271:2
@@ -551,22 +487,14 @@ export default {
                     ...
                   }>;
                 */
-        Suspense(context) {
-          context.warnOnce(
-            'Rule for export "Suspense" in module "react" is not verified'
-          );
-        },
+        Suspense(context) {},
 
         /*
                 lib/react.js:277:2
 
                 declare export type ElementProps<C> = React$ElementProps<C>;
                 */
-        ElementProps(context) {
-          context.warnOnce(
-            'Rule for export "ElementProps" in module "react" is not verified'
-          );
-        },
+        ElementProps(context) {},
 
         /*
                 lib/react.js:278:2
@@ -591,11 +519,7 @@ export default {
 
                 declare export type Config<Props, DefaultProps> = React$Config<Props, DefaultProps>;
                 */
-        Config(context) {
-          context.warnOnce(
-            'Rule for export "Config" in module "react" is not verified'
-          );
-        },
+        Config(context) {},
 
         /*
                 lib/react.js:282:2
@@ -605,9 +529,6 @@ export default {
         ChildrenArray(context) {
           // todo: introduce helper type ChildrenArray<T> = T[] | T
           // if T is reference transform directly to reduce bloat
-          context.warnOnce(
-            'Rule for export "ChildrenArray" in module "react" is not verified'
-          );
         },
 
         /*
@@ -630,11 +551,7 @@ export default {
                     ...
                   };
                 */
-        Children(context) {
-          context.warnOnce(
-            'Rule for export "Children" in module "react" is not verified'
-          );
-        },
+        Children(context) {},
 
         /*
                 lib/react.js:300:2
@@ -676,11 +593,7 @@ export default {
                     equal?: (Config, Config) => boolean,
                   ): React$AbstractComponent<Config, Instance>;
                 */
-        memo(context) {
-          context.warnOnce(
-            'Rule for export "memo" in module "react" is not verified'
-          );
-        },
+        memo(context) {},
 
         /*
                 lib/react.js:312:2
@@ -689,22 +602,14 @@ export default {
                     component: () => Promise<{ default: React$AbstractComponent<Config, Instance>, ... }>,
                   ): React$AbstractComponent<Config, Instance>;
                 */
-        lazy(context) {
-          context.warnOnce(
-            'Rule for export "lazy" in module "react" is not verified'
-          );
-        },
+        lazy(context) {},
 
         /*
                 lib/react.js:316:2
 
                 declare type MaybeCleanUpFn = void | (() => void);
                 */
-        MaybeCleanUpFn(context) {
-          context.warnOnce(
-            'Rule for export "MaybeCleanUpFn" in module "react" is not verified'
-          );
-        },
+        MaybeCleanUpFn(context) {},
 
         /*
                 lib/react.js:318:2
@@ -730,11 +635,7 @@ export default {
 
                 declare type Dispatch<A> = (A) => void;
                 */
-        Dispatch(context) {
-          context.warnOnce(
-            'Rule for export "Dispatch" in module "react" is not verified'
-          );
-        },
+        Dispatch(context) {},
 
         /*
                 lib/react.js:329:2
@@ -762,33 +663,21 @@ export default {
                     init: (I) => S,
                   ): [S, Dispatch<A>];
                 */
-        useReducer(context) {
-          context.warnOnce(
-            'Rule for export "useReducer" in module "react" is not verified'
-          );
-        },
+        useReducer(context) {},
 
         /*
                 lib/react.js:346:2
 
                 declare export function useRef<T>(initialValue: T): {|current: T|};
                 */
-        useRef(context) {
-          context.warnOnce(
-            'Rule for export "useRef" in module "react" is not verified'
-          );
-        },
+        useRef(context) {},
 
         /*
                 lib/react.js:348:2
 
                 declare export function useDebugValue(value: any): void;
                 */
-        useDebugValue(context) {
-          context.warnOnce(
-            'Rule for export "useDebugValue" in module "react" is not verified'
-          );
-        },
+        useDebugValue(context) {},
 
         /*
                 lib/react.js:350:2
@@ -798,11 +687,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useEffect(context) {
-          context.warnOnce(
-            'Rule for export "useEffect" in module "react" is not verified'
-          );
-        },
+        useEffect(context) {},
 
         /*
                 lib/react.js:355:2
@@ -812,11 +697,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useLayoutEffect(context) {
-          context.warnOnce(
-            'Rule for export "useLayoutEffect" in module "react" is not verified'
-          );
-        },
+        useLayoutEffect(context) {},
 
         /*
                 lib/react.js:360:2
@@ -826,11 +707,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): T;
                 */
-        useCallback(context) {
-          context.warnOnce(
-            'Rule for export "useCallback" in module "react" is not verified'
-          );
-        },
+        useCallback(context) {},
 
         /*
                 lib/react.js:365:2
@@ -840,11 +717,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): T;
                 */
-        useMemo(context) {
-          context.warnOnce(
-            'Rule for export "useMemo" in module "react" is not verified'
-          );
-        },
+        useMemo(context) {},
 
         /*
                 lib/react.js:370:2
@@ -855,11 +728,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useImperativeHandle(context) {
-          context.warnOnce(
-            'Rule for export "useImperativeHandle" in module "react" is not verified'
-          );
-        },
+        useImperativeHandle(context) {},
 
         /*
                 lib/react.js:376:2
@@ -897,11 +766,7 @@ export default {
                     +useImperativeHandle: typeof useImperativeHandle,
                   |};
                 */
-        default(context) {
-          context.warnOnce(
-            'Rule for export "default" in module "react" is not verified'
-          );
-        },
+        default(context) {},
       },
     },
 
@@ -914,11 +779,7 @@ export default {
 
                 declare module.exports: $Exports<'react'>;
                 */
-        default(context) {
-          context.warnOnce(
-            'Rule for export "default" in module "React" is not verified'
-          );
-        },
+        default(context) {},
       },
     },
   },

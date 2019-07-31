@@ -149,10 +149,6 @@ const visitor: Visitor = {
         constructor(references: NodePath[]) {
           this.referencePaths = references;
         }
-
-        public warnOnce(...args: any): void {
-          console.error(...args);
-        }
       }
 
       class GlobalContext extends BaseContext implements GlobalFixContext {

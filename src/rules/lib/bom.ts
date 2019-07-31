@@ -33,7 +33,6 @@ export default {
         */
     Screen(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Screen" is not verified');
     },
 
     /*
@@ -43,7 +42,6 @@ export default {
         */
     screen(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "screen" is not verified');
     },
 
     /*
@@ -53,7 +51,6 @@ export default {
         */
     window(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "window" is not verified');
     },
 
     /*
@@ -66,7 +63,6 @@ export default {
         */
     PermissionStatus(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "PermissionStatus" is not verified');
     },
 
     /*
@@ -85,7 +81,6 @@ export default {
         */
     Permissions(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Permissions" is not verified');
     },
 
     /*
@@ -96,9 +91,7 @@ export default {
           +data: Uint8Array;
         }
         */
-    MIDIMessageEvent(context) {
-      context.warnOnce('Rule for global "MIDIMessageEvent" is not verified');
-    },
+    MIDIMessageEvent(context) {},
 
     /*
         lib/bom.js:183:0
@@ -108,9 +101,7 @@ export default {
           +port: MIDIPort;
         }
         */
-    MIDIConnectionEvent(context) {
-      context.warnOnce('Rule for global "MIDIConnectionEvent" is not verified');
-    },
+    MIDIConnectionEvent(context) {},
 
     /*
         lib/bom.js:188:0
@@ -128,9 +119,7 @@ export default {
           close(): Promise<MIDIPort>;
         }
         */
-    MIDIPort(context) {
-      context.warnOnce('Rule for global "MIDIPort" is not verified');
-    },
+    MIDIPort(context) {},
 
     /*
         lib/bom.js:201:0
@@ -139,9 +128,7 @@ export default {
           onmidimessage: ?((ev: MIDIMessageEvent) => mixed);
         }
         */
-    MIDIInput(context) {
-      context.warnOnce('Rule for global "MIDIInput" is not verified');
-    },
+    MIDIInput(context) {},
 
     /*
         lib/bom.js:205:0
@@ -151,27 +138,21 @@ export default {
           clear(): void;
         }
         */
-    MIDIOutput(context) {
-      context.warnOnce('Rule for global "MIDIOutput" is not verified');
-    },
+    MIDIOutput(context) {},
 
     /*
         lib/bom.js:210:0
 
         declare class MIDIInputMap extends $ReadOnlyMap<string, MIDIInput> {}
         */
-    MIDIInputMap(context) {
-      context.warnOnce('Rule for global "MIDIInputMap" is not verified');
-    },
+    MIDIInputMap(context) {},
 
     /*
         lib/bom.js:212:0
 
         declare class MIDIOutputMap extends $ReadOnlyMap<string, MIDIOutput> {}
         */
-    MIDIOutputMap(context) {
-      context.warnOnce('Rule for global "MIDIOutputMap" is not verified');
-    },
+    MIDIOutputMap(context) {},
 
     /*
         lib/bom.js:214:0
@@ -183,9 +164,7 @@ export default {
           onstatechange: ?((ev: MIDIConnectionEvent) => mixed);
         }
         */
-    MIDIAccess(context) {
-      context.warnOnce('Rule for global "MIDIAccess" is not verified');
-    },
+    MIDIAccess(context) {},
 
     /*
         lib/bom.js:221:0
@@ -201,7 +180,6 @@ export default {
         */
     NavigatorID(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "NavigatorID" is not verified');
     },
 
     /*
@@ -214,7 +192,6 @@ export default {
         */
     NavigatorLanguage(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "NavigatorLanguage" is not verified');
     },
 
     /*
@@ -227,9 +204,6 @@ export default {
         */
     NavigatorContentUtils(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "NavigatorContentUtils" is not verified'
-      );
     },
 
     /*
@@ -239,9 +213,7 @@ export default {
             +cookieEnabled: boolean;
         }
         */
-    NavigatorCookies(context) {
-      context.warnOnce('Rule for global "NavigatorCookies" is not verified');
-    },
+    NavigatorCookies(context) {},
 
     /*
         lib/bom.js:244:0
@@ -252,9 +224,7 @@ export default {
             javaEnabled(): boolean;
         }
         */
-    NavigatorPlugins(context) {
-      context.warnOnce('Rule for global "NavigatorPlugins" is not verified');
-    },
+    NavigatorPlugins(context) {},
 
     /*
         lib/bom.js:250:0
@@ -265,7 +235,6 @@ export default {
         */
     NavigatorOnLine(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "NavigatorOnLine" is not verified');
     },
 
     /*
@@ -277,9 +246,6 @@ export default {
         */
     NavigatorConcurrentHardware(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "NavigatorConcurrentHardware" is not verified'
-      );
     },
 
     /*
@@ -342,7 +308,6 @@ export default {
         */
     Navigator(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Navigator" is not verified');
     },
 
     /*
@@ -357,7 +322,6 @@ export default {
         */
     Clipboard(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Clipboard" is not verified');
     },
 
     /*
@@ -367,7 +331,6 @@ export default {
         */
     navigator(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "navigator" is not verified');
     },
 
     /*
@@ -382,7 +345,6 @@ export default {
         */
     MimeType(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MimeType" is not verified');
     },
 
     /*
@@ -397,7 +359,6 @@ export default {
         */
     MimeTypeArray(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "MimeTypeArray" is not verified');
     },
 
     /*
@@ -416,7 +377,6 @@ export default {
         */
     Plugin(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "Plugin" is not verified');
     },
 
     /*
@@ -432,7 +392,6 @@ export default {
         */
     PluginArray(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "PluginArray" is not verified');
     },
 
     /*
@@ -442,7 +401,6 @@ export default {
         */
     DOMHighResTimeStamp(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "DOMHighResTimeStamp" is not verified');
     },
 
     /*
@@ -474,7 +432,6 @@ export default {
         */
     PerformanceTiming(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "PerformanceTiming" is not verified');
     },
 
     /*
@@ -492,9 +449,6 @@ export default {
         */
     PerformanceNavigation(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "PerformanceNavigation" is not verified'
-      );
     },
 
     /*
@@ -510,7 +464,6 @@ export default {
         */
     PerformanceEntry(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "PerformanceEntry" is not verified');
     },
 
     /*
@@ -533,9 +486,6 @@ export default {
         */
     PerformanceResourceTiming(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "PerformanceResourceTiming" is not verified'
-      );
     },
 
     /*
@@ -556,9 +506,6 @@ export default {
         */
     PerformanceNavigationTiming(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "PerformanceNavigationTiming" is not verified'
-      );
     },
 
     /*
@@ -585,7 +532,6 @@ export default {
         */
     Performance(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Performance" is not verified');
     },
 
     /*
@@ -595,7 +541,6 @@ export default {
         */
     performance(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "performance" is not verified');
     },
 
     /*
@@ -614,7 +559,6 @@ export default {
         */
     History(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "History" is not verified');
     },
 
     /*
@@ -624,7 +568,6 @@ export default {
         */
     history(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "history" is not verified');
     },
 
     /*
@@ -649,7 +592,6 @@ export default {
         */
     Location(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Location" is not verified');
     },
 
     /*
@@ -659,7 +601,6 @@ export default {
         */
     location(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "location" is not verified');
     },
 
     /*
@@ -671,7 +612,6 @@ export default {
         */
     DOMParser(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "DOMParser" is not verified');
     },
 
     /*
@@ -701,7 +641,6 @@ export default {
         */
     FormData(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "FormData" is not verified');
     },
 
     /*
@@ -721,7 +660,6 @@ export default {
         */
     MutationRecord(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MutationRecord" is not verified');
     },
 
     /*
@@ -737,9 +675,6 @@ export default {
         */
     MutationObserverInit(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MutationObserverInit" is not verified'
-      );
     },
 
     /*
@@ -754,7 +689,6 @@ export default {
         */
     MutationObserver(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MutationObserver" is not verified');
     },
 
     /*
@@ -781,7 +715,6 @@ export default {
         */
     DOMRectReadOnly(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "DOMRectReadOnly" is not verified');
     },
 
     /*
@@ -807,7 +740,6 @@ export default {
         */
     DOMRect(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "DOMRect" is not verified');
     },
 
     /*
@@ -822,7 +754,6 @@ export default {
         */
     DOMRectList(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "DOMRectList" is not verified');
     },
 
     /*
@@ -841,9 +772,6 @@ export default {
         */
     IntersectionObserverEntry(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "IntersectionObserverEntry" is not verified'
-      );
     },
 
     /*
@@ -856,9 +784,6 @@ export default {
         */
     IntersectionObserverCallback(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "IntersectionObserverCallback" is not verified'
-      );
     },
 
     /*
@@ -871,11 +796,7 @@ export default {
           ...
         };
         */
-    IntersectionObserverOptions(context) {
-      context.warnOnce(
-        'Rule for global "IntersectionObserverOptions" is not verified'
-      );
-    },
+    IntersectionObserverOptions(context) {},
 
     /*
         lib/bom.js:622:0
@@ -893,9 +814,6 @@ export default {
         */
     IntersectionObserver(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "IntersectionObserver" is not verified'
-      );
     },
 
     /*
@@ -906,9 +824,7 @@ export default {
             contentRect: DOMRectReadOnly;
         }
         */
-    ResizeObserverEntry(context) {
-      context.warnOnce('Rule for global "ResizeObserverEntry" is not verified');
-    },
+    ResizeObserverEntry(context) {},
 
     /*
         lib/bom.js:638:0
@@ -920,9 +836,7 @@ export default {
             disconnect(): void;
         }
         */
-    ResizeObserver(context) {
-      context.warnOnce('Rule for global "ResizeObserver" is not verified');
-    },
+    ResizeObserver(context) {},
 
     /*
         lib/bom.js:645:0
@@ -950,7 +864,6 @@ export default {
         */
     NodeFilter(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "NodeFilter" is not verified');
     },
 
     /*
@@ -964,7 +877,6 @@ export default {
         */
     CloseEvent(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "CloseEvent" is not verified');
     },
 
     /*
@@ -999,7 +911,6 @@ export default {
         */
     WebSocket(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WebSocket" is not verified');
     },
 
     /*
@@ -1016,7 +927,6 @@ export default {
         */
     Worker(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Worker" is not verified');
     },
 
     /*
@@ -1029,9 +939,7 @@ export default {
             onerror: (ev: any) => mixed;
         }
         */
-    SharedWorker(context) {
-      context.warnOnce('Rule for global "SharedWorker" is not verified');
-    },
+    SharedWorker(context) {},
 
     /*
         lib/bom.js:722:0
@@ -1040,7 +948,6 @@ export default {
         */
     importScripts(context) {
       context.lib('webworker.importscripts');
-      context.warnOnce('Rule for global "importScripts" is not verified');
     },
 
     /*
@@ -1062,7 +969,6 @@ export default {
         */
     WorkerGlobalScope(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WorkerGlobalScope" is not verified');
     },
 
     /*
@@ -1076,9 +982,6 @@ export default {
         */
     DedicatedWorkerGlobalScope(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "DedicatedWorkerGlobalScope" is not verified'
-      );
     },
 
     /*
@@ -1089,11 +992,7 @@ export default {
             onconnect: (ev: MessageEvent) => mixed;
         }
         */
-    SharedWorkerGlobalScope(context) {
-      context.warnOnce(
-        'Rule for global "SharedWorkerGlobalScope" is not verified'
-      );
-    },
+    SharedWorkerGlobalScope(context) {},
 
     /*
         lib/bom.js:749:0
@@ -1111,7 +1010,6 @@ export default {
         */
     WorkerLocation(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WorkerLocation" is not verified');
     },
 
     /*
@@ -1127,7 +1025,6 @@ export default {
         */
     WorkerNavigator(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WorkerNavigator" is not verified');
     },
 
     /*
@@ -1148,9 +1045,7 @@ export default {
             statics: { create(): XDomainRequest, ... }
         }
         */
-    XDomainRequest(context) {
-      context.warnOnce('Rule for global "XDomainRequest" is not verified');
-    },
+    XDomainRequest(context) {},
 
     /*
         lib/bom.js:785:0
@@ -1201,7 +1096,6 @@ export default {
         */
     XMLHttpRequest(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "XMLHttpRequest" is not verified');
     },
 
     /*
@@ -1219,9 +1113,6 @@ export default {
         */
     XMLHttpRequestEventTarget(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "XMLHttpRequestEventTarget" is not verified'
-      );
     },
 
     /*
@@ -1233,7 +1124,6 @@ export default {
         */
     XMLSerializer(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "XMLSerializer" is not verified');
     },
 
     /*
@@ -1255,7 +1145,6 @@ export default {
         */
     Geolocation(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Geolocation" is not verified');
     },
 
     /*
@@ -1268,7 +1157,6 @@ export default {
         */
     Position(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Position" is not verified');
     },
 
     /*
@@ -1286,7 +1174,6 @@ export default {
         */
     Coordinates(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Coordinates" is not verified');
     },
 
     /*
@@ -1302,7 +1189,6 @@ export default {
         */
     PositionError(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "PositionError" is not verified');
     },
 
     /*
@@ -1318,9 +1204,6 @@ export default {
         */
     AudioProcessingEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "AudioProcessingEvent" is not verified'
-      );
     },
 
     /*
@@ -1334,9 +1217,6 @@ export default {
         */
     OfflineAudioCompletionEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "OfflineAudioCompletionEvent" is not verified'
-      );
     },
 
     /*
@@ -1380,7 +1260,6 @@ export default {
         */
     BaseAudioContext(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "BaseAudioContext" is not verified');
     },
 
     /*
@@ -1393,7 +1272,6 @@ export default {
         */
     AudioTimestamp(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioTimestamp" is not verified');
     },
 
     /*
@@ -1414,7 +1292,6 @@ export default {
         */
     AudioContext(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioContext" is not verified');
     },
 
     /*
@@ -1429,7 +1306,6 @@ export default {
         */
     OfflineAudioContext(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "OfflineAudioContext" is not verified');
     },
 
     /*
@@ -1449,7 +1325,6 @@ export default {
         */
     AudioNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioNode" is not verified');
     },
 
     /*
@@ -1468,7 +1343,6 @@ export default {
         */
     AudioParam(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioParam" is not verified');
     },
 
     /*
@@ -1480,9 +1354,6 @@ export default {
         */
     AudioDestinationNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "AudioDestinationNode" is not verified'
-      );
     },
 
     /*
@@ -1504,7 +1375,6 @@ export default {
         */
     AudioListener(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioListener" is not verified');
     },
 
     /*
@@ -1522,7 +1392,6 @@ export default {
         */
     AudioBuffer(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AudioBuffer" is not verified');
     },
 
     /*
@@ -1542,9 +1411,6 @@ export default {
         */
     AudioBufferSourceNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "AudioBufferSourceNode" is not verified'
-      );
     },
 
     /*
@@ -1555,11 +1421,7 @@ export default {
           requestFrame(): void;
         }
         */
-    CanvasCaptureMediaStream(context) {
-      context.warnOnce(
-        'Rule for global "CanvasCaptureMediaStream" is not verified'
-      );
-    },
+    CanvasCaptureMediaStream(context) {},
 
     /*
         lib/bom.js:1161:0
@@ -1574,7 +1436,6 @@ export default {
         */
     MediaDevices(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaDevices" is not verified');
     },
 
     /*
@@ -1589,7 +1450,6 @@ export default {
         */
     MediaDeviceInfo(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaDeviceInfo" is not verified');
     },
 
     /*
@@ -1615,7 +1475,6 @@ export default {
         */
     MediaStream(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaStream" is not verified');
     },
 
     /*
@@ -1645,7 +1504,6 @@ export default {
         */
     MediaStreamTrack(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaStreamTrack" is not verified');
     },
 
     /*
@@ -1657,9 +1515,6 @@ export default {
         */
     MediaStreamTrackEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MediaStreamTrackEvent" is not verified'
-      );
     },
 
     /*
@@ -1669,9 +1524,6 @@ export default {
         */
     MediaElementAudioSourceNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MediaElementAudioSourceNode" is not verified'
-      );
     },
 
     /*
@@ -1681,9 +1533,6 @@ export default {
         */
     MediaStreamAudioSourceNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MediaStreamAudioSourceNode" is not verified'
-      );
     },
 
     /*
@@ -1693,9 +1542,6 @@ export default {
         */
     MediaStreamTrackAudioSourceNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MediaStreamTrackAudioSourceNode" is not verified'
-      );
     },
 
     /*
@@ -1707,9 +1553,6 @@ export default {
         */
     MediaStreamAudioDestinationNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "MediaStreamAudioDestinationNode" is not verified'
-      );
     },
 
     /*
@@ -1722,7 +1565,6 @@ export default {
         */
     ScriptProcessorNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "ScriptProcessorNode" is not verified');
     },
 
     /*
@@ -1742,7 +1584,6 @@ export default {
         */
     AnalyserNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AnalyserNode" is not verified');
     },
 
     /*
@@ -1759,7 +1600,6 @@ export default {
         */
     BiquadFilterNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "BiquadFilterNode" is not verified');
     },
 
     /*
@@ -1769,7 +1609,6 @@ export default {
         */
     ChannelMergerNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "ChannelMergerNode" is not verified');
     },
 
     /*
@@ -1779,7 +1618,6 @@ export default {
         */
     ChannelSplitterNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "ChannelSplitterNode" is not verified');
     },
 
     /*
@@ -1795,7 +1633,6 @@ export default {
         */
     ConstantSourceNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "ConstantSourceNode" is not verified');
     },
 
     /*
@@ -1808,7 +1645,6 @@ export default {
         */
     ConvolverNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "ConvolverNode" is not verified');
     },
 
     /*
@@ -1820,7 +1656,6 @@ export default {
         */
     DelayNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "DelayNode" is not verified');
     },
 
     /*
@@ -1837,9 +1672,6 @@ export default {
         */
     DynamicsCompressorNode(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "DynamicsCompressorNode" is not verified'
-      );
     },
 
     /*
@@ -1851,7 +1683,6 @@ export default {
         */
     GainNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "GainNode" is not verified');
     },
 
     /*
@@ -1863,7 +1694,6 @@ export default {
         */
     IIRFilterNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "IIRFilterNode" is not verified');
     },
 
     /*
@@ -1880,7 +1710,6 @@ export default {
         */
     OscillatorNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "OscillatorNode" is not verified');
     },
 
     /*
@@ -1892,7 +1721,6 @@ export default {
         */
     StereoPannerNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "StereoPannerNode" is not verified');
     },
 
     /*
@@ -1913,7 +1741,6 @@ export default {
         */
     PannerNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "PannerNode" is not verified');
     },
 
     /*
@@ -1923,7 +1750,6 @@ export default {
         */
     PeriodicWave(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "PeriodicWave" is not verified');
     },
 
     /*
@@ -1936,7 +1762,6 @@ export default {
         */
     WaveShaperNode(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "WaveShaperNode" is not verified');
     },
 
     /*
@@ -1958,7 +1783,6 @@ export default {
         */
     Headers(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Headers" is not verified');
     },
 
     /*
@@ -1981,7 +1805,6 @@ export default {
         */
     URLSearchParams(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "URLSearchParams" is not verified');
     },
 
     /*
@@ -2015,7 +1838,6 @@ export default {
         */
     Response(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Response" is not verified');
     },
 
     /*
@@ -2049,7 +1871,6 @@ export default {
         */
     Request(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "Request" is not verified');
     },
 
     /*
@@ -2063,7 +1884,6 @@ export default {
         */
     AbortController(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "AbortController" is not verified');
     },
 
     /*
@@ -2076,7 +1896,6 @@ export default {
         */
     AbortSignal(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "AbortSignal" is not verified');
     },
 
     /*
@@ -2086,7 +1905,6 @@ export default {
         */
     fetch(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "fetch" is not verified');
     },
 
     /*
@@ -2100,7 +1918,6 @@ export default {
         */
     TextEncoder(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "TextEncoder" is not verified');
     },
 
     /*
@@ -2116,7 +1933,6 @@ export default {
         */
     TextDecoder(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "TextDecoder" is not verified');
     },
 
     /*
@@ -2133,7 +1949,6 @@ export default {
         */
     MessagePort(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "MessagePort" is not verified');
     },
 
     /*
@@ -2146,7 +1961,6 @@ export default {
         */
     MessageChannel(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "MessageChannel" is not verified');
     },
 
     /*
@@ -2173,7 +1987,6 @@ export default {
         */
     VRDisplay(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "VRDisplay" is not verified');
     },
 
     /*
@@ -2190,7 +2003,6 @@ export default {
         */
     VRFrameData(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "VRFrameData" is not verified');
     },
 
     /*
@@ -2205,7 +2017,6 @@ export default {
         */
     VRDisplayEvent(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "VRDisplayEvent" is not verified');
     },
 
     /*
@@ -2218,7 +2029,6 @@ export default {
         */
     MediaQueryListEvent(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaQueryListEvent" is not verified');
     },
 
     /*
@@ -2226,11 +2036,7 @@ export default {
 
         declare type MediaQueryListListener = MediaQueryListEvent => void;
         */
-    MediaQueryListListener(context) {
-      context.warnOnce(
-        'Rule for global "MediaQueryListListener" is not verified'
-      );
-    },
+    MediaQueryListListener(context) {},
 
     /*
         lib/bom.js:1808:0
@@ -2245,7 +2051,6 @@ export default {
         */
     MediaQueryList(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "MediaQueryList" is not verified');
     },
 
     /*
@@ -2255,7 +2060,6 @@ export default {
         */
     matchMedia(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "matchMedia" is not verified');
     },
 
     /*
@@ -2267,22 +2071,14 @@ export default {
           ...
         }
         */
-    CredMgmtCredentialRequestOptions(context) {
-      context.warnOnce(
-        'Rule for global "CredMgmtCredentialRequestOptions" is not verified'
-      );
-    },
+    CredMgmtCredentialRequestOptions(context) {},
 
     /*
         lib/bom.js:1825:0
 
         declare type CredMgmtCredentialCreationOptions = { signal: AbortSignal, ... }
         */
-    CredMgmtCredentialCreationOptions(context) {
-      context.warnOnce(
-        'Rule for global "CredMgmtCredentialCreationOptions" is not verified'
-      );
-    },
+    CredMgmtCredentialCreationOptions(context) {},
 
     /*
         lib/bom.js:1827:0
@@ -2292,9 +2088,7 @@ export default {
           type: string;
         }
         */
-    CredMgmtCredential(context) {
-      context.warnOnce('Rule for global "CredMgmtCredential" is not verified');
-    },
+    CredMgmtCredential(context) {},
 
     /*
         lib/bom.js:1832:0
@@ -2303,11 +2097,7 @@ export default {
           password: string;
         }
         */
-    CredMgmtPasswordCredential(context) {
-      context.warnOnce(
-        'Rule for global "CredMgmtPasswordCredential" is not verified'
-      );
-    },
+    CredMgmtPasswordCredential(context) {},
 
     /*
         lib/bom.js:1836:0
@@ -2321,11 +2111,7 @@ export default {
           preventSilentAccess(): Promise<void>;
         }
         */
-    CredMgmtCredentialsContainer(context) {
-      context.warnOnce(
-        'Rule for global "CredMgmtCredentialsContainer" is not verified'
-      );
-    },
+    CredMgmtCredentialsContainer(context) {},
 
     /*
         lib/bom.js:1859:0
@@ -2346,7 +2132,6 @@ export default {
         */
     SpeechSynthesis(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "SpeechSynthesis" is not verified');
     },
 
     /*
@@ -2356,7 +2141,6 @@ export default {
         */
     speechSynthesis(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "speechSynthesis" is not verified');
     },
 
     /*
@@ -2383,9 +2167,6 @@ export default {
         */
     SpeechSynthesisUtterance(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "SpeechSynthesisUtterance" is not verified'
-      );
     },
 
     /*
@@ -2402,9 +2183,6 @@ export default {
         */
     SpeechSynthesisEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "SpeechSynthesisEvent" is not verified'
-      );
     },
 
     /*
@@ -2417,9 +2195,6 @@ export default {
         */
     SpeechSynthesisErrorEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "SpeechSynthesisErrorEvent" is not verified'
-      );
     },
 
     /*
@@ -2435,9 +2210,6 @@ export default {
         */
     SpeechSynthesisVoice(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "SpeechSynthesisVoice" is not verified'
-      );
     },
   },
 

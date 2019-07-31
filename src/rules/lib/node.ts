@@ -96,9 +96,7 @@ export default {
           static isEncoding(encoding: string): boolean;
         }
         */
-    Buffer(context) {
-      context.warnOnce('Rule for global "Buffer" is not verified');
-    },
+    Buffer(context) {},
 
     /*
         lib/node.js:146:0
@@ -114,9 +112,7 @@ export default {
           cmd: string,
         }
         */
-    child_process$Error(context) {
-      context.warnOnce('Rule for global "child_process$Error" is not verified');
-    },
+    child_process$Error(context) {},
 
     /*
         lib/node.js:265:0
@@ -145,9 +141,6 @@ export default {
         */
     child_process$ChildProcess(context) {
       context.importFlow('child_process', 'ChildProcess');
-      context.warnOnce(
-        'Rule for global "child_process$ChildProcess" is not verified'
-      );
     },
 
     /*
@@ -169,9 +162,7 @@ export default {
           ): boolean;
         }
         */
-    cluster$Worker(context) {
-      context.warnOnce('Rule for global "cluster$Worker" is not verified');
-    },
+    cluster$Worker(context) {},
 
     /*
         lib/node.js:390:0
@@ -205,9 +196,7 @@ export default {
           ): Buffer;
         }
         */
-    crypto$Cipher(context) {
-      context.warnOnce('Rule for global "crypto$Cipher" is not verified');
-    },
+    crypto$Cipher(context) {},
 
     /*
         lib/node.js:440:0
@@ -239,9 +228,7 @@ export default {
           setPrivateKey(private_key: string, encoding: crypto$ECDH$Encoding): void
         }
         */
-    crypto$ECDH(context) {
-      context.warnOnce('Rule for global "crypto$ECDH" is not verified');
-    },
+    crypto$ECDH(context) {},
 
     /*
         lib/node.js:467:0
@@ -275,9 +262,7 @@ export default {
           ): Buffer;
         }
         */
-    crypto$Decipher(context) {
-      context.warnOnce('Rule for global "crypto$Decipher" is not verified');
-    },
+    crypto$Decipher(context) {},
 
     /*
         lib/node.js:496:0
@@ -290,9 +275,7 @@ export default {
           'binary'): crypto$Hash;
         }
         */
-    crypto$Hash(context) {
-      context.warnOnce('Rule for global "crypto$Hash" is not verified');
-    },
+    crypto$Hash(context) {},
 
     /*
         lib/node.js:504:0
@@ -305,9 +288,7 @@ export default {
           'binary'): crypto$Hmac;
         }
         */
-    crypto$Hmac(context) {
-      context.warnOnce('Rule for global "crypto$Hmac" is not verified');
-    },
+    crypto$Hmac(context) {},
 
     /*
         lib/node.js:517:0
@@ -329,7 +310,6 @@ export default {
         */
     crypto$Sign(context) {
       context.importFlow('crypto', 'Sign');
-      context.warnOnce('Rule for global "crypto$Sign" is not verified');
     },
 
     /*
@@ -350,7 +330,6 @@ export default {
         */
     crypto$Verify(context) {
       context.importFlow('crypto', 'Verify');
-      context.warnOnce('Rule for global "crypto$Verify" is not verified');
     },
 
     /*
@@ -384,9 +363,7 @@ export default {
           unref(): void;
         }
         */
-    dgram$Socket(context) {
-      context.warnOnce('Rule for global "dgram$Socket" is not verified');
-    },
+    dgram$Socket(context) {},
 
     /*
         lib/node.js:805:0
@@ -415,7 +392,6 @@ export default {
         */
     events$EventEmitter(context) {
       context.importFlow('events', 'EventEmitter');
-      context.warnOnce('Rule for global "events$EventEmitter" is not verified');
     },
 
     /*
@@ -434,9 +410,7 @@ export default {
           run(fn: Function): void;
         }
         */
-    domain$Domain(context) {
-      context.warnOnce('Rule for global "domain$Domain" is not verified');
-    },
+    domain$Domain(context) {},
 
     /*
         lib/node.js:1331:0
@@ -459,7 +433,6 @@ export default {
         */
     http$Agent(context) {
       context.importFlow('http', 'Agent');
-      context.warnOnce('Rule for global "http$Agent" is not verified');
     },
 
     /*
@@ -480,9 +453,6 @@ export default {
         */
     http$IncomingMessage(context) {
       context.importFlow('http', 'IncomingMessage');
-      context.warnOnce(
-        'Rule for global "http$IncomingMessage" is not verified'
-      );
     },
 
     /*
@@ -504,7 +474,6 @@ export default {
         */
     http$ClientRequest(context) {
       context.importFlow('http', 'ClientRequest');
-      context.warnOnce('Rule for global "http$ClientRequest" is not verified');
     },
 
     /*
@@ -534,7 +503,6 @@ export default {
         */
     http$ServerResponse(context) {
       context.importFlow('http', 'ServerResponse');
-      context.warnOnce('Rule for global "http$ServerResponse" is not verified');
     },
 
     /*
@@ -568,7 +536,6 @@ export default {
         */
     http$Server(context) {
       context.importFlow('http', 'Server');
-      context.warnOnce('Rule for global "http$Server" is not verified');
     },
 
     /*
@@ -600,7 +567,6 @@ export default {
         */
     https$Server(context) {
       context.importFlow('https', 'Server');
-      context.warnOnce('Rule for global "https$Server" is not verified');
     },
 
     /*
@@ -644,7 +610,6 @@ export default {
         */
     net$Socket(context) {
       context.importFlow('net', 'Socket');
-      context.warnOnce('Rule for global "net$Socket" is not verified');
     },
 
     /*
@@ -666,7 +631,6 @@ export default {
         */
     net$Server(context) {
       context.importFlow('net', 'Server');
-      context.warnOnce('Rule for global "net$Server" is not verified');
     },
 
     /*
@@ -690,7 +654,6 @@ export default {
         */
     readline$Interface(context) {
       context.importFlow('readline', 'Interface');
-      context.warnOnce('Rule for global "readline$Interface" is not verified');
     },
 
     /*
@@ -700,7 +663,6 @@ export default {
         */
     stream$Stream(context) {
       context.importFlow('stream', 'Stream');
-      context.warnOnce('Rule for global "stream$Stream" is not verified');
     },
 
     /*
@@ -728,7 +690,6 @@ export default {
         */
     stream$Readable(context) {
       context.importFlow('stream', 'Readable');
-      context.warnOnce('Rule for global "stream$Readable" is not verified');
     },
 
     /*
@@ -760,7 +721,6 @@ export default {
         */
     stream$Writable(context) {
       context.importFlow('stream', 'Writable');
-      context.warnOnce('Rule for global "stream$Writable" is not verified');
     },
 
     /*
@@ -772,7 +732,6 @@ export default {
         */
     stream$Duplex(context) {
       context.importFlow('stream', 'Duplex');
-      context.warnOnce('Rule for global "stream$Duplex" is not verified');
     },
 
     /*
@@ -790,7 +749,6 @@ export default {
         */
     stream$Transform(context) {
       context.importFlow('stream', 'Transform');
-      context.warnOnce('Rule for global "stream$Transform" is not verified');
     },
 
     /*
@@ -800,7 +758,6 @@ export default {
         */
     stream$PassThrough(context) {
       context.importFlow('stream', 'PassThrough');
-      context.warnOnce('Rule for global "stream$PassThrough" is not verified');
     },
 
     /*
@@ -815,7 +772,6 @@ export default {
         */
     tty$ReadStream(context) {
       context.importFlow('tty', 'ReadStream');
-      context.warnOnce('Rule for global "tty$ReadStream" is not verified');
     },
 
     /*
@@ -830,7 +786,6 @@ export default {
         */
     tty$WriteStream(context) {
       context.importFlow('tty', 'WriteStream');
-      context.warnOnce('Rule for global "tty$WriteStream" is not verified');
     },
 
     /*
@@ -844,9 +799,6 @@ export default {
         */
     string_decoder$StringDecoder(context) {
       context.importFlow('string_decoder', 'StringDecoder');
-      context.warnOnce(
-        'Rule for global "string_decoder$StringDecoder" is not verified'
-      );
     },
 
     /*
@@ -881,7 +833,6 @@ export default {
         */
     tls$TLSSocket(context) {
       context.importFlow('tls', 'TLSSocket');
-      context.warnOnce('Rule for global "tls$TLSSocket" is not verified');
     },
 
     /*
@@ -899,7 +850,6 @@ export default {
         */
     tls$Server(context) {
       context.importFlow('tls', 'Server');
-      context.warnOnce('Rule for global "tls$Server" is not verified');
     },
 
     /*
@@ -917,7 +867,6 @@ export default {
         */
     vm$Script(context) {
       context.importFlow('vm', 'Script');
-      context.warnOnce('Rule for global "vm$Script" is not verified');
     },
 
     /*
@@ -925,42 +874,28 @@ export default {
 
         declare class vm$Context {}
         */
-    vm$Context(context) {
-      context.warnOnce('Rule for global "vm$Context" is not verified');
-    },
+    vm$Context(context) {},
 
     /*
         lib/node.js:2500:0
 
         declare class $SymbolReplModeMagic mixins Symbol {}
         */
-    $SymbolReplModeMagic(context) {
-      context.warnOnce(
-        'Rule for global "$SymbolReplModeMagic" is not verified'
-      );
-    },
+    $SymbolReplModeMagic(context) {},
 
     /*
         lib/node.js:2501:0
 
         declare class $SymbolReplModeSloppy mixins Symbol {}
         */
-    $SymbolReplModeSloppy(context) {
-      context.warnOnce(
-        'Rule for global "$SymbolReplModeSloppy" is not verified'
-      );
-    },
+    $SymbolReplModeSloppy(context) {},
 
     /*
         lib/node.js:2502:0
 
         declare class $SymbolReplModeStrict mixins Symbol {}
         */
-    $SymbolReplModeStrict(context) {
-      context.warnOnce(
-        'Rule for global "$SymbolReplModeStrict" is not verified'
-      );
-    },
+    $SymbolReplModeStrict(context) {},
 
     /*
         lib/node.js:2545:0
@@ -1041,54 +976,42 @@ export default {
           };
         }
         */
-    Process(context) {
-      context.warnOnce('Rule for global "Process" is not verified');
-    },
+    Process(context) {},
 
     /*
         lib/node.js:2620:0
 
         declare var process: Process;
         */
-    process(context) {
-      context.warnOnce('Rule for global "process" is not verified');
-    },
+    process(context) {},
 
     /*
         lib/node.js:2622:0
 
         declare var __filename: string;
         */
-    __filename(context) {
-      context.warnOnce('Rule for global "__filename" is not verified');
-    },
+    __filename(context) {},
 
     /*
         lib/node.js:2623:0
 
         declare var __dirname: string;
         */
-    __dirname(context) {
-      context.warnOnce('Rule for global "__dirname" is not verified');
-    },
+    __dirname(context) {},
 
     /*
         lib/node.js:2625:0
 
         declare function setImmediate(callback: ((...args: Array<any>) => mixed), ...args: Array<any>): Object;
         */
-    setImmediate(context) {
-      context.warnOnce('Rule for global "setImmediate" is not verified');
-    },
+    setImmediate(context) {},
 
     /*
         lib/node.js:2626:0
 
         declare function clearImmediate(immediateObject: any): Object;
         */
-    clearImmediate(context) {
-      context.warnOnce('Rule for global "clearImmediate" is not verified');
-    },
+    clearImmediate(context) {},
   },
 
   modules: {
@@ -1101,44 +1024,28 @@ export default {
 
                 declare var kMaxLength: number;
                 */
-        kMaxLength(context) {
-          context.warnOnce(
-            'Rule for export "kMaxLength" in module "buffer" is not verified'
-          );
-        },
+        kMaxLength(context) {},
 
         /*
                 lib/node.js:127:2
 
                 declare var INSPECT_MAX_BYTES: number;
                 */
-        INSPECT_MAX_BYTES(context) {
-          context.warnOnce(
-            'Rule for export "INSPECT_MAX_BYTES" in module "buffer" is not verified'
-          );
-        },
+        INSPECT_MAX_BYTES(context) {},
 
         /*
                 lib/node.js:128:2
 
                 declare function transcode(source: Buffer, fromEnc: buffer$Encoding, toEnc: buffer$Encoding): Buffer;
                 */
-        transcode(context) {
-          context.warnOnce(
-            'Rule for export "transcode" in module "buffer" is not verified'
-          );
-        },
+        transcode(context) {},
 
         /*
                 lib/node.js:129:2
 
                 declare var Buffer: typeof global.Buffer;
                 */
-        Buffer(context) {
-          context.warnOnce(
-            'Rule for export "Buffer" in module "buffer" is not verified'
-          );
-        },
+        Buffer(context) {},
       },
     },
 
@@ -1151,11 +1058,7 @@ export default {
 
                 declare var ChildProcess: typeof child_process$ChildProcess;
                 */
-        ChildProcess(context) {
-          context.warnOnce(
-            'Rule for export "ChildProcess" in module "child_process" is not verified'
-          );
-        },
+        ChildProcess(context) {},
 
         /*
                 lib/node.js:290:2
@@ -1166,11 +1069,7 @@ export default {
                     callback?: child_process$execCallback
                   ): child_process$ChildProcess;
                 */
-        exec(context) {
-          context.warnOnce(
-            'Rule for export "exec" in module "child_process" is not verified'
-          );
-        },
+        exec(context) {},
 
         /*
                 lib/node.js:296:2
@@ -1188,11 +1087,7 @@ export default {
                     options?: child_process$execSyncOpts
                   ): Buffer;
                 */
-        execSync(context) {
-          context.warnOnce(
-            'Rule for export "execSync" in module "child_process" is not verified'
-          );
-        },
+        execSync(context) {},
 
         /*
                 lib/node.js:306:2
@@ -1205,11 +1100,7 @@ export default {
                     callback?: child_process$execFileCallback
                   ): child_process$ChildProcess;
                 */
-        execFile(context) {
-          context.warnOnce(
-            'Rule for export "execFile" in module "child_process" is not verified'
-          );
-        },
+        execFile(context) {},
 
         /*
                 lib/node.js:314:2
@@ -1220,11 +1111,7 @@ export default {
                     options?: child_process$execFileSyncOpts
                   ): Buffer | string;
                 */
-        execFileSync(context) {
-          context.warnOnce(
-            'Rule for export "execFileSync" in module "child_process" is not verified'
-          );
-        },
+        execFileSync(context) {},
 
         /*
                 lib/node.js:320:2
@@ -1235,11 +1122,7 @@ export default {
                     options?: child_process$forkOpts
                   ): child_process$ChildProcess;
                 */
-        fork(context) {
-          context.warnOnce(
-            'Rule for export "fork" in module "child_process" is not verified'
-          );
-        },
+        fork(context) {},
 
         /*
                 lib/node.js:326:2
@@ -1250,11 +1133,7 @@ export default {
                     options?: child_process$spawnOpts
                   ): child_process$ChildProcess;
                 */
-        spawn(context) {
-          context.warnOnce(
-            'Rule for export "spawn" in module "child_process" is not verified'
-          );
-        },
+        spawn(context) {},
 
         /*
                 lib/node.js:332:2
@@ -1265,11 +1144,7 @@ export default {
                     options?: child_process$spawnSyncOpts
                   ): child_process$spawnSyncRet;
                 */
-        spawnSync(context) {
-          context.warnOnce(
-            'Rule for export "spawnSync" in module "child_process" is not verified'
-          );
-        },
+        spawnSync(context) {},
       },
     },
 
@@ -1301,22 +1176,14 @@ export default {
                     setupMaster(settings?: cluster$setupMasterOpts): void;
                   }
                 */
-        Cluster(context) {
-          context.warnOnce(
-            'Rule for export "Cluster" in module "cluster" is not verified'
-          );
-        },
+        Cluster(context) {},
 
         /*
                 lib/node.js:385:2
 
                 declare module.exports: Cluster;
                 */
-        default(context) {
-          context.warnOnce(
-            'Rule for export "default" in module "cluster" is not verified'
-          );
-        },
+        default(context) {},
       },
     },
 
@@ -1329,44 +1196,28 @@ export default {
 
                 declare var DEFAULT_ENCODING: string;
                 */
-        DEFAULT_ENCODING(context) {
-          context.warnOnce(
-            'Rule for export "DEFAULT_ENCODING" in module "crypto" is not verified'
-          );
-        },
+        DEFAULT_ENCODING(context) {},
 
         /*
                 lib/node.js:557:2
 
                 declare class Sign extends crypto$Sign {}
                 */
-        Sign(context) {
-          context.warnOnce(
-            'Rule for export "Sign" in module "crypto" is not verified'
-          );
-        },
+        Sign(context) {},
 
         /*
                 lib/node.js:558:2
 
                 declare class Verify extends crypto$Verify {}
                 */
-        Verify(context) {
-          context.warnOnce(
-            'Rule for export "Verify" in module "crypto" is not verified'
-          );
-        },
+        Verify(context) {},
 
         /*
                 lib/node.js:560:2
 
                 declare function createCipher(algorithm: string, password: string | Buffer): crypto$Cipher;
                 */
-        createCipher(context) {
-          context.warnOnce(
-            'Rule for export "createCipher" in module "crypto" is not verified'
-          );
-        },
+        createCipher(context) {},
 
         /*
                 lib/node.js:561:2
@@ -1377,11 +1228,7 @@ export default {
                     iv: string | Buffer
                   ): crypto$Cipher;
                 */
-        createCipheriv(context) {
-          context.warnOnce(
-            'Rule for export "createCipheriv" in module "crypto" is not verified'
-          );
-        },
+        createCipheriv(context) {},
 
         /*
                 lib/node.js:566:2
@@ -1390,22 +1237,14 @@ export default {
                     details?: crypto$createCredentialsDetails
                   ): crypto$Credentials
                 */
-        createCredentials(context) {
-          context.warnOnce(
-            'Rule for export "createCredentials" in module "crypto" is not verified'
-          );
-        },
+        createCredentials(context) {},
 
         /*
                 lib/node.js:569:2
 
                 declare function createDecipher(algorithm: string, password: string | Buffer): crypto$Decipher;
                 */
-        createDecipher(context) {
-          context.warnOnce(
-            'Rule for export "createDecipher" in module "crypto" is not verified'
-          );
-        },
+        createDecipher(context) {},
 
         /*
                 lib/node.js:570:2
@@ -1416,11 +1255,7 @@ export default {
                     iv: string | Buffer
                   ): crypto$Decipher;
                 */
-        createDecipheriv(context) {
-          context.warnOnce(
-            'Rule for export "createDecipheriv" in module "crypto" is not verified'
-          );
-        },
+        createDecipheriv(context) {},
 
         /*
                 lib/node.js:575:2
@@ -1432,110 +1267,70 @@ export default {
 
                 declare function createDiffieHellman(prime: number, encoding?: string): crypto$DiffieHellman;
                 */
-        createDiffieHellman(context) {
-          context.warnOnce(
-            'Rule for export "createDiffieHellman" in module "crypto" is not verified'
-          );
-        },
+        createDiffieHellman(context) {},
 
         /*
                 lib/node.js:577:2
 
                 declare function createECDH(curveName: string): crypto$ECDH;
                 */
-        createECDH(context) {
-          context.warnOnce(
-            'Rule for export "createECDH" in module "crypto" is not verified'
-          );
-        },
+        createECDH(context) {},
 
         /*
                 lib/node.js:578:2
 
                 declare function createHash(algorithm: string): crypto$Hash;
                 */
-        createHash(context) {
-          context.warnOnce(
-            'Rule for export "createHash" in module "crypto" is not verified'
-          );
-        },
+        createHash(context) {},
 
         /*
                 lib/node.js:579:2
 
                 declare function createHmac(algorithm: string, key: string | Buffer): crypto$Hmac;
                 */
-        createHmac(context) {
-          context.warnOnce(
-            'Rule for export "createHmac" in module "crypto" is not verified'
-          );
-        },
+        createHmac(context) {},
 
         /*
                 lib/node.js:580:2
 
                 declare function createSign(algorithm: string): crypto$Sign;
                 */
-        createSign(context) {
-          context.warnOnce(
-            'Rule for export "createSign" in module "crypto" is not verified'
-          );
-        },
+        createSign(context) {},
 
         /*
                 lib/node.js:581:2
 
                 declare function createVerify(algorithm: string): crypto$Verify;
                 */
-        createVerify(context) {
-          context.warnOnce(
-            'Rule for export "createVerify" in module "crypto" is not verified'
-          );
-        },
+        createVerify(context) {},
 
         /*
                 lib/node.js:582:2
 
                 declare function getCiphers(): Array<string>;
                 */
-        getCiphers(context) {
-          context.warnOnce(
-            'Rule for export "getCiphers" in module "crypto" is not verified'
-          );
-        },
+        getCiphers(context) {},
 
         /*
                 lib/node.js:583:2
 
                 declare function getCurves(): Array<string>;
                 */
-        getCurves(context) {
-          context.warnOnce(
-            'Rule for export "getCurves" in module "crypto" is not verified'
-          );
-        },
+        getCurves(context) {},
 
         /*
                 lib/node.js:584:2
 
                 declare function getDiffieHellman(group_name: string): crypto$DiffieHellman;
                 */
-        getDiffieHellman(context) {
-          context.warnOnce(
-            'Rule for export "getDiffieHellman" in module "crypto" is not verified'
-          );
-        },
+        getDiffieHellman(context) {},
 
         /*
                 lib/node.js:585:2
 
                 declare function getHashes(): Array<string>;
                 */
-        getHashes(context) {
-          context.warnOnce(
-            'Rule for export "getHashes" in module "crypto" is not verified'
-          );
-        },
+        getHashes(context) {},
 
         /*
                 lib/node.js:586:2
@@ -1549,11 +1344,7 @@ export default {
                     callback?: (err: ?Error, derivedKey: Buffer) => void
                   ): void;
                 */
-        pbkdf2(context) {
-          context.warnOnce(
-            'Rule for export "pbkdf2" in module "crypto" is not verified'
-          );
-        },
+        pbkdf2(context) {},
 
         /*
                 lib/node.js:594:2
@@ -1566,11 +1357,7 @@ export default {
                     digest?: string
                   ): Buffer;
                 */
-        pbkdf2Sync(context) {
-          context.warnOnce(
-            'Rule for export "pbkdf2Sync" in module "crypto" is not verified'
-          );
-        },
+        pbkdf2Sync(context) {},
 
         /*
                 lib/node.js:601:2
@@ -1580,11 +1367,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        privateDecrypt(context) {
-          context.warnOnce(
-            'Rule for export "privateDecrypt" in module "crypto" is not verified'
-          );
-        },
+        privateDecrypt(context) {},
 
         /*
                 lib/node.js:605:2
@@ -1594,11 +1377,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        privateEncrypt(context) {
-          context.warnOnce(
-            'Rule for export "privateEncrypt" in module "crypto" is not verified'
-          );
-        },
+        privateEncrypt(context) {},
 
         /*
                 lib/node.js:609:2
@@ -1608,11 +1387,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        publicDecrypt(context) {
-          context.warnOnce(
-            'Rule for export "publicDecrypt" in module "crypto" is not verified'
-          );
-        },
+        publicDecrypt(context) {},
 
         /*
                 lib/node.js:613:2
@@ -1622,11 +1397,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        publicEncrypt(context) {
-          context.warnOnce(
-            'Rule for export "publicEncrypt" in module "crypto" is not verified'
-          );
-        },
+        publicEncrypt(context) {},
 
         /*
                 lib/node.js:619:2
@@ -1641,11 +1412,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void;
                 */
-        pseudoRandomBytes(context) {
-          context.warnOnce(
-            'Rule for export "pseudoRandomBytes" in module "crypto" is not verified'
-          );
-        },
+        pseudoRandomBytes(context) {},
 
         /*
                 lib/node.js:626:2
@@ -1660,11 +1427,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void;
                 */
-        randomBytes(context) {
-          context.warnOnce(
-            'Rule for export "randomBytes" in module "crypto" is not verified'
-          );
-        },
+        randomBytes(context) {},
 
         /*
                 lib/node.js:631:2
@@ -1685,11 +1448,7 @@ export default {
                     size: number
                   ): void
                 */
-        randomFillSync(context) {
-          context.warnOnce(
-            'Rule for export "randomFillSync" in module "crypto" is not verified'
-          );
-        },
+        randomFillSync(context) {},
 
         /*
                 lib/node.js:638:2
@@ -1718,11 +1477,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void
                 */
-        randomFill(context) {
-          context.warnOnce(
-            'Rule for export "randomFill" in module "crypto" is not verified'
-          );
-        },
+        randomFill(context) {},
 
         /*
                 lib/node.js:653:2
@@ -1732,11 +1487,7 @@ export default {
                     b: Buffer | $TypedArray | DataView
                   ): boolean;
                 */
-        timingSafeEqual(context) {
-          context.warnOnce(
-            'Rule for export "timingSafeEqual" in module "crypto" is not verified'
-          );
-        },
+        timingSafeEqual(context) {},
       },
     },
 
@@ -1752,11 +1503,7 @@ export default {
                     callback?: () => void
                   ): dgram$Socket;
                 */
-        createSocket(context) {
-          context.warnOnce(
-            'Rule for export "createSocket" in module "dgram" is not verified'
-          );
-        },
+        createSocket(context) {},
       },
     },
 
@@ -1769,286 +1516,182 @@ export default {
 
                 declare var ADDRGETNETWORKPARAMS: string;
                 */
-        ADDRGETNETWORKPARAMS(context) {
-          context.warnOnce(
-            'Rule for export "ADDRGETNETWORKPARAMS" in module "dns" is not verified'
-          );
-        },
+        ADDRGETNETWORKPARAMS(context) {},
 
         /*
                 lib/node.js:710:2
 
                 declare var BADFAMILY: string;
                 */
-        BADFAMILY(context) {
-          context.warnOnce(
-            'Rule for export "BADFAMILY" in module "dns" is not verified'
-          );
-        },
+        BADFAMILY(context) {},
 
         /*
                 lib/node.js:711:2
 
                 declare var BADFLAGS: string;
                 */
-        BADFLAGS(context) {
-          context.warnOnce(
-            'Rule for export "BADFLAGS" in module "dns" is not verified'
-          );
-        },
+        BADFLAGS(context) {},
 
         /*
                 lib/node.js:712:2
 
                 declare var BADHINTS: string;
                 */
-        BADHINTS(context) {
-          context.warnOnce(
-            'Rule for export "BADHINTS" in module "dns" is not verified'
-          );
-        },
+        BADHINTS(context) {},
 
         /*
                 lib/node.js:713:2
 
                 declare var BADQUERY: string;
                 */
-        BADQUERY(context) {
-          context.warnOnce(
-            'Rule for export "BADQUERY" in module "dns" is not verified'
-          );
-        },
+        BADQUERY(context) {},
 
         /*
                 lib/node.js:714:2
 
                 declare var BADNAME: string;
                 */
-        BADNAME(context) {
-          context.warnOnce(
-            'Rule for export "BADNAME" in module "dns" is not verified'
-          );
-        },
+        BADNAME(context) {},
 
         /*
                 lib/node.js:715:2
 
                 declare var BADRESP: string;
                 */
-        BADRESP(context) {
-          context.warnOnce(
-            'Rule for export "BADRESP" in module "dns" is not verified'
-          );
-        },
+        BADRESP(context) {},
 
         /*
                 lib/node.js:716:2
 
                 declare var BADSTR: string;
                 */
-        BADSTR(context) {
-          context.warnOnce(
-            'Rule for export "BADSTR" in module "dns" is not verified'
-          );
-        },
+        BADSTR(context) {},
 
         /*
                 lib/node.js:717:2
 
                 declare var CANCELLED: string;
                 */
-        CANCELLED(context) {
-          context.warnOnce(
-            'Rule for export "CANCELLED" in module "dns" is not verified'
-          );
-        },
+        CANCELLED(context) {},
 
         /*
                 lib/node.js:718:2
 
                 declare var CONNREFUSED: string;
                 */
-        CONNREFUSED(context) {
-          context.warnOnce(
-            'Rule for export "CONNREFUSED" in module "dns" is not verified'
-          );
-        },
+        CONNREFUSED(context) {},
 
         /*
                 lib/node.js:719:2
 
                 declare var DESTRUCTION: string;
                 */
-        DESTRUCTION(context) {
-          context.warnOnce(
-            'Rule for export "DESTRUCTION" in module "dns" is not verified'
-          );
-        },
+        DESTRUCTION(context) {},
 
         /*
                 lib/node.js:720:2
 
                 declare var EOF: string;
                 */
-        EOF(context) {
-          context.warnOnce(
-            'Rule for export "EOF" in module "dns" is not verified'
-          );
-        },
+        EOF(context) {},
 
         /*
                 lib/node.js:721:2
 
                 declare var FILE: string;
                 */
-        FILE(context) {
-          context.warnOnce(
-            'Rule for export "FILE" in module "dns" is not verified'
-          );
-        },
+        FILE(context) {},
 
         /*
                 lib/node.js:722:2
 
                 declare var FORMER: string;
                 */
-        FORMER(context) {
-          context.warnOnce(
-            'Rule for export "FORMER" in module "dns" is not verified'
-          );
-        },
+        FORMER(context) {},
 
         /*
                 lib/node.js:723:2
 
                 declare var LOADIPHLPAPI: string;
                 */
-        LOADIPHLPAPI(context) {
-          context.warnOnce(
-            'Rule for export "LOADIPHLPAPI" in module "dns" is not verified'
-          );
-        },
+        LOADIPHLPAPI(context) {},
 
         /*
                 lib/node.js:724:2
 
                 declare var NODATA: string;
                 */
-        NODATA(context) {
-          context.warnOnce(
-            'Rule for export "NODATA" in module "dns" is not verified'
-          );
-        },
+        NODATA(context) {},
 
         /*
                 lib/node.js:725:2
 
                 declare var NOMEM: string;
                 */
-        NOMEM(context) {
-          context.warnOnce(
-            'Rule for export "NOMEM" in module "dns" is not verified'
-          );
-        },
+        NOMEM(context) {},
 
         /*
                 lib/node.js:726:2
 
                 declare var NONAME: string;
                 */
-        NONAME(context) {
-          context.warnOnce(
-            'Rule for export "NONAME" in module "dns" is not verified'
-          );
-        },
+        NONAME(context) {},
 
         /*
                 lib/node.js:727:2
 
                 declare var NOTFOUND: string;
                 */
-        NOTFOUND(context) {
-          context.warnOnce(
-            'Rule for export "NOTFOUND" in module "dns" is not verified'
-          );
-        },
+        NOTFOUND(context) {},
 
         /*
                 lib/node.js:728:2
 
                 declare var NOTIMP: string;
                 */
-        NOTIMP(context) {
-          context.warnOnce(
-            'Rule for export "NOTIMP" in module "dns" is not verified'
-          );
-        },
+        NOTIMP(context) {},
 
         /*
                 lib/node.js:729:2
 
                 declare var NOTINITIALIZED: string;
                 */
-        NOTINITIALIZED(context) {
-          context.warnOnce(
-            'Rule for export "NOTINITIALIZED" in module "dns" is not verified'
-          );
-        },
+        NOTINITIALIZED(context) {},
 
         /*
                 lib/node.js:730:2
 
                 declare var REFUSED: string;
                 */
-        REFUSED(context) {
-          context.warnOnce(
-            'Rule for export "REFUSED" in module "dns" is not verified'
-          );
-        },
+        REFUSED(context) {},
 
         /*
                 lib/node.js:731:2
 
                 declare var SERVFAIL: string;
                 */
-        SERVFAIL(context) {
-          context.warnOnce(
-            'Rule for export "SERVFAIL" in module "dns" is not verified'
-          );
-        },
+        SERVFAIL(context) {},
 
         /*
                 lib/node.js:732:2
 
                 declare var TIMEOUT: string;
                 */
-        TIMEOUT(context) {
-          context.warnOnce(
-            'Rule for export "TIMEOUT" in module "dns" is not verified'
-          );
-        },
+        TIMEOUT(context) {},
 
         /*
                 lib/node.js:733:2
 
                 declare var ADDRCONFIG: number;
                 */
-        ADDRCONFIG(context) {
-          context.warnOnce(
-            'Rule for export "ADDRCONFIG" in module "dns" is not verified'
-          );
-        },
+        ADDRCONFIG(context) {},
 
         /*
                 lib/node.js:734:2
 
                 declare var V4MAPPED: number;
                 */
-        V4MAPPED(context) {
-          context.warnOnce(
-            'Rule for export "V4MAPPED" in module "dns" is not verified'
-          );
-        },
+        V4MAPPED(context) {},
 
         /*
                 lib/node.js:736:2
@@ -2061,11 +1704,7 @@ export default {
                     ...
                   };
                 */
-        LookupOptions(context) {
-          context.warnOnce(
-            'Rule for export "LookupOptions" in module "dns" is not verified'
-          );
-        },
+        LookupOptions(context) {},
 
         /*
                 lib/node.js:744:2
@@ -2084,11 +1723,7 @@ export default {
                     callback: (err: ?Error, address: string, family: number) => void
                   ): void;
                 */
-        lookup(context) {
-          context.warnOnce(
-            'Rule for export "lookup" in module "dns" is not verified'
-          );
-        },
+        lookup(context) {},
 
         /*
                 lib/node.js:754:2
@@ -2099,11 +1734,7 @@ export default {
                     callback?: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve(context) {
-          context.warnOnce(
-            'Rule for export "resolve" in module "dns" is not verified'
-          );
-        },
+        resolve(context) {},
 
         /*
                 lib/node.js:760:2
@@ -2113,11 +1744,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve4(context) {
-          context.warnOnce(
-            'Rule for export "resolve4" in module "dns" is not verified'
-          );
-        },
+        resolve4(context) {},
 
         /*
                 lib/node.js:765:2
@@ -2127,11 +1754,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve6(context) {
-          context.warnOnce(
-            'Rule for export "resolve6" in module "dns" is not verified'
-          );
-        },
+        resolve6(context) {},
 
         /*
                 lib/node.js:770:2
@@ -2141,11 +1764,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveCname(context) {
-          context.warnOnce(
-            'Rule for export "resolveCname" in module "dns" is not verified'
-          );
-        },
+        resolveCname(context) {},
 
         /*
                 lib/node.js:775:2
@@ -2155,11 +1774,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveMx(context) {
-          context.warnOnce(
-            'Rule for export "resolveMx" in module "dns" is not verified'
-          );
-        },
+        resolveMx(context) {},
 
         /*
                 lib/node.js:780:2
@@ -2169,11 +1784,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveNs(context) {
-          context.warnOnce(
-            'Rule for export "resolveNs" in module "dns" is not verified'
-          );
-        },
+        resolveNs(context) {},
 
         /*
                 lib/node.js:785:2
@@ -2183,11 +1794,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveSrv(context) {
-          context.warnOnce(
-            'Rule for export "resolveSrv" in module "dns" is not verified'
-          );
-        },
+        resolveSrv(context) {},
 
         /*
                 lib/node.js:790:2
@@ -2197,11 +1804,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveTxt(context) {
-          context.warnOnce(
-            'Rule for export "resolveTxt" in module "dns" is not verified'
-          );
-        },
+        resolveTxt(context) {},
 
         /*
                 lib/node.js:795:2
@@ -2211,11 +1814,7 @@ export default {
                     callback: (err: ?Error, domains: Array<any>) => void
                   ): void;
                 */
-        reverse(context) {
-          context.warnOnce(
-            'Rule for export "reverse" in module "dns" is not verified'
-          );
-        },
+        reverse(context) {},
 
         /*
                 lib/node.js:799:2
@@ -2225,11 +1824,7 @@ export default {
                     b: Buffer | $TypedArray | DataView
                   ): boolean;
                 */
-        timingSafeEqual(context) {
-          context.warnOnce(
-            'Rule for export "timingSafeEqual" in module "dns" is not verified'
-          );
-        },
+        timingSafeEqual(context) {},
       },
     },
 
@@ -2244,22 +1839,14 @@ export default {
                     static EventEmitter: typeof EventEmitter;
                   }
                 */
-        EventEmitter(context) {
-          context.warnOnce(
-            'Rule for export "EventEmitter" in module "events" is not verified'
-          );
-        },
+        EventEmitter(context) {},
 
         /*
                 lib/node.js:834:2
 
                 declare module.exports: typeof EventEmitter;
                 */
-        default(context) {
-          context.warnOnce(
-            'Rule for export "default" in module "events" is not verified'
-          );
-        },
+        default(context) {},
       },
     },
 
@@ -2272,11 +1859,7 @@ export default {
 
                 declare function create(): domain$Domain;
                 */
-        create(context) {
-          context.warnOnce(
-            'Rule for export "create" in module "domain" is not verified'
-          );
-        },
+        create(context) {},
       },
     },
 
@@ -2316,11 +1899,7 @@ export default {
                     isSocket(): boolean;
                   }
                 */
-        Stats(context) {
-          context.warnOnce(
-            'Rule for export "Stats" in module "fs" is not verified'
-          );
-        },
+        Stats(context) {},
 
         /*
                 lib/node.js:884:2
@@ -2329,11 +1908,7 @@ export default {
                     close(): void
                   }
                 */
-        FSWatcher(context) {
-          context.warnOnce(
-            'Rule for export "FSWatcher" in module "fs" is not verified'
-          );
-        },
+        FSWatcher(context) {},
 
         /*
                 lib/node.js:888:2
@@ -2342,11 +1917,7 @@ export default {
                     close(): void
                   }
                 */
-        ReadStream(context) {
-          context.warnOnce(
-            'Rule for export "ReadStream" in module "fs" is not verified'
-          );
-        },
+        ReadStream(context) {},
 
         /*
                 lib/node.js:892:2
@@ -2355,407 +1926,259 @@ export default {
                     close(): void
                   }
                 */
-        WriteStream(context) {
-          context.warnOnce(
-            'Rule for export "WriteStream" in module "fs" is not verified'
-          );
-        },
+        WriteStream(context) {},
 
         /*
                 lib/node.js:896:2
 
                 declare function rename(oldPath: string, newPath: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        rename(context) {
-          context.warnOnce(
-            'Rule for export "rename" in module "fs" is not verified'
-          );
-        },
+        rename(context) {},
 
         /*
                 lib/node.js:897:2
 
                 declare function renameSync(oldPath: string, newPath: string): void;
                 */
-        renameSync(context) {
-          context.warnOnce(
-            'Rule for export "renameSync" in module "fs" is not verified'
-          );
-        },
+        renameSync(context) {},
 
         /*
                 lib/node.js:898:2
 
                 declare function ftruncate(fd: number, len: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        ftruncate(context) {
-          context.warnOnce(
-            'Rule for export "ftruncate" in module "fs" is not verified'
-          );
-        },
+        ftruncate(context) {},
 
         /*
                 lib/node.js:899:2
 
                 declare function ftruncateSync(fd: number, len: number): void;
                 */
-        ftruncateSync(context) {
-          context.warnOnce(
-            'Rule for export "ftruncateSync" in module "fs" is not verified'
-          );
-        },
+        ftruncateSync(context) {},
 
         /*
                 lib/node.js:900:2
 
                 declare function truncate(path: string, len: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        truncate(context) {
-          context.warnOnce(
-            'Rule for export "truncate" in module "fs" is not verified'
-          );
-        },
+        truncate(context) {},
 
         /*
                 lib/node.js:901:2
 
                 declare function truncateSync(path: string, len: number): void;
                 */
-        truncateSync(context) {
-          context.warnOnce(
-            'Rule for export "truncateSync" in module "fs" is not verified'
-          );
-        },
+        truncateSync(context) {},
 
         /*
                 lib/node.js:902:2
 
                 declare function chown(path: string, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        chown(context) {
-          context.warnOnce(
-            'Rule for export "chown" in module "fs" is not verified'
-          );
-        },
+        chown(context) {},
 
         /*
                 lib/node.js:903:2
 
                 declare function chownSync(path: string, uid: number, gid: number): void;
                 */
-        chownSync(context) {
-          context.warnOnce(
-            'Rule for export "chownSync" in module "fs" is not verified'
-          );
-        },
+        chownSync(context) {},
 
         /*
                 lib/node.js:904:2
 
                 declare function fchown(fd: number, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fchown(context) {
-          context.warnOnce(
-            'Rule for export "fchown" in module "fs" is not verified'
-          );
-        },
+        fchown(context) {},
 
         /*
                 lib/node.js:905:2
 
                 declare function fchownSync(fd: number, uid: number, gid: number): void;
                 */
-        fchownSync(context) {
-          context.warnOnce(
-            'Rule for export "fchownSync" in module "fs" is not verified'
-          );
-        },
+        fchownSync(context) {},
 
         /*
                 lib/node.js:906:2
 
                 declare function lchown(path: string, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        lchown(context) {
-          context.warnOnce(
-            'Rule for export "lchown" in module "fs" is not verified'
-          );
-        },
+        lchown(context) {},
 
         /*
                 lib/node.js:907:2
 
                 declare function lchownSync(path: string, uid: number, gid: number): void;
                 */
-        lchownSync(context) {
-          context.warnOnce(
-            'Rule for export "lchownSync" in module "fs" is not verified'
-          );
-        },
+        lchownSync(context) {},
 
         /*
                 lib/node.js:908:2
 
                 declare function chmod(path: string, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        chmod(context) {
-          context.warnOnce(
-            'Rule for export "chmod" in module "fs" is not verified'
-          );
-        },
+        chmod(context) {},
 
         /*
                 lib/node.js:909:2
 
                 declare function chmodSync(path: string, mode: number | string): void;
                 */
-        chmodSync(context) {
-          context.warnOnce(
-            'Rule for export "chmodSync" in module "fs" is not verified'
-          );
-        },
+        chmodSync(context) {},
 
         /*
                 lib/node.js:910:2
 
                 declare function fchmod(fd: number, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fchmod(context) {
-          context.warnOnce(
-            'Rule for export "fchmod" in module "fs" is not verified'
-          );
-        },
+        fchmod(context) {},
 
         /*
                 lib/node.js:911:2
 
                 declare function fchmodSync(fd: number, mode: number | string): void;
                 */
-        fchmodSync(context) {
-          context.warnOnce(
-            'Rule for export "fchmodSync" in module "fs" is not verified'
-          );
-        },
+        fchmodSync(context) {},
 
         /*
                 lib/node.js:912:2
 
                 declare function lchmod(path: string, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        lchmod(context) {
-          context.warnOnce(
-            'Rule for export "lchmod" in module "fs" is not verified'
-          );
-        },
+        lchmod(context) {},
 
         /*
                 lib/node.js:913:2
 
                 declare function lchmodSync(path: string, mode: number | string): void;
                 */
-        lchmodSync(context) {
-          context.warnOnce(
-            'Rule for export "lchmodSync" in module "fs" is not verified'
-          );
-        },
+        lchmodSync(context) {},
 
         /*
                 lib/node.js:914:2
 
                 declare function stat(path: string, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        stat(context) {
-          context.warnOnce(
-            'Rule for export "stat" in module "fs" is not verified'
-          );
-        },
+        stat(context) {},
 
         /*
                 lib/node.js:915:2
 
                 declare function statSync(path: string): Stats;
                 */
-        statSync(context) {
-          context.warnOnce(
-            'Rule for export "statSync" in module "fs" is not verified'
-          );
-        },
+        statSync(context) {},
 
         /*
                 lib/node.js:916:2
 
                 declare function fstat(fd: number, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        fstat(context) {
-          context.warnOnce(
-            'Rule for export "fstat" in module "fs" is not verified'
-          );
-        },
+        fstat(context) {},
 
         /*
                 lib/node.js:917:2
 
                 declare function fstatSync(fd: number): Stats;
                 */
-        fstatSync(context) {
-          context.warnOnce(
-            'Rule for export "fstatSync" in module "fs" is not verified'
-          );
-        },
+        fstatSync(context) {},
 
         /*
                 lib/node.js:918:2
 
                 declare function lstat(path: string, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        lstat(context) {
-          context.warnOnce(
-            'Rule for export "lstat" in module "fs" is not verified'
-          );
-        },
+        lstat(context) {},
 
         /*
                 lib/node.js:919:2
 
                 declare function lstatSync(path: string): Stats;
                 */
-        lstatSync(context) {
-          context.warnOnce(
-            'Rule for export "lstatSync" in module "fs" is not verified'
-          );
-        },
+        lstatSync(context) {},
 
         /*
                 lib/node.js:920:2
 
                 declare function link(srcpath: string, dstpath: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        link(context) {
-          context.warnOnce(
-            'Rule for export "link" in module "fs" is not verified'
-          );
-        },
+        link(context) {},
 
         /*
                 lib/node.js:921:2
 
                 declare function linkSync(srcpath: string, dstpath: string): void;
                 */
-        linkSync(context) {
-          context.warnOnce(
-            'Rule for export "linkSync" in module "fs" is not verified'
-          );
-        },
+        linkSync(context) {},
 
         /*
                 lib/node.js:922:2
 
                 declare function symlink(srcpath: string, dtspath: string, type?: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        symlink(context) {
-          context.warnOnce(
-            'Rule for export "symlink" in module "fs" is not verified'
-          );
-        },
+        symlink(context) {},
 
         /*
                 lib/node.js:923:2
 
                 declare function symlinkSync(srcpath: string, dstpath: string, type: string): void;
                 */
-        symlinkSync(context) {
-          context.warnOnce(
-            'Rule for export "symlinkSync" in module "fs" is not verified'
-          );
-        },
+        symlinkSync(context) {},
 
         /*
                 lib/node.js:924:2
 
                 declare function readlink(path: string, callback: (err: ?ErrnoError, linkString: string) => void): void;
                 */
-        readlink(context) {
-          context.warnOnce(
-            'Rule for export "readlink" in module "fs" is not verified'
-          );
-        },
+        readlink(context) {},
 
         /*
                 lib/node.js:925:2
 
                 declare function readlinkSync(path: string): string;
                 */
-        readlinkSync(context) {
-          context.warnOnce(
-            'Rule for export "readlinkSync" in module "fs" is not verified'
-          );
-        },
+        readlinkSync(context) {},
 
         /*
                 lib/node.js:926:2
 
                 declare function realpath(path: string, cache?: Object, callback?: (err: ?ErrnoError, resolvedPath: string) => void): void;
                 */
-        realpath(context) {
-          context.warnOnce(
-            'Rule for export "realpath" in module "fs" is not verified'
-          );
-        },
+        realpath(context) {},
 
         /*
                 lib/node.js:927:2
 
                 declare function realpathSync(path: string, cache?: Object): string;
                 */
-        realpathSync(context) {
-          context.warnOnce(
-            'Rule for export "realpathSync" in module "fs" is not verified'
-          );
-        },
+        realpathSync(context) {},
 
         /*
                 lib/node.js:928:2
 
                 declare function unlink(path: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        unlink(context) {
-          context.warnOnce(
-            'Rule for export "unlink" in module "fs" is not verified'
-          );
-        },
+        unlink(context) {},
 
         /*
                 lib/node.js:929:2
 
                 declare function unlinkSync(path: string): void;
                 */
-        unlinkSync(context) {
-          context.warnOnce(
-            'Rule for export "unlinkSync" in module "fs" is not verified'
-          );
-        },
+        unlinkSync(context) {},
 
         /*
                 lib/node.js:930:2
 
                 declare function rmdir(path: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        rmdir(context) {
-          context.warnOnce(
-            'Rule for export "rmdir" in module "fs" is not verified'
-          );
-        },
+        rmdir(context) {},
 
         /*
                 lib/node.js:931:2
 
                 declare function rmdirSync(path: string): void;
                 */
-        rmdirSync(context) {
-          context.warnOnce(
-            'Rule for export "rmdirSync" in module "fs" is not verified'
-          );
-        },
+        rmdirSync(context) {},
 
         /*
                 lib/node.js:932:2
@@ -2766,11 +2189,7 @@ export default {
                     ...
                   }, callback?: (err: ?ErrnoError) => void): void;
                 */
-        mkdir(context) {
-          context.warnOnce(
-            'Rule for export "mkdir" in module "fs" is not verified'
-          );
-        },
+        mkdir(context) {},
 
         /*
                 lib/node.js:937:2
@@ -2781,33 +2200,21 @@ export default {
                     ...
                   }): void;
                 */
-        mkdirSync(context) {
-          context.warnOnce(
-            'Rule for export "mkdirSync" in module "fs" is not verified'
-          );
-        },
+        mkdirSync(context) {},
 
         /*
                 lib/node.js:942:2
 
                 declare function mkdtemp(prefix: string, callback: (err: ?ErrnoError, folderPath: string) => void): void;
                 */
-        mkdtemp(context) {
-          context.warnOnce(
-            'Rule for export "mkdtemp" in module "fs" is not verified'
-          );
-        },
+        mkdtemp(context) {},
 
         /*
                 lib/node.js:943:2
 
                 declare function mkdtempSync(prefix: string): string;
                 */
-        mkdtempSync(context) {
-          context.warnOnce(
-            'Rule for export "mkdtempSync" in module "fs" is not verified'
-          );
-        },
+        mkdtempSync(context) {},
 
         /*
                 lib/node.js:944:2
@@ -2826,11 +2233,7 @@ export default {
                     callback: (err: ?ErrnoError, files: Array<string>) => void
                   ): void;
                 */
-        readdir(context) {
-          context.warnOnce(
-            'Rule for export "readdir" in module "fs" is not verified'
-          );
-        },
+        readdir(context) {},
 
         /*
                 lib/node.js:953:2
@@ -2840,33 +2243,21 @@ export default {
                     options?: string | { encoding: string, ... }
                   ): Array<string>;
                 */
-        readdirSync(context) {
-          context.warnOnce(
-            'Rule for export "readdirSync" in module "fs" is not verified'
-          );
-        },
+        readdirSync(context) {},
 
         /*
                 lib/node.js:957:2
 
                 declare function close(fd: number, callback: (err: ?ErrnoError) => void): void;
                 */
-        close(context) {
-          context.warnOnce(
-            'Rule for export "close" in module "fs" is not verified'
-          );
-        },
+        close(context) {},
 
         /*
                 lib/node.js:958:2
 
                 declare function closeSync(fd: number): void;
                 */
-        closeSync(context) {
-          context.warnOnce(
-            'Rule for export "closeSync" in module "fs" is not verified'
-          );
-        },
+        closeSync(context) {},
 
         /*
                 lib/node.js:959:2
@@ -2887,88 +2278,56 @@ export default {
                     callback: (err: ?ErrnoError, fd: number) => void
                   ): void;
                 */
-        open(context) {
-          context.warnOnce(
-            'Rule for export "open" in module "fs" is not verified'
-          );
-        },
+        open(context) {},
 
         /*
                 lib/node.js:970:2
 
                 declare function openSync(path: string | Buffer, flags: string | number, mode?: number): number;
                 */
-        openSync(context) {
-          context.warnOnce(
-            'Rule for export "openSync" in module "fs" is not verified'
-          );
-        },
+        openSync(context) {},
 
         /*
                 lib/node.js:971:2
 
                 declare function utimes(path: string, atime: number, mtime: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        utimes(context) {
-          context.warnOnce(
-            'Rule for export "utimes" in module "fs" is not verified'
-          );
-        },
+        utimes(context) {},
 
         /*
                 lib/node.js:972:2
 
                 declare function utimesSync(path: string, atime: number, mtime: number): void;
                 */
-        utimesSync(context) {
-          context.warnOnce(
-            'Rule for export "utimesSync" in module "fs" is not verified'
-          );
-        },
+        utimesSync(context) {},
 
         /*
                 lib/node.js:973:2
 
                 declare function futimes(fd: number, atime: number, mtime: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        futimes(context) {
-          context.warnOnce(
-            'Rule for export "futimes" in module "fs" is not verified'
-          );
-        },
+        futimes(context) {},
 
         /*
                 lib/node.js:974:2
 
                 declare function futimesSync(fd: number, atime: number, mtime: number): void;
                 */
-        futimesSync(context) {
-          context.warnOnce(
-            'Rule for export "futimesSync" in module "fs" is not verified'
-          );
-        },
+        futimesSync(context) {},
 
         /*
                 lib/node.js:975:2
 
                 declare function fsync(fd: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fsync(context) {
-          context.warnOnce(
-            'Rule for export "fsync" in module "fs" is not verified'
-          );
-        },
+        fsync(context) {},
 
         /*
                 lib/node.js:976:2
 
                 declare function fsyncSync(fd: number): void;
                 */
-        fsyncSync(context) {
-          context.warnOnce(
-            'Rule for export "fsyncSync" in module "fs" is not verified'
-          );
-        },
+        fsyncSync(context) {},
 
         /*
                 lib/node.js:977:2
@@ -3042,11 +2401,7 @@ export default {
                     callback: (err: ?ErrnoError, write: number, str: string) => void
                   ): void;
                 */
-        write(context) {
-          context.warnOnce(
-            'Rule for export "write" in module "fs" is not verified'
-          );
-        },
+        write(context) {},
 
         /*
                 lib/node.js:1021:2
@@ -3097,11 +2452,7 @@ export default {
                     position?: number,
                   ): number;
                 */
-        writeSync(context) {
-          context.warnOnce(
-            'Rule for export "writeSync" in module "fs" is not verified'
-          );
-        },
+        writeSync(context) {},
 
         /*
                 lib/node.js:1050:2
@@ -3115,11 +2466,7 @@ export default {
                     callback: (err: ?ErrnoError, bytesRead: number, buffer: Buffer) => void
                   ): void;
                 */
-        read(context) {
-          context.warnOnce(
-            'Rule for export "read" in module "fs" is not verified'
-          );
-        },
+        read(context) {},
 
         /*
                 lib/node.js:1058:2
@@ -3132,11 +2479,7 @@ export default {
                     position: number
                   ): number;
                 */
-        readSync(context) {
-          context.warnOnce(
-            'Rule for export "readSync" in module "fs" is not verified'
-          );
-        },
+        readSync(context) {},
 
         /*
                 lib/node.js:1065:2
@@ -3177,11 +2520,7 @@ export default {
                     callback: (err: ?ErrnoError, data: Buffer) => void
                   ): void;
                 */
-        readFile(context) {
-          context.warnOnce(
-            'Rule for export "readFile" in module "fs" is not verified'
-          );
-        },
+        readFile(context) {},
 
         /*
                 lib/node.js:1088:2
@@ -3216,11 +2555,7 @@ export default {
                     ...
                   }): Buffer;
                 */
-        readFileSync(context) {
-          context.warnOnce(
-            'Rule for export "readFileSync" in module "fs" is not verified'
-          );
-        },
+        readFileSync(context) {},
 
         /*
                 lib/node.js:1105:2
@@ -3246,11 +2581,7 @@ export default {
                     callback?: (err: ?ErrnoError) => void
                   ): void;
                 */
-        writeFile(context) {
-          context.warnOnce(
-            'Rule for export "writeFile" in module "fs" is not verified'
-          );
-        },
+        writeFile(context) {},
 
         /*
                 lib/node.js:1121:2
@@ -3266,11 +2597,7 @@ export default {
                     }
                   ): void;
                 */
-        writeFileSync(context) {
-          context.warnOnce(
-            'Rule for export "writeFileSync" in module "fs" is not verified'
-          );
-        },
+        writeFileSync(context) {},
 
         /*
                 lib/node.js:1131:2
@@ -3296,11 +2623,7 @@ export default {
                     callback: (err: ?ErrnoError) => void
                   ): void;
                 */
-        appendFile(context) {
-          context.warnOnce(
-            'Rule for export "appendFile" in module "fs" is not verified'
-          );
-        },
+        appendFile(context) {},
 
         /*
                 lib/node.js:1147:2
@@ -3316,198 +2639,126 @@ export default {
                     }
                   ): void;
                 */
-        appendFileSync(context) {
-          context.warnOnce(
-            'Rule for export "appendFileSync" in module "fs" is not verified'
-          );
-        },
+        appendFileSync(context) {},
 
         /*
                 lib/node.js:1157:2
 
                 declare function watchFile(filename: string, options?: Object, listener?: (curr: Stats, prev: Stats) => void): void;
                 */
-        watchFile(context) {
-          context.warnOnce(
-            'Rule for export "watchFile" in module "fs" is not verified'
-          );
-        },
+        watchFile(context) {},
 
         /*
                 lib/node.js:1158:2
 
                 declare function unwatchFile(filename: string, listener?: (curr: Stats, prev: Stats) => void): void;
                 */
-        unwatchFile(context) {
-          context.warnOnce(
-            'Rule for export "unwatchFile" in module "fs" is not verified'
-          );
-        },
+        unwatchFile(context) {},
 
         /*
                 lib/node.js:1159:2
 
                 declare function watch(filename: string, options?: Object, listener?: (event: string, filename: string) => void): FSWatcher;
                 */
-        watch(context) {
-          context.warnOnce(
-            'Rule for export "watch" in module "fs" is not verified'
-          );
-        },
+        watch(context) {},
 
         /*
                 lib/node.js:1160:2
 
                 declare function exists(path: string, callback?: (exists: boolean) => void): void;
                 */
-        exists(context) {
-          context.warnOnce(
-            'Rule for export "exists" in module "fs" is not verified'
-          );
-        },
+        exists(context) {},
 
         /*
                 lib/node.js:1161:2
 
                 declare function existsSync(path: string): boolean;
                 */
-        existsSync(context) {
-          context.warnOnce(
-            'Rule for export "existsSync" in module "fs" is not verified'
-          );
-        },
+        existsSync(context) {},
 
         /*
                 lib/node.js:1162:2
 
                 declare function access(path: string, mode?: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        access(context) {
-          context.warnOnce(
-            'Rule for export "access" in module "fs" is not verified'
-          );
-        },
+        access(context) {},
 
         /*
                 lib/node.js:1163:2
 
                 declare function accessSync(path: string, mode?: number): void;
                 */
-        accessSync(context) {
-          context.warnOnce(
-            'Rule for export "accessSync" in module "fs" is not verified'
-          );
-        },
+        accessSync(context) {},
 
         /*
                 lib/node.js:1164:2
 
                 declare function createReadStream(path: string, options?: Object): ReadStream;
                 */
-        createReadStream(context) {
-          context.warnOnce(
-            'Rule for export "createReadStream" in module "fs" is not verified'
-          );
-        },
+        createReadStream(context) {},
 
         /*
                 lib/node.js:1165:2
 
                 declare function createWriteStream(path: string, options?: Object): WriteStream;
                 */
-        createWriteStream(context) {
-          context.warnOnce(
-            'Rule for export "createWriteStream" in module "fs" is not verified'
-          );
-        },
+        createWriteStream(context) {},
 
         /*
                 lib/node.js:1166:2
 
                 declare function fdatasync(fd: number, callback: (err: ?ErrnoError) => void): void;
                 */
-        fdatasync(context) {
-          context.warnOnce(
-            'Rule for export "fdatasync" in module "fs" is not verified'
-          );
-        },
+        fdatasync(context) {},
 
         /*
                 lib/node.js:1167:2
 
                 declare function fdatasyncSync(fd: number): void;
                 */
-        fdatasyncSync(context) {
-          context.warnOnce(
-            'Rule for export "fdatasyncSync" in module "fs" is not verified'
-          );
-        },
+        fdatasyncSync(context) {},
 
         /*
                 lib/node.js:1168:2
 
                 declare function copyFile(src: string, dest: string, flags?: number, callback: (err: ErrnoError) => void): void;
                 */
-        copyFile(context) {
-          context.warnOnce(
-            'Rule for export "copyFile" in module "fs" is not verified'
-          );
-        },
+        copyFile(context) {},
 
         /*
                 lib/node.js:1169:2
 
                 declare function copyFileSync(src: string, dest: string, flags?: number): void;
                 */
-        copyFileSync(context) {
-          context.warnOnce(
-            'Rule for export "copyFileSync" in module "fs" is not verified'
-          );
-        },
+        copyFileSync(context) {},
 
         /*
                 lib/node.js:1171:2
 
                 declare var F_OK: number;
                 */
-        F_OK(context) {
-          context.warnOnce(
-            'Rule for export "F_OK" in module "fs" is not verified'
-          );
-        },
+        F_OK(context) {},
 
         /*
                 lib/node.js:1172:2
 
                 declare var R_OK: number;
                 */
-        R_OK(context) {
-          context.warnOnce(
-            'Rule for export "R_OK" in module "fs" is not verified'
-          );
-        },
+        R_OK(context) {},
 
         /*
                 lib/node.js:1173:2
 
                 declare var W_OK: number;
                 */
-        W_OK(context) {
-          context.warnOnce(
-            'Rule for export "W_OK" in module "fs" is not verified'
-          );
-        },
+        W_OK(context) {},
 
         /*
                 lib/node.js:1174:2
 
                 declare var X_OK: number;
                 */
-        X_OK(context) {
-          context.warnOnce(
-            'Rule for export "X_OK" in module "fs" is not verified'
-          );
-        },
+        X_OK(context) {},
 
         /*
                 lib/node.js:1177:2
@@ -3559,11 +2810,7 @@ export default {
                     ...
                   };
                 */
-        constants(context) {
-          context.warnOnce(
-            'Rule for export "constants" in module "fs" is not verified'
-          );
-        },
+        constants(context) {},
 
         /*
                 lib/node.js:1224:2
@@ -3572,44 +2819,28 @@ export default {
                     | 'buffer'
                     | { encoding: 'buffer', ... };
                 */
-        BufferEncoding(context) {
-          context.warnOnce(
-            'Rule for export "BufferEncoding" in module "fs" is not verified'
-          );
-        },
+        BufferEncoding(context) {},
 
         /*
                 lib/node.js:1227:2
 
                 declare type EncodingOptions = { encoding?: string, ... };
                 */
-        EncodingOptions(context) {
-          context.warnOnce(
-            'Rule for export "EncodingOptions" in module "fs" is not verified'
-          );
-        },
+        EncodingOptions(context) {},
 
         /*
                 lib/node.js:1228:2
 
                 declare type EncodingFlag = EncodingOptions & { flag?: string, ... };
                 */
-        EncodingFlag(context) {
-          context.warnOnce(
-            'Rule for export "EncodingFlag" in module "fs" is not verified'
-          );
-        },
+        EncodingFlag(context) {},
 
         /*
                 lib/node.js:1229:2
 
                 declare type WriteOptions = EncodingFlag & { mode?: number, ... };
                 */
-        WriteOptions(context) {
-          context.warnOnce(
-            'Rule for export "WriteOptions" in module "fs" is not verified'
-          );
-        },
+        WriteOptions(context) {},
 
         /*
                 lib/node.js:1230:2
@@ -3641,22 +2872,14 @@ export default {
                     writeFile(data: string | Buffer | Uint8Array, options: WriteOptions | string): Promise<void>;
                   }
                 */
-        FileHandle(context) {
-          context.warnOnce(
-            'Rule for export "FileHandle" in module "fs" is not verified'
-          );
-        },
+        FileHandle(context) {},
 
         /*
                 lib/node.js:1257:2
 
                 declare type FSPromisePath = string | Buffer | URL;
                 */
-        FSPromisePath(context) {
-          context.warnOnce(
-            'Rule for export "FSPromisePath" in module "fs" is not verified'
-          );
-        },
+        FSPromisePath(context) {},
 
         /*
                 lib/node.js:1258:2
@@ -3723,22 +2946,14 @@ export default {
                     ): Promise<void>,
                   }
                 */
-        FSPromise(context) {
-          context.warnOnce(
-            'Rule for export "FSPromise" in module "fs" is not verified'
-          );
-        },
+        FSPromise(context) {},
 
         /*
                 lib/node.js:1320:2
 
                 declare var promises: FSPromise;
                 */
-        promises(context) {
-          context.warnOnce(
-            'Rule for export "promises" in module "fs" is not verified'
-          );
-        },
+        promises(context) {},
       },
     },
 
@@ -3751,11 +2966,7 @@ export default {
 
                 declare class Server extends http$Server {}
                 */
-        Server(context) {
-          context.warnOnce(
-            'Rule for export "Server" in module "http" is not verified'
-          );
-        },
+        Server(context) {},
 
         /*
                 lib/node.js:1472:2
@@ -3764,44 +2975,28 @@ export default {
                     createConnection(options: net$connectOptions, callback?: Function): net$Socket;
                   }
                 */
-        Agent(context) {
-          context.warnOnce(
-            'Rule for export "Agent" in module "http" is not verified'
-          );
-        },
+        Agent(context) {},
 
         /*
                 lib/node.js:1475:2
 
                 declare class ClientRequest extends http$ClientRequest<net$Socket> {}
                 */
-        ClientRequest(context) {
-          context.warnOnce(
-            'Rule for export "ClientRequest" in module "http" is not verified'
-          );
-        },
+        ClientRequest(context) {},
 
         /*
                 lib/node.js:1476:2
 
                 declare class IncomingMessage extends http$IncomingMessage<net$Socket> {}
                 */
-        IncomingMessage(context) {
-          context.warnOnce(
-            'Rule for export "IncomingMessage" in module "http" is not verified'
-          );
-        },
+        IncomingMessage(context) {},
 
         /*
                 lib/node.js:1477:2
 
                 declare class ServerResponse extends http$ServerResponse {}
                 */
-        ServerResponse(context) {
-          context.warnOnce(
-            'Rule for export "ServerResponse" in module "http" is not verified'
-          );
-        },
+        ServerResponse(context) {},
 
         /*
                 lib/node.js:1479:2
@@ -3810,11 +3005,7 @@ export default {
                     requestListener?: (request: IncomingMessage, response: ServerResponse) => void
                   ): Server;
                 */
-        createServer(context) {
-          context.warnOnce(
-            'Rule for export "createServer" in module "http" is not verified'
-          );
-        },
+        createServer(context) {},
 
         /*
                 lib/node.js:1482:2
@@ -3833,11 +3024,7 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        request(context) {
-          context.warnOnce(
-            'Rule for export "request" in module "http" is not verified'
-          );
-        },
+        request(context) {},
 
         /*
                 lib/node.js:1491:2
@@ -3856,44 +3043,28 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        get(context) {
-          context.warnOnce(
-            'Rule for export "get" in module "http" is not verified'
-          );
-        },
+        get(context) {},
 
         /*
                 lib/node.js:1501:2
 
                 declare var METHODS: Array<string>;
                 */
-        METHODS(context) {
-          context.warnOnce(
-            'Rule for export "METHODS" in module "http" is not verified'
-          );
-        },
+        METHODS(context) {},
 
         /*
                 lib/node.js:1502:2
 
                 declare var STATUS_CODES: { [key: number]: string, ... };
                 */
-        STATUS_CODES(context) {
-          context.warnOnce(
-            'Rule for export "STATUS_CODES" in module "http" is not verified'
-          );
-        },
+        STATUS_CODES(context) {},
 
         /*
                 lib/node.js:1503:2
 
                 declare var globalAgent: Agent;
                 */
-        globalAgent(context) {
-          context.warnOnce(
-            'Rule for export "globalAgent" in module "http" is not verified'
-          );
-        },
+        globalAgent(context) {},
       },
     },
 
@@ -3906,11 +3077,7 @@ export default {
 
                 declare class Server extends https$Server {}
                 */
-        Server(context) {
-          context.warnOnce(
-            'Rule for export "Server" in module "https" is not verified'
-          );
-        },
+        Server(context) {},
 
         /*
                 lib/node.js:1515:2
@@ -3921,44 +3088,28 @@ export default {
                     createConnection(options: tls$connectOptions): tls$TLSSocket;
                   }
                 */
-        Agent(context) {
-          context.warnOnce(
-            'Rule for export "Agent" in module "https" is not verified'
-          );
-        },
+        Agent(context) {},
 
         /*
                 lib/node.js:1521:2
 
                 declare class ClientRequest extends http$ClientRequest<tls$TLSSocket> {}
                 */
-        ClientRequest(context) {
-          context.warnOnce(
-            'Rule for export "ClientRequest" in module "https" is not verified'
-          );
-        },
+        ClientRequest(context) {},
 
         /*
                 lib/node.js:1522:2
 
                 declare class IncomingMessage extends http$IncomingMessage<tls$TLSSocket> {}
                 */
-        IncomingMessage(context) {
-          context.warnOnce(
-            'Rule for export "IncomingMessage" in module "https" is not verified'
-          );
-        },
+        IncomingMessage(context) {},
 
         /*
                 lib/node.js:1523:2
 
                 declare class ServerResponse extends http$ServerResponse {}
                 */
-        ServerResponse(context) {
-          context.warnOnce(
-            'Rule for export "ServerResponse" in module "https" is not verified'
-          );
-        },
+        ServerResponse(context) {},
 
         /*
                 lib/node.js:1525:2
@@ -3968,11 +3119,7 @@ export default {
                     requestListener?: (request: IncomingMessage, response: ServerResponse) => void
                   ): Server;
                 */
-        createServer(context) {
-          context.warnOnce(
-            'Rule for export "createServer" in module "https" is not verified'
-          );
-        },
+        createServer(context) {},
 
         /*
                 lib/node.js:1529:2
@@ -3991,11 +3138,7 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        request(context) {
-          context.warnOnce(
-            'Rule for export "request" in module "https" is not verified'
-          );
-        },
+        request(context) {},
 
         /*
                 lib/node.js:1538:2
@@ -4014,22 +3157,14 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        get(context) {
-          context.warnOnce(
-            'Rule for export "get" in module "https" is not verified'
-          );
-        },
+        get(context) {},
 
         /*
                 lib/node.js:1548:2
 
                 declare var globalAgent: Agent;
                 */
-        globalAgent(context) {
-          context.warnOnce(
-            'Rule for export "globalAgent" in module "https" is not verified'
-          );
-        },
+        globalAgent(context) {},
       },
     },
 
@@ -4042,66 +3177,42 @@ export default {
 
                 declare class Server extends net$Server {}
                 */
-        Server(context) {
-          context.warnOnce(
-            'Rule for export "Server" in module "net" is not verified'
-          );
-        },
+        Server(context) {},
 
         /*
                 lib/node.js:1620:2
 
                 declare class Socket extends net$Socket {}
                 */
-        Socket(context) {
-          context.warnOnce(
-            'Rule for export "Socket" in module "net" is not verified'
-          );
-        },
+        Socket(context) {},
 
         /*
                 lib/node.js:1622:2
 
                 declare function isIP(input: string): number;
                 */
-        isIP(context) {
-          context.warnOnce(
-            'Rule for export "isIP" in module "net" is not verified'
-          );
-        },
+        isIP(context) {},
 
         /*
                 lib/node.js:1623:2
 
                 declare function isIPv4(input: string): boolean;
                 */
-        isIPv4(context) {
-          context.warnOnce(
-            'Rule for export "isIPv4" in module "net" is not verified'
-          );
-        },
+        isIPv4(context) {},
 
         /*
                 lib/node.js:1624:2
 
                 declare function isIPv6(input: string): boolean;
                 */
-        isIPv6(context) {
-          context.warnOnce(
-            'Rule for export "isIPv6" in module "net" is not verified'
-          );
-        },
+        isIPv6(context) {},
 
         /*
                 lib/node.js:1627:2
 
                 declare type connectionListener = (socket: Socket) => any;
                 */
-        connectionListener(context) {
-          context.warnOnce(
-            'Rule for export "connectionListener" in module "net" is not verified'
-          );
-        },
+        connectionListener(context) {},
 
         /*
                 lib/node.js:1628:2
@@ -4115,22 +3226,14 @@ export default {
                     connectionListener?: connectionListener,
                   ): Server;
                 */
-        createServer(context) {
-          context.warnOnce(
-            'Rule for export "createServer" in module "net" is not verified'
-          );
-        },
+        createServer(context) {},
 
         /*
                 lib/node.js:1637:2
 
                 declare type connectListener = () => any;
                 */
-        connectListener(context) {
-          context.warnOnce(
-            'Rule for export "connectListener" in module "net" is not verified'
-          );
-        },
+        connectListener(context) {},
 
         /*
                 lib/node.js:1638:2
@@ -4141,11 +3244,7 @@ export default {
                     connectListener?: connectListener,
                   ): Socket;
                 */
-        connect(context) {
-          context.warnOnce(
-            'Rule for export "connect" in module "net" is not verified'
-          );
-        },
+        connect(context) {},
 
         /*
                 lib/node.js:1644:2
@@ -4156,11 +3255,7 @@ export default {
                     connectListener?: connectListener,
                   ): Socket;
                 */
-        createConnection(context) {
-          context.warnOnce(
-            'Rule for export "createConnection" in module "net" is not verified'
-          );
-        },
+        createConnection(context) {},
       },
     },
 
@@ -4173,154 +3268,98 @@ export default {
 
                 declare function arch(): "x64"|"arm"|"ia32";
                 */
-        arch(context) {
-          context.warnOnce(
-            'Rule for export "arch" in module "os" is not verified'
-          );
-        },
+        arch(context) {},
 
         /*
                 lib/node.js:1694:2
 
                 declare function cpus(): Array<os$CPU>;
                 */
-        cpus(context) {
-          context.warnOnce(
-            'Rule for export "cpus" in module "os" is not verified'
-          );
-        },
+        cpus(context) {},
 
         /*
                 lib/node.js:1695:2
 
                 declare function endianness(): "BE"|"LE";
                 */
-        endianness(context) {
-          context.warnOnce(
-            'Rule for export "endianness" in module "os" is not verified'
-          );
-        },
+        endianness(context) {},
 
         /*
                 lib/node.js:1696:2
 
                 declare function freemem(): number;
                 */
-        freemem(context) {
-          context.warnOnce(
-            'Rule for export "freemem" in module "os" is not verified'
-          );
-        },
+        freemem(context) {},
 
         /*
                 lib/node.js:1697:2
 
                 declare function homedir(): string;
                 */
-        homedir(context) {
-          context.warnOnce(
-            'Rule for export "homedir" in module "os" is not verified'
-          );
-        },
+        homedir(context) {},
 
         /*
                 lib/node.js:1698:2
 
                 declare function hostname(): string;
                 */
-        hostname(context) {
-          context.warnOnce(
-            'Rule for export "hostname" in module "os" is not verified'
-          );
-        },
+        hostname(context) {},
 
         /*
                 lib/node.js:1699:2
 
                 declare function loadavg(): [number, number, number];
                 */
-        loadavg(context) {
-          context.warnOnce(
-            'Rule for export "loadavg" in module "os" is not verified'
-          );
-        },
+        loadavg(context) {},
 
         /*
                 lib/node.js:1700:2
 
                 declare function networkInterfaces(): { [ifName: string]: Array<os$NetIFAddr>, ... };
                 */
-        networkInterfaces(context) {
-          context.warnOnce(
-            'Rule for export "networkInterfaces" in module "os" is not verified'
-          );
-        },
+        networkInterfaces(context) {},
 
         /*
                 lib/node.js:1701:2
 
                 declare function platform(): string;
                 */
-        platform(context) {
-          context.warnOnce(
-            'Rule for export "platform" in module "os" is not verified'
-          );
-        },
+        platform(context) {},
 
         /*
                 lib/node.js:1702:2
 
                 declare function release(): string;
                 */
-        release(context) {
-          context.warnOnce(
-            'Rule for export "release" in module "os" is not verified'
-          );
-        },
+        release(context) {},
 
         /*
                 lib/node.js:1703:2
 
                 declare function tmpdir(): string;
                 */
-        tmpdir(context) {
-          context.warnOnce(
-            'Rule for export "tmpdir" in module "os" is not verified'
-          );
-        },
+        tmpdir(context) {},
 
         /*
                 lib/node.js:1704:2
 
                 declare function totalmem(): number;
                 */
-        totalmem(context) {
-          context.warnOnce(
-            'Rule for export "totalmem" in module "os" is not verified'
-          );
-        },
+        totalmem(context) {},
 
         /*
                 lib/node.js:1705:2
 
                 declare function type(): string;
                 */
-        type(context) {
-          context.warnOnce(
-            'Rule for export "type" in module "os" is not verified'
-          );
-        },
+        type(context) {},
 
         /*
                 lib/node.js:1706:2
 
                 declare function uptime(): number;
                 */
-        uptime(context) {
-          context.warnOnce(
-            'Rule for export "uptime" in module "os" is not verified'
-          );
-        },
+        uptime(context) {},
 
         /*
                 lib/node.js:1707:2
@@ -4332,22 +3371,14 @@ export default {
 
                 declare function userInfo(options?: { encoding: 'utf8', ... }): os$UserInfo$string;
                 */
-        userInfo(context) {
-          context.warnOnce(
-            'Rule for export "userInfo" in module "os" is not verified'
-          );
-        },
+        userInfo(context) {},
 
         /*
                 lib/node.js:1709:2
 
                 declare var EOL: string;
                 */
-        EOL(context) {
-          context.warnOnce(
-            'Rule for export "EOL" in module "os" is not verified'
-          );
-        },
+        EOL(context) {},
       },
     },
 
@@ -4360,110 +3391,70 @@ export default {
 
                 declare function normalize(path: string): string;
                 */
-        normalize(context) {
-          context.warnOnce(
-            'Rule for export "normalize" in module "path" is not verified'
-          );
-        },
+        normalize(context) {},
 
         /*
                 lib/node.js:1714:2
 
                 declare function join(...parts: Array<string>): string;
                 */
-        join(context) {
-          context.warnOnce(
-            'Rule for export "join" in module "path" is not verified'
-          );
-        },
+        join(context) {},
 
         /*
                 lib/node.js:1715:2
 
                 declare function resolve(...parts: Array<string>): string;
                 */
-        resolve(context) {
-          context.warnOnce(
-            'Rule for export "resolve" in module "path" is not verified'
-          );
-        },
+        resolve(context) {},
 
         /*
                 lib/node.js:1716:2
 
                 declare function isAbsolute(path: string): boolean;
                 */
-        isAbsolute(context) {
-          context.warnOnce(
-            'Rule for export "isAbsolute" in module "path" is not verified'
-          );
-        },
+        isAbsolute(context) {},
 
         /*
                 lib/node.js:1717:2
 
                 declare function relative(from: string, to: string): string;
                 */
-        relative(context) {
-          context.warnOnce(
-            'Rule for export "relative" in module "path" is not verified'
-          );
-        },
+        relative(context) {},
 
         /*
                 lib/node.js:1718:2
 
                 declare function dirname(path: string): string;
                 */
-        dirname(context) {
-          context.warnOnce(
-            'Rule for export "dirname" in module "path" is not verified'
-          );
-        },
+        dirname(context) {},
 
         /*
                 lib/node.js:1719:2
 
                 declare function basename(path: string, ext?: string): string;
                 */
-        basename(context) {
-          context.warnOnce(
-            'Rule for export "basename" in module "path" is not verified'
-          );
-        },
+        basename(context) {},
 
         /*
                 lib/node.js:1720:2
 
                 declare function extname(path: string): string;
                 */
-        extname(context) {
-          context.warnOnce(
-            'Rule for export "extname" in module "path" is not verified'
-          );
-        },
+        extname(context) {},
 
         /*
                 lib/node.js:1721:2
 
                 declare var sep: string;
                 */
-        sep(context) {
-          context.warnOnce(
-            'Rule for export "sep" in module "path" is not verified'
-          );
-        },
+        sep(context) {},
 
         /*
                 lib/node.js:1722:2
 
                 declare var delimiter: string;
                 */
-        delimiter(context) {
-          context.warnOnce(
-            'Rule for export "delimiter" in module "path" is not verified'
-          );
-        },
+        delimiter(context) {},
 
         /*
                 lib/node.js:1723:2
@@ -4477,11 +3468,7 @@ export default {
                     ...
                   };
                 */
-        parse(context) {
-          context.warnOnce(
-            'Rule for export "parse" in module "path" is not verified'
-          );
-        },
+        parse(context) {},
 
         /*
                 lib/node.js:1731:2
@@ -4495,33 +3482,21 @@ export default {
                     ...
                   }): string;
                 */
-        format(context) {
-          context.warnOnce(
-            'Rule for export "format" in module "path" is not verified'
-          );
-        },
+        format(context) {},
 
         /*
                 lib/node.js:1739:2
 
                 declare var posix: any;
                 */
-        posix(context) {
-          context.warnOnce(
-            'Rule for export "posix" in module "path" is not verified'
-          );
-        },
+        posix(context) {},
 
         /*
                 lib/node.js:1740:2
 
                 declare var win32: any;
                 */
-        win32(context) {
-          context.warnOnce(
-            'Rule for export "win32" in module "path" is not verified'
-          );
-        },
+        win32(context) {},
       },
     },
 
@@ -4534,44 +3509,28 @@ export default {
 
                 declare function decode(string: string): string;
                 */
-        decode(context) {
-          context.warnOnce(
-            'Rule for export "decode" in module "punycode" is not verified'
-          );
-        },
+        decode(context) {},
 
         /*
                 lib/node.js:1745:2
 
                 declare function encode(string: string): string;
                 */
-        encode(context) {
-          context.warnOnce(
-            'Rule for export "encode" in module "punycode" is not verified'
-          );
-        },
+        encode(context) {},
 
         /*
                 lib/node.js:1746:2
 
                 declare function toASCII(domain: string): string;
                 */
-        toASCII(context) {
-          context.warnOnce(
-            'Rule for export "toASCII" in module "punycode" is not verified'
-          );
-        },
+        toASCII(context) {},
 
         /*
                 lib/node.js:1747:2
 
                 declare function toUnicode(domain: string): string;
                 */
-        toUnicode(context) {
-          context.warnOnce(
-            'Rule for export "toUnicode" in module "punycode" is not verified'
-          );
-        },
+        toUnicode(context) {},
 
         /*
                 lib/node.js:1748:2
@@ -4582,22 +3541,14 @@ export default {
                     ...
                   };
                 */
-        ucs2(context) {
-          context.warnOnce(
-            'Rule for export "ucs2" in module "punycode" is not verified'
-          );
-        },
+        ucs2(context) {},
 
         /*
                 lib/node.js:1753:2
 
                 declare var version : string;
                 */
-        version(context) {
-          context.warnOnce(
-            'Rule for export "version" in module "punycode" is not verified'
-          );
-        },
+        version(context) {},
       },
     },
 
@@ -4615,11 +3566,7 @@ export default {
                     options?: { encodeURIComponent?: (str: string) => string, ... }
                   ): string;
                 */
-        stringify(context) {
-          context.warnOnce(
-            'Rule for export "stringify" in module "querystring" is not verified'
-          );
-        },
+        stringify(context) {},
 
         /*
                 lib/node.js:1763:2
@@ -4635,33 +3582,21 @@ export default {
                     }
                   ): any;
                 */
-        parse(context) {
-          context.warnOnce(
-            'Rule for export "parse" in module "querystring" is not verified'
-          );
-        },
+        parse(context) {},
 
         /*
                 lib/node.js:1773:2
 
                 declare function escape(str: string): string;
                 */
-        escape(context) {
-          context.warnOnce(
-            'Rule for export "escape" in module "querystring" is not verified'
-          );
-        },
+        escape(context) {},
 
         /*
                 lib/node.js:1774:2
 
                 declare function unescape(str: string, decodeSpaces?: boolean): string;
                 */
-        unescape(context) {
-          context.warnOnce(
-            'Rule for export "unescape" in module "querystring" is not verified'
-          );
-        },
+        unescape(context) {},
       },
     },
 
@@ -4674,33 +3609,21 @@ export default {
 
                 declare var Interface : typeof readline$Interface;
                 */
-        Interface(context) {
-          context.warnOnce(
-            'Rule for export "Interface" in module "readline" is not verified'
-          );
-        },
+        Interface(context) {},
 
         /*
                 lib/node.js:1799:2
 
                 declare function clearLine(stream: stream$Stream, dir: -1 | 1 | 0): void;
                 */
-        clearLine(context) {
-          context.warnOnce(
-            'Rule for export "clearLine" in module "readline" is not verified'
-          );
-        },
+        clearLine(context) {},
 
         /*
                 lib/node.js:1800:2
 
                 declare function clearScreenDown(stream: stream$Stream): void;
                 */
-        clearScreenDown(context) {
-          context.warnOnce(
-            'Rule for export "clearScreenDown" in module "readline" is not verified'
-          );
-        },
+        clearScreenDown(context) {},
 
         /*
                 lib/node.js:1801:2
@@ -4718,44 +3641,28 @@ export default {
                     ...
                   }): readline$Interface;
                 */
-        createInterface(context) {
-          context.warnOnce(
-            'Rule for export "createInterface" in module "readline" is not verified'
-          );
-        },
+        createInterface(context) {},
 
         /*
                 lib/node.js:1813:2
 
                 declare function cursorTo(stream: stream$Stream, x?: number, y?: number): void;
                 */
-        cursorTo(context) {
-          context.warnOnce(
-            'Rule for export "cursorTo" in module "readline" is not verified'
-          );
-        },
+        cursorTo(context) {},
 
         /*
                 lib/node.js:1814:2
 
                 declare function moveCursor(stream: stream$Stream, dx: number, dy: number): void;
                 */
-        moveCursor(context) {
-          context.warnOnce(
-            'Rule for export "moveCursor" in module "readline" is not verified'
-          );
-        },
+        moveCursor(context) {},
 
         /*
                 lib/node.js:1815:2
 
                 declare function emitKeypressEvents(stream: stream$Stream, readlineInterface?: readline$Interface): void;
                 */
-        emitKeypressEvents(context) {
-          context.warnOnce(
-            'Rule for export "emitKeypressEvents" in module "readline" is not verified'
-          );
-        },
+        emitKeypressEvents(context) {},
       },
     },
 
@@ -4768,66 +3675,42 @@ export default {
 
                 declare var Stream : typeof stream$Stream
                 */
-        Stream(context) {
-          context.warnOnce(
-            'Rule for export "Stream" in module "stream" is not verified'
-          );
-        },
+        Stream(context) {},
 
         /*
                 lib/node.js:1927:2
 
                 declare var Readable : typeof stream$Readable
                 */
-        Readable(context) {
-          context.warnOnce(
-            'Rule for export "Readable" in module "stream" is not verified'
-          );
-        },
+        Readable(context) {},
 
         /*
                 lib/node.js:1928:2
 
                 declare var Writable : typeof stream$Writable
                 */
-        Writable(context) {
-          context.warnOnce(
-            'Rule for export "Writable" in module "stream" is not verified'
-          );
-        },
+        Writable(context) {},
 
         /*
                 lib/node.js:1929:2
 
                 declare var Duplex : typeof stream$Duplex
                 */
-        Duplex(context) {
-          context.warnOnce(
-            'Rule for export "Duplex" in module "stream" is not verified'
-          );
-        },
+        Duplex(context) {},
 
         /*
                 lib/node.js:1930:2
 
                 declare var Transform : typeof stream$Transform
                 */
-        Transform(context) {
-          context.warnOnce(
-            'Rule for export "Transform" in module "stream" is not verified'
-          );
-        },
+        Transform(context) {},
 
         /*
                 lib/node.js:1931:2
 
                 declare var PassThrough : typeof stream$PassThrough
                 */
-        PassThrough(context) {
-          context.warnOnce(
-            'Rule for export "PassThrough" in module "stream" is not verified'
-          );
-        },
+        PassThrough(context) {},
 
         /*
                 lib/node.js:1932:2
@@ -4851,11 +3734,7 @@ export default {
                     callback: (error?: Error) => void,
                   ): () => void;
                 */
-        finished(context) {
-          context.warnOnce(
-            'Rule for export "finished" in module "stream" is not verified'
-          );
-        },
+        finished(context) {},
 
         /*
                 lib/node.js:1946:2
@@ -4934,11 +3813,7 @@ export default {
                     cb: (error?: Error) => void,
                   ): stream$Stream;
                 */
-        pipeline(context) {
-          context.warnOnce(
-            'Rule for export "pipeline" in module "stream" is not verified'
-          );
-        },
+        pipeline(context) {},
       },
     },
 
@@ -4951,44 +3826,28 @@ export default {
 
                 declare function isatty(fd : number) : boolean;
                 */
-        isatty(context) {
-          context.warnOnce(
-            'Rule for export "isatty" in module "tty" is not verified'
-          );
-        },
+        isatty(context) {},
 
         /*
                 lib/node.js:2012:2
 
                 declare function setRawMode(mode : boolean) : void;
                 */
-        setRawMode(context) {
-          context.warnOnce(
-            'Rule for export "setRawMode" in module "tty" is not verified'
-          );
-        },
+        setRawMode(context) {},
 
         /*
                 lib/node.js:2013:2
 
                 declare var ReadStream : typeof tty$ReadStream
                 */
-        ReadStream(context) {
-          context.warnOnce(
-            'Rule for export "ReadStream" in module "tty" is not verified'
-          );
-        },
+        ReadStream(context) {},
 
         /*
                 lib/node.js:2014:2
 
                 declare var WriteStream : typeof tty$WriteStream
                 */
-        WriteStream(context) {
-          context.warnOnce(
-            'Rule for export "WriteStream" in module "tty" is not verified'
-          );
-        },
+        WriteStream(context) {},
       },
     },
 
@@ -5001,11 +3860,7 @@ export default {
 
                 declare var StringDecoder : typeof string_decoder$StringDecoder;
                 */
-        StringDecoder(context) {
-          context.warnOnce(
-            'Rule for export "StringDecoder" in module "string_decoder" is not verified'
-          );
-        },
+        StringDecoder(context) {},
       },
     },
 
@@ -5018,154 +3873,98 @@ export default {
 
                 declare var CLIENT_RENEG_LIMIT: number;
                 */
-        CLIENT_RENEG_LIMIT(context) {
-          context.warnOnce(
-            'Rule for export "CLIENT_RENEG_LIMIT" in module "tls" is not verified'
-          );
-        },
+        CLIENT_RENEG_LIMIT(context) {},
 
         /*
                 lib/node.js:2107:2
 
                 declare var CLIENT_RENEG_WINDOW: number;
                 */
-        CLIENT_RENEG_WINDOW(context) {
-          context.warnOnce(
-            'Rule for export "CLIENT_RENEG_WINDOW" in module "tls" is not verified'
-          );
-        },
+        CLIENT_RENEG_WINDOW(context) {},
 
         /*
                 lib/node.js:2108:2
 
                 declare var SLAB_BUFFER_SIZE: number;
                 */
-        SLAB_BUFFER_SIZE(context) {
-          context.warnOnce(
-            'Rule for export "SLAB_BUFFER_SIZE" in module "tls" is not verified'
-          );
-        },
+        SLAB_BUFFER_SIZE(context) {},
 
         /*
                 lib/node.js:2109:2
 
                 declare var DEFAULT_CIPHERS: string;
                 */
-        DEFAULT_CIPHERS(context) {
-          context.warnOnce(
-            'Rule for export "DEFAULT_CIPHERS" in module "tls" is not verified'
-          );
-        },
+        DEFAULT_CIPHERS(context) {},
 
         /*
                 lib/node.js:2110:2
 
                 declare var DEFAULT_ECDH_CURVE: string;
                 */
-        DEFAULT_ECDH_CURVE(context) {
-          context.warnOnce(
-            'Rule for export "DEFAULT_ECDH_CURVE" in module "tls" is not verified'
-          );
-        },
+        DEFAULT_ECDH_CURVE(context) {},
 
         /*
                 lib/node.js:2111:2
 
                 declare function getCiphers(): Array<string>;
                 */
-        getCiphers(context) {
-          context.warnOnce(
-            'Rule for export "getCiphers" in module "tls" is not verified'
-          );
-        },
+        getCiphers(context) {},
 
         /*
                 lib/node.js:2112:2
 
                 declare function convertNPNProtocols(NPNProtocols: Array<string>, out: Object): void;
                 */
-        convertNPNProtocols(context) {
-          context.warnOnce(
-            'Rule for export "convertNPNProtocols" in module "tls" is not verified'
-          );
-        },
+        convertNPNProtocols(context) {},
 
         /*
                 lib/node.js:2113:2
 
                 declare function checkServerIdentity(servername: string, cert: string): Error | void;
                 */
-        checkServerIdentity(context) {
-          context.warnOnce(
-            'Rule for export "checkServerIdentity" in module "tls" is not verified'
-          );
-        },
+        checkServerIdentity(context) {},
 
         /*
                 lib/node.js:2114:2
 
                 declare function parseCertString(s: string): Object;
                 */
-        parseCertString(context) {
-          context.warnOnce(
-            'Rule for export "parseCertString" in module "tls" is not verified'
-          );
-        },
+        parseCertString(context) {},
 
         /*
                 lib/node.js:2115:2
 
                 declare function createSecureContext(details: Object): Object;
                 */
-        createSecureContext(context) {
-          context.warnOnce(
-            'Rule for export "createSecureContext" in module "tls" is not verified'
-          );
-        },
+        createSecureContext(context) {},
 
         /*
                 lib/node.js:2116:2
 
                 declare var SecureContext: Object;
                 */
-        SecureContext(context) {
-          context.warnOnce(
-            'Rule for export "SecureContext" in module "tls" is not verified'
-          );
-        },
+        SecureContext(context) {},
 
         /*
                 lib/node.js:2117:2
 
                 declare var TLSSocket: typeof tls$TLSSocket;
                 */
-        TLSSocket(context) {
-          context.warnOnce(
-            'Rule for export "TLSSocket" in module "tls" is not verified'
-          );
-        },
+        TLSSocket(context) {},
 
         /*
                 lib/node.js:2118:2
 
                 declare var Server: typeof tls$Server;
                 */
-        Server(context) {
-          context.warnOnce(
-            'Rule for export "Server" in module "tls" is not verified'
-          );
-        },
+        Server(context) {},
 
         /*
                 lib/node.js:2119:2
 
                 declare function createServer(options: Object, secureConnectionListener?: Function): tls$Server;
                 */
-        createServer(context) {
-          context.warnOnce(
-            'Rule for export "createServer" in module "tls" is not verified'
-          );
-        },
+        createServer(context) {},
 
         /*
                 lib/node.js:2120:2
@@ -5177,22 +3976,14 @@ export default {
 
                 declare function connect(port: number, host?: string, options?: tls$connectOptions, callback?: Function): tls$TLSSocket;
                 */
-        connect(context) {
-          context.warnOnce(
-            'Rule for export "connect" in module "tls" is not verified'
-          );
-        },
+        connect(context) {},
 
         /*
                 lib/node.js:2122:2
 
                 declare function createSecurePair(context?: Object, isServer?: boolean, requestCert?: boolean, rejectUnauthorized?: boolean, options?: Object): Object;
                 */
-        createSecurePair(context) {
-          context.warnOnce(
-            'Rule for export "createSecurePair" in module "tls" is not verified'
-          );
-        },
+        createSecurePair(context) {},
       },
     },
 
@@ -5224,77 +4015,49 @@ export default {
                     ...
                   };
                 */
-        parse(context) {
-          context.warnOnce(
-            'Rule for export "parse" in module "url" is not verified'
-          );
-        },
+        parse(context) {},
 
         /*
                 lib/node.js:2161:2
 
                 declare function format(urlObj: url$urlObject): string;
                 */
-        format(context) {
-          context.warnOnce(
-            'Rule for export "format" in module "url" is not verified'
-          );
-        },
+        format(context) {},
 
         /*
                 lib/node.js:2162:2
 
                 declare function resolve(from: string, to: string): string;
                 */
-        resolve(context) {
-          context.warnOnce(
-            'Rule for export "resolve" in module "url" is not verified'
-          );
-        },
+        resolve(context) {},
 
         /*
                 lib/node.js:2163:2
 
                 declare function domainToASCII(domain: string): string;
                 */
-        domainToASCII(context) {
-          context.warnOnce(
-            'Rule for export "domainToASCII" in module "url" is not verified'
-          );
-        },
+        domainToASCII(context) {},
 
         /*
                 lib/node.js:2164:2
 
                 declare function domainToUnicode(domain: string): string;
                 */
-        domainToUnicode(context) {
-          context.warnOnce(
-            'Rule for export "domainToUnicode" in module "url" is not verified'
-          );
-        },
+        domainToUnicode(context) {},
 
         /*
                 lib/node.js:2165:2
 
                 declare function pathToFileURL(path: string): url$urlObject;
                 */
-        pathToFileURL(context) {
-          context.warnOnce(
-            'Rule for export "pathToFileURL" in module "url" is not verified'
-          );
-        },
+        pathToFileURL(context) {},
 
         /*
                 lib/node.js:2166:2
 
                 declare function fileURLToPath(path: url$urlObject | string): url$urlObject;
                 */
-        fileURLToPath(context) {
-          context.warnOnce(
-            'Rule for export "fileURLToPath" in module "url" is not verified'
-          );
-        },
+        fileURLToPath(context) {},
 
         /*
                 lib/node.js:2167:2
@@ -5316,11 +4079,7 @@ export default {
                     @@iterator(): Iterator<[string, string]>;
                   }
                 */
-        URLSearchParams(context) {
-          context.warnOnce(
-            'Rule for export "URLSearchParams" in module "url" is not verified'
-          );
-        },
+        URLSearchParams(context) {},
 
         /*
                 lib/node.js:2183:2
@@ -5343,11 +4102,7 @@ export default {
                     toJSON(): string;
                   }
                 */
-        URL(context) {
-          context.warnOnce(
-            'Rule for export "URL" in module "url" is not verified'
-          );
-        },
+        URL(context) {},
       },
     },
 
@@ -5360,132 +4115,84 @@ export default {
 
                 declare function debuglog(section: string): (data: any, ...args: any) => void;
                 */
-        debuglog(context) {
-          context.warnOnce(
-            'Rule for export "debuglog" in module "util" is not verified'
-          );
-        },
+        debuglog(context) {},
 
         /*
                 lib/node.js:2212:2
 
                 declare function format(format: string, ...placeholders: any): string;
                 */
-        format(context) {
-          context.warnOnce(
-            'Rule for export "format" in module "util" is not verified'
-          );
-        },
+        format(context) {},
 
         /*
                 lib/node.js:2213:2
 
                 declare function log(string: string): void;
                 */
-        log(context) {
-          context.warnOnce(
-            'Rule for export "log" in module "util" is not verified'
-          );
-        },
+        log(context) {},
 
         /*
                 lib/node.js:2214:2
 
                 declare function inspect(object: any, options?: util$InspectOptions): string;
                 */
-        inspect(context) {
-          context.warnOnce(
-            'Rule for export "inspect" in module "util" is not verified'
-          );
-        },
+        inspect(context) {},
 
         /*
                 lib/node.js:2215:2
 
                 declare function isArray(object: any): boolean;
                 */
-        isArray(context) {
-          context.warnOnce(
-            'Rule for export "isArray" in module "util" is not verified'
-          );
-        },
+        isArray(context) {},
 
         /*
                 lib/node.js:2216:2
 
                 declare function isRegExp(object: any): boolean;
                 */
-        isRegExp(context) {
-          context.warnOnce(
-            'Rule for export "isRegExp" in module "util" is not verified'
-          );
-        },
+        isRegExp(context) {},
 
         /*
                 lib/node.js:2217:2
 
                 declare function isDate(object: any): boolean;
                 */
-        isDate(context) {
-          context.warnOnce(
-            'Rule for export "isDate" in module "util" is not verified'
-          );
-        },
+        isDate(context) {},
 
         /*
                 lib/node.js:2218:2
 
                 declare function isError(object: any): boolean;
                 */
-        isError(context) {
-          context.warnOnce(
-            'Rule for export "isError" in module "util" is not verified'
-          );
-        },
+        isError(context) {},
 
         /*
                 lib/node.js:2219:2
 
                 declare function inherits(constructor: Function, superConstructor: Function): void;
                 */
-        inherits(context) {
-          context.warnOnce(
-            'Rule for export "inherits" in module "util" is not verified'
-          );
-        },
+        inherits(context) {},
 
         /*
                 lib/node.js:2220:2
 
                 declare function deprecate(f: Function, string: string): Function;
                 */
-        deprecate(context) {
-          context.warnOnce(
-            'Rule for export "deprecate" in module "util" is not verified'
-          );
-        },
+        deprecate(context) {},
 
         /*
                 lib/node.js:2221:2
 
                 declare function promisify(f: Function): Function;
                 */
-        promisify(context) {
-          context.warnOnce(
-            'Rule for export "promisify" in module "util" is not verified'
-          );
-        },
+        promisify(context) {},
 
         /*
                 lib/node.js:2222:2
 
                 declare function callbackify(f: Function): Function;
                 */
-        callbackify(context) {
-          context.warnOnce(
-            'Rule for export "callbackify" in module "util" is not verified'
-          );
-        },
+        callbackify(context) {},
 
         /*
                 lib/node.js:2224:2
@@ -5502,11 +4209,7 @@ export default {
                     ignoreBOM: boolean;
                   }
                 */
-        TextDecoder(context) {
-          context.warnOnce(
-            'Rule for export "TextDecoder" in module "util" is not verified'
-          );
-        },
+        TextDecoder(context) {},
 
         /*
                 lib/node.js:2236:2
@@ -5517,11 +4220,7 @@ export default {
                     encoding: string;
                   }
                 */
-        TextEncoder(context) {
-          context.warnOnce(
-            'Rule for export "TextEncoder" in module "util" is not verified'
-          );
-        },
+        TextEncoder(context) {},
       },
     },
 
@@ -5534,77 +4233,49 @@ export default {
 
                 declare var Script : typeof vm$Script
                 */
-        Script(context) {
-          context.warnOnce(
-            'Rule for export "Script" in module "vm" is not verified'
-          );
-        },
+        Script(context) {},
 
         /*
                 lib/node.js:2268:2
 
                 declare function createContext(sandbox?: Object): vm$Context;
                 */
-        createContext(context) {
-          context.warnOnce(
-            'Rule for export "createContext" in module "vm" is not verified'
-          );
-        },
+        createContext(context) {},
 
         /*
                 lib/node.js:2269:2
 
                 declare function isContext(sandbox: any): boolean;
                 */
-        isContext(context) {
-          context.warnOnce(
-            'Rule for export "isContext" in module "vm" is not verified'
-          );
-        },
+        isContext(context) {},
 
         /*
                 lib/node.js:2270:2
 
                 declare function runInContext(code: string, contextifiedSandbox: vm$Context, options?: vm$ScriptOptions): any;
                 */
-        runInContext(context) {
-          context.warnOnce(
-            'Rule for export "runInContext" in module "vm" is not verified'
-          );
-        },
+        runInContext(context) {},
 
         /*
                 lib/node.js:2271:2
 
                 declare function runInDebugContext(code: string): any;
                 */
-        runInDebugContext(context) {
-          context.warnOnce(
-            'Rule for export "runInDebugContext" in module "vm" is not verified'
-          );
-        },
+        runInDebugContext(context) {},
 
         /*
                 lib/node.js:2272:2
 
                 declare function runInNewContext(code: string, sandbox?: Object, options?: vm$ScriptOptions): any;
                 */
-        runInNewContext(context) {
-          context.warnOnce(
-            'Rule for export "runInNewContext" in module "vm" is not verified'
-          );
-        },
+        runInNewContext(context) {},
 
         /*
                 lib/node.js:2273:2
 
                 declare function runInThisContext(code: string, options?: vm$ScriptOptions): any;
                 */
-        runInThisContext(context) {
-          context.warnOnce(
-            'Rule for export "runInThisContext" in module "vm" is not verified'
-          );
-        },
+        runInThisContext(context) {},
       },
     },
 
@@ -5617,473 +4288,301 @@ export default {
 
                 declare var Z_NO_FLUSH: number;
                 */
-        Z_NO_FLUSH(context) {
-          context.warnOnce(
-            'Rule for export "Z_NO_FLUSH" in module "zlib" is not verified'
-          );
-        },
+        Z_NO_FLUSH(context) {},
 
         /*
                 lib/node.js:2303:2
 
                 declare var Z_PARTIAL_FLUSH: number;
                 */
-        Z_PARTIAL_FLUSH(context) {
-          context.warnOnce(
-            'Rule for export "Z_PARTIAL_FLUSH" in module "zlib" is not verified'
-          );
-        },
+        Z_PARTIAL_FLUSH(context) {},
 
         /*
                 lib/node.js:2304:2
 
                 declare var Z_SYNC_FLUSH: number;
                 */
-        Z_SYNC_FLUSH(context) {
-          context.warnOnce(
-            'Rule for export "Z_SYNC_FLUSH" in module "zlib" is not verified'
-          );
-        },
+        Z_SYNC_FLUSH(context) {},
 
         /*
                 lib/node.js:2305:2
 
                 declare var Z_FULL_FLUSH: number;
                 */
-        Z_FULL_FLUSH(context) {
-          context.warnOnce(
-            'Rule for export "Z_FULL_FLUSH" in module "zlib" is not verified'
-          );
-        },
+        Z_FULL_FLUSH(context) {},
 
         /*
                 lib/node.js:2306:2
 
                 declare var Z_FINISH: number;
                 */
-        Z_FINISH(context) {
-          context.warnOnce(
-            'Rule for export "Z_FINISH" in module "zlib" is not verified'
-          );
-        },
+        Z_FINISH(context) {},
 
         /*
                 lib/node.js:2307:2
 
                 declare var Z_BLOCK: number;
                 */
-        Z_BLOCK(context) {
-          context.warnOnce(
-            'Rule for export "Z_BLOCK" in module "zlib" is not verified'
-          );
-        },
+        Z_BLOCK(context) {},
 
         /*
                 lib/node.js:2308:2
 
                 declare var Z_TREES: number;
                 */
-        Z_TREES(context) {
-          context.warnOnce(
-            'Rule for export "Z_TREES" in module "zlib" is not verified'
-          );
-        },
+        Z_TREES(context) {},
 
         /*
                 lib/node.js:2309:2
 
                 declare var Z_OK: number;
                 */
-        Z_OK(context) {
-          context.warnOnce(
-            'Rule for export "Z_OK" in module "zlib" is not verified'
-          );
-        },
+        Z_OK(context) {},
 
         /*
                 lib/node.js:2310:2
 
                 declare var Z_STREAM_END: number;
                 */
-        Z_STREAM_END(context) {
-          context.warnOnce(
-            'Rule for export "Z_STREAM_END" in module "zlib" is not verified'
-          );
-        },
+        Z_STREAM_END(context) {},
 
         /*
                 lib/node.js:2311:2
 
                 declare var Z_NEED_DICT: number;
                 */
-        Z_NEED_DICT(context) {
-          context.warnOnce(
-            'Rule for export "Z_NEED_DICT" in module "zlib" is not verified'
-          );
-        },
+        Z_NEED_DICT(context) {},
 
         /*
                 lib/node.js:2312:2
 
                 declare var Z_ERRNO: number;
                 */
-        Z_ERRNO(context) {
-          context.warnOnce(
-            'Rule for export "Z_ERRNO" in module "zlib" is not verified'
-          );
-        },
+        Z_ERRNO(context) {},
 
         /*
                 lib/node.js:2313:2
 
                 declare var Z_STREAM_ERROR: number;
                 */
-        Z_STREAM_ERROR(context) {
-          context.warnOnce(
-            'Rule for export "Z_STREAM_ERROR" in module "zlib" is not verified'
-          );
-        },
+        Z_STREAM_ERROR(context) {},
 
         /*
                 lib/node.js:2314:2
 
                 declare var Z_DATA_ERROR: number;
                 */
-        Z_DATA_ERROR(context) {
-          context.warnOnce(
-            'Rule for export "Z_DATA_ERROR" in module "zlib" is not verified'
-          );
-        },
+        Z_DATA_ERROR(context) {},
 
         /*
                 lib/node.js:2315:2
 
                 declare var Z_MEM_ERROR: number;
                 */
-        Z_MEM_ERROR(context) {
-          context.warnOnce(
-            'Rule for export "Z_MEM_ERROR" in module "zlib" is not verified'
-          );
-        },
+        Z_MEM_ERROR(context) {},
 
         /*
                 lib/node.js:2316:2
 
                 declare var Z_BUF_ERROR: number;
                 */
-        Z_BUF_ERROR(context) {
-          context.warnOnce(
-            'Rule for export "Z_BUF_ERROR" in module "zlib" is not verified'
-          );
-        },
+        Z_BUF_ERROR(context) {},
 
         /*
                 lib/node.js:2317:2
 
                 declare var Z_VERSION_ERROR: number;
                 */
-        Z_VERSION_ERROR(context) {
-          context.warnOnce(
-            'Rule for export "Z_VERSION_ERROR" in module "zlib" is not verified'
-          );
-        },
+        Z_VERSION_ERROR(context) {},
 
         /*
                 lib/node.js:2318:2
 
                 declare var Z_NO_COMPRESSION: number;
                 */
-        Z_NO_COMPRESSION(context) {
-          context.warnOnce(
-            'Rule for export "Z_NO_COMPRESSION" in module "zlib" is not verified'
-          );
-        },
+        Z_NO_COMPRESSION(context) {},
 
         /*
                 lib/node.js:2319:2
 
                 declare var Z_BEST_SPEED: number;
                 */
-        Z_BEST_SPEED(context) {
-          context.warnOnce(
-            'Rule for export "Z_BEST_SPEED" in module "zlib" is not verified'
-          );
-        },
+        Z_BEST_SPEED(context) {},
 
         /*
                 lib/node.js:2320:2
 
                 declare var Z_BEST_COMPRESSION: number;
                 */
-        Z_BEST_COMPRESSION(context) {
-          context.warnOnce(
-            'Rule for export "Z_BEST_COMPRESSION" in module "zlib" is not verified'
-          );
-        },
+        Z_BEST_COMPRESSION(context) {},
 
         /*
                 lib/node.js:2321:2
 
                 declare var Z_DEFAULT_COMPRESSION: number;
                 */
-        Z_DEFAULT_COMPRESSION(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_COMPRESSION" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_COMPRESSION(context) {},
 
         /*
                 lib/node.js:2322:2
 
                 declare var Z_FILTERED: number;
                 */
-        Z_FILTERED(context) {
-          context.warnOnce(
-            'Rule for export "Z_FILTERED" in module "zlib" is not verified'
-          );
-        },
+        Z_FILTERED(context) {},
 
         /*
                 lib/node.js:2323:2
 
                 declare var Z_HUFFMAN_ONLY: number;
                 */
-        Z_HUFFMAN_ONLY(context) {
-          context.warnOnce(
-            'Rule for export "Z_HUFFMAN_ONLY" in module "zlib" is not verified'
-          );
-        },
+        Z_HUFFMAN_ONLY(context) {},
 
         /*
                 lib/node.js:2324:2
 
                 declare var Z_RLE: number;
                 */
-        Z_RLE(context) {
-          context.warnOnce(
-            'Rule for export "Z_RLE" in module "zlib" is not verified'
-          );
-        },
+        Z_RLE(context) {},
 
         /*
                 lib/node.js:2325:2
 
                 declare var Z_FIXED: number;
                 */
-        Z_FIXED(context) {
-          context.warnOnce(
-            'Rule for export "Z_FIXED" in module "zlib" is not verified'
-          );
-        },
+        Z_FIXED(context) {},
 
         /*
                 lib/node.js:2326:2
 
                 declare var Z_DEFAULT_STRATEGY: number;
                 */
-        Z_DEFAULT_STRATEGY(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_STRATEGY" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_STRATEGY(context) {},
 
         /*
                 lib/node.js:2327:2
 
                 declare var Z_BINARY: number;
                 */
-        Z_BINARY(context) {
-          context.warnOnce(
-            'Rule for export "Z_BINARY" in module "zlib" is not verified'
-          );
-        },
+        Z_BINARY(context) {},
 
         /*
                 lib/node.js:2328:2
 
                 declare var Z_TEXT: number;
                 */
-        Z_TEXT(context) {
-          context.warnOnce(
-            'Rule for export "Z_TEXT" in module "zlib" is not verified'
-          );
-        },
+        Z_TEXT(context) {},
 
         /*
                 lib/node.js:2329:2
 
                 declare var Z_ASCII: number;
                 */
-        Z_ASCII(context) {
-          context.warnOnce(
-            'Rule for export "Z_ASCII" in module "zlib" is not verified'
-          );
-        },
+        Z_ASCII(context) {},
 
         /*
                 lib/node.js:2330:2
 
                 declare var Z_UNKNOWN: number;
                 */
-        Z_UNKNOWN(context) {
-          context.warnOnce(
-            'Rule for export "Z_UNKNOWN" in module "zlib" is not verified'
-          );
-        },
+        Z_UNKNOWN(context) {},
 
         /*
                 lib/node.js:2331:2
 
                 declare var Z_DEFLATED: number;
                 */
-        Z_DEFLATED(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFLATED" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFLATED(context) {},
 
         /*
                 lib/node.js:2332:2
 
                 declare var Z_NULL: number;
                 */
-        Z_NULL(context) {
-          context.warnOnce(
-            'Rule for export "Z_NULL" in module "zlib" is not verified'
-          );
-        },
+        Z_NULL(context) {},
 
         /*
                 lib/node.js:2333:2
 
                 declare var Z_DEFAULT_CHUNK: number;
                 */
-        Z_DEFAULT_CHUNK(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_CHUNK" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_CHUNK(context) {},
 
         /*
                 lib/node.js:2334:2
 
                 declare var Z_DEFAULT_LEVEL: number;
                 */
-        Z_DEFAULT_LEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_LEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_LEVEL(context) {},
 
         /*
                 lib/node.js:2335:2
 
                 declare var Z_DEFAULT_MEMLEVEL: number;
                 */
-        Z_DEFAULT_MEMLEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_MEMLEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_MEMLEVEL(context) {},
 
         /*
                 lib/node.js:2336:2
 
                 declare var Z_DEFAULT_WINDOWBITS: number;
                 */
-        Z_DEFAULT_WINDOWBITS(context) {
-          context.warnOnce(
-            'Rule for export "Z_DEFAULT_WINDOWBITS" in module "zlib" is not verified'
-          );
-        },
+        Z_DEFAULT_WINDOWBITS(context) {},
 
         /*
                 lib/node.js:2337:2
 
                 declare var Z_MAX_CHUNK: number;
                 */
-        Z_MAX_CHUNK(context) {
-          context.warnOnce(
-            'Rule for export "Z_MAX_CHUNK" in module "zlib" is not verified'
-          );
-        },
+        Z_MAX_CHUNK(context) {},
 
         /*
                 lib/node.js:2338:2
 
                 declare var Z_MAX_LEVEL: number;
                 */
-        Z_MAX_LEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_MAX_LEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_MAX_LEVEL(context) {},
 
         /*
                 lib/node.js:2339:2
 
                 declare var Z_MAX_MEMLEVEL: number;
                 */
-        Z_MAX_MEMLEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_MAX_MEMLEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_MAX_MEMLEVEL(context) {},
 
         /*
                 lib/node.js:2340:2
 
                 declare var Z_MAX_WINDOWBITS: number;
                 */
-        Z_MAX_WINDOWBITS(context) {
-          context.warnOnce(
-            'Rule for export "Z_MAX_WINDOWBITS" in module "zlib" is not verified'
-          );
-        },
+        Z_MAX_WINDOWBITS(context) {},
 
         /*
                 lib/node.js:2341:2
 
                 declare var Z_MIN_CHUNK: number;
                 */
-        Z_MIN_CHUNK(context) {
-          context.warnOnce(
-            'Rule for export "Z_MIN_CHUNK" in module "zlib" is not verified'
-          );
-        },
+        Z_MIN_CHUNK(context) {},
 
         /*
                 lib/node.js:2342:2
 
                 declare var Z_MIN_LEVEL: number;
                 */
-        Z_MIN_LEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_MIN_LEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_MIN_LEVEL(context) {},
 
         /*
                 lib/node.js:2343:2
 
                 declare var Z_MIN_MEMLEVEL: number;
                 */
-        Z_MIN_MEMLEVEL(context) {
-          context.warnOnce(
-            'Rule for export "Z_MIN_MEMLEVEL" in module "zlib" is not verified'
-          );
-        },
+        Z_MIN_MEMLEVEL(context) {},
 
         /*
                 lib/node.js:2344:2
 
                 declare var Z_MIN_WINDOWBITS: number;
                 */
-        Z_MIN_WINDOWBITS(context) {
-          context.warnOnce(
-            'Rule for export "Z_MIN_WINDOWBITS" in module "zlib" is not verified'
-          );
-        },
+        Z_MIN_WINDOWBITS(context) {},
 
         /*
                 lib/node.js:2345:2
@@ -6135,11 +4634,7 @@ export default {
                     ...
                   };
                 */
-        constants(context) {
-          context.warnOnce(
-            'Rule for export "constants" in module "zlib" is not verified'
-          );
-        },
+        constants(context) {},
 
         /*
                 lib/node.js:2391:2
@@ -6157,11 +4652,7 @@ export default {
                     ...
                   };
                 */
-        codes(context) {
-          context.warnOnce(
-            'Rule for export "codes" in module "zlib" is not verified'
-          );
-        },
+        codes(context) {},
 
         /*
                 lib/node.js:2403:2
@@ -6170,319 +4661,203 @@ export default {
                     // TODO
                   }
                 */
-        Zlib(context) {
-          context.warnOnce(
-            'Rule for export "Zlib" in module "zlib" is not verified'
-          );
-        },
+        Zlib(context) {},
 
         /*
                 lib/node.js:2406:2
 
                 declare class Deflate extends Zlib {}
                 */
-        Deflate(context) {
-          context.warnOnce(
-            'Rule for export "Deflate" in module "zlib" is not verified'
-          );
-        },
+        Deflate(context) {},
 
         /*
                 lib/node.js:2407:2
 
                 declare class Inflate extends Zlib {}
                 */
-        Inflate(context) {
-          context.warnOnce(
-            'Rule for export "Inflate" in module "zlib" is not verified'
-          );
-        },
+        Inflate(context) {},
 
         /*
                 lib/node.js:2408:2
 
                 declare class Gzip extends Zlib {}
                 */
-        Gzip(context) {
-          context.warnOnce(
-            'Rule for export "Gzip" in module "zlib" is not verified'
-          );
-        },
+        Gzip(context) {},
 
         /*
                 lib/node.js:2409:2
 
                 declare class Gunzip extends Zlib {}
                 */
-        Gunzip(context) {
-          context.warnOnce(
-            'Rule for export "Gunzip" in module "zlib" is not verified'
-          );
-        },
+        Gunzip(context) {},
 
         /*
                 lib/node.js:2410:2
 
                 declare class DeflateRaw extends Zlib {}
                 */
-        DeflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "DeflateRaw" in module "zlib" is not verified'
-          );
-        },
+        DeflateRaw(context) {},
 
         /*
                 lib/node.js:2411:2
 
                 declare class InflateRaw extends Zlib {}
                 */
-        InflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "InflateRaw" in module "zlib" is not verified'
-          );
-        },
+        InflateRaw(context) {},
 
         /*
                 lib/node.js:2412:2
 
                 declare class Unzip extends Zlib {}
                 */
-        Unzip(context) {
-          context.warnOnce(
-            'Rule for export "Unzip" in module "zlib" is not verified'
-          );
-        },
+        Unzip(context) {},
 
         /*
                 lib/node.js:2413:2
 
                 declare function createDeflate(options?: zlib$options): Deflate;
                 */
-        createDeflate(context) {
-          context.warnOnce(
-            'Rule for export "createDeflate" in module "zlib" is not verified'
-          );
-        },
+        createDeflate(context) {},
 
         /*
                 lib/node.js:2414:2
 
                 declare function createInflate(options?: zlib$options): Inflate;
                 */
-        createInflate(context) {
-          context.warnOnce(
-            'Rule for export "createInflate" in module "zlib" is not verified'
-          );
-        },
+        createInflate(context) {},
 
         /*
                 lib/node.js:2415:2
 
                 declare function createDeflateRaw(options?: zlib$options): DeflateRaw;
                 */
-        createDeflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "createDeflateRaw" in module "zlib" is not verified'
-          );
-        },
+        createDeflateRaw(context) {},
 
         /*
                 lib/node.js:2416:2
 
                 declare function createInflateRaw(options?: zlib$options): InflateRaw;
                 */
-        createInflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "createInflateRaw" in module "zlib" is not verified'
-          );
-        },
+        createInflateRaw(context) {},
 
         /*
                 lib/node.js:2417:2
 
                 declare function createGzip(options?: zlib$options): Gzip;
                 */
-        createGzip(context) {
-          context.warnOnce(
-            'Rule for export "createGzip" in module "zlib" is not verified'
-          );
-        },
+        createGzip(context) {},
 
         /*
                 lib/node.js:2418:2
 
                 declare function createGunzip(options?: zlib$options): Gunzip;
                 */
-        createGunzip(context) {
-          context.warnOnce(
-            'Rule for export "createGunzip" in module "zlib" is not verified'
-          );
-        },
+        createGunzip(context) {},
 
         /*
                 lib/node.js:2419:2
 
                 declare function createUnzip(options?: zlib$options): Unzip;
                 */
-        createUnzip(context) {
-          context.warnOnce(
-            'Rule for export "createUnzip" in module "zlib" is not verified'
-          );
-        },
+        createUnzip(context) {},
 
         /*
                 lib/node.js:2420:2
 
                 declare var deflate: zlib$asyncFn;
                 */
-        deflate(context) {
-          context.warnOnce(
-            'Rule for export "deflate" in module "zlib" is not verified'
-          );
-        },
+        deflate(context) {},
 
         /*
                 lib/node.js:2421:2
 
                 declare var deflateSync: zlib$syncFn;
                 */
-        deflateSync(context) {
-          context.warnOnce(
-            'Rule for export "deflateSync" in module "zlib" is not verified'
-          );
-        },
+        deflateSync(context) {},
 
         /*
                 lib/node.js:2422:2
 
                 declare var gzip: zlib$asyncFn;
                 */
-        gzip(context) {
-          context.warnOnce(
-            'Rule for export "gzip" in module "zlib" is not verified'
-          );
-        },
+        gzip(context) {},
 
         /*
                 lib/node.js:2423:2
 
                 declare var gzipSync: zlib$syncFn;
                 */
-        gzipSync(context) {
-          context.warnOnce(
-            'Rule for export "gzipSync" in module "zlib" is not verified'
-          );
-        },
+        gzipSync(context) {},
 
         /*
                 lib/node.js:2424:2
 
                 declare var deflateRaw: zlib$asyncFn;
                 */
-        deflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "deflateRaw" in module "zlib" is not verified'
-          );
-        },
+        deflateRaw(context) {},
 
         /*
                 lib/node.js:2425:2
 
                 declare var deflateRawSync: zlib$syncFn;
                 */
-        deflateRawSync(context) {
-          context.warnOnce(
-            'Rule for export "deflateRawSync" in module "zlib" is not verified'
-          );
-        },
+        deflateRawSync(context) {},
 
         /*
                 lib/node.js:2426:2
 
                 declare var unzip: zlib$asyncFn;
                 */
-        unzip(context) {
-          context.warnOnce(
-            'Rule for export "unzip" in module "zlib" is not verified'
-          );
-        },
+        unzip(context) {},
 
         /*
                 lib/node.js:2427:2
 
                 declare var unzipSync: zlib$syncFn;
                 */
-        unzipSync(context) {
-          context.warnOnce(
-            'Rule for export "unzipSync" in module "zlib" is not verified'
-          );
-        },
+        unzipSync(context) {},
 
         /*
                 lib/node.js:2428:2
 
                 declare var inflate: zlib$asyncFn;
                 */
-        inflate(context) {
-          context.warnOnce(
-            'Rule for export "inflate" in module "zlib" is not verified'
-          );
-        },
+        inflate(context) {},
 
         /*
                 lib/node.js:2429:2
 
                 declare var inflateSync: zlib$syncFn;
                 */
-        inflateSync(context) {
-          context.warnOnce(
-            'Rule for export "inflateSync" in module "zlib" is not verified'
-          );
-        },
+        inflateSync(context) {},
 
         /*
                 lib/node.js:2430:2
 
                 declare var gunzip: zlib$asyncFn;
                 */
-        gunzip(context) {
-          context.warnOnce(
-            'Rule for export "gunzip" in module "zlib" is not verified'
-          );
-        },
+        gunzip(context) {},
 
         /*
                 lib/node.js:2431:2
 
                 declare var gunzipSync: zlib$syncFn;
                 */
-        gunzipSync(context) {
-          context.warnOnce(
-            'Rule for export "gunzipSync" in module "zlib" is not verified'
-          );
-        },
+        gunzipSync(context) {},
 
         /*
                 lib/node.js:2432:2
 
                 declare var inflateRaw: zlib$asyncFn;
                 */
-        inflateRaw(context) {
-          context.warnOnce(
-            'Rule for export "inflateRaw" in module "zlib" is not verified'
-          );
-        },
+        inflateRaw(context) {},
 
         /*
                 lib/node.js:2433:2
 
                 declare var inflateRawSync: zlib$syncFn;
                 */
-        inflateRawSync(context) {
-          context.warnOnce(
-            'Rule for export "inflateRawSync" in module "zlib" is not verified'
-          );
-        },
+        inflateRawSync(context) {},
       },
     },
 
@@ -6495,11 +4870,7 @@ export default {
 
                 declare class AssertionError extends Error {}
                 */
-        AssertionError(context) {
-          context.warnOnce(
-            'Rule for export "AssertionError" in module "assert" is not verified'
-          );
-        },
+        AssertionError(context) {},
 
         /*
                 lib/node.js:2438:2
@@ -6529,11 +4900,7 @@ export default {
                     ...
                   }
                 */
-        default(context) {
-          context.warnOnce(
-            'Rule for export "default" in module "assert" is not verified'
-          );
-        },
+        default(context) {},
       },
     },
 
@@ -6546,33 +4913,21 @@ export default {
 
                 declare function getHeapStatistics() : HeapStatistics;
                 */
-        getHeapStatistics(context) {
-          context.warnOnce(
-            'Rule for export "getHeapStatistics" in module "v8" is not verified'
-          );
-        },
+        getHeapStatistics(context) {},
 
         /*
                 lib/node.js:2488:2
 
                 declare function getHeapSpaceStatistics() : Array<HeapSpaceStatistics>
                 */
-        getHeapSpaceStatistics(context) {
-          context.warnOnce(
-            'Rule for export "getHeapSpaceStatistics" in module "v8" is not verified'
-          );
-        },
+        getHeapSpaceStatistics(context) {},
 
         /*
                 lib/node.js:2489:2
 
                 declare function setFlagsFromString(flags: string) : void;
                 */
-        setFlagsFromString(context) {
-          context.warnOnce(
-            'Rule for export "setFlagsFromString" in module "v8" is not verified'
-          );
-        },
+        setFlagsFromString(context) {},
       },
     },
 
@@ -6585,33 +4940,21 @@ export default {
 
                 declare var REPL_MODE_MAGIC: $SymbolReplModeMagic;
                 */
-        REPL_MODE_MAGIC(context) {
-          context.warnOnce(
-            'Rule for export "REPL_MODE_MAGIC" in module "repl" is not verified'
-          );
-        },
+        REPL_MODE_MAGIC(context) {},
 
         /*
                 lib/node.js:2506:2
 
                 declare var REPL_MODE_SLOPPY: $SymbolReplModeSloppy;
                 */
-        REPL_MODE_SLOPPY(context) {
-          context.warnOnce(
-            'Rule for export "REPL_MODE_SLOPPY" in module "repl" is not verified'
-          );
-        },
+        REPL_MODE_SLOPPY(context) {},
 
         /*
                 lib/node.js:2507:2
 
                 declare var REPL_MODE_STRICT: $SymbolReplModeStrict;
                 */
-        REPL_MODE_STRICT(context) {
-          context.warnOnce(
-            'Rule for export "REPL_MODE_STRICT" in module "repl" is not verified'
-          );
-        },
+        REPL_MODE_STRICT(context) {},
 
         /*
                 lib/node.js:2509:2
@@ -6622,11 +4965,7 @@ export default {
                     displayPrompt(preserveCursor?: boolean): void;
                   }
                 */
-        REPLServer(context) {
-          context.warnOnce(
-            'Rule for export "REPLServer" in module "repl" is not verified'
-          );
-        },
+        REPLServer(context) {},
 
         /*
                 lib/node.js:2515:2
@@ -6652,11 +4991,7 @@ export default {
                     ...
                   }): REPLServer;
                 */
-        start(context) {
-          context.warnOnce(
-            'Rule for export "start" in module "repl" is not verified'
-          );
-        },
+        start(context) {},
 
         /*
                 lib/node.js:2532:2
@@ -6665,11 +5000,7 @@ export default {
                     constructor(err: Error): Recoverable;
                   }
                 */
-        Recoverable(context) {
-          context.warnOnce(
-            'Rule for export "Recoverable" in module "repl" is not verified'
-          );
-        },
+        Recoverable(context) {},
       },
     },
   },

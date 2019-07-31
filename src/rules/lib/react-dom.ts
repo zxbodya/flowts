@@ -763,9 +763,7 @@ export default {
           ...
         };
         */
-    $JSXIntrinsics(context) {
-      context.warnOnce('Rule for global "$JSXIntrinsics" is not verified');
-    },
+    $JSXIntrinsics(context) {},
   },
 
   modules: {
@@ -780,11 +778,7 @@ export default {
                     componentOrElement: Element | ?React$Component<any, any>,
                   ): null | Element | Text;
                 */
-        findDOMNode(context) {
-          context.warnOnce(
-            'Rule for export "findDOMNode" in module "react-dom" is not verified'
-          );
-        },
+        findDOMNode(context) {},
 
         /*
                 lib/react-dom.js:16:2
@@ -795,11 +789,7 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        render(context) {
-          context.warnOnce(
-            'Rule for export "render" in module "react-dom" is not verified'
-          );
-        },
+        render(context) {},
 
         /*
                 lib/react-dom.js:22:2
@@ -810,11 +800,7 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        hydrate(context) {
-          context.warnOnce(
-            'Rule for export "hydrate" in module "react-dom" is not verified'
-          );
-        },
+        hydrate(context) {},
 
         /*
                 lib/react-dom.js:28:2
@@ -824,33 +810,21 @@ export default {
                     container: Element,
                   ): React$Portal;
                 */
-        createPortal(context) {
-          context.warnOnce(
-            'Rule for export "createPortal" in module "react-dom" is not verified'
-          );
-        },
+        createPortal(context) {},
 
         /*
                 lib/react-dom.js:33:2
 
                 declare function unmountComponentAtNode(container: any): boolean;
                 */
-        unmountComponentAtNode(context) {
-          context.warnOnce(
-            'Rule for export "unmountComponentAtNode" in module "react-dom" is not verified'
-          );
-        },
+        unmountComponentAtNode(context) {},
 
         /*
                 lib/react-dom.js:34:2
 
                 declare var version: string;
                 */
-        version(context) {
-          context.warnOnce(
-            'Rule for export "version" in module "react-dom" is not verified'
-          );
-        },
+        version(context) {},
 
         /*
                 lib/react-dom.js:36:2
@@ -864,11 +838,7 @@ export default {
                     e: E,
                   ): void;
                 */
-        unstable_batchedUpdates(context) {
-          context.warnOnce(
-            'Rule for export "unstable_batchedUpdates" in module "react-dom" is not verified'
-          );
-        },
+        unstable_batchedUpdates(context) {},
 
         /*
                 lib/react-dom.js:44:2
@@ -882,11 +852,7 @@ export default {
                     callback?: () => void,
                   ): React$ElementRef<ElementType>;
                 */
-        unstable_renderSubtreeIntoContainer(context) {
-          context.warnOnce(
-            'Rule for export "unstable_renderSubtreeIntoContainer" in module "react-dom" is not verified'
-          );
-        },
+        unstable_renderSubtreeIntoContainer(context) {},
       },
     },
 
@@ -899,33 +865,21 @@ export default {
 
                 declare function renderToString(element: React$Node): string;
                 */
-        renderToString(context) {
-          context.warnOnce(
-            'Rule for export "renderToString" in module "react-dom/server" is not verified'
-          );
-        },
+        renderToString(context) {},
 
         /*
                 lib/react-dom.js:56:2
 
                 declare function renderToStaticMarkup(element: React$Node): string;
                 */
-        renderToStaticMarkup(context) {
-          context.warnOnce(
-            'Rule for export "renderToStaticMarkup" in module "react-dom/server" is not verified'
-          );
-        },
+        renderToStaticMarkup(context) {},
 
         /*
                 lib/react-dom.js:57:2
 
                 declare function renderToNodeStream(element: React$Node): stream$Readable;
                 */
-        renderToNodeStream(context) {
-          context.warnOnce(
-            'Rule for export "renderToNodeStream" in module "react-dom/server" is not verified'
-          );
-        },
+        renderToNodeStream(context) {},
 
         /*
                 lib/react-dom.js:58:2
@@ -934,22 +888,14 @@ export default {
                     element: React$Node,
                   ): stream$Readable;
                 */
-        renderToStaticNodeStream(context) {
-          context.warnOnce(
-            'Rule for export "renderToStaticNodeStream" in module "react-dom/server" is not verified'
-          );
-        },
+        renderToStaticNodeStream(context) {},
 
         /*
                 lib/react-dom.js:61:2
 
                 declare var version: string;
                 */
-        version(context) {
-          context.warnOnce(
-            'Rule for export "version" in module "react-dom/server" is not verified'
-          );
-        },
+        version(context) {},
       },
     },
 
@@ -962,11 +908,7 @@ export default {
 
                 declare var Simulate: { [eventName: string]: (element: Element, eventData?: Object) => void, ... };
                 */
-        Simulate(context) {
-          context.warnOnce(
-            'Rule for export "Simulate" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        Simulate(context) {},
 
         /*
                 lib/react-dom.js:68:2
@@ -975,11 +917,7 @@ export default {
                     instance: React$Element<any>,
                   ): React$Component<any, any>;
                 */
-        renderIntoDocument(context) {
-          context.warnOnce(
-            'Rule for export "renderIntoDocument" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        renderIntoDocument(context) {},
 
         /*
                 lib/react-dom.js:71:2
@@ -989,22 +927,14 @@ export default {
                     mockTagName?: string,
                   ): Object;
                 */
-        mockComponent(context) {
-          context.warnOnce(
-            'Rule for export "mockComponent" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        mockComponent(context) {},
 
         /*
                 lib/react-dom.js:75:2
 
                 declare function isElement(element: React$Element<any>): boolean;
                 */
-        isElement(context) {
-          context.warnOnce(
-            'Rule for export "isElement" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        isElement(context) {},
 
         /*
                 lib/react-dom.js:76:2
@@ -1014,22 +944,14 @@ export default {
                     componentClass: React$ElementType,
                   ): boolean;
                 */
-        isElementOfType(context) {
-          context.warnOnce(
-            'Rule for export "isElementOfType" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        isElementOfType(context) {},
 
         /*
                 lib/react-dom.js:80:2
 
                 declare function isDOMComponent(instance: any): boolean;
                 */
-        isDOMComponent(context) {
-          context.warnOnce(
-            'Rule for export "isDOMComponent" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        isDOMComponent(context) {},
 
         /*
                 lib/react-dom.js:81:2
@@ -1038,11 +960,7 @@ export default {
                     instance: React$Component<any, any>,
                   ): boolean;
                 */
-        isCompositeComponent(context) {
-          context.warnOnce(
-            'Rule for export "isCompositeComponent" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        isCompositeComponent(context) {},
 
         /*
                 lib/react-dom.js:84:2
@@ -1052,11 +970,7 @@ export default {
                     componentClass: React$ElementType,
                   ): boolean;
                 */
-        isCompositeComponentWithType(context) {
-          context.warnOnce(
-            'Rule for export "isCompositeComponentWithType" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        isCompositeComponentWithType(context) {},
 
         /*
                 lib/react-dom.js:88:2
@@ -1066,11 +980,7 @@ export default {
                     test: (child: React$Component<any, any>) => boolean,
                   ): Array<React$Component<any, any>>;
                 */
-        findAllInRenderedTree(context) {
-          context.warnOnce(
-            'Rule for export "findAllInRenderedTree" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        findAllInRenderedTree(context) {},
 
         /*
                 lib/react-dom.js:92:2
@@ -1080,11 +990,7 @@ export default {
                     className: string,
                   ): Array<Element>;
                 */
-        scryRenderedDOMComponentsWithClass(context) {
-          context.warnOnce(
-            'Rule for export "scryRenderedDOMComponentsWithClass" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        scryRenderedDOMComponentsWithClass(context) {},
 
         /*
                 lib/react-dom.js:96:2
@@ -1094,11 +1000,7 @@ export default {
                     className: string,
                   ): ?Element;
                 */
-        findRenderedDOMComponentWithClass(context) {
-          context.warnOnce(
-            'Rule for export "findRenderedDOMComponentWithClass" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        findRenderedDOMComponentWithClass(context) {},
 
         /*
                 lib/react-dom.js:100:2
@@ -1108,11 +1010,7 @@ export default {
                     tagName: string,
                   ): Array<Element>;
                 */
-        scryRenderedDOMComponentsWithTag(context) {
-          context.warnOnce(
-            'Rule for export "scryRenderedDOMComponentsWithTag" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        scryRenderedDOMComponentsWithTag(context) {},
 
         /*
                 lib/react-dom.js:104:2
@@ -1122,11 +1020,7 @@ export default {
                     tagName: string,
                   ): ?Element;
                 */
-        findRenderedDOMComponentWithTag(context) {
-          context.warnOnce(
-            'Rule for export "findRenderedDOMComponentWithTag" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        findRenderedDOMComponentWithTag(context) {},
 
         /*
                 lib/react-dom.js:108:2
@@ -1136,11 +1030,7 @@ export default {
                     componentClass: React$ElementType,
                   ): Array<React$Component<any, any>>;
                 */
-        scryRenderedComponentsWithType(context) {
-          context.warnOnce(
-            'Rule for export "scryRenderedComponentsWithType" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        scryRenderedComponentsWithType(context) {},
 
         /*
                 lib/react-dom.js:112:2
@@ -1150,22 +1040,14 @@ export default {
                     componentClass: React$ElementType,
                   ): ?React$Component<any, any>;
                 */
-        findRenderedComponentWithType(context) {
-          context.warnOnce(
-            'Rule for export "findRenderedComponentWithType" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        findRenderedComponentWithType(context) {},
 
         /*
                 lib/react-dom.js:116:2
 
                 declare function act(callback: () => void | Thenable): Thenable;
                 */
-        act(context) {
-          context.warnOnce(
-            'Rule for export "act" in module "react-dom/test-utils" is not verified'
-          );
-        },
+        act(context) {},
       },
     },
   },

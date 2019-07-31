@@ -11,7 +11,6 @@ export default {
         */
     TextEncoder(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "TextEncoder" is not verified');
     },
 
     /*
@@ -32,11 +31,7 @@ export default {
           error(error: Error): void,
         }
         */
-    ReadableStreamController(context) {
-      context.warnOnce(
-        'Rule for global "ReadableStreamController" is not verified'
-      );
-    },
+    ReadableStreamController(context) {},
 
     /*
         lib/streams.js:29:0
@@ -52,9 +47,6 @@ export default {
         */
     ReadableStreamBYOBRequest(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ReadableStreamBYOBRequest" is not verified'
-      );
     },
 
     /*
@@ -72,9 +64,6 @@ export default {
         */
     ReadableByteStreamController(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ReadableByteStreamController" is not verified'
-      );
     },
 
     /*
@@ -96,9 +85,6 @@ export default {
         */
     ReadableStreamReader(context) {
       context.lib('webworker');
-      context.warnOnce(
-        'Rule for global "ReadableStreamReader" is not verified'
-      );
     },
 
     /*
@@ -115,7 +101,6 @@ export default {
         */
     UnderlyingSource(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "UnderlyingSource" is not verified');
     },
 
     /*
@@ -128,7 +113,6 @@ export default {
         */
     TransformStream(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "TransformStream" is not verified');
     },
 
     /*
@@ -151,7 +135,6 @@ export default {
         */
     ReadableStream(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "ReadableStream" is not verified');
     },
 
     /*
@@ -161,11 +144,7 @@ export default {
           error(error: Error): void,
         }
         */
-    WritableStreamController(context) {
-      context.warnOnce(
-        'Rule for global "WritableStreamController" is not verified'
-      );
-    },
+    WritableStreamController(context) {},
 
     /*
         lib/streams.js:108:0
@@ -182,7 +161,6 @@ export default {
         */
     UnderlyingSink(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "UnderlyingSink" is not verified');
     },
 
     /*
@@ -199,11 +177,7 @@ export default {
           write(chunk: any): Promise<any>,
         }
         */
-    WritableStreamWriter(context) {
-      context.warnOnce(
-        'Rule for global "WritableStreamWriter" is not verified'
-      );
-    },
+    WritableStreamWriter(context) {},
 
     /*
         lib/streams.js:129:0
@@ -222,7 +196,6 @@ export default {
         */
     WritableStream(context) {
       context.lib('webworker');
-      context.warnOnce('Rule for global "WritableStream" is not verified');
     },
   },
 

@@ -17,7 +17,6 @@ export default {
         */
     StyleSheet(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "StyleSheet" is not verified');
     },
 
     /*
@@ -31,7 +30,6 @@ export default {
         */
     StyleSheetList(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "StyleSheetList" is not verified');
     },
 
     /*
@@ -49,7 +47,6 @@ export default {
         */
     MediaList(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "MediaList" is not verified');
     },
 
     /*
@@ -64,7 +61,6 @@ export default {
         */
     CSSStyleSheet(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "CSSStyleSheet" is not verified');
     },
 
     /*
@@ -95,7 +91,6 @@ export default {
         */
     CSSRule(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "CSSRule" is not verified');
     },
 
     /*
@@ -108,7 +103,6 @@ export default {
         */
     CSSKeyframeRule(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "CSSKeyframeRule" is not verified');
     },
 
     /*
@@ -124,7 +118,6 @@ export default {
         */
     CSSKeyframesRule(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "CSSKeyframesRule" is not verified');
     },
 
     /*
@@ -139,7 +132,6 @@ export default {
         */
     CSSRuleList(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "CSSRuleList" is not verified');
     },
 
     /*
@@ -460,7 +452,6 @@ export default {
         */
     CSSStyleDeclaration(context) {
       context.lib('dom.iterable');
-      context.warnOnce('Rule for global "CSSStyleDeclaration" is not verified');
     },
 
     /*
@@ -474,7 +465,6 @@ export default {
         */
     TransitionEvent(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "TransitionEvent" is not verified');
     },
 
     /*
@@ -486,7 +476,6 @@ export default {
         */
     AnimationTimeline(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AnimationTimeline" is not verified');
     },
 
     /*
@@ -498,7 +487,6 @@ export default {
         */
     DocumentTimeline(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "DocumentTimeline" is not verified');
     },
 
     /*
@@ -512,7 +500,6 @@ export default {
         */
     AnimationEffect(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "AnimationEffect" is not verified');
     },
 
     /*
@@ -535,7 +522,6 @@ export default {
         */
     KeyframeEffect(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "KeyframeEffect" is not verified');
     },
 
     /*
@@ -570,7 +556,6 @@ export default {
         */
     Animation(context) {
       context.lib('dom');
-      context.warnOnce('Rule for global "Animation" is not verified');
     },
 
     /*
@@ -584,9 +569,6 @@ export default {
         */
     AnimationPlaybackEvent(context) {
       context.lib('dom');
-      context.warnOnce(
-        'Rule for global "AnimationPlaybackEvent" is not verified'
-      );
     },
   },
 
