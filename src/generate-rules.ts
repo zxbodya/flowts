@@ -31,7 +31,7 @@ import * as prettier from 'prettier';
 import recastPlugin from './recastPlugin';
 
 import { tsLibDefinitions } from './tsLibDefinitions';
-import { Rule } from './rule';
+import { Rule } from './Rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
 import { RuleTest } from './RuleTest';
 
