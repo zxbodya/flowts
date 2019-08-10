@@ -41,6 +41,7 @@
     "globby": "^11.0.0",
     "jest-diff": "^25.3.0",
     "prettier": "^2.0.4",
+    "read-pkg": "^5.2.0",
     "@zxbodya/recast": "^0.18.9",
     "source-map-support": "^0.5.16",
     "typescript": "^3.8.3"
