@@ -19,7 +19,19 @@ function getReferenceExportName(ref: NodePath): string | undefined {
   return name;
 }
 
-export function detectOptions(source: string, filename: string) {
+export interface SourceOptions {
+  imports: Map<
+    string,
+    {
+      exports: Set<string>;
+      default?: Set<string>;
+    }
+  >;
+  isJSX: boolean;
+  isFlow: boolean;
+}
+
+export function detectOptions(source: string, filename: string): SourceOptions {
   const flowAst = babel.parseSync(source, {
     babelrc: false,
     ast: true,

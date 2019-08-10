@@ -2,7 +2,7 @@ import * as babel from '@babel/core';
 import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
 import * as commander from 'commander';
 import * as fs from 'fs';
-import * as glob from 'glob';
+import * as globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
 import jestDiff from 'jest-diff';
@@ -24,11 +24,12 @@ async function main(cwd: string, opts: Options) {
     transformPlugins.push(recastPlugin);
   }
 
-  const files = glob.sync('**/*.{js,jsx,js.flow}', {
+  const files = globby.sync('**/*.{js,mjs,jsx,js.flow}', {
     cwd,
-    nodir: true,
+    onlyFiles: true,
     dot: true,
-    ignore: ['**/node_modules/**', '**/dist/**'],
+    ignore: ['**/node_modules/**'],
+    gitignore: true,
   });
 
   // todo: collect modules info to use for:

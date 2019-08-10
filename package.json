@@ -35,10 +35,11 @@
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.5.13",
     "@zxbodya/recast": "^0.18.2",
     "commander": "^2.20.0",
-    "glob": "^7.1.4",
+    "globby": "^10.0.1",
     "jest-diff": "^24.8.0",
     "prettier": "^1.18.2",
-    "source-map-support": "^0.5.12"
+    "source-map-support": "^0.5.12",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -57,10 +58,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "rimraf": "^2.6.3",
-    "ts-node": "^8.3.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.5.2"
+    "ts-node": "^8.3.0"
   },
   "jest": {
     "testEnvironment": "node",
