@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as commander from 'commander';
 import { FlowConfig } from './FlowConfig';
-import * as glob from 'glob';
+import * as globby from 'globby';
 
 async function main(cwd: string, options: object) {
   // is git repository and have uncommitted changes - show error
@@ -38,22 +38,24 @@ async function main(cwd: string, options: object) {
     flowConfig.parse(fs.readFileSync(flowConfigPath, { encoding: 'utf-8' }));
   }
 
-  const nestedProjects = glob.sync('**/package.json', {
+  const nestedProjects = globby.sync('**/package.json', {
     cwd,
-    nodir: true,
+    onlyFiles: true,
     dot: true,
     ignore: ['**/node_modules/**'],
+    gitignore: true,
   });
 
   const ignore = nestedProjects.map(path =>
     path.replace(/\/package.json$/, '**/*')
   );
 
-  const files = glob.sync('**/*.{js,jsx,js.flow}', {
+  const files = globby.sync('**/*.{js,jsx,js.flow}', {
     cwd,
-    nodir: true,
+    onlyFiles: true,
     dot: true,
     ignore: ['**/node_modules/**'].concat(ignore),
+    gitignore: true,
   });
 
   // flow included files
@@ -61,7 +63,6 @@ async function main(cwd: string, options: object) {
   // flow ignored
 
   // flow + ts -> rules
-
 }
 
 const program = new commander.Command()
