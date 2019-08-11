@@ -9,12 +9,7 @@
     "outDir": "./dist",
     "strict": true,
     "baseUrl": "./src",
-    "esModuleInterop": true,
-    "paths": {
-      "babel-plugin-tester": [
-        "./types/babel-plugin-tester.d.ts"
-      ]
-    }
+    "esModuleInterop": true
   },
   "include": [
     "src"

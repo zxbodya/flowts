@@ -82,5 +82,5 @@ export function verify(
   const src = prettier.format(srcNoTypes.code!, { parser: 'babel' });
   const tgt = prettier.format(resultNoTypes.code!, { parser: 'babel' });
 
-  return { isEqual: src !== tgt, src, tgt };
+  return { isEqual: src === tgt, src, tgt };
 }
