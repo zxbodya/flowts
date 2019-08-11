@@ -4,21 +4,68 @@ import globby from 'globby';
 import { detectOptions, SourceOptions } from './detectOptions';
 import * as readPkg from 'read-pkg';
 import { PackageJson } from 'read-pkg';
+import { Options } from './repoCli';
+import { VERSION } from './config';
 
-interface PakageFileInfo {
+interface PackageFileInfo {
   packagePath: string;
   packageData: PackageJson;
   hasPackageErrors: boolean;
 }
 
-type NamedPakageFileInfo = PakageFileInfo & {
+type NamedPackageFileInfo = PackageFileInfo & {
   hasPackageErrors: false;
   packageData: { name: string };
 };
+const configFileName = 'flow-ts-config.json';
 
-async function prepare(repoPath: string) {
-  console.log('Migration from Flow to TypeScript started!');
-  console.log('Searching for package.json files');
+function readConfig(configPath: string) {
+  return JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' }));
+}
+function writeConfig(configPath: string, configData: any) {
+  const data = JSON.stringify(configData, null, 2);
+  return fs.writeFileSync(configPath, data, {
+    encoding: 'utf8',
+  });
+}
+
+export async function convertRepository(repoPath: string, options: Options) {
+  const configPath = path.resolve(repoPath, configFileName);
+  const config = {
+    version: VERSION,
+    prettier: options.prettier,
+    recast: options.recast,
+    // todo: allowJS
+    // todo: gitignore
+    // todo: ignores: [],
+    packages: {
+      // path => config
+    },
+  };
+
+  if (fs.existsSync(configPath)) {
+    try {
+      const existingConfig = readConfig(configPath);
+      // todo: improve config loading, considering
+      // - tool version
+      // - possibility of some files to be removed
+      // - new ignores added effectively ignoring some packages
+      // - etc
+      Object.assign(config, existingConfig);
+      console.log('Config was loaded');
+    } catch (e) {
+      console.log('Failing to load config file. Exiting.');
+      console.error(e);
+      process.exit(1);
+    }
+  } else {
+    console.log('no configuration file found, generating it');
+    writeConfig(configPath, config);
+  }
+
+  console.log(
+    'Searching for package.json files, to detect separate packages in repository'
+  );
   const packagePaths = await globby('**/package.json', {
     cwd: repoPath,
     onlyFiles: true,
@@ -27,33 +74,38 @@ async function prepare(repoPath: string) {
     dot: true,
     ignore: ['**/node_modules/**'],
   });
-  console.log(`${packagePaths.length} files found.`);
-  console.log('Loading package data');
-  const packages: PakageFileInfo[] = [];
+  console.log(`${packagePaths.length} packages found.`);
+  console.log('Processing package data');
+  const packages: PackageFileInfo[] = [];
   for (const packagePath of packagePaths) {
     let packageData;
-    let hasPackageErrors = false;
-    try {
-      packageData = readPkg.sync({
-        cwd: path.dirname(path.resolve(repoPath, packagePath)),
-      });
-    } catch (e) {
-      console.error(`Error loading package.json:\n  - ${packagePath}\n`);
-      console.error(e);
-      hasPackageErrors = true;
-    }
+    let packageErrors;
+    const retry = true;
+    while (retry) {
+      try {
+        packageData = readPkg.sync({
+          cwd: path.dirname(path.resolve(repoPath, packagePath)),
+        });
+      } catch (e) {
+        packageErrors = e;
+      }
+      if (packageErrors) {
+        console.error(`Error loading package.json:\n  - ${packagePath}\n`);
+        console.error(packageErrors);
+      }
 
-    packages.push({
-      packagePath,
-      packageData,
-      hasPackageErrors,
-    } as PakageFileInfo);
+      packages.push({
+        packagePath,
+        packageData,
+        hasPackageErrors: !!packageErrors,
+      } as PackageFileInfo);
+    }
   }
   console.log(`${packages.length} successfully loaded`);
   console.log(
     'Checking package names, to detect dependencies between packages'
   );
-  const namedPackages = new Map<string, NamedPakageFileInfo>();
+  const namedPackages = new Map<string, NamedPackageFileInfo>();
   for (const info of packages) {
     if (info.hasPackageErrors) continue;
     const name = info.packageData.name;
@@ -74,11 +126,11 @@ async function prepare(repoPath: string) {
     // todo: (?) interactive UI
     // todo: (?) retry mechanism
 
-    namedPackages.set(name, info as NamedPakageFileInfo);
+    namedPackages.set(name, info as NamedPackageFileInfo);
   }
   console.log('Detecting nested packages, to be converted separately');
   interface FolderInfo {
-    packageInfo?: PakageFileInfo;
+    packageInfo?: PackageFileInfo;
     children: Map<string, FolderInfo>;
   }
   const rootFolder: FolderInfo = {
@@ -116,7 +168,7 @@ async function prepare(repoPath: string) {
   function walkFolders(
     rootFolder: FolderInfo
   ): Array<{
-    packageInfo: PakageFileInfo;
+    packageInfo: PackageFileInfo;
     excludes: string[][];
     parts: string[];
   }> {
@@ -299,9 +351,3 @@ async function prepare(repoPath: string) {
   return packages;
   // todo: do not follow symlinks
 }
-
-prepare('../yarn')
-  .catch(e => {
-    console.error(e);
-  })
-  .then(() => process.exit(0));
