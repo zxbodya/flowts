@@ -2,4 +2,6 @@
 
 Usage:
 
+`npm install -g flowts`
+
 `flowts ./path/to/sources`
