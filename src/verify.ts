@@ -24,7 +24,7 @@ export function verify(
   let srcNoTypes = babel.transformSync(source, {
     babelrc: false,
     filename,
-    presets: ['@babel/preset-flow'],
+    presets: [require.resolve('@babel/preset-flow')],
     parserOpts: {
       plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
     },
@@ -53,7 +53,7 @@ export function verify(
   let resultNoTypes = babel.transformSync(result, {
     babelrc: false,
     filename: target,
-    presets: ['@babel/preset-typescript'],
+    presets: [require.resolve('@babel/preset-typescript')],
     parserOpts: {
       plugins: ['typescript', ...jsxPlugin, ...sharedParserPlugins],
     },
