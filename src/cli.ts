@@ -117,7 +117,7 @@ async function main(cwd: string, opts: Options) {
 const program = new commander.Command()
   .name('flowts')
   .usage('./src ./test')
-  .option('--recast', 'use recast', false)
+  .option('--no-recast', 'do not use recast', false)
   .parse(process.argv);
 
 Promise.all(program.args.map(dir => main(dir, program.opts() as Options))).then(

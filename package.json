@@ -35,7 +35,7 @@
     "@babel/traverse": "^7.4.5",
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.5.13",
     "@zxbodya/recast": "^0.18.2",
-    "commander": "^2.20.0",
+    "commander": "^3.0.0",
     "globby": "^10.0.1",
     "jest-diff": "^24.8.0",
     "prettier": "^1.18.2",
