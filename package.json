@@ -14,7 +14,8 @@
     "build": "npm run clean && npm run compile",
     "clean": "rimraf dist",
     "compile": "tsc -p .",
-    "ts-node": "ts-node"
+    "ts-node": "ts-node",
+    "upgrade-interactive": "npm-check --update"
   },
   "files": [
     "bin/*",
@@ -34,13 +35,13 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/traverse": "^7.4.5",
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.5.13",
-    "@zxbodya/recast": "^0.18.2",
-    "commander": "^3.0.0",
+    "@zxbodya/recast": "^0.18.3",
+    "commander": "^3.0.1",
     "globby": "^10.0.1",
-    "jest-diff": "^24.8.0",
+    "jest-diff": "^24.9.0",
     "prettier": "^1.18.2",
     "source-map-support": "^0.5.12",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -48,16 +49,17 @@
     "@babel/preset-env": "^7.5.5",
     "@types/babel__core": "^7.1.2",
     "@types/glob": "^7.1.1",
-    "@types/jest": "^24.0.15",
-    "@types/prettier": "^1.16.4",
-    "@typescript-eslint/eslint-plugin": "^1.12.0",
-    "@typescript-eslint/parser": "^1.12.0",
+    "@types/jest": "^24.0.18",
+    "@types/prettier": "^1.18.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "codecov": "^3.5.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "rimraf": "^2.6.3",
+    "jest": "^24.9.0",
+    "npm-check": "^5.9.0",
+    "rimraf": "^3.0.0",
     "ts-node": "^8.3.0"
   },
   "jest": {

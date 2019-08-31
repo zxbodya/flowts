@@ -246,10 +246,10 @@ function generateTypeTests(
 
 function collectPathsData(paths: NodePath[]) {
   let isVariable = false;
-  let callable = new Map<string, TypeParamsConfig>();
-  let classes = new Map<string, TypeParamsConfig>();
-  let interfaceType = new Map<string, TypeParamsConfig>();
-  let type = new Map<string, TypeParamsConfig>();
+  const callable = new Map<string, TypeParamsConfig>();
+  const classes = new Map<string, TypeParamsConfig>();
+  const interfaceType = new Map<string, TypeParamsConfig>();
+  const type = new Map<string, TypeParamsConfig>();
   for (const basePath of paths) {
     const path =
       basePath.node.type === 'DeclareExportDeclaration'
@@ -302,7 +302,7 @@ function collectPathsData(paths: NodePath[]) {
 }
 
 export function generateGlobalTests(name: string, paths: NodePath[]) {
-  let { isVariable, callable, classes, type } = collectPathsData(paths);
+  const { isVariable, callable, classes, type } = collectPathsData(paths);
   const tests = [];
   if (isVariable) {
     tests.push(createTest('variable', ['var a = ' + name + ';'], 10));
@@ -319,7 +319,7 @@ export function generateModuleTests(
   name: string,
   paths: NodePath[]
 ) {
-  let { isVariable, callable, classes, type } = collectPathsData(paths);
+  const { isVariable, callable, classes, type } = collectPathsData(paths);
 
   const tests = [];
   if (isVariable) {

@@ -12,7 +12,7 @@ import traverse, { NodePath } from '@babel/traverse';
 import * as recast from '@zxbodya/recast';
 import * as prettier from 'prettier';
 
-let templateOpts: TemplateBuilderOptions = {
+const templateOpts: TemplateBuilderOptions = {
   plugins: ['typescript'],
   sourceType: 'module',
 };
@@ -50,10 +50,10 @@ function ifJestCall(
   fn: (name: string, body: NodePath<BlockStatement>) => void
 ) {
   if (path.isCallExpression()) {
-    let callee = path.get('callee');
+    const callee = path.get('callee');
     if (callee.isIdentifier()) {
       if (callee.node.name === functionName) {
-        let args = path.get('arguments');
+        const args = path.get('arguments');
         if (args.length === 2) {
           const testNameArg = args[0];
           const testFnArg = args[1];
@@ -64,7 +64,7 @@ function ifJestCall(
           ) {
             const name = testNameArg.node.value;
 
-            let body = testFnArg.get('body') as NodePath<
+            const body = testFnArg.get('body') as NodePath<
               BlockStatement | Expression
             >;
             if (!body || !body.isBlockStatement()) {
@@ -241,8 +241,8 @@ export class RuleTest {
     }
     const testRootDescribes = findJestCalls('describe', testDescribeBody);
 
-    let globalsDescribeBody = testRootDescribes.get('globals');
-    let modulesDescribeBody = testRootDescribes.get('modules');
+    const globalsDescribeBody = testRootDescribes.get('globals');
+    const modulesDescribeBody = testRootDescribes.get('modules');
 
     if (!globalsDescribeBody) {
       throw testDescribeBody.buildCodeFrameError(

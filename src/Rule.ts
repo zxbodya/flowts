@@ -20,7 +20,7 @@ import traverse, { NodePath } from '@babel/traverse';
 import * as recast from '@zxbodya/recast';
 import * as prettier from 'prettier';
 
-let templateOpts: TemplateBuilderOptions = {
+const templateOpts: TemplateBuilderOptions = {
   plugins: ['typescript'],
   sourceType: 'module',
 };
@@ -55,7 +55,7 @@ function getModuleDescr(moduleObj: NodePath<ObjectExpression>) {
       );
     }
     const value = prop.get('value');
-    let key = prop.get('key') as NodePath;
+    const key = prop.get('key') as NodePath;
     const keyName = key.isIdentifier()
       ? key.node.name
       : key.isStringLiteral()
@@ -150,9 +150,9 @@ export class Rule {
 
         for (const rootProperty of rootProperties) {
           if (rootProperty.isObjectProperty()) {
-            let value = rootProperty.get('value');
+            const value = rootProperty.get('value');
 
-            let key = rootProperty.get('key') as NodePath;
+            const key = rootProperty.get('key') as NodePath;
             const keyName = key.isIdentifier()
               ? key.node.name
               : key.isStringLiteral()
@@ -225,7 +225,7 @@ export class Rule {
         );
       }
 
-      let moduleRulesDecr = getModuleDescr(moduleObj);
+      const moduleRulesDecr = getModuleDescr(moduleObj);
       modulesRules.set(moduleName, moduleRulesDecr);
     }
 

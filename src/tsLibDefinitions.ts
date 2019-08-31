@@ -89,8 +89,8 @@ class DState {
     if (!path.node.id) {
       throw path.buildCodeFrameError('class name is missing');
     }
-    let name = path.node.id.name;
-    let { paramsCount, requiredParamsCount } = paramsData(
+    const name = path.node.id.name;
+    const { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
     if (this.declarations.classes.has(name)) {
@@ -107,8 +107,8 @@ class DState {
     if (!path.node.id) {
       throw path.buildCodeFrameError('function name is missing');
     }
-    let name = path.node.id.name;
-    let { paramsCount, requiredParamsCount } = paramsData(
+    const name = path.node.id.name;
+    const { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
     let functions = this.declarations.functions.get(name);
@@ -127,8 +127,8 @@ class DState {
     if (!path.node.id) {
       throw path.buildCodeFrameError('interface name is missing');
     }
-    let name = path.node.id.name;
-    let { paramsCount, requiredParamsCount } = paramsData(
+    const name = path.node.id.name;
+    const { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
     let interfaces = this.declarations.interfaces.get(name);
@@ -148,7 +148,7 @@ class DState {
     this.declarations = new Declarations();
   }
   exitTSModuleDeclaration(path: NodePath<TSModuleDeclaration>) {
-    let name = isIdentifier(path.node.id)
+    const name = isIdentifier(path.node.id)
       ? path.node.id.name
       : path.node.id.value;
     const module: ModuleDeclaration = {
@@ -161,8 +161,8 @@ class DState {
     this.declarations.modules.set(name, module);
   }
   enterTSTypeAliasDeclaration(path: NodePath<TSTypeAliasDeclaration>) {
-    let name = path.node.id.name;
-    let { paramsCount, requiredParamsCount } = paramsData(
+    const name = path.node.id.name;
+    const { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
     );
     if (this.declarations.types.has(name)) {
@@ -176,13 +176,13 @@ class DState {
     });
   }
   enterVariableDeclaration(path: NodePath<VariableDeclaration>) {
-    let variableDeclarators = path.get('declarations');
+    const variableDeclarators = path.get('declarations');
     for (const declPath of variableDeclarators) {
       const decl = declPath.node;
       if (!isIdentifier(decl.id)) {
         throw path.buildCodeFrameError('unexpected declaration');
       }
-      let name = decl.id.name;
+      const name = decl.id.name;
       // todo: add function/class declarations detection (not needed for ts libs, but might be useful for externals)
       // let typeAnnotation = decl.id.typeAnnotation;
       let variables = this.declarations.variables.get(name);
@@ -324,7 +324,7 @@ for (const libName of libNames) {
     }
   }
 
-  let state = new DState();
+  const state = new DState();
   traverse<DState>(ast, extractDefinitionsVisitor, undefined, state);
   state.declarations.update();
   tsLibDefinitions.push({

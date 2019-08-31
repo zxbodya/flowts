@@ -36,7 +36,7 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
   for (const file of files) {
     console.log(file);
     try {
-      let filepath = path.join(cwd, file);
+      const filepath = path.join(cwd, file);
       const source = fs.readFileSync(filepath, { encoding: 'utf8' });
 
       const { isJSX, isFlow } = detectOptions(source, file);

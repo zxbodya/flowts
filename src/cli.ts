@@ -28,15 +28,17 @@ program
   .option('-R, --no-recast', 'use babel generator instead of recast', false)
   .option('-P, --no-prettier', 'do not run prettier on converted code', false);
 
-const handleCommandPromise = async (p: Promise<any>) => {
-  try {
-    await p;
-    console.log('done');
-    process.exit(0);
-  } catch (e) {
-    console.error(e);
-    process.exit(1);
-  }
+const handleCommandPromise = (p: Promise<any>) => {
+  p.then(
+    () => {
+      console.log('done');
+      process.exit(0);
+    },
+    e => {
+      console.error(e);
+      process.exit(1);
+    }
+  );
 };
 
 program
