@@ -1,11 +1,9 @@
-/* tslint:disable:no-shadowed-variable */
 import * as babel from '@babel/core';
 import { NodePath } from '@babel/core';
 import traverse from '@babel/traverse';
 
 import {
   callExpression,
-  CommentBlock,
   DeclareClass,
   DeclareExportAllDeclaration,
   DeclareExportDeclaration,
@@ -53,7 +51,7 @@ async function main(
   referenceName: string,
   isLib: boolean
 ) {
-  console.log(`geenratign rules stub for ${inputPath}`);
+  console.log(`generating rules stub for ${inputPath}`);
 
   const rule = Rule.create(referenceName);
   const ruleTest = RuleTest.create(referenceName);

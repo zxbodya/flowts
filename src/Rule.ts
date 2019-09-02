@@ -105,7 +105,7 @@ function getModuleDescr(moduleObj: NodePath<ObjectExpression>) {
 }
 
 export class Rule {
-  private ruleAst: File;
+  private readonly ruleAst: File;
   private moduleName: string;
   private globalsObjPath: NodePath<ObjectExpression>;
   private modulesObjPath: NodePath<ObjectExpression>;
