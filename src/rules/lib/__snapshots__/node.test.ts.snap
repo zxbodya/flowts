@@ -13232,6 +13232,59 @@ exports[`lib/node.js modules vm Script variable 1`] = `
 "
 `;
 
+exports[`lib/node.js modules vm compileFunction generated - callable - import namespace 1`] = `
+"import * as M from \\"vm\\";
+
+M.compileFunction();
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction generated - callable - import renamed 1`] = `
+"import { compileFunction as t } from \\"vm\\";
+
+t();
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction generated - callable 1`] = `
+"import { compileFunction } from \\"vm\\";
+
+compileFunction();
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction generated - class - import namespace 1`] = `
+"import * as M from \\"vm\\";
+
+new M.compileFunction();
+
+class A1 extends M.compileFunction {}
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction generated - class - import renamed 1`] = `
+"import { compileFunction as t } from \\"vm\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction generated - class 1`] = `
+"import { compileFunction } from \\"vm\\";
+
+new compileFunction();
+
+class A1 extends compileFunction {}
+"
+`;
+
+exports[`lib/node.js modules vm compileFunction variable 1`] = `
+"var a = compileFunction;
+"
+`;
+
 exports[`lib/node.js modules vm createContext generated - callable - import namespace 1`] = `
 "import * as M from \\"vm\\";
 

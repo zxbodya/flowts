@@ -19963,6 +19963,85 @@ describe('lib/node.js', () => {
           ).toMatchSnapshot();
         });
       });
+
+      describe('compileFunction', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = compileFunction;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { compileFunction } from "vm";
+            
+            new compileFunction();
+            
+            class A1 extends compileFunction {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { compileFunction } from "vm";
+            
+            compileFunction();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "vm";
+            
+            new M.compileFunction();
+            
+            class A1 extends M.compileFunction {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "vm";
+            
+            M.compileFunction();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { compileFunction as t } from "vm";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { compileFunction as t } from "vm";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
     });
 
     describe('zlib', () => {

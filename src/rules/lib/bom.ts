@@ -213,7 +213,9 @@ export default {
             +cookieEnabled: boolean;
         }
         */
-    NavigatorCookies(context) {},
+    NavigatorCookies(context) {
+      context.lib('dom');
+    },
 
     /*
         lib/bom.js:244:0
@@ -224,7 +226,9 @@ export default {
             javaEnabled(): boolean;
         }
         */
-    NavigatorPlugins(context) {},
+    NavigatorPlugins(context) {
+      context.lib('dom');
+    },
 
     /*
         lib/bom.js:250:0
@@ -307,7 +311,7 @@ export default {
         }
         */
     Navigator(context) {
-      context.lib('dom');
+      context.lib('dom.iterable');
     },
 
     /*
@@ -544,7 +548,37 @@ export default {
     },
 
     /*
-        lib/bom.js:461:0
+        lib/bom.js:463:0
+
+        declare interface PerformanceObserverEntryList {
+          getEntries(): PerformanceEntryList;
+          getEntriesByType(type: string): PerformanceEntryList;
+          getEntriesByName(name: string, type: ?string): PerformanceEntryList;
+        }
+        */
+    PerformanceObserverEntryList(context) {
+      context.lib('webworker');
+    },
+
+    /*
+        lib/bom.js:476:0
+
+        declare class PerformanceObserver {
+          constructor(callback: (entries: PerformanceObserverEntryList, observer: PerformanceObserver) => mixed): void;
+
+          observe(options: ?PerformanceObserverInit): void;
+          disconnect(): void;
+          takeRecords(): PerformanceEntryList;
+
+          static supportedEntryTypes: string[];
+        }
+        */
+    PerformanceObserver(context) {
+      context.lib('webworker');
+    },
+
+    /*
+        lib/bom.js:486:0
 
         declare class History {
             length: number;
@@ -562,7 +596,7 @@ export default {
     },
 
     /*
-        lib/bom.js:472:0
+        lib/bom.js:497:0
 
         declare var history: History;
         */
@@ -571,7 +605,7 @@ export default {
     },
 
     /*
-        lib/bom.js:474:0
+        lib/bom.js:499:0
 
         declare class Location {
             ancestorOrigins: string[];
@@ -595,7 +629,7 @@ export default {
     },
 
     /*
-        lib/bom.js:491:0
+        lib/bom.js:516:0
 
         declare var location: Location;
         */
@@ -604,7 +638,7 @@ export default {
     },
 
     /*
-        lib/bom.js:495:0
+        lib/bom.js:520:0
 
         declare class DOMParser {
             parseFromString(source: string, mimeType: string): Document;
@@ -615,7 +649,7 @@ export default {
     },
 
     /*
-        lib/bom.js:501:0
+        lib/bom.js:526:0
 
         declare class FormData {
             constructor(form?: HTMLFormElement): void;
@@ -644,7 +678,7 @@ export default {
     },
 
     /*
-        lib/bom.js:523:0
+        lib/bom.js:548:0
 
         declare class MutationRecord {
             type: 'attributes' | 'characterData' | 'childList';
@@ -663,7 +697,7 @@ export default {
     },
 
     /*
-        lib/bom.js:540:0
+        lib/bom.js:565:0
 
         declare type MutationObserverInit = MutationObserverInitRequired & {
           subtree?: boolean,
@@ -678,7 +712,7 @@ export default {
     },
 
     /*
-        lib/bom.js:548:0
+        lib/bom.js:573:0
 
         declare class MutationObserver {
             constructor(callback: (arr: Array<MutationRecord>, observer: MutationObserver) => mixed): void;
@@ -692,7 +726,7 @@ export default {
     },
 
     /*
-        lib/bom.js:555:0
+        lib/bom.js:580:0
 
         declare class DOMRectReadOnly {
           static fromRect(rectangle?: {
@@ -718,7 +752,7 @@ export default {
     },
 
     /*
-        lib/bom.js:574:0
+        lib/bom.js:599:0
 
         declare class DOMRect extends DOMRectReadOnly {
           static fromRect(rectangle?: {
@@ -743,7 +777,7 @@ export default {
     },
 
     /*
-        lib/bom.js:592:0
+        lib/bom.js:617:0
 
         declare class DOMRectList {
           @@iterator(): Iterator<DOMRect>;
@@ -757,7 +791,7 @@ export default {
     },
 
     /*
-        lib/bom.js:599:0
+        lib/bom.js:624:0
 
         declare type IntersectionObserverEntry = {
           boundingClientRect: DOMRectReadOnly,
@@ -775,7 +809,7 @@ export default {
     },
 
     /*
-        lib/bom.js:610:0
+        lib/bom.js:635:0
 
         declare type IntersectionObserverCallback = (
             entries: Array<IntersectionObserverEntry>,
@@ -787,7 +821,7 @@ export default {
     },
 
     /*
-        lib/bom.js:615:0
+        lib/bom.js:640:0
 
         declare type IntersectionObserverOptions = {
           root?: Node | null,
@@ -799,7 +833,7 @@ export default {
     IntersectionObserverOptions(context) {},
 
     /*
-        lib/bom.js:622:0
+        lib/bom.js:647:0
 
         declare class IntersectionObserver {
             constructor(
@@ -817,7 +851,7 @@ export default {
     },
 
     /*
-        lib/bom.js:633:0
+        lib/bom.js:658:0
 
         declare class ResizeObserverEntry {
             target: Element;
@@ -827,7 +861,7 @@ export default {
     ResizeObserverEntry(context) {},
 
     /*
-        lib/bom.js:638:0
+        lib/bom.js:663:0
 
         declare class ResizeObserver {
             constructor(callback: (entries: ResizeObserverEntry[], observer: ResizeObserver) => mixed): void;
@@ -839,7 +873,7 @@ export default {
     ResizeObserver(context) {},
 
     /*
-        lib/bom.js:645:0
+        lib/bom.js:670:0
 
         declare var NodeFilter: {
           acceptNode(n: Node): number,
@@ -867,7 +901,7 @@ export default {
     },
 
     /*
-        lib/bom.js:666:0
+        lib/bom.js:691:0
 
         declare class CloseEvent extends Event {
             code: number;
@@ -880,7 +914,7 @@ export default {
     },
 
     /*
-        lib/bom.js:672:0
+        lib/bom.js:697:0
 
         declare class WebSocket extends EventTarget {
             static CONNECTING: 0;
@@ -914,7 +948,7 @@ export default {
     },
 
     /*
-        lib/bom.js:706:0
+        lib/bom.js:731:0
 
         declare class Worker extends EventTarget {
             constructor(stringUrl: string, workerOptions?: WorkerOptions): void;
@@ -930,7 +964,7 @@ export default {
     },
 
     /*
-        lib/bom.js:715:0
+        lib/bom.js:740:0
 
         declare class SharedWorker extends EventTarget {
             constructor(stringUrl: string, name?: string): void;
@@ -942,7 +976,7 @@ export default {
     SharedWorker(context) {},
 
     /*
-        lib/bom.js:722:0
+        lib/bom.js:747:0
 
         declare function importScripts(...urls: Array<string>): void;
         */
@@ -951,7 +985,7 @@ export default {
     },
 
     /*
-        lib/bom.js:724:0
+        lib/bom.js:749:0
 
         declare class WorkerGlobalScope extends EventTarget {
             self: this;
@@ -972,7 +1006,7 @@ export default {
     },
 
     /*
-        lib/bom.js:738:0
+        lib/bom.js:763:0
 
         declare class DedicatedWorkerGlobalScope extends WorkerGlobalScope {
             onmessage: (ev: MessageEvent) => mixed;
@@ -985,7 +1019,7 @@ export default {
     },
 
     /*
-        lib/bom.js:744:0
+        lib/bom.js:769:0
 
         declare class SharedWorkerGlobalScope extends WorkerGlobalScope {
             name: string;
@@ -995,7 +1029,7 @@ export default {
     SharedWorkerGlobalScope(context) {},
 
     /*
-        lib/bom.js:749:0
+        lib/bom.js:774:0
 
         declare class WorkerLocation {
             origin: string;
@@ -1013,7 +1047,7 @@ export default {
     },
 
     /*
-        lib/bom.js:760:0
+        lib/bom.js:785:0
 
         declare class WorkerNavigator mixins
           NavigatorID,
@@ -1028,7 +1062,7 @@ export default {
     },
 
     /*
-        lib/bom.js:770:0
+        lib/bom.js:795:0
 
         declare class XDomainRequest {
             timeout: number;
@@ -1048,7 +1082,7 @@ export default {
     XDomainRequest(context) {},
 
     /*
-        lib/bom.js:785:0
+        lib/bom.js:810:0
 
         declare class XMLHttpRequest extends EventTarget {
             static LOADING: number;
@@ -1099,7 +1133,7 @@ export default {
     },
 
     /*
-        lib/bom.js:829:0
+        lib/bom.js:854:0
 
         declare class XMLHttpRequestEventTarget extends EventTarget {
             onprogress: ProgressEventHandler;
@@ -1116,7 +1150,7 @@ export default {
     },
 
     /*
-        lib/bom.js:839:0
+        lib/bom.js:864:0
 
         declare class XMLSerializer {
             serializeToString(target: Node): string;
@@ -1127,7 +1161,7 @@ export default {
     },
 
     /*
-        lib/bom.js:843:0
+        lib/bom.js:868:0
 
         declare class Geolocation {
             getCurrentPosition(
@@ -1148,7 +1182,7 @@ export default {
     },
 
     /*
-        lib/bom.js:857:0
+        lib/bom.js:882:0
 
         declare class Position {
             coords: Coordinates;
@@ -1160,7 +1194,7 @@ export default {
     },
 
     /*
-        lib/bom.js:862:0
+        lib/bom.js:887:0
 
         declare class Coordinates {
             latitude: number;
@@ -1177,7 +1211,7 @@ export default {
     },
 
     /*
-        lib/bom.js:872:0
+        lib/bom.js:897:0
 
         declare class PositionError {
             code: number;
@@ -1192,7 +1226,7 @@ export default {
     },
 
     /*
-        lib/bom.js:898:0
+        lib/bom.js:923:0
 
         declare class AudioProcessingEvent extends Event {
           constructor(type: string, eventInitDict: AudioProcessingEvent$Init): void;
@@ -1207,7 +1241,7 @@ export default {
     },
 
     /*
-        lib/bom.js:911:0
+        lib/bom.js:936:0
 
         declare class OfflineAudioCompletionEvent extends Event {
           constructor(type: string, eventInitDict: OfflineAudioCompletionEvent$Init): void;
@@ -1220,7 +1254,7 @@ export default {
     },
 
     /*
-        lib/bom.js:917:0
+        lib/bom.js:942:0
 
         declare class BaseAudioContext extends EventTarget {
           currentTime: number;
@@ -1259,11 +1293,11 @@ export default {
         }
         */
     BaseAudioContext(context) {
-      context.lib('dom');
+      context.lib('dom.iterable');
     },
 
     /*
-        lib/bom.js:953:0
+        lib/bom.js:978:0
 
         declare class AudioTimestamp {
           contextTime: number;
@@ -1275,7 +1309,7 @@ export default {
     },
 
     /*
-        lib/bom.js:958:0
+        lib/bom.js:983:0
 
         declare class AudioContext extends BaseAudioContext {
           baseLatency: number;
@@ -1295,7 +1329,7 @@ export default {
     },
 
     /*
-        lib/bom.js:971:0
+        lib/bom.js:996:0
 
         declare class OfflineAudioContext extends BaseAudioContext {
           startRendering(): Promise<AudioBuffer>;
@@ -1309,7 +1343,7 @@ export default {
     },
 
     /*
-        lib/bom.js:978:0
+        lib/bom.js:1003:0
 
         declare class AudioNode extends EventTarget {
           context: AudioContext;
@@ -1328,7 +1362,7 @@ export default {
     },
 
     /*
-        lib/bom.js:990:0
+        lib/bom.js:1015:0
 
         declare class AudioParam extends AudioNode {
           value: number;
@@ -1342,11 +1376,11 @@ export default {
         }
         */
     AudioParam(context) {
-      context.lib('dom');
+      context.lib('dom.iterable');
     },
 
     /*
-        lib/bom.js:1001:0
+        lib/bom.js:1026:0
 
         declare class AudioDestinationNode extends AudioNode {
           maxChannelCount: number;
@@ -1357,7 +1391,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1005:0
+        lib/bom.js:1030:0
 
         declare class AudioListener extends AudioNode {
           positionX: AudioParam;
@@ -1378,7 +1412,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1019:0
+        lib/bom.js:1044:0
 
         declare class AudioBuffer {
           sampleRate: number;
@@ -1395,7 +1429,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1029:0
+        lib/bom.js:1054:0
 
         declare class AudioBufferSourceNode extends AudioNode {
           buffer: AudioBuffer;
@@ -1414,7 +1448,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1041:0
+        lib/bom.js:1066:0
 
         declare class CanvasCaptureMediaStream extends MediaStream {
           canvas: HTMLCanvasElement;
@@ -1424,7 +1458,7 @@ export default {
     CanvasCaptureMediaStream(context) {},
 
     /*
-        lib/bom.js:1161:0
+        lib/bom.js:1186:0
 
         declare class MediaDevices extends EventTarget {
           ondevicechange: (ev: any) => mixed;
@@ -1439,7 +1473,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1169:0
+        lib/bom.js:1194:0
 
         declare class MediaDeviceInfo {
           +deviceId: string;
@@ -1453,7 +1487,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1176:0
+        lib/bom.js:1201:0
 
         declare class MediaStream extends EventTarget {
           active: bool;
@@ -1478,7 +1512,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1194:0
+        lib/bom.js:1219:0
 
         declare class MediaStreamTrack extends EventTarget {
           enabled: bool;
@@ -1507,7 +1541,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1216:0
+        lib/bom.js:1241:0
 
         declare class MediaStreamTrackEvent extends Event {
           track: MediaStreamTrack;
@@ -1518,7 +1552,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1220:0
+        lib/bom.js:1245:0
 
         declare class MediaElementAudioSourceNode extends AudioNode {}
         */
@@ -1527,7 +1561,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1221:0
+        lib/bom.js:1246:0
 
         declare class MediaStreamAudioSourceNode extends AudioNode {}
         */
@@ -1536,7 +1570,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1222:0
+        lib/bom.js:1247:0
 
         declare class MediaStreamTrackAudioSourceNode extends AudioNode {}
         */
@@ -1545,7 +1579,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1224:0
+        lib/bom.js:1249:0
 
         declare class MediaStreamAudioDestinationNode extends AudioNode {
           stream: MediaStream;
@@ -1556,7 +1590,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1229:0
+        lib/bom.js:1254:0
 
         declare class ScriptProcessorNode extends AudioNode {
           bufferSize: number;
@@ -1568,7 +1602,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1234:0
+        lib/bom.js:1259:0
 
         declare class AnalyserNode extends AudioNode {
           fftSize: number;
@@ -1587,7 +1621,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1246:0
+        lib/bom.js:1271:0
 
         declare class BiquadFilterNode extends AudioNode {
           frequency: AudioParam;
@@ -1603,7 +1637,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1255:0
+        lib/bom.js:1280:0
 
         declare class ChannelMergerNode extends AudioNode {}
         */
@@ -1612,7 +1646,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1256:0
+        lib/bom.js:1281:0
 
         declare class ChannelSplitterNode extends AudioNode {}
         */
@@ -1621,7 +1655,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1259:0
+        lib/bom.js:1284:0
 
         declare class ConstantSourceNode extends AudioNode {
           constructor(context: BaseAudioContext, options?: ConstantSourceOptions): ConstantSourceNode;
@@ -1636,7 +1670,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1267:0
+        lib/bom.js:1292:0
 
         declare class ConvolverNode extends AudioNode {
           buffer: AudioBuffer;
@@ -1648,7 +1682,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1272:0
+        lib/bom.js:1297:0
 
         declare class DelayNode extends AudioNode {
           delayTime: number;
@@ -1659,7 +1693,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1276:0
+        lib/bom.js:1301:0
 
         declare class DynamicsCompressorNode extends AudioNode {
           threshold: AudioParam;
@@ -1675,7 +1709,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1285:0
+        lib/bom.js:1310:0
 
         declare class GainNode extends AudioNode {
           gain: AudioParam;
@@ -1686,7 +1720,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1289:0
+        lib/bom.js:1314:0
 
         declare class IIRFilterNode extends AudioNode {
           getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array): void;
@@ -1697,7 +1731,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1293:0
+        lib/bom.js:1318:0
 
         declare class OscillatorNode extends AudioNode {
           frequency: AudioParam;
@@ -1713,7 +1747,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1302:0
+        lib/bom.js:1327:0
 
         declare class StereoPannerNode extends AudioNode {
           pan: AudioParam;
@@ -1724,7 +1758,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1306:0
+        lib/bom.js:1331:0
 
         declare class PannerNode extends AudioNode {
           panningModel: 'equalpower'|'HRTF';
@@ -1744,7 +1778,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1319:0
+        lib/bom.js:1344:0
 
         declare class PeriodicWave extends AudioNode {}
         */
@@ -1753,7 +1787,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1320:0
+        lib/bom.js:1345:0
 
         declare class WaveShaperNode extends AudioNode {
           curve: Float32Array;
@@ -1765,7 +1799,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1333:0
+        lib/bom.js:1358:0
 
         declare class Headers {
             @@iterator(): Iterator<[string, string]>;
@@ -1786,7 +1820,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1347:0
+        lib/bom.js:1372:0
 
         declare class URLSearchParams {
             @@iterator(): Iterator<[string, string]>;
@@ -1808,7 +1842,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1401:0
+        lib/bom.js:1426:0
 
         declare class Response {
             constructor(input?: ?BodyInit, init?: ResponseOptions): void;
@@ -1841,7 +1875,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1427:0
+        lib/bom.js:1452:0
 
         declare class Request {
             constructor(input: RequestInfo, init?: RequestOptions): void;
@@ -1874,7 +1908,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1453:0
+        lib/bom.js:1478:0
 
         declare class AbortController {
             constructor(): void;
@@ -1887,7 +1921,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1459:0
+        lib/bom.js:1484:0
 
         declare class AbortSignal extends EventTarget {
             +aborted: boolean;
@@ -1899,7 +1933,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1464:0
+        lib/bom.js:1489:0
 
         declare function fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;
         */
@@ -1908,7 +1942,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1469:0
+        lib/bom.js:1494:0
 
         declare class TextEncoder {
           constructor(encoding?: TextEncoder$availableEncodings): TextEncoder;
@@ -1921,7 +1955,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1693:0
+        lib/bom.js:1718:0
 
         declare class TextDecoder {
           constructor(encoding?: TextDecoder$availableEncodings, options?: { fatal: bool, ... }): TextDecoder;
@@ -1936,7 +1970,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1701:0
+        lib/bom.js:1726:0
 
         declare class MessagePort extends EventTarget {
           postMessage(message: any, transfer?: Iterable<any>): void;
@@ -1952,7 +1986,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1710:0
+        lib/bom.js:1735:0
 
         declare class MessageChannel {
           port1: MessagePort;
@@ -1964,7 +1998,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1715:0
+        lib/bom.js:1740:0
 
         declare class VRDisplay extends EventTarget {
           capabilities: VRDisplayCapabilities;
@@ -1986,11 +2020,11 @@ export default {
         }
         */
     VRDisplay(context) {
-      context.lib('dom');
+      context.lib('dom.iterable');
     },
 
     /*
-        lib/bom.js:1763:0
+        lib/bom.js:1788:0
 
         declare class VRFrameData {
           leftProjectionMatrix: Float32Array;
@@ -2006,7 +2040,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1794:0
+        lib/bom.js:1819:0
 
         declare class VRDisplayEvent extends Event {
           display: VRDisplay;
@@ -2020,7 +2054,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1801:0
+        lib/bom.js:1826:0
 
         declare class MediaQueryListEvent {
           matches: boolean;
@@ -2032,14 +2066,14 @@ export default {
     },
 
     /*
-        lib/bom.js:1806:0
+        lib/bom.js:1831:0
 
         declare type MediaQueryListListener = MediaQueryListEvent => void;
         */
     MediaQueryListListener(context) {},
 
     /*
-        lib/bom.js:1808:0
+        lib/bom.js:1833:0
 
         declare class MediaQueryList extends EventTarget {
           matches: boolean;
@@ -2054,7 +2088,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1816:0
+        lib/bom.js:1841:0
 
         declare var matchMedia: string => MediaQueryList;
         */
@@ -2063,7 +2097,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1819:0
+        lib/bom.js:1844:0
 
         declare type CredMgmtCredentialRequestOptions = {
           mediation: 'silent' | 'optional' | 'required',
@@ -2074,14 +2108,14 @@ export default {
     CredMgmtCredentialRequestOptions(context) {},
 
     /*
-        lib/bom.js:1825:0
+        lib/bom.js:1850:0
 
         declare type CredMgmtCredentialCreationOptions = { signal: AbortSignal, ... }
         */
     CredMgmtCredentialCreationOptions(context) {},
 
     /*
-        lib/bom.js:1827:0
+        lib/bom.js:1852:0
 
         declare interface CredMgmtCredential {
           id: string;
@@ -2091,7 +2125,7 @@ export default {
     CredMgmtCredential(context) {},
 
     /*
-        lib/bom.js:1832:0
+        lib/bom.js:1857:0
 
         declare interface CredMgmtPasswordCredential extends CredMgmtCredential {
           password: string;
@@ -2100,7 +2134,7 @@ export default {
     CredMgmtPasswordCredential(context) {},
 
     /*
-        lib/bom.js:1836:0
+        lib/bom.js:1861:0
 
         declare interface CredMgmtCredentialsContainer {
           get(option?: CredMgmtCredentialRequestOptions): Promise<?CredMgmtCredential>;
@@ -2114,7 +2148,7 @@ export default {
     CredMgmtCredentialsContainer(context) {},
 
     /*
-        lib/bom.js:1859:0
+        lib/bom.js:1884:0
 
         declare class SpeechSynthesis extends EventTarget {
           +pending: boolean;
@@ -2135,7 +2169,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1873:0
+        lib/bom.js:1898:0
 
         declare var speechSynthesis: SpeechSynthesis;
         */
@@ -2144,7 +2178,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1875:0
+        lib/bom.js:1900:0
 
         declare class SpeechSynthesisUtterance extends EventTarget {
           constructor(text?: string): SpeechSynthesisUtterance;
@@ -2170,7 +2204,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1903:0
+        lib/bom.js:1928:0
 
         declare class SpeechSynthesisEvent extends Event {
           constructor(type: string, eventInitDict?: SpeechSynthesisEvent$Init): SpeechSynthesisEvent;
@@ -2186,7 +2220,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1917:0
+        lib/bom.js:1942:0
 
         declare class SpeechSynthesisErrorEvent extends SpeechSynthesisEvent {
           constructor(type: string, eventInitDict?: SpeechSynthesisErrorEvent$Init): SpeechSynthesisErrorEvent;
@@ -2198,7 +2232,7 @@ export default {
     },
 
     /*
-        lib/bom.js:1922:0
+        lib/bom.js:1947:0
 
         declare class SpeechSynthesisVoice {
           +voiceURI: string;

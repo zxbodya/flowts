@@ -661,6 +661,43 @@ describe('lib/bom.js', () => {
       });
     });
 
+    describe('PerformanceObserverEntryList', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 extends PerformanceObserverEntryList {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('PerformanceObserver', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = PerformanceObserver;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new PerformanceObserver();
+            
+            class A1 extends PerformanceObserver {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('History', () => {
       test('variable', () => {
         expect(

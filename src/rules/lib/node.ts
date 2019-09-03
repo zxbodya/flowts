@@ -853,16 +853,17 @@ export default {
     },
 
     /*
-        lib/node.js:2254:0
+        lib/node.js:2276:0
 
         declare class vm$Script {
-          constructor(code: string, options: Object): void;
+          constructor(code: string, options?: vm$ScriptOptions | string): void;
           cachedData: ?Buffer;
           cachedDataRejected: ?boolean;
           cachedDataProduced: ?boolean;
           runInContext(contextifiedSandbox: vm$Context, options?: vm$ScriptOptions): any;
-          runInNewContext(sandbox?: Object, options?: vm$ScriptOptions): any;
+          runInNewContext(sandbox?: { [key: string]: any, ... }, options?: vm$ScriptOptions): any;
           runInThisContext(options?: vm$ScriptOptions): any;
+          createCachedData(): Buffer;
         }
         */
     vm$Script(context) {
@@ -870,35 +871,35 @@ export default {
     },
 
     /*
-        lib/node.js:2264:0
+        lib/node.js:2287:0
 
         declare class vm$Context {}
         */
     vm$Context(context) {},
 
     /*
-        lib/node.js:2500:0
+        lib/node.js:2524:0
 
         declare class $SymbolReplModeMagic mixins Symbol {}
         */
     $SymbolReplModeMagic(context) {},
 
     /*
-        lib/node.js:2501:0
+        lib/node.js:2525:0
 
         declare class $SymbolReplModeSloppy mixins Symbol {}
         */
     $SymbolReplModeSloppy(context) {},
 
     /*
-        lib/node.js:2502:0
+        lib/node.js:2526:0
 
         declare class $SymbolReplModeStrict mixins Symbol {}
         */
     $SymbolReplModeStrict(context) {},
 
     /*
-        lib/node.js:2545:0
+        lib/node.js:2569:0
 
         declare class Process extends events$EventEmitter {
           abort() : void;
@@ -979,35 +980,35 @@ export default {
     Process(context) {},
 
     /*
-        lib/node.js:2620:0
+        lib/node.js:2644:0
 
         declare var process: Process;
         */
     process(context) {},
 
     /*
-        lib/node.js:2622:0
+        lib/node.js:2646:0
 
         declare var __filename: string;
         */
     __filename(context) {},
 
     /*
-        lib/node.js:2623:0
+        lib/node.js:2647:0
 
         declare var __dirname: string;
         */
     __dirname(context) {},
 
     /*
-        lib/node.js:2625:0
+        lib/node.js:2649:0
 
         declare function setImmediate(callback: ((...args: Array<any>) => mixed), ...args: Array<any>): Object;
         */
     setImmediate(context) {},
 
     /*
-        lib/node.js:2626:0
+        lib/node.js:2650:0
 
         declare function clearImmediate(immediateObject: any): Object;
         */
@@ -4229,53 +4230,60 @@ export default {
 
       exports: {
         /*
-                lib/node.js:2267:2
+                lib/node.js:2290:2
 
-                declare var Script : typeof vm$Script
+                declare var Script: typeof vm$Script;
                 */
         Script(context) {},
 
         /*
-                lib/node.js:2268:2
+                lib/node.js:2291:2
 
-                declare function createContext(sandbox?: Object): vm$Context;
+                declare function createContext(sandbox?: { [key: string]: any, ... }, options?: vm$CreateContextOptions): vm$Context;
                 */
         createContext(context) {},
 
         /*
-                lib/node.js:2269:2
+                lib/node.js:2292:2
 
-                declare function isContext(sandbox: any): boolean;
+                declare function isContext(sandbox: { [key: string]: any, ... }): boolean;
                 */
         isContext(context) {},
 
         /*
-                lib/node.js:2270:2
+                lib/node.js:2293:2
 
-                declare function runInContext(code: string, contextifiedSandbox: vm$Context, options?: vm$ScriptOptions): any;
+                declare function runInContext(code: string, contextifiedSandbox: vm$Context, options?: vm$ScriptOptions | string): any;
                 */
         runInContext(context) {},
 
         /*
-                lib/node.js:2271:2
+                lib/node.js:2294:2
 
                 declare function runInDebugContext(code: string): any;
                 */
         runInDebugContext(context) {},
 
         /*
-                lib/node.js:2272:2
+                lib/node.js:2295:2
 
-                declare function runInNewContext(code: string, sandbox?: Object, options?: vm$ScriptOptions): any;
+                declare function runInNewContext(code: string, sandbox?: { [key: string]: any, ... }, options?: vm$ScriptOptions | string): any;
                 */
         runInNewContext(context) {},
 
         /*
-                lib/node.js:2273:2
+                lib/node.js:2296:2
 
-                declare function runInThisContext(code: string, options?: vm$ScriptOptions): any;
+                declare function runInThisContext(code: string, options?: vm$ScriptOptions | string): any;
                 */
         runInThisContext(context) {},
+
+        /*
+                lib/node.js:2297:2
+
+                declare function compileFunction(code: string, params: string[], options: vm$CompileFunctionOptions): Function;
+                */
+        compileFunction(context) {},
       },
     },
 
@@ -4284,308 +4292,308 @@ export default {
 
       exports: {
         /*
-                lib/node.js:2302:2
+                lib/node.js:2326:2
 
                 declare var Z_NO_FLUSH: number;
                 */
         Z_NO_FLUSH(context) {},
 
         /*
-                lib/node.js:2303:2
+                lib/node.js:2327:2
 
                 declare var Z_PARTIAL_FLUSH: number;
                 */
         Z_PARTIAL_FLUSH(context) {},
 
         /*
-                lib/node.js:2304:2
+                lib/node.js:2328:2
 
                 declare var Z_SYNC_FLUSH: number;
                 */
         Z_SYNC_FLUSH(context) {},
 
         /*
-                lib/node.js:2305:2
+                lib/node.js:2329:2
 
                 declare var Z_FULL_FLUSH: number;
                 */
         Z_FULL_FLUSH(context) {},
 
         /*
-                lib/node.js:2306:2
+                lib/node.js:2330:2
 
                 declare var Z_FINISH: number;
                 */
         Z_FINISH(context) {},
 
         /*
-                lib/node.js:2307:2
+                lib/node.js:2331:2
 
                 declare var Z_BLOCK: number;
                 */
         Z_BLOCK(context) {},
 
         /*
-                lib/node.js:2308:2
+                lib/node.js:2332:2
 
                 declare var Z_TREES: number;
                 */
         Z_TREES(context) {},
 
         /*
-                lib/node.js:2309:2
+                lib/node.js:2333:2
 
                 declare var Z_OK: number;
                 */
         Z_OK(context) {},
 
         /*
-                lib/node.js:2310:2
+                lib/node.js:2334:2
 
                 declare var Z_STREAM_END: number;
                 */
         Z_STREAM_END(context) {},
 
         /*
-                lib/node.js:2311:2
+                lib/node.js:2335:2
 
                 declare var Z_NEED_DICT: number;
                 */
         Z_NEED_DICT(context) {},
 
         /*
-                lib/node.js:2312:2
+                lib/node.js:2336:2
 
                 declare var Z_ERRNO: number;
                 */
         Z_ERRNO(context) {},
 
         /*
-                lib/node.js:2313:2
+                lib/node.js:2337:2
 
                 declare var Z_STREAM_ERROR: number;
                 */
         Z_STREAM_ERROR(context) {},
 
         /*
-                lib/node.js:2314:2
+                lib/node.js:2338:2
 
                 declare var Z_DATA_ERROR: number;
                 */
         Z_DATA_ERROR(context) {},
 
         /*
-                lib/node.js:2315:2
+                lib/node.js:2339:2
 
                 declare var Z_MEM_ERROR: number;
                 */
         Z_MEM_ERROR(context) {},
 
         /*
-                lib/node.js:2316:2
+                lib/node.js:2340:2
 
                 declare var Z_BUF_ERROR: number;
                 */
         Z_BUF_ERROR(context) {},
 
         /*
-                lib/node.js:2317:2
+                lib/node.js:2341:2
 
                 declare var Z_VERSION_ERROR: number;
                 */
         Z_VERSION_ERROR(context) {},
 
         /*
-                lib/node.js:2318:2
+                lib/node.js:2342:2
 
                 declare var Z_NO_COMPRESSION: number;
                 */
         Z_NO_COMPRESSION(context) {},
 
         /*
-                lib/node.js:2319:2
+                lib/node.js:2343:2
 
                 declare var Z_BEST_SPEED: number;
                 */
         Z_BEST_SPEED(context) {},
 
         /*
-                lib/node.js:2320:2
+                lib/node.js:2344:2
 
                 declare var Z_BEST_COMPRESSION: number;
                 */
         Z_BEST_COMPRESSION(context) {},
 
         /*
-                lib/node.js:2321:2
+                lib/node.js:2345:2
 
                 declare var Z_DEFAULT_COMPRESSION: number;
                 */
         Z_DEFAULT_COMPRESSION(context) {},
 
         /*
-                lib/node.js:2322:2
+                lib/node.js:2346:2
 
                 declare var Z_FILTERED: number;
                 */
         Z_FILTERED(context) {},
 
         /*
-                lib/node.js:2323:2
+                lib/node.js:2347:2
 
                 declare var Z_HUFFMAN_ONLY: number;
                 */
         Z_HUFFMAN_ONLY(context) {},
 
         /*
-                lib/node.js:2324:2
+                lib/node.js:2348:2
 
                 declare var Z_RLE: number;
                 */
         Z_RLE(context) {},
 
         /*
-                lib/node.js:2325:2
+                lib/node.js:2349:2
 
                 declare var Z_FIXED: number;
                 */
         Z_FIXED(context) {},
 
         /*
-                lib/node.js:2326:2
+                lib/node.js:2350:2
 
                 declare var Z_DEFAULT_STRATEGY: number;
                 */
         Z_DEFAULT_STRATEGY(context) {},
 
         /*
-                lib/node.js:2327:2
+                lib/node.js:2351:2
 
                 declare var Z_BINARY: number;
                 */
         Z_BINARY(context) {},
 
         /*
-                lib/node.js:2328:2
+                lib/node.js:2352:2
 
                 declare var Z_TEXT: number;
                 */
         Z_TEXT(context) {},
 
         /*
-                lib/node.js:2329:2
+                lib/node.js:2353:2
 
                 declare var Z_ASCII: number;
                 */
         Z_ASCII(context) {},
 
         /*
-                lib/node.js:2330:2
+                lib/node.js:2354:2
 
                 declare var Z_UNKNOWN: number;
                 */
         Z_UNKNOWN(context) {},
 
         /*
-                lib/node.js:2331:2
+                lib/node.js:2355:2
 
                 declare var Z_DEFLATED: number;
                 */
         Z_DEFLATED(context) {},
 
         /*
-                lib/node.js:2332:2
+                lib/node.js:2356:2
 
                 declare var Z_NULL: number;
                 */
         Z_NULL(context) {},
 
         /*
-                lib/node.js:2333:2
+                lib/node.js:2357:2
 
                 declare var Z_DEFAULT_CHUNK: number;
                 */
         Z_DEFAULT_CHUNK(context) {},
 
         /*
-                lib/node.js:2334:2
+                lib/node.js:2358:2
 
                 declare var Z_DEFAULT_LEVEL: number;
                 */
         Z_DEFAULT_LEVEL(context) {},
 
         /*
-                lib/node.js:2335:2
+                lib/node.js:2359:2
 
                 declare var Z_DEFAULT_MEMLEVEL: number;
                 */
         Z_DEFAULT_MEMLEVEL(context) {},
 
         /*
-                lib/node.js:2336:2
+                lib/node.js:2360:2
 
                 declare var Z_DEFAULT_WINDOWBITS: number;
                 */
         Z_DEFAULT_WINDOWBITS(context) {},
 
         /*
-                lib/node.js:2337:2
+                lib/node.js:2361:2
 
                 declare var Z_MAX_CHUNK: number;
                 */
         Z_MAX_CHUNK(context) {},
 
         /*
-                lib/node.js:2338:2
+                lib/node.js:2362:2
 
                 declare var Z_MAX_LEVEL: number;
                 */
         Z_MAX_LEVEL(context) {},
 
         /*
-                lib/node.js:2339:2
+                lib/node.js:2363:2
 
                 declare var Z_MAX_MEMLEVEL: number;
                 */
         Z_MAX_MEMLEVEL(context) {},
 
         /*
-                lib/node.js:2340:2
+                lib/node.js:2364:2
 
                 declare var Z_MAX_WINDOWBITS: number;
                 */
         Z_MAX_WINDOWBITS(context) {},
 
         /*
-                lib/node.js:2341:2
+                lib/node.js:2365:2
 
                 declare var Z_MIN_CHUNK: number;
                 */
         Z_MIN_CHUNK(context) {},
 
         /*
-                lib/node.js:2342:2
+                lib/node.js:2366:2
 
                 declare var Z_MIN_LEVEL: number;
                 */
         Z_MIN_LEVEL(context) {},
 
         /*
-                lib/node.js:2343:2
+                lib/node.js:2367:2
 
                 declare var Z_MIN_MEMLEVEL: number;
                 */
         Z_MIN_MEMLEVEL(context) {},
 
         /*
-                lib/node.js:2344:2
+                lib/node.js:2368:2
 
                 declare var Z_MIN_WINDOWBITS: number;
                 */
         Z_MIN_WINDOWBITS(context) {},
 
         /*
-                lib/node.js:2345:2
+                lib/node.js:2369:2
 
                 declare var constants: {
                     Z_NO_FLUSH: number,
@@ -4637,7 +4645,7 @@ export default {
         constants(context) {},
 
         /*
-                lib/node.js:2391:2
+                lib/node.js:2415:2
 
                 declare var codes: {
                     Z_OK: number,
@@ -4655,7 +4663,7 @@ export default {
         codes(context) {},
 
         /*
-                lib/node.js:2403:2
+                lib/node.js:2427:2
 
                 declare class Zlib extends stream$Duplex {
                     // TODO
@@ -4664,196 +4672,196 @@ export default {
         Zlib(context) {},
 
         /*
-                lib/node.js:2406:2
+                lib/node.js:2430:2
 
                 declare class Deflate extends Zlib {}
                 */
         Deflate(context) {},
 
         /*
-                lib/node.js:2407:2
+                lib/node.js:2431:2
 
                 declare class Inflate extends Zlib {}
                 */
         Inflate(context) {},
 
         /*
-                lib/node.js:2408:2
+                lib/node.js:2432:2
 
                 declare class Gzip extends Zlib {}
                 */
         Gzip(context) {},
 
         /*
-                lib/node.js:2409:2
+                lib/node.js:2433:2
 
                 declare class Gunzip extends Zlib {}
                 */
         Gunzip(context) {},
 
         /*
-                lib/node.js:2410:2
+                lib/node.js:2434:2
 
                 declare class DeflateRaw extends Zlib {}
                 */
         DeflateRaw(context) {},
 
         /*
-                lib/node.js:2411:2
+                lib/node.js:2435:2
 
                 declare class InflateRaw extends Zlib {}
                 */
         InflateRaw(context) {},
 
         /*
-                lib/node.js:2412:2
+                lib/node.js:2436:2
 
                 declare class Unzip extends Zlib {}
                 */
         Unzip(context) {},
 
         /*
-                lib/node.js:2413:2
+                lib/node.js:2437:2
 
                 declare function createDeflate(options?: zlib$options): Deflate;
                 */
         createDeflate(context) {},
 
         /*
-                lib/node.js:2414:2
+                lib/node.js:2438:2
 
                 declare function createInflate(options?: zlib$options): Inflate;
                 */
         createInflate(context) {},
 
         /*
-                lib/node.js:2415:2
+                lib/node.js:2439:2
 
                 declare function createDeflateRaw(options?: zlib$options): DeflateRaw;
                 */
         createDeflateRaw(context) {},
 
         /*
-                lib/node.js:2416:2
+                lib/node.js:2440:2
 
                 declare function createInflateRaw(options?: zlib$options): InflateRaw;
                 */
         createInflateRaw(context) {},
 
         /*
-                lib/node.js:2417:2
+                lib/node.js:2441:2
 
                 declare function createGzip(options?: zlib$options): Gzip;
                 */
         createGzip(context) {},
 
         /*
-                lib/node.js:2418:2
+                lib/node.js:2442:2
 
                 declare function createGunzip(options?: zlib$options): Gunzip;
                 */
         createGunzip(context) {},
 
         /*
-                lib/node.js:2419:2
+                lib/node.js:2443:2
 
                 declare function createUnzip(options?: zlib$options): Unzip;
                 */
         createUnzip(context) {},
 
         /*
-                lib/node.js:2420:2
+                lib/node.js:2444:2
 
                 declare var deflate: zlib$asyncFn;
                 */
         deflate(context) {},
 
         /*
-                lib/node.js:2421:2
+                lib/node.js:2445:2
 
                 declare var deflateSync: zlib$syncFn;
                 */
         deflateSync(context) {},
 
         /*
-                lib/node.js:2422:2
+                lib/node.js:2446:2
 
                 declare var gzip: zlib$asyncFn;
                 */
         gzip(context) {},
 
         /*
-                lib/node.js:2423:2
+                lib/node.js:2447:2
 
                 declare var gzipSync: zlib$syncFn;
                 */
         gzipSync(context) {},
 
         /*
-                lib/node.js:2424:2
+                lib/node.js:2448:2
 
                 declare var deflateRaw: zlib$asyncFn;
                 */
         deflateRaw(context) {},
 
         /*
-                lib/node.js:2425:2
+                lib/node.js:2449:2
 
                 declare var deflateRawSync: zlib$syncFn;
                 */
         deflateRawSync(context) {},
 
         /*
-                lib/node.js:2426:2
+                lib/node.js:2450:2
 
                 declare var unzip: zlib$asyncFn;
                 */
         unzip(context) {},
 
         /*
-                lib/node.js:2427:2
+                lib/node.js:2451:2
 
                 declare var unzipSync: zlib$syncFn;
                 */
         unzipSync(context) {},
 
         /*
-                lib/node.js:2428:2
+                lib/node.js:2452:2
 
                 declare var inflate: zlib$asyncFn;
                 */
         inflate(context) {},
 
         /*
-                lib/node.js:2429:2
+                lib/node.js:2453:2
 
                 declare var inflateSync: zlib$syncFn;
                 */
         inflateSync(context) {},
 
         /*
-                lib/node.js:2430:2
+                lib/node.js:2454:2
 
                 declare var gunzip: zlib$asyncFn;
                 */
         gunzip(context) {},
 
         /*
-                lib/node.js:2431:2
+                lib/node.js:2455:2
 
                 declare var gunzipSync: zlib$syncFn;
                 */
         gunzipSync(context) {},
 
         /*
-                lib/node.js:2432:2
+                lib/node.js:2456:2
 
                 declare var inflateRaw: zlib$asyncFn;
                 */
         inflateRaw(context) {},
 
         /*
-                lib/node.js:2433:2
+                lib/node.js:2457:2
 
                 declare var inflateRawSync: zlib$syncFn;
                 */
@@ -4866,14 +4874,14 @@ export default {
 
       exports: {
         /*
-                lib/node.js:2437:2
+                lib/node.js:2461:2
 
                 declare class AssertionError extends Error {}
                 */
         AssertionError(context) {},
 
         /*
-                lib/node.js:2438:2
+                lib/node.js:2462:2
 
                 declare module.exports: {
                     (value: any, message?: string): void,
@@ -4909,21 +4917,21 @@ export default {
 
       exports: {
         /*
-                lib/node.js:2487:2
+                lib/node.js:2511:2
 
                 declare function getHeapStatistics() : HeapStatistics;
                 */
         getHeapStatistics(context) {},
 
         /*
-                lib/node.js:2488:2
+                lib/node.js:2512:2
 
                 declare function getHeapSpaceStatistics() : Array<HeapSpaceStatistics>
                 */
         getHeapSpaceStatistics(context) {},
 
         /*
-                lib/node.js:2489:2
+                lib/node.js:2513:2
 
                 declare function setFlagsFromString(flags: string) : void;
                 */
@@ -4936,28 +4944,28 @@ export default {
 
       exports: {
         /*
-                lib/node.js:2505:2
+                lib/node.js:2529:2
 
                 declare var REPL_MODE_MAGIC: $SymbolReplModeMagic;
                 */
         REPL_MODE_MAGIC(context) {},
 
         /*
-                lib/node.js:2506:2
+                lib/node.js:2530:2
 
                 declare var REPL_MODE_SLOPPY: $SymbolReplModeSloppy;
                 */
         REPL_MODE_SLOPPY(context) {},
 
         /*
-                lib/node.js:2507:2
+                lib/node.js:2531:2
 
                 declare var REPL_MODE_STRICT: $SymbolReplModeStrict;
                 */
         REPL_MODE_STRICT(context) {},
 
         /*
-                lib/node.js:2509:2
+                lib/node.js:2533:2
 
                 declare class REPLServer extends readline$Interface {
                     context: vm$Context;
@@ -4968,12 +4976,12 @@ export default {
         REPLServer(context) {},
 
         /*
-                lib/node.js:2515:2
+                lib/node.js:2539:2
 
                 declare function start(prompt: string): REPLServer;
                 */
         /*
-                lib/node.js:2516:2
+                lib/node.js:2540:2
 
                 declare function start(options: {
                     prompt?: string,
@@ -4994,7 +5002,7 @@ export default {
         start(context) {},
 
         /*
-                lib/node.js:2532:2
+                lib/node.js:2556:2
 
                 declare class Recoverable extends SyntaxError {
                     constructor(err: Error): Recoverable;

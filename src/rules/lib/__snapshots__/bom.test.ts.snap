@@ -1018,6 +1018,25 @@ exports[`lib/bom.js globals PerformanceNavigationTiming variable 1`] = `
 "
 `;
 
+exports[`lib/bom.js globals PerformanceObserver generated - class 1`] = `
+"new PerformanceObserver();
+
+class A1 extends PerformanceObserver {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceObserver variable 1`] = `
+"var a = PerformanceObserver;
+"
+`;
+
+exports[`lib/bom.js globals PerformanceObserverEntryList generated - interface 1`] = `
+"class A1 extends PerformanceObserverEntryList {}
+"
+`;
+
+exports[`lib/bom.js globals PerformanceObserverEntryList generated - type 1`] = `""`;
+
 exports[`lib/bom.js globals PerformanceResourceTiming generated - class 1`] = `
 "new PerformanceResourceTiming();
 
