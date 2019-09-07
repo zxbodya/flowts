@@ -33,7 +33,7 @@ import { Rule } from './Rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
 import { RuleTest } from './RuleTest';
 
-type Declaratios = Map<string, { paths: NodePath[]; fix: Statement[] }>;
+type Declarations = Map<string, { paths: NodePath[]; fix: Statement[] }>;
 
 const libGlobalsIndex = new Map<string, string>(
   ([] as Array<[string, string]>).concat(
@@ -77,15 +77,15 @@ async function main(
   if (flowAst === null) {
     throw new Error('sourceAst === null');
   }
-  const globals: Declaratios = new Map();
+  const globals: Declarations = new Map();
   let isModule = false;
   let moduleName: string;
-  const modules: { [name: string]: Declaratios } = {};
-  let module: Declaratios;
+  const modules: { [name: string]: Declarations } = {};
+  let module: Declarations;
   let hasExports = false;
-  const defaultModule: Declaratios = new Map();
+  const defaultModule: Declarations = new Map();
 
-  function register(target: Declaratios, name: string, path: NodePath) {
+  function register(target: Declarations, name: string, path: NodePath) {
     let ent = target.get(name);
     if (ent === undefined) {
       ent = { paths: [], fix: [] };
@@ -166,7 +166,7 @@ async function main(
           : path.node.id.value;
         module = new Map();
       },
-      exit(path: NodePath<DeclareModule>) {
+      exit() {
         isModule = false;
         modules[moduleName] = module;
       },
