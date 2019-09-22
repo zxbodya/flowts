@@ -23,51 +23,9 @@ import {
   stringLiteral,
 } from '@babel/types';
 
-import bomRules from './rules/lib/bom';
-import coreRules from './rules/lib/core';
-import cssomRules from './rules/lib/cssom';
-import domRules from './rules/lib/dom';
-import indexeddbRules from './rules/lib/indexeddb';
-import intlRules from './rules/lib/intl';
-import nodeRules from './rules/lib/node';
-import reactRules from './rules/lib/react';
-import reactDomRules from './rules/lib/react-dom';
-import serviceworkersRules from './rules/lib/serviceworkers';
-import streamsRules from './rules/lib/streams';
-import webassemblyRules from './rules/lib/webassembly';
+import rules from './rules';
 
-const rules = {
-  globals: {
-    ...bomRules.globals,
-    ...coreRules.globals,
-    ...cssomRules.globals,
-    ...domRules.globals,
-    ...indexeddbRules.globals,
-    ...intlRules.globals,
-    ...nodeRules.globals,
-    ...reactRules.globals,
-    ...reactDomRules.globals,
-    ...serviceworkersRules.globals,
-    ...streamsRules.globals,
-    ...webassemblyRules.globals,
-  },
-  modules: {
-    ...bomRules.modules,
-    ...coreRules.modules,
-    ...cssomRules.modules,
-    ...domRules.modules,
-    ...indexeddbRules.modules,
-    ...intlRules.modules,
-    ...nodeRules.modules,
-    ...reactRules.modules,
-    ...reactDomRules.modules,
-    ...serviceworkersRules.modules,
-    ...streamsRules.modules,
-    ...webassemblyRules.modules,
-  },
-} as RuleSet;
-
-import { GlobalFixContext, NamedFixContext, RuleSet } from './ruleTypes';
+import { GlobalFixContext, NamedFixContext } from './ruleTypes';
 
 const visitor: Visitor = {
   Program: {

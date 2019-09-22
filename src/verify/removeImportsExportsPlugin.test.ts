@@ -1,5 +1,5 @@
 import plugin from './removeImportsExportsPlugin';
-import { createTransform } from './createTransform';
+import { createTransform } from '../createTransform';
 
 const transform = createTransform([plugin]);
 

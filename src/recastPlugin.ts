@@ -2,6 +2,9 @@ import * as babel from '@babel/core';
 import * as recast from '@zxbodya/recast';
 import { File } from '@babel/types';
 
+/**
+ * Babel plugin to use recast for parsing and printing later
+ */
 export default () => ({
   name: 'recast-plugin',
   parserOverride(

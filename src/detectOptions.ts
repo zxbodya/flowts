@@ -1,32 +1,8 @@
 import * as babel from '@babel/core';
-import traverse, { NodePath } from '@babel/traverse';
-import { isIdentifier, Program } from '@babel/types';
+import traverse from '@babel/traverse';
 import { sharedParserPlugins } from './sharedParserPlugins';
 
-function getReferenceExportName(ref: NodePath): string | undefined {
-  let name;
-  if (ref.parentPath.isMemberExpression()) {
-    if (isIdentifier(ref.parentPath.node.property)) {
-      name = ref.parentPath.node.property.name;
-    } else {
-      ref.parentPath.buildCodeFrameError(
-        'unexpected property in member expression'
-      );
-    }
-  } else if (ref.parentPath.isQualifiedTypeIdentifier()) {
-    name = ref.parentPath.node.id.name;
-  }
-  return name;
-}
-
 export interface SourceOptions {
-  imports: Map<
-    string,
-    {
-      exports: Set<string>;
-      default?: Set<string>;
-    }
-  >;
   isJSX: boolean;
   isFlow: boolean;
 }
@@ -50,11 +26,6 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     );
   }
 
-  const imports = new Map<
-    string,
-    { exports: Set<string>; default?: Set<string> }
-  >();
-
   traverse(flowAst, {
     JSX() {
       isJSX = true;
@@ -62,52 +33,6 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     Flow() {
       isFlow = true;
     },
-    Program(path: NodePath<Program>) {
-      for (const [bindingName, binding] of Object.entries(
-        path.scope.bindings
-      )) {
-        if (binding.kind === 'module') {
-          let moduleName: string;
-          if (binding.path.parentPath.isImportDeclaration()) {
-            moduleName = binding.path.parentPath.node.source.value;
-          } else {
-            throw path.buildCodeFrameError(
-              `Module binding "${bindingName}", expected to be part of import declaration`
-            );
-          }
-
-          let module = imports.get(moduleName);
-          if (!module) {
-            module = { exports: new Set() };
-            imports.set(moduleName, module);
-          }
-
-          if (binding.path.isImportDefaultSpecifier()) {
-            const defaultUsages = new Set<string>();
-            for (const ref of binding.referencePaths) {
-              const name = getReferenceExportName(ref);
-              if (name) {
-                defaultUsages.add(name);
-              }
-            }
-            module.default = defaultUsages;
-          }
-
-          if (binding.path.isImportNamespaceSpecifier()) {
-            for (const ref of binding.referencePaths) {
-              const name = getReferenceExportName(ref);
-              if (name) {
-                module.exports.add(name);
-              }
-            }
-          }
-
-          if (binding.path.isImportSpecifier()) {
-            module.exports.add(bindingName);
-          }
-        }
-      }
-    },
   });
-  return { isJSX, isFlow, imports };
+  return { isJSX, isFlow };
 }

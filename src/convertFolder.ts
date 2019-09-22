@@ -8,7 +8,7 @@ import jestDiff from 'jest-diff';
 import { detectOptions } from './detectOptions';
 import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';
-import { verify } from './verify';
+import { verify } from './verify/verify';
 import { ConvertFolderOptions } from './cli';
 
 export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {

@@ -4,6 +4,12 @@ import recastPlugin from './recastPlugin';
 import { PluginItem } from '@babel/core';
 import { Options } from 'prettier';
 
+/**
+ * Helper utility creating function transforming the code given plugins array
+ * @param plugins
+ * @param prettierConfig
+ * @param recast
+ */
 export function createTransform(
   plugins: PluginItem[],
   { prettierConfig = {} as Options, recast = true } = {}

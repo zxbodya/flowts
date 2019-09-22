@@ -1,6 +1,6 @@
 import * as babel from '@babel/core';
 import * as prettier from 'prettier';
-import { sharedParserPlugins } from './sharedParserPlugins';
+import { sharedParserPlugins } from '../sharedParserPlugins';
 import removeImportsPlugin from './removeImportsExportsPlugin';
 
 // self verification

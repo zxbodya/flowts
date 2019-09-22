@@ -1,36 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`detectOptions collects module usage info 1`] = `
-Object {
-  "imports": Map {
-    "react" => Object {
-      "default": Set {
-        "createElement",
-      },
-      "exports": Set {
-        "ComponentType",
-      },
-    },
-    "n" => Object {
-      "exports": Set {
-        "T",
-        "B",
-      },
-    },
-    "react-dom" => Object {
-      "exports": Set {
-        "render",
-      },
-    },
-  },
-  "isFlow": true,
-  "isJSX": false,
-}
-`;
-
 exports[`detectOptions detects @flow comment 1`] = `
 Object {
-  "imports": Map {},
   "isFlow": true,
   "isJSX": false,
 }
@@ -38,7 +9,6 @@ Object {
 
 exports[`detectOptions detects JSX 1`] = `
 Object {
-  "imports": Map {},
   "isFlow": false,
   "isJSX": true,
 }
@@ -46,7 +16,6 @@ Object {
 
 exports[`detectOptions detects flow constructions in code 1`] = `
 Object {
-  "imports": Map {},
   "isFlow": true,
   "isJSX": false,
 }
@@ -54,7 +23,6 @@ Object {
 
 exports[`detectOptions use file extension to detect flow 1`] = `
 Object {
-  "imports": Map {},
   "isFlow": true,
   "isJSX": false,
 }
@@ -62,7 +30,6 @@ Object {
 
 exports[`detectOptions use file extension to detect jsx 1`] = `
 Object {
-  "imports": Map {},
   "isFlow": true,
   "isJSX": true,
 }
