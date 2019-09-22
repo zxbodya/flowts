@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`detectOptions collects module usage info 1`] = `
+Object {
+  "imports": Map {
+    "react" => Object {
+      "default": Set {
+        "createElement",
+      },
+      "exports": Set {
+        "ComponentType",
+      },
+    },
+    "n" => Object {
+      "exports": Set {
+        "T",
+        "B",
+      },
+    },
+    "react-dom" => Object {
+      "exports": Set {
+        "render",
+      },
+    },
+  },
+}
+`;
