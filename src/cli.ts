@@ -2,17 +2,15 @@ import * as commander from 'commander';
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { convertFolder } from './convertFolder';
+import { convert } from './convert';
 
-export interface GlobalOptions {
+export interface Options {
   readonly recast: boolean;
   readonly prettier: boolean;
-}
-
-export interface ConvertFolderOptions {
   readonly allowJs: boolean;
   readonly remove: boolean;
-  readonly parent: GlobalOptions;
+  readonly include: string;
+  readonly exclude: string;
 }
 
 const program = new commander.Command();
@@ -24,30 +22,13 @@ const pkg = JSON.parse(
 program
   .name('flowts')
   .version(pkg.version)
-  .description('Flow to TypeScript migration toolkit.')
+  .description('Flow to TypeScript migration tool')
   .option('-R, --no-recast', 'use babel generator instead of recast', false)
-  .option('-P, --no-prettier', 'do not run prettier on converted code', false);
-
-const handleCommandPromise = (p: Promise<any>) => {
-  p.then(
-    () => {
-      console.log('done');
-      process.exit(0);
-    },
-    e => {
-      console.error(e);
-      process.exit(1);
-    }
-  );
-};
-
-program
-  .command('folder <folders...>')
-  .description('Convert all files in specified folders')
-  .usage('./src ./test')
+  .option('-P, --no-prettier', 'do not run prettier on converted code', false)
+  .usage('[options] ./path/to/project')
   .option(
     '--no-allow-js',
-    'convert all js files, including without flow to TypeScript',
+    'convert all JS files to TypeScript(including without Flow)',
     false
   )
   .option(
@@ -55,30 +36,37 @@ program
     'keep js files after appropriate ts files were created',
     false
   )
-  .action((dirs: string[], options: ConvertFolderOptions) => {
-    handleCommandPromise(
-      (async () => {
-        for (const dir of dirs) {
-          await convertFolder(dir, options);
-        }
-      })()
-    );
-  });
+  .option(
+    '-i, --include <includeGlob>',
+    'Glob expression of files to include, default: "**/*.{js,mjs,jsx,js.flow}"',
+    '**/*.{js,mjs,jsx,js.flow}'
+  )
+  .option(
+    '-x, --exclude <excludeGlob>',
+    'Additional excludes glob expression (by default node_modules and files from .gitignore is excluded)',
+    '**/node_modules/**'
+  )
+  .parse(process.argv);
 
-program.on('command:*', function() {
-  console.error(
-    'Invalid command: %s\nSee --help for a list of available commands.',
-    program.args.join(' ')
-  );
-  process.exit(1);
-});
+const args = program.args;
+const opts = program.opts() as Options;
 
-program.parse(process.argv);
-
-if (program.args.length === 0) {
-  console.error(
-    'Command not specified\nSee --help for a list of available commands.',
-    program.args.join(' ')
-  );
+if (args.length === 0) {
+  console.error('Please specify project root');
   process.exit(1);
 }
+if (args.length > 1) {
+  console.error('Only one project root can be specified');
+  process.exit(1);
+}
+
+convert(args[0], opts).then(
+  () => {
+    console.log('done');
+    process.exit(0);
+  },
+  e => {
+    console.error(e);
+    process.exit(1);
+  }
+);

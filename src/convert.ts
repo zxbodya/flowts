@@ -9,30 +9,36 @@ import { detectOptions } from './detectOptions';
 import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
-import { ConvertFolderOptions } from './cli';
+import { Options } from './cli';
 
-export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
+export async function convert(cwd: string, opts: Options) {
   console.log(`processing files in ${cwd}`);
+  console.log('options:', opts);
 
   const transformPlugins = [];
-  if (opts.parent.recast) {
+  if (opts.recast) {
     transformPlugins.push(recastPlugin);
   }
 
-  const files = globby.sync('**/*.{js,mjs,jsx,js.flow}', {
+  const files = globby.sync(opts.include, {
     cwd,
     onlyFiles: true,
     dot: true,
-    ignore: ['**/node_modules/**'],
+    ignore: ['**/node_modules/**', opts.exclude],
     gitignore: true,
   });
 
-  // todo: collect modules info to use for:
-  // - renaming imports having '.js' extension
-  // - adding missing @types/* to package.json
+  type FileInfo = {
+    file: string;
+    isJSX: boolean;
+    isFlow: boolean;
+    source: string;
+    isConverted: boolean;
+  };
 
-  const state = new Map();
+  const filesInfo = new Map<string, FileInfo>();
 
+  console.log('analysing source files');
   for (const file of files) {
     console.log(file);
     try {
@@ -41,6 +47,32 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
 
       const { isJSX, isFlow } = detectOptions(source, file);
 
+      const isConverted = isFlow || !opts.allowJs;
+
+      const info: FileInfo = {
+        file,
+        source,
+        isJSX,
+        isFlow,
+        isConverted,
+      };
+      filesInfo.set(file, info);
+    } catch (e) {
+      console.error('error while trying to detect options');
+      console.error(e);
+    }
+  }
+  console.log('convert files');
+  for (const file of files) {
+    console.log(file);
+    const info = filesInfo.get(file);
+    if (!info) {
+      console.log('file info missing - check log for errors');
+      continue;
+    }
+    try {
+      const { file, source, isJSX, isFlow } = info;
+
       const targetExt = isJSX
         ? '.tsx'
         : /\.js\.flow$/i.test(file)
@@ -48,16 +80,17 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
         : '.ts';
 
       const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
-      const targetFile = path.join(cwd, targetFileName);
+      const sourceFilePath = path.join(cwd, file);
+      const targetFilePath = path.join(cwd, targetFileName);
 
       if (!isFlow) {
         if (opts.allowJs) {
           console.log('no flow - skip');
         } else {
           console.log('no flow - copy');
-          fs.copyFileSync(filepath, targetFile);
+          fs.copyFileSync(sourceFilePath, targetFilePath);
           if (opts.remove) {
-            fs.unlinkSync(filepath);
+            fs.unlinkSync(sourceFilePath);
           }
         }
         continue;
@@ -65,7 +98,7 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
 
       const tsSyntax = babel.transformSync(source, {
         babelrc: false,
-        filename: filepath,
+        filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
       });
 
@@ -77,7 +110,7 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
 
       const ts = babel.transformSync(tsSyntax.code as string, {
         babelrc: false,
-        filename: targetFile,
+        filename: targetFilePath,
         plugins: [...transformPlugins, tsTypesPlugin],
       });
 
@@ -88,21 +121,22 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
       }
 
       let result = ts.code as string;
-      if (opts.parent.prettier) {
-        const prettierConfig = (await prettier.resolveConfig(targetFile)) || {};
+      if (opts.prettier) {
+        const prettierConfig =
+          (await prettier.resolveConfig(targetFilePath)) || {};
         prettierConfig.parser = 'typescript';
 
         result = prettier.format(result, prettierConfig);
       }
 
-      fs.writeFileSync(targetFile, result);
+      fs.writeFileSync(targetFilePath, result);
 
       const verificationResult = verify(
         source,
         result,
         isJSX,
-        filepath,
-        targetFile
+        sourceFilePath,
+        targetFilePath
       );
 
       if (!verificationResult.isEqual) {
@@ -119,7 +153,7 @@ export async function convertFolder(cwd: string, opts: ConvertFolderOptions) {
         }
       } else {
         if (opts.remove) {
-          fs.unlinkSync(filepath);
+          fs.unlinkSync(sourceFilePath);
         }
       }
     } catch (e) {
