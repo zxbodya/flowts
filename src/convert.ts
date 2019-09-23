@@ -10,6 +10,7 @@ import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
 import { Options } from './cli';
+import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 
 export async function convert(cwd: string, opts: Options) {
   console.log(`processing files in ${cwd}`);
@@ -108,10 +109,24 @@ export async function convert(cwd: string, opts: Options) {
         );
       }
 
+      const isConvertedFile = (source: string) => {
+        const normalizedPath = path
+          .resolve(path.dirname(sourceFilePath), source)
+          .substr(path.resolve(cwd).length + 1);
+
+        console.log('-->', normalizedPath);
+        const requestedFileInfo = filesInfo.get(normalizedPath);
+        return requestedFileInfo && requestedFileInfo.isConverted;
+      };
+
       const ts = babel.transformSync(tsSyntax.code as string, {
         babelrc: false,
         filename: targetFilePath,
-        plugins: [...transformPlugins, tsTypesPlugin],
+        plugins: [
+          ...transformPlugins,
+          tsTypesPlugin,
+          [removeImportExtensionPlugin, { isConvertedFile }],
+        ],
       });
 
       if (ts === null) {
