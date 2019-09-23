@@ -114,7 +114,6 @@ export async function convert(cwd: string, opts: Options) {
           .resolve(path.dirname(sourceFilePath), source)
           .substr(path.resolve(cwd).length + 1);
 
-        console.log('-->', normalizedPath);
         const requestedFileInfo = filesInfo.get(normalizedPath);
         return requestedFileInfo && requestedFileInfo.isConverted;
       };
