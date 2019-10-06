@@ -1,5 +1,5 @@
 import * as babel from '@babel/core';
-import * as recast from '@zxbodya/recast';
+import * as recast from 'recast';
 import { File } from '@babel/types';
 
 /**
