@@ -12,7 +12,7 @@ export interface GlobalFixContext {
 
 export interface NamedFixContext {
   renameExport(newExportName: string): void;
-  // references to all identifiers with usign export or global
+  // references to all identifiers with using export or global
   referencePaths: NodePath[];
 }
 

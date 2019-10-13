@@ -26,9 +26,9 @@ import {
 } from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
-import recastPlugin from './recastPlugin';
+import recastPlugin from '../recastPlugin';
 
-import { tsLibDefinitions } from './tsLibDefinitions';
+import { tsLibDefinitions } from '../tsLibDefinitions';
 import { Rule } from './Rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
 import { RuleTest } from './RuleTest';
@@ -45,6 +45,14 @@ const libGlobalsIndex = new Map<string, string>(
   )
 );
 
+const sharedParserPlugins = [
+  'jsx',
+  'classProperties',
+  'objectRestSpread',
+  'optionalChaining',
+  'dynamicImport',
+] as const;
+
 async function main(
   inputPath: string,
   outputPath: string,
@@ -55,14 +63,6 @@ async function main(
 
   const rule = Rule.create(referenceName);
   const ruleTest = RuleTest.create(referenceName);
-
-  const sharedParserPlugins = [
-    'jsx',
-    'classProperties',
-    'objectRestSpread',
-    'optionalChaining',
-    'dynamicImport',
-  ] as const;
 
   const source = fs.readFileSync(inputPath, { encoding: 'utf8' });
   const flowAst = babel.parseSync(source, {
