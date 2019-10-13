@@ -84,6 +84,86 @@ describe('lib/cssom.js', () => {
       });
     });
 
+    describe('CSSGroupingRule', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = CSSGroupingRule;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new CSSGroupingRule();
+            
+            class A1 extends CSSGroupingRule {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('CSSConditionRule', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = CSSConditionRule;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new CSSConditionRule();
+            
+            class A1 extends CSSConditionRule {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('CSSMediaRule', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = CSSMediaRule;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new CSSMediaRule();
+            
+            class A1 extends CSSMediaRule {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('CSSStyleRule', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = CSSStyleRule;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new CSSStyleRule();
+            
+            class A1 extends CSSStyleRule {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('CSSRule', () => {
       test('variable', () => {
         expect(

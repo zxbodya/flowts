@@ -147,6 +147,11 @@ export default {
     $SymbolMatch(context) {},
 
     /*
+        declare class $SymbolMatchAll mixins Symbol {}
+        */
+    $SymbolMatchAll(context) {},
+
+    /*
         declare class $SymbolReplace mixins Symbol {}
         */
     $SymbolReplace(context) {},
@@ -192,6 +197,7 @@ export default {
           static keyFor(sym: Symbol): ?string;
           static length: 0;
           static match: $SymbolMatch;
+          static matchAll: $SymbolMatchAll;
           static replace: $SymbolReplace;
           static search: $SymbolSearch;
           static species: $SymbolSpecies;
@@ -430,6 +436,7 @@ export default {
             link(href: string): string;
             localeCompare(that: string, locales?: string | Array<string>, options?: Intl$CollatorOptions): number;
             match(regexp: string | RegExp): RegExp$matchResult | null;
+            matchAll(regexp: string | RegExp): Iterator<RegExp$matchResult>;
             normalize(format?: string): string;
             padEnd(targetLength: number, padString?: string): string;
             padStart(targetLength: number, padString?: string): string;
@@ -477,10 +484,12 @@ export default {
             lastIndex: number;
             multiline: boolean;
             source: string;
-            sticky: bool;
-            unicode: bool;
+            sticky: boolean;
+            unicode: boolean;
+            dotAll: boolean;
             test(string: string): boolean;
             toString(): string;
+            +[key: $SymbolMatch | $SymbolMatchAll]: (str: string) => Iterator<RegExp$matchResult>
         }
         */
     RegExp(context) {

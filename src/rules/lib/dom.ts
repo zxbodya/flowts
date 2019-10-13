@@ -3815,7 +3815,7 @@ export default {
           disabled: boolean;
           media: string;
           scoped: boolean;
-          sheet: ?StyleSheet;
+          sheet: ?CSSStyleSheet;
           type: string;
         }
         */

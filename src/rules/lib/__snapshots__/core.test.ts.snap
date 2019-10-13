@@ -120,6 +120,18 @@ exports[`lib/core.js globals $SymbolMatch variable 1`] = `
 "
 `;
 
+exports[`lib/core.js globals $SymbolMatchAll generated - class 1`] = `
+"new $SymbolMatchAll();
+
+class A1 extends $SymbolMatchAll {}
+"
+`;
+
+exports[`lib/core.js globals $SymbolMatchAll variable 1`] = `
+"var a = $SymbolMatchAll;
+"
+`;
+
 exports[`lib/core.js globals $SymbolReplace generated - class 1`] = `
 "new $SymbolReplace();
 

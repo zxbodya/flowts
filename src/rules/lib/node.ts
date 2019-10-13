@@ -604,6 +604,7 @@ export default {
             meta?: boolean,
             ...
           }): void;
+          @@asyncIterator(): AsyncIterator<string>;
         }
         */
     readline$Interface(context) {
@@ -636,6 +637,7 @@ export default {
           _read(size?: number): void;
           _destroy(error: ?Error, callback: (error?: Error) => void): void;
           push(chunk: ?(Buffer | Uint8Array | string), encoding? : string): boolean;
+          @@asyncIterator(): AsyncIterator<string | Buffer>;
         }
         */
     stream$Readable(context) {

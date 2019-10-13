@@ -48,6 +48,30 @@ exports[`lib/cssom.js globals AnimationTimeline variable 1`] = `
 "
 `;
 
+exports[`lib/cssom.js globals CSSConditionRule generated - class 1`] = `
+"new CSSConditionRule();
+
+class A1 extends CSSConditionRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSConditionRule variable 1`] = `
+"var a = CSSConditionRule;
+"
+`;
+
+exports[`lib/cssom.js globals CSSGroupingRule generated - class 1`] = `
+"new CSSGroupingRule();
+
+class A1 extends CSSGroupingRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSGroupingRule variable 1`] = `
+"var a = CSSGroupingRule;
+"
+`;
+
 exports[`lib/cssom.js globals CSSKeyframeRule generated - class 1`] = `
 "new CSSKeyframeRule();
 
@@ -69,6 +93,18 @@ class A1 extends CSSKeyframesRule {}
 
 exports[`lib/cssom.js globals CSSKeyframesRule variable 1`] = `
 "var a = CSSKeyframesRule;
+"
+`;
+
+exports[`lib/cssom.js globals CSSMediaRule generated - class 1`] = `
+"new CSSMediaRule();
+
+class A1 extends CSSMediaRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSMediaRule variable 1`] = `
+"var a = CSSMediaRule;
 "
 `;
 
@@ -105,6 +141,18 @@ class A1 extends CSSStyleDeclaration {}
 
 exports[`lib/cssom.js globals CSSStyleDeclaration variable 1`] = `
 "var a = CSSStyleDeclaration;
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleRule generated - class 1`] = `
+"new CSSStyleRule();
+
+class A1 extends CSSStyleRule {}
+"
+`;
+
+exports[`lib/cssom.js globals CSSStyleRule variable 1`] = `
+"var a = CSSStyleRule;
 "
 `;
 

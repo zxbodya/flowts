@@ -366,6 +366,26 @@ describe('lib/core.js', () => {
       });
     });
 
+    describe('$SymbolMatchAll', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = $SymbolMatchAll;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new $SymbolMatchAll();
+            
+            class A1 extends $SymbolMatchAll {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('$SymbolReplace', () => {
       test('variable', () => {
         expect(

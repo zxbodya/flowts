@@ -5,12 +5,12 @@ export default {
     /*
         declare class StyleSheet {
           disabled: boolean;
-          href: string;
-          media: MediaList;
-          ownerNode: Node;
-          parentStyleSheet: ?StyleSheet;
-          title: string;
-          type: string;
+          +href: string;
+          +media: MediaList;
+          +ownerNode: Node;
+          +parentStyleSheet: ?StyleSheet;
+          +title: string;
+          +type: string;
         }
         */
     StyleSheet(context) {
@@ -45,10 +45,10 @@ export default {
 
     /*
         declare class CSSStyleSheet extends StyleSheet {
-          cssRules: CSSRuleList;
-          ownerRule: ?CSSRule;
+          +cssRules: CSSRuleList;
+          +ownerRule: ?CSSRule;
           deleteRule(index: number): void;
-          insertRule(rule: string, index: number): void;
+          insertRule(rule: string, index: number): number;
         }
         */
     CSSStyleSheet(context) {
@@ -56,11 +56,50 @@ export default {
     },
 
     /*
+        declare class CSSGroupingRule extends CSSRule {
+          +cssRules: CSSRuleList;
+          deleteRule(index: number): void;
+          insertRule(rule: string, index: number): number;
+        }
+        */
+    CSSGroupingRule(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class CSSConditionRule extends CSSGroupingRule {
+          conditionText: string;
+        }
+        */
+    CSSConditionRule(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class CSSMediaRule extends CSSConditionRule {
+          +media: MediaList;
+        }
+        */
+    CSSMediaRule(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class CSSStyleRule extends CSSRule {
+          selectorText: string;
+          +style: CSSStyleDeclaration;
+        }
+        */
+    CSSStyleRule(context) {
+      context.lib('dom');
+    },
+
+    /*
         declare class CSSRule {
           cssText: string;
-          parentRule: ?CSSRule;
-          parentStyleSheet: ?CSSStyleSheet;
-          type: number;
+          +parentRule: ?CSSRule;
+          +parentStyleSheet: ?CSSStyleSheet;
+          +type: number;
           static STYLE_RULE: number;
           static MEDIA_RULE: number;
           static FONT_FACE_RULE: number;
