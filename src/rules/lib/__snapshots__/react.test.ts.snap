@@ -684,6 +684,42 @@ exports[`lib/react.js modules react Fragment variable 1`] = `
 "
 `;
 
+exports[`lib/react.js modules react Interaction generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.Interaction {}
+"
+`;
+
+exports[`lib/react.js modules react Interaction generated - interface - import renamed 1`] = `
+"import { Interaction as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react Interaction generated - interface 1`] = `
+"import { Interaction } from \\"react\\";
+
+class A1 extends Interaction {}
+"
+`;
+
+exports[`lib/react.js modules react Interaction generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Interaction generated - type - import renamed 1`] = `
+"import { Interaction as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Interaction generated - type 1`] = `
+"import { Interaction } from \\"react\\";
+"
+`;
+
 exports[`lib/react.js modules react Key generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
@@ -861,6 +897,47 @@ exports[`lib/react.js modules react Portal generated - type - import renamed 1`]
 
 exports[`lib/react.js modules react Portal generated - type 1`] = `
 "import { Portal } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react Profiler variable 1`] = `
+"var a = Profiler;
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.ProfilerOnRenderFnType {}
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface - import renamed 1`] = `
+"import { ProfilerOnRenderFnType as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface 1`] = `
+"import { ProfilerOnRenderFnType } from \\"react\\";
+
+class A1 extends ProfilerOnRenderFnType {}
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type - import renamed 1`] = `
+"import { ProfilerOnRenderFnType as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type 1`] = `
+"import { ProfilerOnRenderFnType } from \\"react\\";
 "
 `;
 

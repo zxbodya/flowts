@@ -3243,6 +3243,134 @@ describe('lib/react.js', () => {
         });
       });
 
+      describe('Interaction', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Interaction } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Interaction } from "react";
+            
+            class A1 extends Interaction {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.Interaction {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Interaction as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Interaction as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('ProfilerOnRenderFnType', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { ProfilerOnRenderFnType } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { ProfilerOnRenderFnType } from "react";
+            
+            class A1 extends ProfilerOnRenderFnType {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.ProfilerOnRenderFnType {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { ProfilerOnRenderFnType as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { ProfilerOnRenderFnType as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('Profiler', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Profiler;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('default', () => {
         test('has no test', () => {});
       });

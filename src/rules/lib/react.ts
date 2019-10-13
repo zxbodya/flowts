@@ -601,6 +601,37 @@ export default {
         useImperativeHandle(context) {},
 
         /*
+                declare export type Interaction = {
+                    name: string,
+                    timestamp: number,
+                    ...
+                  };
+                */
+        Interaction(context) {},
+
+        /*
+                declare type ProfilerOnRenderFnType = (
+                    id: string,
+                    phase: "mount" | "update",
+                    actualDuration: number,
+                    baseDuration: number,
+                    startTime: number,
+                    commitTime: number,
+                    interactions: Set<Interaction>,
+                  ) => void;
+                */
+        ProfilerOnRenderFnType(context) {},
+
+        /*
+                declare export var Profiler: React$AbstractComponent<{|
+                    children?: React$Node,
+                    id: string,
+                    onRender: ProfilerOnRenderFnType,
+                  |}, void>;
+                */
+        Profiler(context) {},
+
+        /*
                 declare export default {|
                     +DOM: typeof DOM,
                     +PropTypes: typeof PropTypes,
@@ -622,6 +653,7 @@ export default {
                     +Children: typeof Children,
                     +ConcurrentMode: typeof ConcurrentMode,
                     +StrictMode: typeof StrictMode,
+                    +Profiler: typeof Profiler,
                     +Suspense: typeof Suspense,
                     +useContext: typeof useContext,
                     +useState: typeof useState,
