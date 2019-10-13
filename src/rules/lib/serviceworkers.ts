@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/serviceworkers.js:11:0
-
         declare class WindowClient extends Client {
           visibilityState: VisibilityState,
           focused: boolean,
@@ -17,8 +15,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:18:0
-
         declare class Client {
           id: string,
           reserved: boolean,
@@ -32,8 +28,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:26:0
-
         declare class ExtendableEvent extends Event {
           waitUntil(f: Promise<mixed>): void,
         }
@@ -43,8 +37,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:36:0
-
         declare class InstallEvent extends ExtendableEvent {
           registerForeignFetch(options: ForeignFetchOptions): void,
         }
@@ -52,8 +44,6 @@ export default {
     InstallEvent(context) {},
 
     /*
-        lib/serviceworkers.js:40:0
-
         declare class FetchEvent extends ExtendableEvent {
           request: Request,
           clientId: string,
@@ -67,8 +57,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:56:0
-
         declare class Clients {
           get(id: string): Promise<?Client>,
           matchAll(options?: ClientQueryOptions): Promise<Array<Client>>,
@@ -81,8 +69,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:69:0
-
         declare class ServiceWorker extends EventTarget {
           scriptURL: string,
           state: ServiceWorkerState,
@@ -97,8 +83,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:78:0
-
         declare class NavigationPreloadState {
           enabled: boolean,
           headerValue: string,
@@ -109,8 +93,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:83:0
-
         declare class NavigationPreloadManager {
           enable: Promise<void>,
           disable: Promise<void>,
@@ -123,8 +105,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:96:0
-
         declare class PushSubscriptionJSON {
           endpoint: string,
           expirationTime: number | null,
@@ -136,8 +116,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:102:0
-
         declare class PushSubscription {
           +endpoint: string,
           +expirationTime: number | null,
@@ -152,8 +130,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:111:0
-
         declare class PushManager {
           +supportedContentEncodings: Array<string>,
           subscribe(options?: PushSubscriptionOptions): Promise<PushSubscription>,
@@ -166,8 +142,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:120:0
-
         declare class ServiceWorkerRegistration extends EventTarget {
           +installing: ?ServiceWorker,
           +waiting: ?ServiceWorker,
@@ -188,8 +162,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:144:0
-
         declare class ServiceWorkerContainer extends EventTarget {
           +controller: ?ServiceWorker,
           +ready: Promise<ServiceWorkerRegistration>,
@@ -212,8 +184,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:164:0
-
         declare class ServiceWorkerMessageEvent extends Event {
           data: any,
           lastEventId: string,
@@ -227,8 +197,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:172:0
-
         declare class ExtendableMessageEvent extends ExtendableEvent {
           data: any,
           lastEventId: string,
@@ -242,8 +210,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:188:0
-
         declare class Cache {
           match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response>,
           matchAll(
@@ -265,8 +231,6 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:204:0
-
         declare class CacheStorage {
           match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response>,
           has(cacheName: string): Promise<true>,
@@ -280,15 +244,11 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:214:0
-
         declare var clients: Clients;
         */
     clients(context) {},
 
     /*
-        lib/serviceworkers.js:215:0
-
         declare var caches: CacheStorage;
         */
     caches(context) {
@@ -296,50 +256,36 @@ export default {
     },
 
     /*
-        lib/serviceworkers.js:216:0
-
         declare var registration: ServiceWorkerRegistration;
         */
     registration(context) {},
 
     /*
-        lib/serviceworkers.js:217:0
-
         declare function skipWaiting(): Promise<void>;
         */
     skipWaiting(context) {},
 
     /*
-        lib/serviceworkers.js:218:0
-
         declare var onactivate: ?EventHandler;
         */
     onactivate(context) {},
 
     /*
-        lib/serviceworkers.js:219:0
-
         declare var oninstall: ?EventHandler;
         */
     oninstall(context) {},
 
     /*
-        lib/serviceworkers.js:220:0
-
         declare var onfetch: ?EventHandler;
         */
     onfetch(context) {},
 
     /*
-        lib/serviceworkers.js:221:0
-
         declare var onforeignfetch: ?EventHandler;
         */
     onforeignfetch(context) {},
 
     /*
-        lib/serviceworkers.js:222:0
-
         declare var onmessage: ?EventHandler;
         */
     onmessage(context) {

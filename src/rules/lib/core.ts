@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/core.js:11:0
-
         declare var NaN: number;
         */
     NaN(context) {
@@ -12,8 +10,6 @@ export default {
     },
 
     /*
-        lib/core.js:12:0
-
         declare var Infinity: number;
         */
     Infinity(context) {
@@ -21,15 +17,11 @@ export default {
     },
 
     /*
-        lib/core.js:13:0
-
         declare var undefined: void;
         */
     undefined(context) {},
 
     /*
-        lib/core.js:15:0
-
         declare function parseInt(string: mixed, radix?: number): number;
         */
     parseInt(context) {
@@ -37,8 +29,6 @@ export default {
     },
 
     /*
-        lib/core.js:16:0
-
         declare function parseFloat(string: mixed): number;
         */
     parseFloat(context) {
@@ -46,8 +36,6 @@ export default {
     },
 
     /*
-        lib/core.js:17:0
-
         declare function isNaN(number: mixed): boolean;
         */
     isNaN(context) {
@@ -55,8 +43,6 @@ export default {
     },
 
     /*
-        lib/core.js:18:0
-
         declare function isFinite(number: mixed): boolean;
         */
     isFinite(context) {
@@ -64,8 +50,6 @@ export default {
     },
 
     /*
-        lib/core.js:19:0
-
         declare function decodeURI(encodedURI: string): string;
         */
     decodeURI(context) {
@@ -73,8 +57,6 @@ export default {
     },
 
     /*
-        lib/core.js:20:0
-
         declare function decodeURIComponent(encodedURIComponent: string): string;
         */
     decodeURIComponent(context) {
@@ -82,8 +64,6 @@ export default {
     },
 
     /*
-        lib/core.js:21:0
-
         declare function encodeURI(uri: string): string;
         */
     encodeURI(context) {
@@ -91,8 +71,6 @@ export default {
     },
 
     /*
-        lib/core.js:22:0
-
         declare function encodeURIComponent(uriComponent: string): string;
         */
     encodeURIComponent(context) {
@@ -100,8 +78,6 @@ export default {
     },
 
     /*
-        lib/core.js:44:0
-
         declare class Object {
             static (o: ?void): { [key: any]: any, ... };
             static (o: boolean): Boolean;
@@ -151,85 +127,61 @@ export default {
     },
 
     /*
-        lib/core.js:89:0
-
         declare class $SymbolHasInstance mixins Symbol {}
         */
     $SymbolHasInstance(context) {},
 
     /*
-        lib/core.js:90:0
-
         declare class $SymboIsConcatSpreadable mixins Symbol {}
         */
     $SymboIsConcatSpreadable(context) {},
 
     /*
-        lib/core.js:91:0
-
         declare class $SymbolIterator mixins Symbol {}
         */
     $SymbolIterator(context) {},
 
     /*
-        lib/core.js:92:0
-
         declare class $SymbolMatch mixins Symbol {}
         */
     $SymbolMatch(context) {},
 
     /*
-        lib/core.js:93:0
-
         declare class $SymbolReplace mixins Symbol {}
         */
     $SymbolReplace(context) {},
 
     /*
-        lib/core.js:94:0
-
         declare class $SymbolSearch mixins Symbol {}
         */
     $SymbolSearch(context) {},
 
     /*
-        lib/core.js:95:0
-
         declare class $SymbolSpecies mixins Symbol {}
         */
     $SymbolSpecies(context) {},
 
     /*
-        lib/core.js:96:0
-
         declare class $SymbolSplit mixins Symbol {}
         */
     $SymbolSplit(context) {},
 
     /*
-        lib/core.js:97:0
-
         declare class $SymbolToPrimitive mixins Symbol {}
         */
     $SymbolToPrimitive(context) {},
 
     /*
-        lib/core.js:98:0
-
         declare class $SymbolToStringTag mixins Symbol {}
         */
     $SymbolToStringTag(context) {},
 
     /*
-        lib/core.js:99:0
-
         declare class $SymbolUnscopables mixins Symbol {}
         */
     $SymbolUnscopables(context) {},
 
     /*
-        lib/core.js:101:0
-
         declare class Symbol {
           static (value?:any): Symbol;
           static for(key: string): Symbol;
@@ -256,8 +208,6 @@ export default {
     },
 
     /*
-        lib/core.js:123:0
-
         declare class Function {
             proto apply: Function$Prototype$Apply; // (thisArg: any, argArray?: any) => any
             proto bind: Function$Prototype$Bind; // (thisArg: any, ...argArray: Array<any>) => any;
@@ -274,8 +224,6 @@ export default {
     },
 
     /*
-        lib/core.js:134:0
-
         declare class Boolean {
             constructor(value?: mixed): void;
             static (value:mixed):boolean;
@@ -288,8 +236,6 @@ export default {
     },
 
     /*
-        lib/core.js:141:0
-
         declare class Number {
             static EPSILON: number;
             static MAX_SAFE_INTEGER: number;
@@ -320,8 +266,6 @@ export default {
     },
 
     /*
-        lib/core.js:166:0
-
         declare var Math: {
             E: number,
             LN10: number,
@@ -374,8 +318,6 @@ export default {
     },
 
     /*
-        lib/core.js:215:0
-
         declare class $ReadOnlyArray<+T> {
             @@iterator(): Iterator<T>;
             toLocaleString(): string;
@@ -420,8 +362,6 @@ export default {
     $ReadOnlyArray(context) {},
 
     /*
-        lib/core.js:256:0
-
         declare class Array<T> extends $ReadOnlyArray<T> {
             copyWithin(target: number, start: number, end?: number): T[];
             every(callbackfn: (value: T, index: number, array: Array<T>) => mixed, thisArg?: any): boolean;
@@ -475,8 +415,6 @@ export default {
     },
 
     /*
-        lib/core.js:318:0
-
         declare class String {
             @@iterator(): Iterator<string>;
             anchor(name: string): string;
@@ -528,8 +466,6 @@ export default {
     },
 
     /*
-        lib/core.js:364:0
-
         declare class RegExp {
             static (pattern: string | RegExp, flags?: RegExp$flags): RegExp;
             compile(): RegExp;
@@ -552,8 +488,6 @@ export default {
     },
 
     /*
-        lib/core.js:381:0
-
         declare class Date {
             constructor(): void;
             constructor(timestamp: number): void;
@@ -616,8 +550,6 @@ export default {
     },
 
     /*
-        lib/core.js:438:0
-
         declare class CallSite {
             getThis(): any;
             getTypeName(): string;
@@ -639,8 +571,6 @@ export default {
     CallSite(context) {},
 
     /*
-        lib/core.js:456:0
-
         declare class Error {
             static (message?:string):Error;
             constructor (message?: mixed): void;
@@ -670,8 +600,6 @@ export default {
     },
 
     /*
-        lib/core.js:480:0
-
         declare class EvalError extends Error {
             static (message?:string):Error;
         }
@@ -681,8 +609,6 @@ export default {
     },
 
     /*
-        lib/core.js:484:0
-
         declare class RangeError extends Error {
             static (message?:string):Error;
         }
@@ -692,8 +618,6 @@ export default {
     },
 
     /*
-        lib/core.js:488:0
-
         declare class ReferenceError extends Error {
             static (message?:string):Error;
         }
@@ -703,8 +627,6 @@ export default {
     },
 
     /*
-        lib/core.js:492:0
-
         declare class SyntaxError extends Error {
             static (message?:string):Error;
         }
@@ -714,8 +636,6 @@ export default {
     },
 
     /*
-        lib/core.js:496:0
-
         declare class TypeError extends Error {
             static (message?:string):Error;
         }
@@ -725,8 +645,6 @@ export default {
     },
 
     /*
-        lib/core.js:500:0
-
         declare class URIError extends Error {
             static (message?:string):Error;
         }
@@ -736,8 +654,6 @@ export default {
     },
 
     /*
-        lib/core.js:504:0
-
         declare class JSON {
             static parse(text: string, reviver?: (key: any, value: any) => any): any;
             static stringify(
@@ -757,22 +673,16 @@ export default {
     },
 
     /*
-        lib/core.js:550:0
-
         declare function $iterate<T>(p: Iterable<T>): T;
         */
     $iterate(context) {},
 
     /*
-        lib/core.js:572:0
-
         declare function $asyncIterator<T>(p: AsyncIterable<T>): T;
         */
     $asyncIterator(context) {},
 
     /*
-        lib/core.js:576:0
-
         declare class $ReadOnlyMap<K, +V> {
             @@iterator(): Iterator<[K, V]>;
             entries(): Iterator<[K, V]>;
@@ -787,8 +697,6 @@ export default {
     $ReadOnlyMap(context) {},
 
     /*
-        lib/core.js:587:0
-
         declare class Map<K, V> extends $ReadOnlyMap<K, V> {
             @@iterator(): Iterator<[K, V]>;
             constructor(iterable: ?Iterable<[K, V]>): void;
@@ -812,8 +720,6 @@ export default {
     },
 
     /*
-        lib/core.js:605:0
-
         declare class $ReadOnlyWeakMap<K: {...} | $ReadOnlyArray<mixed>, +V> {
             get(key: K): V | void;
             has(key: K): boolean;
@@ -822,8 +728,6 @@ export default {
     $ReadOnlyWeakMap(context) {},
 
     /*
-        lib/core.js:610:0
-
         declare class WeakMap<K: {...} | $ReadOnlyArray<mixed>, V> extends $ReadOnlyWeakMap<K, V> {
             constructor(iterable: ?Iterable<[K, V]>): void;
             delete(key: K): boolean;
@@ -837,8 +741,6 @@ export default {
     },
 
     /*
-        lib/core.js:618:0
-
         declare class $ReadOnlySet<T> {
             @@iterator(): Iterator<T>;
             entries(): Iterator<[T, T]>;
@@ -852,8 +754,6 @@ export default {
     $ReadOnlySet(context) {},
 
     /*
-        lib/core.js:628:0
-
         declare class Set<T> extends $ReadOnlySet<T> {
             @@iterator(): Iterator<T>;
             constructor(iterable: ?Iterable<T>): void;
@@ -875,8 +775,6 @@ export default {
     },
 
     /*
-        lib/core.js:644:0
-
         declare class $ReadOnlyWeakSet<T: {...} | $ReadOnlyArray<any>> {
             has(value: T): boolean;
         }
@@ -884,8 +782,6 @@ export default {
     $ReadOnlyWeakSet(context) {},
 
     /*
-        lib/core.js:648:0
-
         declare class WeakSet<T: {...} | $ReadOnlyArray<any>> extends $ReadOnlyWeakSet<T> {
             constructor(iterable?: Iterable<T>): void;
             add(value: T): WeakSet<T>;
@@ -898,8 +794,6 @@ export default {
     },
 
     /*
-        lib/core.js:659:0
-
         declare class Promise<+R> {
             constructor(callback: (
               resolve: (result: Promise<R> | R) => void,
@@ -934,15 +828,11 @@ export default {
     },
 
     /*
-        lib/core.js:689:0
-
         declare function $await<T>(p: Promise<T> | T): T;
         */
     $await(context) {},
 
     /*
-        lib/core.js:693:0
-
         declare class ArrayBuffer {
             static isView(arg: mixed): boolean;
             constructor(byteLength: number): void;
@@ -956,8 +846,6 @@ export default {
     },
 
     /*
-        lib/core.js:709:0
-
         declare class $TypedArray {
             static BYTES_PER_ELEMENT: number;
             static from(iterable: Iterable<number>, mapFn?: (element: number) => number, thisArg?: any): this;
@@ -1019,8 +907,6 @@ export default {
     $TypedArray(context) {},
 
     /*
-        lib/core.js:767:0
-
         declare class Int8Array extends $TypedArray {}
         */
     Int8Array(context) {
@@ -1028,8 +914,6 @@ export default {
     },
 
     /*
-        lib/core.js:768:0
-
         declare class Uint8Array extends $TypedArray {}
         */
     Uint8Array(context) {
@@ -1037,8 +921,6 @@ export default {
     },
 
     /*
-        lib/core.js:769:0
-
         declare class Uint8ClampedArray extends $TypedArray {}
         */
     Uint8ClampedArray(context) {
@@ -1046,8 +928,6 @@ export default {
     },
 
     /*
-        lib/core.js:770:0
-
         declare class Int16Array extends $TypedArray {}
         */
     Int16Array(context) {
@@ -1055,8 +935,6 @@ export default {
     },
 
     /*
-        lib/core.js:771:0
-
         declare class Uint16Array extends $TypedArray {}
         */
     Uint16Array(context) {
@@ -1064,8 +942,6 @@ export default {
     },
 
     /*
-        lib/core.js:772:0
-
         declare class Int32Array extends $TypedArray {}
         */
     Int32Array(context) {
@@ -1073,8 +949,6 @@ export default {
     },
 
     /*
-        lib/core.js:773:0
-
         declare class Uint32Array extends $TypedArray {}
         */
     Uint32Array(context) {
@@ -1082,8 +956,6 @@ export default {
     },
 
     /*
-        lib/core.js:774:0
-
         declare class Float32Array extends $TypedArray {}
         */
     Float32Array(context) {
@@ -1091,8 +963,6 @@ export default {
     },
 
     /*
-        lib/core.js:775:0
-
         declare class Float64Array extends $TypedArray {}
         */
     Float64Array(context) {
@@ -1100,8 +970,6 @@ export default {
     },
 
     /*
-        lib/core.js:777:0
-
         declare class DataView {
             constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number): void;
             buffer: ArrayBuffer;
@@ -1130,8 +998,6 @@ export default {
     },
 
     /*
-        lib/core.js:800:0
-
         declare function btoa(rawString: string): string;
         */
     btoa(context) {
@@ -1139,8 +1005,6 @@ export default {
     },
 
     /*
-        lib/core.js:801:0
-
         declare function atob(encodedString: string): string;
         */
     atob(context) {
@@ -1148,8 +1012,6 @@ export default {
     },
 
     /*
-        lib/core.js:803:0
-
         declare function escape(str: string): string;
         */
     escape(context) {
@@ -1157,8 +1019,6 @@ export default {
     },
 
     /*
-        lib/core.js:804:0
-
         declare function unescape(str: string): string;
         */
     unescape(context) {
@@ -1166,22 +1026,16 @@ export default {
     },
 
     /*
-        lib/core.js:806:0
-
         declare opaque type TimeoutID;
         */
     TimeoutID(context) {},
 
     /*
-        lib/core.js:807:0
-
         declare opaque type IntervalID;
         */
     IntervalID(context) {},
 
     /*
-        lib/core.js:808:0
-
         declare function clearInterval(intervalId: ?IntervalID): void;
         */
     clearInterval(context) {
@@ -1189,8 +1043,6 @@ export default {
     },
 
     /*
-        lib/core.js:809:0
-
         declare function clearTimeout(timeoutId: ?TimeoutID): void;
         */
     clearTimeout(context) {
@@ -1198,8 +1050,6 @@ export default {
     },
 
     /*
-        lib/core.js:810:0
-
         declare function setTimeout<TArguments: Array<mixed>>(
           callback: (...args: TArguments) => mixed,
           ms?: number,
@@ -1211,8 +1061,6 @@ export default {
     },
 
     /*
-        lib/core.js:815:0
-
         declare function setInterval<TArguments: Array<mixed>>(
           callback: (...args: TArguments) => mixed,
           ms?: number,
@@ -1224,8 +1072,6 @@ export default {
     },
 
     /*
-        lib/core.js:823:0
-
         declare var Reflect: {
             apply(target: (...any) => any, thisArg?: any, argumentsList?: Array<any>): any,
             construct(target: (...any) => any, argumentsList?: Array<any>, newTarget?: any): any,
@@ -1246,8 +1092,6 @@ export default {
     Reflect(context) {},
 
     /*
-        lib/core.js:861:0
-
         declare class Proxy<T> {
           constructor(target: T, handler: Proxy$traps<T>): T;
 
@@ -1259,15 +1103,11 @@ export default {
     },
 
     /*
-        lib/core.js:869:0
-
         declare var global: any;
         */
     global(context) {},
 
     /*
-        lib/core.js:871:0
-
         declare var module: {
             exports: any,
             require(id: string): any,
@@ -1283,8 +1123,6 @@ export default {
     module(context) {},
 
     /*
-        lib/core.js:882:0
-
         declare var require: {
             (id: string): any,
             resolve: (id: string) => string,
@@ -1296,22 +1134,16 @@ export default {
     require(context) {},
 
     /*
-        lib/core.js:889:0
-
         declare var exports: any;
         */
     exports(context) {},
 
     /*
-        lib/core.js:892:0
-
         declare opaque type $Flow$ModuleRef<T>;
         */
     $Flow$ModuleRef(context) {},
 
     /*
-        lib/core.js:895:0
-
         declare var console: {
             assert(condition: mixed, ...data: Array<any>): void,
             clear(): void,

@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/streams.js:10:0
-
         declare class TextEncoder {
           encode(buffer: string, options?: TextEncodeOptions): Uint8Array,
         }
@@ -14,8 +12,6 @@ export default {
     },
 
     /*
-        lib/streams.js:14:0
-
         declare class ReadableStreamController {
           constructor(
             stream: ReadableStream,
@@ -34,8 +30,6 @@ export default {
     ReadableStreamController(context) {},
 
     /*
-        lib/streams.js:29:0
-
         declare class ReadableStreamBYOBRequest {
           constructor(controller: ReadableStreamController, view: $TypedArray): void,
 
@@ -50,8 +44,6 @@ export default {
     },
 
     /*
-        lib/streams.js:38:0
-
         declare class ReadableByteStreamController extends ReadableStreamController {
           constructor(
             stream: ReadableStream,
@@ -67,8 +59,6 @@ export default {
     },
 
     /*
-        lib/streams.js:48:0
-
         declare class ReadableStreamReader {
           constructor(stream: ReadableStream): void,
 
@@ -88,8 +78,6 @@ export default {
     },
 
     /*
-        lib/streams.js:62:0
-
         declare interface UnderlyingSource {
           autoAllocateChunkSize?: number,
           type?: string,
@@ -104,8 +92,6 @@ export default {
     },
 
     /*
-        lib/streams.js:71:0
-
         declare class TransformStream {
           readable: ReadableStream,
           writable: WritableStream,
@@ -116,8 +102,6 @@ export default {
     },
 
     /*
-        lib/streams.js:89:0
-
         declare class ReadableStream {
           constructor(
             underlyingSource: ?UnderlyingSource,
@@ -138,8 +122,6 @@ export default {
     },
 
     /*
-        lib/streams.js:104:0
-
         declare interface WritableStreamController {
           error(error: Error): void,
         }
@@ -147,8 +129,6 @@ export default {
     WritableStreamController(context) {},
 
     /*
-        lib/streams.js:108:0
-
         declare interface UnderlyingSink {
           autoAllocateChunkSize?: number,
           type?: string,
@@ -164,8 +144,6 @@ export default {
     },
 
     /*
-        lib/streams.js:118:0
-
         declare interface WritableStreamWriter {
           closed: Promise<any>,
           desiredSize?: number,
@@ -180,8 +158,6 @@ export default {
     WritableStreamWriter(context) {},
 
     /*
-        lib/streams.js:129:0
-
         declare class WritableStream {
           constructor(
             underlyingSink: ?UnderlyingSink,

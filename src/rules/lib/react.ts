@@ -5,8 +5,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/react.js:13:0
-
         declare type React$Node =
           | null
           | boolean
@@ -21,8 +19,6 @@ export default {
     },
 
     /*
-        lib/react.js:26:0
-
         declare class React$Component<Props, State = void> {
           // fields
 
@@ -102,8 +98,6 @@ export default {
     },
 
     /*
-        lib/react.js:100:0
-
         declare class React$PureComponent<Props, State = void>
           extends React$Component<Props, State> {
           // TODO: Due to bugs in Flow's handling of React.createClass, some fields
@@ -119,8 +113,6 @@ export default {
     },
 
     /*
-        lib/react.js:114:0
-
         declare class LegacyReactComponent<Props, State>
           extends React$Component<Props, State> {
           // additional methods
@@ -140,8 +132,6 @@ export default {
     LegacyReactComponent(context) {},
 
     /*
-        lib/react.js:130:0
-
         declare type React$AbstractComponentStatics = {
           displayName?: ?string,
           // This is only on function components, but trying to access name when
@@ -153,8 +143,6 @@ export default {
     React$AbstractComponentStatics(context) {},
 
     /*
-        lib/react.js:143:0
-
         declare type React$StatelessFunctionalComponent<Props> = {
           (props: Props, context: any): React$Node,
           displayName?: ?string,
@@ -168,8 +156,6 @@ export default {
     },
 
     /*
-        lib/react.js:159:0
-
         declare type React$ComponentType<-Config> = React$AbstractComponent<Config, mixed>;
         */
     React$ComponentType(context) {
@@ -177,8 +163,6 @@ export default {
     },
 
     /*
-        lib/react.js:169:0
-
         declare type React$ElementType =
           | string
           | React$AbstractComponent<empty, mixed>;
@@ -188,8 +172,6 @@ export default {
     },
 
     /*
-        lib/react.js:177:0
-
         declare type React$Element<+ElementType: React$ElementType> = {|
           +type: ElementType,
           +props: React$ElementProps<ElementType>,
@@ -202,8 +184,6 @@ export default {
     },
 
     /*
-        lib/react.js:184:0
-
         declare type React$MixedElement = React$Element<React$ElementType>;
         */
     React$MixedElement(context) {
@@ -211,8 +191,6 @@ export default {
     },
 
     /*
-        lib/react.js:190:0
-
         declare type React$Key = string | number;
         */
     React$Key(context) {
@@ -220,8 +198,6 @@ export default {
     },
 
     /*
-        lib/react.js:195:0
-
         declare type React$Ref<ElementType: React$ElementType> =
           | { -current: React$ElementRef<ElementType> | null, ... }
           | ((React$ElementRef<ElementType> | null) => mixed)
@@ -232,8 +208,6 @@ export default {
     },
 
     /*
-        lib/react.js:204:0
-
         declare type React$Context<T> = {
           Provider: React$ComponentType<{
             value: T,
@@ -251,8 +225,6 @@ export default {
     },
 
     /*
-        lib/react.js:220:0
-
         declare opaque type React$Portal;
         */
     React$Portal(context) {
@@ -266,29 +238,21 @@ export default {
 
       exports: {
         /*
-                lib/react.js:223:2
-
                 declare export var DOM: any;
                 */
         DOM(context) {},
 
         /*
-                lib/react.js:224:2
-
                 declare export var PropTypes: ReactPropTypes;
                 */
         PropTypes(context) {},
 
         /*
-                lib/react.js:225:2
-
                 declare export var version: string;
                 */
         version(context) {},
 
         /*
-                lib/react.js:227:2
-
                 declare export function checkPropTypes<V>(
                     propTypes : any,
                     values: V,
@@ -300,15 +264,11 @@ export default {
         checkPropTypes(context) {},
 
         /*
-                lib/react.js:235:2
-
                 declare export var createClass: React$CreateClass;
                 */
         createClass(context) {},
 
         /*
-                lib/react.js:236:2
-
                 declare export function createContext<T>(
                     defaultValue: T,
                     calculateChangedBits: ?(a: T, b: T) => number,
@@ -317,22 +277,16 @@ export default {
         createContext(context) {},
 
         /*
-                lib/react.js:240:2
-
                 declare export var createElement: React$CreateElement;
                 */
         createElement(context) {},
 
         /*
-                lib/react.js:241:2
-
                 declare export var cloneElement: React$CloneElement;
                 */
         cloneElement(context) {},
 
         /*
-                lib/react.js:242:2
-
                 declare export function createFactory<ElementType: React$ElementType>(
                     type: ElementType,
                   ): React$ElementFactory<ElementType>;
@@ -340,37 +294,27 @@ export default {
         createFactory(context) {},
 
         /*
-                lib/react.js:245:2
-
                 declare export function createRef<T>(
                   ): {|current: null | T|};
                 */
         createRef(context) {},
 
         /*
-                lib/react.js:248:2
-
                 declare export function isValidElement(element: any): boolean;
                 */
         isValidElement(context) {},
 
         /*
-                lib/react.js:250:2
-
                 declare export var Component: typeof React$Component;
                 */
         Component(context) {},
 
         /*
-                lib/react.js:251:2
-
                 declare export var PureComponent: typeof React$PureComponent;
                 */
         PureComponent(context) {},
 
         /*
-                lib/react.js:252:2
-
                 declare export type StatelessFunctionalComponent<P> =
                     React$StatelessFunctionalComponent<P>;
                 */
@@ -379,15 +323,11 @@ export default {
         },
 
         /*
-                lib/react.js:254:2
-
                 declare export type ComponentType<-P> = React$ComponentType<P>;
                 */
         ComponentType(context) {},
 
         /*
-                lib/react.js:255:2
-
                 declare export type AbstractComponent<
                     -Config,
                     +Instance = mixed,
@@ -398,22 +338,16 @@ export default {
         },
 
         /*
-                lib/react.js:259:2
-
                 declare export type MixedElement = React$MixedElement;
                 */
         MixedElement(context) {},
 
         /*
-                lib/react.js:260:2
-
                 declare export type ElementType = React$ElementType;
                 */
         ElementType(context) {},
 
         /*
-                lib/react.js:261:2
-
                 declare export type Element<+C> = React$Element<C>;
                 */
         Element(context) {
@@ -421,29 +355,21 @@ export default {
         },
 
         /*
-                lib/react.js:262:2
-
                 declare export var Fragment: ({ children?: React$Node, ... }) => React$Node;
                 */
         Fragment(context) {},
 
         /*
-                lib/react.js:263:2
-
                 declare export type Key = React$Key;
                 */
         Key(context) {},
 
         /*
-                lib/react.js:264:2
-
                 declare export type Ref<C> = React$Ref<C>;
                 */
         Ref(context) {},
 
         /*
-                lib/react.js:265:2
-
                 declare export type Node = React$Node;
                 */
         Node(context) {
@@ -451,36 +377,26 @@ export default {
         },
 
         /*
-                lib/react.js:266:2
-
                 declare export type Context<T> = React$Context<T>;
                 */
         Context(context) {},
 
         /*
-                lib/react.js:267:2
-
                 declare export type Portal = React$Portal;
                 */
         Portal(context) {},
 
         /*
-                lib/react.js:268:2
-
                 declare export var ConcurrentMode: ({ children?: React$Node, ... }) => React$Node;
                 */
         ConcurrentMode(context) {},
 
         /*
-                lib/react.js:269:2
-
                 declare export var StrictMode: ({ children?: React$Node, ... }) => React$Node;
                 */
         StrictMode(context) {},
 
         /*
-                lib/react.js:271:2
-
                 declare export var Suspense: React$ComponentType<{
                     children?: React$Node,
                     fallback?: React$Node,
@@ -490,15 +406,11 @@ export default {
         Suspense(context) {},
 
         /*
-                lib/react.js:277:2
-
                 declare export type ElementProps<C> = React$ElementProps<C>;
                 */
         ElementProps(context) {},
 
         /*
-                lib/react.js:278:2
-
                 declare export type ElementConfig<C> = React$ElementConfig<C>;
                 */
         ElementConfig(context) {
@@ -506,8 +418,6 @@ export default {
         },
 
         /*
-                lib/react.js:279:2
-
                 declare export type ElementRef<C> = React$ElementRef<C>;
                 */
         ElementRef(context) {
@@ -515,15 +425,11 @@ export default {
         },
 
         /*
-                lib/react.js:280:2
-
                 declare export type Config<Props, DefaultProps> = React$Config<Props, DefaultProps>;
                 */
         Config(context) {},
 
         /*
-                lib/react.js:282:2
-
                 declare export type ChildrenArray<+T> = $ReadOnlyArray<ChildrenArray<T>> | T;
                 */
         ChildrenArray(context) {
@@ -532,8 +438,6 @@ export default {
         },
 
         /*
-                lib/react.js:283:2
-
                 declare export var Children: {
                     map<T, U>(
                       children: ChildrenArray<T>,
@@ -554,8 +458,6 @@ export default {
         Children(context) {},
 
         /*
-                lib/react.js:300:2
-
                 declare export function forwardRef<Config, Instance>(
                     render: (
                       props: Config,
@@ -586,8 +488,6 @@ export default {
         },
 
         /*
-                lib/react.js:307:2
-
                 declare export function memo<Config, Instance = mixed>(
                     component: React$AbstractComponent<Config, Instance>,
                     equal?: (Config, Config) => boolean,
@@ -596,8 +496,6 @@ export default {
         memo(context) {},
 
         /*
-                lib/react.js:312:2
-
                 declare export function lazy<Config, Instance = mixed>(
                     component: () => Promise<{ default: React$AbstractComponent<Config, Instance>, ... }>,
                   ): React$AbstractComponent<Config, Instance>;
@@ -605,15 +503,11 @@ export default {
         lazy(context) {},
 
         /*
-                lib/react.js:316:2
-
                 declare type MaybeCleanUpFn = void | (() => void);
                 */
         MaybeCleanUpFn(context) {},
 
         /*
-                lib/react.js:318:2
-
                 declare export function useContext<T>(
                     context: React$Context<T>,
                     observedBits: void | number | boolean,
@@ -622,8 +516,6 @@ export default {
         useContext(context) {},
 
         /*
-                lib/react.js:323:2
-
                 declare export function useState<S>(
                     initialState: (() => S) | S,
                   ): [S, ((S => S) | S) => void];
@@ -631,23 +523,17 @@ export default {
         useState(context) {},
 
         /*
-                lib/react.js:327:2
-
                 declare type Dispatch<A> = (A) => void;
                 */
         Dispatch(context) {},
 
         /*
-                lib/react.js:329:2
-
                 declare export function useReducer<S, A>(
                     reducer: (S, A) => S,
                     initialState: S,
                   ): [S, Dispatch<A>];
                 */
         /*
-                lib/react.js:334:2
-
                 declare export function useReducer<S, A>(
                     reducer: (S, A) => S,
                     initialState: S,
@@ -655,8 +541,6 @@ export default {
                   ): [S, Dispatch<A>];
                 */
         /*
-                lib/react.js:340:2
-
                 declare export function useReducer<S, A, I>(
                     reducer: (S, A) => S,
                     initialArg: I,
@@ -666,22 +550,16 @@ export default {
         useReducer(context) {},
 
         /*
-                lib/react.js:346:2
-
                 declare export function useRef<T>(initialValue: T): {|current: T|};
                 */
         useRef(context) {},
 
         /*
-                lib/react.js:348:2
-
                 declare export function useDebugValue(value: any): void;
                 */
         useDebugValue(context) {},
 
         /*
-                lib/react.js:350:2
-
                 declare export function useEffect(
                     create: () => MaybeCleanUpFn,
                     inputs: ?$ReadOnlyArray<mixed>,
@@ -690,8 +568,6 @@ export default {
         useEffect(context) {},
 
         /*
-                lib/react.js:355:2
-
                 declare export function useLayoutEffect(
                     create: () => MaybeCleanUpFn,
                     inputs: ?$ReadOnlyArray<mixed>,
@@ -700,8 +576,6 @@ export default {
         useLayoutEffect(context) {},
 
         /*
-                lib/react.js:360:2
-
                 declare export function useCallback<T: (...args: $ReadOnlyArray<empty>) => mixed>(
                     callback: T,
                     inputs: ?$ReadOnlyArray<mixed>,
@@ -710,8 +584,6 @@ export default {
         useCallback(context) {},
 
         /*
-                lib/react.js:365:2
-
                 declare export function useMemo<T>(
                     create: () => T,
                     inputs: ?$ReadOnlyArray<mixed>,
@@ -720,8 +592,6 @@ export default {
         useMemo(context) {},
 
         /*
-                lib/react.js:370:2
-
                 declare export function useImperativeHandle<T>(
                     ref: { current: T | null, ... } | ((inst: T | null) => mixed) | null | void,
                     create: () => T,
@@ -731,8 +601,6 @@ export default {
         useImperativeHandle(context) {},
 
         /*
-                lib/react.js:376:2
-
                 declare export default {|
                     +DOM: typeof DOM,
                     +PropTypes: typeof PropTypes,
@@ -775,8 +643,6 @@ export default {
 
       exports: {
         /*
-                lib/react.js:413:2
-
                 declare module.exports: $Exports<'react'>;
                 */
         default(context) {},

@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/intl.js:8:0
-
         declare var Intl: {
           Collator: Class<Intl$Collator>,
           DateTimeFormat: Class<Intl$DateTimeFormat>,
@@ -17,8 +15,6 @@ export default {
     Intl(context) {},
 
     /*
-        lib/intl.js:20:0
-
         declare class Intl$Collator {
           constructor (
             locales?: Intl$Locales,
@@ -49,8 +45,6 @@ export default {
     Intl$Collator(context) {},
 
     /*
-        lib/intl.js:47:0
-
         declare type Intl$CollatorOptions = {
           localeMatcher?: 'lookup' | 'best fit',
           usage?: 'sort' | 'search',
@@ -64,8 +58,6 @@ export default {
     Intl$CollatorOptions(context) {},
 
     /*
-        lib/intl.js:60:0
-
         declare class Intl$DateTimeFormat {
           constructor (
             locales?: Intl$Locales,
@@ -109,8 +101,6 @@ export default {
     Intl$DateTimeFormat(context) {},
 
     /*
-        lib/intl.js:100:0
-
         declare type Intl$DateTimeFormatOptions = {
           localeMatcher?: 'lookup' | 'best fit',
           timeZone?: string,
@@ -131,8 +121,6 @@ export default {
     Intl$DateTimeFormatOptions(context) {},
 
     /*
-        lib/intl.js:117:0
-
         declare class Intl$NumberFormat {
           constructor (
             locales?: Intl$Locales,
@@ -167,8 +155,6 @@ export default {
     Intl$NumberFormat(context) {},
 
     /*
-        lib/intl.js:148:0
-
         declare type Intl$NumberFormatOptions = {
           localeMatcher?: 'lookup' | 'best fit',
           style?: 'decimal' | 'currency' | 'percent',
@@ -186,8 +172,6 @@ export default {
     Intl$NumberFormatOptions(context) {},
 
     /*
-        lib/intl.js:162:0
-
         declare class Intl$PluralRules {
           constructor (
             locales?: Intl$Locales,
@@ -214,8 +198,6 @@ export default {
     Intl$PluralRules(context) {},
 
     /*
-        lib/intl.js:187:0
-
         declare type Intl$PluralRulesOptions = {
           localeMatcher?: 'lookup' | 'best fit',
           type?: 'cardinal' | 'ordinal',

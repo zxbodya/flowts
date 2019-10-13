@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/cssom.js:8:0
-
         declare class StyleSheet {
           disabled: boolean;
           href: string;
@@ -20,8 +18,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:18:0
-
         declare class StyleSheetList {
           @@iterator(): Iterator<StyleSheet>;
           length: number;
@@ -33,8 +29,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:24:0
-
         declare class MediaList {
           @@iterator(): Iterator<string>;
           mediaText: string;
@@ -50,8 +44,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:34:0
-
         declare class CSSStyleSheet extends StyleSheet {
           cssRules: CSSRuleList;
           ownerRule: ?CSSRule;
@@ -64,8 +56,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:41:0
-
         declare class CSSRule {
           cssText: string;
           parentRule: ?CSSRule;
@@ -94,8 +84,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:64:0
-
         declare class CSSKeyframeRule extends CSSRule {
           keyText: string;
           +style: CSSStyleDeclaration;
@@ -106,8 +94,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:69:0
-
         declare class CSSKeyframesRule extends CSSRule {
           name: string;
           +cssRules: CSSRuleList;
@@ -121,8 +107,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:77:0
-
         declare class CSSRuleList {
           @@iterator(): Iterator<CSSRule>;
           length: number;
@@ -135,8 +119,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:84:0
-
         declare class CSSStyleDeclaration {
           @@iterator(): Iterator<string>;
            DOM CSS Properties 
@@ -455,8 +437,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:397:0
-
         declare class TransitionEvent extends Event {
           elapsedTime: number; // readonly
           pseudoElement: string; // readonly
@@ -468,8 +448,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:411:0
-
         declare class AnimationTimeline {
           +currentTime: number | null;
         }
@@ -479,8 +457,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:420:0
-
         declare class DocumentTimeline extends AnimationTimeline {
           constructor(options?: DocumentTimelineOptions): DocumentTimeline;
         }
@@ -490,8 +466,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:447:0
-
         declare class AnimationEffect {
           getTiming(): EffectTiming;
           getComputedTiming(): ComputedEffectTiming;
@@ -503,8 +477,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:484:0
-
         declare class KeyframeEffect extends AnimationEffect {
           constructor(
             target: Element | null,
@@ -525,8 +497,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:499:0
-
         declare class Animation extends EventTarget {
           constructor(effect?: AnimationEffect | null, timeline?: AnimationTimeline | null): Animation;
 
@@ -559,8 +529,6 @@ export default {
     },
 
     /*
-        lib/cssom.js:547:0
-
         declare class AnimationPlaybackEvent extends Event {
           constructor(type: string, animationEventInitDict?: AnimationPlaybackEvent$Init): AnimationPlaybackEvent;
           +currentTime: number | null;

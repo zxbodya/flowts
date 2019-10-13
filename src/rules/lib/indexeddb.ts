@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/indexeddb.js:2:0
-
         declare interface IDBEnvironment {
           indexedDB: IDBFactory;
         }
@@ -14,8 +12,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:9:0
-
         declare interface IDBFactory {
           open(name: string, version?: number): IDBOpenDBRequest;
           deleteDatabase(name: string): IDBOpenDBRequest;
@@ -27,8 +23,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:15:0
-
         declare interface IDBRequest extends EventTarget {
           result: IDBObjectStore;
           error: Error;
@@ -44,8 +38,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:25:0
-
         declare interface IDBOpenDBRequest extends IDBRequest {
           onblocked: (e: any) => mixed;
           onupgradeneeded: (e: any) => mixed;
@@ -56,8 +48,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:30:0
-
         declare interface IDBDatabase extends EventTarget {
           close(): void;
           createObjectStore(name: string, options?: {
@@ -81,8 +71,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:48:0
-
         declare interface IDBTransaction extends EventTarget {
           abort(): void;
           db: IDBDatabase;
@@ -100,8 +88,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:60:0
-
         declare interface IDBObjectStore {
           add(value: any, key?: any): IDBRequest;
           autoIncrement: bool;
@@ -130,8 +116,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:83:0
-
         declare interface IDBIndex extends EventTarget {
           count(key?: any|IDBKeyRange): IDBRequest;
           get(key: any|IDBKeyRange): IDBRequest;
@@ -150,8 +134,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:96:0
-
         declare interface IDBKeyRange {
           bound(lower: any, upper: any, lowerOpen?: bool, upperOpen?: bool): IDBKeyRange;
           only(value: any): IDBKeyRange;
@@ -168,8 +150,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:107:0
-
         declare interface IDBCursor {
           advance(count: number): void;
           continue(key?: any): void;
@@ -186,8 +166,6 @@ export default {
     },
 
     /*
-        lib/indexeddb.js:118:0
-
         declare interface IDBCursorWithValue extends IDBCursor {
           value: any;
         }

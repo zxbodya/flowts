@@ -262,15 +262,7 @@ async function main(
   }
 
   function getNodeComment(path: NodePath) {
-    const blocks = [
-      '',
-      `${referenceName || inputPath}${
-        path.node.loc
-          ? `:${path.node.loc.start.line}:${path.node.loc.start.column}`
-          : ''
-      }`,
-      '',
-    ];
+    const blocks = [''];
 
     blocks.push(path.getSource().replace(/(?:\/\*|\*\/)/g, ''));
 

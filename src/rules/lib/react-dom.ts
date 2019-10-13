@@ -3,8 +3,6 @@ import { RuleSet } from '../../ruleTypes';
 export default {
   globals: {
     /*
-        lib/react-dom.js:119:0
-
         declare class SyntheticEvent<+T: EventTarget = EventTarget, +E: Event = Event> {
           bubbles: boolean;
           cancelable: boolean;
@@ -30,8 +28,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:139:0
-
         declare class SyntheticAnimationEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticEvent<T> {
@@ -45,8 +41,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:147:0
-
         declare class SyntheticClipboardEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticEvent<T> {
@@ -58,8 +52,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:153:0
-
         declare class SyntheticCompositionEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticEvent<T> {
@@ -71,8 +63,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:159:0
-
         declare class SyntheticInputEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticEvent<T> {
@@ -85,8 +75,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:166:0
-
         declare class SyntheticUIEvent<
           +T: EventTarget = EventTarget,
           +E: Event = Event,
@@ -100,8 +88,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:174:0
-
         declare class SyntheticFocusEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticUIEvent<T> {
@@ -113,8 +99,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:180:0
-
         declare class SyntheticKeyboardEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticUIEvent<T, KeyboardEvent> {
@@ -137,8 +121,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:197:0
-
         declare class SyntheticMouseEvent<
           +T: EventTarget = EventTarget,
           +E: Event = MouseEvent,
@@ -164,8 +146,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:217:0
-
         declare class SyntheticDragEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticMouseEvent<T, DragEvent> {
@@ -177,8 +157,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:223:0
-
         declare class SyntheticWheelEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticMouseEvent<T, WheelEvent> {
@@ -193,8 +171,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:232:0
-
         declare class SyntheticPointerEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticMouseEvent<T, PointerEvent> {
@@ -215,8 +191,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:247:0
-
         declare class SyntheticTouchEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticUIEvent<T, TouchEvent> {
@@ -235,8 +209,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:260:0
-
         declare class SyntheticTransitionEvent<
           +T: EventTarget = EventTarget,
         > extends SyntheticEvent<T> {
@@ -250,8 +222,6 @@ export default {
     },
 
     /*
-        lib/react-dom.js:269:0
-
         declare type $JSXIntrinsics = {
           // Catch-all for custom elements.
           [string]: ReactDOM$HTMLElementJSXIntrinsic,
@@ -772,8 +742,6 @@ export default {
 
       exports: {
         /*
-                lib/react-dom.js:12:2
-
                 declare function findDOMNode(
                     componentOrElement: Element | ?React$Component<any, any>,
                   ): null | Element | Text;
@@ -781,8 +749,6 @@ export default {
         findDOMNode(context) {},
 
         /*
-                lib/react-dom.js:16:2
-
                 declare function render<ElementType: React$ElementType>(
                     element: React$Element<ElementType>,
                     container: Element,
@@ -792,8 +758,6 @@ export default {
         render(context) {},
 
         /*
-                lib/react-dom.js:22:2
-
                 declare function hydrate<ElementType: React$ElementType>(
                     element: React$Element<ElementType>,
                     container: Element,
@@ -803,8 +767,6 @@ export default {
         hydrate(context) {},
 
         /*
-                lib/react-dom.js:28:2
-
                 declare function createPortal(
                     node: React$Node,
                     container: Element,
@@ -813,22 +775,16 @@ export default {
         createPortal(context) {},
 
         /*
-                lib/react-dom.js:33:2
-
                 declare function unmountComponentAtNode(container: any): boolean;
                 */
         unmountComponentAtNode(context) {},
 
         /*
-                lib/react-dom.js:34:2
-
                 declare var version: string;
                 */
         version(context) {},
 
         /*
-                lib/react-dom.js:36:2
-
                 declare function unstable_batchedUpdates<A, B, C, D, E>(
                     callback: (a: A, b: B, c: C, d: D, e: E) => mixed,
                     a: A,
@@ -841,8 +797,6 @@ export default {
         unstable_batchedUpdates(context) {},
 
         /*
-                lib/react-dom.js:44:2
-
                 declare function unstable_renderSubtreeIntoContainer<
                     ElementType: React$ElementType,
                   >(
@@ -861,29 +815,21 @@ export default {
 
       exports: {
         /*
-                lib/react-dom.js:55:2
-
                 declare function renderToString(element: React$Node): string;
                 */
         renderToString(context) {},
 
         /*
-                lib/react-dom.js:56:2
-
                 declare function renderToStaticMarkup(element: React$Node): string;
                 */
         renderToStaticMarkup(context) {},
 
         /*
-                lib/react-dom.js:57:2
-
                 declare function renderToNodeStream(element: React$Node): stream$Readable;
                 */
         renderToNodeStream(context) {},
 
         /*
-                lib/react-dom.js:58:2
-
                 declare function renderToStaticNodeStream(
                     element: React$Node,
                   ): stream$Readable;
@@ -891,8 +837,6 @@ export default {
         renderToStaticNodeStream(context) {},
 
         /*
-                lib/react-dom.js:61:2
-
                 declare var version: string;
                 */
         version(context) {},
@@ -904,15 +848,11 @@ export default {
 
       exports: {
         /*
-                lib/react-dom.js:67:2
-
                 declare var Simulate: { [eventName: string]: (element: Element, eventData?: Object) => void, ... };
                 */
         Simulate(context) {},
 
         /*
-                lib/react-dom.js:68:2
-
                 declare function renderIntoDocument(
                     instance: React$Element<any>,
                   ): React$Component<any, any>;
@@ -920,8 +860,6 @@ export default {
         renderIntoDocument(context) {},
 
         /*
-                lib/react-dom.js:71:2
-
                 declare function mockComponent(
                     componentClass: React$ElementType,
                     mockTagName?: string,
@@ -930,15 +868,11 @@ export default {
         mockComponent(context) {},
 
         /*
-                lib/react-dom.js:75:2
-
                 declare function isElement(element: React$Element<any>): boolean;
                 */
         isElement(context) {},
 
         /*
-                lib/react-dom.js:76:2
-
                 declare function isElementOfType(
                     element: React$Element<any>,
                     componentClass: React$ElementType,
@@ -947,15 +881,11 @@ export default {
         isElementOfType(context) {},
 
         /*
-                lib/react-dom.js:80:2
-
                 declare function isDOMComponent(instance: any): boolean;
                 */
         isDOMComponent(context) {},
 
         /*
-                lib/react-dom.js:81:2
-
                 declare function isCompositeComponent(
                     instance: React$Component<any, any>,
                   ): boolean;
@@ -963,8 +893,6 @@ export default {
         isCompositeComponent(context) {},
 
         /*
-                lib/react-dom.js:84:2
-
                 declare function isCompositeComponentWithType(
                     instance: React$Component<any, any>,
                     componentClass: React$ElementType,
@@ -973,8 +901,6 @@ export default {
         isCompositeComponentWithType(context) {},
 
         /*
-                lib/react-dom.js:88:2
-
                 declare function findAllInRenderedTree(
                     tree: React$Component<any, any>,
                     test: (child: React$Component<any, any>) => boolean,
@@ -983,8 +909,6 @@ export default {
         findAllInRenderedTree(context) {},
 
         /*
-                lib/react-dom.js:92:2
-
                 declare function scryRenderedDOMComponentsWithClass(
                     tree: React$Component<any, any>,
                     className: string,
@@ -993,8 +917,6 @@ export default {
         scryRenderedDOMComponentsWithClass(context) {},
 
         /*
-                lib/react-dom.js:96:2
-
                 declare function findRenderedDOMComponentWithClass(
                     tree: React$Component<any, any>,
                     className: string,
@@ -1003,8 +925,6 @@ export default {
         findRenderedDOMComponentWithClass(context) {},
 
         /*
-                lib/react-dom.js:100:2
-
                 declare function scryRenderedDOMComponentsWithTag(
                     tree: React$Component<any, any>,
                     tagName: string,
@@ -1013,8 +933,6 @@ export default {
         scryRenderedDOMComponentsWithTag(context) {},
 
         /*
-                lib/react-dom.js:104:2
-
                 declare function findRenderedDOMComponentWithTag(
                     tree: React$Component<any, any>,
                     tagName: string,
@@ -1023,8 +941,6 @@ export default {
         findRenderedDOMComponentWithTag(context) {},
 
         /*
-                lib/react-dom.js:108:2
-
                 declare function scryRenderedComponentsWithType(
                     tree: React$Component<any, any>,
                     componentClass: React$ElementType,
@@ -1033,8 +949,6 @@ export default {
         scryRenderedComponentsWithType(context) {},
 
         /*
-                lib/react-dom.js:112:2
-
                 declare function findRenderedComponentWithType(
                     tree: React$Component<any, any>,
                     componentClass: React$ElementType,
@@ -1043,8 +957,6 @@ export default {
         findRenderedComponentWithType(context) {},
 
         /*
-                lib/react-dom.js:116:2
-
                 declare function act(callback: () => void | Thenable): Thenable;
                 */
         act(context) {},
