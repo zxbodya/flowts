@@ -226,7 +226,21 @@ export default {
     },
 
     /*
-        lib/dom.js:188:0
+        lib/dom.js:130:0
+
+        declare type ScrollToOptions = {
+          top?: number;
+          left?: number;
+          behavior?: 'auto' | 'smooth';
+          ...
+        }
+        */
+    ScrollToOptions(context) {
+      context.lib('dom');
+    },
+
+    /*
+        lib/dom.js:195:0
 
         declare class EventTarget {
           addEventListener(type: MouseEventTypes, listener: MouseEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
@@ -309,7 +323,7 @@ export default {
     },
 
     /*
-        lib/dom.js:272:0
+        lib/dom.js:279:0
 
         declare class Event {
           constructor(type: string, eventInitDict?: Event$Init): void;
@@ -345,7 +359,7 @@ export default {
     },
 
     /*
-        lib/dom.js:303:0
+        lib/dom.js:310:0
 
         declare class CustomEvent extends Event {
           constructor(type: string, eventInitDict?: CustomEvent$Init): void;
@@ -365,7 +379,7 @@ export default {
     },
 
     /*
-        lib/dom.js:316:0
+        lib/dom.js:323:0
 
         declare class UIEvent extends Event {
           detail: number;
@@ -377,7 +391,7 @@ export default {
     },
 
     /*
-        lib/dom.js:337:0
+        lib/dom.js:344:0
 
         declare class MouseEvent extends UIEvent {
           constructor(
@@ -412,7 +426,7 @@ export default {
     },
 
     /*
-        lib/dom.js:365:0
+        lib/dom.js:372:0
 
         declare class FocusEvent extends UIEvent {
           relatedTarget: ?EventTarget;
@@ -423,7 +437,7 @@ export default {
     },
 
     /*
-        lib/dom.js:369:0
+        lib/dom.js:376:0
 
         declare class WheelEvent extends MouseEvent {
           deltaX: number; // readonly
@@ -437,7 +451,7 @@ export default {
     },
 
     /*
-        lib/dom.js:376:0
+        lib/dom.js:383:0
 
         declare class DragEvent extends MouseEvent {
           dataTransfer: ?DataTransfer; // readonly
@@ -448,7 +462,7 @@ export default {
     },
 
     /*
-        lib/dom.js:394:0
+        lib/dom.js:401:0
 
         declare class PointerEvent extends MouseEvent {
           constructor(
@@ -472,7 +486,7 @@ export default {
     },
 
     /*
-        lib/dom.js:411:0
+        lib/dom.js:418:0
 
         declare class ProgressEvent extends Event {
           lengthComputable: boolean;
@@ -495,7 +509,7 @@ export default {
     },
 
     /*
-        lib/dom.js:427:0
+        lib/dom.js:434:0
 
         declare class PromiseRejectionEvent extends Event {
           promise: Promise<any>;
@@ -507,7 +521,7 @@ export default {
     },
 
     /*
-        lib/dom.js:438:0
+        lib/dom.js:445:0
 
         declare class MessageEvent extends Event {
           data: mixed;
@@ -521,7 +535,7 @@ export default {
     },
 
     /*
-        lib/dom.js:446:0
+        lib/dom.js:453:0
 
         declare class EventSource extends EventTarget {
           constructor(url: string, configuration?: { withCredentials: boolean, ... }): void;
@@ -542,7 +556,7 @@ export default {
     },
 
     /*
-        lib/dom.js:460:0
+        lib/dom.js:467:0
 
         declare class KeyboardEvent extends UIEvent {
           altKey: boolean;
@@ -567,7 +581,7 @@ export default {
     },
 
     /*
-        lib/dom.js:478:0
+        lib/dom.js:485:0
 
         declare class InputEvent extends UIEvent {
           data: string | null;
@@ -579,7 +593,7 @@ export default {
     },
 
     /*
-        lib/dom.js:483:0
+        lib/dom.js:490:0
 
         declare class AnimationEvent extends Event {
           animationName: string;
@@ -602,7 +616,7 @@ export default {
     },
 
     /*
-        lib/dom.js:500:0
+        lib/dom.js:507:0
 
         declare class BroadcastChannel extends EventTarget {
           name: string;
@@ -619,7 +633,7 @@ export default {
     },
 
     /*
-        lib/dom.js:511:0
+        lib/dom.js:518:0
 
         declare class Touch {
           clientX: number,
@@ -637,7 +651,7 @@ export default {
     },
 
     /*
-        lib/dom.js:525:0
+        lib/dom.js:532:0
 
         declare class TouchList {
           @@iterator(): Iterator<Touch>;
@@ -651,7 +665,7 @@ export default {
     },
 
     /*
-        lib/dom.js:533:0
+        lib/dom.js:540:0
 
         declare class TouchEvent extends UIEvent {
           altKey: boolean,
@@ -668,7 +682,7 @@ export default {
     },
 
     /*
-        lib/dom.js:544:0
+        lib/dom.js:551:0
 
         declare class StorageEvent extends Event {
           key: ?string,
@@ -683,7 +697,7 @@ export default {
     },
 
     /*
-        lib/dom.js:555:0
+        lib/dom.js:562:0
 
         declare class ClipboardEvent extends Event {
           constructor(type: ClipboardEventTypes, eventInit?: ClipboardEvent$Init): void;
@@ -695,7 +709,7 @@ export default {
     },
 
     /*
-        lib/dom.js:568:0
+        lib/dom.js:575:0
 
         declare class TransitionEvent extends Event {
           constructor(type: TransitionEventTypes, eventInit?: TransitionEvent$Init): void;
@@ -710,7 +724,7 @@ export default {
     },
 
     /*
-        lib/dom.js:577:0
+        lib/dom.js:584:0
 
         declare class BeforeUnloadEvent extends Event {
           returnValue: string,
@@ -721,7 +735,7 @@ export default {
     },
 
     /*
-        lib/dom.js:583:0
+        lib/dom.js:590:0
 
         declare class Node extends EventTarget {
           baseURI: ?string;
@@ -783,7 +797,7 @@ export default {
     },
 
     /*
-        lib/dom.js:638:0
+        lib/dom.js:645:0
 
         declare class NodeList<T> {
           @@iterator(): Iterator<T>;
@@ -802,7 +816,7 @@ export default {
     },
 
     /*
-        lib/dom.js:650:0
+        lib/dom.js:657:0
 
         declare class NamedNodeMap {
           @@iterator(): Iterator<Attr>;
@@ -822,7 +836,7 @@ export default {
     },
 
     /*
-        lib/dom.js:663:0
+        lib/dom.js:670:0
 
         declare class Attr extends Node {
           isId: boolean;
@@ -840,7 +854,7 @@ export default {
     },
 
     /*
-        lib/dom.js:674:0
+        lib/dom.js:681:0
 
         declare class HTMLCollection<+Elem: HTMLElement> {
           @@iterator(): Iterator<Elem>;
@@ -855,7 +869,7 @@ export default {
     },
 
     /*
-        lib/dom.js:719:0
+        lib/dom.js:726:0
 
         declare class Document extends Node {
           +timeline: DocumentTimeline;
@@ -1119,6 +1133,10 @@ export default {
           compatMode: 'BackCompat' | 'CSS1Compat';
           hidden: boolean;
 
+          // Pointer Lock specification
+          exitPointerLock(): void;
+          pointerLockElement: Element | null;
+
           // from ParentNode interface
           childElementCount: number;
           children: HTMLCollection<HTMLElement>;
@@ -1375,7 +1393,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1232:0
+        lib/dom.js:1243:0
 
         declare class DocumentFragment extends Node {
           // from ParentNode interface
@@ -1395,7 +1413,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1245:0
+        lib/dom.js:1256:0
 
         declare class Selection {
           anchorNode: Node | null;
@@ -1427,7 +1445,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1270:0
+        lib/dom.js:1281:0
 
         declare class Range { // extension
           startOffset: number;
@@ -1468,7 +1486,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1304:0
+        lib/dom.js:1315:0
 
         declare var document: Document;
         */
@@ -1477,7 +1495,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1309:0
+        lib/dom.js:1320:0
 
         declare class DOMTokenList {
           @@iterator(): Iterator<string>;
@@ -1499,7 +1517,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1325:0
+        lib/dom.js:1336:0
 
         declare class Element extends Node implements Animatable {
           animate(keyframes: Keyframe[] | PropertyIndexedKeyframes | null, options?: number | KeyframeAnimationOptions): Animation;
@@ -1665,6 +1683,12 @@ export default {
                  inline?: ('start' | 'center' | 'end' | 'nearest'),
                  ...
           })): void;
+          scroll(x: number, y: number): void;
+          scroll(options: ScrollToOptions): void;
+          scrollTo(x: number, y: number): void;
+          scrollTo(options: ScrollToOptions): void;
+          scrollBy(x: number, y: number): void;
+          scrollBy(options: ScrollToOptions): void;
           setAttribute(name?: string, value?: string): void;
           toggleAttribute(name?: string, force?: boolean): void;
           setAttributeNS(namespaceURI: string | null, qualifiedName: string, value: string): void;
@@ -1822,7 +1846,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1641:0
+        lib/dom.js:1658:0
 
         declare class HTMLElement extends Element {
           blur(): void;
@@ -1930,7 +1954,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1742:0
+        lib/dom.js:1759:0
 
         declare class HTMLSlotElement extends HTMLElement {
           name: string;
@@ -1942,7 +1966,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1747:0
+        lib/dom.js:1764:0
 
         declare class HTMLTableElement extends HTMLElement {
           caption: HTMLTableCaptionElement;
@@ -1965,7 +1989,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1763:0
+        lib/dom.js:1780:0
 
         declare class HTMLTableCaptionElement extends HTMLElement {
 
@@ -1976,7 +2000,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1767:0
+        lib/dom.js:1784:0
 
         declare class HTMLTableSectionElement extends HTMLElement {
           rows: HTMLCollection<HTMLTableRowElement>;
@@ -1987,7 +2011,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1771:0
+        lib/dom.js:1788:0
 
         declare class HTMLTableCellElement extends HTMLElement {
           colSpan: number;
@@ -2000,7 +2024,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1777:0
+        lib/dom.js:1794:0
 
         declare class HTMLTableRowElement extends HTMLElement {
           align: 'left' | 'right' | 'center';
@@ -2015,7 +2039,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1785:0
+        lib/dom.js:1802:0
 
         declare class HTMLMenuElement extends HTMLElement {
           getCompact(): bool;
@@ -2027,7 +2051,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1790:0
+        lib/dom.js:1807:0
 
         declare class HTMLBaseElement extends HTMLElement {
           href: string;
@@ -2039,7 +2063,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1795:0
+        lib/dom.js:1812:0
 
         declare class HTMLTemplateElement extends HTMLElement {
           content: DocumentFragment;
@@ -2050,7 +2074,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1799:0
+        lib/dom.js:1816:0
 
         declare class CanvasGradient {
           addColorStop(offset: number, color: string): void;
@@ -2061,7 +2085,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1803:0
+        lib/dom.js:1820:0
 
         declare class CanvasPattern {
           setTransform(matrix: SVGMatrix): void;
@@ -2072,7 +2096,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1807:0
+        lib/dom.js:1824:0
 
         declare class ImageBitmap {
           close(): void;
@@ -2085,7 +2109,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1817:0
+        lib/dom.js:1834:0
 
         declare class HitRegionOptions {
           path?: Path2D,
@@ -2101,7 +2125,7 @@ export default {
     HitRegionOptions(context) {},
 
     /*
-        lib/dom.js:1828:0
+        lib/dom.js:1845:0
 
         declare class CanvasDrawingStyles {
           lineWidth: number;
@@ -2124,7 +2148,7 @@ export default {
     CanvasDrawingStyles(context) {},
 
     /*
-        lib/dom.js:1846:0
+        lib/dom.js:1863:0
 
         declare class SVGMatrix {
           getComponent(index: number): number;
@@ -2140,7 +2164,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1855:0
+        lib/dom.js:1872:0
 
         declare class TextMetrics {
           // x-direction
@@ -2165,7 +2189,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1873:0
+        lib/dom.js:1890:0
 
         declare class Path2D {
           constructor(path?: Path2D | string): void;
@@ -2196,7 +2220,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1897:0
+        lib/dom.js:1914:0
 
         declare class ImageData {
           width: number;
@@ -2215,7 +2239,7 @@ export default {
     },
 
     /*
-        lib/dom.js:1909:0
+        lib/dom.js:1926:0
 
         declare class CanvasRenderingContext2D {
           canvas: HTMLCanvasElement;
@@ -2346,7 +2370,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2098:0
+        lib/dom.js:2115:0
 
         declare class WebGLRenderingContext {
           static DEPTH_BUFFER_BIT               : 0x00000100;
@@ -3178,7 +3202,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2923:0
+        lib/dom.js:2940:0
 
         declare class WebGLContextEvent extends Event {
           statusMessage: string;
@@ -3189,7 +3213,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2931:0
+        lib/dom.js:2948:0
 
         declare class HTMLCanvasElement extends HTMLElement {
           width: number;
@@ -3209,7 +3233,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2945:0
+        lib/dom.js:2962:0
 
         declare class HTMLDetailsElement extends HTMLElement {
           open: boolean;
@@ -3220,7 +3244,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2949:0
+        lib/dom.js:2966:0
 
         declare class HTMLFormElement extends HTMLElement {
           @@iterator(): Iterator<HTMLElement>;
@@ -3246,7 +3270,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2969:0
+        lib/dom.js:2986:0
 
         declare class HTMLFieldSetElement extends HTMLElement {
           disabled: boolean;
@@ -3264,7 +3288,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2980:0
+        lib/dom.js:2997:0
 
         declare class HTMLLegendElement extends HTMLElement {
           form: HTMLFormElement | null; // readonly
@@ -3275,7 +3299,7 @@ export default {
     },
 
     /*
-        lib/dom.js:2984:0
+        lib/dom.js:3001:0
 
         declare class HTMLIFrameElement extends HTMLElement {
           allowFullScreen: boolean;
@@ -3298,7 +3322,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3000:0
+        lib/dom.js:3017:0
 
         declare class HTMLImageElement extends HTMLElement {
           alt: string;
@@ -3322,7 +3346,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3017:0
+        lib/dom.js:3034:0
 
         declare class Image extends HTMLImageElement {
           constructor(width?: number, height?: number): void;
@@ -3333,7 +3357,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3021:0
+        lib/dom.js:3038:0
 
         declare class MediaError {
           MEDIA_ERR_ABORTED: number;
@@ -3349,7 +3373,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3030:0
+        lib/dom.js:3047:0
 
         declare class TimeRanges {
           length: number;
@@ -3362,7 +3386,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3035:0
+        lib/dom.js:3052:0
 
         declare class Audio extends HTMLAudioElement {
           constructor(URLString?: string): void;
@@ -3373,7 +3397,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3039:0
+        lib/dom.js:3056:0
 
         declare class AudioTrack {
           id: string;
@@ -3388,7 +3412,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3047:0
+        lib/dom.js:3064:0
 
         declare class AudioTrackList extends EventTarget {
           length: number;
@@ -3406,7 +3430,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3058:0
+        lib/dom.js:3075:0
 
         declare class VideoTrack {
           id: string;
@@ -3421,7 +3445,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3066:0
+        lib/dom.js:3083:0
 
         declare class VideoTrackList extends EventTarget {
           length: number;
@@ -3439,7 +3463,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3077:0
+        lib/dom.js:3094:0
 
         declare class TextTrackCue extends EventTarget {
           constructor(startTime: number, endTime: number, text: string): void;
@@ -3467,7 +3491,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3098:0
+        lib/dom.js:3115:0
 
         declare class TextTrackCueList {
           @@iterator(): Iterator<TextTrackCue>;
@@ -3481,7 +3505,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3105:0
+        lib/dom.js:3122:0
 
         declare class TextTrack extends EventTarget {
           kind: string;
@@ -3504,7 +3528,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3121:0
+        lib/dom.js:3138:0
 
         declare class TextTrackList extends EventTarget {
           length: number;
@@ -3519,7 +3543,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3129:0
+        lib/dom.js:3146:0
 
         declare class MediaKeyStatusMap<BufferDataSource, MediaKeyStatus> {
           @@iterator(): Iterator<[BufferDataSource, MediaKeyStatus]>;
@@ -3537,7 +3561,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3140:0
+        lib/dom.js:3157:0
 
         declare class MediaKeySession extends EventTarget {
           sessionId: string;
@@ -3560,7 +3584,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3156:0
+        lib/dom.js:3173:0
 
         declare class MediaKeys {
           createSession(mediaKeySessionType: MediaKeySessionType): MediaKeySession;
@@ -3572,7 +3596,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3161:0
+        lib/dom.js:3178:0
 
         declare class HTMLMediaElement extends HTMLElement {
           // error state
@@ -3646,7 +3670,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3228:0
+        lib/dom.js:3245:0
 
         declare class HTMLAudioElement extends HTMLMediaElement {
         }
@@ -3656,7 +3680,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3231:0
+        lib/dom.js:3248:0
 
         declare class HTMLVideoElement extends HTMLMediaElement {
           width: number;
@@ -3671,7 +3695,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3239:0
+        lib/dom.js:3256:0
 
         declare class HTMLSourceElement extends HTMLElement {
             src: string;
@@ -3688,7 +3712,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3249:0
+        lib/dom.js:3266:0
 
         declare class ValidityState {
           badInput: boolean;
@@ -3709,7 +3733,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3266:0
+        lib/dom.js:3283:0
 
         declare class HTMLInputElement extends HTMLElement {
           accept: string;
@@ -3787,7 +3811,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3337:0
+        lib/dom.js:3354:0
 
         declare class HTMLButtonElement extends HTMLElement {
           autofocus: boolean;
@@ -3811,7 +3835,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3355:0
+        lib/dom.js:3372:0
 
         declare class HTMLTextAreaElement extends HTMLElement {
           autofocus: boolean;
@@ -3852,7 +3876,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3389:0
+        lib/dom.js:3406:0
 
         declare class HTMLSelectElement extends HTMLElement {
           autocomplete: string;
@@ -3887,7 +3911,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3417:0
+        lib/dom.js:3434:0
 
         declare class HTMLOptionsCollection extends HTMLCollection<HTMLOptionElement> {
           selectedIndex: number;
@@ -3900,7 +3924,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3423:0
+        lib/dom.js:3440:0
 
         declare class HTMLOptionElement extends HTMLElement {
           defaultSelected: boolean;
@@ -3918,7 +3942,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3434:0
+        lib/dom.js:3451:0
 
         declare class HTMLOptGroupElement extends HTMLElement {
           disabled: boolean;
@@ -3930,7 +3954,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3439:0
+        lib/dom.js:3456:0
 
         declare class HTMLAnchorElement extends HTMLElement {
           charset: string;
@@ -3963,7 +3987,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3466:0
+        lib/dom.js:3483:0
 
         declare class HTMLLabelElement extends HTMLElement {
           form: HTMLFormElement | null;
@@ -3976,7 +4000,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3472:0
+        lib/dom.js:3489:0
 
         declare class HTMLLinkElement extends HTMLElement {
           crossOrigin: ?('anonymous' | 'use-credentials');
@@ -3994,7 +4018,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3483:0
+        lib/dom.js:3500:0
 
         declare class HTMLScriptElement extends HTMLElement {
           async: boolean;
@@ -4011,7 +4035,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3493:0
+        lib/dom.js:3510:0
 
         declare class HTMLStyleElement extends HTMLElement {
           disabled: boolean;
@@ -4026,7 +4050,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3501:0
+        lib/dom.js:3518:0
 
         declare class HTMLParagraphElement extends HTMLElement {
           align: 'left' | 'center' | 'right' | 'justify'; // deprecated in HTML 4.01
@@ -4037,7 +4061,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3505:0
+        lib/dom.js:3522:0
 
         declare class HTMLHtmlElement extends HTMLElement {}
         */
@@ -4046,7 +4070,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3507:0
+        lib/dom.js:3524:0
 
         declare class HTMLBodyElement extends HTMLElement {}
         */
@@ -4055,7 +4079,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3509:0
+        lib/dom.js:3526:0
 
         declare class HTMLHeadElement extends HTMLElement {}
         */
@@ -4064,7 +4088,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3511:0
+        lib/dom.js:3528:0
 
         declare class HTMLDivElement extends HTMLElement {}
         */
@@ -4073,7 +4097,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3513:0
+        lib/dom.js:3530:0
 
         declare class HTMLSpanElement extends HTMLElement {}
         */
@@ -4082,7 +4106,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3515:0
+        lib/dom.js:3532:0
 
         declare class HTMLAppletElement extends HTMLElement {}
         */
@@ -4091,7 +4115,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3517:0
+        lib/dom.js:3534:0
 
         declare class HTMLHeadingElement extends HTMLElement {}
         */
@@ -4100,7 +4124,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3519:0
+        lib/dom.js:3536:0
 
         declare class HTMLHRElement extends HTMLElement {}
         */
@@ -4109,7 +4133,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3521:0
+        lib/dom.js:3538:0
 
         declare class HTMLBRElement extends HTMLElement {}
         */
@@ -4118,7 +4142,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3523:0
+        lib/dom.js:3540:0
 
         declare class HTMLDListElement extends HTMLElement {}
         */
@@ -4127,7 +4151,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3525:0
+        lib/dom.js:3542:0
 
         declare class HTMLAreaElement extends HTMLElement {
           alt: string;
@@ -4146,7 +4170,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3537:0
+        lib/dom.js:3554:0
 
         declare class HTMLDataElement extends HTMLElement {
           value: string;
@@ -4157,7 +4181,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3541:0
+        lib/dom.js:3558:0
 
         declare class HTMLDataListElement extends HTMLElement {
           options: HTMLCollection<HTMLOptionElement>;
@@ -4168,7 +4192,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3545:0
+        lib/dom.js:3562:0
 
         declare class HTMLDialogElement extends HTMLElement {
           open: boolean;
@@ -4183,7 +4207,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3553:0
+        lib/dom.js:3570:0
 
         declare class HTMLEmbedElement extends HTMLElement {
           src: string;
@@ -4198,7 +4222,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3561:0
+        lib/dom.js:3578:0
 
         declare class HTMLMapElement extends HTMLElement {
           areas: HTMLCollection<HTMLAreaElement>;
@@ -4211,7 +4235,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3567:0
+        lib/dom.js:3584:0
 
         declare class HTMLMeterElement extends HTMLElement {
           high: number;
@@ -4228,7 +4252,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3577:0
+        lib/dom.js:3594:0
 
         declare class HTMLModElement extends HTMLElement {
           cite: string;
@@ -4240,7 +4264,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3582:0
+        lib/dom.js:3599:0
 
         declare class HTMLObjectElement extends HTMLElement {
           contentDocument: ?Document;
@@ -4267,7 +4291,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3602:0
+        lib/dom.js:3619:0
 
         declare class HTMLOutputElement extends HTMLElement {
           defaultValue: string;
@@ -4290,7 +4314,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3618:0
+        lib/dom.js:3635:0
 
         declare class HTMLParamElement extends HTMLElement {
           name: string;
@@ -4302,7 +4326,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3623:0
+        lib/dom.js:3640:0
 
         declare class HTMLProgressElement extends HTMLElement {
           labels: NodeList<HTMLLabelElement>;
@@ -4316,7 +4340,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3630:0
+        lib/dom.js:3647:0
 
         declare class HTMLPictureElement extends HTMLElement {}
         */
@@ -4325,7 +4349,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3632:0
+        lib/dom.js:3649:0
 
         declare class HTMLTableColElement extends HTMLElement {
           span: number;
@@ -4336,7 +4360,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3636:0
+        lib/dom.js:3653:0
 
         declare class HTMLTimeElement extends HTMLElement {
           dateTime: string;
@@ -4347,7 +4371,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3640:0
+        lib/dom.js:3657:0
 
         declare class HTMLTitleElement extends HTMLElement {
           text: string;
@@ -4358,7 +4382,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3644:0
+        lib/dom.js:3661:0
 
         declare class HTMLTrackElement extends HTMLElement {
           static NONE: 0;
@@ -4380,7 +4404,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3659:0
+        lib/dom.js:3676:0
 
         declare class HTMLQuoteElement extends HTMLElement {
           cite: string;
@@ -4391,7 +4415,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3663:0
+        lib/dom.js:3680:0
 
         declare class HTMLOListElement extends HTMLElement {
           reversed: boolean;
@@ -4404,7 +4428,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3669:0
+        lib/dom.js:3686:0
 
         declare class HTMLUListElement extends HTMLElement {}
         */
@@ -4413,7 +4437,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3671:0
+        lib/dom.js:3688:0
 
         declare class HTMLLIElement extends HTMLElement {
           value: number;
@@ -4424,7 +4448,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3675:0
+        lib/dom.js:3692:0
 
         declare class HTMLPreElement extends HTMLElement {}
         */
@@ -4433,7 +4457,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3677:0
+        lib/dom.js:3694:0
 
         declare class HTMLMetaElement extends HTMLElement {
           content: string;
@@ -4446,7 +4470,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3683:0
+        lib/dom.js:3700:0
 
         declare class TextRange {
           boundingLeft: number;
@@ -4491,7 +4515,7 @@ export default {
     TextRange(context) {},
 
     /*
-        lib/dom.js:3723:0
+        lib/dom.js:3740:0
 
         declare class ClientRect { // extension
           left: number;
@@ -4507,7 +4531,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3732:0
+        lib/dom.js:3749:0
 
         declare class ClientRectList { // extension
           @@iterator(): Iterator<ClientRect>;
@@ -4521,7 +4545,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3741:0
+        lib/dom.js:3758:0
 
         declare class DOMImplementation {
           createDocumentType(qualifiedName: string, publicId: string, systemId: string): DocumentType;
@@ -4537,7 +4561,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3750:0
+        lib/dom.js:3767:0
 
         declare class DocumentType extends Node {
           name: string;
@@ -4559,7 +4583,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3765:0
+        lib/dom.js:3782:0
 
         declare class CharacterData extends Node {
           length: number;
@@ -4582,7 +4606,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3781:0
+        lib/dom.js:3798:0
 
         declare class Text extends CharacterData {
           assignedSlot?: HTMLSlotElement;
@@ -4596,7 +4620,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3788:0
+        lib/dom.js:3805:0
 
         declare class Comment extends CharacterData {
           text: string;
@@ -4607,7 +4631,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3792:0
+        lib/dom.js:3809:0
 
         declare class URL {
           static createObjectURL(blob: Blob): string;
@@ -4634,7 +4658,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3812:0
+        lib/dom.js:3829:0
 
         declare class MediaSource extends EventTarget {
           sourceBuffers: SourceBufferList;
@@ -4652,7 +4676,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3823:0
+        lib/dom.js:3840:0
 
         declare class SourceBuffer extends EventTarget {
           mode: "segments" | "sequence";
@@ -4679,7 +4703,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3843:0
+        lib/dom.js:3860:0
 
         declare class SourceBufferList extends EventTarget {
           @@iterator(): Iterator<SourceBuffer>;
@@ -4692,7 +4716,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3849:0
+        lib/dom.js:3866:0
 
         declare class Storage {
           length: number;
@@ -4709,7 +4733,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3859:0
+        lib/dom.js:3876:0
 
         declare class TrackDefaultList {
           [index: number]: TrackDefault;
@@ -4719,7 +4743,7 @@ export default {
     TrackDefaultList(context) {},
 
     /*
-        lib/dom.js:3864:0
+        lib/dom.js:3881:0
 
         declare class TrackDefault {
           type: "audio" | "video" | "text";
@@ -4732,7 +4756,7 @@ export default {
     TrackDefault(context) {},
 
     /*
-        lib/dom.js:3883:0
+        lib/dom.js:3900:0
 
         declare class NodeFilter {
           static SHOW_ALL: -1;
@@ -4759,7 +4783,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3905:0
+        lib/dom.js:3922:0
 
         declare class NodeIterator<RootNodeT, WhatToShowT> {
           root: RootNodeT;
@@ -4778,7 +4802,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3919:0
+        lib/dom.js:3936:0
 
         declare class TreeWalker<RootNodeT, WhatToShowT> {
           root: RootNodeT;
@@ -4800,7 +4824,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3936:0
+        lib/dom.js:3953:0
 
         declare type WindowProxy = any;
         */
@@ -4809,7 +4833,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3937:0
+        lib/dom.js:3954:0
 
         declare function alert(message?: any): void;
         */
@@ -4818,7 +4842,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3938:0
+        lib/dom.js:3955:0
 
         declare function prompt(message?: any, value?: any): string;
         */
@@ -4827,7 +4851,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3939:0
+        lib/dom.js:3956:0
 
         declare function close(): void;
         */
@@ -4836,7 +4860,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3940:0
+        lib/dom.js:3957:0
 
         declare function confirm(message?: string): boolean;
         */
@@ -4845,7 +4869,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3941:0
+        lib/dom.js:3958:0
 
         declare function getComputedStyle(elt: Element, pseudoElt?: string): any;
         */
@@ -4854,14 +4878,14 @@ export default {
     },
 
     /*
-        lib/dom.js:3942:0
+        lib/dom.js:3959:0
 
         declare opaque type AnimationFrameID;
         */
     AnimationFrameID(context) {},
 
     /*
-        lib/dom.js:3943:0
+        lib/dom.js:3960:0
 
         declare function requestAnimationFrame(callback: (timestamp: number) => void): AnimationFrameID;
         */
@@ -4870,7 +4894,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3944:0
+        lib/dom.js:3961:0
 
         declare function cancelAnimationFrame(requestId: AnimationFrameID): void;
         */
@@ -4879,14 +4903,14 @@ export default {
     },
 
     /*
-        lib/dom.js:3945:0
+        lib/dom.js:3962:0
 
         declare opaque type IdleCallbackID;
         */
     IdleCallbackID(context) {},
 
     /*
-        lib/dom.js:3946:0
+        lib/dom.js:3963:0
 
         declare function requestIdleCallback(
           cb: (deadline: {
@@ -4900,14 +4924,14 @@ export default {
     requestIdleCallback(context) {},
 
     /*
-        lib/dom.js:3954:0
+        lib/dom.js:3971:0
 
         declare function cancelIdleCallback(id: IdleCallbackID): void;
         */
     cancelIdleCallback(context) {},
 
     /*
-        lib/dom.js:3955:0
+        lib/dom.js:3972:0
 
         declare var localStorage: Storage;
         */
@@ -4916,7 +4940,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3956:0
+        lib/dom.js:3973:0
 
         declare function focus(): void;
         */
@@ -4925,7 +4949,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3957:0
+        lib/dom.js:3974:0
 
         declare function onfocus(ev: Event): any;
         */
@@ -4934,7 +4958,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3958:0
+        lib/dom.js:3975:0
 
         declare function onmessage(ev: MessageEvent): any;
         */
@@ -4943,7 +4967,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3959:0
+        lib/dom.js:3976:0
 
         declare function open(url?: string, target?: string, features?: string, replace?: boolean): any;
         */
@@ -4952,7 +4976,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3960:0
+        lib/dom.js:3977:0
 
         declare var parent: WindowProxy;
         */
@@ -4961,7 +4985,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3961:0
+        lib/dom.js:3978:0
 
         declare function print(): void;
         */
@@ -4970,7 +4994,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3962:0
+        lib/dom.js:3979:0
 
         declare var self: any;
         */
@@ -4979,7 +5003,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3963:0
+        lib/dom.js:3980:0
 
         declare var sessionStorage: Storage;
         */
@@ -4988,7 +5012,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3964:0
+        lib/dom.js:3981:0
 
         declare var status: string;
         */
@@ -4997,7 +5021,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3965:0
+        lib/dom.js:3982:0
 
         declare var top: WindowProxy;
         */
@@ -5006,7 +5030,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3966:0
+        lib/dom.js:3983:0
 
         declare function getSelection(): Selection | null;
         */
@@ -5015,7 +5039,7 @@ export default {
     },
 
     /*
-        lib/dom.js:3967:0
+        lib/dom.js:3984:0
 
         declare var customElements: CustomElementRegistry;
         */
@@ -5024,7 +5048,49 @@ export default {
     },
 
     /*
-        lib/dom.js:3998:0
+        lib/dom.js:3985:0
+
+        declare function scroll(x: number, y: number): void;
+        */
+    /*
+        lib/dom.js:3986:0
+
+        declare function scroll(options: ScrollToOptions): void;
+        */
+    scroll(context) {
+      context.lib('dom');
+    },
+
+    /*
+        lib/dom.js:3987:0
+
+        declare function scrollTo(x: number, y: number): void;
+        */
+    /*
+        lib/dom.js:3988:0
+
+        declare function scrollTo(options: ScrollToOptions): void;
+        */
+    scrollTo(context) {
+      context.lib('dom');
+    },
+
+    /*
+        lib/dom.js:3989:0
+
+        declare function scrollBy(x: number, y: number): void;
+        */
+    /*
+        lib/dom.js:3990:0
+
+        declare function scrollBy(options: ScrollToOptions): void;
+        */
+    scrollBy(context) {
+      context.lib('dom');
+    },
+
+    /*
+        lib/dom.js:4021:0
 
         declare class Notification extends EventTarget {
           constructor(title: string, options?: NotificationOptions): void;

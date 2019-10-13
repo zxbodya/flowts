@@ -283,6 +283,23 @@ describe('lib/dom.js', () => {
       });
     });
 
+    describe('ScrollToOptions', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 extends ScrollToOptions {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('EventTarget', () => {
       test('variable', () => {
         expect(
@@ -3814,6 +3831,93 @@ describe('lib/dom.js', () => {
         expect(
           transform(`
             var a = customElements;
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('scroll', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = scroll;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new scroll();
+            
+            class A1 extends scroll {};
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - callable', () => {
+        expect(
+          transform(`
+            scroll();
+            
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('scrollTo', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = scrollTo;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new scrollTo();
+            
+            class A1 extends scrollTo {};
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - callable', () => {
+        expect(
+          transform(`
+            scrollTo();
+            
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('scrollBy', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = scrollBy;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new scrollBy();
+            
+            class A1 extends scrollBy {};
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - callable', () => {
+        expect(
+          transform(`
+            scrollBy();
+            
           `)
         ).toMatchSnapshot();
       });

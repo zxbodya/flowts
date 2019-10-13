@@ -1594,6 +1594,13 @@ exports[`lib/dom.js globals SVGMatrix variable 1`] = `
 "
 `;
 
+exports[`lib/dom.js globals ScrollToOptions generated - interface 1`] = `
+"class A1 extends ScrollToOptions {}
+"
+`;
+
+exports[`lib/dom.js globals ScrollToOptions generated - type 1`] = `""`;
+
 exports[`lib/dom.js globals Selection generated - class 1`] = `
 "new Selection();
 
@@ -2231,6 +2238,57 @@ class A1 extends requestIdleCallback {}
 
 exports[`lib/dom.js globals requestIdleCallback variable 1`] = `
 "var a = requestIdleCallback;
+"
+`;
+
+exports[`lib/dom.js globals scroll generated - callable 1`] = `
+"scroll();
+"
+`;
+
+exports[`lib/dom.js globals scroll generated - class 1`] = `
+"new scroll();
+
+class A1 extends scroll {}
+"
+`;
+
+exports[`lib/dom.js globals scroll variable 1`] = `
+"var a = scroll;
+"
+`;
+
+exports[`lib/dom.js globals scrollBy generated - callable 1`] = `
+"scrollBy();
+"
+`;
+
+exports[`lib/dom.js globals scrollBy generated - class 1`] = `
+"new scrollBy();
+
+class A1 extends scrollBy {}
+"
+`;
+
+exports[`lib/dom.js globals scrollBy variable 1`] = `
+"var a = scrollBy;
+"
+`;
+
+exports[`lib/dom.js globals scrollTo generated - callable 1`] = `
+"scrollTo();
+"
+`;
+
+exports[`lib/dom.js globals scrollTo generated - class 1`] = `
+"new scrollTo();
+
+class A1 extends scrollTo {}
+"
+`;
+
+exports[`lib/dom.js globals scrollTo variable 1`] = `
+"var a = scrollTo;
 "
 `;
 
