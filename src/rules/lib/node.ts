@@ -835,7 +835,7 @@ export default {
           cwd() : string;
           disconnect? : () => void;
           domain? : domain$Domain;
-          env : { [key: string] : ?string, ... };
+          env : { [key: string] : string | void, ... };
           emitWarning(warning: string | Error): void;
           emitWarning(warning: string, typeOrCtor: string | (...empty) => mixed): void;
           emitWarning(warning: string, type: string, codeOrCtor: string | (...empty) => mixed): void;

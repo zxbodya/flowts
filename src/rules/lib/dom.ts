@@ -14,6 +14,9 @@ export default {
           type: string;
           close(): void;
           slice(start?: number, end?: number, contentType?: string): Blob;
+          arrayBuffer(): Promise<ArrayBuffer>;
+          text(): Promise<string>,
+          stream(): ReadableStream,
         }
         */
     Blob(context) {
@@ -872,7 +875,6 @@ export default {
           forms: HTMLCollection<HTMLFormElement>;
           fullscreenElement: Element | null;
           fullscreenEnabled: boolean;
-          getElementById(elementId: string): HTMLElement | null;
           getElementsByClassName(classNames: string): HTMLCollection<HTMLElement>;
           getElementsByName(elementName: string): HTMLCollection<HTMLElement>;
           getElementsByTagName(name: 'a'): HTMLCollection<HTMLAnchorElement>;
@@ -1294,6 +1296,9 @@ export default {
           // And for when whatToShow is not provided, it is assumed to be SHOW_ALL
           createNodeIterator<RootNodeT: Node>(root: RootNodeT, whatToShow?: number, filter?: NodeFilterInterface): NodeIterator<RootNodeT, Node>;
           createTreeWalker<RootNodeT: Node>(root: RootNodeT, whatToShow?: number, filter?: NodeFilterInterface, entityReferenceExpansion?: boolean): TreeWalker<RootNodeT, Node>;
+
+          // From NonElementParentNode Mixin.
+          getElementById(elementId: string): HTMLElement | null;
         }
         */
     Document(context) {
@@ -1312,6 +1317,9 @@ export default {
 
           querySelector(selector: string): HTMLElement | null;
           querySelectorAll(selector: string): NodeList<HTMLElement>;
+
+          // From NonElementParentNode Mixin.
+          getElementById(elementId: string): HTMLElement | null;
         }
         */
     DocumentFragment(context) {
