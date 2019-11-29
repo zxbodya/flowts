@@ -57,14 +57,14 @@ let j: $Call<A, B, C, D, E, F, G>;
     {
       title: 'call helper type',
       code: `
-type A = string | Class<React.Component<*, *>> | Object;
+type A = string | Class<React.Component<*, *>> | any;
 type B = Class<{
   +scope: TagsType => void,
 }>;
 type C = Class<A>;
 `,
       output: `type Class<T> = new (...args: any) => T;
-type A = string | Class<React.Component<any, any>> | object;
+type A = string | Class<React.Component<any, any>> | any;
 type B = Class<{
   readonly scope: (a: TagsType) => void;
 }>;

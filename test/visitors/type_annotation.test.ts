@@ -348,9 +348,9 @@ type B = A.A.A;`,
       output: `let a: [number, string, Array<boolean>];`,
     },
     {
-      title: 'Object type',
+      title: 'Object type (alias to any)',
       code: `let a: Object;`,
-      output: `let a: object;`,
+      output: `let a: any;`,
     },
 
     {

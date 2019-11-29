@@ -47,7 +47,6 @@ import {
   tsNeverKeyword,
   tsNullKeyword,
   tsNumberKeyword,
-  tsObjectKeyword,
   tsParenthesizedType,
   tsStringKeyword,
   tsThisType,
@@ -198,7 +197,8 @@ export function convertFlowType(node: FlowType): TSType {
     } else if (isIdentifier(id) && id.name === '$FlowFixMe') {
       return tsTypeReference(identifier('any'), tsTypeParameters);
     } else if (isIdentifier(id) && id.name === 'Object') {
-      return tsObjectKeyword();
+      // "Object" in flow is just an alias for "any"
+      return tsAnyKeyword();
     } else if (isQualifiedTypeIdentifier(id) || isIdentifier(id)) {
       return tsTypeReference(
         convertFlowIdentifier(id),
