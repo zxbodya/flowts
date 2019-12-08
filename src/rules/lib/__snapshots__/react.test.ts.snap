@@ -164,57 +164,57 @@ let a1: FunctionComponent<P0>;
 exports[`lib/react.js modules react AbstractComponent generated - interface - import namespace - typeParams(1 - 2) 1`] = `
 "import * as M from \\"react\\";
 
-class A1 implements M.ComponentClass<P0> {}
-interface I1 extends M.ComponentClass<P0> {}
+class A1 implements M.ComponentType<P0> {}
+interface I1 extends M.ComponentType<P0> {}
 
-class A2 implements M.ComponentClass<P0, P1> {}
-interface I2 extends M.ComponentClass<P0, P1> {}
+class A2 implements M.ComponentType<P0, P1> {}
+interface I2 extends M.ComponentType<P0, P1> {}
 "
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - interface - import renamed - typeParams(1 - 2) 1`] = `
-"import { ComponentClass } from \\"react\\";
+"import { ComponentType } from \\"react\\";
 
-class A1 implements ComponentClass<P0> {}
-interface I1 extends ComponentClass<P0> {}
+class A1 implements ComponentType<P0> {}
+interface I1 extends ComponentType<P0> {}
 
-class A2 implements ComponentClass<P0, P1> {}
-interface I2 extends ComponentClass<P0, P1> {}
+class A2 implements ComponentType<P0, P1> {}
+interface I2 extends ComponentType<P0, P1> {}
 "
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - interface - typeParams(1 - 2) 1`] = `
-"import { ComponentClass } from \\"react\\";
+"import { ComponentType } from \\"react\\";
 
-class A1 implements ComponentClass<P0> {}
-interface I1 extends ComponentClass<P0> {}
+class A1 implements ComponentType<P0> {}
+interface I1 extends ComponentType<P0> {}
 
-class A2 implements ComponentClass<P0, P1> {}
-interface I2 extends ComponentClass<P0, P1> {}
+class A2 implements ComponentType<P0, P1> {}
+interface I2 extends ComponentType<P0, P1> {}
 "
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - type - import namespace - typeParams(1 - 2) 1`] = `
 "import * as M from \\"react\\";
 
-let a1: M.ComponentClass<P0>;
-let a2: M.ComponentClass<P0, P1>;
+let a1: M.ComponentType<P0>;
+let a2: M.ComponentType<P0, P1>;
 "
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - type - import renamed - typeParams(1 - 2) 1`] = `
-"import { ComponentClass } from \\"react\\";
+"import { ComponentType } from \\"react\\";
 
-let a1: ComponentClass<P0>;
-let a2: ComponentClass<P0, P1>;
+let a1: ComponentType<P0>;
+let a2: ComponentType<P0, P1>;
 "
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - type - typeParams(1 - 2) 1`] = `
-"import { ComponentClass } from \\"react\\";
+"import { ComponentType } from \\"react\\";
 
-let a1: ComponentClass<P0>;
-let a2: ComponentClass<P0, P1>;
+let a1: ComponentType<P0>;
+let a2: ComponentType<P0, P1>;
 "
 `;
 

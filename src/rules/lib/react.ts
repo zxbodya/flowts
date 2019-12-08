@@ -334,7 +334,7 @@ export default {
                   > = React$AbstractComponent<Config, Instance>;
                 */
         AbstractComponent(context) {
-          context.renameExport('ComponentClass');
+          context.renameExport('ComponentType');
         },
 
         /*
