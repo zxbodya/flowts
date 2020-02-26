@@ -74,6 +74,7 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
       parserOpts.plugins.push('classProperties');
       parserOpts.plugins.push('objectRestSpread');
       parserOpts.plugins.push('optionalChaining');
+      parserOpts.plugins.push('nullishCoalescingOperator');
       parserOpts.plugins.push('dynamicImport');
     },
   } as PluginObj<PluginPass>;
