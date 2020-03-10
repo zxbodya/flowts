@@ -11,6 +11,7 @@ import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
 import { Options } from './cli';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
+import { sharedParserPlugins } from './sharedParserPlugins';
 
 export async function convert(cwd: string, opts: Options) {
   console.log(`processing files in ${cwd}`);
@@ -101,6 +102,9 @@ export async function convert(cwd: string, opts: Options) {
         babelrc: false,
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
+        parserOpts: {
+          plugins: [...sharedParserPlugins],
+        },
       });
 
       if (tsSyntax === null) {
@@ -126,6 +130,9 @@ export async function convert(cwd: string, opts: Options) {
           tsTypesPlugin,
           [removeImportExtensionPlugin, { isConvertedFile }],
         ],
+        parserOpts: {
+          plugins: [...sharedParserPlugins],
+        },
       });
 
       if (ts === null) {
