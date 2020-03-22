@@ -9,7 +9,7 @@ import {
   ExpressionStatement,
 } from '@babel/types';
 import traverse, { NodePath } from '@babel/traverse';
-import * as recast from 'recast';
+import * as recast from '@zxbodya/recast';
 import * as prettier from 'prettier';
 
 const templateOpts: TemplateBuilderOptions = {
