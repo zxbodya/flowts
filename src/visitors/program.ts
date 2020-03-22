@@ -29,6 +29,10 @@ export default {
     path.traverse({
       /* istanbul ignore next */
       Flow(path: NodePath<Flow>) {
+        // @ts-ignore todo: babel incorrectly considers type import to be "Flow" while now it can be also TypeScript
+        if (path.node.type === 'ImportDeclaration' || path.node.type === 'ExportNamedDeclaration') {
+          return;
+        }
         throw path.buildCodeFrameError('not converted flow node: ' + path.node.type);
       },
     });

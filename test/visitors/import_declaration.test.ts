@@ -6,13 +6,20 @@ pluginTester({
   tests: [
     {
       title: 'import type statement',
-      code: `import type { A } from "module";`,
-      output: `import { A } from "module";`,
+      code: `import type { A } from "module";
+import type { B, C } from './mod';
+import type D from './mod';`,
+      output: `import type { A } from "module";
+import type { B, C } from './mod';
+import type D from './mod';`,
     },
     {
       title: 'import type specifier',
-      code: `import A, { type B, C } from "module";`,
-      output: `import A, { B, C } from "module";`,
+      code: `import A, { type B, C } from "module";
+import { type D, type E } from "module";`,
+      output: `import A, { C } from "module";
+import type { B } from "module";
+import type { D, E } from "module";`,
     },
   ],
 });

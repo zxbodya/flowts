@@ -5,11 +5,16 @@ pluginTester({
   plugin,
   tests: [
     {
-      title: 'Removes type from exports',
+      title: 'export type',
       code: `type Something = void;
 export type { Something };`,
       output: `type Something = void;
-export { Something };`,
+export type { Something };`,
+    },
+    {
+      title: 'export type from',
+      code: `export type { B } from "./mod";`,
+      output: `export type { B } from "./mod";`,
     },
   ],
 });

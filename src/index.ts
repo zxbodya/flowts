@@ -1,12 +1,11 @@
 import { PluginObj, Visitor } from '@babel/core';
-import { ImportDeclaration, ImportSpecifier } from './visitors/import_declaration';
+import { ImportDeclaration } from './visitors/import_declaration';
 import { OpaqueType } from './visitors/opaque_type';
 import { TypeAnnotation } from './visitors/type_annotation';
 import { TypeCastExpression } from './visitors/type_cast_expression';
 import { TypeParameterDeclaration } from './visitors/type_parameter_declaration';
 import { ClassDeclaration } from './visitors/class_declaration';
 import { DeclareClass } from './visitors/declare_class';
-import { ExportNamedDeclaration } from './visitors/export_declaration';
 import { InterfaceDeclaration } from './visitors/interface_declaration';
 import { DeclareFunction } from './visitors/declare_function';
 import Program from './visitors/program';
@@ -32,14 +31,12 @@ const visitor: Visitor<PluginPass> = {
   TypeAlias,
   TypeParameterDeclaration,
   ImportDeclaration,
-  ImportSpecifier,
   TypeCastExpression,
   OpaqueType,
   DeclareClass,
   ClassDeclaration,
   ClassExpression: ClassDeclaration,
   ExportAllDeclaration,
-  ExportNamedDeclaration,
   InterfaceDeclaration,
   DeclareFunction,
   FunctionDeclaration,
