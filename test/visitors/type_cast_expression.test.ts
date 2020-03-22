@@ -22,5 +22,19 @@ A
 /*4*/
 );`,
     },
+    {
+      title: 'typecast on arrow function expression',
+      code: 'const highlight = (n => false: number => boolean);',
+      output: 'const highlight = ((n => false) as (a: number) => boolean);',
+    },
+    {
+      title: 'typecast on arrow function expression in object property',
+      code: `const defaultOptions = {
+  highlight: (n => false: number => boolean)
+};`,
+      output: `const defaultOptions = {
+  highlight: ((n => false) as (a: number) => boolean)
+};`,
+    },
   ],
 });
