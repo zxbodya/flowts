@@ -21,5 +21,11 @@ import { type D, type E } from "module";`,
 import type { B } from "module";
 import type { D, E } from "module";`,
     },
+    {
+      title: 'mixed type imports',
+      code: `import type A, { B } from "module";`,
+      output: `import type A from "module";
+import type { B } from "module";`,
+    },
   ],
 });
