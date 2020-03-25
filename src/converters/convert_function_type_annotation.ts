@@ -1,7 +1,6 @@
 import {
   FunctionTypeAnnotation,
   identifier,
-  Identifier,
   isNullableTypeAnnotation,
   isTSFunctionType,
   restElement,
@@ -33,8 +32,8 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
   if (node.params) {
     const paramNames = node.params
       .map(_ => _.name)
-      .filter(_ => _ !== null)
-      .map(_ => (_ as Identifier).name);
+      .filter(<T>(_: null | T): _ is T => _ !== null)
+      .map(_ => _.name);
 
     let hasRequiredAfter = false;
     for (let i = node.params.length - 1; i >= 0; i--) {

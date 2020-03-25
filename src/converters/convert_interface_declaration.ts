@@ -1,7 +1,6 @@
 import {
   ClassImplements,
   DeclareInterface,
-  Identifier,
   InterfaceDeclaration,
   InterfaceExtends,
   isObjectTypeProperty,
@@ -18,6 +17,7 @@ import { baseNodeProps } from '../utils/baseNodeProps';
 import { convertObjectTypeCallProperty } from './convert_object_type_call_property';
 import { convertObjectTypeIndexer } from './convert_object_type_indexer';
 import { convertObjectTypeInternalSlot } from './convert_object_type_internal_slot';
+import { convertFlowIdentifier } from './convert_flow_identifier';
 
 export function convertInterfaceExtends(node: InterfaceExtends | ClassImplements) {
   const typeParameters = node.typeParameters;
@@ -30,7 +30,7 @@ export function convertInterfaceExtends(node: InterfaceExtends | ClassImplements
   );
 
   return tsExpressionWithTypeArguments(
-    node.id as Identifier,
+    convertFlowIdentifier(node.id),
     typeParameterParams.length ? parameters : null,
   );
 }

@@ -94,5 +94,10 @@ pluginTester({
   [Symbol.iterator](): Iterator<string>;
 }`,
     },
+    {
+      title: 'interface extending type specified by QualifiedTypeIdentifier',
+      code: `interface A extends A.B {}`,
+      output: `interface A extends A.B {}`,
+    },
   ],
 });
