@@ -1,8 +1,14 @@
 import { NodePath } from '@babel/traverse';
 import {
   Identifier,
+  isArrayPattern,
+  isAssignmentPattern,
   isIdentifier,
   isNullableTypeAnnotation,
+  isObjectPattern,
+  isObjectProperty,
+  isPattern,
+  isRestElement,
   isTSFunctionType,
   isTypeAnnotation,
   Pattern,
@@ -17,6 +23,46 @@ import {
 import { convertFlowType } from '../converters/convert_flow_type';
 import { replaceWith } from '../utils/replaceWith';
 
+function cleanupPattern(pattern: Pattern): boolean {
+  let removedType = false;
+  if (isAssignmentPattern(pattern)) {
+    if (isPattern(pattern.left)) {
+      removedType = removedType || cleanupPattern(pattern.left);
+    }
+  }
+  if (isArrayPattern(pattern)) {
+    for (const element of pattern.elements) {
+      if (!element) continue;
+      if (element.typeAnnotation) {
+        element.typeAnnotation = null;
+        removedType = true;
+      }
+      if (isPattern(element)) {
+        removedType = removedType || cleanupPattern(element);
+      }
+    }
+  }
+  if (isObjectPattern(pattern)) {
+    for (const prop of pattern.properties) {
+      if (isRestElement(prop)) {
+        if (prop.typeAnnotation) {
+          prop.typeAnnotation = null;
+          removedType = true;
+        }
+        if (isPattern(prop.argument)) {
+          removedType = removedType || cleanupPattern(prop.argument);
+        }
+      }
+      if (isObjectProperty(prop)) {
+        if (isPattern(prop.value)) {
+          removedType = removedType || cleanupPattern(prop.value);
+        }
+      }
+    }
+  }
+  return removedType;
+}
+
 export function transformFunctionParams(
   params: Array<NodePath<Identifier | Pattern | RestElement | TSParameterProperty>>,
 ) {
@@ -30,6 +76,9 @@ export function transformFunctionParams(
       }
       if (!paramNode.isAssignmentPattern()) {
         hasRequiredAfter = true;
+      }
+      if (cleanupPattern(paramNode.node)) {
+        console.warn('Ignoring types inside pattern argument');
       }
     }
     if (paramNode.isIdentifier()) {

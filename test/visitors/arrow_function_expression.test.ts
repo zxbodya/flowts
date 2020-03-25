@@ -71,5 +71,34 @@ pluginTester({
   a: 1
 } as {});`,
     },
+    {
+      title: 'arrow function with destructuring in arguments, keeps type',
+      code: `([a, b]: [A, B]) => {};`,
+      output: `([a, b]: [A, B]) => {};`,
+    },
+    // todo: type information is removed, theoretically this can be fixed
+    {
+      title: 'arrow function with typed destructuring in arguments, array',
+      code: `([ a: B, b: B ]) => {};`,
+      output: `([a, b]) => {};`,
+    },
+    {
+      title: 'arrow function with typed destructuring in arguments, array with rest',
+      code: `([ a: B, b: B, ...c: C[] ]) => {};`,
+      output: `([a, b, ...c]) => {};`,
+    },
+    {
+      title: 'arrow function with typed destructuring in arguments, nested array',
+      code: `([ a: B, [b: B] ]) => {};`,
+      output: `([a, [b]]) => {};`,
+    },
+    {
+      title: 'arrow function with typed destructuring in arguments, array nested in object',
+      code: `({ a, b:[b: B] }) => {};`,
+      output: `({
+  a,
+  b: [b]
+}) => {};`,
+    },
   ],
 });
