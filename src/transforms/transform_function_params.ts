@@ -11,6 +11,7 @@ import {
   isRestElement,
   isTSFunctionType,
   isTypeAnnotation,
+  noop,
   Pattern,
   RestElement,
   tsNullKeyword,
@@ -34,7 +35,7 @@ function cleanupPattern(pattern: Pattern): boolean {
     for (const element of pattern.elements) {
       if (!element) continue;
       if (element.typeAnnotation) {
-        element.typeAnnotation = null;
+        element.typeAnnotation = noop();
         removedType = true;
       }
       if (isPattern(element)) {
@@ -46,7 +47,7 @@ function cleanupPattern(pattern: Pattern): boolean {
     for (const prop of pattern.properties) {
       if (isRestElement(prop)) {
         if (prop.typeAnnotation) {
-          prop.typeAnnotation = null;
+          prop.typeAnnotation = noop();
           removedType = true;
         }
         if (isPattern(prop.argument)) {
