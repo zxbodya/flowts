@@ -13,6 +13,18 @@ import { Options } from './cli';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
 
+const getTargetPath = (file: string, cwd: string, isJSX: boolean) => {
+  const targetExt = isJSX
+    ? '.tsx'
+    : /\.js\.flow$/i.test(file)
+    ? '.d.ts'
+    : '.ts';
+
+  const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
+  const targetFilePath = path.join(cwd, targetFileName);
+  return targetFilePath;
+};
+
 export async function convert(cwd: string, opts: Options) {
   console.log(`processing files in ${cwd}`);
   console.log('options:', opts);
@@ -75,27 +87,30 @@ export async function convert(cwd: string, opts: Options) {
     try {
       const { file, source, isJSX, isFlow } = info;
 
-      const targetExt = isJSX
-        ? '.tsx'
-        : /\.js\.flow$/i.test(file)
-        ? '.d.ts'
-        : '.ts';
-
-      const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
       const sourceFilePath = path.join(cwd, file);
-      const targetFilePath = path.join(cwd, targetFileName);
+      const targetFilePath = opts.inPlace
+        ? sourceFilePath
+        : getTargetPath(file, cwd, isJSX);
 
-      if (!isFlow) {
-        if (opts.allowJs) {
-          console.log('no flow - skip');
-        } else {
-          console.log('no flow - copy');
+      if (!opts.inPlace) {
+        if (opts.justRename) {
           fs.copyFileSync(sourceFilePath, targetFilePath);
-          if (opts.remove) {
-            fs.unlinkSync(sourceFilePath);
-          }
+          fs.unlinkSync(sourceFilePath);
+          continue;
         }
-        continue;
+
+        if (!isFlow) {
+          if (opts.allowJs) {
+            console.log('no flow - skip');
+          } else {
+            console.log('no flow - copy');
+            fs.copyFileSync(sourceFilePath, targetFilePath);
+            if (opts.remove) {
+              fs.unlinkSync(sourceFilePath);
+            }
+          }
+          continue;
+        }
       }
 
       const tsSyntax = babel.transformSync(source, {
@@ -170,11 +185,11 @@ export async function convert(cwd: string, opts: Options) {
           verificationResult.tgt
         );
         console.log(changes);
-        if (opts.remove) {
+        if (opts.remove && !opts.inPlace) {
           console.log('keeping source file');
         }
       } else {
-        if (opts.remove) {
+        if (opts.remove && !opts.inPlace) {
           fs.unlinkSync(sourceFilePath);
         }
       }

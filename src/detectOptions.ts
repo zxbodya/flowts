@@ -17,7 +17,7 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     filename,
   });
 
-  let isJSX = /\.jsx$/i.test(filename);
+  let isJSX = /\.(jsx|tsx)$/i.test(filename);
   let isFlow = /@flow/.test(source) || /\.js\.flow$/i.test(filename);
 
   if (flowAst === null) {
