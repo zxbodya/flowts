@@ -27,9 +27,11 @@ import {
   isThisTypeAnnotation,
   isTSFunctionType,
   isTSIndexSignature,
+  isTSIntersectionType,
   isTSMethodSignature,
   isTSPropertySignature,
   isTSTypeLiteral,
+  isTSUnionType,
   isTupleTypeAnnotation,
   isTypeofTypeAnnotation,
   isUnionTypeAnnotation,
@@ -81,10 +83,15 @@ export function convertFlowType(node: FlowType): TSType {
   }
 
   if (isArrayTypeAnnotation(node)) {
-    return tsArrayType({
+    const elementType = {
       ...convertFlowType(node.elementType),
       ...baseNodeProps(node.elementType),
-    });
+    };
+    return tsArrayType(
+      isTSUnionType(elementType) || isTSIntersectionType(elementType)
+        ? tsParenthesizedType(elementType)
+        : elementType,
+    );
   }
 
   if (isBooleanTypeAnnotation(node)) {

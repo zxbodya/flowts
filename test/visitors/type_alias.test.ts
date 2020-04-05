@@ -90,5 +90,15 @@ type T = A;
   [Symbol.iterator](): Iterator<string>;
 };`,
     },
+    {
+      title: 'alias to array of unions',
+      code: 'type t = ("a" | "b")[];',
+      output: 'type t = ("a" | "b")[];',
+    },
+    {
+      title: 'alias to array of unions',
+      code: 'type t = ("a" & "b")[];',
+      output: 'type t = ("a" & "b")[];',
+    },
   ],
 });
