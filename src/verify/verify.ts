@@ -1,12 +1,11 @@
 import * as babel from '@babel/core';
 import * as prettier from 'prettier';
 import { sharedParserPlugins } from '../sharedParserPlugins';
-import removeImportsPlugin from './removeImportsExportsPlugin';
+import removeImportExtensionPlugin from '../removeImportExtensionPlugin';
 
 // self verification
 //  - remove types
 //  - remove comments
-//  - remove imports and exports (due to how babel works there might be difference about imports/exports)
 //  - reformat using prettier
 //  - compare the text
 //
@@ -17,7 +16,8 @@ export function verify(
   result: string,
   isJSX: boolean,
   filename: string,
-  target: string
+  target: string,
+  isConvertedFile: (source: string) => boolean | undefined
 ) {
   const jsxPlugin = isJSX ? (['jsx'] as const) : [];
 
@@ -39,7 +39,7 @@ export function verify(
     babelrc: false,
     filename,
     comments: false,
-    plugins: [removeImportsPlugin],
+    plugins: [[removeImportExtensionPlugin, { isConvertedFile }]],
     parserOpts: {
       plugins: [...jsxPlugin, ...sharedParserPlugins],
     },
@@ -53,7 +53,12 @@ export function verify(
   let resultNoTypes = babel.transformSync(result, {
     babelrc: false,
     filename: target,
-    presets: [require.resolve('@babel/preset-typescript')],
+    presets: [
+      [
+        require.resolve('@babel/preset-typescript'),
+        { onlyRemoveTypeImports: true },
+      ],
+    ],
     parserOpts: {
       plugins: ['typescript', ...jsxPlugin, ...sharedParserPlugins],
     },
@@ -68,7 +73,7 @@ export function verify(
     babelrc: false,
     filename: target,
     comments: false,
-    plugins: [removeImportsPlugin],
+    plugins: [],
     parserOpts: {
       plugins: [...jsxPlugin, ...sharedParserPlugins],
     },

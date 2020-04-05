@@ -157,7 +157,8 @@ export async function convert(cwd: string, opts: Options) {
         result,
         isJSX,
         sourceFilePath,
-        targetFilePath
+        targetFilePath,
+        isConvertedFile
       );
 
       if (!verificationResult.isEqual) {
