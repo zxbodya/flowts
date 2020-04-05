@@ -71,7 +71,7 @@ exports[`lib/node.js globals Process variable 1`] = `
 `;
 
 exports[`lib/node.js globals child_process$ChildProcess generated - class 1`] = `
-"import { ChildProcess } from \\"child_process\\";
+"import type { ChildProcess } from \\"child_process\\";
 new ChildProcess();
 
 class A1 extends ChildProcess {}
@@ -79,7 +79,7 @@ class A1 extends ChildProcess {}
 `;
 
 exports[`lib/node.js globals child_process$ChildProcess variable 1`] = `
-"import { ChildProcess } from \\"child_process\\";
+"import type { ChildProcess } from \\"child_process\\";
 var a = ChildProcess;
 "
 `;
@@ -186,7 +186,7 @@ exports[`lib/node.js globals crypto$Hmac variable 1`] = `
 `;
 
 exports[`lib/node.js globals crypto$Sign generated - class 1`] = `
-"import { Sign } from \\"crypto\\";
+"import type { Sign } from \\"crypto\\";
 new Sign();
 
 class A1 extends Sign {}
@@ -194,13 +194,13 @@ class A1 extends Sign {}
 `;
 
 exports[`lib/node.js globals crypto$Sign variable 1`] = `
-"import { Sign } from \\"crypto\\";
+"import type { Sign } from \\"crypto\\";
 var a = Sign;
 "
 `;
 
 exports[`lib/node.js globals crypto$Verify generated - class 1`] = `
-"import { Verify } from \\"crypto\\";
+"import type { Verify } from \\"crypto\\";
 new Verify();
 
 class A1 extends Verify {}
@@ -208,7 +208,7 @@ class A1 extends Verify {}
 `;
 
 exports[`lib/node.js globals crypto$Verify variable 1`] = `
-"import { Verify } from \\"crypto\\";
+"import type { Verify } from \\"crypto\\";
 var a = Verify;
 "
 `;
@@ -238,7 +238,7 @@ exports[`lib/node.js globals domain$Domain variable 1`] = `
 `;
 
 exports[`lib/node.js globals events$EventEmitter generated - class 1`] = `
-"import { EventEmitter } from \\"events\\";
+"import type { EventEmitter } from \\"events\\";
 new EventEmitter();
 
 class A1 extends EventEmitter {}
@@ -246,13 +246,13 @@ class A1 extends EventEmitter {}
 `;
 
 exports[`lib/node.js globals events$EventEmitter variable 1`] = `
-"import { EventEmitter } from \\"events\\";
+"import type { EventEmitter } from \\"events\\";
 var a = EventEmitter;
 "
 `;
 
 exports[`lib/node.js globals http$Agent generated - class - typeParams(0 - 1) 1`] = `
-"import { Agent } from \\"http\\";
+"import type { Agent } from \\"http\\";
 new Agent();
 
 class A1 extends Agent {}
@@ -262,13 +262,13 @@ let a2 = new Agent<P0>();
 `;
 
 exports[`lib/node.js globals http$Agent variable 1`] = `
-"import { Agent } from \\"http\\";
+"import type { Agent } from \\"http\\";
 var a = Agent;
 "
 `;
 
 exports[`lib/node.js globals http$ClientRequest generated - class - typeParams(0 - 1) 1`] = `
-"import { ClientRequest } from \\"http\\";
+"import type { ClientRequest } from \\"http\\";
 new ClientRequest();
 
 class A1 extends ClientRequest {}
@@ -278,13 +278,13 @@ let a2 = new ClientRequest<P0>();
 `;
 
 exports[`lib/node.js globals http$ClientRequest variable 1`] = `
-"import { ClientRequest } from \\"http\\";
+"import type { ClientRequest } from \\"http\\";
 var a = ClientRequest;
 "
 `;
 
 exports[`lib/node.js globals http$IncomingMessage generated - class - typeParams(0 - 1) 1`] = `
-"import { IncomingMessage } from \\"http\\";
+"import type { IncomingMessage } from \\"http\\";
 new IncomingMessage();
 
 class A1 extends IncomingMessage {}
@@ -294,13 +294,13 @@ let a2 = new IncomingMessage<P0>();
 `;
 
 exports[`lib/node.js globals http$IncomingMessage variable 1`] = `
-"import { IncomingMessage } from \\"http\\";
+"import type { IncomingMessage } from \\"http\\";
 var a = IncomingMessage;
 "
 `;
 
 exports[`lib/node.js globals http$Server generated - class 1`] = `
-"import { Server } from \\"http\\";
+"import type { Server } from \\"http\\";
 new Server();
 
 class A1 extends Server {}
@@ -308,13 +308,13 @@ class A1 extends Server {}
 `;
 
 exports[`lib/node.js globals http$Server variable 1`] = `
-"import { Server } from \\"http\\";
+"import type { Server } from \\"http\\";
 var a = Server;
 "
 `;
 
 exports[`lib/node.js globals http$ServerResponse generated - class 1`] = `
-"import { ServerResponse } from \\"http\\";
+"import type { ServerResponse } from \\"http\\";
 new ServerResponse();
 
 class A1 extends ServerResponse {}
@@ -322,13 +322,13 @@ class A1 extends ServerResponse {}
 `;
 
 exports[`lib/node.js globals http$ServerResponse variable 1`] = `
-"import { ServerResponse } from \\"http\\";
+"import type { ServerResponse } from \\"http\\";
 var a = ServerResponse;
 "
 `;
 
 exports[`lib/node.js globals https$Server generated - class 1`] = `
-"import { Server } from \\"https\\";
+"import type { Server } from \\"https\\";
 new Server();
 
 class A1 extends Server {}
@@ -336,13 +336,13 @@ class A1 extends Server {}
 `;
 
 exports[`lib/node.js globals https$Server variable 1`] = `
-"import { Server } from \\"https\\";
+"import type { Server } from \\"https\\";
 var a = Server;
 "
 `;
 
 exports[`lib/node.js globals net$Server generated - class 1`] = `
-"import { Server } from \\"net\\";
+"import type { Server } from \\"net\\";
 new Server();
 
 class A1 extends Server {}
@@ -350,13 +350,13 @@ class A1 extends Server {}
 `;
 
 exports[`lib/node.js globals net$Server variable 1`] = `
-"import { Server } from \\"net\\";
+"import type { Server } from \\"net\\";
 var a = Server;
 "
 `;
 
 exports[`lib/node.js globals net$Socket generated - class 1`] = `
-"import { Socket } from \\"net\\";
+"import type { Socket } from \\"net\\";
 new Socket();
 
 class A1 extends Socket {}
@@ -364,7 +364,7 @@ class A1 extends Socket {}
 `;
 
 exports[`lib/node.js globals net$Socket variable 1`] = `
-"import { Socket } from \\"net\\";
+"import type { Socket } from \\"net\\";
 var a = Socket;
 "
 `;
@@ -375,7 +375,7 @@ exports[`lib/node.js globals process variable 1`] = `
 `;
 
 exports[`lib/node.js globals readline$Interface generated - class 1`] = `
-"import { Interface } from \\"readline\\";
+"import type { Interface } from \\"readline\\";
 new Interface();
 
 class A1 extends Interface {}
@@ -383,7 +383,7 @@ class A1 extends Interface {}
 `;
 
 exports[`lib/node.js globals readline$Interface variable 1`] = `
-"import { Interface } from \\"readline\\";
+"import type { Interface } from \\"readline\\";
 var a = Interface;
 "
 `;
@@ -406,7 +406,7 @@ exports[`lib/node.js globals setImmediate variable 1`] = `
 `;
 
 exports[`lib/node.js globals stream$Duplex generated - class 1`] = `
-"import { Duplex } from \\"stream\\";
+"import type { Duplex } from \\"stream\\";
 new Duplex();
 
 class A1 extends Duplex {}
@@ -414,13 +414,13 @@ class A1 extends Duplex {}
 `;
 
 exports[`lib/node.js globals stream$Duplex variable 1`] = `
-"import { Duplex } from \\"stream\\";
+"import type { Duplex } from \\"stream\\";
 var a = Duplex;
 "
 `;
 
 exports[`lib/node.js globals stream$PassThrough generated - class 1`] = `
-"import { PassThrough } from \\"stream\\";
+"import type { PassThrough } from \\"stream\\";
 new PassThrough();
 
 class A1 extends PassThrough {}
@@ -428,13 +428,13 @@ class A1 extends PassThrough {}
 `;
 
 exports[`lib/node.js globals stream$PassThrough variable 1`] = `
-"import { PassThrough } from \\"stream\\";
+"import type { PassThrough } from \\"stream\\";
 var a = PassThrough;
 "
 `;
 
 exports[`lib/node.js globals stream$Readable generated - class 1`] = `
-"import { Readable } from \\"stream\\";
+"import type { Readable } from \\"stream\\";
 new Readable();
 
 class A1 extends Readable {}
@@ -442,13 +442,13 @@ class A1 extends Readable {}
 `;
 
 exports[`lib/node.js globals stream$Readable variable 1`] = `
-"import { Readable } from \\"stream\\";
+"import type { Readable } from \\"stream\\";
 var a = Readable;
 "
 `;
 
 exports[`lib/node.js globals stream$Stream generated - class 1`] = `
-"import { Stream } from \\"stream\\";
+"import type { Stream } from \\"stream\\";
 new Stream();
 
 class A1 extends Stream {}
@@ -456,13 +456,13 @@ class A1 extends Stream {}
 `;
 
 exports[`lib/node.js globals stream$Stream variable 1`] = `
-"import { Stream } from \\"stream\\";
+"import type { Stream } from \\"stream\\";
 var a = Stream;
 "
 `;
 
 exports[`lib/node.js globals stream$Transform generated - class 1`] = `
-"import { Transform } from \\"stream\\";
+"import type { Transform } from \\"stream\\";
 new Transform();
 
 class A1 extends Transform {}
@@ -470,13 +470,13 @@ class A1 extends Transform {}
 `;
 
 exports[`lib/node.js globals stream$Transform variable 1`] = `
-"import { Transform } from \\"stream\\";
+"import type { Transform } from \\"stream\\";
 var a = Transform;
 "
 `;
 
 exports[`lib/node.js globals stream$Writable generated - class 1`] = `
-"import { Writable } from \\"stream\\";
+"import type { Writable } from \\"stream\\";
 new Writable();
 
 class A1 extends Writable {}
@@ -484,13 +484,13 @@ class A1 extends Writable {}
 `;
 
 exports[`lib/node.js globals stream$Writable variable 1`] = `
-"import { Writable } from \\"stream\\";
+"import type { Writable } from \\"stream\\";
 var a = Writable;
 "
 `;
 
 exports[`lib/node.js globals string_decoder$StringDecoder generated - class 1`] = `
-"import { StringDecoder } from \\"string_decoder\\";
+"import type { StringDecoder } from \\"string_decoder\\";
 new StringDecoder();
 
 class A1 extends StringDecoder {}
@@ -498,13 +498,13 @@ class A1 extends StringDecoder {}
 `;
 
 exports[`lib/node.js globals string_decoder$StringDecoder variable 1`] = `
-"import { StringDecoder } from \\"string_decoder\\";
+"import type { StringDecoder } from \\"string_decoder\\";
 var a = StringDecoder;
 "
 `;
 
 exports[`lib/node.js globals tls$Server generated - class 1`] = `
-"import { Server } from \\"tls\\";
+"import type { Server } from \\"tls\\";
 new Server();
 
 class A1 extends Server {}
@@ -512,13 +512,13 @@ class A1 extends Server {}
 `;
 
 exports[`lib/node.js globals tls$Server variable 1`] = `
-"import { Server } from \\"tls\\";
+"import type { Server } from \\"tls\\";
 var a = Server;
 "
 `;
 
 exports[`lib/node.js globals tls$TLSSocket generated - class 1`] = `
-"import { TLSSocket } from \\"tls\\";
+"import type { TLSSocket } from \\"tls\\";
 new TLSSocket();
 
 class A1 extends TLSSocket {}
@@ -526,13 +526,13 @@ class A1 extends TLSSocket {}
 `;
 
 exports[`lib/node.js globals tls$TLSSocket variable 1`] = `
-"import { TLSSocket } from \\"tls\\";
+"import type { TLSSocket } from \\"tls\\";
 var a = TLSSocket;
 "
 `;
 
 exports[`lib/node.js globals tty$ReadStream generated - class 1`] = `
-"import { ReadStream } from \\"tty\\";
+"import type { ReadStream } from \\"tty\\";
 new ReadStream();
 
 class A1 extends ReadStream {}
@@ -540,13 +540,13 @@ class A1 extends ReadStream {}
 `;
 
 exports[`lib/node.js globals tty$ReadStream variable 1`] = `
-"import { ReadStream } from \\"tty\\";
+"import type { ReadStream } from \\"tty\\";
 var a = ReadStream;
 "
 `;
 
 exports[`lib/node.js globals tty$WriteStream generated - class 1`] = `
-"import { WriteStream } from \\"tty\\";
+"import type { WriteStream } from \\"tty\\";
 new WriteStream();
 
 class A1 extends WriteStream {}
@@ -554,7 +554,7 @@ class A1 extends WriteStream {}
 `;
 
 exports[`lib/node.js globals tty$WriteStream variable 1`] = `
-"import { WriteStream } from \\"tty\\";
+"import type { WriteStream } from \\"tty\\";
 var a = WriteStream;
 "
 `;
@@ -572,7 +572,7 @@ exports[`lib/node.js globals vm$Context variable 1`] = `
 `;
 
 exports[`lib/node.js globals vm$Script generated - class 1`] = `
-"import { Script } from \\"vm\\";
+"import type { Script } from \\"vm\\";
 new Script();
 
 class A1 extends Script {}
@@ -580,7 +580,7 @@ class A1 extends Script {}
 `;
 
 exports[`lib/node.js globals vm$Script variable 1`] = `
-"import { Script } from \\"vm\\";
+"import type { Script } from \\"vm\\";
 var a = Script;
 "
 `;

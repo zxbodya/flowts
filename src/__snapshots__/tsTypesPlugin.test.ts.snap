@@ -9,7 +9,7 @@ let c = React.forwardRef();
 `;
 
 exports[`tsTypesPlugin import for replaced global value 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 export type ButtonPropsT = {
   children?: ReactNode;
 };
@@ -18,7 +18,7 @@ export type ButtonPropsT = {
 
 exports[`tsTypesPlugin namespace and named imports can not be mixed 1`] = `
 "import * as React from \\"react\\";
-import { ReactNode } from \\"react\\";
+import type { ReactNode } from \\"react\\";
 type A = ReactNode;
 "
 `;
@@ -37,7 +37,8 @@ type A = ReactNode;
 `;
 
 exports[`tsTypesPlugin simple case 1`] = `
-"import { Component, ReactNode, ChangeEvent } from \\"react\\";
+"import { Component } from \\"react\\";
+import type { ReactNode, ChangeEvent } from \\"react\\";
 type A = ReactNode;
 type B = ChangeEvent<HTMLInputElement>;
 

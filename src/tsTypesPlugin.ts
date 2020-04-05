@@ -330,7 +330,10 @@ const visitor: Visitor = {
         if (newNamedSpecifiers.length) {
           let added = false;
           for (const id of moduleState.importDeclarations) {
-            if (!isImportNamespaceSpecifier(id.specifiers[0])) {
+            if (
+              !isImportNamespaceSpecifier(id.specifiers[0]) &&
+              id.importKind === 'type'
+            ) {
               id.specifiers.push(...newNamedSpecifiers);
               added = true;
               break;
@@ -341,6 +344,7 @@ const visitor: Visitor = {
               newNamedSpecifiers,
               stringLiteral(moduleName)
             );
+            newImport.importKind = 'type';
             moduleState.importDeclarations.add(newImport);
             insertImport(newImport);
           }
