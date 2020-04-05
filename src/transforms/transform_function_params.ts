@@ -39,7 +39,7 @@ function cleanupPattern(pattern: Pattern): boolean {
         removedType = true;
       }
       if (isPattern(element)) {
-        removedType = removedType || cleanupPattern(element);
+        removedType = cleanupPattern(element) || removedType;
       }
     }
   }
@@ -51,12 +51,12 @@ function cleanupPattern(pattern: Pattern): boolean {
           removedType = true;
         }
         if (isPattern(prop.argument)) {
-          removedType = removedType || cleanupPattern(prop.argument);
+          removedType = cleanupPattern(prop.argument) || removedType;
         }
       }
       if (isObjectProperty(prop)) {
         if (isPattern(prop.value)) {
-          removedType = removedType || cleanupPattern(prop.value);
+          removedType = cleanupPattern(prop.value) || removedType;
         }
       }
     }
