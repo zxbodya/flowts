@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`removeExportAllTypePlugin export all is removed 1`] = `
+"import { Component } from \\"react\\";
+import R from \\"react-dom\\";
+import \\"a.css\\";
+
+class C extends Component {}
+export * from \\"./somewhere\\";
+"
+`;
