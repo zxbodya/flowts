@@ -196,6 +196,17 @@ pluginTester({
 };`,
     },
     {
+      title: 'Type literal: type literal with indexer with variance',
+      code: `let a: { +[x:string]: string };
+let b: { -[x:string]: string };`,
+      output: `let a: {
+  readonly [x: string]: string;
+};
+let b: {
+  [x: string]: string;
+};`,
+    },
+    {
       title: 'Type literal: type literal with spread operator',
       code: `let a: { b: string, ...T };`,
       output: `let a: {
