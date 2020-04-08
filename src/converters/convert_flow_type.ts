@@ -189,6 +189,9 @@ export function convertFlowType(node: FlowType): TSType {
     } else if (isIdentifier(id) && id.name === '$Shape') {
       // $Shape<T> -> Partial<T>
       return tsTypeReference(identifier('Partial'), tsTypeParameters);
+    } else if (isIdentifier(id) && id.name === '$NonMaybeType') {
+      // $NonMaybeType<T> -> NonNullable<T>
+      return tsTypeReference(identifier('NonNullable'), tsTypeParameters);
     } else if (isIdentifier(id) && id.name === 'Class') {
       // Class<T> -> { new(...args:any): T}
       return tsTypeLiteral([

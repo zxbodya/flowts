@@ -128,6 +128,11 @@ pluginTester({
       output: `let a: Partial<X>;`,
     },
     {
+      title: 'Utility generics: $NonMaybeType',
+      code: `let a: $NonMaybeType<X>;`,
+      output: `let a: NonNullable<X>;`,
+    },
+    {
       title: 'Utility generics: Class',
       code: `let a: Class<X>;`,
       output: `let a: {
