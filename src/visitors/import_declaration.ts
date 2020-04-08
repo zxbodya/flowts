@@ -1,4 +1,4 @@
-import { ImportDeclaration } from '@babel/types';
+import { importDeclaration, ImportDeclaration } from '@babel/types';
 import { NodePath } from '@babel/traverse';
 
 export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
@@ -17,7 +17,13 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
     );
     if (groups.length > 1) {
       path.node.specifiers = groups[0];
-      path.insertAfter(groups.slice(1).map(group => ({ ...path.node, specifiers: group })));
+      path.insertAfter(
+        groups.slice(1).map(group => {
+          const separateImport = importDeclaration(group, path.node.source);
+          separateImport.importKind = 'type';
+          return separateImport;
+        }),
+      );
     }
   } else {
     // import with possibly mixed named specifiers (types and values)
@@ -40,7 +46,9 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
       // import {A, type B} from 'mod';
       // import C, {A, type B} from 'mod';
       path.node.specifiers = keep;
-      path.insertAfter({ ...path.node, importKind: 'type', specifiers: move });
+      const typesImport = importDeclaration(move, path.node.source);
+      typesImport.importKind = 'type';
+      path.insertAfter(typesImport);
     }
   }
   // todo: import typeof
