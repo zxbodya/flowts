@@ -37,10 +37,12 @@ import {
   isUnionTypeAnnotation,
   isVoidTypeAnnotation,
   numericLiteral,
+  restElement,
   stringLiteral,
   tsAnyKeyword,
   tsArrayType,
   tsBooleanKeyword,
+  tsConstructSignatureDeclaration,
   tsFunctionType,
   tsIndexedAccessType,
   tsIntersectionType,
@@ -54,6 +56,7 @@ import {
   tsThisType,
   tsTupleType,
   TSType,
+  tsTypeAnnotation,
   TSTypeElement,
   tsTypeLiteral,
   TSTypeOperator,
@@ -187,20 +190,21 @@ export function convertFlowType(node: FlowType): TSType {
       // $Shape<T> -> Partial<T>
       return tsTypeReference(identifier('Partial'), tsTypeParameters);
     } else if (isIdentifier(id) && id.name === 'Class') {
-      // skip because result might be incorrect syntax for typescript in some cases
-      // Class<T> helper to be added instead
-      return tsTypeReference(convertFlowIdentifier(id), tsTypeParameters);
-      // Class<T> -> typeof T
-      //
-      // const tsType = tsTypeParameters!.params[0];
-      // const tsTypeofT = tsTypeOperator(tsType);
-      // tsTypeofT.operator = 'typeof';
-      // return tsTypeofT;
-      //
-      // This is correct for case when T is variable, but when it is type this is no longer valid:
-      //
-      // type A = Class<{}>
-      // type B = Class<Component<*,*>>
+      // Class<T> -> { new(...args:any): T}
+      return tsTypeLiteral([
+        tsConstructSignatureDeclaration(
+          null,
+          [
+            {
+              ...restElement(identifier('args')),
+              typeAnnotation: tsTypeAnnotation(tsAnyKeyword()),
+            },
+          ],
+          tsTypeParameters !== null
+            ? tsTypeAnnotation(tsTypeParameters!.params[0])
+            : tsTypeAnnotation(tsAnyKeyword()),
+        ),
+      ]);
     } else if (isIdentifier(id) && id.name === '$FlowFixMe') {
       return tsTypeReference(identifier('any'), tsTypeParameters);
     } else if (isIdentifier(id) && id.name === 'Object') {
