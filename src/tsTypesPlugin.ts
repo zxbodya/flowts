@@ -285,7 +285,7 @@ const visitor: Visitor = {
       const imports = body.filter(st => st.isImportDeclaration()) as Array<
         NodePath<ImportDeclaration>
       >;
-      let after: NodePath;
+      let after: NodePath<any>;
       if (imports.length > 0) {
         after = imports[imports.length - 1];
       }
