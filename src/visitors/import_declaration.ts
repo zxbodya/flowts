@@ -1,12 +1,42 @@
-import { importDeclaration, ImportDeclaration } from '@babel/types';
+import {
+  identifier,
+  importDeclaration,
+  ImportDeclaration,
+  ImportDefaultSpecifier,
+  ImportNamespaceSpecifier,
+  ImportSpecifier,
+  tsImportType,
+  tsTypeAliasDeclaration,
+  tsTypeQuery,
+} from '@babel/types';
 import { NodePath } from '@babel/traverse';
 
 export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
   // "import type" in TypeScript does not allow mixing different imports (default, namespace and named)
+  if (path.node.importKind === 'typeof') {
+    const types = path.node.specifiers.map(specifier =>
+      tsTypeAliasDeclaration(
+        specifier.local,
+        null,
+        tsTypeQuery(
+          tsImportType(
+            path.node.source,
+            specifier.type === 'ImportDefaultSpecifier'
+              ? identifier('default')
+              : specifier.type === 'ImportSpecifier'
+              ? specifier.imported
+              : null,
+          ),
+        ),
+      ),
+    );
+    path.replaceWithMultiple(types);
+    return;
+  }
   if (path.node.importKind === 'type') {
-    const importSpecifiers = [];
-    const importDefaultSpecifiers = [];
-    const importNamespaceSpecifiers = [];
+    const importSpecifiers: ImportSpecifier[] = [];
+    const importDefaultSpecifiers: ImportDefaultSpecifier[] = [];
+    const importNamespaceSpecifiers: ImportNamespaceSpecifier[] = [];
     for (const specifier of path.node.specifiers) {
       if (specifier.type === 'ImportSpecifier') importSpecifiers.push(specifier);
       if (specifier.type === 'ImportDefaultSpecifier') importDefaultSpecifiers.push(specifier);
@@ -28,10 +58,17 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
   } else {
     // import with possibly mixed named specifiers (types and values)
     const keep = [];
-    const move = [];
+    const moveType = [];
+    const moveTypeof = [];
     for (const specifier of path.node.specifiers) {
-      if (specifier.type === 'ImportSpecifier' && specifier.importKind === 'type') {
-        move.push(specifier);
+      if (specifier.type === 'ImportSpecifier') {
+        if (specifier.importKind === 'type') {
+          moveType.push(specifier);
+        } else if (specifier.importKind === 'typeof') {
+          moveTypeof.push(specifier);
+        } else {
+          keep.push(specifier);
+        }
       } else {
         keep.push(specifier);
       }
@@ -39,17 +76,39 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
         delete specifier.importKind;
       }
     }
-    if (move.length > 0 && keep.length === 0) {
-      // import {type A, type B} from 'mod';
-      path.node.importKind = 'type';
-    } else if (move.length > 0 && keep.length > 0) {
-      // import {A, type B} from 'mod';
-      // import C, {A, type B} from 'mod';
+    const types = moveTypeof.map(specifier =>
+      tsTypeAliasDeclaration(
+        specifier.local,
+        null,
+        tsTypeQuery(tsImportType(path.node.source, specifier.imported)),
+      ),
+    );
+    if (keep.length === 0) {
+      if (moveType.length > 0) {
+        // import {type A, type B} from 'mod';
+        path.node.importKind = 'type';
+        path.node.specifiers = moveType;
+      }
+      if (moveTypeof.length > 0) {
+        if (moveType.length > 0) {
+          path.insertAfter(types);
+        } else {
+          path.replaceWithMultiple(types);
+        }
+      }
+    } else {
       path.node.specifiers = keep;
-      const typesImport = importDeclaration(move, path.node.source);
-      typesImport.importKind = 'type';
-      path.insertAfter(typesImport);
+      if (moveType.length > 0) {
+        // import {A, type B} from 'mod';
+        // import C, {A, type B} from 'mod';
+        path.node.specifiers = keep;
+        const typesImport = importDeclaration(moveType, path.node.source);
+        typesImport.importKind = 'type';
+        path.insertAfter(typesImport);
+      }
+      if (moveTypeof.length > 0) {
+        path.insertAfter(types);
+      }
     }
   }
-  // todo: import typeof
 }

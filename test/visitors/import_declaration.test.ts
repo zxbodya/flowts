@@ -43,5 +43,26 @@ import type A, { B } from "module";`,
 import type A from "module";
 import type { B } from "module";`,
     },
+    {
+      title: 'import typeof',
+      code: `import typeof * as N from "a";
+import typeof { A } from "a";
+import { typeof B } from "a";
+import typeof C from "a";
+import { typeof D, type E } from "a";
+import { F, typeof G } from "a";
+import { H, type I, typeof J } from "a";`,
+      output: `type N = typeof import("a");
+type A = typeof import("a").A;
+type B = typeof import("a").B;
+type C = typeof import("a").default;
+import type { E } from "a";
+type D = typeof import("a").D;
+import { F } from "a";
+type G = typeof import("a").G;
+import { H } from "a";
+type J = typeof import("a").J;
+import type { I } from "a";`,
+    },
   ],
 });
