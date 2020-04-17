@@ -138,6 +138,11 @@ pluginTester({
       output: `type A = import("react");`,
     },
     {
+      title: 'Utility generics: $Exports inside of $PropertyType',
+      code: `type B = $PropertyType<$Exports<"react">, "ReactNode">`,
+      output: `type B = import("react").ReactNode;`,
+    },
+    {
       title: 'Utility generics: Class',
       code: `let a: Class<X>;`,
       output: `let a: {

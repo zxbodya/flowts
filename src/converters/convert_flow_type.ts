@@ -26,6 +26,7 @@ import {
   isStringTypeAnnotation,
   isThisTypeAnnotation,
   isTSFunctionType,
+  isTSImportType,
   isTSIndexSignature,
   isTSIntersectionType,
   isTSLiteralType,
@@ -183,7 +184,10 @@ export function convertFlowType(node: FlowType): TSType {
       // $PropertyType<T, k> -> T[k]
       // TODO: $PropertyType<T, k> -> k extends string ? T[k] : never
       const [tsT, tsK] = tsTypeParameters!.params;
-      return tsIndexedAccessType(tsT, tsK);
+      if (isTSImportType(tsT) && isTSLiteralType(tsK) && isStringLiteral(tsK.literal)) {
+        tsT.qualifier = identifier(tsK.literal.value);
+        return tsT;
+      } else return tsIndexedAccessType(tsT, tsK);
     } else if (isIdentifier(id) && id.name === '$ElementType') {
       // $ElementType<T, k> -> T[k]
       const [tsT, tsK] = tsTypeParameters!.params;
