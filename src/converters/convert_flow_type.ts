@@ -28,6 +28,7 @@ import {
   isTSFunctionType,
   isTSIndexSignature,
   isTSIntersectionType,
+  isTSLiteralType,
   isTSMethodSignature,
   isTSPropertySignature,
   isTSTypeLiteral,
@@ -44,6 +45,7 @@ import {
   tsBooleanKeyword,
   tsConstructSignatureDeclaration,
   tsFunctionType,
+  tsImportType,
   tsIndexedAccessType,
   tsIntersectionType,
   tsLiteralType,
@@ -192,6 +194,21 @@ export function convertFlowType(node: FlowType): TSType {
     } else if (isIdentifier(id) && id.name === '$NonMaybeType') {
       // $NonMaybeType<T> -> NonNullable<T>
       return tsTypeReference(identifier('NonNullable'), tsTypeParameters);
+    } else if (isIdentifier(id) && id.name === '$Exports') {
+      // $Exports<T> -> import(T)
+      if (
+        tsTypeParameters &&
+        tsTypeParameters.params.length === 1 &&
+        isTSLiteralType(tsTypeParameters.params[0]) &&
+        isStringLiteral(tsTypeParameters.params[0].literal)
+      ) {
+        return tsImportType(tsTypeParameters.params[0].literal, null);
+      } else {
+        return tsTypeReference(
+          convertFlowIdentifier(id),
+          tsTypeParameters && tsTypeParameters.params.length ? tsTypeParameters : null,
+        );
+      }
     } else if (isIdentifier(id) && id.name === 'Class') {
       // Class<T> -> { new(...args:any): T}
       return tsTypeLiteral([

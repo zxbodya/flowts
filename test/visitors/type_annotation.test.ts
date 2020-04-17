@@ -133,6 +133,11 @@ pluginTester({
       output: `let a: NonNullable<X>;`,
     },
     {
+      title: 'Utility generics: $Exports',
+      code: `type A = $Exports<"react">;`,
+      output: `type A = import("react");`,
+    },
+    {
       title: 'Utility generics: Class',
       code: `let a: Class<X>;`,
       output: `let a: {
