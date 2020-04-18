@@ -8,9 +8,9 @@ export interface Options {
   readonly recast: boolean;
   readonly prettier: boolean;
   readonly allowJs: boolean;
-  readonly remove: boolean;
   readonly include: string;
   readonly exclude: string;
+  readonly interactiveRename: boolean;
 }
 
 const program = new commander.Command();
@@ -32,8 +32,8 @@ program
     false
   )
   .option(
-    '--no-remove',
-    'keep js files after appropriate ts files were created',
+    '--interactive-rename',
+    'Wait for interactive confirmation after renaming, before writing converted code (allowing to have separate commit to better preserve file history)',
     false
   )
   .option(

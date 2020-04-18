@@ -13,6 +13,7 @@ import { Options } from './cli';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
+import readline from 'readline';
 
 export async function convert(cwd: string, opts: Options) {
   console.log('options:', opts);
@@ -202,11 +203,35 @@ export async function convert(cwd: string, opts: Options) {
     }
     currentCount += 1;
   }
+  spinner.info('renaming converted files');
+  totalStr = `${results.length}`;
+  currentCount = 0;
+  for (const { isTyped, sourceFilePath, targetFilePath } of results) {
+    const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
+    spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
+    if (!opts.allowJs || isTyped) {
+      fs.renameSync(sourceFilePath, targetFilePath);
+    }
+    currentCount += 1;
+  }
+  spinner.succeed('renamed converted files');
+
+  if (opts.interactiveRename) {
+    await new Promise(resolve => {
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+      });
+      rl.question('Press <enter> to write converted code:', () => {
+        rl.close();
+        resolve();
+      });
+    });
+  }
   spinner.info('writing converted files');
 
-  totalStr = `${files.length}`;
+  totalStr = `${results.length}`;
   currentCount = 0;
-  let cloc = 0;
   for (const {
     isTyped,
     sourceFilePath,
@@ -215,28 +240,22 @@ export async function convert(cwd: string, opts: Options) {
     result,
     isValid,
   } of results) {
-    if (isTyped && isValid) {
-      cloc += source.split(/\r\n|\r|\n/).length;
-    }
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-    if (!isTyped) {
-      spinner.info(sourceFilePath);
-      if (!opts.allowJs) {
-        fs.copyFileSync(sourceFilePath, targetFilePath);
-        if (opts.remove) {
-          fs.unlinkSync(sourceFilePath);
-        }
-      }
-      continue;
-    }
-    fs.writeFileSync(targetFilePath, result);
-    if (isValid) {
-      if (opts.remove) {
-        fs.unlinkSync(sourceFilePath);
+    if (isTyped) {
+      fs.writeFileSync(targetFilePath, result);
+      if (!isValid) {
+        fs.writeFileSync(sourceFilePath, source);
       }
     }
     currentCount += 1;
+  }
+  // count stats about converted code base
+  let cloc = 0;
+  for (const { isTyped, source, isValid } of results) {
+    if (isTyped && isValid) {
+      cloc += source.split(/\r\n|\r|\n/).length;
+    }
   }
   spinner.succeed(`converted ${cloc} lines of code`);
 }
