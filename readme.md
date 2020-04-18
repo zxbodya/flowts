@@ -24,16 +24,16 @@ Options:
 ## How it works
 
 1. Convert source code using: https://github.com/zxbodya/babel-plugin-flow-to-typescript
-2. Does some additional fixes for types embeded in flow library (for example react types are somewhat different from typescript version)
+2. Do some additional fixes for types embedded in flow library (for example react types are somewhat different from typescript version)
 3. Prints code using recast (https://github.com/benjamn/recast), so most of the formatting is preserved.
-4. Because not all formatting can be preserved - it also reformats code using prettier (assumption is that converted codebase is using it, and there is configured in standard way, like having `.prettierrc`). Also be sure you already have prettier 2.0 (it needed for TypeScript 3.8)
-5. Before writing converted file - script verifies that there are no changes other then type annotations (all errors are logged - so, be sure to check logs and to adjustments accordingly)
+4. Because not all formatting can be preserved - it also re-formats code using prettier (assumption is that converted codebase is using it, and there is configured in standard way, like having `.prettierrc`). Also be sure you already have prettier 2.0 (it needed for TypeScript 3.8)
+5. Before writing converted file - script verifies that there are no changes other than type annotations (all errors are logged - so, be sure to check logs and to adjustments accordingly)
 
 ## Project priorities
 
 1. Only type annotation should be changed, so code after migration is in "working" state
 2. Type information should be preserved as much as possible
-3. When possible formatting and comments should be preseved
+3. When possible formatting and comments should be preserved
 
 ## Cavearts
 
