@@ -65,6 +65,16 @@ export async function convert(cwd: string, opts: Options) {
     }
   }
   console.log('convert files');
+
+  const results: Array<{
+    isTyped: boolean;
+    sourceFilePath: string;
+    targetFilePath: string;
+    source: string;
+    result: string;
+    isValid: boolean;
+  }> = [];
+
   for (const file of files) {
     console.log(file);
     const info = filesInfo.get(file);
@@ -85,16 +95,16 @@ export async function convert(cwd: string, opts: Options) {
       const sourceFilePath = path.join(cwd, file);
       const targetFilePath = path.join(cwd, targetFileName);
 
+      const isTyped = isFlow;
       if (!isFlow) {
-        if (opts.allowJs) {
-          console.log('no flow - skip');
-        } else {
-          console.log('no flow - copy');
-          fs.copyFileSync(sourceFilePath, targetFilePath);
-          if (opts.remove) {
-            fs.unlinkSync(sourceFilePath);
-          }
-        }
+        results.push({
+          isTyped,
+          sourceFilePath,
+          targetFilePath,
+          source,
+          result: source,
+          isValid: true,
+        });
         continue;
       }
 
@@ -152,8 +162,6 @@ export async function convert(cwd: string, opts: Options) {
         result = prettier.format(result, prettierConfig);
       }
 
-      fs.writeFileSync(targetFilePath, result);
-
       const verificationResult = verify(
         source,
         result,
@@ -163,6 +171,7 @@ export async function convert(cwd: string, opts: Options) {
         isConvertedFile
       );
 
+      let isValid = true;
       if (!verificationResult.isEqual) {
         console.log(
           'verification failed, diff after stripping type annotations:'
@@ -176,13 +185,47 @@ export async function convert(cwd: string, opts: Options) {
           console.log('keeping source file');
         }
       } else {
+        isValid = false;
+      }
+      results.push({
+        isTyped,
+        sourceFilePath,
+        targetFilePath,
+        source,
+        result,
+        isValid,
+      });
+    } catch (e) {
+      console.error('error while trying to convert');
+      console.error(e);
+    }
+  }
+
+  for (const {
+    isTyped,
+    sourceFilePath,
+    targetFilePath,
+    source,
+    result,
+    isValid,
+  } of results) {
+    if (!isTyped) {
+      if (opts.allowJs) {
+        console.log('no flow - skip');
+      } else {
+        console.log('no flow - copy');
+        fs.copyFileSync(sourceFilePath, targetFilePath);
         if (opts.remove) {
           fs.unlinkSync(sourceFilePath);
         }
       }
-    } catch (e) {
-      console.error('error while trying to convert');
-      console.error(e);
+      continue;
+    }
+    fs.writeFileSync(targetFilePath, result);
+    if (isValid) {
+      if (opts.remove) {
+        fs.unlinkSync(sourceFilePath);
+      }
     }
   }
 }
