@@ -25,6 +25,7 @@ export function verify(
 
   let srcFixed = babel.transformSync(source, {
     babelrc: false,
+    configFile: false,
     filename,
     plugins: [removeExportAllTypePlugin],
     presets: [require.resolve('@babel/preset-flow')],
@@ -40,6 +41,7 @@ export function verify(
 
   srcFixed = babel.transformSync(srcFixed.code!, {
     babelrc: false,
+    configFile: false,
     filename,
     comments: false,
     plugins: [[removeImportExtensionPlugin, { isConvertedFile }]],
@@ -55,6 +57,7 @@ export function verify(
 
   let resultNoTypes = babel.transformSync(result, {
     babelrc: false,
+    configFile: false,
     filename: target,
     presets: [
       [
@@ -74,6 +77,7 @@ export function verify(
 
   resultNoTypes = babel.transformSync(resultNoTypes.code!, {
     babelrc: false,
+    configFile: false,
     filename: target,
     comments: false,
     plugins: [],

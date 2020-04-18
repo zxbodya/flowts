@@ -299,6 +299,7 @@ for (const libName of libNames) {
 
   const ast = babel.parseSync(source, {
     babelrc: false,
+    configFile: false,
     ast: true,
     parserOpts: {
       plugins: ['typescript', ...sharedParserPlugins],

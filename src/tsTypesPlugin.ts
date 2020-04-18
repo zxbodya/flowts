@@ -387,18 +387,23 @@ const visitor: Visitor = {
   },
 };
 
-export default () =>
-  ({
+export default (babel: any, opts: any) => {
+  if (typeof opts.isJSX === 'undefined') {
+    opts.isJSX = true;
+  }
+  return {
     name: 'ts-types-plugin',
     visitor,
 
     manipulateOptions(opts, parserOpts) {
       parserOpts.plugins.push('typescript');
-      // todo: isJSX
-      parserOpts.plugins.push('jsx');
+      if (opts.isJSX) {
+        parserOpts.plugins.push('jsx');
+      }
       parserOpts.plugins.push('classProperties');
       parserOpts.plugins.push('objectRestSpread');
       parserOpts.plugins.push('optionalChaining');
       parserOpts.plugins.push('dynamicImport');
     },
-  } as PluginObj);
+  } as PluginObj;
+};

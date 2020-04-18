@@ -10,6 +10,7 @@ export interface SourceOptions {
 export function detectOptions(source: string, filename: string): SourceOptions {
   const flowAst = babel.parseSync(source, {
     babelrc: false,
+    configFile: false,
     ast: true,
     parserOpts: {
       plugins: ['flow', 'jsx', ...sharedParserPlugins],

@@ -100,6 +100,7 @@ export async function convert(cwd: string, opts: Options) {
 
       const tsSyntax = babel.transformSync(source, {
         babelrc: false,
+        configFile: false,
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
         parserOpts: {
@@ -124,10 +125,11 @@ export async function convert(cwd: string, opts: Options) {
 
       const ts = babel.transformSync(tsSyntax.code as string, {
         babelrc: false,
+        configFile: false,
         filename: targetFilePath,
         plugins: [
           ...transformPlugins,
-          tsTypesPlugin,
+          [tsTypesPlugin, { isJSX }],
           [removeImportExtensionPlugin, { isConvertedFile }],
         ],
         parserOpts: {

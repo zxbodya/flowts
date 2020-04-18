@@ -22,6 +22,7 @@ export function createTransform(
   return function transform(code: string) {
     const transformResult = babel.transformSync(code, {
       babelrc: false,
+      configFile: false,
       plugins: [...transformPlugins, ...plugins],
     });
 
