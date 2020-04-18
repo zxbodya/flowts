@@ -12,11 +12,11 @@ import { verify } from './verify/verify';
 import { Options } from './cli';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
+import ora from 'ora';
 
 export async function convert(cwd: string, opts: Options) {
-  console.log(`processing files in ${cwd}`);
   console.log('options:', opts);
-
+  const spinner = ora().start(`processing files in ${cwd}`);
   const transformPlugins = [];
   if (opts.recast) {
     transformPlugins.push(recastPlugin);
@@ -39,10 +39,8 @@ export async function convert(cwd: string, opts: Options) {
   };
 
   const filesInfo = new Map<string, FileInfo>();
-
-  console.log('analysing source files');
+  spinner.info('analysing source files');
   for (const file of files) {
-    console.log(file);
     try {
       const filepath = path.join(cwd, file);
       const source = fs.readFileSync(filepath, { encoding: 'utf8' });
@@ -60,12 +58,14 @@ export async function convert(cwd: string, opts: Options) {
       };
       filesInfo.set(file, info);
     } catch (e) {
-      console.error('error while trying to detect options');
+      spinner.fail(file);
+      spinner.fail('error while trying to detect options');
       console.error(e);
+      spinner.start();
     }
   }
-  console.log('convert files');
-
+  spinner.succeed('finished analysing source files');
+  spinner.info('converting code to TypeScript');
   const results: Array<{
     isTyped: boolean;
     sourceFilePath: string;
@@ -75,11 +75,14 @@ export async function convert(cwd: string, opts: Options) {
     isValid: boolean;
   }> = [];
 
+  let totalStr = `${files.length}`;
+  let currentCount = 0;
   for (const file of files) {
-    console.log(file);
+    const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
+    spinner.start(`[${currentStr}/${totalStr}] ${file}`);
     const info = filesInfo.get(file);
     if (!info) {
-      console.log('file info missing - check log for errors');
+      spinner.warn('file info missing - check log for errors');
       continue;
     }
     try {
@@ -173,7 +176,8 @@ export async function convert(cwd: string, opts: Options) {
 
       let isValid = true;
       if (!verificationResult.isEqual) {
-        console.log(
+        spinner.fail(targetFilePath);
+        spinner.fail(
           'verification failed, diff after stripping type annotations:'
         );
         const changes = jestDiff(
@@ -181,10 +185,6 @@ export async function convert(cwd: string, opts: Options) {
           verificationResult.tgt
         );
         console.log(changes);
-        if (opts.remove) {
-          console.log('keeping source file');
-        }
-      } else {
         isValid = false;
       }
       results.push({
@@ -196,11 +196,17 @@ export async function convert(cwd: string, opts: Options) {
         isValid,
       });
     } catch (e) {
-      console.error('error while trying to convert');
+      spinner.fail(file);
+      spinner.fail('error while trying to convert');
       console.error(e);
     }
+    currentCount += 1;
   }
+  spinner.info('writing converted files');
 
+  totalStr = `${files.length}`;
+  currentCount = 0;
+  let cloc = 0;
   for (const {
     isTyped,
     sourceFilePath,
@@ -209,11 +215,14 @@ export async function convert(cwd: string, opts: Options) {
     result,
     isValid,
   } of results) {
+    if (isTyped && isValid) {
+      cloc += source.split(/\r\n|\r|\n/).length;
+    }
+    const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
+    spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
     if (!isTyped) {
-      if (opts.allowJs) {
-        console.log('no flow - skip');
-      } else {
-        console.log('no flow - copy');
+      spinner.info(sourceFilePath);
+      if (!opts.allowJs) {
         fs.copyFileSync(sourceFilePath, targetFilePath);
         if (opts.remove) {
           fs.unlinkSync(sourceFilePath);
@@ -227,5 +236,7 @@ export async function convert(cwd: string, opts: Options) {
         fs.unlinkSync(sourceFilePath);
       }
     }
+    currentCount += 1;
   }
+  spinner.succeed(`converted ${cloc} lines of code`);
 }
