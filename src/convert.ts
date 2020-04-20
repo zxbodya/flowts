@@ -147,7 +147,11 @@ export async function convert(cwd: string, opts: Options) {
           [removeImportExtensionPlugin, { isConvertedFile }],
         ],
         parserOpts: {
-          plugins: [...sharedParserPlugins],
+          plugins: [
+            'typescript',
+            ...(isJSX ? ['jsx' as 'jsx'] : []),
+            ...sharedParserPlugins,
+          ],
         },
       });
 
