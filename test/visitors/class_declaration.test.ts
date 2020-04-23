@@ -1,8 +1,6 @@
-import * as pluginTester from 'babel-plugin-tester';
-import plugin from '../../src';
+import { pluginTester } from '../transform';
 
 pluginTester({
-  plugin,
   tests: [
     {
       title: 'empty class',
@@ -77,7 +75,7 @@ pluginTester({
 export default class A implements B {
   +ctx: Context;
   hasLoaded: boolean;
-  
+
   constructor() {}
 }
 `,

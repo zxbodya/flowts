@@ -22,7 +22,8 @@
   "overrides": [
     {
       "files": [
-        "**/*.test.*"
+        "**/*.test.*",
+        "test/transform.ts"
       ],
       "env": {
         "jest": true
