@@ -8,7 +8,10 @@ export function convertTypeParameter(node: TypeParameter): TSTypeParameter {
       ...baseNodeProps(node.bound.typeAnnotation),
       ...convertFlowType(node.bound.typeAnnotation),
     },
-    node.default && { ...baseNodeProps(node.default), ...convertFlowType(node.default) },
-    node.name!,
+    node.default && {
+      ...baseNodeProps(node.default),
+      ...convertFlowType(node.default),
+    },
+    node.name!
   );
 }

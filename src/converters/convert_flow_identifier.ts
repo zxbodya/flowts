@@ -8,7 +8,7 @@ import {
 
 // A.B.C -> A.B.C
 export function convertFlowIdentifier(
-  id: QualifiedTypeIdentifier | Identifier,
+  id: QualifiedTypeIdentifier | Identifier
 ): TSQualifiedName | Identifier {
   if (isIdentifier(id)) {
     return id;

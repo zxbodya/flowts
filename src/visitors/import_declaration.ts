@@ -25,10 +25,10 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
               ? identifier('default')
               : specifier.type === 'ImportSpecifier'
               ? specifier.imported
-              : null,
-          ),
-        ),
-      ),
+              : null
+          )
+        )
+      )
     );
     path.replaceWithMultiple(types);
     return;
@@ -38,13 +38,18 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
     const importDefaultSpecifiers: ImportDefaultSpecifier[] = [];
     const importNamespaceSpecifiers: ImportNamespaceSpecifier[] = [];
     for (const specifier of path.node.specifiers) {
-      if (specifier.type === 'ImportSpecifier') importSpecifiers.push(specifier);
-      if (specifier.type === 'ImportDefaultSpecifier') importDefaultSpecifiers.push(specifier);
-      if (specifier.type === 'ImportNamespaceSpecifier') importNamespaceSpecifiers.push(specifier);
+      if (specifier.type === 'ImportSpecifier')
+        importSpecifiers.push(specifier);
+      if (specifier.type === 'ImportDefaultSpecifier')
+        importDefaultSpecifiers.push(specifier);
+      if (specifier.type === 'ImportNamespaceSpecifier')
+        importNamespaceSpecifiers.push(specifier);
     }
-    const groups = [importNamespaceSpecifiers, importDefaultSpecifiers, importSpecifiers].filter(
-      v => v.length > 0,
-    );
+    const groups = [
+      importNamespaceSpecifiers,
+      importDefaultSpecifiers,
+      importSpecifiers,
+    ].filter(v => v.length > 0);
     if (groups.length > 1) {
       path.node.specifiers = groups[0];
       path.insertAfter(
@@ -52,7 +57,7 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
           const separateImport = importDeclaration(group, path.node.source);
           separateImport.importKind = 'type';
           return separateImport;
-        }),
+        })
       );
     }
   } else {
@@ -80,8 +85,8 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
       tsTypeAliasDeclaration(
         specifier.local,
         null,
-        tsTypeQuery(tsImportType(path.node.source, specifier.imported)),
-      ),
+        tsTypeQuery(tsImportType(path.node.source, specifier.imported))
+      )
     );
     if (keep.length === 0) {
       if (moveType.length > 0) {

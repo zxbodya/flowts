@@ -82,7 +82,9 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
   if (node.rest) {
     if (node.rest.name) {
       const id = restElement(node.rest.name);
-      id.typeAnnotation = tsTypeAnnotation(convertFlowType(node.rest.typeAnnotation));
+      id.typeAnnotation = tsTypeAnnotation(
+        convertFlowType(node.rest.typeAnnotation)
+      );
       parameters.push({ ...id, ...baseNodeProps(node.rest) });
     }
   }

@@ -21,7 +21,10 @@ export function DeclareModuleExports(path: NodePath<DeclareModuleExports>) {
     variableDeclaration('let', [
       variableDeclarator({
         ...aliasId,
-        typeAnnotation: { ...tsTypeAnnotation(tsType), ...baseNodeProps(node.typeAnnotation) },
+        typeAnnotation: {
+          ...tsTypeAnnotation(tsType),
+          ...baseNodeProps(node.typeAnnotation),
+        },
       }),
     ]),
     tsExportAssignment(aliasId),

@@ -65,13 +65,18 @@ function cleanupPattern(pattern: Pattern): boolean {
 }
 
 export function transformFunctionParams(
-  params: Array<NodePath<Identifier | Pattern | RestElement | TSParameterProperty>>,
+  params: Array<
+    NodePath<Identifier | Pattern | RestElement | TSParameterProperty>
+  >
 ) {
   let hasRequiredAfter = false;
   for (let i = params.length - 1; i >= 0; i--) {
     const paramNode = params[i];
     if (paramNode.isPattern()) {
-      if (paramNode.isAssignmentPattern() && isIdentifier(paramNode.node.left)) {
+      if (
+        paramNode.isAssignmentPattern() &&
+        isIdentifier(paramNode.node.left)
+      ) {
         // argument with default value can not be optional in typescript
         paramNode.node.left.optional = false;
       }
@@ -89,12 +94,17 @@ export function transformFunctionParams(
         if (isNullableTypeAnnotation(param.typeAnnotation.typeAnnotation)) {
           param.optional = !hasRequiredAfter;
           if (param.optional) {
-            let tsType = convertFlowType(param.typeAnnotation.typeAnnotation.typeAnnotation);
+            let tsType = convertFlowType(
+              param.typeAnnotation.typeAnnotation.typeAnnotation
+            );
             if (isTSFunctionType(tsType)) {
               tsType = tsParenthesizedType(tsType);
             }
             const typeAnnotation = tsUnionType([tsType, tsNullKeyword()]);
-            replaceWith(paramNode.get('typeAnnotation'), tsTypeAnnotation(typeAnnotation));
+            replaceWith(
+              paramNode.get('typeAnnotation'),
+              tsTypeAnnotation(typeAnnotation)
+            );
           } else {
             hasRequiredAfter = true;
           }
@@ -105,8 +115,15 @@ export function transformFunctionParams(
             if (isTSFunctionType(tsType)) {
               tsType = tsParenthesizedType(tsType);
             }
-            const typeAnnotation = tsUnionType([tsType, tsUndefinedKeyword(), tsNullKeyword()]);
-            replaceWith(paramNode.get('typeAnnotation'), tsTypeAnnotation(typeAnnotation));
+            const typeAnnotation = tsUnionType([
+              tsType,
+              tsUndefinedKeyword(),
+              tsNullKeyword(),
+            ]);
+            replaceWith(
+              paramNode.get('typeAnnotation'),
+              tsTypeAnnotation(typeAnnotation)
+            );
           }
           if (!param.optional) {
             hasRequiredAfter = true;

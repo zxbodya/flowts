@@ -23,7 +23,7 @@
     "test-watch": "jest --watch",
     "build": "tsc",
     "watch": "tsc --watch",
-    "lint": "tslint --project .",
+    "lint": "eslint './**/*.{ts,js,tsx,jsx}'",
     "cover": "jest --coverage",
     "report-coverage": "codecov",
     "prettify": "./node_modules/.bin/prettier --write \"{src,test}/**/*.{js,ts,tsx}\""
@@ -48,14 +48,16 @@
   },
   "devDependencies": {
     "@types/babel__traverse": "7.0.9",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "babel-plugin-tester": "^7.0.1",
     "codecov": "^3.6.5",
-    "jest": "^25.1.0",
-    "prettier": "^1.17.1",
-    "ts-jest": "^25.2.1",
-    "tslint": "^6.1.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.7",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.3.1",
     "typescript": "^3.8.2"
   },
   "jest": {
@@ -72,5 +74,10 @@
       "json",
       "node"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "avoid"
   }
 }

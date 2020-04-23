@@ -42,7 +42,7 @@ export function convertObjectTypeProperty(property: ObjectTypeProperty) {
       key,
       tsType.typeParameters,
       tsType.parameters,
-      tsType.typeAnnotation,
+      tsType.typeAnnotation
     );
 
     tsMethod.optional = property.optional;
@@ -51,10 +51,11 @@ export function convertObjectTypeProperty(property: ObjectTypeProperty) {
   } else {
     const tsPropSignature = tsPropertySignature(
       key,
-      tsTypeAnnotation({ ...tsType, ...baseNodeProps(property.value) }),
+      tsTypeAnnotation({ ...tsType, ...baseNodeProps(property.value) })
     );
     tsPropSignature.optional = property.optional;
-    tsPropSignature.readonly = property.variance && property.variance.kind === 'plus';
+    tsPropSignature.readonly =
+      property.variance && property.variance.kind === 'plus';
     tsPropSignature.computed = isComputed;
     return tsPropSignature;
   }

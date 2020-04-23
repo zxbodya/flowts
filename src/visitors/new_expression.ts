@@ -5,7 +5,9 @@ import { replaceWith } from '../utils/replaceWith';
 
 export function NewExpression(path: NodePath<NewExpression>) {
   if (path.node.typeArguments) {
-    const typeParameters = convertTypeParameterInstantiation(path.node.typeArguments);
+    const typeParameters = convertTypeParameterInstantiation(
+      path.node.typeArguments
+    );
     path.node.typeArguments = null;
     replaceWith(path.get('typeParameters'), typeParameters);
   }

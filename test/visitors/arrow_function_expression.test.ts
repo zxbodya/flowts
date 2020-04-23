@@ -83,17 +83,20 @@ pluginTester({
       output: `([a, b]) => {};`,
     },
     {
-      title: 'arrow function with typed destructuring in arguments, array with rest',
+      title:
+        'arrow function with typed destructuring in arguments, array with rest',
       code: `([ a: B, b: B, ...c: C[] ]) => {};`,
       output: `([a, b, ...c]) => {};`,
     },
     {
-      title: 'arrow function with typed destructuring in arguments, nested array',
+      title:
+        'arrow function with typed destructuring in arguments, nested array',
       code: `([ a: B, [b: B] ]) => {};`,
       output: `([a, [b]]) => {};`,
     },
     {
-      title: 'arrow function with typed destructuring in arguments, array nested in object',
+      title:
+        'arrow function with typed destructuring in arguments, array nested in object',
       code: `({ a, b:[b: B] }) => {};`,
       output: `({
   a,

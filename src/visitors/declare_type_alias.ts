@@ -5,7 +5,10 @@ import { convertDeclareTypeAlias } from '../converters/convert_declare_type_alia
 import { replaceWith } from '../utils/replaceWith';
 import { PluginPass } from '../types';
 
-export function DeclareTypeAlias(path: NodePath<DeclareTypeAlias>, state: PluginPass) {
+export function DeclareTypeAlias(
+  path: NodePath<DeclareTypeAlias>,
+  state: PluginPass
+) {
   const node = path.node;
   const replacement = convertDeclareTypeAlias(node);
   replacement.declare = !state.get('isModuleDeclaration');

@@ -14,14 +14,16 @@ import { convertTypeParameterDeclaration } from '../converters/convert_type_para
 import { replaceWith } from '../utils/replaceWith';
 import { transformClassBody } from '../transforms/transform_class_body';
 
-export function ClassDeclaration(path: NodePath<ClassDeclaration | ClassExpression>) {
+export function ClassDeclaration(
+  path: NodePath<ClassDeclaration | ClassExpression>
+) {
   const node = path.node;
 
   const superTypeParameters = node.superTypeParameters;
   if (isTypeParameterInstantiation(superTypeParameters)) {
     replaceWith(
       path.get('superTypeParameters') as NodePath,
-      convertTypeParameterInstantiation(superTypeParameters),
+      convertTypeParameterInstantiation(superTypeParameters)
     );
   }
 
@@ -29,17 +31,22 @@ export function ClassDeclaration(path: NodePath<ClassDeclaration | ClassExpressi
   if (isTypeParameterDeclaration(typeParameters)) {
     replaceWith(
       path.get('typeParameters') as NodePath,
-      convertTypeParameterDeclaration(typeParameters),
+      convertTypeParameterDeclaration(typeParameters)
     );
   }
 
   const classImplements = node.implements;
   if (Array.isArray(classImplements)) {
-    const classImplements = path.get('implements') as NodePath<ClassImplements>[];
+    const classImplements = path.get('implements') as NodePath<
+      ClassImplements
+    >[];
     if (classImplements !== null) {
       for (const classImplement of classImplements) {
         if (classImplement.isClassImplements()) {
-          replaceWith(classImplement, convertInterfaceExtends(classImplement.node));
+          replaceWith(
+            classImplement,
+            convertInterfaceExtends(classImplement.node)
+          );
         }
       }
     }

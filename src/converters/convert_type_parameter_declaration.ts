@@ -7,7 +7,7 @@ import { convertTypeParameter } from './convert_type_parameter';
 import { baseNodeProps } from '../utils/baseNodeProps';
 
 export function convertTypeParameterDeclaration(
-  node: TypeParameterDeclaration,
+  node: TypeParameterDeclaration
 ): TSTypeParameterDeclaration {
   const params = node.params.map(p => ({
     ...baseNodeProps(p),

@@ -100,7 +100,8 @@ pluginTester({
       output: `let a: Omit<X, keyof Y>;`,
     },
     {
-      title: 'Utility generics: $Diff when keys from type literal can be computed on compile time',
+      title:
+        'Utility generics: $Diff when keys from type literal can be computed on compile time',
       code: `let a: $Diff<X, {a:number, 'b':B, c():void }>;`,
       output: `let a: Omit<X, "a" | "b" | "c">;`,
     },

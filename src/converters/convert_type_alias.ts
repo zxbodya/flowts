@@ -19,6 +19,6 @@ export function convertTypeAlias(node: TypeAlias): TSTypeAliasDeclaration {
           ...baseNodeProps(typeParameters),
         }
       : null,
-    { ...baseNodeProps(right), ...convertFlowType(right) },
+    { ...baseNodeProps(right), ...convertFlowType(right) }
   );
 }

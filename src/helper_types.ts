@@ -1,8 +1,8 @@
 import template from '@babel/template';
 
 /* tslint:disable */
-let ast = template({
-  plugins:['typescript'],
+const ast = template({
+  plugins: ['typescript'],
 }).ast;
 
 const $ObjMap = ast`type $ObjMap<T extends {}, F extends (v: any) => any> = {
@@ -71,4 +71,4 @@ export default {
   $Call4,
   $Call5,
   Class,
-}
+};

@@ -19,23 +19,27 @@ import { convertObjectTypeIndexer } from './convert_object_type_indexer';
 import { convertObjectTypeInternalSlot } from './convert_object_type_internal_slot';
 import { convertFlowIdentifier } from './convert_flow_identifier';
 
-export function convertInterfaceExtends(node: InterfaceExtends | ClassImplements) {
+export function convertInterfaceExtends(
+  node: InterfaceExtends | ClassImplements
+) {
   const typeParameters = node.typeParameters;
   const typeParameterParams = typeParameters ? typeParameters.params : [];
   const parameters = tsTypeParameterInstantiation(
     typeParameterParams.map(item => ({
       ...convertFlowType(item),
       ...baseNodeProps(item),
-    })),
+    }))
   );
 
   return tsExpressionWithTypeArguments(
     convertFlowIdentifier(node.id),
-    typeParameterParams.length ? parameters : null,
+    typeParameterParams.length ? parameters : null
   );
 }
 
-export function convertInterfaceDeclaration(node: InterfaceDeclaration | DeclareInterface) {
+export function convertInterfaceDeclaration(
+  node: InterfaceDeclaration | DeclareInterface
+) {
   let typeParameters = null;
   if (node.typeParameters) {
     typeParameters = {
@@ -88,12 +92,15 @@ export function convertInterfaceDeclaration(node: InterfaceDeclaration | Declare
       ...node.body.callProperties.map(v => ({
         ...convertObjectTypeCallProperty(v),
         ...baseNodeProps(v),
-      })),
+      }))
     );
   }
   if (node.body.indexers) {
     bodyElements.push(
-      ...node.body.indexers.map(v => ({ ...convertObjectTypeIndexer(v), ...baseNodeProps(v) })),
+      ...node.body.indexers.map(v => ({
+        ...convertObjectTypeIndexer(v),
+        ...baseNodeProps(v),
+      }))
     );
   }
   if (node.body.internalSlots) {
@@ -101,7 +108,7 @@ export function convertInterfaceDeclaration(node: InterfaceDeclaration | Declare
       ...node.body.internalSlots.map(v => ({
         ...convertObjectTypeInternalSlot(v),
         ...baseNodeProps(v),
-      })),
+      }))
     );
   }
   const body = {

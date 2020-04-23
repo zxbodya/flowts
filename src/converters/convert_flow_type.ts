@@ -96,7 +96,7 @@ export function convertFlowType(node: FlowType): TSType {
     return tsArrayType(
       isTSUnionType(elementType) || isTSIntersectionType(elementType)
         ? tsParenthesizedType(elementType)
-        : elementType,
+        : elementType
     );
   }
 
@@ -114,7 +114,7 @@ export function convertFlowType(node: FlowType): TSType {
 
   if (isExistsTypeAnnotation(node)) {
     warnOnlyOnce(
-      'Existential type (*) in Flow is converted to "any" in TypeScript, and this conversion loses some type information.',
+      'Existential type (*) in Flow is converted to "any" in TypeScript, and this conversion loses some type information.'
     );
     return tsAnyKeyword();
   }
@@ -150,7 +150,7 @@ export function convertFlowType(node: FlowType): TSType {
       return tsTypeReference(identifier('ReadonlyArray'), tsTypeParameters);
     } else if (isIdentifier(id) && id.name === '$Exact') {
       warnOnlyOnce(
-        "Exact object type annotation in Flow is ignored. In TypeScript, it's always regarded as exact type",
+        "Exact object type annotation in Flow is ignored. In TypeScript, it's always regarded as exact type"
       );
       return tsTypeParameters!.params[0];
     } else if (isIdentifier(id) && id.name === '$Diff') {
@@ -176,15 +176,24 @@ export function convertFlowType(node: FlowType): TSType {
           }
         });
         if (doable) {
-          tsKeyofY = tsUnionType(keys.map(p => tsLiteralType(stringLiteral(p))));
+          tsKeyofY = tsUnionType(
+            keys.map(p => tsLiteralType(stringLiteral(p)))
+          );
         }
       }
-      return tsTypeReference(identifier('Omit'), tsTypeParameterInstantiation([tsX, tsKeyofY]));
+      return tsTypeReference(
+        identifier('Omit'),
+        tsTypeParameterInstantiation([tsX, tsKeyofY])
+      );
     } else if (isIdentifier(id) && id.name === '$PropertyType') {
       // $PropertyType<T, k> -> T[k]
       // TODO: $PropertyType<T, k> -> k extends string ? T[k] : never
       const [tsT, tsK] = tsTypeParameters!.params;
-      if (isTSImportType(tsT) && isTSLiteralType(tsK) && isStringLiteral(tsK.literal)) {
+      if (
+        isTSImportType(tsT) &&
+        isTSLiteralType(tsK) &&
+        isStringLiteral(tsK.literal)
+      ) {
         tsT.qualifier = identifier(tsK.literal.value);
         return tsT;
       } else return tsIndexedAccessType(tsT, tsK);
@@ -210,7 +219,9 @@ export function convertFlowType(node: FlowType): TSType {
       } else {
         return tsTypeReference(
           convertFlowIdentifier(id),
-          tsTypeParameters && tsTypeParameters.params.length ? tsTypeParameters : null,
+          tsTypeParameters && tsTypeParameters.params.length
+            ? tsTypeParameters
+            : null
         );
       }
     } else if (isIdentifier(id) && id.name === 'Class') {
@@ -226,7 +237,7 @@ export function convertFlowType(node: FlowType): TSType {
           ],
           tsTypeParameters !== null
             ? tsTypeAnnotation(tsTypeParameters!.params[0])
-            : tsTypeAnnotation(tsAnyKeyword()),
+            : tsTypeAnnotation(tsAnyKeyword())
         ),
       ]);
     } else if (isIdentifier(id) && id.name === '$FlowFixMe') {
@@ -237,7 +248,9 @@ export function convertFlowType(node: FlowType): TSType {
     } else if (isQualifiedTypeIdentifier(id) || isIdentifier(id)) {
       return tsTypeReference(
         convertFlowIdentifier(id),
-        tsTypeParameters && tsTypeParameters.params.length ? tsTypeParameters : null,
+        tsTypeParameters && tsTypeParameters.params.length
+          ? tsTypeParameters
+          : null
       );
     }
     // for other utility types, helpers are added at top of file in Program visitor
@@ -252,7 +265,7 @@ export function convertFlowType(node: FlowType): TSType {
           tsType = tsParenthesizedType(tsType);
         }
         return { ...tsType, ...baseNodeProps(v) };
-      }),
+      })
     );
   }
 
@@ -302,16 +315,19 @@ export function convertFlowType(node: FlowType): TSType {
         tsTypeParameter(
           convertFlowType(node.indexers[0].key),
           null,
-          node.indexers[0].id?.name || 'k',
+          node.indexers[0].id?.name || 'k'
         ),
-        convertFlowType(node.indexers[0].value),
+        convertFlowType(node.indexers[0].value)
       );
     }
 
     if (node.properties) {
       for (const property of node.properties) {
         if (isObjectTypeProperty(property)) {
-          members.push({ ...convertObjectTypeProperty(property), ...baseNodeProps(property) });
+          members.push({
+            ...convertObjectTypeProperty(property),
+            ...baseNodeProps(property),
+          });
         }
 
         if (isObjectTypeSpreadProperty(property)) {
@@ -372,7 +388,7 @@ export function convertFlowType(node: FlowType): TSType {
           tsType = tsParenthesizedType(tsType);
         }
         return { ...tsType, ...baseNodeProps(v) };
-      }),
+      })
     );
   }
 
@@ -381,7 +397,11 @@ export function convertFlowType(node: FlowType): TSType {
   }
 
   if (isFunctionTypeAnnotation(node)) {
-    const { typeParams, parameters, returnType } = convertFunctionTypeAnnotation(node);
+    const {
+      typeParams,
+      parameters,
+      returnType,
+    } = convertFunctionTypeAnnotation(node);
     return tsFunctionType(typeParams, parameters, returnType);
   }
 

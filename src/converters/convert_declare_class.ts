@@ -48,7 +48,7 @@ export function convertDeclareClass(node: DeclareClass) {
         property.key,
         convertedProperty.typeAnnotation.typeParameters,
         convertedProperty.typeAnnotation.parameters,
-        convertedProperty.typeAnnotation.typeAnnotation,
+        convertedProperty.typeAnnotation.typeAnnotation
       );
       // todo: fix bug in tsDeclareMethod builder to accept member expression
       converted.key = key;
@@ -58,9 +58,14 @@ export function convertDeclareClass(node: DeclareClass) {
       converted.computed = isComputed;
       bodyElements.push(converted);
     } else if (property.kind === 'init') {
-      const converted = classProperty(key, null, tsTypeAnnotation(convertedProperty));
+      const converted = classProperty(
+        key,
+        null,
+        tsTypeAnnotation(convertedProperty)
+      );
       converted.static = !!property.static;
-      converted.readonly = property.variance && property.variance.kind === 'plus';
+      converted.readonly =
+        property.variance && property.variance.kind === 'plus';
       converted.computed = isComputed;
       bodyElements.push({ ...converted, ...baseNodeProps(property) });
     }
@@ -73,7 +78,12 @@ export function convertDeclareClass(node: DeclareClass) {
 
   if (node.body.indexers) {
     // tslint:disable-next-line:prettier
-    bodyElements.push(...node.body.indexers.map(i => ({...convertObjectTypeIndexer(i), ...baseNodeProps(i)})));
+    bodyElements.push(
+      ...node.body.indexers.map(i => ({
+        ...convertObjectTypeIndexer(i),
+        ...baseNodeProps(i),
+      }))
+    );
   }
 
   // todo:
@@ -88,13 +98,16 @@ export function convertDeclareClass(node: DeclareClass) {
     if (node.extends.length > 1) {
       warnOnlyOnce(
         'declare-class-many-parents',
-        'Declare Class definitions in TS can only have one super class. Dropping extras.',
+        'Declare Class definitions in TS can only have one super class. Dropping extras.'
       );
     }
 
     const firstExtend = convertInterfaceExtends(node.extends[0]);
     if (isIdentifier(firstExtend.expression)) {
-      superClass = { ...firstExtend.expression, ...baseNodeProps(node.extends[0].id) };
+      superClass = {
+        ...firstExtend.expression,
+        ...baseNodeProps(node.extends[0].id),
+      };
       if (firstExtend.typeParameters && node.extends[0].typeParameters) {
         superTypeParameters = {
           ...firstExtend.typeParameters,

@@ -7,18 +7,26 @@ export default {
   enter(path: NodePath<Program>) {
     const [firstNode] = path.node.body;
 
-    if (firstNode && firstNode.leadingComments && firstNode.leadingComments.length) {
+    if (
+      firstNode &&
+      firstNode.leadingComments &&
+      firstNode.leadingComments.length
+    ) {
       const commentIndex = firstNode.leadingComments.findIndex(
-        item => item.value.trim() === '@flow',
+        item => item.value.trim() === '@flow'
       );
       if (commentIndex !== -1) {
-        (path.get(`body.0.leadingComments.${commentIndex}`) as NodePath<Node>).remove();
+        (path.get(`body.0.leadingComments.${commentIndex}`) as NodePath<
+          Node
+        >).remove();
       }
     }
     // @ts-ignore recast support
     if (firstNode && firstNode.comments && firstNode.comments.length) {
       // @ts-ignore recast support
-      const commentIndex = firstNode.comments.findIndex(item => item.value.trim() === '@flow');
+      const commentIndex = firstNode.comments.findIndex(
+        (item: any) => item.value.trim() === '@flow'
+      );
       if (commentIndex !== -1) {
         // @ts-ignore recast support
         firstNode.comments.splice(commentIndex, 1);
@@ -28,12 +36,17 @@ export default {
   exit(path: NodePath<Program>) {
     path.traverse({
       /* istanbul ignore next */
-      Flow(path: NodePath<Flow>) {
+      Flow(path: NodePath<any>) {
         // @ts-ignore todo: babel incorrectly considers type import to be "Flow" while now it can be also TypeScript
-        if (path.node.type === 'ImportDeclaration' || path.node.type === 'ExportNamedDeclaration') {
+        if (
+          path.node.type === 'ImportDeclaration' ||
+          path.node.type === 'ExportNamedDeclaration'
+        ) {
           return;
         }
-        throw path.buildCodeFrameError('not converted flow node: ' + path.node.type);
+        throw path.buildCodeFrameError(
+          'not converted flow node: ' + path.node.type
+        );
       },
     });
 
@@ -64,7 +77,7 @@ export default {
                 usedHelperTypes.add('$Call5');
               } else {
                 warnOnlyOnce(
-                  '$Call utility type is used with more then 6 type parameters - this is crazy, do not want to fix',
+                  '$Call utility type is used with more then 6 type parameters - this is crazy, do not want to fix'
                 );
               }
             }

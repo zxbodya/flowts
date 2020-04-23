@@ -23,7 +23,9 @@ import { convertDeclareClass } from '../converters/convert_declare_class';
 import { replaceWith } from '../utils/replaceWith';
 import { convertInterfaceDeclaration } from '../converters/convert_interface_declaration';
 
-export function DeclareExportDeclaration(path: NodePath<DeclareExportDeclaration>) {
+export function DeclareExportDeclaration(
+  path: NodePath<DeclareExportDeclaration>
+) {
   const node = path.node;
 
   let replacement;
@@ -32,10 +34,14 @@ export function DeclareExportDeclaration(path: NodePath<DeclareExportDeclaration
       throw path.buildCodeFrameError('todo: declaration is missing');
     }
     if (isDeclareFunction(node.declaration)) {
-      replacement = exportDefaultDeclaration(convertDeclareFunction(node.declaration));
+      replacement = exportDefaultDeclaration(
+        convertDeclareFunction(node.declaration)
+      );
       replaceWith(path, replacement);
     } else if (isDeclareClass(node.declaration)) {
-      replacement = exportDefaultDeclaration(convertDeclareClass(node.declaration));
+      replacement = exportDefaultDeclaration(
+        convertDeclareClass(node.declaration)
+      );
       replaceWith(path, replacement);
     } else {
       if (!isFlowType(node.declaration)) {
@@ -47,7 +53,10 @@ export function DeclareExportDeclaration(path: NodePath<DeclareExportDeclaration
 
       path.replaceWithMultiple([
         variableDeclaration('let', [
-          variableDeclarator({ ...aliasId, typeAnnotation: tsTypeAnnotation(declaration) }),
+          variableDeclarator({
+            ...aliasId,
+            typeAnnotation: tsTypeAnnotation(declaration),
+          }),
         ]),
         exportDefaultDeclaration(aliasId),
       ]);
@@ -70,7 +79,7 @@ export function DeclareExportDeclaration(path: NodePath<DeclareExportDeclaration
     replacement = exportNamedDeclaration(
       declaration,
       node.specifiers ? node.specifiers : [],
-      node.source,
+      node.source
     );
     replaceWith(path, replacement);
   }
