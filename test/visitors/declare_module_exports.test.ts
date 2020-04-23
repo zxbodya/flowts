@@ -11,6 +11,10 @@ pluginTester({
   let __exports: A;
   export = __exports;
 }`,
+      recast: `declare module 'react' {
+  let __exports: A;
+  export = __exports
+}`,
     },
     {
       title: 'declare empty named module',
@@ -24,6 +28,13 @@ pluginTester({
     a: number;
   };
   export = __exports;
+}`,
+      recast: `declare module 'react' {
+  let __exports: {
+    a: number
+  };
+
+  export = __exports
 }`,
     },
   ],

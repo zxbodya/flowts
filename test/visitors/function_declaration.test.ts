@@ -49,15 +49,17 @@ pluginTester({
     },
     {
       title: 'maybe function argument type',
-      code: `function f(a: ?(() => void)){}`,
+      code: `function f(a: ?(() => void)) {}`,
       output: `function f(a?: (() => void) | null) {}`,
+      recast: `function f(a?: (() => void) | null) {}`,
     },
     {
       title: 'maybe function argument type with pattern after it',
-      code: `function f(a: ?number, { b }){}`,
+      code: `function f(a: ?number, { b }) {}`,
       output: `function f(a: number | undefined | null, {
   b
 }) {}`,
+      recast: `function f(a: number | undefined | null, { b }) {}`,
     },
     {
       title: 'function with default param value',

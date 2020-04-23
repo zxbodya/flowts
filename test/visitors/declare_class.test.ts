@@ -62,10 +62,13 @@ pluginTester({
     {
       title: 'declare class with indexer property',
       code: `declare class A {
-  [k: number]: string;
+  [k: number]: string
 }`,
       output: `declare class A {
   [k: number]: string;
+}`,
+      recast: `declare class A {
+  [k: number]: string
 }`,
     },
     //     {

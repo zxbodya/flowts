@@ -8,14 +8,20 @@ pluginTester({
       output: `type a = {
   a: T;
 };`,
+      recast: `type a = {
+  a: T
+};`,
     },
     {
       title: 'maybe function type',
       code: `type a = {
-  a: ?()=>void;
+  a: ?()=>void
 };`,
       output: `type a = {
   a: (() => void) | undefined | null;
+};`,
+      recast: `type a = {
+  a: (() => void) | undefined | null
 };`,
     },
     {
@@ -23,12 +29,18 @@ pluginTester({
       code: `type Props = {
   children?: React.Node,
   // The vertical alignment of the content before it starts to scroll
-  verticalAlignWithoutScroll?: "top" | "center",
+  verticalAlignWithoutScroll?: "top" | "center"
 };`,
       output: `type Props = {
   children?: React.Node;
   // The vertical alignment of the content before it starts to scroll
   verticalAlignWithoutScroll?: "top" | "center";
+};
+`,
+      recast: `type Props = {
+  children?: React.Node,
+  // The vertical alignment of the content before it starts to scroll
+  verticalAlignWithoutScroll?: "top" | "center"
 };
 `,
     },
@@ -41,12 +53,17 @@ pluginTester({
       title: 'ObjectTypeCallProperty simple case',
       code: `
 type T = {
-  (string, string): string,
+  (string, string): string
 };
 `,
       output: `
 type T = {
   (b: string, a: string): string;
+};
+`,
+      recast: `
+type T = {
+  (b: string, a: string): string
 };
 `,
     },
@@ -69,23 +86,32 @@ type T = A;
       output: `export type Cache = {
   get(key: string): Promise<unknown>;
 };`,
+      recast: `export type Cache = {
+  get(key: string): Promise<unknown>
+};`,
     },
     {
       title: 'methods in object type',
       code: `export type Cache = {
-  a: ((args: string[]) => null | false | string) & (() => string);
+  a: ((args: string[]) => null | false | string) & (() => string)
 };`,
       output: `export type Cache = {
   a: ((args: string[]) => null | false | string) & (() => string);
+};`,
+      recast: `export type Cache = {
+  a: ((args: string[]) => null | false | string) & (() => string)
 };`,
     },
     {
       title: 'iterable object type',
       code: `type A = {
-  @@iterator(): Iterator<string>;
+  @@iterator(): Iterator<string>
 };`,
       output: `type A = {
   [Symbol.iterator](): Iterator<string>;
+};`,
+      recast: `type A = {
+  [Symbol.iterator](): Iterator<string>
 };`,
     },
     {

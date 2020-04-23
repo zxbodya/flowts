@@ -8,6 +8,7 @@ pluginTester({
   declare export var a: number;
   declare export function isValidElement(element: any): boolean;
   declare export type ComponentType<P> = React$ComponentType<P>;
+
   declare export default {|
     a: number
   |}
@@ -19,6 +20,17 @@ pluginTester({
   let __default: {
     a: number;
   };
+  export default __default;
+}`,
+      recast: `declare module 'react' {
+  export var a: number;
+  export function isValidElement(element: any): boolean;
+  export type ComponentType<P> = React$ComponentType<P>;
+
+  let __default: {
+    a: number
+  };
+
   export default __default;
 }`,
     },

@@ -63,6 +63,15 @@ declare interface A {
   // state
   state: State;
 }`,
+      recast: `/**
+ * bla bla bla
+ */
+declare interface A {
+ // fields
+ props: Props;
+ // state
+ state: State;
+}`,
     },
   ],
 });

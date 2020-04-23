@@ -17,6 +17,10 @@ pluginTester({
   constructor() {}
 
 }`,
+      recast: `class C {
+  constructor() {
+  }
+}`,
     },
     {
       title: 'Class constructors: No return type annotation',
@@ -28,24 +32,34 @@ pluginTester({
   constructor() {}
 
 }`,
+      recast: `class C {
+  constructor() {
+  }
+}`,
     },
     {
       title: 'Extending class declaration types are transformed',
       code: `class C extends React.Component<?string, ?(string | boolean)> {}`,
       output:
         'class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}',
+      recast:
+        'class C extends React.Component<string | undefined | null, string | boolean | undefined | null> {}',
     },
     {
       title: 'Class declaration types are transformed',
       code: `class C implements Something<?string, ?(string | boolean)> {}`,
       output:
         'class C implements Something<string | undefined | null, (string | boolean) | undefined | null> {}',
+      recast:
+        'class C implements Something<string | undefined | null, string | boolean | undefined | null> {}',
     },
     {
       title: 'Class typings declaration types are transformed',
       code: `class C<X> implements Something<X, ?string, ?(string | boolean)> {}`,
       output:
         'class C<X> implements Something<X, string | undefined | null, (string | boolean) | undefined | null> {}',
+      recast:
+        'class C<X> implements Something<X, string | undefined | null, string | boolean | undefined | null> {}',
     },
     {
       title: 'ThisTypeAnnotation',
@@ -75,7 +89,6 @@ pluginTester({
 export default class A implements B {
   +ctx: Context;
   hasLoaded: boolean;
-
   constructor() {}
 }
 `,
@@ -85,6 +98,11 @@ export default class A implements B {
 
   constructor() {}
 
+}`,
+      recast: `export default class A implements B {
+  readonly ctx: Context;
+  hasLoaded: boolean;
+  constructor() {}
 }`,
     },
     {
@@ -98,6 +116,10 @@ export default class A implements B {
 
   method(a: number, b?: number | null, c: number = 1): void {}
 
+}`,
+      recast: `class A {
+  constructor() {}
+  method(a: number, b?: number | null, c: number = 1): void {}
 }`,
     },
   ],

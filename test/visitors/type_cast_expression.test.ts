@@ -19,6 +19,8 @@ as
 A
 /*4*/
 );`,
+      // todo: recast drops some comments, but this should be very rare case
+      recast: '(/*1*/a as /*3*/A/*4*/);',
     },
     {
       title: 'typecast on arrow function expression',

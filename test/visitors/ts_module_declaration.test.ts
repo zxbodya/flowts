@@ -14,11 +14,13 @@ pluginTester({
     {
       title: 'declares outside of a module',
       code: `declare module React {}
-
 declare class A {}
 `,
       output: `declare module "React" {}
 
+declare class A {}
+`,
+      recast: `declare module "React" {}
 declare class A {}
 `,
     },

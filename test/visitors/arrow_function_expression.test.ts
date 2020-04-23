@@ -68,6 +68,9 @@ pluginTester({
       output: `var f = () => ({
   a: 1
 } as {});`,
+      recast: `var f = () => (({
+  a: 1
+} as {}));`,
     },
     {
       title: 'arrow function with destructuring in arguments, keeps type',
@@ -79,18 +82,21 @@ pluginTester({
       title: 'arrow function with typed destructuring in arguments, array',
       code: `([ a: B, b: B ]) => {};`,
       output: `([a, b]) => {};`,
+      recast: `([ a, b ]) => {};`,
     },
     {
       title:
         'arrow function with typed destructuring in arguments, array with rest',
       code: `([ a: B, b: B, ...c: C[] ]) => {};`,
       output: `([a, b, ...c]) => {};`,
+      recast: `([ a, b, ...c ]) => {};`,
     },
     {
       title:
         'arrow function with typed destructuring in arguments, nested array',
       code: `([ a: B, [b: B] ]) => {};`,
       output: `([a, [b]]) => {};`,
+      recast: `([ a, [b] ]) => {};`,
     },
     {
       title:
@@ -100,6 +106,36 @@ pluginTester({
   a,
   b: [b]
 }) => {};`,
+      recast: `({ a, b:[b] }) => {};`,
+    },
+    {
+      title: 'template expression indentation should not be changed by recast',
+      code: `
+// Wrapped to avoid wasting time parsing this when almost no-one uses
+// build-external-helpers.
+const buildUmdWrapper = replacements =>
+  template\`
+    (function (root, factory) {
+    });
+  \`(replacements);
+`,
+      output: `
+// Wrapped to avoid wasting time parsing this when almost no-one uses
+// build-external-helpers.
+const buildUmdWrapper = replacements => template\`
+    (function (root, factory) {
+    });
+  \`(replacements);
+`,
+      recast: `
+// Wrapped to avoid wasting time parsing this when almost no-one uses
+// build-external-helpers.
+const buildUmdWrapper = replacements =>
+  template\`
+    (function (root, factory) {
+    });
+  \`(replacements);
+`,
     },
   ],
 });

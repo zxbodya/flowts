@@ -29,6 +29,9 @@ T: {} = R
 T extends {} = R
 /* 2 */
 > = T;`,
+      recast: `type A</* 1 */
+T extends {} = R
+/* 2 */> = T;`,
     },
     {
       title: 'with more comments',
@@ -46,6 +49,8 @@ F
 >
 /*5*/
 = T;`,
+      // todo: recast drops some comments, but this should be very rare case
+      recast: 'type A/*0*/</* 1 */T = F/* 4 */>/*5*/ = T;',
     },
   ],
 });

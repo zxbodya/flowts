@@ -110,6 +110,9 @@ pluginTester({
       output: `let a: Omit<X, keyof {
   [k: string]: B;
 }>;`,
+      recast: `let a: Omit<X, keyof {
+  [k: string]: B
+}>;`,
     },
     {
       title: 'Utility generics: $PropertyType',
@@ -147,12 +150,18 @@ pluginTester({
       output: `let a: {
   new (...args: any): X;
 };`,
+      recast: `let a: {
+  new (...args: any): X
+};`,
     },
     {
       title: 'Object type: exact=true',
       code: `let a: {| a: T |};`,
       output: `let a: {
   a: T;
+};`,
+      recast: `let a: {
+  a: T
 };`,
     },
     {
@@ -163,27 +172,40 @@ pluginTester({
 } & {
   y: string;
 };`,
+      recast: `let a: {
+  x: number
+} & {
+  y: string
+};`,
     },
     {
       title: 'Type literal: indexer',
       code: `let a: {
-  [x:string]: number;
-  [x:number]: boolean;
+  [x:string]: number,
+  [x:number]: boolean
 };`,
       output: `let a: {
   [x: string]: number;
   [x: number]: boolean;
+};`,
+      recast: `let a: {
+  [x: string]: number,
+  [x: number]: boolean
 };`,
     },
     {
       title: 'Type literal: indexer without key name',
       code: `let a: {
-  [string]: number;
-  [number]: boolean;
+  [string]: number,
+  [number]: boolean
 };`,
       output: `let a: {
   [x: string]: number;
   [x: number]: boolean;
+};`,
+      recast: `let a: {
+  [x: string]: number,
+  [x: number]: boolean
 };`,
     },
     {
@@ -194,6 +216,9 @@ pluginTester({
       output: `let a: {
   [x: string]: number;
 };`,
+      recast: `let a: {
+  [x: string]: number
+};`,
     },
     {
       title: 'Type literal: indexer to mapped type',
@@ -201,6 +226,9 @@ pluginTester({
   [x:A]: number;
 };`,
       output: `let a: { [x in A]: number };`,
+      recast: `let a: {
+  [x in A]: number;
+};`,
     },
     {
       title: 'Type literal: type literal with variance',
@@ -208,6 +236,10 @@ pluginTester({
       output: `let a: {
   readonly b: string;
   c: number;
+};`,
+      recast: `let a: {
+  readonly b: string,
+  c: number
 };`,
     },
     {
@@ -220,12 +252,21 @@ let b: { -[x:string]: string };`,
 let b: {
   [x: string]: string;
 };`,
+      recast: `let a: {
+  readonly [x: string]: string
+};
+let b: {
+  [x: string]: string
+};`,
     },
     {
       title: 'Type literal: type literal with spread operator',
       code: `let a: { b: string, ...T };`,
       output: `let a: {
   b: string;
+} & T;`,
+      recast: `let a: {
+  b: string
 } & T;`,
     },
     {
@@ -235,6 +276,11 @@ let b: {
   b: {
     c: T;
   } & U;
+};`,
+      recast: `let a: {
+  b: {
+    c: T
+  } & U
 };`,
     },
     {
@@ -248,12 +294,18 @@ let b: {
       output: `let a: {
   x: string | undefined | null;
 };`,
+      recast: `let a: {
+  x: string | undefined | null
+};`,
     },
     {
       title: 'Maybe type: type literal with optional key',
       code: `let a: { x?: ?string };`,
       output: `let a: {
   x?: string | null;
+};`,
+      recast: `let a: {
+  x?: string | null
 };`,
     },
     {
@@ -282,6 +334,7 @@ let b: {
       output: `function test(): string {
   return 'test';
 }`,
+      recast: `function test(): string { return 'test'; }`,
     },
     {
       title: 'Function type (param)',
@@ -289,6 +342,7 @@ let b: {
       output: `function test(arg: string): string {
   return arg;
 }`,
+      recast: `function test(arg: string): string { return arg; }`,
     },
     {
       title: 'Function type (multi param)',
@@ -296,6 +350,7 @@ let b: {
       output: `function test(arg1: string, arg2: number): string {
   return arg1;
 }`,
+      recast: `function test(arg1: string, arg2: number): string { return arg1; }`,
     },
     {
       title: 'Arrow Function type',
@@ -343,6 +398,7 @@ let b: {
       output: `function test<T>(value: T): T {
   return value;
 }`,
+      recast: `function test<T>(value: T): T { return value; }`,
     },
     {
       title: 'Function type (rest param)',
@@ -350,6 +406,7 @@ let b: {
       output: `function test(value: number, ...arg2: Array<string>): number {
   return value;
 }`,
+      recast: `function test(value: number, ...arg2: Array<string>): number { return value; }`,
     },
     {
       title: 'Arrow Function type (rest param)',
