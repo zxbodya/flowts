@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-object-literal-type-assertion": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "no-redeclare": 0
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.*",
+        "test/transform.ts"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

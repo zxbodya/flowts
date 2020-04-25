@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "babel-plugin-tester": [
+        "./types/babel-plugin-tester.d.ts"
+      ]
+    },
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2015"
+  },
+  "include": ["src"]
+}
