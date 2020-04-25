@@ -1,56 +1,67 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'no constraints',
-      code: `type A<T> = T;`,
-      output: `type A<T> = T;`,
-    },
-    {
-      title: 'with constraints',
-      code: `type A<T: number> = T;`,
-      output: `type A<T extends number> = T;`,
-    },
-    {
-      title: 'with constraints having default',
-      code: `type A<T: {} = R> = T;`,
-      output: `type A<T extends {} = R> = T;`,
-    },
-    {
-      title: 'with comments',
-      code: `type A<
+test('no constraints', () => {
+  const result = testTransform(`type A<T> = T;`);
+  expect(result.babel).toMatchInlineSnapshot(`"type A<T> = T;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type A<T> = T;"`);
+});
+
+test('with constraints', () => {
+  const result = testTransform(`type A<T: number> = T;`);
+  expect(result.babel).toMatchInlineSnapshot(`"type A<T extends number> = T;"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type A<T extends number> = T;"`
+  );
+});
+
+test('with constraints having default', () => {
+  const result = testTransform(`type A<T: {} = R> = T;`);
+  expect(result.babel).toMatchInlineSnapshot(`"type A<T extends {} = R> = T;"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type A<T extends {} = R> = T;"`
+  );
+});
+
+test('with comments', () => {
+  const result = testTransform(`type A<
 /* 1 */
 T: {} = R
 /* 2 */
-> = T;`,
-      output: `type A<
-/* 1 */
-T extends {} = R
-/* 2 */
-> = T;`,
-      recast: `type A</* 1 */
-T extends {} = R
-/* 2 */> = T;`,
-    },
-    {
-      title: 'with more comments',
-      code: `type A/*0*/</* 1 */T/* 2 */=/* 3 */F/* 4 */>/*5*/= T`,
-      output: `type A
-/*0*/
-<
-/* 1 */
-T =
-/* 2 */
+> = T;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type A<
+    /* 1 */
+    T extends {} = R
+    /* 2 */
+    > = T;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type A</* 1 */
+    T extends {} = R
+    /* 2 */> = T;"
+  `);
+});
 
-/* 3 */
-F
-/* 4 */
->
-/*5*/
-= T;`,
-      // todo: recast drops some comments, but this should be very rare case
-      recast: 'type A/*0*/</* 1 */T = F/* 4 */>/*5*/ = T;',
-    },
-  ],
+test('with more comments', () => {
+  const result = testTransform(
+    `type A/*0*/</* 1 */T/* 2 */=/* 3 */F/* 4 */>/*5*/= T`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type A
+    /*0*/
+    <
+    /* 1 */
+    T =
+    /* 2 */
+
+    /* 3 */
+    F
+    /* 4 */
+    >
+    /*5*/
+    = T;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type A/*0*/</* 1 */T = F/* 4 */>/*5*/ = T;"`
+  );
 });

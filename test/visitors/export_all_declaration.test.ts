@@ -1,11 +1,7 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'Removes type from export all declaration',
-      code: `export type * from 'module';`,
-      output: `export * from 'module';`,
-    },
-  ],
+test('Removes type from export all declaration', () => {
+  const result = testTransform(`export type * from 'module';`);
+  expect(result.babel).toMatchInlineSnapshot(`"export * from 'module';"`);
+  expect(result.recast).toMatchInlineSnapshot(`"export * from 'module';"`);
 });

@@ -1,25 +1,52 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'program flow comment single line',
-      code: `// @flow\nconst a = 55;\nexport default a;`,
-      output: `const a = 55;\nexport default a;`,
-    },
-    {
-      title: 'program flow comment block statement',
-      code: `/* @flow */\nconst a = 55;\nexport default a;`,
-      output: `const a = 55;\nexport default a;`,
-    },
-    {
-      title: 'program flow comment with license',
-      code: `// @license MIT\n/* @flow */\nconst a = 55;\nexport default a;`,
-      output: `// @license MIT\nconst a = 55;\nexport default a;`,
-    },
-    {
-      title: 'helper types',
-      code: `
+test('program flow comment single line', () => {
+  const result = testTransform(`// @flow
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
+test('program flow comment block statement', () => {
+  const result = testTransform(`/* @flow */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
+test('program flow comment with license', () => {
+  const result = testTransform(`// @license MIT
+/* @flow */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// @license MIT
+    const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// @license MIT
+    const a = 55;
+    export default a;"
+  `);
+});
+
+test('helper types', () => {
+  const result = testTransform(`
 let a: $ObjMap<A,B>;
 let b: $TupleMap<A,B>;
 let c: $ObjMapi<A,B>;
@@ -30,89 +57,92 @@ let g: $Call<A,B,C,D>;
 let h: $Call<A,B,C,D,E>;
 let i: $Call<A,B,C,D,E,F>;
 let j: $Call<A,B,C,D,E,F,G>;
-`,
-      output: `
-type $ObjMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
-type $TupleMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
-type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = { [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never };
-type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
-type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
-type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
-type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
-type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
-let a: $ObjMap<A, B>;
-let b: $TupleMap<A, B>;
-let c: $ObjMapi<A, B>;
-let d: ReturnType<A>;
-let e: $Call1<A, B>;
-let f: $Call2<A, B, C>;
-let g: $Call3<A, B, C, D>;
-let h: $Call4<A, B, C, D, E>;
-let i: $Call5<A, B, C, D, E, F>;
-let j: $Call<A, B, C, D, E, F, G>;
-`,
-      recast: `type $ObjMap<T extends {}, F extends (v: any) => any> = {
-  [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
-};
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type $ObjMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
+    type $TupleMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
+    type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = { [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never };
+    type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
+    type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
+    type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
+    type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
+    type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
+    let a: $ObjMap<A, B>;
+    let b: $TupleMap<A, B>;
+    let c: $ObjMapi<A, B>;
+    let d: ReturnType<A>;
+    let e: $Call1<A, B>;
+    let f: $Call2<A, B, C>;
+    let g: $Call3<A, B, C, D>;
+    let h: $Call4<A, B, C, D, E>;
+    let i: $Call5<A, B, C, D, E, F>;
+    let j: $Call<A, B, C, D, E, F, G>;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type $ObjMap<T extends {}, F extends (v: any) => any> = {
+      [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
+    };
 
-type $TupleMap<T extends {}, F extends (v: any) => any> = {
-  [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
-};
+    type $TupleMap<T extends {}, F extends (v: any) => any> = {
+      [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
+    };
 
-type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = {
-  [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never;
-};
+    type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = {
+      [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never;
+    };
 
-type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
-type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
-type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
-type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
-type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
-let a: $ObjMap<A, B>;
-let b: $TupleMap<A, B>;
-let c: $ObjMapi<A, B>;
-let d: ReturnType<A>;
-let e: $Call1<A, B>;
-let f: $Call2<A, B, C>;
-let g: $Call3<A, B, C, D>;
-let h: $Call4<A, B, C, D, E>;
-let i: $Call5<A, B, C, D, E, F>;
-let j: $Call<A, B, C, D, E, F, G>;
-`,
-    },
-    {
-      title: 'call helper type',
-      code: `
+    type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
+    type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
+    type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
+    type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
+    type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
+    let a: $ObjMap<A, B>;
+    let b: $TupleMap<A, B>;
+    let c: $ObjMapi<A, B>;
+    let d: ReturnType<A>;
+    let e: $Call1<A, B>;
+    let f: $Call2<A, B, C>;
+    let g: $Call3<A, B, C, D>;
+    let h: $Call4<A, B, C, D, E>;
+    let i: $Call5<A, B, C, D, E, F>;
+    let j: $Call<A, B, C, D, E, F, G>;"
+  `);
+});
+
+test('call helper type', () => {
+  const result = testTransform(`
 type A = string | Class<React.Component<*, *>> | any;
 type B = Class<{
   +scope: TagsType => void,
 }>;
 type C = Class<A>;
-`,
-      output: `type A = string | {
-  new (...args: any): React.Component<any, any>;
-} | any;
-type B = {
-  new (...args: any): {
-    readonly scope: (a: TagsType) => void;
-  };
-};
-type C = {
-  new (...args: any): A;
-};`,
-      recast: `type A = string | {
-  new (...args: any): React.Component<any, any>
-} | any;
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type A = string | {
+      new (...args: any): React.Component<any, any>;
+    } | any;
+    type B = {
+      new (...args: any): {
+        readonly scope: (a: TagsType) => void;
+      };
+    };
+    type C = {
+      new (...args: any): A;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type A = string | {
+      new (...args: any): React.Component<any, any>
+    } | any;
 
-type B = {
-  new (...args: any): {
-    readonly scope: (a: TagsType) => void
-  }
-};
+    type B = {
+      new (...args: any): {
+        readonly scope: (a: TagsType) => void
+      }
+    };
 
-type C = {
-  new (...args: any): A
-};`,
-    },
-  ],
+    type C = {
+      new (...args: any): A
+    };"
+  `);
 });

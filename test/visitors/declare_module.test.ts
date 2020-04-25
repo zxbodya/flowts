@@ -1,16 +1,17 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare empty named module',
-      code: `declare module "react" {}`,
-      output: `declare module "react" {}`,
-    },
-    {
-      title: 'declare module "React"',
-      code: `declare module React {}`,
-      output: `declare module "React" {}`,
-    },
-  ],
+test('declare empty named module', () => {
+  const result = testTransform(`declare module "react" {}`);
+  expect(result.babel).toMatchInlineSnapshot(`"declare module \\"react\\" {}"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"declare module \\"react\\" {}"`
+  );
+});
+
+test('declare module "React"', () => {
+  const result = testTransform(`declare module React {}`);
+  expect(result.babel).toMatchInlineSnapshot(`"declare module \\"React\\" {}"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"declare module \\"React\\" {}"`
+  );
 });

@@ -1,28 +1,32 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declares inside of a module',
-      code: `declare module React {
+test('declares inside of a module', () => {
+  const result = testTransform(`declare module React {
   declare class A {}
-}`,
-      output: `declare module "React" {
-  class A {}
-}`,
-    },
-    {
-      title: 'declares outside of a module',
-      code: `declare module React {}
-declare class A {}
-`,
-      output: `declare module "React" {}
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module \\"React\\" {
+      class A {}
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module \\"React\\" {
+      class A {}
+    }"
+  `);
+});
 
+test('declares outside of a module', () => {
+  const result = testTransform(`declare module React {}
 declare class A {}
-`,
-      recast: `declare module "React" {}
-declare class A {}
-`,
-    },
-  ],
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module \\"React\\" {}
+
+    declare class A {}"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module \\"React\\" {}
+    declare class A {}"
+  `);
 });

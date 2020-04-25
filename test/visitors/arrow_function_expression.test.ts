@@ -1,116 +1,161 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'empty',
-      code: `const f = () => {};`,
-      output: `const f = () => {};`,
-    },
-    {
-      title: 'return type',
-      code: `const f = (): T => {};`,
-      output: `const f = (): T => {};`,
-    },
-    {
-      title: 'argument type',
-      code: `const f = (a: T, b: R): T => {};`,
-      output: `const f = (a: T, b: R): T => {};`,
-    },
-    {
-      title: 'simple generic',
-      code: `const f = <T>(v: T): T => {};`,
-      output: `const f = <T extends any>(v: T): T => {};`,
-    },
-    {
-      title: 'optional argument',
-      code: `const f = (arg?: string) => {};`,
-      output: `const f = (arg?: string) => {};`,
-    },
-    {
-      title: 'maybe argument',
-      code: `const f = (arg: ?string) => {};`,
-      output: `const f = (arg?: string | null) => {};`,
-    },
-    {
-      title: 'optional maybe argument',
-      code: `const f = (arg?: ?string) => {};`,
-      output: `const f = (arg?: string | null) => {};`,
-    },
-    {
-      title: 'rest parameters',
-      code: `const f = (...args) => {};`,
-      output: `const f = (...args) => {};`,
-    },
-    {
-      title: 'arrow function with type parameters for JSX context',
-      code: `const a = <T, R>(v: T) => v;`,
-      output: `const a = <T extends any, R>(v: T) => v;`,
-    },
-    {
-      title: 'arrow function with type parameters for JSX context',
-      code: `export const a = <T>(
+test('empty', () => {
+  const result = testTransform(`const f = () => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"const f = () => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"const f = () => {};"`);
+});
+
+test('return type', () => {
+  const result = testTransform(`const f = (): T => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"const f = (): T => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"const f = (): T => {};"`);
+});
+
+test('argument type', () => {
+  const result = testTransform(`const f = (a: T, b: R): T => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const f = (a: T, b: R): T => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const f = (a: T, b: R): T => {};"`
+  );
+});
+
+test('simple generic', () => {
+  const result = testTransform(`const f = <T>(v: T): T => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const f = <T extends any>(v: T): T => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const f = <T extends any>(v: T): T => {};"`
+  );
+});
+
+test('optional argument', () => {
+  const result = testTransform(`const f = (arg?: string) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const f = (arg?: string) => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const f = (arg?: string) => {};"`
+  );
+});
+
+test('maybe argument', () => {
+  const result = testTransform(`const f = (arg: ?string) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const f = (arg?: string | null) => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const f = (arg?: string | null) => {};"`
+  );
+});
+
+test('optional maybe argument', () => {
+  const result = testTransform(`const f = (arg?: ?string) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const f = (arg?: string | null) => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const f = (arg?: string | null) => {};"`
+  );
+});
+
+test('rest parameters', () => {
+  const result = testTransform(`const f = (...args) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"const f = (...args) => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"const f = (...args) => {};"`);
+});
+
+test('arrow function with type parameters for JSX context', () => {
+  const result = testTransform(`const a = <T, R>(v: T) => v;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const a = <T extends any, R>(v: T) => v;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const a = <T extends any, R>(v: T) => v;"`
+  );
+});
+
+test('arrow function with type parameters for JSX context', () => {
+  const result = testTransform(`export const a = <T>(
   a?: A<T>,
   b: B,
-): ?T => {};`,
-      output: `export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};`,
-    },
-    {
-      title: 'arrow predicate function',
-      code: 'var f = (x: mixed): %checks => typeof x === "string";',
-      output: 'var f = (x: unknown) => typeof x === "string";',
-    },
-    {
-      title: 'arrow function returning object expression',
-      code: `var f = () => ({
+): ?T => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
+  );
+});
+
+test('arrow predicate function', () => {
+  const result = testTransform(
+    `var f = (x: mixed): %checks => typeof x === "string";`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"var f = (x: unknown) => typeof x === \\"string\\";"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"var f = (x: unknown) => typeof x === \\"string\\";"`
+  );
+});
+
+test('arrow function returning object expression', () => {
+  const result = testTransform(`var f = () => ({
   a: 1
-}: {});`,
-      output: `var f = () => ({
-  a: 1
-} as {});`,
-      recast: `var f = () => (({
-  a: 1
-} as {}));`,
-    },
-    {
-      title: 'arrow function with destructuring in arguments, keeps type',
-      code: `([a, b]: [A, B]) => {};`,
-      output: `([a, b]: [A, B]) => {};`,
-    },
-    // todo: type information is removed, theoretically this can be fixed
-    {
-      title: 'arrow function with typed destructuring in arguments, array',
-      code: `([ a: B, b: B ]) => {};`,
-      output: `([a, b]) => {};`,
-      recast: `([ a, b ]) => {};`,
-    },
-    {
-      title:
-        'arrow function with typed destructuring in arguments, array with rest',
-      code: `([ a: B, b: B, ...c: C[] ]) => {};`,
-      output: `([a, b, ...c]) => {};`,
-      recast: `([ a, b, ...c ]) => {};`,
-    },
-    {
-      title:
-        'arrow function with typed destructuring in arguments, nested array',
-      code: `([ a: B, [b: B] ]) => {};`,
-      output: `([a, [b]]) => {};`,
-      recast: `([ a, [b] ]) => {};`,
-    },
-    {
-      title:
-        'arrow function with typed destructuring in arguments, array nested in object',
-      code: `({ a, b:[b: B] }) => {};`,
-      output: `({
-  a,
-  b: [b]
-}) => {};`,
-      recast: `({ a, b:[b] }) => {};`,
-    },
-    {
-      title: 'template expression indentation should not be changed by recast',
-      code: `
+}: {});`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "var f = () => ({
+      a: 1
+    } as {});"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "var f = () => (({
+      a: 1
+    } as {}));"
+  `);
+});
+
+test('arrow function with destructuring in arguments, keeps type', () => {
+  const result = testTransform(`([a, b]: [A, B]) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"([a, b]: [A, B]) => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"([a, b]: [A, B]) => {};"`);
+});
+
+test('arrow function with typed destructuring in arguments, array', () => {
+  const result = testTransform(`([ a: B, b: B ]) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"([a, b]) => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"([ a, b ]) => {};"`);
+});
+
+test('arrow function with typed destructuring in arguments, array with rest', () => {
+  const result = testTransform(`([ a: B, b: B, ...c: C[] ]) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"([a, b, ...c]) => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"([ a, b, ...c ]) => {};"`);
+});
+
+test('arrow function with typed destructuring in arguments, nested array', () => {
+  const result = testTransform(`([ a: B, [b: B] ]) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`"([a, [b]]) => {};"`);
+  expect(result.recast).toMatchInlineSnapshot(`"([ a, [b] ]) => {};"`);
+});
+
+test('arrow function with typed destructuring in arguments, array nested in object', () => {
+  const result = testTransform(`({ a, b:[b: B] }) => {};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "({
+      a,
+      b: [b]
+    }) => {};"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`"({ a, b:[b] }) => {};"`);
+});
+
+test('template expression indentation should not be changed by recast', () => {
+  const result = testTransform(`
 // Wrapped to avoid wasting time parsing this when almost no-one uses
 // build-external-helpers.
 const buildUmdWrapper = replacements =>
@@ -118,24 +163,22 @@ const buildUmdWrapper = replacements =>
     (function (root, factory) {
     });
   \`(replacements);
-`,
-      output: `
-// Wrapped to avoid wasting time parsing this when almost no-one uses
-// build-external-helpers.
-const buildUmdWrapper = replacements => template\`
-    (function (root, factory) {
-    });
-  \`(replacements);
-`,
-      recast: `
-// Wrapped to avoid wasting time parsing this when almost no-one uses
-// build-external-helpers.
-const buildUmdWrapper = replacements =>
-  template\`
-    (function (root, factory) {
-    });
-  \`(replacements);
-`,
-    },
-  ],
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// Wrapped to avoid wasting time parsing this when almost no-one uses
+    // build-external-helpers.
+    const buildUmdWrapper = replacements => template\`
+        (function (root, factory) {
+        });
+      \`(replacements);"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// Wrapped to avoid wasting time parsing this when almost no-one uses
+    // build-external-helpers.
+    const buildUmdWrapper = replacements =>
+      template\`
+        (function (root, factory) {
+        });
+      \`(replacements);"
+  `);
 });

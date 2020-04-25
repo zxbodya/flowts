@@ -1,11 +1,7 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare variable',
-      code: `declare var screen: Screen;`,
-      output: `declare var screen: Screen;`,
-    },
-  ],
+test('declare variable', () => {
+  const result = testTransform(`declare var screen: Screen;`);
+  expect(result.babel).toMatchInlineSnapshot(`"declare var screen: Screen;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"declare var screen: Screen;"`);
 });

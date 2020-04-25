@@ -1,41 +1,44 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare empty named module',
-      code: `declare module 'react' {
+test('declare empty named module', () => {
+  const result = testTransform(`declare module 'react' {
   declare module.exports: A;
-}`,
-      output: `declare module 'react' {
-  let __exports: A;
-  export = __exports;
-}`,
-      recast: `declare module 'react' {
-  let __exports: A;
-  export = __exports
-}`,
-    },
-    {
-      title: 'declare empty named module',
-      code: `declare module 'react' {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      let __exports: A;
+      export = __exports;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      let __exports: A;
+      export = __exports
+    }"
+  `);
+});
+
+test('declare empty named module', () => {
+  const result = testTransform(`declare module 'react' {
   declare module.exports: {
     a: number,
   };
-}`,
-      output: `declare module 'react' {
-  let __exports: {
-    a: number;
-  };
-  export = __exports;
-}`,
-      recast: `declare module 'react' {
-  let __exports: {
-    a: number
-  };
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      let __exports: {
+        a: number;
+      };
+      export = __exports;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      let __exports: {
+        a: number
+      };
 
-  export = __exports
-}`,
-    },
-  ],
+      export = __exports
+    }"
+  `);
 });

@@ -1,12 +1,8 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'simple case',
-      code: `// @flow
-new A<number>();`,
-      output: `new A<number>();`,
-    },
-  ],
+test('simple case', () => {
+  const result = testTransform(`// @flow
+new A<number>();`);
+  expect(result.babel).toMatchInlineSnapshot(`"new A<number>();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"new A<number>();"`);
 });

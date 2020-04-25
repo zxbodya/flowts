@@ -1,18 +1,24 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'export type',
-      code: `type Something = void;
-export type { Something };`,
-      output: `type Something = void;
-export type { Something };`,
-    },
-    {
-      title: 'export type from',
-      code: `export type { B } from "./mod";`,
-      output: `export type { B } from "./mod";`,
-    },
-  ],
+test('export type', () => {
+  const result = testTransform(`type Something = void;
+export type { Something };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type Something = void;
+    export type { Something };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type Something = void;
+    export type { Something };"
+  `);
+});
+
+test('export type from', () => {
+  const result = testTransform(`export type { B } from "./mod";`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"export type { B } from \\"./mod\\";"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"export type { B } from \\"./mod\\";"`
+  );
 });

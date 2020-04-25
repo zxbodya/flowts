@@ -1,26 +1,25 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'optional member expression',
-      code: `console.log(a?.b);`,
-      output: `console.log(a?.b);`,
-    },
-    {
-      title: 'optional multi member expression',
-      code: `console.log(a?.b?.c);`,
-      output: `console.log(a?.b?.c);`,
-    },
-    {
-      title: 'optional multi mixed member expression',
-      code: `console.log(a.b?.c);`,
-      output: `console.log(a.b?.c);`,
-    },
-    {
-      title: 'Optional numeral literal access',
-      code: `console.log(a?.[0]?.c);`,
-      output: `console.log(a?.[0]?.c);`,
-    },
-  ],
+test('optional member expression', () => {
+  const result = testTransform(`console.log(a?.b);`);
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.b);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.b);"`);
+});
+
+test('optional multi member expression', () => {
+  const result = testTransform(`console.log(a?.b?.c);`);
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.b?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.b?.c);"`);
+});
+
+test('optional multi mixed member expression', () => {
+  const result = testTransform(`console.log(a.b?.c);`);
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a.b?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a.b?.c);"`);
+});
+
+test('Optional numeral literal access', () => {
+  const result = testTransform(`console.log(a?.[0]?.c);`);
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.[0]?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.[0]?.c);"`);
 });

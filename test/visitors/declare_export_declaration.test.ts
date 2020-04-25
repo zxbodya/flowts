@@ -1,10 +1,7 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare module with a bit of everything',
-      code: `declare module 'react' {
+test('declare module with a bit of everything', () => {
+  const result = testTransform(`declare module 'react' {
   declare export var a: number;
   declare export function isValidElement(element: any): boolean;
   declare export type ComponentType<P> = React$ComponentType<P>;
@@ -12,56 +9,80 @@ pluginTester({
   declare export default {|
     a: number
   |}
-}`,
-      output: `declare module 'react' {
-  export var a: number;
-  export function isValidElement(element: any): boolean;
-  export type ComponentType<P> = React$ComponentType<P>;
-  let __default: {
-    a: number;
-  };
-  export default __default;
-}`,
-      recast: `declare module 'react' {
-  export var a: number;
-  export function isValidElement(element: any): boolean;
-  export type ComponentType<P> = React$ComponentType<P>;
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export var a: number;
+      export function isValidElement(element: any): boolean;
+      export type ComponentType<P> = React$ComponentType<P>;
+      let __default: {
+        a: number;
+      };
+      export default __default;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export var a: number;
+      export function isValidElement(element: any): boolean;
+      export type ComponentType<P> = React$ComponentType<P>;
 
-  let __default: {
-    a: number
-  };
+      let __default: {
+        a: number
+      };
 
-  export default __default;
-}`,
-    },
-    {
-      title: 'export default',
-      code: `declare module 'react' {
+      export default __default;
+    }"
+  `);
+});
+
+test('export default', () => {
+  const result = testTransform(`declare module 'react' {
   declare export default function isValidElement(element: any): boolean;
   declare export default class A {}
-}`,
-      output: `declare module 'react' {
-  export default function isValidElement(element: any): boolean;
-  export default class A {}
-}`,
-    },
-    {
-      title: 'declare export class',
-      code: `declare module 'react' {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export default function isValidElement(element: any): boolean;
+      export default class A {}
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export default function isValidElement(element: any): boolean;
+      export default class A {}
+    }"
+  `);
+});
+
+test('declare export class', () => {
+  const result = testTransform(`declare module 'react' {
   declare export class ObservableQuery<T> extends Observable<ApolloQueryResult<T>> { }
-}`,
-      output: `declare module 'react' {
-  export class ObservableQuery<T> extends Observable<ApolloQueryResult<T>> {}
-}`,
-    },
-    {
-      title: 'declare export interface',
-      code: `declare module 'react' {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export class ObservableQuery<T> extends Observable<ApolloQueryResult<T>> {}
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export class ObservableQuery<T> extends Observable<ApolloQueryResult<T>> {}
+    }"
+  `);
+});
+
+test('declare export interface', () => {
+  const result = testTransform(`declare module 'react' {
   declare export interface FetchMoreOptions {}
-}`,
-      output: `declare module 'react' {
-  export interface FetchMoreOptions {}
-}`,
-    },
-  ],
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export interface FetchMoreOptions {}
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare module 'react' {
+      export interface FetchMoreOptions {}
+    }"
+  `);
 });

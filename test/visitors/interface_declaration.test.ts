@@ -1,101 +1,167 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'interface decl basic',
-      code: `interface Something {
+test('interface decl basic', () => {
+  const result = testTransform(`interface Something {
   something: string;
-}`,
-      output: `interface Something {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl extend', () => {
+  const result = testTransform(`interface Something extends Another {
   something: string;
-}`,
-    },
-    {
-      title: 'interface decl extend',
-      code: `interface Something extends Another {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something extends Another {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something extends Another {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl extend params', () => {
+  const result = testTransform(`interface Something<A> extends Another<A, B> {
   something: string;
-}`,
-      output: `interface Something extends Another {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something<A> extends Another<A, B> {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something<A> extends Another<A, B> {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl implement', () => {
+  const result = testTransform(`interface Something implements Another {
   something: string;
-}`,
-    },
-    {
-      title: 'interface decl extend params',
-      code: `interface Something<A> extends Another<A, B> {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something extends Another {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something extends Another {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl implement params', () => {
+  const result = testTransform(`interface Something<A> implements Another<A, B> {
   something: string;
-}`,
-      output: `interface Something<A> extends Another<A, B> {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something<A> extends Another<A, B> {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something<A> extends Another<A, B> {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl implement extend', () => {
+  const result = testTransform(`interface Something extends What implements Another {
   something: string;
-}`,
-    },
-    {
-      title: 'interface decl implement',
-      code: `interface Something implements Another {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something extends What, Another {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something extends What, Another {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl implement extend params', () => {
+  const result = testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something: string;
-}`,
-      output: `interface Something extends Another {
-  something: string;
-}`,
-    },
-    {
-      title: 'interface decl implement params',
-      code: `interface Something<A> implements Another<A, B> {
-  something: string;
-}`,
-      output: `interface Something<A> extends Another<A, B> {
-  something: string;
-}`,
-    },
-    {
-      title: 'interface decl implement extend',
-      code: `interface Something extends What implements Another {
-  something: string;
-}`,
-      output: `interface Something extends What, Another {
-  something: string;
-}`,
-    },
-    {
-      title: 'interface decl implement extend params',
-      code: `interface Something<A> extends What<Yes> implements Another<A, B> {
-  something: string;
-}`,
-      output: `interface Something<A> extends What<Yes>, Another<A, B> {
-  something: string;
-}`,
-    },
-    {
-      title: 'interface decl method',
-      code: `interface Something<A> extends What<Yes> implements Another<A, B> {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something<A> extends What<Yes>, Another<A, B> {
+      something: string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something<A> extends What<Yes>, Another<A, B> {
+      something: string;
+    }"
+  `);
+});
+
+test('interface decl method', () => {
+  const result = testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something(): string;
-}`,
-      output: `interface Something<A> extends What<Yes>, Another<A, B> {
-  something(): string;
-}`,
-    },
-    {
-      title: 'interface with generic method',
-      code: `interface A {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface Something<A> extends What<Yes>, Another<A, B> {
+      something(): string;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface Something<A> extends What<Yes>, Another<A, B> {
+      something(): string;
+    }"
+  `);
+});
+
+test('interface with generic method', () => {
+  const result = testTransform(`interface A {
   map<T>(fn: (node: this, index: number) => T): Array<T>;
-}`,
-      output: `interface A {
-  map<T>(fn: (node: this, index: number) => T): Array<T>;
-}`,
-    },
-    {
-      title: 'iterable interface',
-      code: `interface A {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface A {
+      map<T>(fn: (node: this, index: number) => T): Array<T>;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface A {
+      map<T>(fn: (node: this, index: number) => T): Array<T>;
+    }"
+  `);
+});
+
+test('iterable interface', () => {
+  const result = testTransform(`interface A {
   @@iterator(): Iterator<string>;
-}`,
-      output: `interface A {
-  [Symbol.iterator](): Iterator<string>;
-}`,
-    },
-    {
-      title: 'interface extending type specified by QualifiedTypeIdentifier',
-      code: `interface A extends A.B {}`,
-      output: `interface A extends A.B {}`,
-    },
-  ],
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "interface A {
+      [Symbol.iterator](): Iterator<string>;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "interface A {
+      [Symbol.iterator](): Iterator<string>;
+    }"
+  `);
+});
+
+test('interface extending type specified by QualifiedTypeIdentifier', () => {
+  const result = testTransform(`interface A extends A.B {}`);
+  expect(result.babel).toMatchInlineSnapshot(`"interface A extends A.B {}"`);
+  expect(result.recast).toMatchInlineSnapshot(`"interface A extends A.B {}"`);
 });

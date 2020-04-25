@@ -1,11 +1,11 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare type alias',
-      code: `declare type DOMHighResTimeStamp = number;`,
-      output: `declare type DOMHighResTimeStamp = number;`,
-    },
-  ],
+test('declare type alias', () => {
+  const result = testTransform(`declare type DOMHighResTimeStamp = number;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"declare type DOMHighResTimeStamp = number;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"declare type DOMHighResTimeStamp = number;"`
+  );
 });

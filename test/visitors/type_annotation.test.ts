@@ -1,453 +1,662 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'Any type',
-      code: `let a: any;`,
-      output: `let a: any;`,
-    },
-    {
-      title: 'Array type',
-      code: `let a: Array<any>;`,
-      output: `let a: Array<any>;`,
-    },
-    {
-      title: 'Array type with shorthand syntax',
-      code: `let a: any[];`,
-      output: `let a: any[];`,
-    },
-    {
-      title: 'Boolean keyword',
-      code: `let a: boolean;`,
-      output: `let a: boolean;`,
-    },
-    {
-      title: 'Boolean literal',
-      code: `let a: true;`,
-      output: `let a: true;`,
-    },
-    {
-      title: 'numerical literal',
-      code: `let a: 42;`,
-      output: `let a: 42;`,
-    },
-    {
-      title: 'string literal',
-      code: `let a: "42";`,
-      output: `let a: "42";`,
-    },
-    {
-      title: 'Mixed type',
-      code: `let a: mixed;`,
-      output: `let a: unknown;`,
-    },
-    {
-      title: 'Null literal',
-      code: `let a: null;`,
-      output: `let a: null;`,
-    },
-    {
-      title: 'Empty type',
-      code: `let a: empty;`,
-      output: `let a: never;`,
-    },
-    {
-      title: 'typeof keyword',
-      code: `let a: typeof A;`,
-      output: `let a: typeof A;`,
-    },
-    {
-      title: 'Generic type',
-      code: `let a: X<T>;`,
-      output: `let a: X<T>;`,
-    },
-    {
-      title: 'Utility generics: $Keys',
-      code: `let a: $Keys<X>;`,
-      output: `let a: keyof X;`,
-    },
-    {
-      title: 'Utility generics: $Keys with typeof',
-      code: `let a: $Keys<typeof X>;`,
-      output: `let a: keyof typeof X;`,
-    },
-    {
-      title: 'Utility generics: $Values',
-      code: `let a: $Values<X>;`,
-      output: `let a: X[keyof X];`,
-    },
-    {
-      title: 'Utility generics: $ReadOnly',
-      code: `let a: $ReadOnly<X>;`,
-      output: `let a: Readonly<X>;`,
-    },
-    {
-      title: 'Utility generics: $ReadOnlyArray',
-      code: `let a: $ReadOnlyArray<X>;`,
-      output: `let a: ReadonlyArray<X>;`,
-    },
-    {
-      title: 'Utility generics: $Exact',
-      code: `let a: $Exact<X>;`,
-      output: `let a: X;`,
-    },
-    {
-      title: 'Utility generics: $Diff',
-      code: `let a: $Diff<X, Y>;`,
-      output: `let a: Omit<X, keyof Y>;`,
-    },
-    {
-      title:
-        'Utility generics: $Diff when keys from type literal can be computed on compile time',
-      code: `let a: $Diff<X, {a:number, 'b':B, c():void }>;`,
-      output: `let a: Omit<X, "a" | "b" | "c">;`,
-    },
-    {
-      title:
-        'Utility generics: $Diff when keys from type literal can not be computed on compile time',
-      code: `let a: $Diff<X, {[k:string]:B}>;`,
-      output: `let a: Omit<X, keyof {
-  [k: string]: B;
-}>;`,
-      recast: `let a: Omit<X, keyof {
-  [k: string]: B
-}>;`,
-    },
-    {
-      title: 'Utility generics: $PropertyType',
-      code: `let a: $PropertyType<T, k>;`,
-      output: `let a: T[k];`,
-    },
-    {
-      title: 'Utility generics: $ElementType',
-      code: `let a: $ElementType<T, k>;`,
-      output: `let a: T[k];`,
-    },
-    {
-      title: 'Utility generics: $Shape',
-      code: `let a: $Shape<X>;`,
-      output: `let a: Partial<X>;`,
-    },
-    {
-      title: 'Utility generics: $NonMaybeType',
-      code: `let a: $NonMaybeType<X>;`,
-      output: `let a: NonNullable<X>;`,
-    },
-    {
-      title: 'Utility generics: $Exports',
-      code: `type A = $Exports<"react">;`,
-      output: `type A = import("react");`,
-    },
-    {
-      title: 'Utility generics: $Exports inside of $PropertyType',
-      code: `type B = $PropertyType<$Exports<"react">, "ReactNode">`,
-      output: `type B = import("react").ReactNode;`,
-    },
-    {
-      title: 'Utility generics: Class',
-      code: `let a: Class<X>;`,
-      output: `let a: {
-  new (...args: any): X;
-};`,
-      recast: `let a: {
-  new (...args: any): X
-};`,
-    },
-    {
-      title: 'Object type: exact=true',
-      code: `let a: {| a: T |};`,
-      output: `let a: {
-  a: T;
-};`,
-      recast: `let a: {
-  a: T
-};`,
-    },
-    {
-      title: 'Intersection type',
-      code: `let a: {x: number} & {y: string};`,
-      output: `let a: {
-  x: number;
-} & {
-  y: string;
-};`,
-      recast: `let a: {
-  x: number
-} & {
-  y: string
-};`,
-    },
-    {
-      title: 'Type literal: indexer',
-      code: `let a: {
+test('Any type', () => {
+  const result = testTransform(`let a: any;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any;"`);
+});
+
+test('Array type', () => {
+  const result = testTransform(`let a: Array<any>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Array<any>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Array<any>;"`);
+});
+
+test('Array type with shorthand syntax', () => {
+  const result = testTransform(`let a: any[];`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any[];"`);
+});
+
+test('Boolean keyword', () => {
+  const result = testTransform(`let a: boolean;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: boolean;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: boolean;"`);
+});
+
+test('Boolean literal', () => {
+  const result = testTransform(`let a: true;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: true;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: true;"`);
+});
+
+test('numerical literal', () => {
+  const result = testTransform(`let a: 42;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: 42;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: 42;"`);
+});
+
+test('string literal', () => {
+  const result = testTransform(`let a: "42";`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
+});
+
+test('Mixed type', () => {
+  const result = testTransform(`let a: mixed;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: unknown;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: unknown;"`);
+});
+
+test('Null literal', () => {
+  const result = testTransform(`let a: null;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: null;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: null;"`);
+});
+
+test('Empty type', () => {
+  const result = testTransform(`let a: empty;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: never;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: never;"`);
+});
+
+test('typeof keyword', () => {
+  const result = testTransform(`let a: typeof A;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: typeof A;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: typeof A;"`);
+});
+
+test('Generic type', () => {
+  const result = testTransform(`let a: X<T>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: X<T>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: X<T>;"`);
+});
+
+test('Utility generics: $Keys', () => {
+  const result = testTransform(`let a: $Keys<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: keyof X;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: keyof X;"`);
+});
+
+test('Utility generics: $Keys with typeof', () => {
+  const result = testTransform(`let a: $Keys<typeof X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: keyof typeof X;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: keyof typeof X;"`);
+});
+
+test('Utility generics: $Values', () => {
+  const result = testTransform(`let a: $Values<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: X[keyof X];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: X[keyof X];"`);
+});
+
+test('Utility generics: $ReadOnly', () => {
+  const result = testTransform(`let a: $ReadOnly<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Readonly<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Readonly<X>;"`);
+});
+
+test('Utility generics: $ReadOnlyArray', () => {
+  const result = testTransform(`let a: $ReadOnlyArray<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: ReadonlyArray<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: ReadonlyArray<X>;"`);
+});
+
+test('Utility generics: $Exact', () => {
+  const result = testTransform(`let a: $Exact<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: X;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: X;"`);
+});
+
+test('Utility generics: $Diff', () => {
+  const result = testTransform(`let a: $Diff<X, Y>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Omit<X, keyof Y>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Omit<X, keyof Y>;"`);
+});
+
+test('Utility generics: $Diff when keys from type literal can be computed on compile time', () => {
+  const result = testTransform(
+    `let a: $Diff<X, {a:number, 'b':B, c():void }>;`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: Omit<X, \\"a\\" | \\"b\\" | \\"c\\">;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: Omit<X, \\"a\\" | \\"b\\" | \\"c\\">;"`
+  );
+});
+
+test('Utility generics: $Diff when keys from type literal can not be computed on compile time', () => {
+  const result = testTransform(`let a: $Diff<X, {[k:string]:B}>;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: Omit<X, keyof {
+      [k: string]: B;
+    }>;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: Omit<X, keyof {
+      [k: string]: B
+    }>;"
+  `);
+});
+
+test('Utility generics: $PropertyType', () => {
+  const result = testTransform(`let a: $PropertyType<T, k>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: T[k];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: T[k];"`);
+});
+
+test('Utility generics: $ElementType', () => {
+  const result = testTransform(`let a: $ElementType<T, k>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: T[k];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: T[k];"`);
+});
+
+test('Utility generics: $Shape', () => {
+  const result = testTransform(`let a: $Shape<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Partial<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Partial<X>;"`);
+});
+
+test('Utility generics: $NonMaybeType', () => {
+  const result = testTransform(`let a: $NonMaybeType<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: NonNullable<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: NonNullable<X>;"`);
+});
+
+test('Utility generics: $Exports', () => {
+  const result = testTransform(`type A = $Exports<"react">;`);
+  expect(result.babel).toMatchInlineSnapshot(`"type A = import(\\"react\\");"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type A = import(\\"react\\");"`
+  );
+});
+
+test('Utility generics: $Exports inside of $PropertyType', () => {
+  const result = testTransform(
+    `type B = $PropertyType<$Exports<"react">, "ReactNode">`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type B = import(\\"react\\").ReactNode;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type B = import(\\"react\\").ReactNode;"`
+  );
+});
+
+test('Utility generics: Class', () => {
+  const result = testTransform(`let a: Class<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      new (...args: any): X;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      new (...args: any): X
+    };"
+  `);
+});
+
+test('Object type: exact=true', () => {
+  const result = testTransform(`let a: {| a: T |};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      a: T;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      a: T
+    };"
+  `);
+});
+
+test('Intersection type', () => {
+  const result = testTransform(`let a: {x: number} & {y: string};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      x: number;
+    } & {
+      y: string;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      x: number
+    } & {
+      y: string
+    };"
+  `);
+});
+
+test('Type literal: indexer', () => {
+  const result = testTransform(`let a: {
   [x:string]: number,
   [x:number]: boolean
-};`,
-      output: `let a: {
-  [x: string]: number;
-  [x: number]: boolean;
-};`,
-      recast: `let a: {
-  [x: string]: number,
-  [x: number]: boolean
-};`,
-    },
-    {
-      title: 'Type literal: indexer without key name',
-      code: `let a: {
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number;
+      [x: number]: boolean;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number,
+      [x: number]: boolean
+    };"
+  `);
+});
+
+test('Type literal: indexer without key name', () => {
+  const result = testTransform(`let a: {
   [string]: number,
   [number]: boolean
-};`,
-      output: `let a: {
-  [x: string]: number;
-  [x: number]: boolean;
-};`,
-      recast: `let a: {
-  [x: string]: number,
-  [x: number]: boolean
-};`,
-    },
-    {
-      title: 'Type literal: indexer to mapped type - skip indexer',
-      code: `let a: {
-  [x:string]: number;
-};`,
-      output: `let a: {
-  [x: string]: number;
-};`,
-      recast: `let a: {
-  [x: string]: number
-};`,
-    },
-    {
-      title: 'Type literal: indexer to mapped type',
-      code: `let a: {
-  [x:A]: number;
-};`,
-      output: `let a: { [x in A]: number };`,
-      recast: `let a: {
-  [x in A]: number;
-};`,
-    },
-    {
-      title: 'Type literal: type literal with variance',
-      code: `let a: { +b: string, -c:number };`,
-      output: `let a: {
-  readonly b: string;
-  c: number;
-};`,
-      recast: `let a: {
-  readonly b: string,
-  c: number
-};`,
-    },
-    {
-      title: 'Type literal: type literal with indexer with variance',
-      code: `let a: { +[x:string]: string };
-let b: { -[x:string]: string };`,
-      output: `let a: {
-  readonly [x: string]: string;
-};
-let b: {
-  [x: string]: string;
-};`,
-      recast: `let a: {
-  readonly [x: string]: string
-};
-let b: {
-  [x: string]: string
-};`,
-    },
-    {
-      title: 'Type literal: type literal with spread operator',
-      code: `let a: { b: string, ...T };`,
-      output: `let a: {
-  b: string;
-} & T;`,
-      recast: `let a: {
-  b: string
-} & T;`,
-    },
-    {
-      title: 'Type literal: deep type literal with spread operator',
-      code: `let a: { b: { c: T, ...U} };`,
-      output: `let a: {
-  b: {
-    c: T;
-  } & U;
-};`,
-      recast: `let a: {
-  b: {
-    c: T
-  } & U
-};`,
-    },
-    {
-      title: 'Maybe type: variable declaration',
-      code: `let a: ?string;`,
-      output: `let a: string | undefined | null;`,
-    },
-    {
-      title: 'Maybe type: type literal',
-      code: `let a: { x: ?string };`,
-      output: `let a: {
-  x: string | undefined | null;
-};`,
-      recast: `let a: {
-  x: string | undefined | null
-};`,
-    },
-    {
-      title: 'Maybe type: type literal with optional key',
-      code: `let a: { x?: ?string };`,
-      output: `let a: {
-  x?: string | null;
-};`,
-      recast: `let a: {
-  x?: string | null
-};`,
-    },
-    {
-      title: 'Maybe type: required parameter in function declaration',
-      code: `function f(arg: ?string) {}`,
-      output: `function f(arg?: string | null) {}`,
-    },
-    {
-      title: 'Maybe type: generic type instantiation',
-      code: `let a: X<?T>;`,
-      output: `let a: X<T | undefined | null>;`,
-    },
-    {
-      title: 'Union type',
-      code: `let a: string | number | boolean;`,
-      output: `let a: string | number | boolean;`,
-    },
-    {
-      title: 'Void literal',
-      code: `let a: void;`,
-      output: `let a: void;`,
-    },
-    {
-      title: 'Function type',
-      code: `function test(): string { return 'test'; }`,
-      output: `function test(): string {
-  return 'test';
-}`,
-      recast: `function test(): string { return 'test'; }`,
-    },
-    {
-      title: 'Function type (param)',
-      code: `function test(arg: string): string { return arg; }`,
-      output: `function test(arg: string): string {
-  return arg;
-}`,
-      recast: `function test(arg: string): string { return arg; }`,
-    },
-    {
-      title: 'Function type (multi param)',
-      code: `function test(arg1: string, arg2: number): string { return arg1; }`,
-      output: `function test(arg1: string, arg2: number): string {
-  return arg1;
-}`,
-      recast: `function test(arg1: string, arg2: number): string { return arg1; }`,
-    },
-    {
-      title: 'Arrow Function type',
-      code: `let test: () => string;`,
-      output: `let test: () => string; `,
-    },
-    {
-      title: 'Arrow Function type (param)',
-      code: `let test: (a: number) => string;`,
-      output: `let test: (a: number) => string;`,
-    },
-    {
-      title: 'Arrow Function type (multi params)',
-      code: `let test: (a: number, b: string) => string;`,
-      output: `let test: (a: number, b: string) => string;`,
-    },
-    {
-      title: 'function type annotation with type parameters',
-      code: `let test: <T>(a: number) => T;`,
-      output: `let test: <T>(a: number) => T;`,
-    },
-    {
-      title: 'maybe argument',
-      code: `let test: (a: ?number) => T;`,
-      output: `let test: (a?: number | null) => T;`,
-    },
-    {
-      title: 'maybe argument with not null after it',
-      code: `let test: (a: ?number, b: number) => T;`,
-      output: `let test: (a: number | undefined | null, b: number) => T;`,
-    },
-    {
-      title: 'function maybe argument',
-      code: `let test: (a: ?(number=>number)) => T;`,
-      output: `let test: (a?: ((a: number) => number) | null) => T;`,
-    },
-    {
-      title: 'maybe function type annotation',
-      code: `let test: ?(a: number) => T;`,
-      output: `let test: ((a: number) => T) | undefined | null;`,
-    },
-    {
-      title: 'Generic Function type',
-      code: `function test<T>(value: T): T { return value; }`,
-      output: `function test<T>(value: T): T {
-  return value;
-}`,
-      recast: `function test<T>(value: T): T { return value; }`,
-    },
-    {
-      title: 'Function type (rest param)',
-      code: `function test(value: number, ...arg2: Array<string>): number { return value; }`,
-      output: `function test(value: number, ...arg2: Array<string>): number {
-  return value;
-}`,
-      recast: `function test(value: number, ...arg2: Array<string>): number { return value; }`,
-    },
-    {
-      title: 'Arrow Function type (rest param)',
-      code: `let test: (value: number, ...args: Array<string>) => number;`,
-      output: `let test: (value: number, ...args: Array<string>) => number;`,
-    },
-    {
-      title: 'Qualified type',
-      code: `let a: A.B;`,
-      output: `let a: A.B;`,
-    },
-    {
-      title: 'recursively qualified type',
-      code: `import * as A from "a";
-type B = A.A.A;`,
-      output: `import * as A from "a";
-type B = A.A.A;`,
-    },
-    {
-      title: 'Tuple type',
-      code: `let a: [number, string, Array<boolean>];`,
-      output: `let a: [number, string, Array<boolean>];`,
-    },
-    {
-      title: 'Object type (alias to any)',
-      code: `let a: Object;`,
-      output: `let a: any;`,
-    },
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number;
+      [x: number]: boolean;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number,
+      [x: number]: boolean
+    };"
+  `);
+});
 
-    {
-      title: 'preserves comments above imports',
-      code: `// not flow comment
-import * as React from "react";`,
-      output: `// not flow comment
-import * as React from "react";
-`,
-    },
-    {
-      title: 'with empty type parameters',
-      code: `let a: A<>;`,
-      output: `let a: A;`,
-    },
-  ],
+test('Type literal: indexer to mapped type - skip indexer', () => {
+  const result = testTransform(`let a: {
+  [x:string]: number;
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      [x: string]: number
+    };"
+  `);
+});
+
+test('Type literal: indexer to mapped type', () => {
+  const result = testTransform(`let a: {
+  [x:A]: number;
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: { [x in A]: number };"`);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      [x in A]: number;
+    };"
+  `);
+});
+
+test('Type literal: type literal with variance', () => {
+  const result = testTransform(`let a: { +b: string, -c:number };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      readonly b: string;
+      c: number;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      readonly b: string,
+      c: number
+    };"
+  `);
+});
+
+test('Type literal: type literal with indexer with variance', () => {
+  const result = testTransform(`let a: { +[x:string]: string };
+let b: { -[x:string]: string };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      readonly [x: string]: string;
+    };
+    let b: {
+      [x: string]: string;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      readonly [x: string]: string
+    };
+    let b: {
+      [x: string]: string
+    };"
+  `);
+});
+
+test('Type literal: type literal with spread operator', () => {
+  const result = testTransform(`let a: { b: string, ...T };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      b: string;
+    } & T;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      b: string
+    } & T;"
+  `);
+});
+
+test('Type literal: deep type literal with spread operator', () => {
+  const result = testTransform(`let a: { b: { c: T, ...U} };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      b: {
+        c: T;
+      } & U;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      b: {
+        c: T
+      } & U
+    };"
+  `);
+});
+
+test('Maybe type: variable declaration', () => {
+  const result = testTransform(`let a: ?string;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: string | undefined | null;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: string | undefined | null;"`
+  );
+});
+
+test('Maybe type: type literal', () => {
+  const result = testTransform(`let a: { x: ?string };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      x: string | undefined | null;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      x: string | undefined | null
+    };"
+  `);
+});
+
+test('Maybe type: type literal with optional key', () => {
+  const result = testTransform(`let a: { x?: ?string };`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "let a: {
+      x?: string | null;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "let a: {
+      x?: string | null
+    };"
+  `);
+});
+
+test('Maybe type: required parameter in function declaration', () => {
+  const result = testTransform(`function f(arg: ?string) {}`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"function f(arg?: string | null) {}"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function f(arg?: string | null) {}"`
+  );
+});
+
+test('Maybe type: generic type instantiation', () => {
+  const result = testTransform(`let a: X<?T>;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: X<T | undefined | null>;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: X<T | undefined | null>;"`
+  );
+});
+
+test('Union type', () => {
+  const result = testTransform(`let a: string | number | boolean;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: string | number | boolean;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: string | number | boolean;"`
+  );
+});
+
+test('Void literal', () => {
+  const result = testTransform(`let a: void;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: void;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: void;"`);
+});
+
+test('Function type', () => {
+  const result = testTransform(`function
+test(): string { return 'test'; }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function
+test(): string {
+      return 'test';
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function
+test(): string { return 'test'; }"`
+  );
+});
+
+test('Function type (param)', () => {
+  const result = testTransform(
+    `function
+test(arg: string): string { return arg; }`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function
+test(arg: string): string {
+      return arg;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function
+test(arg: string): string { return arg; }"`
+  );
+});
+
+test('Function type (multi param)', () => {
+  const result = testTransform(
+    `function
+test(arg1: string, arg2: number): string { return arg1; }`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function
+test(arg1: string, arg2: number): string {
+      return arg1;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function
+test(arg1: string, arg2: number): string { return arg1; }"`
+  );
+});
+
+test('Arrow Function type', () => {
+  const result = testTransform(`let test: () => string;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let test: () => string;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let test: () => string;"`);
+});
+
+test('Arrow Function type (param)', () => {
+  const result = testTransform(`let test: (a: number) => string;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number) => string;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number) => string;"`
+  );
+});
+
+test('Arrow Function type (multi params)', () => {
+  const result = testTransform(`let test: (a: number, b: string) => string;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number, b: string) => string;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number, b: string) => string;"`
+  );
+});
+
+test('function type annotation with type parameters', () => {
+  const result = testTransform(`let test: <T>(a: number) => T;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: <T>(a: number) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: <T>(a: number) => T;"`
+  );
+});
+
+test('maybe argument', () => {
+  const result = testTransform(`let test: (a: ?number) => T;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a?: number | null) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a?: number | null) => T;"`
+  );
+});
+
+test('maybe argument with not null after it', () => {
+  const result = testTransform(`let test: (a: ?number, b: number) => T;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number | undefined | null, b: number) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number | undefined | null, b: number) => T;"`
+  );
+});
+
+test('function maybe argument', () => {
+  const result = testTransform(`let test: (a: ?(number=>number)) => T;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a?: ((a: number) => number) | null) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a?: ((a: number) => number) | null) => T;"`
+  );
+});
+
+test('maybe function type annotation', () => {
+  const result = testTransform(`let test: ?(a: number) => T;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: ((a: number) => T) | undefined | null;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: ((a: number) => T) | undefined | null;"`
+  );
+});
+
+test('Generic Function type', () => {
+  const result = testTransform(
+    `function test<T>(value: T): T { return value; }`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test<T>(value: T): T {
+      return value;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function test<T>(value: T): T { return value; }"`
+  );
+});
+
+test('Function type (rest param)', () => {
+  const result = testTransform(
+    `function
+test(value: number, ...arg2: Array<string>): number { return value; }`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function
+test(value: number, ...arg2: Array<string>): number {
+      return value;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function
+test(value: number, ...arg2: Array<string>): number { return value; }"`
+  );
+});
+
+test('Arrow Function type (rest param)', () => {
+  const result = testTransform(
+    `let test: (value: number, ...args: Array<string>) => number;`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (value: number, ...args: Array<string>) => number;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (value: number, ...args: Array<string>) => number;"`
+  );
+});
+
+test('Qualified type', () => {
+  const result = testTransform(`let a: A.B;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: A.B;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: A.B;"`);
+});
+
+test('recursively qualified type', () => {
+  const result = testTransform(`import * as A from "a";
+type B = A.A.A;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "import * as A from \\"a\\";
+    type B = A.A.A;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "import * as A from \\"a\\";
+    type B = A.A.A;"
+  `);
+});
+
+test('Tuple type', () => {
+  const result = testTransform(`let a: [number, string, Array<boolean>];`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: [number, string, Array<boolean>];"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: [number, string, Array<boolean>];"`
+  );
+});
+
+test('Object type (alias to any)', () => {
+  const result = testTransform(`let a: Object;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any;"`);
+});
+
+test('preserves comments above imports', () => {
+  const result = testTransform(`// not flow comment
+import * as React from "react";`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// not flow comment
+    import * as React from \\"react\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// not flow comment
+    import * as React from \\"react\\";"
+  `);
+});
+
+test('with empty type parameters', () => {
+  const result = testTransform(`let a: A<>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: A;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: A;"`);
 });

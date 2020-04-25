@@ -1,16 +1,21 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'declare opaque type',
-      code: `declare opaque type TimeoutID;`,
-      output: `declare type TimeoutID = unknown;`,
-    },
-    {
-      title: 'declare opaque type',
-      code: `declare opaque type TimeoutID: number;`,
-      output: `declare type TimeoutID = unknown;`,
-    },
-  ],
+test('declare opaque type', () => {
+  const result = testTransform(`declare opaque type TimeoutID;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"declare type TimeoutID = unknown;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"declare type TimeoutID = unknown;"`
+  );
+});
+
+test('declare opaque type', () => {
+  const result = testTransform(`declare opaque type TimeoutID: number;`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"declare type TimeoutID = unknown;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"declare type TimeoutID = unknown;"`
+  );
 });

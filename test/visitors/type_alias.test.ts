@@ -1,128 +1,166 @@
-import { pluginTester } from '../transform';
+import { testTransform } from '../transform';
 
-pluginTester({
-  tests: [
-    {
-      title: 'Object type alias: exact=true',
-      code: `type a = {| a: T |};`,
-      output: `type a = {
-  a: T;
-};`,
-      recast: `type a = {
-  a: T
-};`,
-    },
-    {
-      title: 'maybe function type',
-      code: `type a = {
+test('Object type alias: exact=true', () => {
+  const result = testTransform(`type a = {| a: T |};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type a = {
+      a: T;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type a = {
+      a: T
+    };"
+  `);
+});
+
+test('maybe function type', () => {
+  const result = testTransform(`type a = {
   a: ?()=>void
-};`,
-      output: `type a = {
-  a: (() => void) | undefined | null;
-};`,
-      recast: `type a = {
-  a: (() => void) | undefined | null
-};`,
-    },
-    {
-      title: 'preserves comments within typedefs',
-      code: `type Props = {
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type a = {
+      a: (() => void) | undefined | null;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type a = {
+      a: (() => void) | undefined | null
+    };"
+  `);
+});
+
+test('preserves comments within typedefs', () => {
+  const result = testTransform(`type Props = {
   children?: React.Node,
   // The vertical alignment of the content before it starts to scroll
   verticalAlignWithoutScroll?: "top" | "center"
-};`,
-      output: `type Props = {
-  children?: React.Node;
-  // The vertical alignment of the content before it starts to scroll
-  verticalAlignWithoutScroll?: "top" | "center";
-};
-`,
-      recast: `type Props = {
-  children?: React.Node,
-  // The vertical alignment of the content before it starts to scroll
-  verticalAlignWithoutScroll?: "top" | "center"
-};
-`,
-    },
-    {
-      title: 'preserves generics above imports',
-      code: `export type UIOverlayType = React.Element<typeof Foo>;`,
-      output: `export type UIOverlayType = React.Element<typeof Foo>;`,
-    },
-    {
-      title: 'ObjectTypeCallProperty simple case',
-      code: `
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type Props = {
+      children?: React.Node;
+      // The vertical alignment of the content before it starts to scroll
+      verticalAlignWithoutScroll?: \\"top\\" | \\"center\\";
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type Props = {
+      children?: React.Node,
+      // The vertical alignment of the content before it starts to scroll
+      verticalAlignWithoutScroll?: \\"top\\" | \\"center\\"
+    };"
+  `);
+});
+
+test('preserves generics above imports', () => {
+  const result = testTransform(
+    `export type UIOverlayType = React.Element<typeof Foo>;`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"export type UIOverlayType = React.Element<typeof Foo>;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"export type UIOverlayType = React.Element<typeof Foo>;"`
+  );
+});
+
+test('ObjectTypeCallProperty simple case', () => {
+  const result = testTransform(`
 type T = {
   (string, string): string
 };
-`,
-      output: `
-type T = {
-  (b: string, a: string): string;
-};
-`,
-      recast: `
-type T = {
-  (b: string, a: string): string
-};
-`,
-    },
-    {
-      title: 'Comment above type alias',
-      code: `
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type T = {
+      (b: string, a: string): string;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type T = {
+      (b: string, a: string): string
+    };"
+  `);
+});
+
+test('Comment above type alias', () => {
+  const result = testTransform(`
 // comment
 type T = A;
-`,
-      output: `
-// comment
-type T = A;
-`,
-    },
-    {
-      title: 'methods in object type',
-      code: `export type Cache = {
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// comment
+    type T = A;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// comment
+    type T = A;"
+  `);
+});
+
+test('methods in object type', () => {
+  const result = testTransform(`export type Cache = {
   get(key: string): Promise<mixed>
-};`,
-      output: `export type Cache = {
-  get(key: string): Promise<unknown>;
-};`,
-      recast: `export type Cache = {
-  get(key: string): Promise<unknown>
-};`,
-    },
-    {
-      title: 'methods in object type',
-      code: `export type Cache = {
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "export type Cache = {
+      get(key: string): Promise<unknown>;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "export type Cache = {
+      get(key: string): Promise<unknown>
+    };"
+  `);
+});
+
+test('methods in object type', () => {
+  const result = testTransform(`export type Cache = {
   a: ((args: string[]) => null | false | string) & (() => string)
-};`,
-      output: `export type Cache = {
-  a: ((args: string[]) => null | false | string) & (() => string);
-};`,
-      recast: `export type Cache = {
-  a: ((args: string[]) => null | false | string) & (() => string)
-};`,
-    },
-    {
-      title: 'iterable object type',
-      code: `type A = {
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "export type Cache = {
+      a: ((args: string[]) => null | false | string) & (() => string);
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "export type Cache = {
+      a: ((args: string[]) => null | false | string) & (() => string)
+    };"
+  `);
+});
+
+test('iterable object type', () => {
+  const result = testTransform(`type A = {
   @@iterator(): Iterator<string>
-};`,
-      output: `type A = {
-  [Symbol.iterator](): Iterator<string>;
-};`,
-      recast: `type A = {
-  [Symbol.iterator](): Iterator<string>
-};`,
-    },
-    {
-      title: 'alias to array of unions',
-      code: 'type t = ("a" | "b")[];',
-      output: 'type t = ("a" | "b")[];',
-    },
-    {
-      title: 'alias to array of unions',
-      code: 'type t = ("a" & "b")[];',
-      output: 'type t = ("a" & "b")[];',
-    },
-  ],
+};`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type A = {
+      [Symbol.iterator](): Iterator<string>;
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type A = {
+      [Symbol.iterator](): Iterator<string>
+    };"
+  `);
+});
+
+test('alias to array of unions', () => {
+  const result = testTransform(`type t = ("a" | "b")[];`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type t = (\\"a\\" | \\"b\\")[];"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type t = (\\"a\\" | \\"b\\")[];"`
+  );
+});
+
+test('alias to array of unions', () => {
+  const result = testTransform(`type t = ("a" & "b")[];`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type t = (\\"a\\" & \\"b\\")[];"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type t = (\\"a\\" & \\"b\\")[];"`
+  );
 });
