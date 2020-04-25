@@ -443,14 +443,12 @@ test('Function type', () => {
   const result = testTransform(`function
 test(): string { return 'test'; }`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "function
-test(): string {
+    "function test(): string {
       return 'test';
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(
-    `"function
-test(): string { return 'test'; }"`
+    `"function test(): string { return 'test'; }"`
   );
 });
 
@@ -460,14 +458,12 @@ test('Function type (param)', () => {
 test(arg: string): string { return arg; }`
   );
   expect(result.babel).toMatchInlineSnapshot(`
-    "function
-test(arg: string): string {
+    "function test(arg: string): string {
       return arg;
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(
-    `"function
-test(arg: string): string { return arg; }"`
+    `"function test(arg: string): string { return arg; }"`
   );
 });
 
@@ -477,14 +473,12 @@ test('Function type (multi param)', () => {
 test(arg1: string, arg2: number): string { return arg1; }`
   );
   expect(result.babel).toMatchInlineSnapshot(`
-    "function
-test(arg1: string, arg2: number): string {
+    "function test(arg1: string, arg2: number): string {
       return arg1;
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(
-    `"function
-test(arg1: string, arg2: number): string { return arg1; }"`
+    `"function test(arg1: string, arg2: number): string { return arg1; }"`
   );
 });
 
@@ -584,14 +578,12 @@ test('Function type (rest param)', () => {
 test(value: number, ...arg2: Array<string>): number { return value; }`
   );
   expect(result.babel).toMatchInlineSnapshot(`
-    "function
-test(value: number, ...arg2: Array<string>): number {
+    "function test(value: number, ...arg2: Array<string>): number {
       return value;
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(
-    `"function
-test(value: number, ...arg2: Array<string>): number { return value; }"`
+    `"function test(value: number, ...arg2: Array<string>): number { return value; }"`
   );
 });
 
