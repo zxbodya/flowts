@@ -11,7 +11,7 @@
     "prepare": "yarn run build",
     "test": "jest",
     "test-watch": "jest --watch",
-    "build": "tsc",
+    "build": "tsc -b",
     "watch": "tsc --watch",
     "cover": "jest --coverage",
     "report-coverage": "codecov",
@@ -23,6 +23,7 @@
     "typescript"
   ],
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/zxbodya/flowts/tree/master/packages/babel-plugin-flow-to-typescript",
   "peerDependencies": {
     "@babel/core": "^7.4.4"

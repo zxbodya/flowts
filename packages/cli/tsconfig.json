@@ -1,17 +1,15 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": [
-      "esnext"
-    ],
-    "sourceMap": true,
     "outDir": "./dist",
-    "strict": true,
-    "baseUrl": "./src",
-    "esModuleInterop": true
+    "rootDir": "./src"
   },
   "include": [
-    "src"
+    "./src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../babel-plugin-flow-to-typescript"
+    }
   ]
 }

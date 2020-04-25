@@ -12,7 +12,7 @@
     "prepare": "yarn run build",
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf dist",
-    "compile": "tsc -p .",
+    "compile": "tsc -b",
     "ts-node": "ts-node"
   },
   "files": [
