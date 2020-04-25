@@ -23,9 +23,7 @@
   "keywords": [],
   "author": "Bogdan Savluk <savluk.bogdan@gmail.com>",
   "license": "MIT",
-  "repository": {
-    "url": "https://github.com/zxbodya/flowts"
-  },
+  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/flowts",
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
