@@ -1,0 +1,7 @@
+.DS_Store
+/dist
+node_modules
+.idea
+*.log
+__snapshots__
+/coverage
