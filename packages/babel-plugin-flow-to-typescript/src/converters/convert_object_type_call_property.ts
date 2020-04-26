@@ -1,21 +1,17 @@
-import {
-  isFunctionTypeAnnotation,
-  ObjectTypeCallProperty,
-  tsCallSignatureDeclaration,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFunctionTypeAnnotation } from './convert_function_type_annotation';
 
 export function convertObjectTypeCallProperty(
-  callProperty: ObjectTypeCallProperty
+  callProperty: t.ObjectTypeCallProperty
 ) {
-  if (isFunctionTypeAnnotation(callProperty.value)) {
+  if (t.isFunctionTypeAnnotation(callProperty.value)) {
     const {
       typeParams,
       parameters,
       returnType,
     } = convertFunctionTypeAnnotation(callProperty.value);
 
-    return tsCallSignatureDeclaration(typeParams, parameters, returnType);
+    return t.tsCallSignatureDeclaration(typeParams, parameters, returnType);
   } else {
     throw new Error('ObjectCallTypeProperty case not implemented');
   }

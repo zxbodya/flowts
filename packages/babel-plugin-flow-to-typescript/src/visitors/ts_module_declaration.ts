@@ -1,12 +1,12 @@
 import { NodePath } from '@babel/traverse';
-import { TSModuleDeclaration } from '@babel/types';
+import * as t from '@babel/types';
 import { PluginPass } from '../types';
 
 export default {
-  enter(_path: NodePath<TSModuleDeclaration>, state: PluginPass) {
+  enter(_path: NodePath<t.TSModuleDeclaration>, state: PluginPass) {
     state.set('isModuleDeclaration', true);
   },
-  exit(_: NodePath<TSModuleDeclaration>, state: PluginPass) {
+  exit(_: NodePath<t.TSModuleDeclaration>, state: PluginPass) {
     state.set('isModuleDeclaration', false);
   },
 };

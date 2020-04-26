@@ -1,14 +1,4 @@
-import {
-  ClassImplements,
-  DeclareInterface,
-  InterfaceDeclaration,
-  InterfaceExtends,
-  isObjectTypeProperty,
-  tsExpressionWithTypeArguments,
-  tsInterfaceBody,
-  tsInterfaceDeclaration,
-  tsTypeParameterInstantiation,
-} from '@babel/types';
+import * as t from '@babel/types';
 
 import { convertFlowType } from './convert_flow_type';
 import { convertTypeParameterDeclaration } from './convert_type_parameter_declaration';
@@ -20,25 +10,25 @@ import { convertObjectTypeInternalSlot } from './convert_object_type_internal_sl
 import { convertFlowIdentifier } from './convert_flow_identifier';
 
 export function convertInterfaceExtends(
-  node: InterfaceExtends | ClassImplements
+  node: t.InterfaceExtends | t.ClassImplements
 ) {
   const typeParameters = node.typeParameters;
   const typeParameterParams = typeParameters ? typeParameters.params : [];
-  const parameters = tsTypeParameterInstantiation(
+  const parameters = t.tsTypeParameterInstantiation(
     typeParameterParams.map(item => ({
       ...convertFlowType(item),
       ...baseNodeProps(item),
     }))
   );
 
-  return tsExpressionWithTypeArguments(
+  return t.tsExpressionWithTypeArguments(
     convertFlowIdentifier(node.id),
     typeParameterParams.length ? parameters : null
   );
 }
 
 export function convertInterfaceDeclaration(
-  node: InterfaceDeclaration | DeclareInterface
+  node: t.InterfaceDeclaration | t.DeclareInterface
 ) {
   let typeParameters = null;
   if (node.typeParameters) {
@@ -47,7 +37,7 @@ export function convertInterfaceDeclaration(
       ...baseNodeProps(node.typeParameters),
     };
   }
-  let extendsCombined: Array<InterfaceExtends | ClassImplements> = [];
+  let extendsCombined: Array<t.InterfaceExtends | t.ClassImplements> = [];
   if (node.extends && node.implements) {
     if (
       node.extends.length &&
@@ -80,7 +70,7 @@ export function convertInterfaceDeclaration(
   const bodyElements = [];
 
   for (const property of node.body.properties) {
-    if (isObjectTypeProperty(property)) {
+    if (t.isObjectTypeProperty(property)) {
       bodyElements.push({
         ...convertObjectTypeProperty(property),
         ...baseNodeProps(property),
@@ -112,9 +102,9 @@ export function convertInterfaceDeclaration(
     );
   }
   const body = {
-    ...tsInterfaceBody(bodyElements),
+    ...t.tsInterfaceBody(bodyElements),
     ...baseNodeProps(node.body),
   };
 
-  return tsInterfaceDeclaration(node.id, typeParameters, _extends, body);
+  return t.tsInterfaceDeclaration(node.id, typeParameters, _extends, body);
 }

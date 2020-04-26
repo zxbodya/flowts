@@ -1,27 +1,7 @@
 /* tslint:disable:max-classes-per-file */
 import { PluginObj, Visitor } from '@babel/core';
 import { NodePath } from '@babel/traverse';
-import {
-  Identifier,
-  identifier,
-  ImportDeclaration,
-  importDeclaration,
-  importDefaultSpecifier,
-  ImportDefaultSpecifier,
-  importNamespaceSpecifier,
-  ImportNamespaceSpecifier,
-  ImportSpecifier,
-  importSpecifier,
-  isImportDeclaration,
-  isImportDefaultSpecifier,
-  isImportNamespaceSpecifier,
-  isImportSpecifier,
-  isMemberExpression,
-  isTSQualifiedName,
-  Node,
-  Program,
-  stringLiteral,
-} from '@babel/types';
+import * as t from '@babel/types';
 
 import rules from './rules';
 
@@ -29,7 +9,7 @@ import { GlobalFixContext, NamedFixContext } from './ruleTypes';
 
 const visitor: Visitor = {
   Program: {
-    exit(programPath: NodePath<Program>) {
+    exit(programPath: NodePath<t.Program>) {
       const { scope } = programPath;
 
       interface BaseImport {
@@ -38,28 +18,28 @@ const visitor: Visitor = {
       }
 
       interface NamedImport extends BaseImport {
-        importSpecifier?: ImportSpecifier;
+        importSpecifier?: t.ImportSpecifier;
         imported: string;
       }
       interface DefaultImport extends BaseImport {
-        importDefaultSpecifier?: ImportDefaultSpecifier;
+        importDefaultSpecifier?: t.ImportDefaultSpecifier;
       }
       interface NamespaceImport extends BaseImport {
-        importNamespaceSpecifier?: ImportNamespaceSpecifier;
+        importNamespaceSpecifier?: t.ImportNamespaceSpecifier;
       }
 
       interface ModuleState {
         default: DefaultImport[];
         named: NamedImport[];
         namespace: NamespaceImport[];
-        importDeclarations: Set<ImportDeclaration>;
-        namespaceImportDeclarations: Set<ImportDeclaration>;
+        importDeclarations: Set<t.ImportDeclaration>;
+        namespaceImportDeclarations: Set<t.ImportDeclaration>;
       }
       const importState = new Map<string, ModuleState>();
 
       for (const [key, binding] of Object.entries(scope.bindings)) {
         if (binding.kind === 'module') {
-          if (isImportDeclaration(binding.path.parent)) {
+          if (t.isImportDeclaration(binding.path.parent)) {
             const moduleName = binding.path.parent.source.value;
 
             let moduleState = importState.get(moduleName);
@@ -73,7 +53,7 @@ const visitor: Visitor = {
               } as ModuleState;
               importState.set(moduleName, moduleState);
             }
-            if (isImportDefaultSpecifier(binding.path.node)) {
+            if (t.isImportDefaultSpecifier(binding.path.node)) {
               moduleState.importDeclarations.add(binding.path.parent);
               moduleState.default.push({
                 local: binding.path.node.local.name,
@@ -81,7 +61,7 @@ const visitor: Visitor = {
                 importDefaultSpecifier: binding.path.node,
               });
             }
-            if (isImportSpecifier(binding.path.node)) {
+            if (t.isImportSpecifier(binding.path.node)) {
               moduleState.importDeclarations.add(binding.path.parent);
               moduleState.named.push({
                 local: binding.path.node.local.name,
@@ -90,7 +70,7 @@ const visitor: Visitor = {
                 importSpecifier: binding.path.node,
               });
             }
-            if (isImportNamespaceSpecifier(binding.path.node)) {
+            if (t.isImportNamespaceSpecifier(binding.path.node)) {
               moduleState.namespaceImportDeclarations.add(binding.path.parent);
               moduleState.namespace.push({
                 local: binding.path.node.local.name,
@@ -147,10 +127,10 @@ const visitor: Visitor = {
         if (scope.hasGlobal(globalName)) {
           // tslint:disable-next-line:prefer-const
 
-          const references: Array<NodePath<Identifier>> = [];
+          const references: Array<NodePath<t.Identifier>> = [];
           programPath.traverse({
             // todo: ensure only global references added
-            Identifier(path: NodePath<Identifier>) {
+            Identifier(path: NodePath<t.Identifier>) {
               if (path.node.name === globalName) {
                 references.push(path);
               }
@@ -223,9 +203,9 @@ const visitor: Visitor = {
         public renameExport(newExportName: string): void {
           for (const path of this.referencePaths) {
             const node = path.node;
-            if (isTSQualifiedName(node)) {
+            if (t.isTSQualifiedName(node)) {
               node.right.name = newExportName;
-            } else if (isMemberExpression(node)) {
+            } else if (t.isMemberExpression(node)) {
               node.property.name = newExportName;
             } else {
               throw new Error('Unexpected reference of type' + path.node.type);
@@ -252,7 +232,7 @@ const visitor: Visitor = {
 
           for (const namedImport of moduleState.namespace) {
             for (const path of namedImport.referencePaths) {
-              if (isTSQualifiedName(path.parent)) {
+              if (t.isTSQualifiedName(path.parent)) {
                 const rule = moduleRules.exports[path.parent.right.name];
                 if (rule) {
                   rule(
@@ -264,7 +244,7 @@ const visitor: Visitor = {
                   );
                 }
               }
-              if (isMemberExpression(path.parent)) {
+              if (t.isMemberExpression(path.parent)) {
                 const rule = moduleRules.exports[path.parent.property.name];
                 if (rule) {
                   rule(
@@ -283,14 +263,14 @@ const visitor: Visitor = {
 
       const body = programPath.get('body') as NodePath[];
       const imports = body.filter(st => st.isImportDeclaration()) as Array<
-        NodePath<ImportDeclaration>
+        NodePath<t.ImportDeclaration>
       >;
       let after: NodePath<any>;
       if (imports.length > 0) {
         after = imports[imports.length - 1];
       }
 
-      function insertImport(im: Node | Node[]) {
+      function insertImport(im: t.Node | t.Node[]) {
         if (after) {
           after.insertAfter(im);
         } else {
@@ -301,12 +281,12 @@ const visitor: Visitor = {
       for (const [moduleName, moduleState] of importState) {
         for (const ni of moduleState.namespace) {
           if (!ni.importNamespaceSpecifier) {
-            const namespaceSpecifier = importNamespaceSpecifier(
-              identifier(ni.local)
+            const namespaceSpecifier = t.importNamespaceSpecifier(
+              t.identifier(ni.local)
             );
-            const newImport = importDeclaration(
+            const newImport = t.importDeclaration(
               [namespaceSpecifier],
-              stringLiteral(moduleName)
+              t.stringLiteral(moduleName)
             );
             ni.importNamespaceSpecifier = namespaceSpecifier;
             moduleState.importDeclarations.add(newImport);
@@ -317,9 +297,9 @@ const visitor: Visitor = {
         const newNamedSpecifiers = [];
         for (const n of moduleState.named) {
           if (!n.importSpecifier) {
-            const specifier = importSpecifier(
-              identifier(n.local),
-              identifier(n.imported)
+            const specifier = t.importSpecifier(
+              t.identifier(n.local),
+              t.identifier(n.imported)
             );
 
             n.importSpecifier = specifier;
@@ -331,7 +311,7 @@ const visitor: Visitor = {
           let added = false;
           for (const id of moduleState.importDeclarations) {
             if (
-              !isImportNamespaceSpecifier(id.specifiers[0]) &&
+              !t.isImportNamespaceSpecifier(id.specifiers[0]) &&
               id.importKind === 'type'
             ) {
               id.specifiers.push(...newNamedSpecifiers);
@@ -340,9 +320,9 @@ const visitor: Visitor = {
             }
           }
           if (!added) {
-            const newImport = importDeclaration(
+            const newImport = t.importDeclaration(
               newNamedSpecifiers,
-              stringLiteral(moduleName)
+              t.stringLiteral(moduleName)
             );
             newImport.importKind = 'type';
             moduleState.importDeclarations.add(newImport);
@@ -353,7 +333,7 @@ const visitor: Visitor = {
         const newDefaultSpecifiers = [];
         for (const n of moduleState.default) {
           if (!n.importDefaultSpecifier) {
-            const specifier = importDefaultSpecifier(identifier(n.local));
+            const specifier = t.importDefaultSpecifier(t.identifier(n.local));
 
             n.importDefaultSpecifier = specifier;
             newDefaultSpecifiers.push(specifier);
@@ -363,8 +343,8 @@ const visitor: Visitor = {
         if (newDefaultSpecifiers.length) {
           for (const id of moduleState.importDeclarations) {
             if (
-              !isImportNamespaceSpecifier(id.specifiers[0]) &&
-              id.specifiers.every(sp => !isImportDefaultSpecifier(sp))
+              !t.isImportNamespaceSpecifier(id.specifiers[0]) &&
+              id.specifiers.every(sp => !t.isImportDefaultSpecifier(sp))
             ) {
               id.specifiers.push(newDefaultSpecifiers[0]);
               newDefaultSpecifiers.splice(0, 1);
@@ -374,9 +354,9 @@ const visitor: Visitor = {
             }
           }
           for (const ds of newDefaultSpecifiers) {
-            const newImport = importDeclaration(
+            const newImport = t.importDeclaration(
               [ds],
-              stringLiteral(moduleName)
+              t.stringLiteral(moduleName)
             );
             moduleState.importDeclarations.add(newImport);
             insertImport(newImport);

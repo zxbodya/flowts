@@ -1,28 +1,18 @@
-import {
-  identifier,
-  importDeclaration,
-  ImportDeclaration,
-  ImportDefaultSpecifier,
-  ImportNamespaceSpecifier,
-  ImportSpecifier,
-  tsImportType,
-  tsTypeAliasDeclaration,
-  tsTypeQuery,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 
-export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
+export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
   // "import type" in TypeScript does not allow mixing different imports (default, namespace and named)
   if (path.node.importKind === 'typeof') {
     const types = path.node.specifiers.map(specifier =>
-      tsTypeAliasDeclaration(
+      t.tsTypeAliasDeclaration(
         specifier.local,
         null,
-        tsTypeQuery(
-          tsImportType(
+        t.tsTypeQuery(
+          t.tsImportType(
             path.node.source,
             specifier.type === 'ImportDefaultSpecifier'
-              ? identifier('default')
+              ? t.identifier('default')
               : specifier.type === 'ImportSpecifier'
               ? specifier.imported
               : null
@@ -34,9 +24,9 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
     return;
   }
   if (path.node.importKind === 'type') {
-    const importSpecifiers: ImportSpecifier[] = [];
-    const importDefaultSpecifiers: ImportDefaultSpecifier[] = [];
-    const importNamespaceSpecifiers: ImportNamespaceSpecifier[] = [];
+    const importSpecifiers: t.ImportSpecifier[] = [];
+    const importDefaultSpecifiers: t.ImportDefaultSpecifier[] = [];
+    const importNamespaceSpecifiers: t.ImportNamespaceSpecifier[] = [];
     for (const specifier of path.node.specifiers) {
       if (specifier.type === 'ImportSpecifier')
         importSpecifiers.push(specifier);
@@ -54,7 +44,7 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
       path.node.specifiers = groups[0];
       path.insertAfter(
         groups.slice(1).map(group => {
-          const separateImport = importDeclaration(group, path.node.source);
+          const separateImport = t.importDeclaration(group, path.node.source);
           separateImport.importKind = 'type';
           return separateImport;
         })
@@ -82,10 +72,10 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
       }
     }
     const types = moveTypeof.map(specifier =>
-      tsTypeAliasDeclaration(
+      t.tsTypeAliasDeclaration(
         specifier.local,
         null,
-        tsTypeQuery(tsImportType(path.node.source, specifier.imported))
+        t.tsTypeQuery(t.tsImportType(path.node.source, specifier.imported))
       )
     );
     if (keep.length === 0) {
@@ -107,7 +97,7 @@ export function ImportDeclaration(path: NodePath<ImportDeclaration>) {
         // import {A, type B} from 'mod';
         // import C, {A, type B} from 'mod';
         path.node.specifiers = keep;
-        const typesImport = importDeclaration(moveType, path.node.source);
+        const typesImport = t.importDeclaration(moveType, path.node.source);
         typesImport.importKind = 'type';
         path.insertAfter(typesImport);
       }

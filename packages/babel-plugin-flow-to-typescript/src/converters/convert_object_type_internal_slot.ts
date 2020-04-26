@@ -1,19 +1,13 @@
-import {
-  isFunctionTypeAnnotation,
-  ObjectTypeInternalSlot,
-  tsMethodSignature,
-  tsPropertySignature,
-  tsTypeAnnotation,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFlowType } from './convert_flow_type';
 import { convertFunctionTypeAnnotation } from './convert_function_type_annotation';
 import { baseNodeProps } from '../utils/baseNodeProps';
 
 export function convertObjectTypeInternalSlot(
-  property: ObjectTypeInternalSlot
+  property: t.ObjectTypeInternalSlot
 ) {
   if (property.method) {
-    if (!isFunctionTypeAnnotation(property.value)) {
+    if (!t.isFunctionTypeAnnotation(property.value)) {
       throw new Error('FunctionTypeAnnotation expected');
     }
     const {
@@ -21,7 +15,7 @@ export function convertObjectTypeInternalSlot(
       parameters,
       returnType,
     } = convertFunctionTypeAnnotation(property.value);
-    const methodSignature = tsMethodSignature(
+    const methodSignature = t.tsMethodSignature(
       property.id,
       typeParams,
       parameters,
@@ -32,9 +26,9 @@ export function convertObjectTypeInternalSlot(
     methodSignature.optional = property.optional;
     return methodSignature;
   } else {
-    const tsPropSignature = tsPropertySignature(
+    const tsPropSignature = t.tsPropertySignature(
       property.id,
-      tsTypeAnnotation({
+      t.tsTypeAnnotation({
         ...convertFlowType(property.value),
         ...baseNodeProps(property.value),
       })

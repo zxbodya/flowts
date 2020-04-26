@@ -1,21 +1,10 @@
-import {
-  FunctionTypeAnnotation,
-  identifier,
-  isNullableTypeAnnotation,
-  isTSFunctionType,
-  restElement,
-  tsNullKeyword,
-  tsParenthesizedType,
-  TSType,
-  tsTypeAnnotation,
-  tsUnionType,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { generateFreeIdentifier } from '../util';
 import { convertFlowType } from './convert_flow_type';
 import { convertTypeParameterDeclaration } from './convert_type_parameter_declaration';
 import { baseNodeProps } from '../utils/baseNodeProps';
 
-export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
+export function convertFunctionTypeAnnotation(node: t.FunctionTypeAnnotation) {
   let typeParams = undefined;
 
   if (node.typeParameters !== null) {
@@ -46,20 +35,20 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
         paramNames.push(name);
       }
 
-      const id = identifier(name);
+      const id = t.identifier(name);
       id.optional = param.optional;
       if (param.typeAnnotation) {
-        let typeAnnotation: TSType;
-        if (isNullableTypeAnnotation(param.typeAnnotation)) {
+        let typeAnnotation: t.TSType;
+        if (t.isNullableTypeAnnotation(param.typeAnnotation)) {
           if (!hasRequiredAfter) {
             id.optional = true;
           }
           if (id.optional) {
             let tsType = convertFlowType(param.typeAnnotation.typeAnnotation);
-            if (isTSFunctionType(tsType)) {
-              tsType = tsParenthesizedType(tsType);
+            if (t.isTSFunctionType(tsType)) {
+              tsType = t.tsParenthesizedType(tsType);
             }
-            typeAnnotation = tsUnionType([tsType, tsNullKeyword()]);
+            typeAnnotation = t.tsUnionType([tsType, t.tsNullKeyword()]);
           } else {
             typeAnnotation = convertFlowType(param.typeAnnotation);
             hasRequiredAfter = true;
@@ -69,7 +58,7 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
           hasRequiredAfter = true;
         }
         id.typeAnnotation = {
-          ...tsTypeAnnotation(typeAnnotation),
+          ...t.tsTypeAnnotation(typeAnnotation),
           ...baseNodeProps(param.typeAnnotation),
         };
       }
@@ -81,8 +70,8 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
   // rest parameters
   if (node.rest) {
     if (node.rest.name) {
-      const id = restElement(node.rest.name);
-      id.typeAnnotation = tsTypeAnnotation(
+      const id = t.restElement(node.rest.name);
+      id.typeAnnotation = t.tsTypeAnnotation(
         convertFlowType(node.rest.typeAnnotation)
       );
       parameters.push({ ...id, ...baseNodeProps(node.rest) });
@@ -91,7 +80,7 @@ export function convertFunctionTypeAnnotation(node: FunctionTypeAnnotation) {
 
   // Return type
   if (node.returnType) {
-    returnType = tsTypeAnnotation({
+    returnType = t.tsTypeAnnotation({
       ...convertFlowType(node.returnType),
       ...baseNodeProps(node.returnType),
     });

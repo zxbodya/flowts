@@ -1,61 +1,40 @@
 import { NodePath } from '@babel/traverse';
-import {
-  Identifier,
-  isArrayPattern,
-  isAssignmentPattern,
-  isIdentifier,
-  isNullableTypeAnnotation,
-  isObjectPattern,
-  isObjectProperty,
-  isPattern,
-  isRestElement,
-  isTSFunctionType,
-  isTypeAnnotation,
-  noop,
-  Pattern,
-  RestElement,
-  tsNullKeyword,
-  TSParameterProperty,
-  tsParenthesizedType,
-  tsTypeAnnotation,
-  tsUndefinedKeyword,
-  tsUnionType,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFlowType } from '../converters/convert_flow_type';
 import { replaceWith } from '../utils/replaceWith';
 
-function cleanupPattern(pattern: Pattern): boolean {
+function cleanupPattern(pattern: t.Pattern): boolean {
   let removedType = false;
-  if (isAssignmentPattern(pattern)) {
-    if (isPattern(pattern.left)) {
+  if (t.isAssignmentPattern(pattern)) {
+    if (t.isPattern(pattern.left)) {
       removedType = removedType || cleanupPattern(pattern.left);
     }
   }
-  if (isArrayPattern(pattern)) {
+  if (t.isArrayPattern(pattern)) {
     for (const element of pattern.elements) {
       if (!element) continue;
       if (element.typeAnnotation) {
-        element.typeAnnotation = noop();
+        element.typeAnnotation = t.noop();
         removedType = true;
       }
-      if (isPattern(element)) {
+      if (t.isPattern(element)) {
         removedType = cleanupPattern(element) || removedType;
       }
     }
   }
-  if (isObjectPattern(pattern)) {
+  if (t.isObjectPattern(pattern)) {
     for (const prop of pattern.properties) {
-      if (isRestElement(prop)) {
+      if (t.isRestElement(prop)) {
         if (prop.typeAnnotation) {
-          prop.typeAnnotation = noop();
+          prop.typeAnnotation = t.noop();
           removedType = true;
         }
-        if (isPattern(prop.argument)) {
+        if (t.isPattern(prop.argument)) {
           removedType = cleanupPattern(prop.argument) || removedType;
         }
       }
-      if (isObjectProperty(prop)) {
-        if (isPattern(prop.value)) {
+      if (t.isObjectProperty(prop)) {
+        if (t.isPattern(prop.value)) {
           removedType = cleanupPattern(prop.value) || removedType;
         }
       }
@@ -66,7 +45,7 @@ function cleanupPattern(pattern: Pattern): boolean {
 
 export function transformFunctionParams(
   params: Array<
-    NodePath<Identifier | Pattern | RestElement | TSParameterProperty>
+    NodePath<t.Identifier | t.Pattern | t.RestElement | t.TSParameterProperty>
   >
 ) {
   let hasRequiredAfter = false;
@@ -75,7 +54,7 @@ export function transformFunctionParams(
     if (paramNode.isPattern()) {
       if (
         paramNode.isAssignmentPattern() &&
-        isIdentifier(paramNode.node.left)
+        t.isIdentifier(paramNode.node.left)
       ) {
         // argument with default value can not be optional in typescript
         paramNode.node.left.optional = false;
@@ -90,20 +69,20 @@ export function transformFunctionParams(
     if (paramNode.isIdentifier()) {
       const param = paramNode.node;
 
-      if (param.typeAnnotation && isTypeAnnotation(param.typeAnnotation)) {
-        if (isNullableTypeAnnotation(param.typeAnnotation.typeAnnotation)) {
+      if (param.typeAnnotation && t.isTypeAnnotation(param.typeAnnotation)) {
+        if (t.isNullableTypeAnnotation(param.typeAnnotation.typeAnnotation)) {
           param.optional = !hasRequiredAfter;
           if (param.optional) {
             let tsType = convertFlowType(
               param.typeAnnotation.typeAnnotation.typeAnnotation
             );
-            if (isTSFunctionType(tsType)) {
-              tsType = tsParenthesizedType(tsType);
+            if (t.isTSFunctionType(tsType)) {
+              tsType = t.tsParenthesizedType(tsType);
             }
-            const typeAnnotation = tsUnionType([tsType, tsNullKeyword()]);
+            const typeAnnotation = t.tsUnionType([tsType, t.tsNullKeyword()]);
             replaceWith(
               paramNode.get('typeAnnotation'),
-              tsTypeAnnotation(typeAnnotation)
+              t.tsTypeAnnotation(typeAnnotation)
             );
           } else {
             hasRequiredAfter = true;
@@ -112,17 +91,17 @@ export function transformFunctionParams(
           if (param.optional && hasRequiredAfter) {
             param.optional = false;
             let tsType = convertFlowType(param.typeAnnotation.typeAnnotation);
-            if (isTSFunctionType(tsType)) {
-              tsType = tsParenthesizedType(tsType);
+            if (t.isTSFunctionType(tsType)) {
+              tsType = t.tsParenthesizedType(tsType);
             }
-            const typeAnnotation = tsUnionType([
+            const typeAnnotation = t.tsUnionType([
               tsType,
-              tsUndefinedKeyword(),
-              tsNullKeyword(),
+              t.tsUndefinedKeyword(),
+              t.tsNullKeyword(),
             ]);
             replaceWith(
               paramNode.get('typeAnnotation'),
-              tsTypeAnnotation(typeAnnotation)
+              t.tsTypeAnnotation(typeAnnotation)
             );
           }
           if (!param.optional) {

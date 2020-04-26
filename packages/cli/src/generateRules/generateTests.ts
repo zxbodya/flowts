@@ -1,15 +1,4 @@
-import {
-  TypeParameterDeclaration,
-  expressionStatement,
-  callExpression,
-  identifier,
-  stringLiteral,
-  arrowFunctionExpression,
-  blockStatement,
-  memberExpression,
-  templateLiteral,
-  templateElement,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 
 interface TypeParamsConfig {
@@ -17,7 +6,7 @@ interface TypeParamsConfig {
   requiredParamsCount: number;
 }
 function getParamsConfig(
-  typeParameters: TypeParameterDeclaration | null
+  typeParameters: t.TypeParameterDeclaration | null
 ): TypeParamsConfig {
   let paramsCount = 0;
   let requiredParamsCount = 0;
@@ -31,20 +20,20 @@ const spaces = '                                                           ';
 function createTest(name: string, content: string[], identation: number) {
   const lastIdent = spaces.substr(0, identation);
   const contentIdent = spaces.substr(0, identation + 2);
-  return expressionStatement(
-    callExpression(identifier('test'), [
-      stringLiteral(name),
-      arrowFunctionExpression(
+  return t.expressionStatement(
+    t.callExpression(t.identifier('test'), [
+      t.stringLiteral(name),
+      t.arrowFunctionExpression(
         [],
-        blockStatement([
-          expressionStatement(
-            callExpression(
-              memberExpression(
-                callExpression(identifier('expect'), [
-                  callExpression(identifier('transform'), [
-                    templateLiteral(
+        t.blockStatement([
+          t.expressionStatement(
+            t.callExpression(
+              t.memberExpression(
+                t.callExpression(t.identifier('expect'), [
+                  t.callExpression(t.identifier('transform'), [
+                    t.templateLiteral(
                       [
-                        templateElement({
+                        t.templateElement({
                           raw: [
                             '',
                             ...content.map(v => contentIdent + v),
@@ -56,7 +45,7 @@ function createTest(name: string, content: string[], identation: number) {
                     ),
                   ]),
                 ]),
-                identifier('toMatchSnapshot')
+                t.identifier('toMatchSnapshot')
               ),
               []
             )

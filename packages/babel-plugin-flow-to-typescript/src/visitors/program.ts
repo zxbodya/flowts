@@ -1,10 +1,10 @@
-import { Flow, isIdentifier, Program, TSTypeReference } from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath, Node } from '@babel/traverse';
 import helperTypes from '../helper_types';
 import { warnOnlyOnce } from '../util';
 
 export default {
-  enter(path: NodePath<Program>) {
+  enter(path: NodePath<t.Program>) {
     const [firstNode] = path.node.body;
 
     if (
@@ -33,7 +33,7 @@ export default {
       }
     }
   },
-  exit(path: NodePath<Program>) {
+  exit(path: NodePath<t.Program>) {
     path.traverse({
       /* istanbul ignore next */
       Flow(path: NodePath<any>) {
@@ -52,9 +52,9 @@ export default {
 
     const usedHelperTypes = new Set<keyof typeof helperTypes>();
     path.traverse({
-      TSTypeReference(typeReferencePath: NodePath<TSTypeReference>) {
+      TSTypeReference(typeReferencePath: NodePath<t.TSTypeReference>) {
         const node = typeReferencePath.node;
-        if (isIdentifier(node.typeName)) {
+        if (t.isIdentifier(node.typeName)) {
           const name = node.typeName.name;
           if (name === '$Call') {
             if (node.typeParameters) {

@@ -1,18 +1,4 @@
-import {
-  classBody,
-  ClassBody,
-  classDeclaration,
-  classProperty,
-  DeclareClass,
-  isIdentifier,
-  isObjectTypeSpreadProperty,
-  isTSFunctionType,
-  isTSParenthesizedType,
-  isTypeParameterDeclaration,
-  tsDeclareMethod,
-  tsParenthesizedType,
-  tsTypeAnnotation,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFlowType } from './convert_flow_type';
 import { baseNodeProps } from '../utils/baseNodeProps';
 import { convertObjectTypeIndexer } from './convert_object_type_indexer';
@@ -21,29 +7,30 @@ import { convertInterfaceExtends } from './convert_interface_declaration';
 import { convertTypeParameterDeclaration } from './convert_type_parameter_declaration';
 import { getPropertyKey } from './get_property_key';
 
-export function convertDeclareClass(node: DeclareClass) {
-  const bodyElements: ClassBody['body'] = [];
+export function convertDeclareClass(node: t.DeclareClass) {
+  const bodyElements: t.ClassBody['body'] = [];
 
   for (const property of node.body.properties) {
-    if (isObjectTypeSpreadProperty(property)) {
+    if (t.isObjectTypeSpreadProperty(property)) {
       throw new Error('ObjectTypeSpreadProperty is unexpected in DeclareClass');
     }
 
     let convertedProperty = convertFlowType(property.value);
-    if (isTSFunctionType(convertedProperty)) {
-      convertedProperty = tsParenthesizedType(convertedProperty);
+    if (t.isTSFunctionType(convertedProperty)) {
+      convertedProperty = t.tsParenthesizedType(convertedProperty);
     }
 
     const { key, isComputed } = getPropertyKey(property);
+    // @ts-ignore todo: property is missing in type definition
     if (property.method) {
       if (
-        !isTSParenthesizedType(convertedProperty) ||
-        !isTSFunctionType(convertedProperty.typeAnnotation)
+        !t.isTSParenthesizedType(convertedProperty) ||
+        !t.isTSFunctionType(convertedProperty.typeAnnotation)
       ) {
         throw new Error('incorrect method');
       }
 
-      const converted = tsDeclareMethod(
+      const converted = t.tsDeclareMethod(
         null,
         property.key,
         convertedProperty.typeAnnotation.typeParameters,
@@ -58,10 +45,10 @@ export function convertDeclareClass(node: DeclareClass) {
       converted.computed = isComputed;
       bodyElements.push(converted);
     } else if (property.kind === 'init') {
-      const converted = classProperty(
+      const converted = t.classProperty(
         key,
         null,
-        tsTypeAnnotation(convertedProperty)
+        t.tsTypeAnnotation(convertedProperty)
       );
       converted.static = !!property.static;
       converted.readonly =
@@ -103,7 +90,7 @@ export function convertDeclareClass(node: DeclareClass) {
     }
 
     const firstExtend = convertInterfaceExtends(node.extends[0]);
-    if (isIdentifier(firstExtend.expression)) {
+    if (t.isIdentifier(firstExtend.expression)) {
       superClass = {
         ...firstExtend.expression,
         ...baseNodeProps(node.extends[0].id),
@@ -120,14 +107,14 @@ export function convertDeclareClass(node: DeclareClass) {
   }
 
   let typeParameters = null;
-  if (isTypeParameterDeclaration(node.typeParameters)) {
+  if (t.isTypeParameterDeclaration(node.typeParameters)) {
     typeParameters = {
       ...convertTypeParameterDeclaration(node.typeParameters),
       ...baseNodeProps(node.typeParameters),
     };
   }
 
-  const body = { ...classBody(bodyElements), ...baseNodeProps(node.body) };
+  const body = { ...t.classBody(bodyElements), ...baseNodeProps(node.body) };
   let _implements = null;
   if (node.implements && node.implements.length) {
     _implements = node.implements.map(i => ({
@@ -136,7 +123,7 @@ export function convertDeclareClass(node: DeclareClass) {
     }));
   }
 
-  const decl = classDeclaration(node.id, superClass, body, []);
+  const decl = t.classDeclaration(node.id, superClass, body, []);
 
   decl.implements = _implements;
   decl.superTypeParameters = superTypeParameters;

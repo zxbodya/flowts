@@ -1,6 +1,6 @@
 import * as babel from '@babel/core';
 import * as recast from '@zxbodya/recast';
-import { File } from '@babel/types';
+import * as t from '@babel/types';
 
 /**
  * Babel plugin to use recast for parsing and printing later
@@ -10,8 +10,8 @@ export default () => ({
   parserOverride(
     code: string,
     options: babel.ParserOptions,
-    parse: (code: string, options: babel.ParserOptions) => File
-  ): File {
+    parse: (code: string, options: babel.ParserOptions) => t.File
+  ): t.File {
     return recast.parse(code, {
       parser: {
         // tslint:disable-next-line:no-shadowed-variable
@@ -21,7 +21,7 @@ export default () => ({
       },
     });
   },
-  generatorOverride(ast: File): { code: string; map?: object } {
+  generatorOverride(ast: t.File): { code: string; map?: object } {
     return recast.print(ast);
   },
 });

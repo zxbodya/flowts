@@ -1,15 +1,11 @@
 import { NodePath } from '@babel/traverse';
-import {
-  DeclareOpaqueType,
-  tsTypeAliasDeclaration,
-  tsUnknownKeyword,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { warnOnlyOnce } from '../util';
 import { replaceWith } from '../utils/replaceWith';
 import { PluginPass } from '../types';
 
 export function DeclareOpaqueType(
-  path: NodePath<DeclareOpaqueType>,
+  path: NodePath<t.DeclareOpaqueType>,
   state: PluginPass
 ) {
   const node = path.node;
@@ -18,7 +14,11 @@ export function DeclareOpaqueType(
       'Subtyping constraints in opaque type in Flow is ignored in TypeScript'
     );
   }
-  const replacement = tsTypeAliasDeclaration(node.id, null, tsUnknownKeyword());
+  const replacement = t.tsTypeAliasDeclaration(
+    node.id,
+    null,
+    t.tsUnknownKeyword()
+  );
   replacement.declare = !state.get('isModuleDeclaration');
 
   replaceWith(path, replacement);

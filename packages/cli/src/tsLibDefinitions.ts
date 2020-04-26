@@ -3,52 +3,41 @@ import * as fs from 'fs';
 import * as babel from '@babel/core';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import traverse from '@babel/traverse';
-import { Node, NodePath } from '@babel/core';
-import {
-  File,
-  ClassDeclaration,
-  TSDeclareFunction,
-  TSInterfaceDeclaration,
-  TSModuleDeclaration,
-  TSTypeAliasDeclaration,
-  VariableDeclaration,
-  isIdentifier,
-  TSTypeParameter,
-  VariableDeclarator,
-} from '@babel/types';
+import { NodePath } from '@babel/core';
+import * as t from '@babel/types';
 
-interface ParametrizedDeclaration<T extends Node> extends BaseDeclaration<T> {
+interface ParametrizedDeclaration<T extends t.Node> extends BaseDeclaration<T> {
   paramsCount: number;
   requiredParamsCount: number;
 }
 
-interface BaseDeclaration<T extends Node> {
+interface BaseDeclaration<T extends t.Node> {
   name: string;
   path: NodePath<T>;
 }
 
-interface ModuleDeclaration extends BaseDeclaration<TSModuleDeclaration> {
+interface ModuleDeclaration extends BaseDeclaration<t.TSModuleDeclaration> {
   declarations: Declarations;
 }
 
 class Declarations {
-  classes: Map<string, ParametrizedDeclaration<ClassDeclaration>> = new Map();
+  classes: Map<string, ParametrizedDeclaration<t.ClassDeclaration>> = new Map();
   functions: Map<
     string,
-    Array<ParametrizedDeclaration<TSDeclareFunction>>
+    Array<ParametrizedDeclaration<t.TSDeclareFunction>>
   > = new Map();
   interfaces: Map<
     string,
-    Array<ParametrizedDeclaration<TSInterfaceDeclaration>>
+    Array<ParametrizedDeclaration<t.TSInterfaceDeclaration>>
   > = new Map();
   modules: Map<string, ModuleDeclaration> = new Map();
   types: Map<
     string,
-    ParametrizedDeclaration<TSTypeAliasDeclaration>
+    ParametrizedDeclaration<t.TSTypeAliasDeclaration>
   > = new Map();
   variables: Map<
     string,
-    Array<BaseDeclaration<VariableDeclarator>>
+    Array<BaseDeclaration<t.VariableDeclarator>>
   > = new Map();
 
   allNames: Set<string> = new Set();
@@ -70,7 +59,7 @@ function paramsData(
     | babel.types.Noop
     | null
 ) {
-  let tsTypeParameters: TSTypeParameter[] = [];
+  let tsTypeParameters: t.TSTypeParameter[] = [];
   if (typeParameters) {
     if (typeParameters.type === 'TSTypeParameterDeclaration') {
       tsTypeParameters = typeParameters.params;
@@ -85,7 +74,7 @@ function paramsData(
 class DState {
   declarations = new Declarations();
   private moduleStack: Declarations[] = [];
-  enterClassDeclaration(path: NodePath<ClassDeclaration>) {
+  enterClassDeclaration(path: NodePath<t.ClassDeclaration>) {
     if (!path.node.id) {
       throw path.buildCodeFrameError('class name is missing');
     }
@@ -103,7 +92,7 @@ class DState {
       requiredParamsCount,
     });
   }
-  enterTSDeclareFunction(path: NodePath<TSDeclareFunction>) {
+  enterTSDeclareFunction(path: NodePath<t.TSDeclareFunction>) {
     if (!path.node.id) {
       throw path.buildCodeFrameError('function name is missing');
     }
@@ -123,7 +112,7 @@ class DState {
       requiredParamsCount,
     });
   }
-  enterTSInterfaceDeclaration(path: NodePath<TSInterfaceDeclaration>) {
+  enterTSInterfaceDeclaration(path: NodePath<t.TSInterfaceDeclaration>) {
     if (!path.node.id) {
       throw path.buildCodeFrameError('interface name is missing');
     }
@@ -143,12 +132,12 @@ class DState {
       requiredParamsCount,
     });
   }
-  enterTSModuleDeclaration(path: NodePath<TSModuleDeclaration>) {
+  enterTSModuleDeclaration(path: NodePath<t.TSModuleDeclaration>) {
     this.moduleStack.push(this.declarations);
     this.declarations = new Declarations();
   }
-  exitTSModuleDeclaration(path: NodePath<TSModuleDeclaration>) {
-    const name = isIdentifier(path.node.id)
+  exitTSModuleDeclaration(path: NodePath<t.TSModuleDeclaration>) {
+    const name = t.isIdentifier(path.node.id)
       ? path.node.id.name
       : path.node.id.value;
     const module: ModuleDeclaration = {
@@ -160,7 +149,7 @@ class DState {
     this.declarations = this.moduleStack.pop()!;
     this.declarations.modules.set(name, module);
   }
-  enterTSTypeAliasDeclaration(path: NodePath<TSTypeAliasDeclaration>) {
+  enterTSTypeAliasDeclaration(path: NodePath<t.TSTypeAliasDeclaration>) {
     const name = path.node.id.name;
     const { paramsCount, requiredParamsCount } = paramsData(
       path.node.typeParameters
@@ -175,11 +164,11 @@ class DState {
       requiredParamsCount,
     });
   }
-  enterVariableDeclaration(path: NodePath<VariableDeclaration>) {
+  enterVariableDeclaration(path: NodePath<t.VariableDeclaration>) {
     const variableDeclarators = path.get('declarations');
     for (const declPath of variableDeclarators) {
       const decl = declPath.node;
-      if (!isIdentifier(decl.id)) {
+      if (!t.isIdentifier(decl.id)) {
         throw path.buildCodeFrameError('unexpected declaration');
       }
       const name = decl.id.name;
@@ -199,33 +188,33 @@ class DState {
 }
 
 const extractDefinitionsVisitor = {
-  ClassDeclaration(path: NodePath<ClassDeclaration>, state: DState) {
+  ClassDeclaration(path: NodePath<t.ClassDeclaration>, state: DState) {
     state.enterClassDeclaration(path);
   },
-  TSDeclareFunction(path: NodePath<TSDeclareFunction>, state: DState) {
+  TSDeclareFunction(path: NodePath<t.TSDeclareFunction>, state: DState) {
     state.enterTSDeclareFunction(path);
   },
   TSInterfaceDeclaration(
-    path: NodePath<TSInterfaceDeclaration>,
+    path: NodePath<t.TSInterfaceDeclaration>,
     state: DState
   ) {
     state.enterTSInterfaceDeclaration(path);
   },
   TSModuleDeclaration: {
-    enter(path: NodePath<TSModuleDeclaration>, state: DState) {
+    enter(path: NodePath<t.TSModuleDeclaration>, state: DState) {
       state.enterTSModuleDeclaration(path);
     },
-    exit(path: NodePath<TSModuleDeclaration>, state: DState) {
+    exit(path: NodePath<t.TSModuleDeclaration>, state: DState) {
       state.exitTSModuleDeclaration(path);
     },
   },
   TSTypeAliasDeclaration(
-    path: NodePath<TSTypeAliasDeclaration>,
+    path: NodePath<t.TSTypeAliasDeclaration>,
     state: DState
   ) {
     state.enterTSTypeAliasDeclaration(path);
   },
-  VariableDeclaration(path: NodePath<VariableDeclaration>, state: DState) {
+  VariableDeclaration(path: NodePath<t.VariableDeclaration>, state: DState) {
     state.enterVariableDeclaration(path);
   },
 };
@@ -306,7 +295,7 @@ for (const libName of libNames) {
       strictMode: false,
     },
     filename: libPath,
-  }) as File;
+  }) as t.File;
 
   if (ast === null) {
     throw new Error(

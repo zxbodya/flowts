@@ -1,19 +1,5 @@
 import { NodePath } from '@babel/traverse';
-import {
-  DeclareExportDeclaration,
-  exportDefaultDeclaration,
-  exportNamedDeclaration,
-  identifier,
-  isDeclareClass,
-  isDeclareFunction,
-  isDeclareVariable,
-  isFlowType,
-  isInterfaceDeclaration,
-  isTypeAlias,
-  tsTypeAnnotation,
-  variableDeclaration,
-  variableDeclarator,
-} from '@babel/types';
+import * as t from '@babel/types';
 
 import { convertFlowType } from '../converters/convert_flow_type';
 import { convertDeclareVariable } from '../converters/convert_declare_variable';
@@ -24,7 +10,7 @@ import { replaceWith } from '../utils/replaceWith';
 import { convertInterfaceDeclaration } from '../converters/convert_interface_declaration';
 
 export function DeclareExportDeclaration(
-  path: NodePath<DeclareExportDeclaration>
+  path: NodePath<t.DeclareExportDeclaration>
 ) {
   const node = path.node;
 
@@ -33,50 +19,50 @@ export function DeclareExportDeclaration(
     if (!node.declaration) {
       throw path.buildCodeFrameError('todo: declaration is missing');
     }
-    if (isDeclareFunction(node.declaration)) {
-      replacement = exportDefaultDeclaration(
+    if (t.isDeclareFunction(node.declaration)) {
+      replacement = t.exportDefaultDeclaration(
         convertDeclareFunction(node.declaration)
       );
       replaceWith(path, replacement);
-    } else if (isDeclareClass(node.declaration)) {
-      replacement = exportDefaultDeclaration(
+    } else if (t.isDeclareClass(node.declaration)) {
+      replacement = t.exportDefaultDeclaration(
         convertDeclareClass(node.declaration)
       );
       replaceWith(path, replacement);
     } else {
-      if (!isFlowType(node.declaration)) {
+      if (!t.isFlowType(node.declaration)) {
         throw path.buildCodeFrameError('not implemented');
       }
       const declaration = convertFlowType(node.declaration);
 
-      const aliasId = identifier('__default');
+      const aliasId = t.identifier('__default');
 
       path.replaceWithMultiple([
-        variableDeclaration('let', [
-          variableDeclarator({
+        t.variableDeclaration('let', [
+          t.variableDeclarator({
             ...aliasId,
-            typeAnnotation: tsTypeAnnotation(declaration),
+            typeAnnotation: t.tsTypeAnnotation(declaration),
           }),
         ]),
-        exportDefaultDeclaration(aliasId),
+        t.exportDefaultDeclaration(aliasId),
       ]);
     }
   } else {
     let declaration = null;
-    if (isDeclareVariable(node.declaration)) {
+    if (t.isDeclareVariable(node.declaration)) {
       declaration = convertDeclareVariable(node.declaration);
-    } else if (isDeclareFunction(node.declaration)) {
+    } else if (t.isDeclareFunction(node.declaration)) {
       declaration = convertDeclareFunction(node.declaration);
-    } else if (isTypeAlias(node.declaration)) {
+    } else if (t.isTypeAlias(node.declaration)) {
       declaration = convertDeclareTypeAlias(node.declaration);
-    } else if (isDeclareClass(node.declaration)) {
+    } else if (t.isDeclareClass(node.declaration)) {
       declaration = convertDeclareClass(node.declaration);
-    } else if (isInterfaceDeclaration(node.declaration)) {
+    } else if (t.isInterfaceDeclaration(node.declaration)) {
       declaration = convertInterfaceDeclaration(node.declaration);
     } else {
       throw path.buildCodeFrameError(`DeclareExportDeclaration not converted`);
     }
-    replacement = exportNamedDeclaration(
+    replacement = t.exportNamedDeclaration(
       declaration,
       node.specifiers ? node.specifiers : [],
       node.source

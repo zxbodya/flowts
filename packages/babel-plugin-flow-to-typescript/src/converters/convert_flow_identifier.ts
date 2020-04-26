@@ -1,17 +1,11 @@
-import {
-  Identifier,
-  isIdentifier,
-  QualifiedTypeIdentifier,
-  TSQualifiedName,
-  tsQualifiedName,
-} from '@babel/types';
+import * as t from '@babel/types';
 
 // A.B.C -> A.B.C
 export function convertFlowIdentifier(
-  id: QualifiedTypeIdentifier | Identifier
-): TSQualifiedName | Identifier {
-  if (isIdentifier(id)) {
+  id: t.QualifiedTypeIdentifier | t.Identifier
+): t.TSQualifiedName | t.Identifier {
+  if (t.isIdentifier(id)) {
     return id;
   }
-  return tsQualifiedName(convertFlowIdentifier(id.qualification), id.id);
+  return t.tsQualifiedName(convertFlowIdentifier(id.qualification), id.id);
 }

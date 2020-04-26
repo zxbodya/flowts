@@ -1,21 +1,5 @@
 import template, { TemplateBuilderOptions } from '@babel/template';
-import {
-  stringLiteral,
-  ExportDefaultDeclaration,
-  ObjectExpression,
-  BlockStatement,
-  ObjectMethod,
-  objectMethod,
-  identifier,
-  blockStatement,
-  Statement,
-  objectProperty,
-  objectExpression,
-  ObjectProperty,
-  arrayExpression,
-  ArrayExpression,
-  File,
-} from '@babel/types';
+import * as t from '@babel/types';
 import traverse, { NodePath } from '@babel/traverse';
 import * as recast from '@zxbodya/recast';
 import * as prettier from 'prettier';
@@ -45,9 +29,9 @@ function print(
   return prettier.format(code.code, prettierConfig);
 }
 
-function getModuleDescr(moduleObj: NodePath<ObjectExpression>) {
-  let libsPath: NodePath<ArrayExpression> | undefined;
-  let exportsPath: NodePath<ObjectExpression> | undefined;
+function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>) {
+  let libsPath: NodePath<t.ArrayExpression> | undefined;
+  let exportsPath: NodePath<t.ObjectExpression> | undefined;
   for (const prop of moduleObj.get('properties')) {
     if (!prop.isObjectProperty()) {
       throw prop.buildCodeFrameError(
@@ -105,29 +89,31 @@ function getModuleDescr(moduleObj: NodePath<ObjectExpression>) {
 }
 
 export class Rule {
-  private readonly ruleAst: File;
+  private readonly ruleAst: t.File;
   private moduleName: string;
-  private globalsObjPath: NodePath<ObjectExpression>;
-  private modulesObjPath: NodePath<ObjectExpression>;
-  private globalRules: Map<string, NodePath<ObjectMethod>>;
+  private globalsObjPath: NodePath<t.ObjectExpression>;
+  private modulesObjPath: NodePath<t.ObjectExpression>;
+  private globalRules: Map<string, NodePath<t.ObjectMethod>>;
   private moduleRules: Map<
     string,
     {
-      libsPath: NodePath<ArrayExpression>;
-      exportsPath: NodePath<ObjectExpression>;
-      exports: Map<string, NodePath<ObjectMethod>>;
+      libsPath: NodePath<t.ArrayExpression>;
+      exportsPath: NodePath<t.ObjectExpression>;
+      exports: Map<string, NodePath<t.ObjectMethod>>;
     }
   >;
 
-  constructor(moduleName: string, ruleAst: File) {
+  constructor(moduleName: string, ruleAst: t.File) {
     this.moduleName = moduleName;
     this.ruleAst = ruleAst;
 
-    let globalsObjPath: NodePath<ObjectExpression>;
-    let modulesObjPath: NodePath<ObjectExpression>;
+    let globalsObjPath: NodePath<t.ObjectExpression>;
+    let modulesObjPath: NodePath<t.ObjectExpression>;
     let hasDefaultExport = false;
     traverse(ruleAst, {
-      ExportDefaultDeclaration: (path: NodePath<ExportDefaultDeclaration>) => {
+      ExportDefaultDeclaration: (
+        path: NodePath<t.ExportDefaultDeclaration>
+      ) => {
         hasDefaultExport = true;
         const declaration = path.get('declaration');
         if (declaration.type !== 'TSAsExpression') {
@@ -193,7 +179,7 @@ export class Rule {
     this.globalsObjPath = globalsObjPath!;
     this.modulesObjPath = modulesObjPath!;
 
-    const globalRules = new Map<string, NodePath<ObjectMethod>>();
+    const globalRules = new Map<string, NodePath<t.ObjectMethod>>();
     for (const globalRule of this.globalsObjPath.get('properties')) {
       if (!globalRule.isObjectMethod()) {
         throw globalRule.buildCodeFrameError(
@@ -206,9 +192,9 @@ export class Rule {
     const modulesRules = new Map<
       string,
       {
-        libsPath: NodePath<ArrayExpression>;
-        exportsPath: NodePath<ObjectExpression>;
-        exports: Map<string, NodePath<ObjectMethod>>;
+        libsPath: NodePath<t.ArrayExpression>;
+        exportsPath: NodePath<t.ObjectExpression>;
+        exports: Map<string, NodePath<t.ObjectMethod>>;
       }
     >();
     for (const module of this.modulesObjPath.get('properties')) {
@@ -229,7 +215,7 @@ export class Rule {
       modulesRules.set(moduleName, moduleRulesDecr);
     }
 
-    let testDescribeBody: NodePath<BlockStatement> | undefined;
+    let testDescribeBody: NodePath<t.BlockStatement> | undefined;
 
     this.globalRules = globalRules;
     this.moduleRules = modulesRules;
@@ -239,7 +225,7 @@ export class Rule {
     const ruleAst = {
       type: 'File',
       program: buildRuleTemplate(),
-    } as File;
+    } as t.File;
 
     return new Rule(moduleName, ruleAst);
   }
@@ -253,55 +239,57 @@ export class Rule {
 
   setGlobalRule(
     declarationName: string,
-    fix: Statement[],
+    fix: t.Statement[],
     comments: Array<{ type: string; value: string }>
   ) {
     const method = {
-      ...objectMethod(
+      ...t.objectMethod(
         'method',
-        stringLiteral(declarationName),
-        [identifier('context')],
-        blockStatement(fix)
+        t.stringLiteral(declarationName),
+        [t.identifier('context')],
+        t.blockStatement(fix)
       ),
       comments,
     };
     this.globalsObjPath.node.properties.push(method);
     const methodPath = this.globalsObjPath.get('properties')[
       this.globalsObjPath.node.properties.length - 1
-    ] as NodePath<ObjectMethod>;
+    ] as NodePath<t.ObjectMethod>;
     this.globalRules.set(declarationName, methodPath);
   }
 
   setModuleRule(
     moduleName: string,
     declarationName: string,
-    fix: Statement[],
+    fix: t.Statement[],
     comments: Array<{ type: string; value: string }>
   ) {
     let moduleRules = this.moduleRules.get(moduleName);
     if (!moduleRules) {
-      const moduleNode = objectProperty(
-        stringLiteral(moduleName),
-        objectExpression([
-          objectProperty(stringLiteral('libs'), arrayExpression([])),
-          objectProperty(stringLiteral('exports'), objectExpression([])),
+      const moduleNode = t.objectProperty(
+        t.stringLiteral(moduleName),
+        t.objectExpression([
+          t.objectProperty(t.stringLiteral('libs'), t.arrayExpression([])),
+          t.objectProperty(t.stringLiteral('exports'), t.objectExpression([])),
         ])
       );
 
       this.modulesObjPath.node.properties.push(moduleNode);
       const moduleObj = (this.modulesObjPath.get('properties')[
         this.modulesObjPath.node.properties.length - 1
-      ] as NodePath<ObjectProperty>).get('value') as NodePath<ObjectExpression>;
+      ] as NodePath<t.ObjectProperty>).get('value') as NodePath<
+        t.ObjectExpression
+      >;
 
       moduleRules = getModuleDescr(moduleObj);
       this.moduleRules.set(moduleName, moduleRules);
     }
     const method = {
-      ...objectMethod(
+      ...t.objectMethod(
         'method',
-        stringLiteral(declarationName),
-        [identifier('context')],
-        blockStatement(fix)
+        t.stringLiteral(declarationName),
+        [t.identifier('context')],
+        t.blockStatement(fix)
       ),
       comments,
     };
@@ -309,7 +297,7 @@ export class Rule {
     moduleRules.exportsPath.node.properties.push(method);
     const methodPath = moduleRules.exportsPath.get('properties')[
       moduleRules.exportsPath.node.properties.length - 1
-    ] as NodePath<ObjectMethod>;
+    ] as NodePath<t.ObjectMethod>;
     moduleRules.exports.set(declarationName, methodPath);
   }
 }

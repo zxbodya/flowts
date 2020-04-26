@@ -1,16 +1,13 @@
-import { DeclareClass } from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { convertDeclareClass } from '../converters/convert_declare_class';
 import { replaceWith } from '../utils/replaceWith';
 import { PluginPass } from '../types';
 
-declare module '@babel/types' {
-  interface ObjectTypeProperty {
-    method: boolean;
-  }
-}
-
-export function DeclareClass(path: NodePath<DeclareClass>, state: PluginPass) {
+export function DeclareClass(
+  path: NodePath<t.DeclareClass>,
+  state: PluginPass
+) {
   const decl = convertDeclareClass(path.node);
   decl.declare = !state.get('isModuleDeclaration');
 

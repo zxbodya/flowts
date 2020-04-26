@@ -1,19 +1,14 @@
-import {
-  tsTypeAliasDeclaration,
-  TSTypeAliasDeclaration,
-  TypeAlias,
-  isTypeParameterDeclaration,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFlowType } from './convert_flow_type';
 import { convertTypeParameterDeclaration } from './convert_type_parameter_declaration';
 import { baseNodeProps } from '../utils/baseNodeProps';
 
-export function convertTypeAlias(node: TypeAlias): TSTypeAliasDeclaration {
+export function convertTypeAlias(node: t.TypeAlias): t.TSTypeAliasDeclaration {
   const typeParameters = node.typeParameters;
   const right = node.right;
-  return tsTypeAliasDeclaration(
+  return t.tsTypeAliasDeclaration(
     node.id,
-    isTypeParameterDeclaration(typeParameters)
+    t.isTypeParameterDeclaration(typeParameters)
       ? {
           ...convertTypeParameterDeclaration(typeParameters),
           ...baseNodeProps(typeParameters),

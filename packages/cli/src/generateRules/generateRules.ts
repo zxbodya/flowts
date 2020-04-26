@@ -2,28 +2,7 @@ import * as babel from '@babel/core';
 import { NodePath } from '@babel/core';
 import traverse from '@babel/traverse';
 
-import {
-  callExpression,
-  DeclareClass,
-  DeclareExportAllDeclaration,
-  DeclareExportDeclaration,
-  DeclareFunction,
-  DeclareInterface,
-  DeclareModule,
-  DeclareModuleExports,
-  DeclareOpaqueType,
-  DeclareTypeAlias,
-  DeclareVariable,
-  expressionStatement,
-  identifier,
-  isDeclareExportDeclaration,
-  isIdentifier,
-  isOpaqueType,
-  memberExpression,
-  OpaqueType,
-  Statement,
-  stringLiteral,
-} from '@babel/types';
+import * as t from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
 import recastPlugin from '../recastPlugin';
@@ -33,7 +12,7 @@ import { Rule } from './Rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
 import { RuleTest } from './RuleTest';
 
-type Declarations = Map<string, { paths: NodePath[]; fix: Statement[] }>;
+type Declarations = Map<string, { paths: NodePath[]; fix: t.Statement[] }>;
 
 const libGlobalsIndex = new Map<string, string>(
   ([] as Array<[string, string]>).concat(
@@ -104,64 +83,64 @@ async function main(
   };
 
   traverse(flowAst, {
-    DeclareClass(path: NodePath<DeclareClass>) {
+    DeclareClass(path: NodePath<t.DeclareClass>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
-    DeclareFunction(path: NodePath<DeclareFunction>) {
+    DeclareFunction(path: NodePath<t.DeclareFunction>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
-    DeclareInterface(path: NodePath<DeclareInterface>) {
+    DeclareInterface(path: NodePath<t.DeclareInterface>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
-    DeclareTypeAlias(path: NodePath<DeclareTypeAlias>) {
+    DeclareTypeAlias(path: NodePath<t.DeclareTypeAlias>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
-    DeclareOpaqueType(path: NodePath<DeclareOpaqueType>) {
+    DeclareOpaqueType(path: NodePath<t.DeclareOpaqueType>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
-    DeclareVariable(path: NodePath<DeclareVariable>) {
+    DeclareVariable(path: NodePath<t.DeclareVariable>) {
       if (!isModule) {
         registerGlobal(path.node.id.name, path);
       } else {
-        if (!isDeclareExportDeclaration(path.parent)) {
+        if (!t.isDeclareExportDeclaration(path.parent)) {
           registerModule(path.node.id.name, path);
         }
       }
     },
     DeclareModule: {
-      enter(path: NodePath<DeclareModule>) {
+      enter(path: NodePath<t.DeclareModule>) {
         isModule = true;
-        moduleName = isIdentifier(path.node.id)
+        moduleName = t.isIdentifier(path.node.id)
           ? path.node.id.name
           : path.node.id.value;
         module = new Map();
@@ -171,7 +150,7 @@ async function main(
         modules[moduleName] = module;
       },
     },
-    DeclareModuleExports(path: NodePath<DeclareModuleExports>) {
+    DeclareModuleExports(path: NodePath<t.DeclareModuleExports>) {
       console.log('module.exports are treated as default export');
       if (!isModule) {
         registerDefaultModule('default', path);
@@ -179,7 +158,7 @@ async function main(
         registerModule('default', path);
       }
     },
-    DeclareExportDeclaration(path: NodePath<DeclareExportDeclaration>) {
+    DeclareExportDeclaration(path: NodePath<t.DeclareExportDeclaration>) {
       if (isModule) {
         const declaration = path.get('declaration') as NodePath;
         if (
@@ -194,8 +173,8 @@ async function main(
           } else {
             registerModule(declaration.node.id.name, path);
           }
-        } else if (isOpaqueType(declaration.node)) {
-          const decl = declaration as NodePath<OpaqueType>;
+        } else if (t.isOpaqueType(declaration.node)) {
+          const decl = declaration as NodePath<t.OpaqueType>;
           // todo: improve @babel/types to include path.isOpaqueType()
           if (!isModule) {
             registerDefaultModule(decl.node.id.name, path);
@@ -215,7 +194,7 @@ async function main(
         throw path.buildCodeFrameError('not implemented');
       }
     },
-    DeclareExportAllDeclaration(path: NodePath<DeclareExportAllDeclaration>) {
+    DeclareExportAllDeclaration(path: NodePath<t.DeclareExportAllDeclaration>) {
       throw path.buildCodeFrameError('not implemented');
     },
   });
@@ -229,10 +208,14 @@ async function main(
       const libName = libGlobalsIndex.get(globalName);
       if (libName) {
         state.fix.push(
-          expressionStatement(
-            callExpression(
-              memberExpression(identifier('context'), identifier('lib'), false),
-              [stringLiteral(libName)]
+          t.expressionStatement(
+            t.callExpression(
+              t.memberExpression(
+                t.identifier('context'),
+                t.identifier('lib'),
+                false
+              ),
+              [t.stringLiteral(libName)]
             )
           )
         );
@@ -246,14 +229,14 @@ async function main(
       const exportName = parts[1];
       if (modules[moduleName] && modules[moduleName].has(exportName)) {
         state.fix.push(
-          expressionStatement(
-            callExpression(
-              memberExpression(
-                identifier('context'),
-                identifier('importFlow'),
+          t.expressionStatement(
+            t.callExpression(
+              t.memberExpression(
+                t.identifier('context'),
+                t.identifier('importFlow'),
                 false
               ),
-              [stringLiteral(moduleName), stringLiteral(exportName)]
+              [t.stringLiteral(moduleName), t.stringLiteral(exportName)]
             )
           )
         );

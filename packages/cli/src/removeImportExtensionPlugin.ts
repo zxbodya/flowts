@@ -1,10 +1,5 @@
 import { NodePath, PluginObj, Visitor } from '@babel/core';
-import {
-  ImportDeclaration,
-  ExportNamedDeclaration,
-  ExportAllDeclaration,
-  StringLiteral,
-} from '@babel/types';
+import * as t from '@babel/types';
 
 export default (
   _babel: any,
@@ -13,7 +8,7 @@ export default (
   const hasJsExtension = (source: string) => /.*\.js$/.test(source);
   const isConvertedFile = opts.isConvertedFile || ((source: string) => true);
 
-  function visit(sourceLiteral: StringLiteral) {
+  function visit(sourceLiteral: t.StringLiteral) {
     const source = sourceLiteral.value;
 
     if (hasJsExtension(source) && isConvertedFile(source)) {
@@ -22,15 +17,15 @@ export default (
   }
 
   const visitor: Visitor = {
-    ImportDeclaration(path: NodePath<ImportDeclaration>) {
+    ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
       visit(path.node.source);
     },
-    ExportNamedDeclaration(path: NodePath<ExportNamedDeclaration>) {
+    ExportNamedDeclaration(path: NodePath<t.ExportNamedDeclaration>) {
       if (path.node.source) {
         visit(path.node.source);
       }
     },
-    ExportAllDeclaration(path: NodePath<ExportAllDeclaration>) {
+    ExportAllDeclaration(path: NodePath<t.ExportAllDeclaration>) {
       visit(path.node.source);
     },
   };

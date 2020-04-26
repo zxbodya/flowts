@@ -1,9 +1,9 @@
-import { CallExpression } from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { convertTypeParameterInstantiation } from '../converters/convert_type_parameter_instantiation';
 import { replaceWith } from '../utils/replaceWith';
 
-export function CallExpression(path: NodePath<CallExpression>) {
+export function CallExpression(path: NodePath<t.CallExpression>) {
   if (path.node.typeArguments) {
     const typeParameters = convertTypeParameterInstantiation(
       path.node.typeArguments

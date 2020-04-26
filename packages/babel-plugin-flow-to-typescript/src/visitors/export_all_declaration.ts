@@ -1,7 +1,7 @@
-import { ExportAllDeclaration } from '@babel/types';
+import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 
-export function ExportAllDeclaration(path: NodePath<ExportAllDeclaration>) {
+export function ExportAllDeclaration(path: NodePath<t.ExportAllDeclaration>) {
   // @ts-ignore todo: types in babel
   path.node.exportKind = null;
 }

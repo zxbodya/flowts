@@ -1,8 +1,8 @@
 import { NodePath } from '@babel/traverse';
-import { ClassBody } from '@babel/types';
+import * as t from '@babel/types';
 import { transformFunctionParams } from './transform_function_params';
 
-export function transformClassBody(path: NodePath<ClassBody>) {
+export function transformClassBody(path: NodePath<t.ClassBody>) {
   for (const elementPath of path.get('body')) {
     if (elementPath.isClassMethod()) {
       if (elementPath.node.kind === 'constructor') {

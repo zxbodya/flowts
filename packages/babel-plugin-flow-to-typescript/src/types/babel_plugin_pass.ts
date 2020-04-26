@@ -1,8 +1,8 @@
-import { File } from '@babel/types';
+import * as t from '@babel/types';
 
 export interface BabelPluginPass<PluginOptions extends object> {
   key: string | undefined | null;
-  file: File;
+  file: t.File;
   opts: PluginOptions;
 
   // The working directory that Babel's programmatic options are loaded

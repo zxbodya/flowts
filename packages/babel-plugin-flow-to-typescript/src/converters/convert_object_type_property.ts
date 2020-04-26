@@ -1,44 +1,38 @@
-import {
-  isNullableTypeAnnotation,
-  isTSFunctionType,
-  ObjectTypeProperty,
-  tsMethodSignature,
-  tsNullKeyword,
-  tsParenthesizedType,
-  tsPropertySignature,
-  tsTypeAnnotation,
-  tsUndefinedKeyword,
-  tsUnionType,
-} from '@babel/types';
+import * as t from '@babel/types';
 import { convertFlowType } from './convert_flow_type';
 import { baseNodeProps } from '../utils/baseNodeProps';
 import { getPropertyKey } from './get_property_key';
 
-export function convertObjectTypeProperty(property: ObjectTypeProperty) {
+export function convertObjectTypeProperty(property: t.ObjectTypeProperty) {
   let tsType;
-  if (!isNullableTypeAnnotation(property.value)) {
+  if (!t.isNullableTypeAnnotation(property.value)) {
     tsType = convertFlowType(property.value);
   } else {
     let tsValueT = convertFlowType(property.value.typeAnnotation);
-    if (isTSFunctionType(tsValueT)) {
-      tsValueT = tsParenthesizedType(tsValueT);
+    if (t.isTSFunctionType(tsValueT)) {
+      tsValueT = t.tsParenthesizedType(tsValueT);
     }
     if (property.optional) {
       // { key?: ?T } -> { key?: T | null }
-      tsType = tsUnionType([tsValueT, tsNullKeyword()]);
+      tsType = t.tsUnionType([tsValueT, t.tsNullKeyword()]);
     } else {
       // { key: ?T } -> { key: T | null | undefined }
-      tsType = tsUnionType([tsValueT, tsUndefinedKeyword(), tsNullKeyword()]);
+      tsType = t.tsUnionType([
+        tsValueT,
+        t.tsUndefinedKeyword(),
+        t.tsNullKeyword(),
+      ]);
     }
   }
 
   const { key, isComputed } = getPropertyKey(property);
 
+  // @ts-ignore todo: property is missing in type definition
   if (property.method) {
-    if (!isTSFunctionType(tsType)) {
+    if (!t.isTSFunctionType(tsType)) {
       throw new Error('incorrect method declaration');
     }
-    const tsMethod = tsMethodSignature(
+    const tsMethod = t.tsMethodSignature(
       key,
       tsType.typeParameters,
       tsType.parameters,
@@ -49,9 +43,9 @@ export function convertObjectTypeProperty(property: ObjectTypeProperty) {
     tsMethod.computed = isComputed;
     return tsMethod;
   } else {
-    const tsPropSignature = tsPropertySignature(
+    const tsPropSignature = t.tsPropertySignature(
       key,
-      tsTypeAnnotation({ ...tsType, ...baseNodeProps(property.value) })
+      t.tsTypeAnnotation({ ...tsType, ...baseNodeProps(property.value) })
     );
     tsPropSignature.optional = property.optional;
     tsPropSignature.readonly =

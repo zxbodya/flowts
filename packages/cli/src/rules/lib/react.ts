@@ -1,5 +1,5 @@
 /* tslint:disable:no-empty */
-import { tsTypeLiteral } from '@babel/types';
+import * as t from '@babel/types';
 import { RuleSet } from '../../ruleTypes';
 
 export default {
@@ -479,7 +479,7 @@ export default {
               if (path.parentPath.node.typeParameters.params.length === 1) {
                 const [T] = path.parentPath.node.typeParameters.params;
                 path.parentPath.node.typeParameters.params = [
-                  tsTypeLiteral([]),
+                  t.tsTypeLiteral([]),
                   T,
                 ];
               }
