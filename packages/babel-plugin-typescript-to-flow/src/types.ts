@@ -1,4 +1,4 @@
-import { BabelPluginPass } from './types/babel_plugin_pass';
+import { BabelPluginPass } from './types/BabelPluginPass';
 
 export interface PluginOptions {
   isJSX: boolean;
