@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { UnsupportedError, warnOnlyOnce } from '../util';
+import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { convertFlowIdentifier } from './convertFlowIdentifier';
 import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
 import { convertObjectTypeCallProperty } from './convertObjectTypeCallProperty';
@@ -335,5 +335,5 @@ export function convertFlowType(node: t.FlowType): t.TSType {
     return t.tsTupleType(flowTypes.map(convertFlowType));
   }
 
-  throw new UnsupportedError(`FlowType(type=${node.type})`);
+  throw new Error(`Unsupported flow type FlowType(type=${node.type})`);
 }

@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath, Node } from '@babel/traverse';
 import helperTypes from '../helperTypes';
-import { warnOnlyOnce } from '../util';
+import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 
 export const Program = {
   enter(path: NodePath<t.Program>) {

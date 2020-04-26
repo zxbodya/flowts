@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { warnOnlyOnce } from '../util';
+import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { convertFlowType } from './convertFlowType';
 import { baseNodeProps } from '../utils/baseNodeProps';
 

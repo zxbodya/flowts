@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { generateFreeIdentifier } from '../util';
+import { generateFreeIdentifier } from '../utils/generateFreeIdentifier';
 import { convertFlowType } from './convertFlowType';
 import { convertTypeParameterDeclaration } from './convertTypeParameterDeclaration';
 import { baseNodeProps } from '../utils/baseNodeProps';

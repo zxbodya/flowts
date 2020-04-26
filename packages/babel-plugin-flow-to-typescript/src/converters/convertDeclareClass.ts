@@ -2,7 +2,7 @@ import * as t from '@babel/types';
 import { convertFlowType } from './convertFlowType';
 import { baseNodeProps } from '../utils/baseNodeProps';
 import { convertObjectTypeIndexer } from './convertObjectTypeIndexer';
-import { warnOnlyOnce } from '../util';
+import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { convertInterfaceExtends } from './convertInterfaceExtends';
 import { convertTypeParameterDeclaration } from './convertTypeParameterDeclaration';
 import { getPropertyKey } from './getPropertyKey';

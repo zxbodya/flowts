@@ -1,6 +1,6 @@
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
-import { warnOnlyOnce } from '../util';
+import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { replaceWith } from '../utils/replaceWith';
 import { PluginPass } from '../types';
 
