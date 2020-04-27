@@ -1,37 +1,46 @@
 import { testTransform } from '../transform';
 
-xtest('declare interface', () => {
+test('declare interface', () => {
   const result = testTransform(`declare interface A {
   id: string;
   type: string;
 }`);
-  const flow = `declare interface A {
-  id: string;
-  type: string;
-}`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare interface A {
+      id: string,
+      type: string,
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('declare interface with call property', () => {
+test('declare interface with call property', () => {
   const result = testTransform(`declare interface A {
   (): void;
 }`);
   const flow = `declare interface A {
   (): void,
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare interface A {
+      (): void
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('declare interface with indexer property', () => {
+test('declare interface with indexer property', () => {
   const result = testTransform(`declare interface A {
   [k: number]: string;
 }`);
   const flow = `declare interface A {
   [k: number]: string;
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare interface A {
+      [k: number]: string
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 

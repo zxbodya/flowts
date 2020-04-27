@@ -1,52 +1,80 @@
 import { testTransform } from '../transform';
 
-xtest('import type statement', () => {
+test('import type statement', () => {
   const result = testTransform(`import type { A } from "module";
 import type { B, C } from './mod';
 import type D from './mod';`);
-  const flow = `import type { A } from "module";
-import type { B, C } from './mod';
-import type D from './mod';`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "import type { A } from \\"module\\";
+    import type { B, C } from './mod';
+    import type D from './mod';"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "import type { A } from \\"module\\";
+    import type { B, C } from './mod';
+    import type D from './mod';"
+  `);
 });
 
-xtest('import type specifier', () => {
+test('import type specifier', () => {
   const result = testTransform(`import A, { C } from "module";
 import type { B } from "module";
 import type { D, E } from "module";`);
-  const flow = `import A, { type B, C } from "module";
-import { type D, type E } from "module";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "import A, { C } from \\"module\\";
+    import type { B } from \\"module\\";
+    import type { D, E } from \\"module\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "import A, { C } from \\"module\\";
+    import type { B } from \\"module\\";
+    import type { D, E } from \\"module\\";"
+  `);
 });
 
-xtest('import type specifier with comment', () => {
+test('import type specifier with comment', () => {
   const result = testTransform(`// comment
 import A, { C } from "module";
 import type { B } from "module";`);
-  const flow = `// comment
-import A, { type B, C } from "module";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// comment
+    import A, { C } from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// comment
+    import A, { C } from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
 });
 
-xtest('mixed type imports', () => {
+test('mixed type imports', () => {
   const result = testTransform(`import type A from "module";
 import type { B } from "module";`);
-  const flow = `import type A, { B } from "module";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "import type A from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "import type A from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
 });
 
-xtest('mixed type imports with comments', () => {
+test('mixed type imports with comments', () => {
   const result = testTransform(`// comment
 import type A from "module";
 import type { B } from "module";`);
-  const flow = `// comment
-import type A, { B } from "module";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// comment
+    import type A from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// comment
+    import type A from \\"module\\";
+    import type { B } from \\"module\\";"
+  `);
 });
 
 xtest('import typeof', () => {

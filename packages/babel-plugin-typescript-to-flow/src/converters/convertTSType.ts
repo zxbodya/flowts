@@ -1,0 +1,269 @@
+import * as t from '@babel/types';
+import { convertTSEntityName } from './convertTSEntityName';
+import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
+import { baseNodeProps } from '../utils/baseNodeProps';
+import { convertTSTypeLiteral } from './convertTSTypeLiteral';
+
+export function convertTSType(node: t.TSType): t.FlowType {
+  if (t.isTSAnyKeyword(node)) {
+    return t.anyTypeAnnotation();
+  }
+
+  if (t.isTSParenthesizedType(node)) {
+    return convertTSType(node.typeAnnotation);
+  }
+  if (t.isTSArrayType(node)) {
+    const elementType = {
+      ...convertTSType(node.elementType),
+      ...baseNodeProps(node.elementType),
+    };
+    return t.arrayTypeAnnotation(
+      // t.isUnionTypeAnnotation(elementType) || t.isIntersectionTypeAnnotation(elementType)
+      //   ? t.parenthesizedType(elementType)
+      //   :
+      elementType
+    );
+  }
+
+  if (t.isTSUndefinedKeyword(node)) {
+    return t.voidTypeAnnotation();
+  }
+  if (t.isTSBooleanKeyword(node)) {
+    return t.booleanTypeAnnotation();
+  }
+
+  if (t.isTSLiteralType(node)) {
+    if (t.isBooleanLiteral(node.literal)) {
+      return t.booleanLiteralTypeAnnotation(node.literal.value);
+    }
+    if (t.isNumericLiteral(node.literal)) {
+      return t.numberLiteralTypeAnnotation(node.literal.value);
+    }
+    if (t.isStringLiteral(node.literal)) {
+      return t.stringLiteralTypeAnnotation(node.literal.value);
+    }
+  }
+
+  if (t.isTSNeverKeyword(node)) {
+    return t.emptyTypeAnnotation();
+  }
+
+  if (t.isTSTypeReference(node)) {
+    const typeName = convertTSEntityName(node.typeName);
+    let flowTypeParameters = null;
+    if (node.typeParameters) {
+      const flowParams = node.typeParameters.params.map(p => ({
+        ...convertTSType(p),
+        ...baseNodeProps(p),
+      }));
+      flowTypeParameters = t.typeParameterInstantiation(flowParams);
+    }
+
+    if (t.isIdentifier(typeName) && typeName.name === 'Readonly') {
+      return t.genericTypeAnnotation(
+        t.identifier('$ReadOnly'),
+        flowTypeParameters
+      );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'ReadonlyArray') {
+      return t.genericTypeAnnotation(
+        t.identifier('$ReadOnlyArray'),
+        flowTypeParameters
+      );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'Partial') {
+      return t.genericTypeAnnotation(
+        t.identifier('$Shape'),
+        flowTypeParameters
+      );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'NonNullable') {
+      return t.genericTypeAnnotation(
+        t.identifier('$NonMaybeType'),
+        flowTypeParameters
+      );
+    } else {
+      return t.genericTypeAnnotation(typeName, flowTypeParameters);
+    }
+  }
+  if (t.isTSIndexedAccessType(node)) {
+    if (
+      t.isTSLiteralType(node.indexType) &&
+      t.isStringLiteral(node.indexType.literal)
+    ) {
+      node.indexType;
+      return t.genericTypeAnnotation(
+        t.identifier('$PropertyType'),
+        t.typeParameterInstantiation([
+          convertTSType(node.objectType),
+          convertTSType(node.indexType),
+        ])
+      );
+    } else {
+      return t.genericTypeAnnotation(
+        t.identifier('$ElementType'),
+        t.typeParameterInstantiation([
+          convertTSType(node.objectType),
+          convertTSType(node.indexType),
+        ])
+      );
+    }
+  }
+
+  if (t.isTSIntersectionType(node)) {
+    const tsTypes = node.types;
+    return t.intersectionTypeAnnotation(
+      tsTypes.map(v => {
+        const flowType = convertTSType(v);
+        // if (t.isTSFunctionType(flowType)) {
+        //   flowType = t.tsParenthesizedType(flowType);
+        // }
+        return { ...flowType, ...baseNodeProps(v) };
+      })
+    );
+  }
+
+  if (t.isTSUnknownKeyword(node)) {
+    return t.mixedTypeAnnotation();
+  }
+
+  if (t.isTSNullKeyword(node)) {
+    return t.nullLiteralTypeAnnotation();
+  }
+
+  if (t.isTSNumberKeyword(node)) {
+    return t.numberTypeAnnotation();
+  }
+
+  if (t.isTSMappedType(node)) {
+    return t.objectTypeAnnotation(
+      [],
+      [
+        t.objectTypeIndexer(
+          t.identifier(node.typeParameter.name),
+          node.typeParameter.constraint
+            ? convertTSType(node.typeParameter.constraint)
+            : t.anyTypeAnnotation(),
+          node.typeAnnotation
+            ? convertTSType(node.typeAnnotation)
+            : t.anyTypeAnnotation()
+        ),
+      ],
+      [],
+      []
+    );
+  }
+  if (t.isTSTypeLiteral(node)) {
+    return convertTSTypeLiteral(node);
+  }
+
+  if (t.isTSStringKeyword(node)) {
+    return t.stringTypeAnnotation();
+  }
+
+  if (t.isTSThisType(node)) {
+    return t.thisTypeAnnotation();
+  }
+
+  if (t.isTSImportType(node)) {
+    const exports = t.genericTypeAnnotation(
+      t.identifier('$Exports'),
+      t.typeParameterInstantiation([
+        t.stringLiteralTypeAnnotation(node.argument.value),
+      ])
+    );
+    if (node.qualifier) {
+      if (t.isTSQualifiedName(node.qualifier)) {
+        throw new Error('todo:');
+      }
+      return t.genericTypeAnnotation(
+        t.identifier('$PropertyType'),
+        t.typeParameterInstantiation([
+          exports,
+          t.genericTypeAnnotation(node.qualifier),
+        ])
+      );
+    }
+    return exports;
+  }
+  if (t.isTSTypeQuery(node)) {
+    if (t.isTSEntityName(node.exprName)) {
+      return t.typeofTypeAnnotation(
+        t.genericTypeAnnotation(convertTSEntityName(node.exprName))
+      );
+    }
+    if (t.isTSImportType(node.exprName)) {
+      throw new Error('todo');
+    }
+  }
+  if (t.isTSTypeOperator(node)) {
+    if (node.operator === 'typeof') {
+      return t.typeofTypeAnnotation(convertTSType(node.typeAnnotation));
+    } else if (node.operator === 'keyof') {
+      return t.genericTypeAnnotation(
+        t.identifier('$Keys'),
+        t.typeParameterInstantiation([convertTSType(node.typeAnnotation)])
+      );
+    } else {
+      throw new Error('todo: not implemented');
+    }
+  }
+
+  if (t.isTSUnionType(node)) {
+    const tsTypes = node.types;
+    return t.unionTypeAnnotation(
+      tsTypes.map(v => {
+        const tsType = convertTSType(v);
+        // if (t.isFunctionTypeAnnotation(tsType)) {
+        //   //tsParenthesizedType
+        //   tsType = tsType;
+        // }
+        return { ...tsType, ...baseNodeProps(v) };
+      })
+    );
+  }
+
+  if (t.isTSVoidKeyword(node)) {
+    return t.voidTypeAnnotation();
+  }
+
+  if (t.isTSFunctionType(node)) {
+    const {
+      typeParams,
+      parameters,
+      rest,
+      returnType,
+    } = convertFunctionTypeAnnotation(node);
+
+    return t.functionTypeAnnotation(
+      typeParams,
+      parameters,
+      rest,
+      returnType ? returnType : t.anyTypeAnnotation()
+    );
+  }
+
+  if (t.isTSTupleType(node)) {
+    const elementTypes = node.elementTypes;
+    return t.tupleTypeAnnotation(elementTypes.map(convertTSType));
+  }
+
+  if (t.isTSMappedType(node)) {
+    return t.objectTypeAnnotation(
+      [],
+      [
+        t.objectTypeIndexer(
+          t.identifier(node.typeParameter.name),
+          node.typeParameter.constraint
+            ? convertTSType(node.typeParameter.constraint)
+            : t.anyTypeAnnotation(),
+          node.typeAnnotation
+            ? convertTSType(node.typeAnnotation)
+            : t.anyTypeAnnotation(),
+          node.readonly ? t.variance('plus') : null
+        ),
+      ],
+      [],
+      []
+    );
+  }
+
+  throw new Error(`Unsupported flow type TSType(type=${node.type})`);
+}

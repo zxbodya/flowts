@@ -1,9 +1,9 @@
 import { testTransform } from '../transform';
 
-xtest('simple case', () => {
+test('simple case', () => {
   const result = testTransform(`new A<number>();`);
   const flow = `// @flow
 new A<number>();`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"new A<number>();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"new A<number>();"`);
 });

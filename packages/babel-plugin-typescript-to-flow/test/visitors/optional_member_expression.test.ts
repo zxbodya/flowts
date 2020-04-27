@@ -1,29 +1,25 @@
 import { testTransform } from '../transform';
 
-xtest('optional member expression', () => {
+test('optional member expression', () => {
   const result = testTransform(`console.log(a?.b);`);
-  const flow = `console.log(a?.b);`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.b);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.b);"`);
 });
 
-xtest('optional multi member expression', () => {
+test('optional multi member expression', () => {
   const result = testTransform(`console.log(a?.b?.c);`);
-  const flow = `console.log(a?.b?.c);`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.b?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.b?.c);"`);
 });
 
-xtest('optional multi mixed member expression', () => {
+test('optional multi mixed member expression', () => {
   const result = testTransform(`console.log(a.b?.c);`);
-  const flow = `console.log(a.b?.c);`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a.b?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a.b?.c);"`);
 });
 
-xtest('Optional numeral literal access', () => {
+test('Optional numeral literal access', () => {
   const result = testTransform(`console.log(a?.[0]?.c);`);
-  const flow = `console.log(a?.[0]?.c);`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"console.log(a?.[0]?.c);"`);
+  expect(result.recast).toMatchInlineSnapshot(`"console.log(a?.[0]?.c);"`);
 });

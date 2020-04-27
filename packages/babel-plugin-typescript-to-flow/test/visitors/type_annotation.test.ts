@@ -1,526 +1,461 @@
 import { testTransform } from '../transform';
 
-xtest('Any type', () => {
+test('Any type', () => {
   const result = testTransform(`let a: any;`);
   const flow = `let a: any;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any;"`);
 });
 
-xtest('Array type', () => {
+test('Array type', () => {
   const result = testTransform(`let a: Array<any>;`);
   const flow = `let a: Array<any>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Array<any>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Array<any>;"`);
 });
 
-xtest('Array type with shorthand syntax', () => {
+test('Array type with shorthand syntax', () => {
   const result = testTransform(`let a: any[];`);
   const flow = `let a: any[];`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any[];"`);
 });
 
-xtest('Boolean keyword', () => {
+test('Boolean keyword', () => {
   const result = testTransform(`let a: boolean;`);
   const flow = `let a: boolean;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: boolean;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: boolean;"`);
 });
 
-xtest('Boolean literal', () => {
+test('Boolean literal', () => {
   const result = testTransform(`let a: true;`);
   const flow = `let a: true;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: true;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: true;"`);
 });
 
-xtest('numerical literal', () => {
+test('numerical literal', () => {
   const result = testTransform(`let a: 42;`);
   const flow = `let a: 42;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: 42;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: 42;"`);
 });
 
-xtest('string literal', () => {
+test('string literal', () => {
   const result = testTransform(`let a: "42";`);
   const flow = `let a: "42";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
 });
 
-xtest('Mixed type', () => {
+test('Mixed type', () => {
   const result = testTransform(`let a: unknown;`);
-  const flow = `let a: mixed;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: mixed;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: mixed;"`);
 });
 
-xtest('Null literal', () => {
+test('Null literal', () => {
   const result = testTransform(`let a: null;`);
   const flow = `let a: null;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: null;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: null;"`);
 });
 
-xtest('Empty type', () => {
+test('Empty type', () => {
   const result = testTransform(`let a: never;`);
-  const flow = `let a: empty;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: empty;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: empty;"`);
 });
 
-xtest('typeof keyword', () => {
+test('typeof keyword', () => {
   const result = testTransform(`let a: typeof A;`);
   const flow = `let a: typeof A;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: typeof A;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: typeof A;"`);
 });
 
-xtest('Generic type', () => {
+test('Generic type', () => {
   const result = testTransform(`let a: X<T>;`);
   const flow = `let a: X<T>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: X<T>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: X<T>;"`);
 });
 
-xtest('Utility generics: $Keys', () => {
+test('Utility generics: $Keys', () => {
   const result = testTransform(`let a: keyof X;`);
   const flow = `let a: $Keys<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $Keys<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $Keys<X>;"`);
 });
 
-xtest('Utility generics: $Keys with typeof', () => {
+test('Utility generics: $Keys with typeof', () => {
   const result = testTransform(`let a: keyof typeof X;`);
   const flow = `let a: $Keys<typeof X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $Keys<typeof X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $Keys<typeof X>;"`);
 });
 
-xtest('Utility generics: $Values', () => {
+test('Utility generics: $Values', () => {
   const result = testTransform(`let a: X[keyof X];`);
   const flow = `let a: $Values<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: $ElementType<X, $Keys<X>>;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: $ElementType<X, $Keys<X>>;"`
+  );
 });
 
-xtest('Utility generics: $ReadOnly', () => {
+test('Utility generics: $ReadOnly', () => {
   const result = testTransform(`let a: Readonly<X>;`);
   const flow = `let a: $ReadOnly<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $ReadOnly<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $ReadOnly<X>;"`);
 });
 
-xtest('Utility generics: $ReadOnlyArray', () => {
+test('Utility generics: $ReadOnlyArray', () => {
   const result = testTransform(`let a: ReadonlyArray<X>;`);
   const flow = `let a: $ReadOnlyArray<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $ReadOnlyArray<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $ReadOnlyArray<X>;"`);
 });
 
-xtest('Utility generics: $Exact', () => {
-  const result = testTransform(`let a: X;`);
-  const flow = `let a: $Exact<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Utility generics: $Diff', () => {
-  const result = testTransform(`let a: Omit<X, keyof Y>;`);
-  const flow = `let a: $Diff<X, Y>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Utility generics: $Diff when keys from type literal can be computed on compile time', () => {
-  const result = testTransform(`let a: Omit<X, "a" | "b" | "c">;`);
-  const flow = `let a: $Diff<X, {a:number, 'b':B, c():void }>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Utility generics: $Diff when keys from type literal can not be computed on compile time', () => {
-  const result = testTransform(`let a: Omit<X, keyof {
-  [k: string]: B;
-}>;`);
-  const flow = `let a: $Diff<X, {[k:string]:B}>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Utility generics: $PropertyType', () => {
+test('Utility generics: $PropertyType', () => {
   const result = testTransform(`let a: T[k];`);
   const flow = `let a: $PropertyType<T, k>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $ElementType<T, k>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $ElementType<T, k>;"`);
 });
 
-xtest('Utility generics: $ElementType', () => {
+test('Utility generics: $ElementType', () => {
   const result = testTransform(`let a: T[k];`);
   const flow = `let a: $ElementType<T, k>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $ElementType<T, k>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $ElementType<T, k>;"`);
 });
 
-xtest('Utility generics: $Shape', () => {
+test('Utility generics: $Shape', () => {
   const result = testTransform(`let a: Partial<X>;`);
   const flow = `let a: $Shape<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $Shape<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $Shape<X>;"`);
 });
 
-xtest('Utility generics: $NonMaybeType', () => {
+test('Utility generics: $NonMaybeType', () => {
   const result = testTransform(`let a: NonNullable<X>;`);
   const flow = `let a: $NonMaybeType<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: $NonMaybeType<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: $NonMaybeType<X>;"`);
 });
 
-xtest('Utility generics: $Exports', () => {
+test('Utility generics: $Exports', () => {
   const result = testTransform(`type A = import("react");`);
-  const flow = `type A = $Exports<"react">;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type A = $Exports<\\"react\\">;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type A = $Exports<\\"react\\">;"`
+  );
 });
 
-xtest('Utility generics: $Exports inside of $PropertyType', () => {
+test('Utility generics: $Exports inside of $PropertyType', () => {
   const result = testTransform(`type B = import("react").ReactNode;`);
   const flow = `type B = $PropertyType<$Exports<"react">, "ReactNode">`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type B = $PropertyType<$Exports<\\"react\\">, ReactNode>;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"type B = $PropertyType<$Exports<\\"react\\">, ReactNode>;"`
+  );
 });
 
-xtest('Utility generics: Class', () => {
-  const result = testTransform(`let a: {
-  new (...args: any): X;
-};`);
-  const flow = `let a: Class<X>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Object type: exact=true', () => {
-  const result = testTransform(`let a: {
-  a: T;
-};`);
-  const flow = `let a: {| a: T |};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Intersection type', () => {
-  const result = testTransform(`let a: {
-  x: number;
-} & {
-  y: string;
-};`);
-  const flow = `let a: {x: number} & {y: string};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: indexer', () => {
-  const result = testTransform(`let a: {
-  [x: string]: number;
-  [x: number]: boolean;
-};`);
-  const flow = `let a: {
-  [x:string]: number,
-  [x:number]: boolean
-};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: indexer without key name', () => {
-  const result = testTransform(`let a: {
-  [x: string]: number;
-  [x: number]: boolean;
-};`);
-  const flow = `let a: {
-  [string]: number,
-  [number]: boolean
-};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: indexer to mapped type - skip indexer', () => {
-  const result = testTransform(`let a: {
-  [x: string]: number;
-};`);
-  const flow = `let a: {
-  [x:string]: number;
-};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: indexer to mapped type', () => {
-  const result = testTransform(`let a: { [x in A]: number };`);
-  const flow = `let a: {
-  [x:A]: number;
-};`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: type literal with variance', () => {
-  const result = testTransform(`let a: {
-  readonly b: string;
-  c: number;
-};`);
-  const flow = `let a: { +b: string, -c:number };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: type literal with indexer with variance', () => {
-  const result = testTransform(`let a: {
-  readonly [x: string]: string;
-};
-let b: {
-  [x: string]: string;
-};`);
-  const flow = `let a: { +[x:string]: string };
-let b: { -[x:string]: string };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: type literal with spread operator', () => {
-  const result = testTransform(`let a: {
-  b: string;
-} & T;`);
-  const flow = `let a: { b: string, ...T };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Type literal: deep type literal with spread operator', () => {
-  const result = testTransform(`let a: {
-  b: {
-    c: T;
-  } & U;
-};`);
-  const flow = `let a: { b: { c: T, ...U} };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Maybe type: variable declaration', () => {
+test('Maybe type: variable declaration', () => {
   const result = testTransform(`let a: string | undefined | null;`);
   const flow = `let a: ?string;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: string | void | null;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: string | void | null;"`);
 });
 
-xtest('Maybe type: type literal', () => {
-  const result = testTransform(`let a: {
-  x: string | undefined | null;
-};`);
-  const flow = `let a: { x: ?string };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Maybe type: type literal with optional key', () => {
-  const result = testTransform(`let a: {
-  x?: string | null;
-};`);
-  const flow = `let a: { x?: ?string };`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
-});
-
-xtest('Maybe type: required parameter in function declaration', () => {
+test('Maybe type: required parameter in function declaration', () => {
   const result = testTransform(`function f(arg?: string | null) {}`);
   const flow = `function f(arg: ?string) {}`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"function f(arg?: string | null) {}"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"function f(arg?: string | null) {}"`
+  );
 });
 
-xtest('Maybe type: generic type instantiation', () => {
+test('Maybe type: generic type instantiation', () => {
   const result = testTransform(`let a: X<T | undefined | null>;`);
   const flow = `let a: X<?T>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: X<T | void | null>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: X<T | void | null>;"`);
 });
 
-xtest('Union type', () => {
+test('Union type', () => {
   const result = testTransform(`let a: string | number | boolean;`);
   const flow = `let a: string | number | boolean;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: string | number | boolean;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: string | number | boolean;"`
+  );
 });
 
-xtest('Void literal', () => {
+test('Void literal', () => {
   const result = testTransform(`let a: void;`);
   const flow = `let a: void;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: void;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: void;"`);
 });
 
-xtest('Function type', () => {
+test('Function type', () => {
   const result = testTransform(`function test(): string {
   return 'test';
 }`);
   const flow = `function test(): string { return 'test'; }`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test(): string {
+      return 'test';
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function test(): string {
+      return 'test';
+    }"
+  `);
 });
 
-xtest('Function type (param)', () => {
+test('Function type (param)', () => {
   const result = testTransform(`function test(arg: string): string {
   return arg;
 }`);
   const flow = `function test(arg: string): string { return arg; }`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test(arg: string): string {
+      return arg;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function test(arg: string): string {
+      return arg;
+    }"
+  `);
 });
 
-xtest('Function type (multi param)', () => {
+test('Function type (multi param)', () => {
   const result = testTransform(`function test(arg1: string, arg2: number): string {
   return arg1;
 }`);
   const flow = `function test(arg1: string, arg2: number): string { return arg1; }`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test(arg1: string, arg2: number): string {
+      return arg1;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function test(arg1: string, arg2: number): string {
+      return arg1;
+    }"
+  `);
 });
 
-xtest('Arrow Function type', () => {
+test('Arrow Function type', () => {
   const result = testTransform(`let test: () => string; `);
   const flow = `let test: () => string;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let test: () => string;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let test: () => string;"`);
 });
 
-xtest('Arrow Function type (param)', () => {
+test('Arrow Function type (param)', () => {
   const result = testTransform(`let test: (a: number) => string;`);
   const flow = `let test: (a: number) => string;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number) => string;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number) => string;"`
+  );
 });
 
-xtest('Arrow Function type (multi params)', () => {
+test('Arrow Function type (multi params)', () => {
   const result = testTransform(`let test: (a: number, b: string) => string;`);
   const flow = `let test: (a: number, b: string) => string;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number, b: string) => string;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number, b: string) => string;"`
+  );
 });
 
-xtest('function type annotation with type parameters', () => {
+test('function type annotation with type parameters', () => {
   const result = testTransform(`let test: <T>(a: number) => T;`);
   const flow = `let test: <T>(a: number) => T;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: <T>(a: number) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(`"let test: (a: number) => T;"`);
 });
 
-xtest('maybe argument', () => {
+test('maybe argument', () => {
   const result = testTransform(`let test: (a?: number | null) => T;`);
   const flow = `let test: (a: ?number) => T;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number | null) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number | null) => T;"`
+  );
 });
 
-xtest('maybe argument with not null after it', () => {
+test('maybe argument with not null after it', () => {
   const result = testTransform(
     `let test: (a: number | undefined | null, b: number) => T;`
   );
   const flow = `let test: (a: ?number, b: number) => T;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: number | void | null, b: number) => T;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: number | void | null, b: number) => T;"`
+  );
 });
 
-xtest('function maybe argument', () => {
+test('function maybe argument', () => {
   const result = testTransform(
     `let test: (a?: ((a: number) => number) | null) => T;`
   );
   const flow = `let test: (a: ?(number=>number)) => T;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (a: ((a: number) => number) | null) => T;"`
+  );
+  //todo: recast bug
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (a: : (a: number) => number | null) => T;"`
+  );
 });
 
-xtest('maybe function type annotation', () => {
+test('maybe function type annotation', () => {
   const result = testTransform(
     `let test: ((a: number) => T) | undefined | null;`
   );
   const flow = `let test: ?(a: number) => T;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: ((a: number) => T) | void | null;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: : (a: number) => T | void | null;"`
+  );
 });
 
-xtest('Generic Function type', () => {
+test('Generic Function type', () => {
   const result = testTransform(`function test<T>(value: T): T {
   return value;
 }`);
   const flow = `function test<T>(value: T): T { return value; }`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test<T>(value: T): T {
+      return value;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function test<T>(value: T): T {
+      return value;
+    }"
+  `);
 });
 
-xtest('Function type (rest param)', () => {
+test('Function type (rest param)', () => {
   const result = testTransform(`function test(value: number, ...arg2: Array<string>): number {
   return value;
 }`);
   const flow = `function test(value: number, ...arg2: Array<string>): number { return value; }`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function test(value: number, ...arg2: Array<string>): number {
+      return value;
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function test(value: number, ...arg2: Array<string>): number {
+      return value;
+    }"
+  `);
 });
 
-xtest('Arrow Function type (rest param)', () => {
+test('Arrow Function type (rest param)', () => {
   const result = testTransform(
     `let test: (value: number, ...args: Array<string>) => number;`
   );
   const flow = `let test: (value: number, ...args: Array<string>) => number;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let test: (value: number, ...args: Array<string>) => number;"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: (value: number, ...args: Array<string>) => number;"`
+  );
 });
 
-xtest('Qualified type', () => {
+test('Qualified type', () => {
   const result = testTransform(`let a: A.B;`);
-  const flow = `let a: A.B;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: A.B;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: A.B;"`);
 });
 
-xtest('recursively qualified type', () => {
+test('recursively qualified type', () => {
   const result = testTransform(`import * as A from "a";
-type B = A.A.A;`);
-  const flow = `import * as A from "a";
-type B = A.A.A;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+type B = A.B.C;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "import * as A from \\"a\\";
+    type B = A.B.C;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "import * as A from \\"a\\";
+    type B = A.B.C;"
+  `);
 });
 
-xtest('Tuple type', () => {
+test('Tuple type', () => {
   const result = testTransform(`let a: [number, string, Array<boolean>];`);
   const flow = `let a: [number, string, Array<boolean>];`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(
+    `"let a: [number, string, Array<boolean>];"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let a: [number, string, Array<boolean>];"`
+  );
 });
 
-xtest('Object type (alias to any)', () => {
+test('Object type (alias to any)', () => {
   const result = testTransform(`let a: any;`);
   const flow = `let a: Object;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: any;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: any;"`);
 });
 
-xtest('preserves comments above imports', () => {
+test('preserves comments above imports', () => {
   const result = testTransform(`// not flow comment
 import * as React from "react";
 `);
   const flow = `// not flow comment
 import * as React from "react";`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// not flow comment
+    import * as React from \\"react\\";"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// not flow comment
+    import * as React from \\"react\\";"
+  `);
 });
 
-xtest('with empty type parameters', () => {
+test('with empty type parameters', () => {
   const result = testTransform(`let a: A;`);
   const flow = `let a: A<>;`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"let a: A;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: A;"`);
 });

@@ -1,17 +1,13 @@
 import { testTransform } from '../transform';
 
-xtest('simple case', () => {
+test('simple case', () => {
   const result = testTransform(`createPlugin<number>();`);
-  const flow = `// @flow
-createPlugin<number>();`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"createPlugin<number>();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"createPlugin<number>();"`);
 });
 
-xtest('more complicated case', () => {
+test('more complicated case', () => {
   const result = testTransform(`createPlugin<any, unknown>();`);
-  const flow = `// @flow
-createPlugin<*, mixed>();`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`"createPlugin<any, mixed>();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"createPlugin<any, mixed>();"`);
 });

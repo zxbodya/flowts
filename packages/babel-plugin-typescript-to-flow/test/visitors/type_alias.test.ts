@@ -60,17 +60,19 @@ type T = {
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('Comment above type alias', () => {
+test('Comment above type alias', () => {
   const result = testTransform(`
 // comment
 type T = A;
 `);
-  const flow = `
-// comment
-type T = A;
-`;
-  // expect(result.babel).toMatchInlineSnapshot();
-  // expect(result.recast).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "// comment
+    type T = A;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "// comment
+    type T = A;"
+  `);
 });
 
 xtest('methods in object type', () => {
