@@ -33,6 +33,10 @@
     "@babel/types": "7.9.0"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/preset-env": "^7.9.5",
     "@types/babel__traverse": "7.0.9",
     "@types/jest": "^25.2.1",
     "@zxbodya/recast": "^0.18.9",
@@ -43,17 +47,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
+    "modulePathIgnorePatterns": [
+      "dist"
     ]
   }
 }
