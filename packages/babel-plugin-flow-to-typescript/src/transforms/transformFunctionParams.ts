@@ -50,24 +50,24 @@ export function transformFunctionParams(
 ) {
   let hasRequiredAfter = false;
   for (let i = params.length - 1; i >= 0; i--) {
-    const paramNode = params[i];
-    if (paramNode.isPattern()) {
+    const paramPath = params[i];
+    if (paramPath.isPattern()) {
       if (
-        paramNode.isAssignmentPattern() &&
-        t.isIdentifier(paramNode.node.left)
+        paramPath.isAssignmentPattern() &&
+        t.isIdentifier(paramPath.node.left)
       ) {
         // argument with default value can not be optional in typescript
-        paramNode.node.left.optional = false;
+        paramPath.node.left.optional = false;
       }
-      if (!paramNode.isAssignmentPattern()) {
+      if (!paramPath.isAssignmentPattern()) {
         hasRequiredAfter = true;
       }
-      if (cleanupPattern(paramNode.node)) {
+      if (cleanupPattern(paramPath.node)) {
         console.warn('Ignoring types inside pattern argument');
       }
     }
-    if (paramNode.isIdentifier()) {
-      const param = paramNode.node;
+    if (paramPath.isIdentifier()) {
+      const param = paramPath.node;
 
       if (param.typeAnnotation && t.isTypeAnnotation(param.typeAnnotation)) {
         if (t.isNullableTypeAnnotation(param.typeAnnotation.typeAnnotation)) {
@@ -81,7 +81,7 @@ export function transformFunctionParams(
             }
             const typeAnnotation = t.tsUnionType([tsType, t.tsNullKeyword()]);
             replaceWith(
-              paramNode.get('typeAnnotation'),
+              paramPath.get('typeAnnotation'),
               t.tsTypeAnnotation(typeAnnotation)
             );
           } else {
@@ -100,7 +100,7 @@ export function transformFunctionParams(
               t.tsNullKeyword(),
             ]);
             replaceWith(
-              paramNode.get('typeAnnotation'),
+              paramPath.get('typeAnnotation'),
               t.tsTypeAnnotation(typeAnnotation)
             );
           }

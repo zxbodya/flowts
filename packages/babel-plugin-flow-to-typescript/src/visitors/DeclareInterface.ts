@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { convertInterfaceDeclaration } from '../converters/convertInterfaceExtends';
+import { convertInterfaceDeclaration } from '../converters/convertInterfaceDeclaration';
 import { replaceWith } from '../utils/replaceWith';
 import { PluginPass } from '../types';
 

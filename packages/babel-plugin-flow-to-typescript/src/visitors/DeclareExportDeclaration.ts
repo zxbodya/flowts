@@ -7,7 +7,7 @@ import { convertDeclareFunction } from '../converters/convertDeclareFunction';
 import { convertDeclareTypeAlias } from '../converters/convertDeclareTypeAlias';
 import { convertDeclareClass } from '../converters/convertDeclareClass';
 import { replaceWith } from '../utils/replaceWith';
-import { convertInterfaceDeclaration } from '../converters/convertInterfaceExtends';
+import { convertInterfaceDeclaration } from '../converters/convertInterfaceDeclaration';
 
 export function DeclareExportDeclaration(
   path: NodePath<t.DeclareExportDeclaration>

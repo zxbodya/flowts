@@ -607,14 +607,14 @@ test('Qualified type', () => {
 
 test('recursively qualified type', () => {
   const result = testTransform(`import * as A from "a";
-type B = A.A.A;`);
+type B = A.B.C;`);
   expect(result.babel).toMatchInlineSnapshot(`
     "import * as A from \\"a\\";
-    type B = A.A.A;"
+    type B = A.B.C;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "import * as A from \\"a\\";
-    type B = A.A.A;"
+    type B = A.B.C;"
   `);
 });
 
