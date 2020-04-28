@@ -146,7 +146,7 @@ test('Maybe type: type literal with optional key', () => {
   const flow = `let a: { x?: ?string };`;
   expect(result.babel).toMatchInlineSnapshot(`
     "let a: {
-      x: string | null
+      x?: string | null
     };"
   `);
   // expect(result.recast).toMatchInlineSnapshot();

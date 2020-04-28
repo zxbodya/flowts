@@ -10,6 +10,9 @@ import { TSTypeParameterDeclaration } from './visitors/TSTypeParameterDeclaratio
 import { TSInterfaceDeclaration } from './visitors/TSInterfaceDeclaration';
 import { TSDeclareFunction } from './visitors/TSDeclareFunction';
 import { ClassDeclaration } from './visitors/ClassDeclaration';
+import { ExportDefaultDeclaration } from './visitors/ExportDefaultDeclaration';
+import { ExportNamedDeclaration } from './visitors/ExportNamedDeclaration';
+import { VariableDeclaration } from './visitors/VariableDeclaration';
 
 const visitor: Visitor<PluginPass> = {
   TSTypeAliasDeclaration,
@@ -22,6 +25,9 @@ const visitor: Visitor<PluginPass> = {
   TSInterfaceDeclaration,
   TSDeclareFunction,
   ClassDeclaration,
+  ExportDefaultDeclaration,
+  ExportNamedDeclaration,
+  VariableDeclaration,
 };
 
 // tslint:disable-next-line:no-any

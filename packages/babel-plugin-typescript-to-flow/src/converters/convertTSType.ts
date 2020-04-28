@@ -265,5 +265,9 @@ export function convertTSType(node: t.TSType): t.FlowType {
     );
   }
 
+  if (t.isTSObjectKeyword(node)) {
+    return t.objectTypeAnnotation([], [], [], []);
+  }
+
   throw new Error(`Unsupported flow type TSType(type=${node.type})`);
 }

@@ -43,6 +43,9 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
         if (member.readonly) {
           prop.variance = t.variance('plus');
         }
+        if (member.optional) {
+          prop.optional = true;
+        }
       } else {
         throw new Error('todo:');
       }
