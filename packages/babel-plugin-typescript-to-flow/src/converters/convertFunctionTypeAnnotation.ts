@@ -38,6 +38,11 @@ export function convertFunctionTypeAnnotation(
     t.isTSDeclareFunction(node) || t.isTSDeclareMethod(node)
       ? node.params
       : node.parameters;
+
+  const isDeclaration =
+    t.isTSDeclareFunction(node) || t.isTSDeclareMethod(node);
+  let variableNumber = 0;
+
   for (const param of originalParams) {
     if (t.isIdentifier(param)) {
       parameters.push(
@@ -57,7 +62,25 @@ export function convertFunctionTypeAnnotation(
         )
       );
     } else {
-      throw new Error('todo:');
+      // todo: sepearate declarations from implementations
+      if (isDeclaration) {
+        // @ts-ignore
+        parameters.push(
+          t.functionTypeParam(
+            t.identifier(`v${variableNumber}`),
+            // @ts-ignore
+            param.typeAnnotation
+              ? convertTSType(
+                  // @ts-ignore
+                  (param.typeAnnotation as t.TSTypeAnnotation).typeAnnotation
+                )
+              : t.anyTypeAnnotation()
+          )
+        );
+        variableNumber += 1;
+      } else {
+        throw new Error('todo:');
+      }
     }
   }
   return { typeParams, parameters, rest, returnType };
