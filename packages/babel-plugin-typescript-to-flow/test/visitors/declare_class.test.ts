@@ -120,3 +120,12 @@ xtest('async iterable class', () => {
   // expect(result.babel).toMatchInlineSnapshot();
   // expect(result.recast).toMatchInlineSnapshot();
 });
+
+test('member expression in super', () => {
+  const result = testTransform(`declare class C extends React.Component<A, B> {
+}`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"declare class C extends React.Component<A, B> {}"`
+  );
+  // expect(result.recast).toMatchInlineSnapshot();
+});

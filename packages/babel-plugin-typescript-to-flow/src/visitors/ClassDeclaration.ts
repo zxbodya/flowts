@@ -9,6 +9,18 @@ import { convertTSType } from '../converters/convertTSType';
 import { TSTypeAnnotation } from '@babel/types';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
 
+function convertMemberExpressionToQualifiedTypeIdentifier(
+  id: t.Identifier | t.MemberExpression
+): t.Identifier | t.QualifiedTypeIdentifier {
+  if (t.isIdentifier(id)) return id;
+  if (!t.isIdentifier(id.object) && !t.isMemberExpression(id.object)) {
+    throw new Error('not implemented');
+  }
+  return t.qualifiedTypeIdentifier(
+    id.property,
+    convertMemberExpressionToQualifiedTypeIdentifier(id.object)
+  );
+}
 export function ClassDeclaration(path: NodePath<t.ClassDeclaration>) {
   const node = path.node;
   if (node.declare) {
@@ -19,7 +31,7 @@ export function ClassDeclaration(path: NodePath<t.ClassDeclaration>) {
     const _extends = node.superClass
       ? [
           t.interfaceExtends(
-            convertTSEntityName(node.superClass),
+            convertMemberExpressionToQualifiedTypeIdentifier(node.superClass),
             node.superTypeParameters
               ? convertTSTypeParameterInstantiation(node.superTypeParameters)
               : null
