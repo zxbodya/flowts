@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xtest('declare class', () => {
+test('declare class', () => {
   const result = testTransform(`declare class A<X, Y, Z> extends B<X<Y<Z>>> {
   static C: D<X, Y>;
   constructor(abc: boolean): A;
@@ -19,11 +19,21 @@ xtest('declare class', () => {
   get getterX(): string;
   set setterY(boolean): number;
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare class A<X, Y, Z> extends B<X<Y<Z>>> {
+      static C: D<X, Y>,
+      constructor(abc: boolean): A,
+      E: boolean,
+      F: X<Z> | void | null,
+      g(): H,
+      get getterX(): string,
+      set setterY(a: boolean): number,
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('declare class', () => {
+test('declare class', () => {
   const result = testTransform(`declare class A extends B implements C {
   static readonly C: D;
   readonly F: D;
@@ -32,11 +42,16 @@ xtest('declare class', () => {
   static +C: D;
   +F: D;
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare class A extends B implements C {
+      static +C: D,
+      +F: D,
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('declare class', () => {
+test('declare class', () => {
   const result = testTransform(`declare class A extends B implements C {
   // 123
   static C: D;
@@ -49,7 +64,12 @@ xtest('declare class', () => {
   // 321
   F: D;
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare class A extends B implements C {
+      static C: D,
+      F: D,
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
@@ -64,14 +84,18 @@ xtest('declare class with indexer property', () => {
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
-xtest('declare class with with generic method', () => {
+test('declare class with with generic method', () => {
   const result = testTransform(`declare class A {
   map<T>(fn: (node: this, index: number) => T): Array<T>;
 }`);
   const flow = `declare class A {
   map<T>(fn: (node: this, index: number) => T): Array<T>;
 }`;
-  // expect(result.babel).toMatchInlineSnapshot();
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare class A {
+      map<T>(fn: (node: this, index: number) => T): Array<T>
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
