@@ -1,10 +1,10 @@
 # babel-plugin-flow-to-typescript
 
-Babel](https://github.com/babel/babel) plugin to convert [Flow](https://github.com/facebook/flow) code to [TypeScript](https://github.com/Microsoft/TypeScript).
+[Babel](https://github.com/babel/babel) plugin to convert [Flow](https://github.com/facebook/flow) code to [TypeScript](https://github.com/Microsoft/TypeScript).
 
 ## Usage 
 
-Preferably - [flowts](https://github.com/zxbodya/flowts) utility should be used.
+Most convenient - via [flowts](https://github.com/zxbodya/flowts) utility.
 
 
 ## Usage as babel plugin:
@@ -26,6 +26,6 @@ Plugin options:
 
 ## History
 
-Originally, development started in [Kiikurage/babel-plugin-flow-to-typescript](https://github.com/Kiikurage/babel-plugin-flow-to-typescript).
+This is a fork of [Kiikurage/babel-plugin-flow-to-typescript](https://github.com/Kiikurage/babel-plugin-flow-to-typescript).
 
-Because original repository is no longer actively maintained, and to keep it in sync with flowts project - it was forked here.
+Original repository is no longer actively maintained, also having it here helps to keep flowts project in sync with the plugin.
