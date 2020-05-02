@@ -6,7 +6,7 @@
     "dist/*",
     "README.md"
   ],
-  "version": "0.7.5",
+  "version": "0.10.2",
   "scripts": {
     "prepare": "yarn run build",
     "test": "jest",

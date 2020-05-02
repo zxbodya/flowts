@@ -1,6 +1,6 @@
 {
   "name": "flowts",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Utility script to convert flow typed code to typescript",
   "bin": {
     "flowts": "./bin/flowts.js"
@@ -34,7 +34,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@babel/traverse": "^7.9.5",
     "@babel/types": "7.9.0",
-    "@zxbodya/babel-plugin-flow-to-typescript": "^0.7.5",
+    "@zxbodya/babel-plugin-flow-to-typescript": "^0.10.2",
     "@zxbodya/recast": "^0.18.9",
     "commander": "^5.0.0",
     "globby": "^11.0.0",
