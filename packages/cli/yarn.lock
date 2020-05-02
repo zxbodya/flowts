@@ -823,7 +823,7 @@
     "@babel/parser" "^7.8.6"
     "@babel/types" "^7.8.6"
 
-"@babel/traverse@^7.1.0", "@babel/traverse@^7.7.4", "@babel/traverse@^7.8.3", "@babel/traverse@^7.8.4", "@babel/traverse@^7.8.6", "@babel/traverse@^7.9.0", "@babel/traverse@^7.9.5":
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.7.4", "@babel/traverse@^7.8.3", "@babel/traverse@^7.8.6", "@babel/traverse@^7.9.0", "@babel/traverse@^7.9.5":
   version "7.9.5"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.9.5.tgz#6e7c56b44e2ac7011a948c21e283ddd9d9db97a2"
   integrity sha512-c4gH3jsvSuGUezlP6rzSJ6jf8fYjLj3hsMZRx/nX0h+fmHN0w+ekubRrHPqnMec0meycA2nwCsJ7dC8IPem2FQ==
@@ -1202,15 +1202,6 @@
   integrity sha512-9T1auFmbPZoxHz0enUFlUuKRy3it01R+hlggyVUMtnCTQRunsQYifnSGb8hET4Xo8yiC0o0r1paW3ud5+rbURg==
   dependencies:
     "@types/yargs-parser" "*"
-
-"@zxbodya/babel-plugin-flow-to-typescript@^0.7.5":
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/@zxbodya/babel-plugin-flow-to-typescript/-/babel-plugin-flow-to-typescript-0.7.5.tgz#3e2ed9f9642c9250f672b2b91b75214faace8b32"
-  integrity sha512-vDlaYdKMXcmbxtihpDX1c2sN7HWGyMBIht3T6OyYQ21eV2WvlRfgyqLK5jLczO+hfeeoWrcP3ELt1KvXU/oqFw==
-  dependencies:
-    "@babel/template" "^7.8.3"
-    "@babel/traverse" "^7.8.4"
-    "@babel/types" "^7.8.3"
 
 "@zxbodya/recast@^0.18.9":
   version "0.18.9"
