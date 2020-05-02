@@ -8,14 +8,12 @@
   ],
   "version": "0.10.2",
   "scripts": {
-    "prepare": "yarn run build",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "build": "tsc -b",
-    "watch": "tsc --watch",
     "cover": "jest --coverage",
     "report-coverage": "codecov",
-    "prettify": "./node_modules/.bin/prettier --write \"{src,test}/**/*.{js,ts,tsx}\""
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prepare": "yarn run clean && tsc -b --force",
+    "build": "tsc -b"
   },
   "keywords": [
     "babel",
@@ -39,6 +37,7 @@
     "@zxbodya/recast": "^0.18.9",
     "codecov": "^3.6.5",
     "jest": "^25.2.7",
+    "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.2"
   },

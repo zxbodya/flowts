@@ -9,10 +9,9 @@
     "cover": "jest --coverage",
     "report-coverage": "codecov",
     "test": "jest",
-    "prepare": "yarn run build",
-    "build": "yarn run clean && yarn run compile",
     "clean": "rimraf dist",
-    "compile": "tsc -b",
+    "prepare": "yarn run clean && tsc -b --force",
+    "build": "tsc -b",
     "ts-node": "ts-node"
   },
   "files": [
