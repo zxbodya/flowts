@@ -87,6 +87,16 @@ export function convertTSType(node: t.TSType): t.FlowType {
         t.identifier('$NonMaybeType'),
         flowTypeParameters
       );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'ReadonlySet') {
+      return t.genericTypeAnnotation(
+        t.identifier('$ReadOnlySet'),
+        flowTypeParameters
+      );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'ReadonlyMap') {
+      return t.genericTypeAnnotation(
+        t.identifier('$ReadOnlyMap'),
+        flowTypeParameters
+      );
     } else {
       return t.genericTypeAnnotation(typeName, flowTypeParameters);
     }
