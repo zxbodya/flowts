@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle exports', () => {
+xit('should handle exports', () => {
   const ts = `
 export default module
 export { module }
@@ -26,7 +26,7 @@ declare export * from \\"typescript\\"
 `);
 });
 
-test('should handle unnamed default export', () => {
+xit('should handle unnamed default export', () => {
   const ts = `
 export default function(): void;
 `;

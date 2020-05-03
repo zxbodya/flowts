@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle mapped types', () => {
+xit('should handle mapped types', () => {
   const ts = `
 type Ref<T> = {current: T | null}
 type SourceUnion = 'a' | 'b' | 'c'

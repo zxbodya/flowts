@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle single interface', () => {
+xit('should handle single interface', () => {
   const ts = `
 interface User {
   firstName: string
@@ -25,7 +25,7 @@ interface User {
   // `);
 });
 
-it('should handle interface inheritance', () => {
+xit('should handle interface inheritance', () => {
   const ts = `
 interface User {
   firstName: string
@@ -62,7 +62,7 @@ declare type SpecialUser = {
   // `);
 });
 
-it('should handle interface merging', () => {
+xit('should handle interface merging', () => {
   const ts = `
 interface User {
   firstName: string
@@ -97,7 +97,7 @@ interface User {
   // `);
 });
 
-it('should handle all properties', () => {
+xit('should handle all properties', () => {
   const ts = `
 interface Props {
   "aria-label": string;
@@ -119,7 +119,7 @@ interface Props {
 `);
 });
 
-it('should support readonly modifier', () => {
+xit('should support readonly modifier', () => {
   const ts = `
 interface Helper {
   readonly name: string;
@@ -137,7 +137,7 @@ interface Helper {
 `);
 });
 
-it('should support call signature', () => {
+xit('should support call signature', () => {
   const ts = `
   declare interface ObjectSchemaConstructor {
     <T extends object>(fields?: ObjectSchemaDefinition<T>): ObjectSchema<T>;
@@ -157,7 +157,7 @@ it('should support call signature', () => {
 `);
 });
 
-it('should remove this in call signature', () => {
+xit('should remove this in call signature', () => {
   const ts = `
 interface Arc<This, Datum> {
   (this: This, d: Datum, ...args: any[]): string | null;
@@ -187,7 +187,7 @@ declare interface C<This, Datum> {
 `);
 });
 
-it('should remove generic defaults in call signature', () => {
+xit('should remove generic defaults in call signature', () => {
   const ts = `
 interface AbstractLevelDOWNConstructor {
     <K = any, V = any>(location: string): AbstractLevelDOWN<K, V>;
@@ -203,7 +203,7 @@ interface AbstractLevelDOWNConstructor {
 `);
 });
 
-it('should support omitting generic defaults in types, classes, interfaces', () => {
+xit('should support omitting generic defaults in types, classes, interfaces', () => {
   const ts = `
 interface Foo<T = symbol, U = number> {}
 interface FooBar extends Foo {}
@@ -235,7 +235,7 @@ declare var f: Baz<any>;
 `);
 });
 
-it('should support optional methods', () => {
+xit('should support optional methods', () => {
   const ts = `
 interface Example<State> {
   required<R>(value: any, state: State): true;
@@ -253,7 +253,7 @@ interface Example<State> {
 `);
 });
 
-it('should handle toString property name', () => {
+xit('should handle toString property name', () => {
   const ts = `
 interface A {
   toString(): string;
@@ -269,7 +269,7 @@ interface A {
 `);
 });
 
-it('should handle untyped object binding pattern', () => {
+xit('should handle untyped object binding pattern', () => {
   const ts = `
 interface ObjectBinding {
   (): void;
@@ -289,7 +289,7 @@ interface ObjectBinding {
 `);
 });
 
-it('should handle untyped array binding pattern', () => {
+xit('should handle untyped array binding pattern', () => {
   const ts = `
 interface ArrayBinding {
   (): void;
@@ -309,7 +309,7 @@ interface ArrayBinding {
 `);
 });
 
-it('should handle typed object binding pattern', () => {
+xit('should handle typed object binding pattern', () => {
   const ts = `
 interface ObjectBinding {
   (): void;
@@ -333,7 +333,7 @@ interface ObjectBinding {
 `);
 });
 
-it('should handle typed array binding pattern', () => {
+xit('should handle typed array binding pattern', () => {
   const ts = `
 interface ArrayBinding {
   (): void;

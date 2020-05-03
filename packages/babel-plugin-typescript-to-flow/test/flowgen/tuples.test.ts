@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle tuples', () => {
+xit('should handle tuples', () => {
   const ts = `
   type T1 = [number, string?];
   type T2 = [number, ...string[]];

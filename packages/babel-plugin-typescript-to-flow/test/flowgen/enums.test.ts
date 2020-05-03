@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle empty enums', () => {
+xit('should handle empty enums', () => {
   const ts = `enum Empty { }`;
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -9,7 +9,7 @@ it('should handle empty enums', () => {
 `);
 });
 
-it('should handle basic enums', () => {
+xit('should handle basic enums', () => {
   const ts = `enum Label {
     LABEL_OPTIONAL,
     LABEL_REQUIRED,
@@ -31,7 +31,7 @@ declare type B = typeof Label.LABEL_OPTIONAL;
 `);
 });
 
-it('should handle number enums', () => {
+xit('should handle number enums', () => {
   const ts = `enum Label {
     ONE = 1,
     TWO = 2,
@@ -57,7 +57,7 @@ declare type B = typeof Label.TWO;
 `);
 });
 
-it('should handle string enums', () => {
+xit('should handle string enums', () => {
   const ts = `enum Label {
     LABEL_OPTIONAL = 'LABEL_OPTIONAL',
     LABEL_REQUIRED = 'LABEL_REQUIRED',

@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle exported es module functions', () => {
+xit('should handle exported es module functions', () => {
   const ts = `export function routerReducer(state?: RouterState, action?: Action): RouterState;
 export function syncHistoryWithStore(history: History, store: Store<any>, options?: SyncHistoryWithStoreOptions): History & HistoryUnsubscribe;
 `;
@@ -19,7 +19,7 @@ declare export function syncHistoryWithStore(
 `);
 });
 
-it('should handle toString function overload', () => {
+xit('should handle toString function overload', () => {
   const ts = `export function toString(): void;
 export function toString(e: number): void;
 export function toString(b: string): void;
@@ -33,7 +33,7 @@ declare export function toString(b: string): void;
 `);
 });
 
-it('should handle default exported es module functions', () => {
+xit('should handle default exported es module functions', () => {
   const ts = `export default function routerReducer(state?: RouterState, action?: Action): RouterState;`;
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -45,7 +45,7 @@ it('should handle default exported es module functions', () => {
 `);
 });
 
-it('should handle function overload es module functions', () => {
+xit('should handle function overload es module functions', () => {
   const ts = `export function routerReducer(state?: RouterState, action?: Action): RouterState;
 export function routerReducer(state?: RouterState): RouterState;
 `;
@@ -60,7 +60,7 @@ declare export function routerReducer(state?: RouterState): RouterState;
 `);
 });
 
-it('should remove this annotation from functions', () => {
+xit('should remove this annotation from functions', () => {
   const ts =
     'function addClickListener(onclick: (this: void, e: Event) => void): void;';
   const result = testTransform(ts);
@@ -70,7 +70,7 @@ it('should remove this annotation from functions', () => {
 `);
 });
 
-it('should remove default parameters from functions', () => {
+xit('should remove default parameters from functions', () => {
   const ts =
     'function addClickListener<T = Error>(onclick: (e: Event) => void): T;';
   const result = testTransform(ts);

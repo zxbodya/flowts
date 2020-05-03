@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle utility types', () => {
+xit('should handle utility types', () => {
   const ts = `
 type A = Readonly<{a: number}>
 type B = Partial<{a: number}>

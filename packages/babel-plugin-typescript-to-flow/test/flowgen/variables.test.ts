@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle declares', () => {
+xit('should handle declares', () => {
   const ts = `
 declare const test: {a: number};
 declare const foo: string, bar: number;

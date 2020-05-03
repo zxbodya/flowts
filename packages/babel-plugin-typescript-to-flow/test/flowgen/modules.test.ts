@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle module', () => {
+xit('should handle module', () => {
   const ts = `
 declare module 'test' {
   declare export type Test = 'ok' | 'error'
@@ -36,7 +36,7 @@ declare module 'test' {
 `);
 });
 
-it('should handle module merging', () => {
+xit('should handle module merging', () => {
   const ts = `
 declare module 'test' {
   interface A {
@@ -65,7 +65,7 @@ declare module 'test' {
 `);
 });
 
-it('should not merge distinct modules', () => {
+xit('should not merge distinct modules', () => {
   const ts = `
 declare module 'A' {
   export interface A {
@@ -102,7 +102,7 @@ export interface A {
 `);
 });
 
-it('should handle module function merging', () => {
+xit('should handle module function merging', () => {
   const ts = `
 declare module 'test' {
   declare function test(err: number): void

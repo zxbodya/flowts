@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
+xit('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
   const ts = `
   type A = {
     [Symbol.asyncIterator]?(): any,
@@ -120,7 +120,7 @@ declare interface C {
 `);
 });
 
-it('should handle string literals', () => {
+xit('should handle string literals', () => {
   const ts = `
   type A = {
     ["foo"]?(): any,
@@ -192,7 +192,7 @@ declare interface C {
 `);
 });
 
-it('should approximate unsupported keys', () => {
+xit('should approximate unsupported keys', () => {
   const ts = `
   type A = {
     [Foo]?(): any,

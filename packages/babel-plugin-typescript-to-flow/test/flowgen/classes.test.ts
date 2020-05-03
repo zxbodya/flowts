@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle static methods ES6 classes', () => {
+xit('should handle static methods ES6 classes', () => {
   const ts = `class Observable<T> implements Subscribable<T> {
     create: Function;
     static create: Function;

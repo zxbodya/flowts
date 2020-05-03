@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle react types', () => {
+xit('should handle react types', () => {
   const ts = `
 import {ReactNode} from 'react'
 import * as React from 'react'
@@ -17,7 +17,7 @@ declare function s(node: React.Node): void;
 `);
 });
 
-describe('should handle global types', () => {
+xdescribe('should handle global types', () => {
   test('jsx', () => {
     const ts = `
 import * as React from 'react'

@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle exported interfaces', () => {
+xit('should handle exported interfaces', () => {
   const ts = `export interface UnaryFunction<T, R> {
     (source: T): R;
   }

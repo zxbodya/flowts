@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-it('should handle imports', () => {
+xit('should handle imports', () => {
   const ts = `import { GeneratorOptions } from "@babel/generator";
 import traverse, { Visitor, NodePath } from "@babel/traverse";
 import { Visitor as NewVisitor } from "@babel/traverse";
@@ -19,7 +19,7 @@ import v, * as d from \\"typescript\\";
 `);
 });
 
-it('should handle imports inside module', () => {
+xit('should handle imports inside module', () => {
   const ts = `
 declare module '@babel/core' {
   import { GeneratorOptions } from "@babel/generator";
@@ -49,7 +49,7 @@ declare module '@babel/core' {
 `);
 });
 
-it('should handle import type', () => {
+xit('should handle import type', () => {
   const ts = `
 type S = typeof import('http')
 `;
