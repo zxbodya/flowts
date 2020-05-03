@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xit('should handle exported types', () => {
+it('should handle exported types', () => {
   const ts = `
 export declare type FactoryOrValue<T> = T | (() => T);
 export type Maybe<T> = {type: 'just', value: T} | {type: 'nothing'}
@@ -8,16 +8,11 @@ export type Maybe<T> = {type: 'just', value: T} | {type: 'nothing'}
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "export type FactoryOrValue<T> = T | (() => T);
-export type Maybe<T> =
-  | {
-      type: \\"just\\",
-      value: T,
-      ...
-    }
-  | {
-      type: \\"nothing\\",
-      ...
-    };
-"
+export type Maybe<T> = {
+  type: \\"just\\",
+  value: T,
+} | {
+  type: \\"nothing\\"
+};"
 `);
 });

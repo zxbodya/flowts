@@ -1,5 +1,6 @@
 import { testTransform } from '../transform';
 
+// todo:
 xit('should handle mapped types', () => {
   const ts = `
 type Ref<T> = {current: T | null}
@@ -19,14 +20,12 @@ type ConstantKey = MappedObj["a"]
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type Ref<T> = {
-  current: T | null,
-  ...
+  current: T | null
 };
 declare type SourceUnion = \\"a\\" | \\"b\\" | \\"c\\";
 declare type SourceObject = {
   a: number,
   d: string,
-  ...
 };
 declare type MappedUnion = $ObjMapi<
   { [k: SourceUnion]: any },
