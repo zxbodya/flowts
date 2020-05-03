@@ -133,6 +133,29 @@ export function convertTSType(node: t.TSType): t.FlowType {
           ...params,
         ])
       );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'Record') {
+      if (
+        flowTypeParameters === null ||
+        flowTypeParameters.params.length !== 2
+      ) {
+        // todo: warn
+        return t.genericTypeAnnotation(
+          t.identifier('Record'),
+          flowTypeParameters
+        );
+      }
+      return t.objectTypeAnnotation(
+        [],
+        [
+          t.objectTypeIndexer(
+            t.identifier('key'),
+            flowTypeParameters.params[0],
+            flowTypeParameters.params[1],
+          ),
+        ],
+        [],
+        []
+      );
     } else {
       return t.genericTypeAnnotation(typeName, flowTypeParameters);
     }
