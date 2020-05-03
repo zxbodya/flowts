@@ -97,6 +97,42 @@ export function convertTSType(node: t.TSType): t.FlowType {
         t.identifier('$ReadOnlyMap'),
         flowTypeParameters
       );
+    } else if (t.isIdentifier(typeName) && typeName.name === 'ReturnType') {
+      const params =
+        flowTypeParameters === null
+          ? [t.anyTypeAnnotation()]
+          : flowTypeParameters.params;
+      return t.genericTypeAnnotation(
+        t.identifier('$Call'),
+        t.typeParameterInstantiation([
+          //<R>((...args: any[]) => R) => R,
+          t.functionTypeAnnotation(
+            t.typeParameterDeclaration([
+              {
+                ...t.typeParameter(),
+                name: 'R',
+              },
+            ]),
+            [
+              t.functionTypeParam(
+                null,
+                t.functionTypeAnnotation(
+                  null,
+                  [],
+                  t.functionTypeParam(
+                    t.identifier('args'),
+                    t.arrayTypeAnnotation(t.anyTypeAnnotation())
+                  ),
+                  t.genericTypeAnnotation(t.identifier('R'))
+                )
+              ),
+            ],
+            null,
+            t.genericTypeAnnotation(t.identifier('R'))
+          ),
+          ...params,
+        ])
+      );
     } else {
       return t.genericTypeAnnotation(typeName, flowTypeParameters);
     }
