@@ -164,6 +164,18 @@ test('Utility generics: $NonMaybeType', () => {
   expect(result.recast).toMatchInlineSnapshot(`"let a: NonNullable<X>;"`);
 });
 
+test('Utility generics: $ReadOnlySet', () => {
+  const result = testTransform(`let a: $ReadOnlySet<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: ReadonlySet<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: ReadonlySet<X>;"`);
+});
+
+test('Utility generics: $ReadOnlyMap', () => {
+  const result = testTransform(`let a: $ReadOnlyMap<X>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: ReadonlyMap<X>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: ReadonlyMap<X>;"`);
+});
+
 test('Utility generics: $Exports', () => {
   const result = testTransform(`type A = $Exports<"react">;`);
   expect(result.babel).toMatchInlineSnapshot(`"type A = import(\\"react\\");"`);

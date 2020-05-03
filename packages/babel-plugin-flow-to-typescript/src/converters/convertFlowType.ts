@@ -123,15 +123,16 @@ export function convertFlowType(node: t.FlowType): t.TSType {
         return tsT;
       } else return t.tsIndexedAccessType(tsT, tsK);
     } else if (t.isIdentifier(id) && id.name === '$ElementType') {
-      // $ElementType<T, k> -> T[k]
       const [tsT, tsK] = tsTypeParameters!.params;
       return t.tsIndexedAccessType(tsT, tsK);
     } else if (t.isIdentifier(id) && id.name === '$Shape') {
-      // $Shape<T> -> Partial<T>
       return t.tsTypeReference(t.identifier('Partial'), tsTypeParameters);
     } else if (t.isIdentifier(id) && id.name === '$NonMaybeType') {
-      // $NonMaybeType<T> -> NonNullable<T>
       return t.tsTypeReference(t.identifier('NonNullable'), tsTypeParameters);
+    } else if (t.isIdentifier(id) && id.name === '$ReadOnlySet') {
+      return t.tsTypeReference(t.identifier('ReadonlySet'), tsTypeParameters);
+    } else if (t.isIdentifier(id) && id.name === '$ReadOnlyMap') {
+      return t.tsTypeReference(t.identifier('ReadonlyMap'), tsTypeParameters);
     } else if (t.isIdentifier(id) && id.name === '$Exports') {
       // $Exports<T> -> import(T)
       if (
