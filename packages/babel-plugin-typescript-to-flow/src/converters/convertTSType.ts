@@ -181,12 +181,10 @@ export function convertTSType(node: t.TSType): t.FlowType {
       if (t.isTSQualifiedName(node.qualifier)) {
         throw new Error('todo:');
       }
+      const exportName = t.stringLiteralTypeAnnotation(node.qualifier.name);
       return t.genericTypeAnnotation(
         t.identifier('$PropertyType'),
-        t.typeParameterInstantiation([
-          exports,
-          t.genericTypeAnnotation(node.qualifier),
-        ])
+        t.typeParameterInstantiation([exports, exportName])
       );
     }
     return exports;
@@ -198,7 +196,12 @@ export function convertTSType(node: t.TSType): t.FlowType {
       );
     }
     if (t.isTSImportType(node.exprName)) {
-      throw new Error('todo');
+      return t.genericTypeAnnotation(
+        t.identifier('$Exports'),
+        t.typeParameterInstantiation([
+          t.stringLiteralTypeAnnotation(node.exprName.argument.value),
+        ])
+      );
     }
   }
   if (t.isTSTypeOperator(node)) {
@@ -299,6 +302,12 @@ export function convertTSType(node: t.TSType): t.FlowType {
 
   if (t.isTSSymbolKeyword(node)) {
     return t.genericTypeAnnotation(t.identifier('Symbol'));
+  }
+  if (t.isTSOptionalType(node)) {
+    return t.unionTypeAnnotation([
+      convertTSType(node.typeAnnotation),
+      t.voidTypeAnnotation(),
+    ]);
   }
   throw new Error(`Unsupported flow type TSType(type=${node.type})`);
 }

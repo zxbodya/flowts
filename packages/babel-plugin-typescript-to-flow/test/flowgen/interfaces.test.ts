@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xit('should handle single interface', () => {
+it('should handle single interface', () => {
   const ts = `
 interface User {
   firstName: string
@@ -10,9 +10,8 @@ interface User {
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface User {
-  firstName: string;
-}
-"
+  firstName: string
+}"
 `);
   //   const result2 = compiler.compileDefinitionString(ts, {
   //     interfaceRecords: true,
@@ -25,7 +24,7 @@ interface User {
   // `);
 });
 
-xit('should handle interface inheritance', () => {
+it('should handle interface inheritance', () => {
   const ts = `
 interface User {
   firstName: string
@@ -38,13 +37,11 @@ interface SpecialUser extends User {
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface User {
-  firstName: string;
+  firstName: string
 }
-declare type SpecialUser = {
-  nice: number,
-  ...
-} & User;
-"
+declare interface SpecialUser extends User {
+  nice: number
+}"
 `);
   //   const result2 = compiler.compileDefinitionString(ts, {
   //     interfaceRecords: true,
@@ -62,6 +59,7 @@ declare type SpecialUser = {
   // `);
 });
 
+//todo:
 xit('should handle interface merging', () => {
   const ts = `
 interface User {
@@ -97,7 +95,7 @@ interface User {
   // `);
 });
 
-xit('should handle all properties', () => {
+it('should handle all properties', () => {
   const ts = `
 interface Props {
   "aria-label": string;
@@ -110,33 +108,32 @@ interface Props {
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Props {
-  \\"aria-label\\": string;
-  \\"aria-labelledby\\"?: number;
-  color: string;
-  [key: string]: string;
-}
-"
+  \\"aria-label\\": string,
+  \\"aria-labelledby\\"?: number,
+  color: string,
+  [key: string]: string,
+}"
 `);
 });
 
-xit('should support readonly modifier', () => {
+it('should support readonly modifier', () => {
   const ts = `
 interface Helper {
   readonly name: string;
-  readonly callback(): void;
+  readonly callback: () => void;
 }
 `;
   const result = testTransform(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Helper {
-  +name: string;
-  +callback: () => void;
-}
-"
+  +name: string,
+  +callback: () => void,
+}"
 `);
 });
 
+// todo: call signatures
 xit('should support call signature', () => {
   const ts = `
   declare interface ObjectSchemaConstructor {
@@ -157,6 +154,7 @@ xit('should support call signature', () => {
 `);
 });
 
+// todo: call signatures
 xit('should remove this in call signature', () => {
   const ts = `
 interface Arc<This, Datum> {
@@ -187,6 +185,7 @@ declare interface C<This, Datum> {
 `);
 });
 
+// todo: call signatures
 xit('should remove generic defaults in call signature', () => {
   const ts = `
 interface AbstractLevelDOWNConstructor {
@@ -203,7 +202,7 @@ interface AbstractLevelDOWNConstructor {
 `);
 });
 
-xit('should support omitting generic defaults in types, classes, interfaces', () => {
+it('should support omitting generic defaults in types, classes, interfaces', () => {
   const ts = `
 interface Foo<T = symbol, U = number> {}
 interface FooBar extends Foo {}
@@ -222,19 +221,19 @@ declare var f: Baz<any>
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Foo<T = Symbol, U = number> {}
-declare type FooBar = { ... } & Foo<>;
-declare type Bar<T = number, U = string> = { ... };
+declare interface FooBar extends Foo {}
+declare type Bar<T = number, U = string> = {};
 declare class Baz<T = string, U = number> {}
-declare var a: Foo<>;
-declare var b: Bar<>;
-declare var c: Baz<>;
+declare var a: Foo;
+declare var b: Bar;
+declare var c: Baz;
 declare var d: Foo<any>;
 declare var e: Bar<any>;
-declare var f: Baz<any>;
-"
+declare var f: Baz<any>;"
 `);
 });
 
+// todo:
 xit('should support optional methods', () => {
   const ts = `
 interface Example<State> {
@@ -253,22 +252,22 @@ interface Example<State> {
 `);
 });
 
-xit('should handle toString property name', () => {
+it('should handle toString property name', () => {
   const ts = `
 interface A {
-  toString(): string;
+  toString(): string
 }
 `;
   const result = testTransform(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface A {
-  toString(): string;
-}
-"
+  toString(): string
+}"
 `);
 });
 
+// todo:
 xit('should handle untyped object binding pattern', () => {
   const ts = `
 interface ObjectBinding {
@@ -281,14 +280,14 @@ interface ObjectBinding {
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ObjectBinding {
-  (): void;
-  (x: {}): void;
-  (x: { a: any, b: any }): void;
-}
-"
+  (): void,
+  (x: {}): void,
+  (x: { a: any, b: any }): void,
+}"
 `);
 });
 
+// todo:
 xit('should handle untyped array binding pattern', () => {
   const ts = `
 interface ArrayBinding {
@@ -309,6 +308,7 @@ interface ArrayBinding {
 `);
 });
 
+// todo:
 xit('should handle typed object binding pattern', () => {
   const ts = `
 interface ObjectBinding {
@@ -333,6 +333,7 @@ interface ObjectBinding {
 `);
 });
 
+//todo:
 xit('should handle typed array binding pattern', () => {
   const ts = `
 interface ArrayBinding {

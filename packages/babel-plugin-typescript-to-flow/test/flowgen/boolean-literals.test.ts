@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xit('should handle boolean literals in type', () => {
+it('should handle boolean literals in type', () => {
   const ts = `
   type MyFalsyType = string | false;
   type MyTruthyType = true | string;
@@ -10,7 +10,6 @@ xit('should handle boolean literals in type', () => {
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type MyFalsyType = string | false;
-declare type MyTruthyType = true | string;
-"
+declare type MyTruthyType = true | string;"
 `);
 });

@@ -163,10 +163,10 @@ test('Utility generics: $Exports inside of $PropertyType', () => {
   const result = testTransform(`type B = import("react").ReactNode;`);
   const flow = `type B = $PropertyType<$Exports<"react">, "ReactNode">`;
   expect(result.babel).toMatchInlineSnapshot(
-    `"type B = $PropertyType<$Exports<\\"react\\">, ReactNode>;"`
+    `"type B = $PropertyType<$Exports<\\"react\\">, \\"ReactNode\\">;"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"type B = $PropertyType<$Exports<\\"react\\">, ReactNode>;"`
+    `"type B = $PropertyType<$Exports<\\"react\\">, \\"ReactNode\\">;"`
   );
 });
 

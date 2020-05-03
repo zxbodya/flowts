@@ -6,7 +6,10 @@ import { convertTSEntityName } from './convertTSEntityName';
 import { convertTSTypeElements } from './convertTSTypeElements';
 import { convertTSTypeParameterInstantiation } from './convertTSTypeParameterInstantiation';
 
-export function convertTSInterfaceDeclaration(node: t.TSInterfaceDeclaration) {
+export function convertTSInterfaceDeclaration(
+  node: t.TSInterfaceDeclaration,
+  isAmbientContext?: boolean
+) {
   let typeParameters = null;
   if (node.typeParameters) {
     typeParameters = {
@@ -38,8 +41,9 @@ export function convertTSInterfaceDeclaration(node: t.TSInterfaceDeclaration) {
     internalSlots
   );
 
-  const interfaceDeclaration = node.declare
-    ? t.declareInterface
-    : t.interfaceDeclaration;
+  const interfaceDeclaration =
+    node.declare || isAmbientContext
+      ? t.declareInterface
+      : t.interfaceDeclaration;
   return interfaceDeclaration(node.id, typeParameters, _extends, body);
 }

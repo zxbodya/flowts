@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xit('should handle declared interfaces', () => {
+it('should handle declared interfaces', () => {
   const ts = `
 declare interface ICustomMessage {
   method(test: string): void;
@@ -10,9 +10,8 @@ declare interface ICustomMessage {
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ICustomMessage {
-  method(test: string): void;
-  otherMethod(literal: \\"A\\" | \\"B\\"): void;
-}
-"
+  method(test: string): void,
+  otherMethod(literal: \\"A\\" | \\"B\\"): void,
+}"
 `);
 });

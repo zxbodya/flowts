@@ -7,8 +7,7 @@ export {test};
   const result = testTransform(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: {
-  a: number,
-  ...
+  a: number
 };
 declare export { test };
 "

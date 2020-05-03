@@ -3,6 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { replaceWith } from '../utils/replaceWith';
 import { convertTSTypeAliasDeclaration } from '../converters/convertTSTypeAliasDeclaration';
 import { transformClassDeclaration } from '../transforms/transformClassDeclaration';
+import { convertTSInterfaceDeclaration } from '../converters/convertTSInterfaceDeclaration';
 
 export function Program(path: NodePath<t.Program>) {
   // todo: pass this in plugin options
@@ -10,6 +11,7 @@ export function Program(path: NodePath<t.Program>) {
 
   for (const st of path.get('body')) {
     const node = st.node;
+    // todo: isTSTypeAliasDeclaration on NodePath
     if (t.isTSTypeAliasDeclaration(node)) {
       const replacement = convertTSTypeAliasDeclaration(node, isAmbientContext);
       replaceWith(st, replacement);
@@ -20,6 +22,10 @@ export function Program(path: NodePath<t.Program>) {
         st as NodePath<t.ClassDeclaration>,
         isAmbientContext
       );
+    }
+    // todo: isTSInterfaceDeclaration on NodePath
+    if (t.isTSInterfaceDeclaration(node)) {
+      replaceWith(st, convertTSInterfaceDeclaration(node, isAmbientContext));
     }
   }
 }
