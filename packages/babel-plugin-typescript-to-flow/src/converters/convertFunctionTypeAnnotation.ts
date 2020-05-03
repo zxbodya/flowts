@@ -45,14 +45,17 @@ export function convertFunctionTypeAnnotation(
 
   for (const param of originalParams) {
     if (t.isIdentifier(param)) {
-      parameters.push(
-        t.functionTypeParam(
-          t.identifier(param.name),
-          convertTSType(
-            (param.typeAnnotation as t.TSTypeAnnotation).typeAnnotation
-          )
-        )
-      );
+      if (param.name !== 'this') {
+        parameters.push({
+          ...t.functionTypeParam(
+            t.identifier(param.name),
+            convertTSType(
+              (param.typeAnnotation as t.TSTypeAnnotation).typeAnnotation
+            )
+          ),
+          optional: param.optional,
+        });
+      }
     } else if (t.isRestElement(param)) {
       rest = t.functionTypeParam(
         // @ts-ignore todo:

@@ -4,6 +4,7 @@ import { replaceWith } from '../utils/replaceWith';
 import { convertTSTypeAliasDeclaration } from '../converters/convertTSTypeAliasDeclaration';
 import { transformClassDeclaration } from '../transforms/transformClassDeclaration';
 import { convertTSInterfaceDeclaration } from '../converters/convertTSInterfaceDeclaration';
+import { convertTSDeclareFunction } from '../converters/convertTSDeclareFunction';
 
 export function Program(path: NodePath<t.Program>) {
   // todo: pass this in plugin options
@@ -26,6 +27,13 @@ export function Program(path: NodePath<t.Program>) {
     // todo: isTSInterfaceDeclaration on NodePath
     if (t.isTSInterfaceDeclaration(node)) {
       replaceWith(st, convertTSInterfaceDeclaration(node, isAmbientContext));
+    }
+    if (t.isTSDeclareFunction(node)) {
+      if (!isAmbientContext && !node.declare) {
+        throw path.buildCodeFrameError('unexpected TSDeclareFunction');
+      }
+      const replacement = convertTSDeclareFunction(node);
+      replaceWith(st, replacement);
     }
   }
 }
