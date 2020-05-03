@@ -13,6 +13,7 @@ import { ClassDeclaration } from './visitors/ClassDeclaration';
 import { ExportDefaultDeclaration } from './visitors/ExportDefaultDeclaration';
 import { ExportNamedDeclaration } from './visitors/ExportNamedDeclaration';
 import { VariableDeclaration } from './visitors/VariableDeclaration';
+import { Program } from './visitors/Program';
 
 const visitor: Visitor<PluginPass> = {
   TSTypeAliasDeclaration,
@@ -28,6 +29,7 @@ const visitor: Visitor<PluginPass> = {
   ExportDefaultDeclaration,
   ExportNamedDeclaration,
   VariableDeclaration,
+  Program,
 };
 
 // tslint:disable-next-line:no-any

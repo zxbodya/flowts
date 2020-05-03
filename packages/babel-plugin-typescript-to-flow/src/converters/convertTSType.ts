@@ -35,12 +35,20 @@ export function convertTSType(node: t.TSType): t.FlowType {
   if (t.isTSLiteralType(node)) {
     if (t.isBooleanLiteral(node.literal)) {
       return t.booleanLiteralTypeAnnotation(node.literal.value);
-    }
-    if (t.isNumericLiteral(node.literal)) {
+    } else if (t.isNumericLiteral(node.literal)) {
       return t.numberLiteralTypeAnnotation(node.literal.value);
-    }
-    if (t.isStringLiteral(node.literal)) {
+    } else if (t.isStringLiteral(node.literal)) {
       return t.stringLiteralTypeAnnotation(node.literal.value);
+    } else if (t.isUnaryExpression(node.literal)) {
+      // todo: @babel/types node.literal is not suposed to be a unray expression
+      const exp = node.literal as t.UnaryExpression;
+      if (t.isNumericLiteral(exp.argument) && exp.operator === '-') {
+        return t.numberLiteralTypeAnnotation(-exp.argument.value);
+      } else {
+        throw new Error('not implemented');
+      }
+    } else {
+      throw new Error('not implemented');
     }
   }
 
@@ -201,6 +209,26 @@ export function convertTSType(node: t.TSType): t.FlowType {
         t.identifier('$Keys'),
         t.typeParameterInstantiation([convertTSType(node.typeAnnotation)])
       );
+    } else if (
+      node.operator === 'unique' &&
+      t.isTSSymbolKeyword(node.typeAnnotation)
+    ) {
+      return t.genericTypeAnnotation(t.identifier('Symbol'));
+    } else if (
+      node.operator === 'readonly' &&
+      t.isTSTupleType(node.typeAnnotation)
+    ) {
+      return convertTSType(node.typeAnnotation);
+    } else if (
+      node.operator === 'readonly' &&
+      t.isTSArrayType(node.typeAnnotation)
+    ) {
+      return t.genericTypeAnnotation(
+        t.identifier('$ReadOnlyArray'),
+        t.typeParameterInstantiation([
+          convertTSType(node.typeAnnotation.elementType),
+        ])
+      );
     } else {
       throw new Error('todo: not implemented');
     }
@@ -269,5 +297,8 @@ export function convertTSType(node: t.TSType): t.FlowType {
     return t.objectTypeAnnotation([], [], [], []);
   }
 
+  if (t.isTSSymbolKeyword(node)) {
+    return t.genericTypeAnnotation(t.identifier('Symbol'));
+  }
   throw new Error(`Unsupported flow type TSType(type=${node.type})`);
 }

@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-xit('should handle basic keywords', () => {
+it('should handle basic keywords', () => {
   const ts = `type A = {
     a: void,
     b: string,
@@ -35,7 +35,7 @@ xit('should handle basic keywords', () => {
   e: boolean,
   f: null,
   g: void,
-  h: { [key: string]: any },
+  h: {},
   i: 1,
   j: 2,
   k: true,
@@ -50,8 +50,6 @@ xit('should handle basic keywords', () => {
   u: Symbol,
   v: [1, 2, 3],
   w: $ReadOnlyArray<string>,
-  ...
-};
-"
+};"
 `);
 });

@@ -4,11 +4,13 @@ import { convertTSTypeParameterDeclaration } from './convertTSTypeParameterDecla
 import { baseNodeProps } from '../utils/baseNodeProps';
 
 export function convertTSTypeAliasDeclaration(
-  node: t.TSTypeAliasDeclaration
+  node: t.TSTypeAliasDeclaration,
+  isAmbientContext?: boolean
 ): t.TypeAlias | t.DeclareTypeAlias {
   const typeParameters = node.typeParameters;
   const typeAnnotation = node.typeAnnotation;
-  const typeAlias = node.declare ? t.declareTypeAlias : t.typeAlias;
+  const typeAlias =
+    node.declare || isAmbientContext ? t.declareTypeAlias : t.typeAlias;
   return typeAlias(
     node.id,
     typeParameters
