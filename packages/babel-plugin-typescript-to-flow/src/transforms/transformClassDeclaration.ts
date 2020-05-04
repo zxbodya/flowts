@@ -8,6 +8,7 @@ import { replaceWith } from '../utils/replaceWith';
 import { convertTSType } from '../converters/convertTSType';
 import { TSTypeAnnotation } from '@babel/types';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
+import { convertKey } from '../converters/convertKey';
 
 function convertMemberExpressionToQualifiedTypeIdentifier(
   id: t.Identifier | t.MemberExpression
@@ -50,12 +51,7 @@ export function transformClassDeclaration(
 
     for (const member of node.body.body) {
       if (t.isClassProperty(member)) {
-        const key =
-          t.isIdentifier(member.key) || t.isStringLiteral(member.key)
-            ? member.key
-            : t.isNumericLiteral(member.key)
-            ? t.stringLiteral(member.key.value + '')
-            : null;
+        const key = convertKey(member.key);
 
         const prop = t.objectTypeProperty(
           // @ts-ignore

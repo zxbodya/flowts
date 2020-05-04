@@ -1,6 +1,7 @@
 import * as t from '@babel/types';
 import { convertTSType } from './convertTSType';
 import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
+import { convertKey } from './convertKey';
 
 export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
   const properties: Array<
@@ -34,49 +35,21 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
       throw new Error('todo:');
     }
     if (t.isTSPropertySignature(member)) {
-      if (t.isIdentifier(member.key) || t.isStringLiteral(member.key)) {
-        const prop = t.objectTypeProperty(
-          member.key,
-          convertTSType(member.typeAnnotation!.typeAnnotation)
-        );
-        properties.push(prop);
-        if (member.readonly) {
-          prop.variance = t.variance('plus');
-        }
-        if (member.optional) {
-          prop.optional = true;
-        }
-      } else {
-        throw new Error('todo:');
+      const key = convertKey(member.key);
+      const prop = t.objectTypeProperty(
+        key,
+        convertTSType(member.typeAnnotation!.typeAnnotation)
+      );
+      if (member.readonly) {
+        prop.variance = t.variance('plus');
       }
+      if (member.optional) {
+        prop.optional = true;
+      }
+      properties.push(prop);
     }
     if (t.isTSMethodSignature(member)) {
-      let key: t.Identifier | t.StringLiteral;
-      if (t.isIdentifier(member.key) || t.isStringLiteral(member.key)) {
-        key = member.key;
-      } else {
-        if (
-          t.isMemberExpression(member.key) &&
-          t.isIdentifier(member.key.object) &&
-          t.isIdentifier(member.key.property)
-        ) {
-          if (
-            member.key.object.name === 'Symbol' &&
-            member.key.property.name === 'iterator'
-          ) {
-            key = t.identifier('@@iterator');
-          } else if (
-            member.key.object.name === 'Symbol' &&
-            member.key.property.name === 'asyncIterator'
-          ) {
-            key = t.identifier('@@asyncIterator');
-          } else {
-            throw new Error('todo:');
-          }
-        } else {
-          throw new Error('todo:');
-        }
-      }
+      const key = convertKey(member.key);
 
       const {
         typeParams,
@@ -96,6 +69,9 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
       );
       // @ts-ignore todo: @babel-types
       prop.method = true;
+      if (member.optional) {
+        prop.optional = true;
+      }
       properties.push(prop);
     }
     if (t.isTSIndexSignature(member)) {

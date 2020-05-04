@@ -1,16 +1,16 @@
 import { testTransform } from '../transform';
 
-xit('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
+it('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
   const ts = `
   type A = {
     [Symbol.asyncIterator]?(): any,
     [Symbol.iterator]?(): any,
-    readonly [Symbol.asyncIterator]?(): any,
-    readonly [Symbol.iterator]?(): any,
+    readonly [Symbol.asyncIterator]?: () => any,
+    readonly [Symbol.iterator]?: () => any,
     [Symbol.asyncIterator](): any,
     [Symbol.iterator](): any,
-    readonly [Symbol.asyncIterator](): any,
-    readonly [Symbol.iterator](): any,
+    readonly [Symbol.asyncIterator]: () => any,
+    readonly [Symbol.iterator]: () => any,
     [Symbol.asyncIterator]?: any,
     [Symbol.iterator]?: any,
     readonly [Symbol.asyncIterator]?: any,
@@ -21,32 +21,32 @@ xit('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
     readonly [Symbol.iterator]: any,
   }
   declare class B {
-    [Symbol.asyncIterator]?(): any,
-    [Symbol.iterator]?(): any,
-    readonly [Symbol.asyncIterator]?(): any,
-    readonly [Symbol.iterator]?(): any,
-    [Symbol.asyncIterator](): any,
-    [Symbol.iterator](): any,
-    readonly [Symbol.asyncIterator](): any,
-    readonly [Symbol.iterator](): any,
-    [Symbol.asyncIterator]?: any,
-    [Symbol.iterator]?: any,
-    readonly [Symbol.asyncIterator]?: any,
-    readonly [Symbol.iterator]?: any,
-    [Symbol.asyncIterator]: any,
-    [Symbol.iterator]: any,
-    readonly [Symbol.asyncIterator]: any,
-    readonly [Symbol.iterator]: any,
+    [Symbol.asyncIterator]?: () => any;
+    [Symbol.iterator]?: () => any;
+    readonly [Symbol.asyncIterator]?: () => any;
+    readonly [Symbol.iterator]?: () => any;
+    [Symbol.asyncIterator]: () => any;
+    [Symbol.iterator]: () => any;
+    readonly [Symbol.asyncIterator]: () => any;
+    readonly [Symbol.iterator]: () => any;
+    [Symbol.asyncIterator]?: any;
+    [Symbol.iterator]?: any;
+    readonly [Symbol.asyncIterator]?: any;
+    readonly [Symbol.iterator]?: any;
+    [Symbol.asyncIterator]: any;
+    [Symbol.iterator]: any;
+    readonly [Symbol.asyncIterator]: any;
+    readonly [Symbol.iterator]: any;
   }
   interface C {
     [Symbol.asyncIterator]?(): any,
     [Symbol.iterator]?(): any,
-    readonly [Symbol.asyncIterator]?(): any,
-    readonly [Symbol.iterator]?(): any,
-    [Symbol.asyncIterator](): any,
-    [Symbol.iterator](): any,
-    readonly [Symbol.asyncIterator](): any,
-    readonly [Symbol.iterator](): any,
+    readonly [Symbol.asyncIterator]?: () => any,
+    readonly [Symbol.iterator]?: () => any,
+    [Symbol.asyncIterator]: () => any,
+    [Symbol.iterator]: () => any,
+    readonly [Symbol.asyncIterator]: () => any,
+    readonly [Symbol.iterator]: () => any,
     [Symbol.asyncIterator]?: any,
     [Symbol.iterator]?: any,
     readonly [Symbol.asyncIterator]?: any,
@@ -61,135 +61,131 @@ xit('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
   const result = testTransform(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare type A = {
-  @@asyncIterator: (() => any) | void,
-  @@iterator: (() => any) | void,
-  +@@asyncIterator: (() => any) | void,
-  +@@iterator: (() => any) | void,
-  @@asyncIterator: () => any,
-  @@iterator: () => any,
-  +@@asyncIterator: () => any,
-  +@@iterator: () => any,
-  @@asyncIterator: any | void,
-  @@iterator: any | void,
-  +@@asyncIterator: any | void,
-  +@@iterator: any | void,
-  @@asyncIterator: any,
-  @@iterator: any,
-  +@@asyncIterator: any,
-  +@@iterator: any,
-  ...
-};
-declare class B {
-  @@asyncIterator: (() => any) | void;
-  @@iterator: (() => any) | void;
-  +@@asyncIterator: (() => any) | void;
-  +@@iterator: (() => any) | void;
-  @@asyncIterator: () => any;
-  @@iterator: () => any;
-  +@@asyncIterator: () => any;
-  +@@iterator: () => any;
-  @@asyncIterator: any | void;
-  @@iterator: any | void;
-  +@@asyncIterator: any | void;
-  +@@iterator: any | void;
-  @@asyncIterator: any;
-  @@iterator: any;
-  +@@asyncIterator: any;
-  +@@iterator: any;
-}
-declare interface C {
-  @@asyncIterator: (() => any) | void;
-  @@iterator: (() => any) | void;
-  +@@asyncIterator: (() => any) | void;
-  +@@iterator: (() => any) | void;
-  @@asyncIterator: () => any;
-  @@iterator: () => any;
-  +@@asyncIterator: () => any;
-  +@@iterator: () => any;
-  @@asyncIterator: any | void;
-  @@iterator: any | void;
-  +@@asyncIterator: any | void;
-  +@@iterator: any | void;
-  @@asyncIterator: any;
-  @@iterator: any;
-  +@@asyncIterator: any;
-  +@@iterator: any;
-}
-"
-`);
+    "declare type A = {
+      @@asyncIterator?(): any,
+      @@iterator?(): any,
+      +@@asyncIterator?: () => any,
+      +@@iterator?: () => any,
+      @@asyncIterator(): any,
+      @@iterator(): any,
+      +@@asyncIterator: () => any,
+      +@@iterator: () => any,
+      @@asyncIterator?: any,
+      @@iterator?: any,
+      +@@asyncIterator?: any,
+      +@@iterator?: any,
+      @@asyncIterator: any,
+      @@iterator: any,
+      +@@asyncIterator: any,
+      +@@iterator: any,
+    };
+    declare class B {
+      @@asyncIterator?: () => any,
+      @@iterator?: () => any,
+      +@@asyncIterator?: () => any,
+      +@@iterator?: () => any,
+      @@asyncIterator: () => any,
+      @@iterator: () => any,
+      +@@asyncIterator: () => any,
+      +@@iterator: () => any,
+      @@asyncIterator?: any,
+      @@iterator?: any,
+      +@@asyncIterator?: any,
+      +@@iterator?: any,
+      @@asyncIterator: any,
+      @@iterator: any,
+      +@@asyncIterator: any,
+      +@@iterator: any,
+    }
+    declare interface C {
+      @@asyncIterator?(): any,
+      @@iterator?(): any,
+      +@@asyncIterator?: () => any,
+      +@@iterator?: () => any,
+      @@asyncIterator: () => any,
+      @@iterator: () => any,
+      +@@asyncIterator: () => any,
+      +@@iterator: () => any,
+      @@asyncIterator?: any,
+      @@iterator?: any,
+      +@@asyncIterator?: any,
+      +@@iterator?: any,
+      @@asyncIterator: any,
+      @@iterator: any,
+      +@@asyncIterator: any,
+      +@@iterator: any,
+    }"
+  `);
 });
 
-xit('should handle string literals', () => {
+it('should handle string literals', () => {
   const ts = `
   type A = {
-    ["foo"]?(): any,
-    readonly ["foo"]?(): any,
-    ["foo"](): any,
-    readonly ["foo"](): any,
-    ["foo"]?: any,
-    readonly ["foo"]?: any,
-    ["foo"]: any,
-    readonly ["foo"]: any,
+    ["foo"]?(): any;
+    readonly ["foo"]?: () => any;
+    ["foo"](): any;
+    readonly ["foo"]: () => any;
+    ["foo"]?: any;
+    readonly ["foo"]?: any;
+    ["foo"]: any;
+    readonly ["foo"]: any;
   }
   declare class B {
-    ["foo"]?(): any,
-    readonly ["foo"]?(): any,
-    ["foo"](): any,
-    readonly ["foo"](): any,
-    ["foo"]?: any,
-    readonly ["foo"]?: any,
-    ["foo"]: any,
-    readonly ["foo"]: any,
+    ["foo"]?(): any;
+    readonly ["foo"]?: ()=> any;
+    ["foo"](): any;
+    readonly ["foo"]: ()=> any;
+    ["foo"]?: any;
+    readonly ["foo"]?: any;
+    ["foo"]: any;
+    readonly ["foo"]: any;
   }
   interface C {
-    ["foo"]?(): any,
-    readonly ["foo"]?(): any,
-    ["foo"](): any,
-    readonly ["foo"](): any,
-    ["foo"]?: any,
-    readonly ["foo"]?: any,
-    ["foo"]: any,
-    readonly ["foo"]: any,
+    ["foo"]?(): any;
+    readonly ["foo"]?: () => any;
+    ["foo"](): any;
+    readonly ["foo"]: ()=> any;
+    ["foo"]?: any;
+    readonly ["foo"]?: any;
+    ["foo"]: any;
+    readonly ["foo"]: any;
   }
 `;
 
   const result = testTransform(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare type A = {
-  foo: (() => any) | void,
-  +foo: (() => any) | void,
-  foo: () => any,
-  +foo: () => any,
-  foo: any | void,
-  +foo: any | void,
-  foo: any,
-  +foo: any,
-  ...
-};
-declare class B {
-  foo: (() => any) | void;
-  +foo: (() => any) | void;
-  foo: () => any;
-  +foo: () => any;
-  foo: any | void;
-  +foo: any | void;
-  foo: any;
-  +foo: any;
-}
-declare interface C {
-  foo: (() => any) | void;
-  +foo: (() => any) | void;
-  foo: () => any;
-  +foo: () => any;
-  foo: any | void;
-  +foo: any | void;
-  foo: any;
-  +foo: any;
-}
-"
-`);
+    "declare type A = {
+      \\"foo\\"?(): any,
+      +\\"foo\\"?: () => any,
+      \\"foo\\"(): any,
+      +\\"foo\\": () => any,
+      \\"foo\\"?: any,
+      +\\"foo\\"?: any,
+      \\"foo\\": any,
+      +\\"foo\\": any,
+    };
+    declare class B {
+      \\"foo\\"(): any,
+      +\\"foo\\"?: () => any,
+      \\"foo\\"(): any,
+      +\\"foo\\": () => any,
+      \\"foo\\"?: any,
+      +\\"foo\\"?: any,
+      \\"foo\\": any,
+      +\\"foo\\": any,
+    }
+    declare interface C {
+      \\"foo\\"?(): any,
+      +\\"foo\\"?: () => any,
+      \\"foo\\"(): any,
+      +\\"foo\\": () => any,
+      \\"foo\\"?: any,
+      +\\"foo\\"?: any,
+      \\"foo\\": any,
+      +\\"foo\\": any,
+    }"
+  `);
 });
 
 xit('should approximate unsupported keys', () => {
