@@ -191,30 +191,30 @@ it('should handle string literals', () => {
 xit('should approximate unsupported keys', () => {
   const ts = `
   type A = {
-    [Foo]?(): any,
-    readonly [Foo]?(): any,
-    [Foo](): any,
-    readonly [Foo](): any,
-    [Foo]?: any,
-    readonly [Foo]?: any,
-    [Foo]: any,
-    readonly [Foo]: any,
+    [Foo]?: ()=> any;
+    readonly [Foo]?: () => any;
+    [Foo](): any;
+    readonly [Foo]: () => any;
+    [Foo]?: any;
+    readonly [Foo]?: any;
+    [Foo]: any;
+    readonly [Foo]: any;
   }
   declare class B {
-    [Foo]?(): any,
-    readonly [Foo]?(): any,
-    [Foo](): any,
-    readonly [Foo](): any,
-    [Foo]?: any,
-    readonly [Foo]?: any,
-    [Foo]: any,
-    readonly [Foo]: any,
+    [Foo]?: ()=> any;
+    readonly [Foo]?: () => any;
+    [Foo](): any;
+    readonly [Foo]: () => any;
+    [Foo]?: any;
+    readonly [Foo]?: any;
+    [Foo]: any;
+    readonly [Foo]: any;
   }
   interface C {
-    [Foo]?(): any,
-    readonly [Foo]?(): any,
+    [Foo]?: ()=> any,
+    readonly [Foo]?: () => any,
     [Foo](): any,
-    readonly [Foo](): any,
+    readonly [Foo]: () => any,
     [Foo]?: any,
     readonly [Foo]?: any,
     [Foo]: any,

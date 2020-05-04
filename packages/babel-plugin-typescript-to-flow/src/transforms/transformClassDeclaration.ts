@@ -51,6 +51,9 @@ export function transformClassDeclaration(
 
     for (const member of node.body.body) {
       if (t.isClassProperty(member)) {
+        if (member.computed) {
+          throw new Error('not implemented');
+        }
         const key = convertKey(member.key);
 
         const prop = t.objectTypeProperty(
@@ -68,6 +71,9 @@ export function transformClassDeclaration(
 
         properties.push(prop);
       } else if (t.isTSDeclareMethod(member)) {
+        if (member.computed) {
+          throw new Error('not implemented');
+        }
         const key =
           t.isIdentifier(member.key) || t.isStringLiteral(member.key)
             ? member.key
@@ -101,7 +107,6 @@ export function transformClassDeclaration(
         throw new Error('todo:');
       }
     }
-    // todo:
     const body = t.objectTypeAnnotation(
       properties,
       indexers,
