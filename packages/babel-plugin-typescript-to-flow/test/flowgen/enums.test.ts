@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 xit('should handle empty enums', () => {
   const ts = `enum Empty { }`;

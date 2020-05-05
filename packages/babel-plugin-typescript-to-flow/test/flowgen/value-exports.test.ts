@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 xit('should handle exported es module values', () => {
   const ts = `declare var test: {a: number};

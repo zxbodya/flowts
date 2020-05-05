@@ -150,7 +150,7 @@ export function convertTSType(node: t.TSType): t.FlowType {
           t.objectTypeIndexer(
             t.identifier('key'),
             flowTypeParameters.params[0],
-            flowTypeParameters.params[1],
+            flowTypeParameters.params[1]
           ),
         ],
         [],

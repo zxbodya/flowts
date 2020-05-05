@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 xdescribe('should handle merging with other types', () => {
   describe('function', () => {
