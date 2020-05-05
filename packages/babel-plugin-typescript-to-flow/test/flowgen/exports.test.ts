@@ -26,13 +26,12 @@ declare export * from \\"typescript\\"
 `);
 });
 
-xit('should handle unnamed default export', () => {
+it('should handle unnamed default export', () => {
   const ts = `
 export default function(): void;
 `;
   const result = testTransform(ts);
-  expect(result.babel).toMatchInlineSnapshot(`
-"declare export default function fn(): void;
-"
-`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"declare export default function fn(): void;"`
+  );
 });

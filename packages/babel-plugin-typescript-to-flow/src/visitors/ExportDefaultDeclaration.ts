@@ -15,7 +15,7 @@ export function ExportDefaultDeclaration(
       returnType,
     } = convertFunctionTypeAnnotation(srcDeclaration);
 
-    const id = t.identifier(srcDeclaration.id!.name);
+    const id = t.identifier(srcDeclaration?.id?.name || 'fn');
     id.typeAnnotation = t.typeAnnotation(
       t.functionTypeAnnotation(
         typeParams,
