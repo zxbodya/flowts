@@ -7,7 +7,7 @@ import * as React from 'react'
 declare function s(node: ReactNode): void;
 declare function s(node: React.ReactNode): void;
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "import { Node } from \\"react\\";
 import * as React from \\"react\\";
@@ -29,7 +29,7 @@ declare class Component extends React.Component<Props> {
   render(): JSX.Element
 }
 `;
-    const result = testTransform(ts);
+    const result = testTransformDts(ts);
     expect(result.babel).toMatchInlineSnapshot(`
 "import * as React from \\"react\\";
 declare function s(node: React$Node): void;

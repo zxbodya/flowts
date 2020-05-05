@@ -27,3 +27,20 @@ export function testTransform(code: string): { babel: string; recast: string } {
     recast: recastTransform(code),
   };
 }
+
+const babelTransformDts = createTransform([
+  [plugin, { isAmbientContext: true }],
+]);
+const recastTransformDts = createTransform([
+  [plugin, { isAmbientContext: true }],
+  recastPlugin,
+]);
+
+export function testTransformDts(
+  code: string
+): { babel: string; recast: string } {
+  return {
+    babel: babelTransformDts(code),
+    recast: recastTransformDts(code),
+  };
+}

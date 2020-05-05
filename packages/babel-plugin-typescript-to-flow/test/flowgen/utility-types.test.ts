@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle utility types', () => {
   const ts = `
@@ -17,7 +17,7 @@ type D2<T> = ReadonlyArray<T>
 type E2<T> = ReturnType<() => T>
 type F2<T, U> = Record<T, U>
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type A = $ReadOnly<{
   a: number
@@ -54,7 +54,7 @@ type D1<ReadonlyArray> = ReadonlyArray
 type E1<ReturnType> = ReturnType
 type F1<Record> = Record
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type A1<Readonly> = Readonly;
 declare type B1<Partial> = Partial;

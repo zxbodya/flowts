@@ -37,11 +37,13 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
   if (typeof opts.isJSX === 'undefined') {
     opts.isJSX = true;
   }
+  if (typeof opts.isAmbientContext === 'undefined') {
+    opts.isAmbientContext = false;
+  }
   return {
     name: 'babel-plugin-flow-to-typescript',
     visitor,
 
-    // tslint:disable-next-line:no-any
     manipulateOptions(_babel: any, parserOpts) {
       parserOpts.plugins.push('typescript');
       if (opts.isJSX) {

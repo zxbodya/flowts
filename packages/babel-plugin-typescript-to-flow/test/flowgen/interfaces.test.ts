@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle single interface', () => {
   const ts = `
@@ -6,7 +6,7 @@ interface User {
   firstName: string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface User {
@@ -33,7 +33,7 @@ interface SpecialUser extends User {
   nice: number
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface User {
@@ -72,7 +72,7 @@ interface User {
   username: string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface User {
@@ -104,7 +104,7 @@ interface Props {
   [key: string]: string;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Props {
@@ -123,7 +123,7 @@ interface Helper {
   readonly callback: () => void;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Helper {
@@ -141,7 +141,7 @@ xit('should support call signature', () => {
     new (): ObjectSchema<{}>;
   }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ObjectSchemaConstructor {
@@ -169,7 +169,7 @@ interface C<This, Datum> {
   (this: This, d: Datum, ...args: any[]);
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Arc<This, Datum> {
@@ -192,7 +192,7 @@ interface AbstractLevelDOWNConstructor {
     <K = any, V = any>(location: string): AbstractLevelDOWN<K, V>;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface AbstractLevelDOWNConstructor {
@@ -217,7 +217,7 @@ declare var d: Foo<any>
 declare var e: Bar<any>
 declare var f: Baz<any>
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Foo<T = Symbol, U = number> {}
@@ -241,7 +241,7 @@ interface Example<State> {
   optional?<R>(value: any, state: State): false;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface Example<State> {
@@ -258,7 +258,7 @@ interface A {
   toString(): string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface A {
@@ -276,7 +276,7 @@ interface ObjectBinding {
   ({ a, b }): void;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ObjectBinding {
@@ -296,7 +296,7 @@ interface ArrayBinding {
   ([ a, b ]): void;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ArrayBinding {
@@ -317,7 +317,7 @@ interface ObjectBinding {
   ({ a, b }: { a: string, b: number }): void;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ObjectBinding {
@@ -342,7 +342,7 @@ interface ArrayBinding {
   ([ a, b ]: [string, number]): void;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface ArrayBinding {

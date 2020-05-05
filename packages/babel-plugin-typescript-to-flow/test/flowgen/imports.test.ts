@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle imports', () => {
   const ts = `import { GeneratorOptions } from "@babel/generator";
@@ -7,7 +7,7 @@ import { Visitor as NewVisitor } from "@babel/traverse";
 import template from "@babel/template";
 import * as t from "@babel/types";
 import v, * as d from "typescript";`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
     "import { GeneratorOptions } from \\"@babel/generator\\";
     import traverse, { Visitor, NodePath } from \\"@babel/traverse\\";
@@ -30,7 +30,7 @@ declare module "@babel/core" {
   import v, * as d from 'typescript';
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare module \\"@babel/core\\" {
       import type { GeneratorOptions } from \\"@babel/generator\\";
@@ -53,7 +53,7 @@ it('should handle import type', () => {
   const ts = `
 type S = typeof import('http')
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(
     `"declare type S = $Exports<\\"http\\">;"`
   );

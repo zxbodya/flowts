@@ -10,6 +10,8 @@ import { TSTypeAnnotation } from '@babel/types';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
 import { convertKey } from '../converters/convertKey';
 
+const converted = new WeakSet<any>();
+
 function convertMemberExpressionToQualifiedTypeIdentifier(
   id: t.Identifier | t.MemberExpression
 ): t.Identifier | t.QualifiedTypeIdentifier {
@@ -27,6 +29,10 @@ export function transformClassDeclaration(
   isAmbientContext?: boolean
 ) {
   const node = path.node;
+  if (converted.has(node)) {
+    return;
+  }
+  converted.add(node);
   if (node.declare || isAmbientContext) {
     const id = node.id;
     const typeParameters = node.typeParameters
@@ -51,9 +57,6 @@ export function transformClassDeclaration(
 
     for (const member of node.body.body) {
       if (t.isClassProperty(member)) {
-        if (member.computed) {
-          throw new Error('not implemented');
-        }
         const key = convertKey(member.key);
 
         const prop = t.objectTypeProperty(
@@ -71,9 +74,6 @@ export function transformClassDeclaration(
 
         properties.push(prop);
       } else if (t.isTSDeclareMethod(member)) {
-        if (member.computed) {
-          throw new Error('not implemented');
-        }
         const key =
           t.isIdentifier(member.key) || t.isStringLiteral(member.key)
             ? member.key

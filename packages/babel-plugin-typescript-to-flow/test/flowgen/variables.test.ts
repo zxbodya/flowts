@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle declares', () => {
   const ts = `
@@ -11,7 +11,7 @@ declare var quuz: any, quuuz: string;
 declare let quuuuz1: number;
 declare let quuuuz2: string, fox: number;
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: {
   a: number

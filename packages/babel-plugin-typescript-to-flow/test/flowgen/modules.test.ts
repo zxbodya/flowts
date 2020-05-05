@@ -11,7 +11,7 @@ declare module 'test' {
   export const ok: number
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare module \\"test\\" {
   declare export type Test = \\"ok\\" | \\"error\\";
@@ -51,7 +51,7 @@ declare module 'test' {
   export const error: string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare module \\"test\\" {
   declare interface A {
@@ -81,7 +81,7 @@ export interface A {
   bar: string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare module \\"A\\" {
   declare export interface A {
@@ -111,7 +111,7 @@ declare module 'test' {
   declare function test(response: string): string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare module \\"test\\" {
   declare function test(err: number): void;

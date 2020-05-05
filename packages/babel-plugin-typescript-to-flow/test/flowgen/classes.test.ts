@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle static methods ES6 classes', () => {
   const ts = `class Observable<T> implements Subscribable<T> {
@@ -16,7 +16,7 @@ it('should handle static methods ES6 classes', () => {
     readonly jump?: () => void;
     static readonly jump?: () => void;
   }`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare class Observable<T> implements Subscribable<T> {
   create: Function,

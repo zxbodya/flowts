@@ -5,10 +5,11 @@ import { convertTSTypeAliasDeclaration } from '../converters/convertTSTypeAliasD
 import { transformClassDeclaration } from '../transforms/transformClassDeclaration';
 import { convertTSInterfaceDeclaration } from '../converters/convertTSInterfaceDeclaration';
 import { convertTSDeclareFunction } from '../converters/convertTSDeclareFunction';
+import { PluginPass } from '../types';
 
-export function Program(path: NodePath<t.Program>) {
+export function Program(path: NodePath<t.Program>, state: PluginPass) {
   // todo: pass this in plugin options
-  const isAmbientContext = true;
+  const isAmbientContext = state.opts.isAmbientContext;
 
   for (const st of path.get('body')) {
     const node = st.node;

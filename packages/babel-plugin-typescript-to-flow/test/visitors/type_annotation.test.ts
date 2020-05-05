@@ -304,12 +304,11 @@ test('function type annotation with type parameters', () => {
 
 test('maybe argument', () => {
   const result = testTransform(`let test: (a?: number | null) => T;`);
-  const flow = `let test: (a: ?number) => T;`;
   expect(result.babel).toMatchInlineSnapshot(
-    `"let test: (a: number | null) => T;"`
+    `"let test: (a?: number | null) => T;"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"let test: (a: number | null) => T;"`
+    `"let test: (a?: number | null) => T;"`
   );
 });
 
@@ -332,11 +331,11 @@ test('function maybe argument', () => {
   );
   const flow = `let test: (a: ?(number=>number)) => T;`;
   expect(result.babel).toMatchInlineSnapshot(
-    `"let test: (a: ((a: number) => number) | null) => T;"`
+    `"let test: (a?: ((a: number) => number) | null) => T;"`
   );
   //todo: recast bug
   expect(result.recast).toMatchInlineSnapshot(
-    `"let test: (a: : (a: number) => number | null) => T;"`
+    `"let test: (a?: : (a: number) => number | null) => T;"`
   );
 });
 

@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle union strings', () => {
   const ts = `
@@ -8,7 +8,7 @@ it('should handle union strings', () => {
   type CompletionsTriggerCharacter = '"' | "'";
 `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
     "declare interface MyObj {

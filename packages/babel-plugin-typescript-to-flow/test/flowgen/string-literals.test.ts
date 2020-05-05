@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle string literals in function argument "overloading"', () => {
   const ts = `
@@ -13,7 +13,7 @@ it('should handle string literals in function argument "overloading"', () => {
   }
 `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare interface MyObj {
@@ -40,7 +40,7 @@ it('should handle exported constant string literals', () => {
   export declare const SET_STAGE = "my/lib/SET_STAGE";
   `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare export var SET_NAME;

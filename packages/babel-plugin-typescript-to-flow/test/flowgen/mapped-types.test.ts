@@ -17,7 +17,7 @@ type MappedObj = {
 }
 type ConstantKey = MappedObj["a"]
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type Ref<T> = {
   current: T | null

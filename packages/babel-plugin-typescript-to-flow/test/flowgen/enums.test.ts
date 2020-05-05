@@ -2,7 +2,7 @@ import { testTransform } from '../transform';
 
 xit('should handle empty enums', () => {
   const ts = `enum Empty { }`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var Empty: {||};
 "
@@ -18,7 +18,7 @@ xit('should handle basic enums', () => {
 type A = Label
 type B = Label.LABEL_OPTIONAL
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var Label: {|
   +LABEL_OPTIONAL: 0, // 0
@@ -42,7 +42,7 @@ xit('should handle number enums', () => {
 type A = Label
 type B = Label.TWO
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var Label: {|
   +ONE: 1, // 1
@@ -66,7 +66,7 @@ xit('should handle string enums', () => {
 type A = Label
 type B = Label.LABEL_REQUIRED
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var Label: {|
   +LABEL_OPTIONAL: \\"LABEL_OPTIONAL\\", // \\"LABEL_OPTIONAL\\"

@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle basic keywords', () => {
   const ts = `type A = {
@@ -25,7 +25,7 @@ it('should handle basic keywords', () => {
     v: readonly [1, 2, 3],
     w: readonly string[],
   }`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type A = {
   a: void,

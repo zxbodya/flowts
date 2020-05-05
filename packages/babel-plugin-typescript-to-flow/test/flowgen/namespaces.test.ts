@@ -11,7 +11,7 @@ namespace test {
   }
 }
 `;
-      const result = testTransform(ts);
+      const result = testTransformDts(ts);
 
       expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
@@ -35,7 +35,7 @@ namespace test {
   }
 }
 `;
-      const result = testTransform(ts);
+      const result = testTransformDts(ts);
 
       expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
@@ -58,7 +58,7 @@ namespace test {
   export const ok: number
 }
 `;
-      const result = testTransform(ts);
+      const result = testTransformDts(ts);
 
       expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
@@ -84,7 +84,7 @@ namespace Album {
   export declare class AlbumLabel { }
 }
 `;
-    const result = testTransform(ts);
+    const result = testTransformDts(ts);
 
     expect(result.babel).toMatchInlineSnapshot(`
 "declare class Album {
@@ -112,7 +112,7 @@ namespace Color {
   export declare function mixColor(colorName: string): number;
 }
 `;
-    const result = testTransform(ts);
+    const result = testTransformDts(ts);
 
     expect(result.babel).toMatchInlineSnapshot(`
 "declare var Color: {|
@@ -137,7 +137,7 @@ namespace test {
   export const ok: number
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
 
@@ -158,7 +158,7 @@ namespace test {
   export const error: string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
 
@@ -182,7 +182,7 @@ namespace test {
   declare function test(response: string): string
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var test: typeof npm$namespace$test;
 
@@ -202,7 +202,7 @@ namespace Example {
   export interface StoreModel<S> {}
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "export interface Example$StoreModel<S> {}
 "
@@ -251,7 +251,7 @@ declare namespace E0 {
   declare var s1: string;
 }
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "import * as external from \\"external\\";
 declare var E0: typeof npm$namespace$E0;
@@ -327,7 +327,7 @@ declare namespace A.B.C {
     a: string;
   }
 }`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var A: typeof npm$namespace$A;
 
@@ -361,7 +361,7 @@ xit('should handle global augmentation', () => {
 declare global {
   interface Array<T> {}
 }`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare module \\"global\\" {
   declare interface Array<T> {}
@@ -374,7 +374,7 @@ xit('should handle import equals declaration', () => {
   const ts = `
 import hello = A.B;
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare var hello: typeof A.B;
 "

@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 xit('should handle exports', () => {
   const ts = `
@@ -12,7 +12,7 @@ export * from 'typescript';
 //export traverse, { Visitor, NodePath } from "@babel/traverse";
 //export template from "@babel/template";
 //export * as t from "@babel/types";`;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
 "declare export default typeof module;
 declare export { module };
@@ -30,7 +30,7 @@ it('should handle unnamed default export', () => {
   const ts = `
 export default function(): void;
 `;
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(
     `"declare export default function fn(): void;"`
   );

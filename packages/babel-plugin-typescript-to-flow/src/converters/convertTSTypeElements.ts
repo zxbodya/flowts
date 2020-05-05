@@ -35,9 +35,6 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
       throw new Error('not implemented');
     }
     if (t.isTSPropertySignature(member)) {
-      if (member.computed) {
-        throw new Error('not implemented');
-      }
       const key = convertKey(member.key);
       const prop = t.objectTypeProperty(
         key,
@@ -52,9 +49,6 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
       properties.push(prop);
     }
     if (t.isTSMethodSignature(member)) {
-      if (member.computed) {
-        throw new Error('not implemented');
-      }
       const key = convertKey(member.key);
 
       const {

@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransformDts } from '../transform';
 
 it('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
   const ts = `
@@ -58,7 +58,7 @@ it('should handle computed Symbol.iterator and Symbol.asyncIterator', () => {
   }
 `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
     "declare type A = {
@@ -152,7 +152,7 @@ it('should handle string literals', () => {
   }
 `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
     "declare type A = {
@@ -222,7 +222,7 @@ xit('should approximate unsupported keys', () => {
   }
 `;
 
-  const result = testTransform(ts);
+  const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
 "declare type A = {
