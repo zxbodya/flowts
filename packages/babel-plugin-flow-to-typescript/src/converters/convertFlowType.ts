@@ -335,5 +335,9 @@ export function convertFlowType(node: t.FlowType): t.TSType {
     return t.tsTupleType(flowTypes.map(convertFlowType));
   }
 
+  if (t.isSymbolTypeAnnotation(node)) {
+    return t.tsSymbolKeyword();
+  }
+
   throw new Error(`Unsupported flow type FlowType(type=${node.type})`);
 }

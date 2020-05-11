@@ -652,3 +652,15 @@ test('with empty type parameters', () => {
   expect(result.babel).toMatchInlineSnapshot(`"let a: A;"`);
   expect(result.recast).toMatchInlineSnapshot(`"let a: A;"`);
 });
+
+test('SymbolTypeAnnotation', () => {
+  const result = testTransform(
+    `const symbols: Array<symbol> = Object.getOwnPropertySymbols(node);`
+  );
+  expect(result.babel).toMatchInlineSnapshot(
+    `"const symbols: Array<symbol> = Object.getOwnPropertySymbols(node);"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"const symbols: Array<symbol> = Object.getOwnPropertySymbols(node);"`
+  );
+});
