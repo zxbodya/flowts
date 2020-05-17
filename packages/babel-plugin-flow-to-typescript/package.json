@@ -12,7 +12,7 @@
     "report-coverage": "codecov",
     "test": "jest",
     "clean": "rimraf dist",
-    "prepare": "yarn run clean && tsc -b --force",
+    "prepublishOnly": "yarn run clean && tsc -b --force",
     "build": "tsc -b"
   },
   "keywords": [
@@ -33,13 +33,13 @@
   },
   "devDependencies": {
     "@types/babel__traverse": "7.0.9",
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^25.2.2",
     "@zxbodya/recast": "^0.18.9",
     "codecov": "^3.6.5",
-    "jest": "^25.2.7",
+    "jest": "^26.0.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^25.3.1",
-    "typescript": "^3.8.2"
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
   },
   "jest": {
     "testEnvironment": "node",

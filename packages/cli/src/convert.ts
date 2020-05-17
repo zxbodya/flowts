@@ -27,7 +27,7 @@ export async function convert(cwd: string, opts: Options) {
     cwd,
     onlyFiles: true,
     dot: true,
-    ignore: ['**/node_modules/**', opts.exclude],
+    ignore: ['**/node_modules/**', ...opts.exclude],
     gitignore: true,
   });
 

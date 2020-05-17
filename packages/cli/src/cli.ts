@@ -9,7 +9,7 @@ export interface Options {
   readonly prettier: boolean;
   readonly allowJs: boolean;
   readonly include: string;
-  readonly exclude: string;
+  readonly exclude: string[];
   readonly interactiveRename: boolean;
 }
 
@@ -41,10 +41,11 @@ program
     'Glob expression of files to include, default: "**/*.{js,mjs,jsx,js.flow}"',
     '**/*.{js,mjs,jsx,js.flow}'
   )
-  .option(
+  .option<string[]>(
     '-x, --exclude <excludeGlob>',
     'Additional excludes glob expression (by default node_modules and files from .gitignore is excluded)',
-    '**/node_modules/**'
+    (a, b) => [...b, a],
+    []
   )
   .parse(process.argv);
 

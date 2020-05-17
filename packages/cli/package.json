@@ -10,7 +10,7 @@
     "report-coverage": "codecov",
     "test": "jest",
     "clean": "rimraf dist",
-    "prepare": "yarn run clean && tsc -b --force",
+    "prepublishOnly": "yarn run clean && tsc -b --force",
     "build": "tsc -b",
     "ts-node": "ts-node"
   },
@@ -22,7 +22,7 @@
   "keywords": [],
   "author": "Bogdan Savluk <savluk.bogdan@gmail.com>",
   "license": "MIT",
-  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/flowts",
+  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/cli",
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -37,11 +37,11 @@
     "@zxbodya/recast": "^0.18.9",
     "commander": "^5.0.0",
     "globby": "^11.0.0",
-    "jest-diff": "^25.3.0",
+    "jest-diff": "^26.0.1",
     "ora": "^4.0.3",
     "prettier": "^2.0.4",
     "source-map-support": "^0.5.16",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -50,13 +50,13 @@
     "@types/babel__core": "^7.1.6",
     "@types/babel__traverse": "7.0.9",
     "@types/glob": "^7.1.1",
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^25.2.2",
     "@types/ora": "^3.2.0",
     "@types/prettier": "^2.0.0",
     "codecov": "^3.6.5",
-    "jest": "^25.3.0",
+    "jest": "^26.0.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^8.8.1"
+    "ts-node": "^8.10.1"
   },
   "jest": {
     "testEnvironment": "node",
