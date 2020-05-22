@@ -146,3 +146,104 @@ type C = Class<A>;
     };"
   `);
 });
+
+test('function overrides', () => {
+  const result = testTransform(`
+declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
+declare function didYouMean(
+  subMessage: string,
+  suggestions: $ReadOnlyArray<string>,
+): string;
+
+function didYouMean(firstArg, secondArg?): string { }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string;
+    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+
+    function didYouMean(firstArg, secondArg?): string {}"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string
+    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
+
+    function didYouMean(firstArg, secondArg?): string { }"
+  `);
+});
+
+test('function overrides - default export', () => {
+  const result = testTransform(`
+declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
+export default function didYouMean(firstArg, secondArg?): string { }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string;
+
+    function didYouMean(firstArg, secondArg?): string {}
+
+    export default didYouMean;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string
+    function didYouMean(firstArg, secondArg?): string { }
+    export default didYouMean;"
+  `);
+});
+
+test('function overrides - named export', () => {
+  const result = testTransform(`
+declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string { }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string;
+
+    function didYouMean(firstArg, secondArg?): string {}
+
+    export { didYouMean };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string
+    function didYouMean(firstArg, secondArg?): string { }
+    export { didYouMean };"
+  `);
+});
+test('function overrides - named export', () => {
+  const result = testTransform(`
+declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string { }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string;
+
+    function didYouMean(firstArg, secondArg?): string {}
+
+    export { didYouMean };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string
+    function didYouMean(firstArg, secondArg?): string { }
+    export { didYouMean };"
+  `);
+});
+
+test('function overrides - exports mix', () => {
+  const result = testTransform(`
+declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
+declare export function didYouMean(
+  subMessage: string,
+  suggestions: $ReadOnlyArray<string>,
+): string;
+
+export function didYouMean(firstArg, secondArg?): string { }`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string;
+    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+
+    function didYouMean(firstArg, secondArg?): string {}
+
+    export { didYouMean };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "function didYouMean(suggestions: ReadonlyArray<string>): string
+    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
+    function didYouMean(firstArg, secondArg?): string { }
+    export { didYouMean };"
+  `);
+});

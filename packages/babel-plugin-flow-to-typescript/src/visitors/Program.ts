@@ -102,5 +102,108 @@ export const Program = {
       if (after) after.insertAfter(helperTypes[helperName]);
       else body[0].insertBefore(helperTypes[helperName]);
     });
+
+    // function overrides
+    const funcByName = new Map<
+      string,
+      {
+        decl: Array<NodePath<t.TSDeclareFunction>>;
+        impl: Array<NodePath<t.FunctionDeclaration>>;
+        exp: Array<
+          NodePath<t.ExportDefaultDeclaration | t.ExportNamedDeclaration>
+        >;
+      }
+    >();
+
+    function getFunc(name: string) {
+      let func = funcByName.get(name);
+      if (!func) {
+        func = { decl: [], impl: [], exp: [] };
+        funcByName.set(name, func);
+      }
+      return func;
+    }
+
+    function visitPossibliyFuncPath(st: NodePath) {
+      const node = st.node;
+      if (t.isTSDeclareFunction(node)) {
+        if (node.id) {
+          const func = getFunc(node.id.name);
+
+          // @ts-ignore todo: traverse types
+          func.decl.push(st);
+          return func;
+        }
+      }
+      if (t.isFunctionDeclaration(node)) {
+        if (node.id) {
+          const func = getFunc(node.id.name);
+
+          // @ts-ignore todo: traverse types
+          func.impl.push(st);
+          return func;
+        }
+      }
+      return false;
+    }
+
+    for (const st of body) {
+      visitPossibliyFuncPath(st);
+      if (
+        (t.isExportDefaultDeclaration(st.node) ||
+          t.isExportNamedDeclaration(st.node)) &&
+        st.node.declaration
+      ) {
+        // @ts-ignore todo: traverse types
+        const maybeFunc = visitPossibliyFuncPath(st.get('declaration'));
+        if (maybeFunc) {
+          // @ts-ignore todo: traverse types
+          maybeFunc.exp.push(st);
+        }
+      }
+    }
+
+    for (const [, func] of funcByName) {
+      // remove declare keywords if implementation is present
+      if (func.impl.length && func.decl.length) {
+        for (const decl of func.decl) {
+          decl.node.declare = false;
+        }
+        // separate declaration from export if overrides are present, and not everything is exported
+        if (
+          func.exp.length > 0 &&
+          func.exp.length !== func.impl.length + func.decl.length
+        ) {
+          // last export - to split it into declaration and export
+          const exp = func.exp[func.exp.length - 1];
+          // other declarations - to remove `export` keyword from them
+          const expToRemove = func.exp.slice(0, func.exp.length - 1);
+          if (t.isExportDefaultDeclaration(exp.node)) {
+            exp.replaceWithMultiple([
+              exp.node.declaration!,
+              t.exportDefaultDeclaration(
+                // @ts-ignore
+                t.identifier(exp.node.declaration.id.name)
+              ),
+            ]);
+          }
+          if (t.isExportNamedDeclaration(exp.node)) {
+            const specifier = t.identifier(exp.node.declaration.id.name);
+            exp.replaceWithMultiple([
+              exp.node.declaration!,
+              t.exportNamedDeclaration(
+                null,
+                // @ts-ignore
+                [t.exportSpecifier(specifier, specifier)]
+              ),
+            ]);
+          }
+          for (const otherExp of expToRemove) {
+            // @ts-ignore
+            otherExp.replaceWith(otherExp.node.declaration);
+          }
+        }
+      }
+    }
   },
 };
