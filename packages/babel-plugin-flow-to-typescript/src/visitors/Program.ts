@@ -124,7 +124,7 @@ export const Program = {
       return func;
     }
 
-    function visitPossibliyFuncPath(st: NodePath) {
+    function visitPossiblyFuncPath(st: NodePath) {
       const node = st.node;
       if (t.isTSDeclareFunction(node)) {
         if (node.id) {
@@ -148,14 +148,14 @@ export const Program = {
     }
 
     for (const st of body) {
-      visitPossibliyFuncPath(st);
+      visitPossiblyFuncPath(st);
       if (
         (t.isExportDefaultDeclaration(st.node) ||
           t.isExportNamedDeclaration(st.node)) &&
         st.node.declaration
       ) {
         // @ts-ignore todo: traverse types
-        const maybeFunc = visitPossibliyFuncPath(st.get('declaration'));
+        const maybeFunc = visitPossiblyFuncPath(st.get('declaration'));
         if (maybeFunc) {
           // @ts-ignore todo: traverse types
           maybeFunc.exp.push(st);
