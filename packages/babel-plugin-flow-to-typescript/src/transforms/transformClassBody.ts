@@ -12,11 +12,11 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
     }
 
     if (elementPath.isClassProperty()) {
-      // @ts-ignore todo: missing proppery in babel
+      // @ts-expect-error todo: missing proppery in babel
       const variance = elementPath.node.variance;
       if (variance) {
         elementPath.node.readonly = variance && variance.kind === 'plus';
-        // @ts-ignore
+        // @ts-expect-error
         elementPath.node.variance = null;
       }
     }

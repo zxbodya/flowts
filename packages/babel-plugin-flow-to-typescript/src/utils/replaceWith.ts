@@ -10,7 +10,6 @@ export function replaceWith(
   }
   path.replaceWith({
     ...replacement,
-    // @ts-ignore
     comments: path.node ? path.node.comments : undefined,
   } as Node);
 }

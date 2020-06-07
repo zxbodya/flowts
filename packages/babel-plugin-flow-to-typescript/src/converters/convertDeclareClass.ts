@@ -21,7 +21,7 @@ export function convertDeclareClass(node: t.DeclareClass) {
     }
 
     const { key, isComputed } = getPropertyKey(property);
-    // @ts-ignore todo: property is missing in type definition
+    // @ts-expect-error todo: property is missing in type definition
     if (property.method) {
       if (
         !t.isTSParenthesizedType(convertedProperty) ||
@@ -40,7 +40,7 @@ export function convertDeclareClass(node: t.DeclareClass) {
       // todo: fix bug in tsDeclareMethod builder to accept member expression
       converted.key = key;
       converted.static = !!property.static;
-      // @ts-ignore
+      // @ts-expect-error todo improve babel types
       converted.kind = property.kind;
       converted.computed = isComputed;
       bodyElements.push(converted);

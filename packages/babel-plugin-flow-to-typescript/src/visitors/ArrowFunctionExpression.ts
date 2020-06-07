@@ -10,9 +10,9 @@ export function ArrowFunctionExpression(
   state: PluginPass
 ) {
   transformFunctionParams(path.get('params'));
-  // @ts-ignore todo: add babel types
+  // @ts-expect-error todo: add babel types
   if (path.node.predicate) {
-    // @ts-ignore todo: add babel types
+    // @ts-expect-error todo: add babel types
     delete path.node.predicate;
   }
   if (t.isTypeParameterDeclaration(path.node.typeParameters)) {

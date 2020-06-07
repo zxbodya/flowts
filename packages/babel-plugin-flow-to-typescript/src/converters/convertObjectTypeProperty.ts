@@ -27,7 +27,7 @@ export function convertObjectTypeProperty(property: t.ObjectTypeProperty) {
 
   const { key, isComputed } = getPropertyKey(property);
 
-  // @ts-ignore todo: property is missing in type definition
+  // @ts-expect-error todo: property is missing in type definition
   if (property.method) {
     if (!t.isTSFunctionType(tsType)) {
       throw new Error('incorrect method declaration');
