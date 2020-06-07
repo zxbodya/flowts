@@ -6,8 +6,10 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
   for (const elementPath of path.get('body')) {
     if (elementPath.isClassMethod()) {
       if (elementPath.node.kind === 'constructor') {
+        // @ts-expect-error todo babel-types
         elementPath.get('returnType').remove();
       }
+      // @ts-expect-error todo babel-types
       transformFunctionParams(elementPath.get('params'));
     }
 

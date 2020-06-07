@@ -38,14 +38,16 @@ function print(
 
 function ifJestCall(
   functionName: string,
-  path: NodePath,
+  path: NodePath<any>,
   fn: (name: string, body: NodePath<t.BlockStatement>) => void
 ) {
   if (path.isCallExpression()) {
-    const callee = path.get('callee');
+    // todo babel-types
+    const callee = path.get('callee') as NodePath;
     if (callee.isIdentifier()) {
       if (callee.node.name === functionName) {
-        const args = path.get('arguments');
+        // todo babel-types
+        const args = path.get('arguments') as NodePath[];
         if (args.length === 2) {
           const testNameArg = args[0];
           const testFnArg = args[1];
@@ -79,6 +81,7 @@ function findJestCalls(
   const tests = new Map();
   for (const path of globalsDescribeBody.get('body') as NodePath[]) {
     if (path.isExpressionStatement()) {
+      // @ts-expect-error todo babel-types
       ifJestCall(functionName, path.get('expression'), (name, body) => {
         tests.set(name, body);
       });

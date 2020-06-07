@@ -83,8 +83,8 @@ const visitor: Visitor = {
       }
 
       abstract class BaseContext {
-        public referencePaths: NodePath[];
-        constructor(references: NodePath[]) {
+        public referencePaths: NodePath<any>[];
+        constructor(references: NodePath<any>[]) {
           this.referencePaths = references;
         }
       }

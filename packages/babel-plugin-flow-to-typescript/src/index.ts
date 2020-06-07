@@ -34,7 +34,9 @@ const visitor: Visitor<PluginPass> = {
   TypeCastExpression,
   OpaqueType,
   DeclareClass,
+  // @ts-expect-error todo: separate visitors
   ClassDeclaration,
+  // @ts-expect-error todo: separate visitors
   ClassExpression: ClassDeclaration,
   ExportAllDeclaration,
   InterfaceDeclaration,

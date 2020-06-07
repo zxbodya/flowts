@@ -73,11 +73,11 @@ async function main(
     ent.paths.push(path);
   }
 
-  const registerGlobal = (name: string, path: NodePath) =>
+  const registerGlobal = (name: string, path: NodePath<any>) =>
     register(globals, name, path);
-  const registerModule = (name: string, path: NodePath) =>
+  const registerModule = (name: string, path: NodePath<any>) =>
     register(module, name, path);
-  const registerDefaultModule = (name: string, path: NodePath) => {
+  const registerDefaultModule = (name: string, path: NodePath<any>) => {
     hasExports = true;
     register(defaultModule, name, path);
   };
