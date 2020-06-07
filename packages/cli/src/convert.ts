@@ -149,7 +149,7 @@ export async function convert(cwd: string, opts: Options) {
         parserOpts: {
           plugins: [
             'typescript',
-            ...(isJSX ? ['jsx' as 'jsx'] : []),
+            ...(isJSX ? ['jsx' as const] : []),
             ...sharedParserPlugins,
           ],
         },
