@@ -220,7 +220,8 @@ export function convertTSType(node: t.TSType): t.FlowType {
             : t.anyTypeAnnotation(),
           node.typeAnnotation
             ? convertTSType(node.typeAnnotation)
-            : t.anyTypeAnnotation()
+            : t.anyTypeAnnotation(),
+          node.readonly ? t.variance('plus') : null
         ),
       ],
       [],
@@ -343,26 +344,6 @@ export function convertTSType(node: t.TSType): t.FlowType {
   if (t.isTSTupleType(node)) {
     const elementTypes = node.elementTypes;
     return t.tupleTypeAnnotation(elementTypes.map(convertTSType));
-  }
-
-  if (t.isTSMappedType(node)) {
-    return t.objectTypeAnnotation(
-      [],
-      [
-        t.objectTypeIndexer(
-          t.identifier(node.typeParameter.name),
-          node.typeParameter.constraint
-            ? convertTSType(node.typeParameter.constraint)
-            : t.anyTypeAnnotation(),
-          node.typeAnnotation
-            ? convertTSType(node.typeAnnotation)
-            : t.anyTypeAnnotation(),
-          node.readonly ? t.variance('plus') : null
-        ),
-      ],
-      [],
-      []
-    );
   }
 
   if (t.isTSObjectKeyword(node)) {
