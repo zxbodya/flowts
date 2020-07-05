@@ -306,7 +306,7 @@ for (const libName of libNames) {
   const references = [];
 
   if (ast.innerComments) {
-    for (const comment of ast.comments) {
+    for (const comment of ast.comments || []) {
       const match = LIB_REFERENCE_REGEX.exec(comment.value);
       if (match !== null) {
         references.push(match[1]);

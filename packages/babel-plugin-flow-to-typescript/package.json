@@ -24,25 +24,25 @@
   "types": "dist/index.d.ts",
   "repository": "https://github.com/zxbodya/flowts/tree/master/packages/babel-plugin-flow-to-typescript",
   "peerDependencies": {
-    "@babel/core": "^7.4.4"
+    "@babel/core": "^7.10.4"
   },
   "dependencies": {
-    "@babel/template": "^7.10.1",
-    "@babel/traverse": "^7.10.1",
-    "@babel/types": "^7.10.2"
+    "@babel/template": "^7.10.4",
+    "@babel/traverse": "^7.10.4",
+    "@babel/types": "^7.10.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-typescript": "^7.10.1",
-    "@types/babel__traverse": "7.0.12",
-    "@types/jest": "^25.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/babel__traverse": "7.0.13",
+    "@types/jest": "^26.0.3",
     "@zxbodya/recast": "^0.18.9",
     "codecov": "^3.7.0",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "jest": {
     "testEnvironment": "node",

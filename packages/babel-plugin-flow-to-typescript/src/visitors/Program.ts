@@ -83,7 +83,7 @@ export const Program = {
           } else {
             // @ts-expect-error
             if (helperTypes[name]) {
-              usedHelperTypes.add(name);
+              usedHelperTypes.add(name as keyof typeof helperTypes);
             }
           }
         }
@@ -186,7 +186,12 @@ export const Program = {
             ]);
           }
           if (t.isExportNamedDeclaration(exp.node)) {
-            const specifier = t.identifier(exp.node.declaration.id.name);
+            const specifier = t.identifier(
+              // todo: might be add more specific type info for `func` to avoid typecast
+              (exp.node.declaration! as
+                | t.FunctionDeclaration
+                | t.TSDeclareFunction).id!.name
+            );
             exp.replaceWithMultiple([
               exp.node.declaration!,
               t.exportNamedDeclaration(null, [
@@ -195,7 +200,7 @@ export const Program = {
             ]);
           }
           for (const otherExp of expToRemove) {
-            otherExp.replaceWith(otherExp.node.declaration);
+            otherExp.replaceWith(otherExp.node.declaration!);
           }
         }
       }

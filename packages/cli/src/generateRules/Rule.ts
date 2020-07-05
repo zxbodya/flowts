@@ -189,7 +189,9 @@ export class Rule {
           'rules can be defined only as methods on globals object'
         );
       }
-      globalRules.set(globalRule.node.key, globalRule);
+      // todo: change this to be string
+      const globalName: any = globalRule.node.key;
+      globalRules.set(globalName, globalRule);
     }
 
     const modulesRules = new Map<
@@ -206,7 +208,8 @@ export class Rule {
           'modules can be defined only as properties in modules object'
         );
       }
-      const moduleName = module.node.key;
+      // todo: change this to be string
+      const moduleName: any = module.node.key;
       // todo: babel-types
       const moduleObj = module.get('value') as NodePath;
       if (!moduleObj.isObjectExpression()) {

@@ -206,6 +206,11 @@ const visitor: Visitor = {
             if (t.isTSQualifiedName(node)) {
               node.right.name = newExportName;
             } else if (t.isMemberExpression(node)) {
+              if (!t.isIdentifier(node.property)) {
+                throw new Error(
+                  `Identifier is expected. But got ${node.property.type} instead.`
+                );
+              }
               node.property.name = newExportName;
             } else {
               throw new Error('Unexpected reference of type' + path.node.type);
@@ -245,6 +250,11 @@ const visitor: Visitor = {
                 }
               }
               if (t.isMemberExpression(path.parent)) {
+                if (!t.isIdentifier(path.parent.property)) {
+                  throw new Error(
+                    `Identifier is expected. But got ${path.parent.property.type} instead.`
+                  );
+                }
                 const rule = moduleRules.exports[path.parent.property.name];
                 if (rule) {
                   rule(
