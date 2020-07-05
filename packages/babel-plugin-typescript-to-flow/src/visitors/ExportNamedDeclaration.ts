@@ -42,7 +42,8 @@ export function ExportNamedDeclaration(
     const replacement = t.declareExportDeclaration(declaration);
 
     replaceWith(path, replacement);
-  } else if (srcDeclaration && srcDeclaration.declare) {
-    srcDeclaration.declare = false;
+    // todo: remove typecast to any
+  } else if (srcDeclaration && (srcDeclaration as any).declare) {
+    (srcDeclaration as any).declare = false;
   }
 }

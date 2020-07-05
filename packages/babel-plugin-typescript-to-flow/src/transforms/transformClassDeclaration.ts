@@ -19,6 +19,9 @@ function convertMemberExpressionToQualifiedTypeIdentifier(
   if (!t.isIdentifier(id.object) && !t.isMemberExpression(id.object)) {
     throw new Error('not implemented');
   }
+  if (!t.isIdentifier(id.property)) {
+    throw new Error('not implemented');
+  }
   return t.qualifiedTypeIdentifier(
     id.property,
     convertMemberExpressionToQualifiedTypeIdentifier(id.object)
@@ -35,19 +38,43 @@ export function transformClassDeclaration(
   converted.add(node);
   if (node.declare || isAmbientContext) {
     const id = node.id;
-    const typeParameters = node.typeParameters
-      ? convertTSTypeParameterDeclaration(node.typeParameters)
-      : null;
-    const _extends = node.superClass
-      ? [
-          t.interfaceExtends(
-            convertMemberExpressionToQualifiedTypeIdentifier(node.superClass),
-            node.superTypeParameters
-              ? convertTSTypeParameterInstantiation(node.superTypeParameters)
-              : null
-          ),
-        ]
-      : [];
+    let typeParameters: t.TypeParameterDeclaration | null = null;
+    if (node.typeParameters) {
+      if (!t.isTSTypeParameterDeclaration(node.typeParameters)) {
+        throw new Error(
+          `TSTypeParameterDeclaration is expected, but got ${node.typeParameters.type} instead`
+        );
+      }
+      typeParameters = convertTSTypeParameterDeclaration(node.typeParameters);
+    }
+    let _extends: t.InterfaceExtends[] = [];
+    if (node.superClass) {
+      if (
+        !t.isIdentifier(node.superClass) &&
+        !t.isMemberExpression(node.superClass)
+      ) {
+        throw new Error(
+          `Identifier or MemberExpression is expected, but got ${node.superClass.type} instead`
+        );
+      }
+      if (
+        node.superTypeParameters &&
+        !t.isTSTypeParameterInstantiation(node.superTypeParameters)
+      ) {
+        throw new Error(
+          `TSTypeParameterInstantiation is expected, but got ${node.superClass.type} instead`
+        );
+      }
+
+      _extends = [
+        t.interfaceExtends(
+          convertMemberExpressionToQualifiedTypeIdentifier(node.superClass),
+          node.superTypeParameters
+            ? convertTSTypeParameterInstantiation(node.superTypeParameters)
+            : null
+        ),
+      ];
+    }
     const properties: Array<
       t.ObjectTypeProperty | t.ObjectTypeSpreadProperty
     > = [];
@@ -115,15 +142,24 @@ export function transformClassDeclaration(
     );
     const replacement = t.declareClass(id, typeParameters, _extends, body);
     if (node.implements) {
-      replacement.implements = node.implements.map(
-        (impl: t.TSExpressionWithTypeArguments) => {
-          const id = convertTSEntityName(impl.expression);
-          const typeParameters = impl.typeParameters
-            ? convertTSTypeParameterInstantiation(impl.typeParameters)
-            : null;
-          return t.interfaceExtends(id, typeParameters);
+      replacement.implements = node.implements.map(impl => {
+        if (!t.isTSExpressionWithTypeArguments(impl)) {
+          throw new Error(
+            `TSExpressionWithTypeArguments is expected, but got ${impl.type} instead`
+          );
         }
-      );
+        const id = convertTSEntityName(impl.expression);
+        const typeParameters = impl.typeParameters
+          ? convertTSTypeParameterInstantiation(impl.typeParameters)
+          : null;
+        if (!t.isIdentifier(id)) {
+          // todo: create alias for the interface to be added to implements
+          throw new Error(
+            'not implemented, flow does not allow class to implement interface with qualified type name'
+          );
+        }
+        return t.classImplements(id, typeParameters);
+      });
     }
     replaceWith(path, replacement);
     return;
