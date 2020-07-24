@@ -35,13 +35,13 @@
     "@babel/types": "^7.10.4",
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.10.8",
     "@zxbodya/recast": "^0.18.9",
-    "commander": "^5.1.0",
+    "commander": "^6.0.0",
     "globby": "^11.0.1",
     "jest-diff": "^26.1.0",
-    "ora": "^4.0.4",
+    "ora": "^4.0.5",
     "prettier": "^2.0.5",
     "source-map-support": "^0.5.19",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -50,10 +50,10 @@
     "@types/babel__core": "^7.1.8",
     "@types/babel__traverse": "7.0.13",
     "@types/glob": "^7.1.2",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.7",
     "@types/ora": "^3.2.0",
     "@types/prettier": "^2.0.1",
-    "codecov": "^3.7.0",
+    "codecov": "^3.7.2",
     "jest": "^26.1.0",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2"

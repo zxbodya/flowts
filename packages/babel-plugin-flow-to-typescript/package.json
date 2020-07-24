@@ -37,12 +37,12 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@types/babel__traverse": "7.0.13",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.7",
     "@zxbodya/recast": "^0.18.9",
-    "codecov": "^3.7.0",
+    "codecov": "^3.7.2",
     "jest": "^26.1.0",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "jest": {
     "testEnvironment": "node",
