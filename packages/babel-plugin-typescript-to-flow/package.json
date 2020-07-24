@@ -1,0 +1,53 @@
+{
+  "name": "babel-plugin-typescript-to-flow",
+  "description": "Babel plugin to convert TypeScript into Flow",
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "README.md"
+  ],
+  "version": "0.0.1",
+  "scripts": {
+    "cover": "jest --coverage",
+    "report-coverage": "codecov",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run clean && tsc -b --force",
+    "build": "tsc -b"
+  },
+  "keywords": [
+    "babel",
+    "flow",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/babel-plugin-typescript-to-flow",
+  "peerDependencies": {
+    "@babel/core": "^7.10.4"
+  },
+  "dependencies": {
+    "@babel/template": "^7.10.4",
+    "@babel/traverse": "^7.10.4",
+    "@babel/types": "^7.10.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/babel__traverse": "7.0.13",
+    "@types/jest": "^26.0.3",
+    "@zxbodya/recast": "^0.18.9",
+    "codecov": "^3.7.0",
+    "jest": "^26.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.6"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "dist"
+    ]
+  }
+}
