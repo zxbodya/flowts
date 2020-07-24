@@ -10,6 +10,9 @@
   "references": [
     {
       "path": "../babel-plugin-flow-to-typescript"
+    },
+    {
+      "path": "../babel-plugin-typescript-to-flow"
     }
   ]
 }
