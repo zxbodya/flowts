@@ -1,6 +1,5 @@
 import template from '@babel/template';
 
-/* tslint:disable */
 const ast = template({
   plugins: ['typescript'],
 }).ast;
