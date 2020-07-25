@@ -2,18 +2,29 @@ import { testTransform } from '../transform';
 
 test('helper types', () => {
   const result = testTransform(`
+import type {A,B} from 'somewhere'
 let a: ReturnType<A>;
 let b: Pick<A, B>;
 let c: Omit<A, B>;
+let d: Omit<A, 'a'>;
+let e: Omit<A, 'a'|'b'>;
 `);
   expect(result.babel).toMatchInlineSnapshot(`
-    "type Pick<T: {}, K: $Keys<T>> = $ObjMapi<{
+    "import type { A, B } from 'somewhere';
+    type Omit<T: {}, K: $Keys<T>> = $ObjMapi<T, (<KK: K>(KK) => any) & (<KK: mixed>(KK) => $ElementType<T, KK>)>;
+    type Pick<T: {}, K: $Keys<T>> = $ObjMapi<{
       [K]: any
     }, <KK>(KK) => $ElementType<T, KK>>;
-    type Omit<T: {}, K: $Keys<T>> = $ObjMapi<T, (<KK: K>(KK) => any) & (<KK: mixed>(KK) => $ElementType<T, KK>)>;
     let a: $Call<<R>((...args: any[]) => R) => R, A>;
     let b: Pick<A, B>;
-    let c: Omit<A, B>;"
+    let c: Omit<A, B>;
+    let d: $Rest<A, {
+      a: any
+    }>;
+    let e: $Rest<A, {
+      a: any,
+      b: any,
+    }>;"
   `);
   // expect(result.recast).toMatchInlineSnapshot();
 });

@@ -156,6 +156,39 @@ export function convertTSType(node: t.TSType): t.FlowType {
         [],
         []
       );
+    } else if (
+      t.isIdentifier(typeName) &&
+      typeName.name === 'Omit' &&
+      flowTypeParameters &&
+      flowTypeParameters.params.length === 2 &&
+      (t.isStringLiteralTypeAnnotation(flowTypeParameters.params[1]) ||
+        (t.isUnionTypeAnnotation(flowTypeParameters.params[1]) &&
+          flowTypeParameters.params[1].types.every(type =>
+            t.isStringLiteralTypeAnnotation(type)
+          )))
+    ) {
+      // special case when Omit can be directly replaced by `$Rest`
+      return t.genericTypeAnnotation(
+        t.identifier('$Rest'),
+        t.typeParameterInstantiation([
+          flowTypeParameters.params[0],
+          t.objectTypeAnnotation(
+            (t.isStringLiteralTypeAnnotation(flowTypeParameters.params[1])
+              ? [flowTypeParameters.params[1]]
+              : ((flowTypeParameters.params[1] as t.UnionTypeAnnotation)
+                  .types as t.StringLiteralTypeAnnotation[])
+            ).map(type =>
+              t.objectTypeProperty(
+                t.identifier(type.value),
+                t.anyTypeAnnotation()
+              )
+            ),
+            [],
+            [],
+            []
+          ),
+        ])
+      );
     } else {
       return t.genericTypeAnnotation(typeName, flowTypeParameters);
     }
