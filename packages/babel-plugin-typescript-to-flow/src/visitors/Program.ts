@@ -8,7 +8,6 @@ import { convertTSDeclareFunction } from '../converters/convertTSDeclareFunction
 import { PluginPass } from '../types';
 
 export function Program(path: NodePath<t.Program>, state: PluginPass) {
-  // todo: pass this in plugin options
   const isAmbientContext = state.opts.isAmbientContext;
 
   for (const st of path.get('body')) {

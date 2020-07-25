@@ -41,7 +41,7 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
     opts.isAmbientContext = false;
   }
   return {
-    name: 'babel-plugin-flow-to-typescript',
+    name: 'babel-plugin-typescript-to-flow',
     visitor,
 
     manipulateOptions(_babel: any, parserOpts) {

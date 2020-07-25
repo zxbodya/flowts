@@ -1,4 +1,4 @@
-import { testTransform } from '../transform';
+import { testTransform, testTransformDts } from '../transform';
 
 test('declare class', () => {
   const result = testTransform(`declare class A<X, Y, Z> extends B<X<Y<Z>>> {
@@ -127,5 +127,31 @@ test('member expression in super', () => {
   expect(result.babel).toMatchInlineSnapshot(
     `"declare class C extends React.Component<A, B> {}"`
   );
+  // expect(result.recast).toMatchInlineSnapshot();
+});
+
+test('declare class with methods', () => {
+  const result = testTransform(`export declare class BrowserDebugEngine {
+  private worker;
+  private counter;
+
+  constructor(worker?: any);
+
+  debug({ stackIndex, stackInfo }: {
+    stackIndex: any;
+    stackInfo: any;
+  }): string;
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare export class BrowserDebugEngine {
+      worker: any,
+      counter: any,
+      constructor(worker?: any): any,
+      debug(v0: {
+        stackIndex: any,
+        stackInfo: any,
+      }): string,
+    }"
+  `);
   // expect(result.recast).toMatchInlineSnapshot();
 });

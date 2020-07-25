@@ -2,6 +2,8 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
 import { replaceWith } from '../utils/replaceWith';
+import { transformClassDeclaration } from '../transforms/transformClassDeclaration';
+import { convertClassTypeDeclaration } from '../converters/convertClassTypeDeclaration';
 
 export function ExportNamedDeclaration(
   path: NodePath<t.ExportNamedDeclaration>
@@ -43,6 +45,11 @@ export function ExportNamedDeclaration(
 
     replaceWith(path, replacement);
     // todo: remove typecast to any
+  } else if (t.isClassDeclaration(srcDeclaration)) {
+    const replacement = t.declareExportDeclaration(
+      convertClassTypeDeclaration(srcDeclaration)
+    );
+    replaceWith(path, replacement);
   } else if (srcDeclaration && (srcDeclaration as any).declare) {
     (srcDeclaration as any).declare = false;
   }
