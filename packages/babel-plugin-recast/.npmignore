@@ -1,0 +1,8 @@
+.DS_Store
+/src
+node_modules
+.idea
+*.log
+__snapshots__
+/package-lock.json
+/coverage

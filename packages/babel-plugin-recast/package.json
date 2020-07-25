@@ -1,0 +1,53 @@
+{
+  "name": "@flowts/babel-plugin-recast",
+  "description": "Babel plugin to use recast",
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "README.md"
+  ],
+  "version": "0.11.21",
+  "scripts": {
+    "cover": "jest --coverage",
+    "report-coverage": "codecov",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run clean && tsc -b --force",
+    "build": "tsc -b"
+  },
+  "keywords": [
+    "babel",
+    "flow",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/babel-plugin-recast",
+  "peerDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/types": "^7.10.4"
+  },
+  "dependencies": {
+    "@zxbodya/recast": "0.20.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/types": "^7.10.4",
+    "@types/babel__traverse": "7.11.1",
+    "@types/jest": "^26.0.3",
+    "codecov": "^3.7.0",
+    "jest": "^27.0.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "dist"
+    ]
+  }
+}
