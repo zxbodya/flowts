@@ -359,5 +359,9 @@ export function convertTSType(node: t.TSType): t.FlowType {
       t.voidTypeAnnotation(),
     ]);
   }
+  if (t.isTSConditionalType(node)) {
+    //todo: warn
+    return t.anyTypeAnnotation();
+  }
   throw new Error(`Unsupported flow type TSType(type=${node.type})`);
 }
