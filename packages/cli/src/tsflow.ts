@@ -24,7 +24,7 @@ program
   .description('TypeScript to Flow migration tool')
   .option(
     '-r, recast',
-    'use recast instead of babel generator(warning: likely not working correctly in some cases)',
+    'use recast instead of babel generator(warning: not working correctly in some cases)',
     false
   )
   .option('-P, --no-prettier', 'do not run prettier on converted code', false)

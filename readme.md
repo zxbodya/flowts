@@ -1,6 +1,13 @@
-# Flow to Typescript
+# FlowTS 
 
-## Usage:
+Tooling to help in migration from Flow to TypeScript, or from TypeScript to Flow(work in progress).
+
+Current status:
+
+ - Flow to TypeScript already works quite well
+ - TypeScript to Flow still very much work in progress - currently mostly focused on definitions files(to help automate type generation for Flow users)
+
+## Flow to TypeScript:
 
 `npm install -g flowts`
 
@@ -23,21 +30,22 @@ Options:
   -h, --help                   display help for command
 ```
 
-## How it works
 
-1. Convert source code using: https://github.com/zxbodya/flowts/tree/master/packages/babel-plugin-flow-to-typescript
+### How it works
+
+1. Convert source code using: [babel-plugin-flow-to-typescript](packages/babel-plugin-flow-to-typescript)
 2. Do some additional fixes for types embedded in flow library (for example react types are somewhat different from typescript version)
 3. Prints code using recast (https://github.com/benjamn/recast), so most of the formatting is preserved.
 4. Because not all formatting can be preserved - it also re-formats code using prettier (assumption is that converted codebase is using it, and there is configured in standard way, like having `.prettierrc`). Also be sure you already have prettier 2.0 (it needed for TypeScript 3.8)
 5. Before writing converted file - script verifies that there are no changes other than type annotations (all errors are logged - so, be sure to check logs and to adjustments accordingly)
 
-## Project priorities
+### Project priorities
 
 1. Only type annotation should be changed, so code after migration is in "working" state
 2. Type information should be preserved as much as possible
 3. When possible formatting and comments should be preserved
 
-## Cavearts
+### Cavearts
 
 There might be unexpected formatting changes, or bugs related to using recast - it is good, but there can be bugs…
 
@@ -45,3 +53,23 @@ Rarely, but sometimes:
 
 - there might be unexpected formatting changes
 - some comments might be removed
+
+## TypeScript to Flow (work in progress - consider this experimental)
+
+Currently, focused mostly on definition files - see more details in [babel-plugin-typescript-to-flow](packages/babel-plugin-typescript-to-flow) readme. 
+
+Generates `.js`/`.js.flow` files, without removing original `.ts`/`.d.ts` files.   
+
+```
+Usage: tsflow [options] ./path/to/project
+
+TypeScript to Flow migration tool
+
+Options:
+  -V, --version                output the version number
+  -r, recast                   use recast instead of babel generator(warning: not working correctly in some cases) (default: false)
+  -P, --no-prettier            do not run prettier on converted code
+  -i, --include <includeGlob>  Glob expression of files to include, default: "**/*.{ts}" (default: "**/*.ts")
+  -x, --exclude <excludeGlob>  Additional excludes glob expression (by default node_modules and files from .gitignore is excluded) (default: [])
+  -h, --help                   display help for command
+```
