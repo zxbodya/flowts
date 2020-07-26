@@ -2,6 +2,7 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { replaceWith } from '../utils/replaceWith';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
+import { convertClassTypeDeclaration } from '../converters/convertClassTypeDeclaration';
 
 export function ExportDefaultDeclaration(
   path: NodePath<t.ExportDefaultDeclaration>
@@ -28,6 +29,11 @@ export function ExportDefaultDeclaration(
 
     const replacement = t.declareExportDeclaration(declaration);
     replacement.default = true;
+    replaceWith(path, replacement);
+  } else if (t.isClassDeclaration(srcDeclaration)) {
+    const replacement = t.declareExportDeclaration(
+      convertClassTypeDeclaration(srcDeclaration)
+    );
     replaceWith(path, replacement);
   }
 }
