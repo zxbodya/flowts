@@ -146,7 +146,7 @@ test('declare class with methods', () => {
     "declare export class BrowserDebugEngine {
       worker: any,
       counter: any,
-      constructor(worker?: any): any,
+      constructor(worker?: any): BrowserDebugEngine,
       debug(v0: {
         stackIndex: any,
         stackInfo: any,

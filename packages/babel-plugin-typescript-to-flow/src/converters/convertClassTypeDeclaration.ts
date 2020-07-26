@@ -1,27 +1,12 @@
 import * as t from '@babel/types';
-import { convertTSTypeParameterInstantiation } from '../converters/convertTSTypeParameterInstantiation';
-import { convertTSEntityName } from '../converters/convertTSEntityName';
-import { convertTSTypeParameterDeclaration } from '../converters/convertTSTypeParameterDeclaration';
-import { convertTSType } from '../converters/convertTSType';
+import { convertTSTypeParameterInstantiation } from './convertTSTypeParameterInstantiation';
+import { convertTSEntityName } from './convertTSEntityName';
+import { convertTSTypeParameterDeclaration } from './convertTSTypeParameterDeclaration';
+import { convertTSType } from './convertTSType';
 import { TSTypeAnnotation } from '@babel/types';
-import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
-import { convertKey } from '../converters/convertKey';
-
-function convertMemberExpressionToQualifiedTypeIdentifier(
-  id: t.Identifier | t.MemberExpression
-): t.Identifier | t.QualifiedTypeIdentifier {
-  if (t.isIdentifier(id)) return id;
-  if (!t.isIdentifier(id.object) && !t.isMemberExpression(id.object)) {
-    throw new Error('not implemented');
-  }
-  if (!t.isIdentifier(id.property)) {
-    throw new Error('not implemented');
-  }
-  return t.qualifiedTypeIdentifier(
-    id.property,
-    convertMemberExpressionToQualifiedTypeIdentifier(id.object)
-  );
-}
+import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
+import { convertKey } from './convertKey';
+import { convertMemberExpressionToQualifiedTypeIdentifier } from './convertMemberExpressionToQualifiedTypeIdentifier';
 
 export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
   const id = node.id;
@@ -110,7 +95,12 @@ export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
           typeParams,
           parameters,
           rest,
-          returnType ? returnType : t.anyTypeAnnotation()
+          returnType
+            ? returnType
+            : t.isIdentifier(key) && key.name === 'constructor'
+            ? // special case - constructor type should have return type
+              t.genericTypeAnnotation(t.identifier(id.name))
+            : t.anyTypeAnnotation()
         )
       );
       prop.static = member.static;
