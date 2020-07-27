@@ -3,10 +3,13 @@ import { NodePath } from '@babel/traverse';
 import { replaceWith } from '../utils/replaceWith';
 import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
 import { convertClassTypeDeclaration } from '../converters/convertClassTypeDeclaration';
+import { PluginPass } from '../types';
 
 export function ExportDefaultDeclaration(
-  path: NodePath<t.ExportDefaultDeclaration>
+  path: NodePath<t.ExportDefaultDeclaration>,
+  state: PluginPass
 ) {
+  if (!state.opts.isAmbientContext) return;
   const srcDeclaration = path.node.declaration;
   if (t.isTSDeclareFunction(srcDeclaration)) {
     const {

@@ -1,7 +1,7 @@
-import { testTransform } from '../transform';
+import { testTransform, testTransformDts } from '../transform';
 
 test('export default function', () => {
-  const result = testTransform(`export default function A11y(props: {
+  const result = testTransformDts(`export default function A11y(props: {
     children: React.ReactNode;
 }): JSX.Element;`);
   expect(result.babel).toMatchInlineSnapshot(`

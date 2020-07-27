@@ -5,6 +5,7 @@ import { convertFunctionTypeAnnotation } from '../converters/convertFunctionType
 export function transformClassBody(path: NodePath<t.ClassBody>) {
   for (const elementPath of path.get('body')) {
     if (elementPath.isClassMethod()) {
+      // todo:
       ///transformFunctionParams(elementPath.get('params'));
     }
 
