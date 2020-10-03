@@ -28,7 +28,9 @@ export function verify(
     configFile: false,
     filename,
     plugins: [removeExportAllTypePlugin],
-    presets: [require.resolve('@babel/preset-flow')],
+    presets: [
+      [require.resolve('@babel/preset-flow'), { allowDeclareFields: true }],
+    ],
     parserOpts: {
       plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
     },
@@ -62,7 +64,7 @@ export function verify(
     presets: [
       [
         require.resolve('@babel/preset-typescript'),
-        { onlyRemoveTypeImports: true },
+        { onlyRemoveTypeImports: true, allowDeclareFields: true },
       ],
     ],
     parserOpts: {

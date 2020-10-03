@@ -163,3 +163,28 @@ test('class method parameters', () => {
     }"
   `);
 });
+
+test('class with declare field', () => {
+  const result = testTransform(`class A {
+  declare descriptor: string;
+  constructor(): void{}
+  method(a:number, b?:?number, c: number = 1): void{}
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "class A {
+      declare descriptor: string;
+
+      constructor() {}
+
+      method(a: number, b?: number | null, c: number = 1): void {}
+
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "class A {
+      declare descriptor: string;
+      constructor() {}
+      method(a: number, b?: number | null, c: number = 1): void {}
+    }"
+  `);
+});
