@@ -376,7 +376,15 @@ export function convertTSType(node: t.TSType): t.FlowType {
 
   if (t.isTSTupleType(node)) {
     const elementTypes = node.elementTypes;
-    return t.tupleTypeAnnotation(elementTypes.map(convertTSType));
+    return t.tupleTypeAnnotation(
+      elementTypes.map(element => {
+        if (t.isTSNamedTupleMember(element)) {
+          return convertTSType(element.elementType);
+        } else {
+          return convertTSType(element);
+        }
+      })
+    );
   }
 
   if (t.isTSObjectKeyword(node)) {

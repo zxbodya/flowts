@@ -186,7 +186,8 @@ const visitor: Visitor = {
         }
       }
 
-      class NamespaceImportContext extends BaseContext
+      class NamespaceImportContext
+        extends BaseContext
         implements NamedFixContext {
         public moduleName: string;
         private oldName: string;

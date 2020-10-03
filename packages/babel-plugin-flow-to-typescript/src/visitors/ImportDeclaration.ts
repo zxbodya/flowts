@@ -68,7 +68,7 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
         keep.push(specifier);
       }
       if (specifier.type === 'ImportSpecifier') {
-        delete specifier.importKind;
+        specifier.importKind = null;
       }
     }
     const types = moveTypeof.map(specifier =>
