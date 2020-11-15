@@ -6,7 +6,7 @@
     "dist/*",
     "README.md"
   ],
-  "version": "0.11.3",
+  "version": "0.11.4",
   "scripts": {
     "cover": "jest --coverage",
     "report-coverage": "codecov",
