@@ -14,7 +14,8 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
             specifier.type === 'ImportDefaultSpecifier'
               ? t.identifier('default')
               : specifier.type === 'ImportSpecifier'
-              ? specifier.imported
+              ? // todo: revisit if typecast is OK
+                (specifier.imported as t.Identifier)
               : null
           )
         )
@@ -75,7 +76,10 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
       t.tsTypeAliasDeclaration(
         specifier.local,
         null,
-        t.tsTypeQuery(t.tsImportType(path.node.source, specifier.imported))
+        // todo: revisit if typecast is OK
+        t.tsTypeQuery(
+          t.tsImportType(path.node.source, specifier.imported as t.Identifier)
+        )
       )
     );
     if (keep.length === 0) {

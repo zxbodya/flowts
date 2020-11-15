@@ -65,7 +65,8 @@ const visitor: Visitor = {
               moduleState.importDeclarations.add(binding.path.parent);
               moduleState.named.push({
                 local: binding.path.node.local.name,
-                imported: binding.path.node.imported.name,
+                // todo: revisit if typecast is OK
+                imported: (binding.path.node.imported as t.Identifier).name,
                 referencePaths: binding.referencePaths,
                 importSpecifier: binding.path.node,
               });
@@ -170,7 +171,9 @@ const visitor: Visitor = {
               // todo: theoretically conflicts are possible
               n.local = newExportName;
               if (n.importSpecifier) {
-                n.importSpecifier.imported.name = newExportName;
+                // todo: revisit if typecast is OK
+                (n.importSpecifier
+                  .imported as t.Identifier).name = newExportName;
                 n.importSpecifier.local.name = newExportName;
               }
             }

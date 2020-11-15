@@ -28,21 +28,21 @@
   },
   "dependencies": {
     "@babel/template": "^7.10.4",
-    "@babel/traverse": "^7.11.5",
-    "@babel/types": "^7.11.5"
+    "@babel/traverse": "^7.12.5",
+    "@babel/types": "^7.12.6"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
     "@types/babel__traverse": "7.0.15",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.15",
     "@zxbodya/recast": "^0.18.9",
-    "codecov": "^3.7.2",
-    "jest": "^26.4.2",
+    "codecov": "^3.8.1",
+    "jest": "^26.6.3",
     "rimraf": "^3.0.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.5"
   },
   "jest": {
     "testEnvironment": "node",
