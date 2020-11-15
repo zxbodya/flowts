@@ -328,8 +328,15 @@ const visitor: Visitor = {
               !t.isImportNamespaceSpecifier(id.specifiers[0]) &&
               id.importKind === 'type'
             ) {
-              id.specifiers.push(...newNamedSpecifiers);
-              added = true;
+              for (const sp of newNamedSpecifiers) {
+                // check if specifier is not imported already before adding it
+                if (
+                  !id.specifiers.some(esp => esp.local.name === sp.local.name)
+                ) {
+                  id.specifiers.push(sp);
+                }
+                added = true;
+              }
               break;
             }
           }

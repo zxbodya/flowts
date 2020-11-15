@@ -59,6 +59,29 @@ export type ButtonPropsT = {
 `)
     ).toMatchSnapshot();
   });
+  test('does not add duplicated import', () => {
+    expect(
+      transform(`// @flow
+import type {Writable} from 'stream';
+
+export default class Trace {
+  pipe(writable: Writable): stream$Writable {
+    return this.tracer.pipe(writable);
+  }
+}
+`)
+    ).toMatchInlineSnapshot(`
+      "// @flow
+      import type { Writable } from \\"stream\\";
+
+      export default class Trace {
+        pipe(writable: Writable): Writable {
+          return this.tracer.pipe(writable);
+        }
+      }
+      "
+    `);
+  });
 });
 
 // todo:
