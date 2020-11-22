@@ -20,7 +20,7 @@ export default {
         }
         */
     Blob(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -45,7 +45,7 @@ export default {
         }
         */
     FileReader(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -56,7 +56,7 @@ export default {
         };
         */
     FilePropertyBag(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -71,7 +71,7 @@ export default {
         }
         */
     File(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -83,7 +83,7 @@ export default {
         }
         */
     FileList(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -115,7 +115,7 @@ export default {
         }
         */
     DataTransferItemList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -140,6 +140,18 @@ export default {
         declare type DOMStringMap = { [key:string]: string, ... }
         */
     DOMStringMap(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class DOMStringList {
+          +[key:number]: string;
+          +length: number;
+          item(number): string | null;
+          contains(string): boolean;
+        }
+        */
+    DOMStringList(context) {
       context.lib('dom');
     },
 
@@ -172,8 +184,10 @@ export default {
 
     /*
         declare interface ShadowRoot extends DocumentFragment {
-          host: Element;
+          +delegatesFocus: boolean;
+          +host: Element;
           innerHTML: string;
+          +mode: ShadowRootMode;
         }
         */
     ShadowRoot(context) {
@@ -215,7 +229,7 @@ export default {
           addEventListener(type: MouseEventTypes, listener: MouseEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: FocusEventTypes, listener: FocusEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: KeyboardEventTypes, listener: KeyboardEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
-          addEventListener(type: InputEventTypes, listener: InputEventHandler, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+          addEventListener(type: InputEventTypes, listener: InputEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: TouchEventTypes, listener: TouchEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: WheelEventTypes, listener: WheelEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: AbortProgressEventTypes, listener: AbortProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
@@ -227,11 +241,13 @@ export default {
           addEventListener(type: TransitionEventTypes, listener: TransitionEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: MessageEventTypes, listener: MessageEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: BeforeUnloadEventTypes, listener: BeforeUnloadEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+          addEventListener(type: StorageEventTypes, listener: StorageEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           addEventListener(type: string, listener: EventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
 
           removeEventListener(type: MouseEventTypes, listener: MouseEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: FocusEventTypes, listener: FocusEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: KeyboardEventTypes, listener: KeyboardEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+          removeEventListener(type: InputEventTypes, listener: InputEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: TouchEventTypes, listener: TouchEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: WheelEventTypes, listener: WheelEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: AbortProgressEventTypes, listener: AbortProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
@@ -243,12 +259,13 @@ export default {
           removeEventListener(type: TransitionEventTypes, listener: TransitionEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: MessageEventTypes, listener: MessageEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: BeforeUnloadEventTypes, listener: BeforeUnloadEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+          removeEventListener(type: StorageEventTypes, listener: StorageEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
           removeEventListener(type: string, listener: EventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
 
           attachEvent?: (type: MouseEventTypes, listener: MouseEventListener) => void;
           attachEvent?: (type: FocusEventTypes, listener: FocusEventListener) => void;
           attachEvent?: (type: KeyboardEventTypes, listener: KeyboardEventListener) => void;
-          attachEvent?: (type: InputEventTypes, listener: InputEventHandler) => void;
+          attachEvent?: (type: InputEventTypes, listener: InputEventListener) => void;
           attachEvent?: (type: TouchEventTypes, listener: TouchEventListener) => void;
           attachEvent?: (type: WheelEventTypes, listener: WheelEventListener) => void;
           attachEvent?: (type: AbortProgressEventTypes, listener: AbortProgressEventListener) => void;
@@ -260,6 +277,7 @@ export default {
           attachEvent?: (type: TransitionEventTypes, listener: TransitionEventListener) => void;
           attachEvent?: (type: MessageEventTypes, listener: MessageEventListener) => void;
           attachEvent?: (type: BeforeUnloadEventTypes, listener: BeforeUnloadEventListener) => void;
+          attachEvent?: (type: StorageEventTypes, listener: StorageEventListener) => void;
           attachEvent?: (type: string, listener: EventListener) => void;
 
           detachEvent?: (type: MouseEventTypes, listener: MouseEventListener) => void;
@@ -277,6 +295,7 @@ export default {
           detachEvent?: (type: TransitionEventTypes, listener: TransitionEventListener) => void;
           detachEvent?: (type: MessageEventTypes, listener: MessageEventListener) => void;
           detachEvent?: (type: BeforeUnloadEventTypes, listener: BeforeUnloadEventListener) => void;
+          detachEvent?: (type: StorageEventTypes, listener: StorageEventListener) => void;
           detachEvent?: (type: string, listener: EventListener) => void;
 
           dispatchEvent(evt: Event): boolean;
@@ -288,32 +307,107 @@ export default {
         }
         */
     EventTarget(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare class Event {
           constructor(type: string, eventInitDict?: Event$Init): void;
-          bubbles: boolean;
-          cancelable: boolean;
-          currentTarget: EventTarget;
-          deepPath?: () => EventTarget[];
-          defaultPrevented: boolean;
-          eventPhase: number;
-          isTrusted: boolean;
-          scoped: boolean;
-          srcElement: Element;
-          target: EventTarget;
-          timeStamp: number;
-          type: string;
-          preventDefault(): void;
-          stopImmediatePropagation(): void;
-          stopPropagation(): void;
-          AT_TARGET: number;
-          BUBBLING_PHASE: number;
-          CAPTURING_PHASE: number;
+          *
+           * Returns the type of event, e.g. "click", "hashchange", or "submit".
+           
+          +type: string;
+          *
+           * Returns the object to which event is dispatched (its target).
+           
+          +target: EventTarget; // TODO: nullable
+          * @deprecated 
+          +srcElement: Element; // TODO: nullable
+          *
+           * Returns the object whose event listener's callback is currently being invoked.
+           
+          +currentTarget: EventTarget; // TODO: nullable
+          *
+           * Returns the invocation target objects of event's path (objects on which
+           * listeners will be invoked), except for any nodes in shadow trees of which
+           * the shadow root's mode is "closed" that are not reachable from event's
+           * currentTarget.
+           
+          composedPath(): Array<EventTarget>;
 
-          // deprecated
+          +NONE: number;
+          +AT_TARGET: number;
+          +BUBBLING_PHASE: number;
+          +CAPTURING_PHASE: number;
+          *
+           * Returns the event's phase, which is one of NONE, CAPTURING_PHASE, AT_TARGET,
+           * and BUBBLING_PHASE.
+           
+          +eventPhase: number;
+
+          *
+           * When dispatched in a tree, invoking this method prevents event from reaching
+           * any objects other than the current object.
+           
+          stopPropagation(): void;
+          *
+           * Invoking this method prevents event from reaching any registered event
+           * listeners after the current one finishes running and, when dispatched in a
+           * tree, also prevents event from reaching any other objects.
+           
+          stopImmediatePropagation(): void;
+
+          *
+           * Returns true or false depending on how event was initialized. True if
+           * event goes through its target's ancestors in reverse tree order, and
+           * false otherwise.
+           
+          +bubbles: boolean;
+          *
+           * Returns true or false depending on how event was initialized. Its
+           * return value does not always carry meaning, but true can indicate
+           * that part of the operation during which event was dispatched, can
+           * be canceled by invoking the preventDefault() method.
+           
+          +cancelable: boolean;
+          // returnValue: boolean; // legacy, and some subclasses still define it as a string!
+          *
+           * If invoked when the cancelable attribute value is true, and while
+           * executing a listener for the event with passive set to false, signals to
+           * the operation that caused event to be dispatched that it needs to be
+           * canceled.
+           
+          preventDefault(): void;
+          *
+           * Returns true if preventDefault() was invoked successfully to indicate
+           * cancelation, and false otherwise.
+           
+          +defaultPrevented: boolean;
+          *
+           * Returns true or false depending on how event was initialized. True if
+           * event invokes listeners past a ShadowRoot node that is the root of its
+           * target, and false otherwise.
+           
+          +composed: boolean;
+
+          *
+           * Returns true if event was dispatched by the user agent, and false otherwise.
+           
+          +isTrusted: boolean;
+          *
+           * Returns the event's timestamp as the number of milliseconds measured relative
+           * to the time origin.
+           
+          +timeStamp: number;
+
+          * Non-standard. See Event.prototype.composedPath 
+          +deepPath?: () => EventTarget[];
+          * Non-standard. See Event.prototype.composed 
+          +scoped: boolean;
+
+          *
+           * @deprecated
+           
           initEvent(
             type: string,
             bubbles: boolean,
@@ -322,7 +416,7 @@ export default {
         }
         */
     Event(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -340,7 +434,7 @@ export default {
         }
         */
     CustomEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -350,6 +444,16 @@ export default {
         }
         */
     UIEvent(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class CompositionEvent extends UIEvent {
+          data: string | null;
+          locale: string,
+        }
+        */
+    CompositionEvent(context) {
       context.lib('dom');
     },
 
@@ -456,7 +560,7 @@ export default {
         }
         */
     ProgressEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -466,7 +570,17 @@ export default {
         }
         */
     PromiseRejectionEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
+    },
+
+    /*
+        declare class PageTransitionEvent extends Event {
+          constructor(type: string, init?: PageTransitionEventInit): void;
+          +persisted: boolean;
+        }
+        */
+    PageTransitionEvent(context) {
+      context.lib('dom');
     },
 
     /*
@@ -478,7 +592,7 @@ export default {
         }
         */
     MessageEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -497,7 +611,7 @@ export default {
         }
         */
     EventSource(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -525,8 +639,9 @@ export default {
 
     /*
         declare class InputEvent extends UIEvent {
-          data: string | null;
-          isComposing: boolean;
+          +data: string | null;
+          +inputType: string;
+          +isComposing: boolean;
         }
         */
     InputEvent(context) {
@@ -555,6 +670,31 @@ export default {
     },
 
     /*
+        declare class ErrorEvent extends Event {
+          constructor(
+            type: string,
+            eventInitDict?: {
+              ...Event$Init,
+              message?: string,
+              filename?: string,
+              lineno?: number,
+              colno?: number,
+              error?: any,
+              ...
+            },
+          ): void;
+          +message: string;
+          +filename: string;
+          +lineno: number;
+          +colno: number;
+          +error: any;
+        }
+        */
+    ErrorEvent(context) {
+      context.lib('dom');
+    },
+
+    /*
         declare class BroadcastChannel extends EventTarget {
           name: string;
           onmessage: ?(event: MessageEvent) => void;
@@ -566,7 +706,7 @@ export default {
         }
         */
     BroadcastChannel(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -594,7 +734,7 @@ export default {
         }
         */
     TouchList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -724,14 +864,14 @@ export default {
           item(index: number): T;
           [index: number]: T;
 
-          forEach(callbackfn: (value: T, index: number, list: NodeList<T>) => any, thisArg?: any): void;
+          forEach<This>(callbackfn: (this : This, value: T, index: number, list: NodeList<T>) => any, thisArg: This): void;
           entries(): Iterator<[number, T]>;
           keys(): Iterator<number>;
           values(): Iterator<T>;
         }
         */
     NodeList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -740,7 +880,7 @@ export default {
           length: number;
           removeNamedItemNS(namespaceURI: string, localName: string): Attr;
           item(index: number): Attr;
-          [index: number]: Attr;
+          [index: number | string]: Attr;
           removeNamedItem(name: string): Attr;
           getNamedItem(name: string): Attr;
           setNamedItem(arg: Attr): Attr;
@@ -749,7 +889,7 @@ export default {
         }
         */
     NamedNodeMap(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -798,72 +938,73 @@ export default {
           createCDATASection(data: string): Text;
           createComment(data: string): Comment;
           createDocumentFragment(): DocumentFragment;
-          createElement(tagName: 'a'): HTMLAnchorElement;
-          createElement(tagName: 'area'): HTMLAreaElement;
-          createElement(tagName: 'audio'): HTMLAudioElement;
-          createElement(tagName: 'blockquote'): HTMLQuoteElement;
-          createElement(tagName: 'body'): HTMLBodyElement;
-          createElement(tagName: 'br'): HTMLBRElement;
-          createElement(tagName: 'button'): HTMLButtonElement;
-          createElement(tagName: 'canvas'): HTMLCanvasElement;
-          createElement(tagName: 'col'): HTMLTableColElement;
-          createElement(tagName: 'colgroup'): HTMLTableColElement;
-          createElement(tagName: 'data'): HTMLDataElement;
-          createElement(tagName: 'datalist'): HTMLDataListElement;
-          createElement(tagName: 'del'): HTMLModElement;
-          createElement(tagName: 'details'): HTMLDetailsElement;
-          createElement(tagName: 'dialog'): HTMLDialogElement;
-          createElement(tagName: 'div'): HTMLDivElement;
-          createElement(tagName: 'dl'): HTMLDListElement;
-          createElement(tagName: 'embed'): HTMLEmbedElement;
-          createElement(tagName: 'fieldset'): HTMLFieldSetElement;
-          createElement(tagName: 'form'): HTMLFormElement;
-          createElement(tagName: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'): HTMLHeadingElement;
-          createElement(tagName: 'head'): HTMLHeadElement;
-          createElement(tagName: 'hr'): HTMLHRElement;
-          createElement(tagName: 'html'): HTMLHtmlElement;
-          createElement(tagName: 'iframe'): HTMLIFrameElement;
-          createElement(tagName: 'img'): HTMLImageElement;
-          createElement(tagName: 'input'): HTMLInputElement;
-          createElement(tagName: 'ins'): HTMLModElement;
-          createElement(tagName: 'label'): HTMLLabelElement;
-          createElement(tagName: 'legend'): HTMLLegendElement;
-          createElement(tagName: 'li'): HTMLLIElement;
-          createElement(tagName: 'link'): HTMLLinkElement;
-          createElement(tagName: 'map'): HTMLMapElement;
-          createElement(tagName: 'meta'): HTMLMetaElement;
-          createElement(tagName: 'meter'): HTMLMeterElement;
-          createElement(tagName: 'object'): HTMLObjectElement;
-          createElement(tagName: 'ol'): HTMLOListElement;
-          createElement(tagName: 'optgroup'): HTMLOptGroupElement;
-          createElement(tagName: 'option'): HTMLOptionElement;
-          createElement(tagName: 'p'): HTMLParagraphElement;
-          createElement(tagName: 'param'): HTMLParamElement;
-          createElement(tagName: 'picture'): HTMLPictureElement;
-          createElement(tagName: 'pre'): HTMLPreElement;
-          createElement(tagName: 'progress'): HTMLProgressElement;
-          createElement(tagName: 'q'): HTMLQuoteElement;
-          createElement(tagName: 'script'): HTMLScriptElement;
-          createElement(tagName: 'select'): HTMLSelectElement;
-          createElement(tagName: 'source'): HTMLSourceElement;
-          createElement(tagName: 'span'): HTMLSpanElement;
-          createElement(tagName: 'style'): HTMLStyleElement;
-          createElement(tagName: 'textarea'): HTMLTextAreaElement;
-          createElement(tagName: 'time'): HTMLTimeElement;
-          createElement(tagName: 'title'): HTMLTitleElement;
-          createElement(tagName: 'track'): HTMLTrackElement;
-          createElement(tagName: 'video'): HTMLVideoElement;
-          createElement(tagName: 'table'): HTMLTableElement;
-          createElement(tagName: 'caption'): HTMLTableCaptionElement;
-          createElement(tagName: 'thead' | 'tfoot' | 'tbody'): HTMLTableSectionElement;
-          createElement(tagName: 'tr'): HTMLTableRowElement;
-          createElement(tagName: 'td' | 'th'): HTMLTableCellElement;
-          createElement(tagName: 'template'): HTMLTemplateElement;
-          createElement(tagName: 'ul'): HTMLUListElement;
-          createElement(tagName: string): HTMLElement;
-          createElementNS(namespaceURI: string | null, qualifiedName: string): Element;
+          createElement(tagName: 'a', options?: ElementCreationOptions): HTMLAnchorElement;
+          createElement(tagName: 'area', options?: ElementCreationOptions): HTMLAreaElement;
+          createElement(tagName: 'audio', options?: ElementCreationOptions): HTMLAudioElement;
+          createElement(tagName: 'blockquote', options?: ElementCreationOptions): HTMLQuoteElement;
+          createElement(tagName: 'body', options?: ElementCreationOptions): HTMLBodyElement;
+          createElement(tagName: 'br', options?: ElementCreationOptions): HTMLBRElement;
+          createElement(tagName: 'button', options?: ElementCreationOptions): HTMLButtonElement;
+          createElement(tagName: 'canvas', options?: ElementCreationOptions): HTMLCanvasElement;
+          createElement(tagName: 'col', options?: ElementCreationOptions): HTMLTableColElement;
+          createElement(tagName: 'colgroup', options?: ElementCreationOptions): HTMLTableColElement;
+          createElement(tagName: 'data', options?: ElementCreationOptions): HTMLDataElement;
+          createElement(tagName: 'datalist', options?: ElementCreationOptions): HTMLDataListElement;
+          createElement(tagName: 'del', options?: ElementCreationOptions): HTMLModElement;
+          createElement(tagName: 'details', options?: ElementCreationOptions): HTMLDetailsElement;
+          createElement(tagName: 'dialog', options?: ElementCreationOptions): HTMLDialogElement;
+          createElement(tagName: 'div', options?: ElementCreationOptions): HTMLDivElement;
+          createElement(tagName: 'dl', options?: ElementCreationOptions): HTMLDListElement;
+          createElement(tagName: 'embed', options?: ElementCreationOptions): HTMLEmbedElement;
+          createElement(tagName: 'fieldset', options?: ElementCreationOptions): HTMLFieldSetElement;
+          createElement(tagName: 'form', options?: ElementCreationOptions): HTMLFormElement;
+          createElement(tagName: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6', options?: ElementCreationOptions): HTMLHeadingElement;
+          createElement(tagName: 'head', options?: ElementCreationOptions): HTMLHeadElement;
+          createElement(tagName: 'hr', options?: ElementCreationOptions): HTMLHRElement;
+          createElement(tagName: 'html', options?: ElementCreationOptions): HTMLHtmlElement;
+          createElement(tagName: 'iframe', options?: ElementCreationOptions): HTMLIFrameElement;
+          createElement(tagName: 'img', options?: ElementCreationOptions): HTMLImageElement;
+          createElement(tagName: 'input', options?: ElementCreationOptions): HTMLInputElement;
+          createElement(tagName: 'ins', options?: ElementCreationOptions): HTMLModElement;
+          createElement(tagName: 'label', options?: ElementCreationOptions): HTMLLabelElement;
+          createElement(tagName: 'legend', options?: ElementCreationOptions): HTMLLegendElement;
+          createElement(tagName: 'li', options?: ElementCreationOptions): HTMLLIElement;
+          createElement(tagName: 'link', options?: ElementCreationOptions): HTMLLinkElement;
+          createElement(tagName: 'map', options?: ElementCreationOptions): HTMLMapElement;
+          createElement(tagName: 'meta', options?: ElementCreationOptions): HTMLMetaElement;
+          createElement(tagName: 'meter', options?: ElementCreationOptions): HTMLMeterElement;
+          createElement(tagName: 'object', options?: ElementCreationOptions): HTMLObjectElement;
+          createElement(tagName: 'ol', options?: ElementCreationOptions): HTMLOListElement;
+          createElement(tagName: 'optgroup', options?: ElementCreationOptions): HTMLOptGroupElement;
+          createElement(tagName: 'option', options?: ElementCreationOptions): HTMLOptionElement;
+          createElement(tagName: 'p', options?: ElementCreationOptions): HTMLParagraphElement;
+          createElement(tagName: 'param', options?: ElementCreationOptions): HTMLParamElement;
+          createElement(tagName: 'picture', options?: ElementCreationOptions): HTMLPictureElement;
+          createElement(tagName: 'pre', options?: ElementCreationOptions): HTMLPreElement;
+          createElement(tagName: 'progress', options?: ElementCreationOptions): HTMLProgressElement;
+          createElement(tagName: 'q', options?: ElementCreationOptions): HTMLQuoteElement;
+          createElement(tagName: 'script', options?: ElementCreationOptions): HTMLScriptElement;
+          createElement(tagName: 'select', options?: ElementCreationOptions): HTMLSelectElement;
+          createElement(tagName: 'source', options?: ElementCreationOptions): HTMLSourceElement;
+          createElement(tagName: 'span', options?: ElementCreationOptions): HTMLSpanElement;
+          createElement(tagName: 'style', options?: ElementCreationOptions): HTMLStyleElement;
+          createElement(tagName: 'textarea', options?: ElementCreationOptions): HTMLTextAreaElement;
+          createElement(tagName: 'time', options?: ElementCreationOptions): HTMLTimeElement;
+          createElement(tagName: 'title', options?: ElementCreationOptions): HTMLTitleElement;
+          createElement(tagName: 'track', options?: ElementCreationOptions): HTMLTrackElement;
+          createElement(tagName: 'video', options?: ElementCreationOptions): HTMLVideoElement;
+          createElement(tagName: 'table', options?: ElementCreationOptions): HTMLTableElement;
+          createElement(tagName: 'caption', options?: ElementCreationOptions): HTMLTableCaptionElement;
+          createElement(tagName: 'thead' | 'tfoot' | 'tbody', options?: ElementCreationOptions): HTMLTableSectionElement;
+          createElement(tagName: 'tr', options?: ElementCreationOptions): HTMLTableRowElement;
+          createElement(tagName: 'td' | 'th', options?: ElementCreationOptions): HTMLTableCellElement;
+          createElement(tagName: 'template', options?: ElementCreationOptions): HTMLTemplateElement;
+          createElement(tagName: 'ul', options?: ElementCreationOptions): HTMLUListElement;
+          createElement(tagName: string, options?: ElementCreationOptions): HTMLElement;
+          createElementNS(namespaceURI: string | null, qualifiedName: string, options?: ElementCreationOptions): Element;
           createTextNode(data: string): Text;
           currentScript: HTMLScriptElement | null;
+          dir: 'rtl' | 'ltr';
           doctype: DocumentType | null;
           documentElement: HTMLElement | null;
           documentMode: number;
@@ -1385,6 +1526,7 @@ export default {
           extractContents(): DocumentFragment;
           setEndAfter(refNode: Node): void;
           createContextualFragment(fragment: string): DocumentFragment;
+          intersectsNode(refNode: Node): boolean;
           static END_TO_END: number;
           static START_TO_START: number;
           static START_TO_END: number;
@@ -1411,6 +1553,7 @@ export default {
           add(...token: Array<string>): void;
           remove(...token: Array<string>): void;
           toggle(token: string, force?: boolean): boolean;
+          replace(oldToken: string, newToken: string): boolean;
 
           forEach(callbackfn: (value: string, index: number, list: DOMTokenList) => any, thisArg?: any): void;
           entries(): Iterator<[number, string]>;
@@ -1419,7 +1562,7 @@ export default {
         }
         */
     DOMTokenList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -1569,13 +1712,12 @@ export default {
           getElementsByTagNameNS(namespaceURI: string | null, localName: string): HTMLCollection<HTMLElement>;
           hasAttribute(name: string): boolean;
           hasAttributeNS(namespaceURI: string | null, localName: string): boolean;
+          hasAttributes(): boolean;
           insertAdjacentElement(position: 'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend', element: Element): void;
           insertAdjacentHTML(position: 'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend', html: string): void;
           insertAdjacentText(position: 'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend', text: string): void;
           matches(selector: string): bool;
-          querySelector(selector: string): HTMLElement | null;
-          querySelectorAll(selector: string): NodeList<HTMLElement>;
-          releasePointerCapture(pointerId: string): void;
+          releasePointerCapture(pointerId: number): void;
           removeAttribute(name?: string): void;
           removeAttributeNode(attributeNode: Attr): Attr;
           removeAttributeNS(namespaceURI: string | null, localName: string): void;
@@ -1598,7 +1740,7 @@ export default {
           setAttributeNS(namespaceURI: string | null, qualifiedName: string, value: string): void;
           setAttributeNode(newAttr: Attr): Attr | null;
           setAttributeNodeNS(newAttr: Attr): Attr | null;
-          setPointerCapture(pointerId: string): void;
+          setPointerCapture(pointerId: number): void;
           shadowRoot?: ShadowRoot;
           slot?: string;
 
@@ -1867,18 +2009,18 @@ export default {
 
     /*
         declare class HTMLTableElement extends HTMLElement {
-          caption: HTMLTableCaptionElement;
-          tHead: HTMLTableSectionElement;
-          tFoot: HTMLTableSectionElement;
-          tBodies: HTMLCollection<HTMLTableSectionElement>;
-          rows: HTMLCollection<HTMLTableRowElement>;
+          caption: HTMLTableCaptionElement | null;
+          tHead: HTMLTableSectionElement | null;
+          tFoot: HTMLTableSectionElement | null;
+          +tBodies: HTMLCollection<HTMLTableSectionElement>;
+          +rows: HTMLCollection<HTMLTableRowElement>;
           createTHead(): HTMLTableSectionElement;
           deleteTHead(): void;
           createTFoot(): HTMLTableSectionElement;
           deleteTFoot(): void;
           createCaption(): HTMLTableCaptionElement;
           deleteCaption(): void;
-          insertRow(index: ?number): HTMLTableRowElement;
+          insertRow(index?: number): HTMLTableRowElement;
           deleteRow(index: number): void;
         }
         */
@@ -1896,8 +2038,19 @@ export default {
     },
 
     /*
+        declare class HTMLTableColElement extends HTMLElement {
+          span: number;
+        }
+        */
+    HTMLTableColElement(context) {
+      context.lib('dom');
+    },
+
+    /*
         declare class HTMLTableSectionElement extends HTMLElement {
-          rows: HTMLCollection<HTMLTableRowElement>;
+          +rows: HTMLCollection<HTMLTableRowElement>;
+          insertRow(index?: number): HTMLTableRowElement;
+          deleteRow(index: number): void;
         }
         */
     HTMLTableSectionElement(context) {
@@ -1908,7 +2061,7 @@ export default {
         declare class HTMLTableCellElement extends HTMLElement {
           colSpan: number;
           rowSpan: number;
-          cellIndex: number;
+          +cellIndex: number;
         }
         */
     HTMLTableCellElement(context) {
@@ -1918,10 +2071,11 @@ export default {
     /*
         declare class HTMLTableRowElement extends HTMLElement {
           align: 'left' | 'right' | 'center';
-          rowIndex: number;
+          +rowIndex: number;
+          +sectionRowIndex: number;
           +cells: HTMLCollection<HTMLTableCellElement>;
           deleteCell(index: number): void;
-          insertCell(index: number): HTMLTableCellElement;
+          insertCell(index?: number): HTMLTableCellElement;
         }
         */
     HTMLTableRowElement(context) {
@@ -1963,7 +2117,7 @@ export default {
         }
         */
     CanvasGradient(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1972,7 +2126,7 @@ export default {
         }
         */
     CanvasPattern(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1983,7 +2137,7 @@ export default {
         }
         */
     ImageBitmap(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -2055,7 +2209,7 @@ export default {
         }
         */
     TextMetrics(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -2084,7 +2238,7 @@ export default {
         }
         */
     Path2D(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -2101,7 +2255,7 @@ export default {
         }
         */
     ImageData(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -3060,7 +3214,7 @@ export default {
         }
         */
     WebGLRenderingContext(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -3069,7 +3223,7 @@ export default {
         }
         */
     WebGLContextEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -3120,7 +3274,7 @@ export default {
         }
         */
     HTMLFormElement(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -3243,9 +3397,7 @@ export default {
           enabled: boolean;
         }
         */
-    AudioTrack(context) {
-      context.lib('dom');
-    },
+    AudioTrack(context) {},
 
     /*
         declare class AudioTrackList extends EventTarget {
@@ -3259,9 +3411,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    AudioTrackList(context) {
-      context.lib('dom.iterable');
-    },
+    AudioTrackList(context) {},
 
     /*
         declare class VideoTrack {
@@ -3272,9 +3422,7 @@ export default {
           selected: boolean;
         }
         */
-    VideoTrack(context) {
-      context.lib('dom');
-    },
+    VideoTrack(context) {},
 
     /*
         declare class VideoTrackList extends EventTarget {
@@ -3288,9 +3436,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    VideoTrackList(context) {
-      context.lib('dom.iterable');
-    },
+    VideoTrackList(context) {},
 
     /*
         declare class TextTrackCue extends EventTarget {
@@ -3327,7 +3473,7 @@ export default {
         }
         */
     TextTrackCueList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -3361,7 +3507,7 @@ export default {
         }
         */
     TextTrackList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -3377,7 +3523,7 @@ export default {
         }
         */
     MediaKeyStatusMap(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -3608,6 +3754,8 @@ export default {
           setRangeText(replacement: string, start?: void, end?: void, selectMode?: void): void;
           setRangeText(replacement: string, start: number, end: number, selectMode?: SelectionMode): void;
           setSelectionRange(start: number, end: number, direction?: SelectionDirection): void;
+          stepDown(stepDecrement?: number): void;
+          stepUp(stepIncrement?: number): void;
         }
         */
     HTMLInputElement(context) {
@@ -3705,7 +3853,7 @@ export default {
         }
         */
     HTMLSelectElement(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -4083,15 +4231,6 @@ export default {
     },
 
     /*
-        declare class HTMLTableColElement extends HTMLElement {
-          span: number;
-        }
-        */
-    HTMLTableColElement(context) {
-      context.lib('dom');
-    },
-
-    /*
         declare class HTMLTimeElement extends HTMLElement {
           dateTime: string;
         }
@@ -4184,6 +4323,13 @@ export default {
     },
 
     /*
+        declare class HTMLUnknownElement extends HTMLElement {}
+        */
+    HTMLUnknownElement(context) {
+      context.lib('dom');
+    },
+
+    /*
         declare class TextRange {
           boundingLeft: number;
           htmlText: string;
@@ -4249,7 +4395,7 @@ export default {
         }
         */
     ClientRectList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -4350,14 +4496,15 @@ export default {
         }
         */
     URL(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare class MediaSource extends EventTarget {
           sourceBuffers: SourceBufferList;
           activeSourceBuffers: SourceBufferList;
-          readyState: "closed" | "opened" | "ended";
+          // https://w3c.github.io/media-source/#dom-readystate
+          readyState: "closed" | "open" | "ended";
           duration: number;
           addSourceBuffer(type: string): SourceBuffer;
           removeSourceBuffer(sourceBuffer: SourceBuffer): void;
@@ -4402,7 +4549,7 @@ export default {
         }
         */
     SourceBufferList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -4526,7 +4673,7 @@ export default {
         declare function close(): void;
         */
     close(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -4537,7 +4684,7 @@ export default {
     },
 
     /*
-        declare function getComputedStyle(elt: Element, pseudoElt?: string): any;
+        declare function getComputedStyle(elt: Element, pseudoElt?: string): CSSStyleDeclaration;
         */
     getComputedStyle(context) {
       context.lib('dom');
@@ -4552,14 +4699,14 @@ export default {
         declare function requestAnimationFrame(callback: (timestamp: number) => void): AnimationFrameID;
         */
     requestAnimationFrame(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare function cancelAnimationFrame(requestId: AnimationFrameID): void;
         */
     cancelAnimationFrame(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -4609,7 +4756,7 @@ export default {
         declare function onmessage(ev: MessageEvent): any;
         */
     onmessage(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -4637,7 +4784,7 @@ export default {
         declare var self: any;
         */
     self(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -4708,36 +4855,36 @@ export default {
     /*
         declare class Notification extends EventTarget {
           constructor(title: string, options?: NotificationOptions): void;
-          static permission: NotificationPermission;
+          static +permission: NotificationPermission;
           static requestPermission(
             callback?: (perm: NotificationPermission) => mixed
           ): Promise<NotificationPermission>;
-          static maxActions: number;
+          static +maxActions: number;
           onclick: ?(evt: Event) => mixed;
           onclose: ?(evt: Event) => mixed;
           onerror: ?(evt: Event) => mixed;
           onshow: ?(evt: Event) => mixed;
-          title: string;
-          dir: NotificationDirection;
-          lang: string;
-          body: string;
-          tag: string;
-          image?: string;
-          icon?: string;
-          badge?: string;
-          vibrate?: Array<number>;
-          timestamp: number;
-          renotify: boolean;
-          silent: boolean;
-          requireInteraction: boolean;
-          data: any;
-          actions: Array<NotificationAction>;
+          +title: string;
+          +dir: NotificationDirection;
+          +lang: string;
+          +body: string;
+          +tag: string;
+          +image?: string;
+          +icon?: string;
+          +badge?: string;
+          +vibrate?: Array<number>;
+          +timestamp: number;
+          +renotify: boolean;
+          +silent: boolean;
+          +requireInteraction: boolean;
+          +data: any;
+          +actions: Array<NotificationAction>;
 
           close(): void;
         }
         */
     Notification(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
   },
 

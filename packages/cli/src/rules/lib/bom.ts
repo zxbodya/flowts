@@ -54,7 +54,7 @@ export default {
         }
         */
     PermissionStatus(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -70,7 +70,7 @@ export default {
         }
         */
     Permissions(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -151,7 +151,7 @@ export default {
         }
         */
     NavigatorID(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -200,7 +200,7 @@ export default {
         }
         */
     NavigatorOnLine(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -209,7 +209,7 @@ export default {
         }
         */
     NavigatorConcurrentHardware(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -269,7 +269,7 @@ export default {
         }
         */
     Navigator(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -288,7 +288,7 @@ export default {
         declare var navigator: Navigator;
         */
     navigator(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -312,7 +312,7 @@ export default {
         }
         */
     MimeTypeArray(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -328,7 +328,7 @@ export default {
         }
         */
     Plugin(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -341,14 +341,14 @@ export default {
         }
         */
     PluginArray(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
         declare type DOMHighResTimeStamp = number;
         */
     DOMHighResTimeStamp(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -405,12 +405,14 @@ export default {
         }
         */
     PerformanceEntry(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare class PerformanceResourceTiming extends PerformanceEntry {
             initiatorType: string;
+            nextHopProtocol: string;
+            workerStart: number;
             redirectStart: number;
             redirectEnd: number;
             fetchStart: number;
@@ -422,10 +424,13 @@ export default {
             requestStart: number;
             responseStart: number;
             responseEnd: number;
+            transferSize: string;
+            encodedBodySize: number;
+            decodedBodySize: number;
         }
         */
     PerformanceResourceTiming(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -467,14 +472,14 @@ export default {
         }
         */
     Performance(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare var performance: Performance;
         */
     performance(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -485,7 +490,7 @@ export default {
         }
         */
     PerformanceObserverEntryList(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -500,7 +505,7 @@ export default {
         }
         */
     PerformanceObserver(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -552,7 +557,7 @@ export default {
         declare var location: Location;
         */
     location(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -588,7 +593,7 @@ export default {
         }
         */
     FormData(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -642,7 +647,7 @@ export default {
             height: number,
             ...
           }): DOMRectReadOnly;
-          constructor(x: number, y: number, width: number, height: number): DOMRectReadOnly;
+          constructor(x: number, y: number, width: number, height: number): void;
           +bottom: number;
           +height: number;
           +left: number;
@@ -654,7 +659,7 @@ export default {
         }
         */
     DOMRectReadOnly(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -677,7 +682,7 @@ export default {
         }
         */
     DOMRect(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -689,7 +694,7 @@ export default {
         }
         */
     DOMRectList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -750,7 +755,9 @@ export default {
             contentRect: DOMRectReadOnly;
         }
         */
-    ResizeObserverEntry(context) {},
+    ResizeObserverEntry(context) {
+      context.lib('dom');
+    },
 
     /*
         declare class ResizeObserver {
@@ -760,7 +767,9 @@ export default {
             disconnect(): void;
         }
         */
-    ResizeObserver(context) {},
+    ResizeObserver(context) {
+      context.lib('dom');
+    },
 
     /*
         declare var NodeFilter: {
@@ -796,7 +805,7 @@ export default {
         }
         */
     CloseEvent(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -828,7 +837,7 @@ export default {
         }
         */
     WebSocket(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -842,7 +851,7 @@ export default {
         }
         */
     Worker(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -853,13 +862,15 @@ export default {
             onerror: (ev: any) => mixed;
         }
         */
-    SharedWorker(context) {},
+    SharedWorker(context) {
+      context.lib('dom');
+    },
 
     /*
         declare function importScripts(...urls: Array<string>): void;
         */
     importScripts(context) {
-      context.lib('webworker.importscripts');
+      context.lib('webworker');
     },
 
     /*
@@ -898,7 +909,9 @@ export default {
             onconnect: (ev: MessageEvent) => mixed;
         }
         */
-    SharedWorkerGlobalScope(context) {},
+    SharedWorkerGlobalScope(context) {
+      context.lib('webworker');
+    },
 
     /*
         declare class WorkerLocation {
@@ -993,7 +1006,7 @@ export default {
         }
         */
     XMLHttpRequest(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1008,7 +1021,7 @@ export default {
         }
         */
     XMLHttpRequestEventTarget(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1045,9 +1058,7 @@ export default {
             timestamp: number;
         }
         */
-    Position(context) {
-      context.lib('dom');
-    },
+    Position(context) {},
 
     /*
         declare class Coordinates {
@@ -1060,9 +1071,7 @@ export default {
             speed?: number;
         }
         */
-    Coordinates(context) {
-      context.lib('dom');
-    },
+    Coordinates(context) {},
 
     /*
         declare class PositionError {
@@ -1073,9 +1082,7 @@ export default {
             TIMEOUT: 3;
         }
         */
-    PositionError(context) {
-      context.lib('dom');
-    },
+    PositionError(context) {},
 
     /*
         declare class AudioProcessingEvent extends Event {
@@ -1139,7 +1146,7 @@ export default {
         }
         */
     BaseAudioContext(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -1212,7 +1219,7 @@ export default {
         }
         */
     AudioParam(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -1309,6 +1316,35 @@ export default {
     },
 
     /*
+        declare class MediaRecorder extends EventTarget {
+          constructor(stream: MediaStream, options?: MediaRecorderOptions): void;
+          +stream: MediaStream;
+          +mimeType: string;
+          +state: 'inactive' | 'recording' | 'paused';
+
+          onstart: (ev: any) => mixed;
+          onstop: (ev: any) => mixed;
+          ondataavailable: (ev: any) => mixed;
+          onpause: (ev: any) => mixed;
+          onresume: (ev: any) => mixed;
+          onerror: (ev: any) => mixed;
+
+          +videoBitsPerSecond: number;
+          +audioBitsPerSecond: number;
+          +audioBitrateMode: 'cbr' | 'vbr';
+
+          start(timeslice?: number): void;
+          stop(): void;
+          pause(): void;
+          resume(): void;
+          requestData(): void;
+
+          static isTypeSupported(type: string): boolean;
+        }
+        */
+    MediaRecorder(context) {},
+
+    /*
         declare class MediaStream extends EventTarget {
           active: bool;
           ended: bool;
@@ -1347,7 +1383,7 @@ export default {
           onoverconstrained: (ev: any) => mixed;
           onended: (ev: any) => mixed;
           getConstraints(): MediaTrackConstraints;
-          applyConstraints(): Promise<void>;
+          applyConstraints(constraints?: MediaTrackConstraints): Promise<void>;
           getSettings(): MediaTrackSettings;
           getCapabilities(): MediaTrackCapabilities;
           clone(): MediaStreamTrack;
@@ -1454,7 +1490,7 @@ export default {
 
     /*
         declare class ConstantSourceNode extends AudioNode {
-          constructor(context: BaseAudioContext, options?: ConstantSourceOptions): ConstantSourceNode;
+          constructor(context: BaseAudioContext, options?: ConstantSourceOptions): void;
           offset: AudioParam;
           onended: (ev: any) => mixed;
           start(when?: number): void;
@@ -1524,6 +1560,7 @@ export default {
           start(when?: number): void;
           stop(when?: number): void;
           setPeriodicWave(periodicWave: PeriodicWave): void;
+          onended: (ev: any) => mixed;
         }
         */
     OscillatorNode(context) {
@@ -1581,7 +1618,7 @@ export default {
             append(name: string, value: string): void;
             delete(name: string): void;
             entries(): Iterator<[string, string]>;
-            forEach(callback: (value: string, name: string, headers: Headers) => mixed, thisArg?: any): void;
+            forEach<This>(callback: (this : This, value: string, name: string, headers: Headers) => mixed, thisArg: This): void;
             get(name: string): null | string;
             has(name: string): boolean;
             keys(): Iterator<string>;
@@ -1590,7 +1627,7 @@ export default {
         }
         */
     Headers(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1600,7 +1637,7 @@ export default {
             append(name: string, value: string): void;
             delete(name: string): void;
             entries(): Iterator<[string, string]>;
-            forEach(callback: (value: string, name: string, params: URLSearchParams) => mixed, thisArg?: any): void;
+            forEach<This>(callback: (this : This, value: string, name: string, params: URLSearchParams) => mixed, thisArg: This): void;
             get(name: string): null | string;
             getAll(name: string): Array<string>;
             has(name: string): boolean;
@@ -1610,7 +1647,7 @@ export default {
         }
         */
     URLSearchParams(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1641,7 +1678,7 @@ export default {
         }
         */
     Response(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1660,6 +1697,7 @@ export default {
             redirect: RedirectType;
             referrer: string;
             referrerPolicy: ReferrerPolicyType;
+            +signal: AbortSignal;
 
             // Body methods and attributes
             bodyUsed: boolean;
@@ -1672,7 +1710,7 @@ export default {
         }
         */
     Request(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1683,7 +1721,7 @@ export default {
         }
         */
     AbortController(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1693,30 +1731,30 @@ export default {
         }
         */
     AbortSignal(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare function fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;
         */
     fetch(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare class TextEncoder {
-          constructor(encoding?: TextEncoder$availableEncodings): TextEncoder;
+          constructor(encoding?: TextEncoder$availableEncodings): void;
           encode(buffer: string, options?: { stream: bool, ... }): Uint8Array;
           encoding: TextEncoder$availableEncodings;
         }
         */
     TextEncoder(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
         declare class TextDecoder {
-          constructor(encoding?: TextDecoder$availableEncodings, options?: { fatal: bool, ... }): TextDecoder;
+          constructor(encoding?: TextDecoder$availableEncodings, options?: { fatal: bool, ... }): void;
           encoding: TextDecoder$availableEncodings;
           fatal: bool;
           ignoreBOM: bool;
@@ -1724,7 +1762,7 @@ export default {
         }
         */
     TextDecoder(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1738,7 +1776,7 @@ export default {
         }
         */
     MessagePort(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1748,7 +1786,7 @@ export default {
         }
         */
     MessageChannel(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -1772,7 +1810,7 @@ export default {
         }
         */
     VRDisplay(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -1791,10 +1829,9 @@ export default {
 
     /*
         declare class VRDisplayEvent extends Event {
+          constructor(type: string, eventInitDict: VRDisplayEventInit): void;
           display: VRDisplay;
           reason?: VRDisplayEventReason;
-
-          constructor(type: string, eventInitDict: VRDisplayEventInit): VRDisplayEvent;
         }
         */
     VRDisplayEvent(context) {
@@ -1905,7 +1942,7 @@ export default {
 
     /*
         declare class SpeechSynthesisUtterance extends EventTarget {
-          constructor(text?: string): SpeechSynthesisUtterance;
+          constructor(text?: string): void;
 
           text: string;
           lang: string;
@@ -1929,7 +1966,8 @@ export default {
 
     /*
         declare class SpeechSynthesisEvent extends Event {
-          constructor(type: string, eventInitDict?: SpeechSynthesisEvent$Init): SpeechSynthesisEvent;
+          constructor(type: string, eventInitDict?: SpeechSynthesisEvent$Init): void;
+
           +utterance: SpeechSynthesisUtterance;
           charIndex: number;
           charLength: number;
@@ -1943,7 +1981,7 @@ export default {
 
     /*
         declare class SpeechSynthesisErrorEvent extends SpeechSynthesisEvent {
-          constructor(type: string, eventInitDict?: SpeechSynthesisErrorEvent$Init): SpeechSynthesisErrorEvent;
+          constructor(type: string, eventInitDict?: SpeechSynthesisErrorEvent$Init): void;
           +error: SpeechSynthesisErrorCode;
         }
         */
@@ -1961,6 +1999,120 @@ export default {
         }
         */
     SpeechSynthesisVoice(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechGrammar {
+          constructor(): void;
+
+          src: string;
+          weight?: number;
+        }
+        */
+    SpeechGrammar(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechGrammarList {
+          +length: number;
+
+          item(index: number): SpeechGrammar;
+          addFromURI(src: string, weight?: number): void;
+          addFromString(string: string, weight?: number): void;
+        }
+        */
+    SpeechGrammarList(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognitionAlternative {
+          +transcript: string;
+          +confidence: number;
+        }
+        */
+    SpeechRecognitionAlternative(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognitionResult {
+          +isFinal: boolean;
+          +length: number;
+
+          item(index: number): SpeechRecognitionAlternative;
+        }
+        */
+    SpeechRecognitionResult(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognitionResultList {
+          +length: number;
+
+          item(index: number): SpeechRecognitionResult;
+        }
+        */
+    SpeechRecognitionResultList(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognitionEvent extends Event {
+          constructor(type: string, eventInitDict?: SpeechRecognitionEvent$Init): void;
+
+          +emma: any;
+          +interpretation: any;
+          +resultIndex: number;
+          +results: SpeechRecognitionResultList;
+        }
+        */
+    SpeechRecognitionEvent(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognitionErrorEvent extends SpeechRecognitionEvent {
+          constructor(type: string, eventInitDict?: SpeechRecognitionErrorEvent$Init): void;
+          +error: SpeechRecognitionErrorCode;
+          +message: string;
+        }
+        */
+    SpeechRecognitionErrorEvent(context) {
+      context.lib('dom');
+    },
+
+    /*
+        declare class SpeechRecognition extends EventTarget {
+          constructor(): void;
+
+          +grammars: SpeechGrammar[];
+          +lang: string;
+          +continuous: boolean;
+          +interimResults: boolean;
+          +maxAlternatives: number;
+          +serviceURI: string;
+
+          onaudiostart: ?((ev: Event) => mixed);
+          onaudioend: ?((ev: Event) => mixed);
+          onend: ?((ev: Event) => mixed);
+          onerror: ?((ev: Event) => mixed);
+          onnomatch: ?((ev: Event) => mixed);
+          onsoundstart: ?((ev: Event) => mixed);
+          onsoundend: ?((ev: Event) => mixed);
+          onspeechstart: ?((ev: Event) => mixed);
+          onspeechend: ?((ev: Event) => mixed);
+          onstart: ?((ev: Event) => mixed);
+
+          abort(): void;
+          start(): void;
+          stop(): void;
+        }
+        */
+    SpeechRecognition(context) {
       context.lib('dom');
     },
   },

@@ -277,6 +277,23 @@ describe('lib/react.js', () => {
         ).toMatchSnapshot();
       });
     });
+
+    describe('React$FragmentType', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 extends React$FragmentType {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
   });
 
   describe('modules', () => {
@@ -1383,6 +1400,124 @@ describe('lib/react.js', () => {
           expect(
             transform(`
             import { Node as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('TransportObject', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { TransportObject } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { TransportObject } from "react";
+            
+            class A1 extends TransportObject {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.TransportObject {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { TransportObject as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { TransportObject as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('TransportValue', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { TransportValue } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { TransportValue } from "react";
+            
+            class A1 extends TransportValue {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.TransportValue {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { TransportValue as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { TransportValue as t } from "react";
             
             class A1 extends t {};
           `)
@@ -3243,6 +3378,252 @@ describe('lib/react.js', () => {
         });
       });
 
+      describe('useDeferredValue', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useDeferredValue;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - typeParams(1)', () => {
+          expect(
+            transform(`
+            import { useDeferredValue } from "react";
+            
+            new useDeferredValue();
+            
+            class A1 extends useDeferredValue<P0> {}
+            let a1 = new useDeferredValue<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - typeParams(1)', () => {
+          expect(
+            transform(`
+            import { useDeferredValue } from "react";
+            
+            useDeferredValue();
+            
+            let a1 = useDeferredValue<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace - typeParams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useDeferredValue();
+            
+            class A1 extends M.useDeferredValue<P0> {}
+            let a1 = new M.useDeferredValue<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace - typeParams(1)', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useDeferredValue();
+            
+            let a1 = M.useDeferredValue<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed - typeParams(1)', () => {
+          expect(
+            transform(`
+            import { useDeferredValue as t } from "react";
+            
+            new t();
+            
+            class A1 extends t<P0> {}
+            let a1 = new t<P0>();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed - typeParams(1)', () => {
+          expect(
+            transform(`
+            import { useDeferredValue as t } from "react";
+            
+            t();
+            
+            let a1 = t<P0>();
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('useTransition', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = useTransition;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { useTransition } from "react";
+            
+            new useTransition();
+            
+            class A1 extends useTransition {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { useTransition } from "react";
+            
+            useTransition();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.useTransition();
+            
+            class A1 extends M.useTransition {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.useTransition();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { useTransition as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { useTransition as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('startTransition', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = startTransition;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { startTransition } from "react";
+            
+            new startTransition();
+            
+            class A1 extends startTransition {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { startTransition } from "react";
+            
+            startTransition();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            new M.startTransition();
+            
+            class A1 extends M.startTransition {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            M.startTransition();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { startTransition as t } from "react";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { startTransition as t } from "react";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('Interaction', () => {
         test('generated - type', () => {
           expect(
@@ -3371,12 +3752,146 @@ describe('lib/react.js', () => {
         });
       });
 
+      describe('TimeoutConfig', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { TimeoutConfig } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { TimeoutConfig } from "react";
+            
+            class A1 extends TimeoutConfig {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "react";
+            
+            class A1 extends M.TimeoutConfig {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { TimeoutConfig as t } from "react";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { TimeoutConfig as t } from "react";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('default', () => {
         test('has no test', () => {});
       });
     });
 
     describe('React', () => {
+      describe('default', () => {
+        test('has no test', () => {});
+      });
+    });
+
+    describe('#flow-internal-react-server-module', () => {
+      describe('createElement', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createElement;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('Node', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Node } from "#flow-internal-react-server-module";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Node } from "#flow-internal-react-server-module";
+            
+            class A1 extends Node {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "#flow-internal-react-server-module";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "#flow-internal-react-server-module";
+            
+            class A1 extends M.Node {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Node as t } from "#flow-internal-react-server-module";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Node as t } from "#flow-internal-react-server-module";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('default', () => {
         test('has no test', () => {});
       });

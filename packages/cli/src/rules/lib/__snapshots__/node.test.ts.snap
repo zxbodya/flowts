@@ -58,6 +58,13 @@ exports[`lib/node.js globals Buffer variable 1`] = `
 "
 `;
 
+exports[`lib/node.js globals Node$Buffer generated - interface 1`] = `
+"class A1 extends Node$Buffer {}
+"
+`;
+
+exports[`lib/node.js globals Node$Buffer generated - type 1`] = `""`;
+
 exports[`lib/node.js globals Process generated - class 1`] = `
 "new Process();
 
@@ -110,18 +117,6 @@ class A1 extends clearImmediate {}
 
 exports[`lib/node.js globals clearImmediate variable 1`] = `
 "var a = clearImmediate;
-"
-`;
-
-exports[`lib/node.js globals cluster$Worker generated - class 1`] = `
-"new cluster$Worker();
-
-class A1 extends cluster$Worker {}
-"
-`;
-
-exports[`lib/node.js globals cluster$Worker variable 1`] = `
-"var a = cluster$Worker;
 "
 `;
 
@@ -582,6 +577,42 @@ class A1 extends Script {}
 exports[`lib/node.js globals vm$Script variable 1`] = `
 "import type { Script } from \\"vm\\";
 var a = Script;
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - interface - import namespace 1`] = `
+"import * as M from \\"assert\\";
+
+class A1 extends M.AssertStrict {}
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - interface - import renamed 1`] = `
+"import { AssertStrict as t } from \\"assert\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - interface 1`] = `
+"import { AssertStrict } from \\"assert\\";
+
+class A1 extends AssertStrict {}
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - type - import namespace 1`] = `
+"import * as M from \\"assert\\";
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - type - import renamed 1`] = `
+"import { AssertStrict as t } from \\"assert\\";
+"
+`;
+
+exports[`lib/node.js modules assert AssertStrict generated - type 1`] = `
+"import { AssertStrict } from \\"assert\\";
 "
 `;
 
@@ -1090,6 +1121,110 @@ class A1 extends Cluster {}
 
 exports[`lib/node.js modules cluster Cluster variable 1`] = `
 "var a = Cluster;
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - interface - import namespace 1`] = `
+"import * as M from \\"cluster\\";
+
+class A1 extends M.ClusterSettings {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - interface - import renamed 1`] = `
+"import { ClusterSettings as t } from \\"cluster\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - interface 1`] = `
+"import { ClusterSettings } from \\"cluster\\";
+
+class A1 extends ClusterSettings {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - type - import namespace 1`] = `
+"import * as M from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - type - import renamed 1`] = `
+"import { ClusterSettings as t } from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettings generated - type 1`] = `
+"import { ClusterSettings } from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - interface - import namespace 1`] = `
+"import * as M from \\"cluster\\";
+
+class A1 extends M.ClusterSettingsOpt {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - interface - import renamed 1`] = `
+"import { ClusterSettingsOpt as t } from \\"cluster\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - interface 1`] = `
+"import { ClusterSettingsOpt } from \\"cluster\\";
+
+class A1 extends ClusterSettingsOpt {}
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - type - import namespace 1`] = `
+"import * as M from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - type - import renamed 1`] = `
+"import { ClusterSettingsOpt as t } from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster ClusterSettingsOpt generated - type 1`] = `
+"import { ClusterSettingsOpt } from \\"cluster\\";
+"
+`;
+
+exports[`lib/node.js modules cluster Worker generated - class - import namespace 1`] = `
+"import * as M from \\"cluster\\";
+
+new M.Worker();
+
+class A1 extends M.Worker {}
+"
+`;
+
+exports[`lib/node.js modules cluster Worker generated - class - import renamed 1`] = `
+"import { Worker as t } from \\"cluster\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules cluster Worker generated - class 1`] = `
+"import { Worker } from \\"cluster\\";
+
+new Worker();
+
+class A1 extends Worker {}
+"
+`;
+
+exports[`lib/node.js modules cluster Worker variable 1`] = `
+"var a = Worker;
 "
 `;
 
@@ -2487,6 +2622,112 @@ exports[`lib/node.js modules crypto randomFillSync variable 1`] = `
 "
 `;
 
+exports[`lib/node.js modules crypto scrypt generated - callable - import namespace 1`] = `
+"import * as M from \\"crypto\\";
+
+M.scrypt();
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt generated - callable - import renamed 1`] = `
+"import { scrypt as t } from \\"crypto\\";
+
+t();
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt generated - callable 1`] = `
+"import { scrypt } from \\"crypto\\";
+
+scrypt();
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt generated - class - import namespace 1`] = `
+"import * as M from \\"crypto\\";
+
+new M.scrypt();
+
+class A1 extends M.scrypt {}
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt generated - class - import renamed 1`] = `
+"import { scrypt as t } from \\"crypto\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt generated - class 1`] = `
+"import { scrypt } from \\"crypto\\";
+
+new scrypt();
+
+class A1 extends scrypt {}
+"
+`;
+
+exports[`lib/node.js modules crypto scrypt variable 1`] = `
+"var a = scrypt;
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - callable - import namespace 1`] = `
+"import * as M from \\"crypto\\";
+
+M.scryptSync();
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - callable - import renamed 1`] = `
+"import { scryptSync as t } from \\"crypto\\";
+
+t();
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - callable 1`] = `
+"import { scryptSync } from \\"crypto\\";
+
+scryptSync();
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - class - import namespace 1`] = `
+"import * as M from \\"crypto\\";
+
+new M.scryptSync();
+
+class A1 extends M.scryptSync {}
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - class - import renamed 1`] = `
+"import { scryptSync as t } from \\"crypto\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync generated - class 1`] = `
+"import { scryptSync } from \\"crypto\\";
+
+new scryptSync();
+
+class A1 extends scryptSync {}
+"
+`;
+
+exports[`lib/node.js modules crypto scryptSync variable 1`] = `
+"var a = scryptSync;
+"
+`;
+
 exports[`lib/node.js modules crypto timingSafeEqual generated - callable - import namespace 1`] = `
 "import * as M from \\"crypto\\";
 
@@ -3460,6 +3701,38 @@ exports[`lib/node.js modules fs BufferEncoding generated - type - import renamed
 
 exports[`lib/node.js modules fs BufferEncoding generated - type 1`] = `
 "import { BufferEncoding } from \\"fs\\";
+"
+`;
+
+exports[`lib/node.js modules fs Dirent generated - class - import namespace 1`] = `
+"import * as M from \\"fs\\";
+
+new M.Dirent();
+
+class A1 extends M.Dirent {}
+"
+`;
+
+exports[`lib/node.js modules fs Dirent generated - class - import renamed 1`] = `
+"import { Dirent as t } from \\"fs\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules fs Dirent generated - class 1`] = `
+"import { Dirent } from \\"fs\\";
+
+new Dirent();
+
+class A1 extends Dirent {}
+"
+`;
+
+exports[`lib/node.js modules fs Dirent variable 1`] = `
+"var a = Dirent;
 "
 `;
 
@@ -11997,6 +12270,114 @@ exports[`lib/node.js modules url URLSearchParams variable 1`] = `
 "
 `;
 
+exports[`lib/node.js modules url Url generated - interface - import namespace 1`] = `
+"import * as M from \\"url\\";
+
+class A1 extends M.Url {}
+"
+`;
+
+exports[`lib/node.js modules url Url generated - interface - import renamed 1`] = `
+"import { Url as t } from \\"url\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules url Url generated - interface 1`] = `
+"import { Url } from \\"url\\";
+
+class A1 extends Url {}
+"
+`;
+
+exports[`lib/node.js modules url Url generated - type - import namespace 1`] = `
+"import * as M from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url Url generated - type - import renamed 1`] = `
+"import { Url as t } from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url Url generated - type 1`] = `
+"import { Url } from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - interface - import namespace 1`] = `
+"import * as M from \\"url\\";
+
+class A1 extends M.UrlWithParsedQuery {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - interface - import renamed 1`] = `
+"import { UrlWithParsedQuery as t } from \\"url\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - interface 1`] = `
+"import { UrlWithParsedQuery } from \\"url\\";
+
+class A1 extends UrlWithParsedQuery {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - type - import namespace 1`] = `
+"import * as M from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - type - import renamed 1`] = `
+"import { UrlWithParsedQuery as t } from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithParsedQuery generated - type 1`] = `
+"import { UrlWithParsedQuery } from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - interface - import namespace 1`] = `
+"import * as M from \\"url\\";
+
+class A1 extends M.UrlWithStringQuery {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - interface - import renamed 1`] = `
+"import { UrlWithStringQuery as t } from \\"url\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - interface 1`] = `
+"import { UrlWithStringQuery } from \\"url\\";
+
+class A1 extends UrlWithStringQuery {}
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - type - import namespace 1`] = `
+"import * as M from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - type - import renamed 1`] = `
+"import { UrlWithStringQuery as t } from \\"url\\";
+"
+`;
+
+exports[`lib/node.js modules url UrlWithStringQuery generated - type 1`] = `
+"import { UrlWithStringQuery } from \\"url\\";
+"
+`;
+
 exports[`lib/node.js modules url domainToASCII generated - callable - import namespace 1`] = `
 "import * as M from \\"url\\";
 
@@ -13603,6 +13984,70 @@ exports[`lib/node.js modules vm runInThisContext variable 1`] = `
 "
 `;
 
+exports[`lib/node.js modules zlib BrotliCompress generated - class - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+new M.BrotliCompress();
+
+class A1 extends M.BrotliCompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliCompress generated - class - import renamed 1`] = `
+"import { BrotliCompress as t } from \\"zlib\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliCompress generated - class 1`] = `
+"import { BrotliCompress } from \\"zlib\\";
+
+new BrotliCompress();
+
+class A1 extends BrotliCompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliCompress variable 1`] = `
+"var a = BrotliCompress;
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliDecompress generated - class - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+new M.BrotliDecompress();
+
+class A1 extends M.BrotliDecompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliDecompress generated - class - import renamed 1`] = `
+"import { BrotliDecompress as t } from \\"zlib\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliDecompress generated - class 1`] = `
+"import { BrotliDecompress } from \\"zlib\\";
+
+new BrotliDecompress();
+
+class A1 extends BrotliDecompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib BrotliDecompress variable 1`] = `
+"var a = BrotliDecompress;
+"
+`;
+
 exports[`lib/node.js modules zlib Deflate generated - class - import namespace 1`] = `
 "import * as M from \\"zlib\\";
 
@@ -14074,6 +14519,26 @@ exports[`lib/node.js modules zlib Zlib variable 1`] = `
 "
 `;
 
+exports[`lib/node.js modules zlib brotliCompress variable 1`] = `
+"var a = brotliCompress;
+"
+`;
+
+exports[`lib/node.js modules zlib brotliCompressSync variable 1`] = `
+"var a = brotliCompressSync;
+"
+`;
+
+exports[`lib/node.js modules zlib brotliDecompressSync variable 1`] = `
+"var a = brotliDecompressSync;
+"
+`;
+
+exports[`lib/node.js modules zlib brotliDeompress variable 1`] = `
+"var a = brotliDeompress;
+"
+`;
+
 exports[`lib/node.js modules zlib codes variable 1`] = `
 "var a = codes;
 "
@@ -14081,6 +14546,112 @@ exports[`lib/node.js modules zlib codes variable 1`] = `
 
 exports[`lib/node.js modules zlib constants variable 1`] = `
 "var a = constants;
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - callable - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+M.createBrotliCompress();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - callable - import renamed 1`] = `
+"import { createBrotliCompress as t } from \\"zlib\\";
+
+t();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - callable 1`] = `
+"import { createBrotliCompress } from \\"zlib\\";
+
+createBrotliCompress();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - class - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+new M.createBrotliCompress();
+
+class A1 extends M.createBrotliCompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - class - import renamed 1`] = `
+"import { createBrotliCompress as t } from \\"zlib\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress generated - class 1`] = `
+"import { createBrotliCompress } from \\"zlib\\";
+
+new createBrotliCompress();
+
+class A1 extends createBrotliCompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliCompress variable 1`] = `
+"var a = createBrotliCompress;
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - callable - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+M.createBrotliDecompress();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - callable - import renamed 1`] = `
+"import { createBrotliDecompress as t } from \\"zlib\\";
+
+t();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - callable 1`] = `
+"import { createBrotliDecompress } from \\"zlib\\";
+
+createBrotliDecompress();
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - class - import namespace 1`] = `
+"import * as M from \\"zlib\\";
+
+new M.createBrotliDecompress();
+
+class A1 extends M.createBrotliDecompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - class - import renamed 1`] = `
+"import { createBrotliDecompress as t } from \\"zlib\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress generated - class 1`] = `
+"import { createBrotliDecompress } from \\"zlib\\";
+
+new createBrotliDecompress();
+
+class A1 extends createBrotliDecompress {}
+"
+`;
+
+exports[`lib/node.js modules zlib createBrotliDecompress variable 1`] = `
+"var a = createBrotliDecompress;
 "
 `;
 

@@ -1,0 +1,9 @@
+{
+  "name": "ts",
+  "description": "helper package for generating rules for lib type definitions",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "4.3.4"
+  }
+}

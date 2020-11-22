@@ -5,7 +5,6 @@ import traverse from '@babel/traverse';
 import * as t from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
-import recastPlugin from '../recastPlugin';
 
 import { tsLibDefinitions } from '../tsLibDefinitions';
 import { Rule } from './Rule';
@@ -14,14 +13,14 @@ import { RuleTest } from './RuleTest';
 
 type Declarations = Map<string, { paths: NodePath[]; fix: t.Statement[] }>;
 
-const libGlobalsIndex = new Map<string, string>(
-  ([] as Array<[string, string]>).concat(
-    ...tsLibDefinitions.map(tsLibDefinition =>
-      [...tsLibDefinition.declarations.allNames.keys()].map(
-        key => [key, tsLibDefinition.name] as [string, string]
-      )
-    )
-  )
+const libGlobalsIndex = new Map<string, string>();
+
+tsLibDefinitions.forEach(tsLibDefinition =>
+  tsLibDefinition.declarations.allNames.forEach(key => {
+    if (!libGlobalsIndex.has(key)) {
+      libGlobalsIndex.set(key, tsLibDefinition.name as string);
+    }
+  })
 );
 
 const sharedParserPlugins = [
@@ -45,14 +44,19 @@ async function main(
 
   const source = fs.readFileSync(inputPath, { encoding: 'utf8' });
   const flowAst = babel.parseSync(source, {
+    babelrc: false,
     ast: true,
-    plugins: [recastPlugin],
+    plugins: [],
     parserOpts: {
       allowReturnOutsideFunction: true,
       plugins: ['flow', ...sharedParserPlugins],
     },
     filename: inputPath,
+    sourceFileName: inputPath,
+    sourceType: 'unambiguous',
   });
+  // @ts-ignore
+  new babel.File({ filename: inputPath }, { code: source, ast: flowAst });
 
   if (flowAst === null) {
     throw new Error('sourceAst === null');

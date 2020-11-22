@@ -136,6 +136,7 @@ export default {
           // This is only on function components, but trying to access name when
           // displayName is undefined is a common pattern.
           name?: ?string,
+          propTypes?: {[string] : any, ...},
           ...
         };
         */
@@ -229,6 +230,11 @@ export default {
     React$Portal(context) {
       context.importFlow('react', 'Portal');
     },
+
+    /*
+        declare type React$FragmentType = ({ children?: React$Node, ... }) => React$Node;
+        */
+    React$FragmentType(context) {},
   },
 
   modules: {
@@ -354,7 +360,7 @@ export default {
         },
 
         /*
-                declare export var Fragment: ({ children?: React$Node, ... }) => React$Node;
+                declare export var Fragment: React$FragmentType;
                 */
         Fragment(context) {},
 
@@ -374,6 +380,16 @@ export default {
         Node(context) {
           context.renameExport('ReactNode');
         },
+
+        /*
+                declare export type TransportObject = React$TransportObject;
+                */
+        TransportObject(context) {},
+
+        /*
+                declare export type TransportValue = React$TransportValue;
+                */
+        TransportValue(context) {},
 
         /*
                 declare export type Context<T> = React$Context<T>;
@@ -440,15 +456,15 @@ export default {
 
         /*
                 declare export var Children: {
-                    map<T, U>(
+                    map<T, U, This>(
                       children: ChildrenArray<T>,
-                      fn: (child: $NonMaybeType<T>, index: number) => U,
-                      thisArg?: mixed,
+                      fn: (this : This, child: $NonMaybeType<T>, index: number) => U,
+                      thisArg: This,
                     ): Array<$NonMaybeType<U>>,
-                    forEach<T>(
+                    forEach<T, This>(
                       children: ChildrenArray<T>,
-                      fn: (child: T, index: number) => mixed,
-                      thisArg?: mixed,
+                      fn: (this : This, child: T, index: number) => mixed,
+                      thisArg: This,
                     ): void,
                     count(children: ChildrenArray<any>): number,
                     only<T>(children: ChildrenArray<T>): $NonMaybeType<T>,
@@ -509,10 +525,7 @@ export default {
         MaybeCleanUpFn(context) {},
 
         /*
-                declare export function useContext<T>(
-                    context: React$Context<T>,
-                    observedBits: void | number | boolean,
-                  ): T;
+                declare export function useContext<T>(context: React$Context<T>): T;
                 */
         useContext(context) {},
 
@@ -563,7 +576,7 @@ export default {
         /*
                 declare export function useEffect(
                     create: () => MaybeCleanUpFn,
-                    inputs: ?$ReadOnlyArray<mixed>,
+                    inputs?: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
         useEffect(context) {},
@@ -571,7 +584,7 @@ export default {
         /*
                 declare export function useLayoutEffect(
                     create: () => MaybeCleanUpFn,
-                    inputs: ?$ReadOnlyArray<mixed>,
+                    inputs?: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
         useLayoutEffect(context) {},
@@ -600,6 +613,21 @@ export default {
                   ): void;
                 */
         useImperativeHandle(context) {},
+
+        /*
+                declare export function useDeferredValue<T>(value: T): T;
+                */
+        useDeferredValue(context) {},
+
+        /*
+                declare export function useTransition(): [boolean, (() => void) => void];
+                */
+        useTransition(context) {},
+
+        /*
+                declare export function startTransition(() => void): void;
+                */
+        startTransition(context) {},
 
         /*
                 declare export type Interaction = {
@@ -633,6 +661,13 @@ export default {
         Profiler(context) {},
 
         /*
+                declare type TimeoutConfig = {|
+                    timeoutMs: number,
+                  |};
+                */
+        TimeoutConfig(context) {},
+
+        /*
                 declare export default {|
                     +DOM: typeof DOM,
                     +PropTypes: typeof PropTypes,
@@ -650,7 +685,7 @@ export default {
                     +isValidElement: typeof isValidElement,
                     +Component: typeof Component,
                     +PureComponent: typeof PureComponent,
-                    +Fragment: typeof Fragment,
+                    +Fragment: React$FragmentType,
                     +Children: typeof Children,
                     +ConcurrentMode: typeof ConcurrentMode,
                     +StrictMode: typeof StrictMode,
@@ -665,6 +700,9 @@ export default {
                     +useCallback: typeof useCallback,
                     +useMemo: typeof useMemo,
                     +useImperativeHandle: typeof useImperativeHandle,
+                    +useTransition: typeof useTransition,
+                    +useDeferredValue: typeof useDeferredValue,
+                    +startTransition: typeof startTransition,
                   |};
                 */
         default(context) {},
@@ -677,6 +715,29 @@ export default {
       exports: {
         /*
                 declare module.exports: $Exports<'react'>;
+                */
+        default(context) {},
+      },
+    },
+
+    '#flow-internal-react-server-module': {
+      libs: [],
+
+      exports: {
+        /*
+                declare export var createElement: React$CreateElement;
+                */
+        createElement(context) {},
+
+        /*
+                declare export type Node = React$Node;
+                */
+        Node(context) {},
+
+        /*
+                declare export default {|
+                    +createElement: typeof createElement,
+                  |};
                 */
         default(context) {},
       },

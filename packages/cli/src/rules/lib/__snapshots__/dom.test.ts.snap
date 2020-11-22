@@ -211,6 +211,18 @@ exports[`lib/dom.js globals Comment variable 1`] = `
 "
 `;
 
+exports[`lib/dom.js globals CompositionEvent generated - class 1`] = `
+"new CompositionEvent();
+
+class A1 extends CompositionEvent {}
+"
+`;
+
+exports[`lib/dom.js globals CompositionEvent variable 1`] = `
+"var a = CompositionEvent;
+"
+`;
+
 exports[`lib/dom.js globals CustomElementRegistry generated - interface 1`] = `
 "class A1 extends CustomElementRegistry {}
 "
@@ -251,6 +263,18 @@ class A1 extends DOMImplementation {}
 
 exports[`lib/dom.js globals DOMImplementation variable 1`] = `
 "var a = DOMImplementation;
+"
+`;
+
+exports[`lib/dom.js globals DOMStringList generated - class 1`] = `
+"new DOMStringList();
+
+class A1 extends DOMStringList {}
+"
+`;
+
+exports[`lib/dom.js globals DOMStringList variable 1`] = `
+"var a = DOMStringList;
 "
 `;
 
@@ -375,6 +399,18 @@ exports[`lib/dom.js globals ElementDefinitionOptions generated - interface 1`] =
 `;
 
 exports[`lib/dom.js globals ElementDefinitionOptions generated - type 1`] = `""`;
+
+exports[`lib/dom.js globals ErrorEvent generated - class 1`] = `
+"new ErrorEvent();
+
+class A1 extends ErrorEvent {}
+"
+`;
+
+exports[`lib/dom.js globals ErrorEvent variable 1`] = `
+"var a = ErrorEvent;
+"
+`;
 
 exports[`lib/dom.js globals Event generated - class 1`] = `
 "new Event();
@@ -1272,6 +1308,18 @@ exports[`lib/dom.js globals HTMLUListElement variable 1`] = `
 "
 `;
 
+exports[`lib/dom.js globals HTMLUnknownElement generated - class 1`] = `
+"new HTMLUnknownElement();
+
+class A1 extends HTMLUnknownElement {}
+"
+`;
+
+exports[`lib/dom.js globals HTMLUnknownElement variable 1`] = `
+"var a = HTMLUnknownElement;
+"
+`;
+
 exports[`lib/dom.js globals HTMLVideoElement generated - class 1`] = `
 "new HTMLVideoElement();
 
@@ -1519,6 +1567,18 @@ class A1 extends Notification {}
 
 exports[`lib/dom.js globals Notification variable 1`] = `
 "var a = Notification;
+"
+`;
+
+exports[`lib/dom.js globals PageTransitionEvent generated - class 1`] = `
+"new PageTransitionEvent();
+
+class A1 extends PageTransitionEvent {}
+"
+`;
+
+exports[`lib/dom.js globals PageTransitionEvent variable 1`] = `
+"var a = PageTransitionEvent;
 "
 `;
 

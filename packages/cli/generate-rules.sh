@@ -2,7 +2,7 @@
 
 npm run build
 
-flowLib=../flow/lib
+flowLib=../../../flow/lib
 
 node ./dist/generateRules/generateRules.js \
           $flowLib/bom.js \
@@ -32,14 +32,14 @@ node ./dist/generateRules/generateRules.js \
           $flowLib/node.js \
           ./src/rules/lib/node.ts \
           lib/node.js
-#node ./dist/generateRules/generateRules.js \
-#          $flowLib/react.js \
-#          ./src/rules/lib/react.ts \
-#          lib/react.js
-#node ./dist/generateRules/generateRules.js \
-#          $flowLib/react-dom.js \
-#          ./src/rules/lib/react-dom.ts \
-#          lib/react-dom.js
+node ./dist/generateRules/generateRules.js \
+          $flowLib/react.js \
+          ./src/rules/lib/react.ts \
+          lib/react.js
+node ./dist/generateRules/generateRules.js \
+          $flowLib/react-dom.js \
+          ./src/rules/lib/react-dom.ts \
+          lib/react-dom.js
 node ./dist/generateRules/generateRules.js \
           $flowLib/serviceworkers.js \
           ./src/rules/lib/serviceworkers.ts \

@@ -287,19 +287,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolHasInstance', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolHasInstance;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolHasInstance();
-            
             class A1 extends $SymbolHasInstance {};
           `)
         ).toMatchSnapshot();
@@ -307,19 +304,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymboIsConcatSpreadable', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymboIsConcatSpreadable;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymboIsConcatSpreadable();
-            
             class A1 extends $SymboIsConcatSpreadable {};
           `)
         ).toMatchSnapshot();
@@ -327,19 +321,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolIterator', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolIterator;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolIterator();
-            
             class A1 extends $SymbolIterator {};
           `)
         ).toMatchSnapshot();
@@ -347,19 +338,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolMatch', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolMatch;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolMatch();
-            
             class A1 extends $SymbolMatch {};
           `)
         ).toMatchSnapshot();
@@ -367,19 +355,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolMatchAll', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolMatchAll;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolMatchAll();
-            
             class A1 extends $SymbolMatchAll {};
           `)
         ).toMatchSnapshot();
@@ -387,19 +372,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolReplace', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolReplace;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolReplace();
-            
             class A1 extends $SymbolReplace {};
           `)
         ).toMatchSnapshot();
@@ -407,19 +389,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolSearch', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolSearch;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolSearch();
-            
             class A1 extends $SymbolSearch {};
           `)
         ).toMatchSnapshot();
@@ -427,19 +406,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolSpecies', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolSpecies;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolSpecies();
-            
             class A1 extends $SymbolSpecies {};
           `)
         ).toMatchSnapshot();
@@ -447,19 +423,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolSplit', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolSplit;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolSplit();
-            
             class A1 extends $SymbolSplit {};
           `)
         ).toMatchSnapshot();
@@ -467,19 +440,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolToPrimitive', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolToPrimitive;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolToPrimitive();
-            
             class A1 extends $SymbolToPrimitive {};
           `)
         ).toMatchSnapshot();
@@ -487,19 +457,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolToStringTag', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolToStringTag;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolToStringTag();
-            
             class A1 extends $SymbolToStringTag {};
           `)
         ).toMatchSnapshot();
@@ -507,19 +474,16 @@ describe('lib/core.js', () => {
     });
 
     describe('$SymbolUnscopables', () => {
-      test('variable', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = $SymbolUnscopables;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new $SymbolUnscopables();
-            
             class A1 extends $SymbolUnscopables {};
           `)
         ).toMatchSnapshot();
@@ -1800,6 +1764,36 @@ describe('lib/core.js', () => {
         expect(
           transform(`
             var a = console;
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SharedArrayBuffer', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SharedArrayBuffer;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SharedArrayBuffer();
+            
+            class A1 extends SharedArrayBuffer {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('Atomics', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = Atomics;
           `)
         ).toMatchSnapshot();
       });

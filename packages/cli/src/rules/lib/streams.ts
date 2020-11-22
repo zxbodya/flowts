@@ -8,7 +8,7 @@ export default {
         }
         */
     TextEncoder(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -27,7 +27,9 @@ export default {
           error(error: Error): void,
         }
         */
-    ReadableStreamController(context) {},
+    ReadableStreamController(context) {
+      context.lib('dom');
+    },
 
     /*
         declare class ReadableStreamBYOBRequest {
@@ -39,9 +41,7 @@ export default {
           respondWithNewView(view: $TypedArray): ?any,
         }
         */
-    ReadableStreamBYOBRequest(context) {
-      context.lib('webworker');
-    },
+    ReadableStreamBYOBRequest(context) {},
 
     /*
         declare class ReadableByteStreamController extends ReadableStreamController {
@@ -54,9 +54,7 @@ export default {
           byobRequest: ReadableStreamBYOBRequest,
         }
         */
-    ReadableByteStreamController(context) {
-      context.lib('webworker');
-    },
+    ReadableByteStreamController(context) {},
 
     /*
         declare class ReadableStreamReader {
@@ -74,7 +72,7 @@ export default {
         }
         */
     ReadableStreamReader(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -88,7 +86,7 @@ export default {
         }
         */
     UnderlyingSource(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -98,7 +96,7 @@ export default {
         }
         */
     TransformStream(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -118,7 +116,7 @@ export default {
         }
         */
     ReadableStream(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -140,7 +138,7 @@ export default {
         }
         */
     UnderlyingSink(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -171,7 +169,7 @@ export default {
         }
         */
     WritableStream(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
   },
 

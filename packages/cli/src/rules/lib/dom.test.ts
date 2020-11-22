@@ -178,6 +178,26 @@ describe('lib/dom.js', () => {
       });
     });
 
+    describe('DOMStringList', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = DOMStringList;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new DOMStringList();
+            
+            class A1 extends DOMStringList {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('DOMError', () => {
       test('variable', () => {
         expect(
@@ -380,6 +400,26 @@ describe('lib/dom.js', () => {
       });
     });
 
+    describe('CompositionEvent', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = CompositionEvent;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new CompositionEvent();
+            
+            class A1 extends CompositionEvent {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('MouseEvent', () => {
       test('variable', () => {
         expect(
@@ -520,6 +560,26 @@ describe('lib/dom.js', () => {
       });
     });
 
+    describe('PageTransitionEvent', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = PageTransitionEvent;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new PageTransitionEvent();
+            
+            class A1 extends PageTransitionEvent {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('MessageEvent', () => {
       test('variable', () => {
         expect(
@@ -615,6 +675,26 @@ describe('lib/dom.js', () => {
             new AnimationEvent();
             
             class A1 extends AnimationEvent {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('ErrorEvent', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = ErrorEvent;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new ErrorEvent();
+            
+            class A1 extends ErrorEvent {};
           `)
         ).toMatchSnapshot();
       });
@@ -1089,6 +1169,26 @@ describe('lib/dom.js', () => {
             new HTMLTableCaptionElement();
             
             class A1 extends HTMLTableCaptionElement {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('HTMLTableColElement', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = HTMLTableColElement;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new HTMLTableColElement();
+            
+            class A1 extends HTMLTableColElement {};
           `)
         ).toMatchSnapshot();
       });
@@ -2716,26 +2816,6 @@ describe('lib/dom.js', () => {
       });
     });
 
-    describe('HTMLTableColElement', () => {
-      test('variable', () => {
-        expect(
-          transform(`
-            var a = HTMLTableColElement;
-          `)
-        ).toMatchSnapshot();
-      });
-
-      test('generated - class', () => {
-        expect(
-          transform(`
-            new HTMLTableColElement();
-            
-            class A1 extends HTMLTableColElement {};
-          `)
-        ).toMatchSnapshot();
-      });
-    });
-
     describe('HTMLTimeElement', () => {
       test('variable', () => {
         expect(
@@ -2911,6 +2991,26 @@ describe('lib/dom.js', () => {
             new HTMLMetaElement();
             
             class A1 extends HTMLMetaElement {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('HTMLUnknownElement', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = HTMLUnknownElement;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new HTMLUnknownElement();
+            
+            class A1 extends HTMLUnknownElement {};
           `)
         ).toMatchSnapshot();
       });

@@ -1705,6 +1705,26 @@ describe('lib/bom.js', () => {
       });
     });
 
+    describe('MediaRecorder', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = MediaRecorder;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new MediaRecorder();
+            
+            class A1 extends MediaRecorder {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('MediaStream', () => {
       test('variable', () => {
         expect(
@@ -2711,6 +2731,166 @@ describe('lib/bom.js', () => {
             new SpeechSynthesisVoice();
             
             class A1 extends SpeechSynthesisVoice {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechGrammar', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechGrammar;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechGrammar();
+            
+            class A1 extends SpeechGrammar {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechGrammarList', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechGrammarList;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechGrammarList();
+            
+            class A1 extends SpeechGrammarList {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognitionAlternative', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognitionAlternative;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognitionAlternative();
+            
+            class A1 extends SpeechRecognitionAlternative {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognitionResult', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognitionResult;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognitionResult();
+            
+            class A1 extends SpeechRecognitionResult {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognitionResultList', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognitionResultList;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognitionResultList();
+            
+            class A1 extends SpeechRecognitionResultList {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognitionEvent', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognitionEvent;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognitionEvent();
+            
+            class A1 extends SpeechRecognitionEvent {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognitionErrorEvent', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognitionErrorEvent;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognitionErrorEvent();
+            
+            class A1 extends SpeechRecognitionErrorEvent {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('SpeechRecognition', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = SpeechRecognition;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class', () => {
+        expect(
+          transform(`
+            new SpeechRecognition();
+            
+            class A1 extends SpeechRecognition {};
           `)
         ).toMatchSnapshot();
       });

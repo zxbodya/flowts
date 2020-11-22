@@ -72,149 +72,89 @@ exports[`lib/core.js globals $ReadOnlyWeakSet variable 1`] = `
 "
 `;
 
-exports[`lib/core.js globals $SymboIsConcatSpreadable generated - class 1`] = `
-"new $SymboIsConcatSpreadable();
-
-class A1 extends $SymboIsConcatSpreadable {}
+exports[`lib/core.js globals $SymboIsConcatSpreadable generated - interface 1`] = `
+"class A1 extends $SymboIsConcatSpreadable {}
 "
 `;
 
-exports[`lib/core.js globals $SymboIsConcatSpreadable variable 1`] = `
-"var a = $SymboIsConcatSpreadable;
+exports[`lib/core.js globals $SymboIsConcatSpreadable generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolHasInstance generated - interface 1`] = `
+"class A1 extends $SymbolHasInstance {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolHasInstance generated - class 1`] = `
-"new $SymbolHasInstance();
+exports[`lib/core.js globals $SymbolHasInstance generated - type 1`] = `""`;
 
-class A1 extends $SymbolHasInstance {}
+exports[`lib/core.js globals $SymbolIterator generated - interface 1`] = `
+"class A1 extends $SymbolIterator {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolHasInstance variable 1`] = `
-"var a = $SymbolHasInstance;
+exports[`lib/core.js globals $SymbolIterator generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolMatch generated - interface 1`] = `
+"class A1 extends $SymbolMatch {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolIterator generated - class 1`] = `
-"new $SymbolIterator();
+exports[`lib/core.js globals $SymbolMatch generated - type 1`] = `""`;
 
-class A1 extends $SymbolIterator {}
+exports[`lib/core.js globals $SymbolMatchAll generated - interface 1`] = `
+"class A1 extends $SymbolMatchAll {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolIterator variable 1`] = `
-"var a = $SymbolIterator;
+exports[`lib/core.js globals $SymbolMatchAll generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolReplace generated - interface 1`] = `
+"class A1 extends $SymbolReplace {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolMatch generated - class 1`] = `
-"new $SymbolMatch();
+exports[`lib/core.js globals $SymbolReplace generated - type 1`] = `""`;
 
-class A1 extends $SymbolMatch {}
+exports[`lib/core.js globals $SymbolSearch generated - interface 1`] = `
+"class A1 extends $SymbolSearch {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolMatch variable 1`] = `
-"var a = $SymbolMatch;
+exports[`lib/core.js globals $SymbolSearch generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolSpecies generated - interface 1`] = `
+"class A1 extends $SymbolSpecies {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolMatchAll generated - class 1`] = `
-"new $SymbolMatchAll();
+exports[`lib/core.js globals $SymbolSpecies generated - type 1`] = `""`;
 
-class A1 extends $SymbolMatchAll {}
+exports[`lib/core.js globals $SymbolSplit generated - interface 1`] = `
+"class A1 extends $SymbolSplit {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolMatchAll variable 1`] = `
-"var a = $SymbolMatchAll;
+exports[`lib/core.js globals $SymbolSplit generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolToPrimitive generated - interface 1`] = `
+"class A1 extends $SymbolToPrimitive {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolReplace generated - class 1`] = `
-"new $SymbolReplace();
+exports[`lib/core.js globals $SymbolToPrimitive generated - type 1`] = `""`;
 
-class A1 extends $SymbolReplace {}
+exports[`lib/core.js globals $SymbolToStringTag generated - interface 1`] = `
+"class A1 extends $SymbolToStringTag {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolReplace variable 1`] = `
-"var a = $SymbolReplace;
+exports[`lib/core.js globals $SymbolToStringTag generated - type 1`] = `""`;
+
+exports[`lib/core.js globals $SymbolUnscopables generated - interface 1`] = `
+"class A1 extends $SymbolUnscopables {}
 "
 `;
 
-exports[`lib/core.js globals $SymbolSearch generated - class 1`] = `
-"new $SymbolSearch();
-
-class A1 extends $SymbolSearch {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolSearch variable 1`] = `
-"var a = $SymbolSearch;
-"
-`;
-
-exports[`lib/core.js globals $SymbolSpecies generated - class 1`] = `
-"new $SymbolSpecies();
-
-class A1 extends $SymbolSpecies {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolSpecies variable 1`] = `
-"var a = $SymbolSpecies;
-"
-`;
-
-exports[`lib/core.js globals $SymbolSplit generated - class 1`] = `
-"new $SymbolSplit();
-
-class A1 extends $SymbolSplit {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolSplit variable 1`] = `
-"var a = $SymbolSplit;
-"
-`;
-
-exports[`lib/core.js globals $SymbolToPrimitive generated - class 1`] = `
-"new $SymbolToPrimitive();
-
-class A1 extends $SymbolToPrimitive {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolToPrimitive variable 1`] = `
-"var a = $SymbolToPrimitive;
-"
-`;
-
-exports[`lib/core.js globals $SymbolToStringTag generated - class 1`] = `
-"new $SymbolToStringTag();
-
-class A1 extends $SymbolToStringTag {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolToStringTag variable 1`] = `
-"var a = $SymbolToStringTag;
-"
-`;
-
-exports[`lib/core.js globals $SymbolUnscopables generated - class 1`] = `
-"new $SymbolUnscopables();
-
-class A1 extends $SymbolUnscopables {}
-"
-`;
-
-exports[`lib/core.js globals $SymbolUnscopables variable 1`] = `
-"var a = $SymbolUnscopables;
-"
-`;
+exports[`lib/core.js globals $SymbolUnscopables generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $TypedArray generated - class 1`] = `
 "new $TypedArray();
@@ -310,6 +250,11 @@ class A1 extends ArrayBuffer {}
 
 exports[`lib/core.js globals ArrayBuffer variable 1`] = `
 "var a = ArrayBuffer;
+"
+`;
+
+exports[`lib/core.js globals Atomics variable 1`] = `
+"var a = Atomics;
 "
 `;
 
@@ -605,6 +550,18 @@ let a1 = new Set<P0>();
 
 exports[`lib/core.js globals Set variable 1`] = `
 "var a = Set;
+"
+`;
+
+exports[`lib/core.js globals SharedArrayBuffer generated - class 1`] = `
+"new SharedArrayBuffer();
+
+class A1 extends SharedArrayBuffer {}
+"
+`;
+
+exports[`lib/core.js globals SharedArrayBuffer variable 1`] = `
+"var a = SharedArrayBuffer;
 "
 `;
 

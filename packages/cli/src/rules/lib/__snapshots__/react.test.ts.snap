@@ -85,6 +85,13 @@ class A1 extends ElementType {}
 
 exports[`lib/react.js globals React$ElementType generated - type 1`] = `""`;
 
+exports[`lib/react.js globals React$FragmentType generated - interface 1`] = `
+"class A1 extends React$FragmentType {}
+"
+`;
+
+exports[`lib/react.js globals React$FragmentType generated - type 1`] = `""`;
+
 exports[`lib/react.js globals React$Key generated - interface 1`] = `
 "import type { Key } from \\"react\\";
 class A1 extends Key {}
@@ -158,6 +165,47 @@ interface I1 extends FunctionComponent<P0> {}
 exports[`lib/react.js globals React$StatelessFunctionalComponent generated - type - typeParams(1) 1`] = `
 "import type { FunctionComponent } from \\"react\\";
 let a1: FunctionComponent<P0>;
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface - import namespace 1`] = `
+"import * as M from \\"#flow-internal-react-server-module\\";
+
+class A1 extends M.Node {}
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface - import renamed 1`] = `
+"import { Node as t } from \\"#flow-internal-react-server-module\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface 1`] = `
+"import { Node } from \\"#flow-internal-react-server-module\\";
+
+class A1 extends Node {}
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - type - import namespace 1`] = `
+"import * as M from \\"#flow-internal-react-server-module\\";
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - type - import renamed 1`] = `
+"import { Node as t } from \\"#flow-internal-react-server-module\\";
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module Node generated - type 1`] = `
+"import { Node } from \\"#flow-internal-react-server-module\\";
+"
+`;
+
+exports[`lib/react.js modules #flow-internal-react-server-module createElement variable 1`] = `
+"var a = createElement;
 "
 `;
 
@@ -1051,6 +1099,114 @@ exports[`lib/react.js modules react Suspense variable 1`] = `
 "
 `;
 
+exports[`lib/react.js modules react TimeoutConfig generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.TimeoutConfig {}
+"
+`;
+
+exports[`lib/react.js modules react TimeoutConfig generated - interface - import renamed 1`] = `
+"import { TimeoutConfig as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react TimeoutConfig generated - interface 1`] = `
+"import { TimeoutConfig } from \\"react\\";
+
+class A1 extends TimeoutConfig {}
+"
+`;
+
+exports[`lib/react.js modules react TimeoutConfig generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TimeoutConfig generated - type - import renamed 1`] = `
+"import { TimeoutConfig as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TimeoutConfig generated - type 1`] = `
+"import { TimeoutConfig } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.TransportObject {}
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - interface - import renamed 1`] = `
+"import { TransportObject as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - interface 1`] = `
+"import { TransportObject } from \\"react\\";
+
+class A1 extends TransportObject {}
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - type - import renamed 1`] = `
+"import { TransportObject as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportObject generated - type 1`] = `
+"import { TransportObject } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - interface - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+class A1 extends M.TransportValue {}
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - interface - import renamed 1`] = `
+"import { TransportValue as t } from \\"react\\";
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - interface 1`] = `
+"import { TransportValue } from \\"react\\";
+
+class A1 extends TransportValue {}
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - type - import namespace 1`] = `
+"import * as M from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - type - import renamed 1`] = `
+"import { TransportValue as t } from \\"react\\";
+"
+`;
+
+exports[`lib/react.js modules react TransportValue generated - type 1`] = `
+"import { TransportValue } from \\"react\\";
+"
+`;
+
 exports[`lib/react.js modules react checkPropTypes generated - callable - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react\\";
 
@@ -1577,6 +1733,59 @@ exports[`lib/react.js modules react memo variable 1`] = `
 "
 `;
 
+exports[`lib/react.js modules react startTransition generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.startTransition();
+"
+`;
+
+exports[`lib/react.js modules react startTransition generated - callable - import renamed 1`] = `
+"import { startTransition as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react startTransition generated - callable 1`] = `
+"import { startTransition } from \\"react\\";
+
+startTransition();
+"
+`;
+
+exports[`lib/react.js modules react startTransition generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.startTransition();
+
+class A1 extends M.startTransition {}
+"
+`;
+
+exports[`lib/react.js modules react startTransition generated - class - import renamed 1`] = `
+"import { startTransition as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react startTransition generated - class 1`] = `
+"import { startTransition } from \\"react\\";
+
+new startTransition();
+
+class A1 extends startTransition {}
+"
+`;
+
+exports[`lib/react.js modules react startTransition variable 1`] = `
+"var a = startTransition;
+"
+`;
+
 exports[`lib/react.js modules react useCallback generated - callable - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react\\";
 
@@ -1751,6 +1960,68 @@ class A1 extends useDebugValue {}
 
 exports[`lib/react.js modules react useDebugValue variable 1`] = `
 "var a = useDebugValue;
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - callable - import namespace - typeParams(1) 1`] = `
+"import * as M from \\"react\\";
+
+M.useDeferredValue();
+
+let a1 = M.useDeferredValue<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - callable - import renamed - typeParams(1) 1`] = `
+"import { useDeferredValue as t } from \\"react\\";
+
+t();
+
+let a1 = t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - callable - typeParams(1) 1`] = `
+"import { useDeferredValue } from \\"react\\";
+
+useDeferredValue();
+
+let a1 = useDeferredValue<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - class - import namespace - typeParams(1) 1`] = `
+"import * as M from \\"react\\";
+
+new M.useDeferredValue();
+
+class A1 extends M.useDeferredValue<P0> {}
+let a1 = new M.useDeferredValue<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - class - import renamed - typeParams(1) 1`] = `
+"import { useDeferredValue as t } from \\"react\\";
+
+new t();
+
+class A1 extends t<P0> {}
+let a1 = new t<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue generated - class - typeParams(1) 1`] = `
+"import { useDeferredValue } from \\"react\\";
+
+new useDeferredValue();
+
+class A1 extends useDeferredValue<P0> {}
+let a1 = new useDeferredValue<P0>();
+"
+`;
+
+exports[`lib/react.js modules react useDeferredValue variable 1`] = `
+"var a = useDeferredValue;
 "
 `;
 
@@ -2224,6 +2495,59 @@ let a1 = new useState<P0>();
 
 exports[`lib/react.js modules react useState variable 1`] = `
 "var a = useState;
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - callable - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+M.useTransition();
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - callable - import renamed 1`] = `
+"import { useTransition as t } from \\"react\\";
+
+t();
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - callable 1`] = `
+"import { useTransition } from \\"react\\";
+
+useTransition();
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - class - import namespace 1`] = `
+"import * as M from \\"react\\";
+
+new M.useTransition();
+
+class A1 extends M.useTransition {}
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - class - import renamed 1`] = `
+"import { useTransition as t } from \\"react\\";
+
+new t();
+
+class A1 extends t {}
+"
+`;
+
+exports[`lib/react.js modules react useTransition generated - class 1`] = `
+"import { useTransition } from \\"react\\";
+
+new useTransition();
+
+class A1 extends useTransition {}
+"
+`;
+
+exports[`lib/react.js modules react useTransition variable 1`] = `
+"var a = useTransition;
 "
 `;
 

@@ -670,6 +670,18 @@ exports[`lib/bom.js globals MediaQueryListListener generated - interface 1`] = `
 
 exports[`lib/bom.js globals MediaQueryListListener generated - type 1`] = `""`;
 
+exports[`lib/bom.js globals MediaRecorder generated - class 1`] = `
+"new MediaRecorder();
+
+class A1 extends MediaRecorder {}
+"
+`;
+
+exports[`lib/bom.js globals MediaRecorder variable 1`] = `
+"var a = MediaRecorder;
+"
+`;
+
 exports[`lib/bom.js globals MediaStream generated - class 1`] = `
 "new MediaStream();
 
@@ -1238,6 +1250,102 @@ class A1 extends SharedWorkerGlobalScope {}
 
 exports[`lib/bom.js globals SharedWorkerGlobalScope variable 1`] = `
 "var a = SharedWorkerGlobalScope;
+"
+`;
+
+exports[`lib/bom.js globals SpeechGrammar generated - class 1`] = `
+"new SpeechGrammar();
+
+class A1 extends SpeechGrammar {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechGrammar variable 1`] = `
+"var a = SpeechGrammar;
+"
+`;
+
+exports[`lib/bom.js globals SpeechGrammarList generated - class 1`] = `
+"new SpeechGrammarList();
+
+class A1 extends SpeechGrammarList {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechGrammarList variable 1`] = `
+"var a = SpeechGrammarList;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognition generated - class 1`] = `
+"new SpeechRecognition();
+
+class A1 extends SpeechRecognition {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognition variable 1`] = `
+"var a = SpeechRecognition;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionAlternative generated - class 1`] = `
+"new SpeechRecognitionAlternative();
+
+class A1 extends SpeechRecognitionAlternative {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionAlternative variable 1`] = `
+"var a = SpeechRecognitionAlternative;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionErrorEvent generated - class 1`] = `
+"new SpeechRecognitionErrorEvent();
+
+class A1 extends SpeechRecognitionErrorEvent {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionErrorEvent variable 1`] = `
+"var a = SpeechRecognitionErrorEvent;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionEvent generated - class 1`] = `
+"new SpeechRecognitionEvent();
+
+class A1 extends SpeechRecognitionEvent {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionEvent variable 1`] = `
+"var a = SpeechRecognitionEvent;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionResult generated - class 1`] = `
+"new SpeechRecognitionResult();
+
+class A1 extends SpeechRecognitionResult {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionResult variable 1`] = `
+"var a = SpeechRecognitionResult;
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionResultList generated - class 1`] = `
+"new SpeechRecognitionResultList();
+
+class A1 extends SpeechRecognitionResultList {}
+"
+`;
+
+exports[`lib/bom.js globals SpeechRecognitionResultList variable 1`] = `
+"var a = SpeechRecognitionResultList;
 "
 `;
 

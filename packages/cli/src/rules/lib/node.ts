@@ -34,22 +34,22 @@ export default {
             offsetOrEncoding?: number | buffer$Encoding,
             encoding?: buffer$Encoding
           ): number;
-          readDoubleBE(offset: number, noAssert?: boolean): number;
-          readDoubleLE(offset: number, noAssert?: boolean): number;
-          readFloatBE(offset: number, noAssert?: boolean): number;
-          readFloatLE(offset: number, noAssert?: boolean): number;
-          readInt16BE(offset: number, noAssert?: boolean): number;
-          readInt16LE(offset: number, noAssert?: boolean): number;
-          readInt32BE(offset: number, noAssert?: boolean): number;
-          readInt32LE(offset: number, noAssert?: boolean): number;
-          readInt8(offset: number, noAssert?: boolean): number;
+          readDoubleBE(offset?: number, noAssert?: boolean): number;
+          readDoubleLE(offset?: number, noAssert?: boolean): number;
+          readFloatBE(offset?: number, noAssert?: boolean): number;
+          readFloatLE(offset?: number, noAssert?: boolean): number;
+          readInt16BE(offset?: number, noAssert?: boolean): number;
+          readInt16LE(offset?: number, noAssert?: boolean): number;
+          readInt32BE(offset?: number, noAssert?: boolean): number;
+          readInt32LE(offset?: number, noAssert?: boolean): number;
+          readInt8(offset?: number, noAssert?: boolean): number;
           readIntBE(offset: number, byteLength: number, noAssert?: boolean): number;
           readIntLE(offset: number, byteLength: number, noAssert?: boolean): number;
-          readUInt16BE(offset: number, noAssert?: boolean): number;
-          readUInt16LE(offset: number, noAssert?: boolean): number;
-          readUInt32BE(offset: number, noAssert?: boolean): number;
-          readUInt32LE(offset: number, noAssert?: boolean): number;
-          readUInt8(offset: number, noAssert?: boolean): number;
+          readUInt16BE(offset?: number, noAssert?: boolean): number;
+          readUInt16LE(offset?: number, noAssert?: boolean): number;
+          readUInt32BE(offset?: number, noAssert?: boolean): number;
+          readUInt32LE(offset?: number, noAssert?: boolean): number;
+          readUInt8(offset?: number, noAssert?: boolean): number;
           readUIntBE(offset: number, byteLength: number, noAssert?: boolean): number;
           readUIntLE(offset: number, byteLength: number, noAssert?: boolean): number;
           slice(start?: number, end?: number): this;
@@ -59,23 +59,23 @@ export default {
           toJSON(): buffer$ToJSONRet;
           toString(encoding?: buffer$Encoding, start?: number, end?: number): string;
           values(): Iterator<number>;
-          write(string: string, offset?: number, length?: number, encoding?: buffer$Encoding): void;
-          writeDoubleBE(value: number, offset: number, noAssert?: boolean): number;
-          writeDoubleLE(value: number, offset: number, noAssert?: boolean): number;
-          writeFloatBE(value: number, offset: number, noAssert?: boolean): number;
-          writeFloatLE(value: number, offset: number, noAssert?: boolean): number;
-          writeInt16BE(value: number, offset: number, noAssert?: boolean): number;
-          writeInt16LE(value: number, offset: number, noAssert?: boolean): number;
-          writeInt32BE(value: number, offset: number, noAssert?: boolean): number;
-          writeInt32LE(value: number, offset: number, noAssert?: boolean): number;
-          writeInt8(value: number, offset: number, noAssert?: boolean): number;
+          write(string: string, offset?: number, length?: number, encoding?: buffer$Encoding): number;
+          writeDoubleBE(value: number, offset?: number, noAssert?: boolean): number;
+          writeDoubleLE(value: number, offset?: number, noAssert?: boolean): number;
+          writeFloatBE(value: number, offset?: number, noAssert?: boolean): number;
+          writeFloatLE(value: number, offset?: number, noAssert?: boolean): number;
+          writeInt16BE(value: number, offset?: number, noAssert?: boolean): number;
+          writeInt16LE(value: number, offset?: number, noAssert?: boolean): number;
+          writeInt32BE(value: number, offset?: number, noAssert?: boolean): number;
+          writeInt32LE(value: number, offset?: number, noAssert?: boolean): number;
+          writeInt8(value: number, offset?: number, noAssert?: boolean): number;
           writeIntBE(value: number, offset: number, byteLength: number, noAssert?: boolean): number;
           writeIntLE(value: number, offset: number, byteLength: number, noAssert?: boolean): number;
-          writeUInt16BE(value: number, offset: number, noAssert?: boolean): number;
-          writeUInt16LE(value: number, offset: number, noAssert?: boolean): number;
-          writeUInt32BE(value: number, offset: number, noAssert?: boolean): number;
-          writeUInt32LE(value: number, offset: number, noAssert?: boolean): number;
-          writeUInt8(value: number, offset: number, noAssert?: boolean): number;
+          writeUInt16BE(value: number, offset?: number, noAssert?: boolean): number;
+          writeUInt16LE(value: number, offset?: number, noAssert?: boolean): number;
+          writeUInt32BE(value: number, offset?: number, noAssert?: boolean): number;
+          writeUInt32LE(value: number, offset?: number, noAssert?: boolean): number;
+          writeUInt8(value: number, offset?: number, noAssert?: boolean): number;
           writeUIntBE(value: number, offset: number, byteLength: number, noAssert?: boolean): number;
           writeUIntLE(value: number, offset: number, byteLength: number, noAssert?: boolean): number;
 
@@ -88,13 +88,18 @@ export default {
 
           static from(value: Buffer): Buffer;
           static from(value: string, encoding?: buffer$Encoding): Buffer;
-          static from(value: ArrayBuffer, byteOffset?: number, length?: number): Buffer;
+          static from(value: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
           static from(value: Iterable<number>): this;
           static isBuffer(obj: any): boolean;
           static isEncoding(encoding: string): boolean;
         }
         */
     Buffer(context) {},
+
+    /*
+        declare type Node$Buffer = typeof Buffer;
+        */
+    Node$Buffer(context) {},
 
     /*
         declare class child_process$Error extends Error {
@@ -116,6 +121,7 @@ export default {
           connected: boolean;
           killed: boolean;
           pid: number;
+          exitCode: number | null;
           stderr: stream$Readable;
           stdin: stream$Writable;
           stdio: Array<any>;
@@ -136,25 +142,6 @@ export default {
     child_process$ChildProcess(context) {
       context.importFlow('child_process', 'ChildProcess');
     },
-
-    /*
-        declare class cluster$Worker extends events$EventEmitter {
-          id: number;
-          process: child_process$ChildProcess;
-          suicide: boolean;
-
-          disconnect(): void;
-          isConnected(): boolean;
-          isDead(): boolean;
-          kill(signal?: string): void;
-          send(
-            message: Object,
-            sendHandleOrCallback?: child_process$Handle | Function,
-            callback?: Function,
-          ): boolean;
-        }
-        */
-    cluster$Worker(context) {},
 
     /*
         declare class crypto$Cipher extends stream$Duplex {
@@ -315,7 +302,7 @@ export default {
           addMembership(multicastAddress: string, multicastInterface?: string): void;
           address(): net$Socket$address;
           bind(port?: number, address?: string, callback?: () => void): void;
-          close(): void;
+          close(callback?: () => void): void;
           dropMembership(multicastAddress: string, multicastInterface?: string): void;
           ref(): void;
           send(
@@ -417,6 +404,9 @@ export default {
           statusCode: number;
           statusMessage: string;
           url: string;
+          aborted: boolean;
+          complete: boolean;
+          rawTrailers: Array<string>;
         }
         */
     http$IncomingMessage(context) {
@@ -447,6 +437,7 @@ export default {
           addTrailers(headers: { [key: string] : string, ... }): void;
           connection: net$Socket;
           finished: boolean;
+          flushHeaders(): void;
           getHeader(name: string): string;
           getHeaderNames(): Array<string>;
           getHeaders(): { [key: string] : string | Array<string>, ...};
@@ -492,6 +483,7 @@ export default {
           close(callback?: (error: ?Error) => mixed): this;
           maxHeadersCount: number;
           keepAliveTimeout: number;
+          headersTimeout: number;
           setTimeout(msecs: number, callback: Function): this;
           timeout: number;
         }
@@ -521,6 +513,7 @@ export default {
           }, callback?: Function): this;
           close(callback?: (error: ?Error) => mixed): this;
           keepAliveTimeout: number;
+          headersTimeout: number;
           setTimeout(msecs: number, callback: Function): this;
           timeout: number;
         }
@@ -620,6 +613,8 @@ export default {
 
     /*
         declare class stream$Readable extends stream$Stream {
+          static from(iterable: Iterable<any> | AsyncIterable<any>, options?: readableStreamOptions): stream$Readable;
+
           constructor(options?: readableStreamOptions): void;
           destroy(error?: Error): this;
           isPaused(): boolean;
@@ -634,7 +629,7 @@ export default {
           unpipe(dest?: stream$Writable): this;
           unshift(chunk: Buffer | Uint8Array | string): void;
           wrap(oldReadable: stream$Stream): this;
-          _read(size?: number): void;
+          _read(size: number): void;
           _destroy(error: ?Error, callback: (error?: Error) => void): void;
           push(chunk: ?(Buffer | Uint8Array | string), encoding? : string): boolean;
           @@asyncIterator(): AsyncIterator<string | Buffer>;
@@ -719,9 +714,30 @@ export default {
     /*
         declare class tty$WriteStream extends net$Socket {
           constructor(fd: number) : void;
+          *
+           * Clears the current line of this `WriteStream` in a direction identified by `dir`.
+           *
+           * TODO: takes a callback and returns `boolean` in v12+
+           
+          clearLine(dir: -1 | 0 | 1): void;
           columns : number;
+          *
+           * Moves this WriteStream's cursor to the specified position
+           *
+           * TODO: takes a callback and returns `boolean` in v12+
+           
+          cursorTo(
+            x: number,
+            y?: number
+          ): void;
+          isTTY : true;
+          *
+           * Moves this WriteStream's cursor relative to its current position
+           *
+           * TODO: takes a callback and returns `boolean` in v12+
+           
+          moveCursor(dx: number, dy: number): void;
           rows : number;
-          isTTY : true
         }
         */
     tty$WriteStream(context) {
@@ -847,7 +863,7 @@ export default {
           ): void;
           execArgv : Array<string>;
           execPath : string;
-          exit(code? : number) : void;
+          exit(code? : number) : empty;
           exitCode? : number;
           getegid? : () => number;
           geteuid? : () => number;
@@ -943,12 +959,12 @@ export default {
         INSPECT_MAX_BYTES(context) {},
 
         /*
-                declare function transcode(source: Buffer, fromEnc: buffer$Encoding, toEnc: buffer$Encoding): Buffer;
+                declare function transcode(source: Node$Buffer, fromEnc: buffer$Encoding, toEnc: buffer$Encoding): Node$Buffer;
                 */
         transcode(context) {},
 
         /*
-                declare var Buffer: typeof global.Buffer;
+                declare var Buffer: Node$Buffer;
                 */
         Buffer(context) {},
       },
@@ -1040,25 +1056,71 @@ export default {
 
       exports: {
         /*
+                declare type ClusterSettings = {
+                    execArgv: Array<string>,
+                    exec: string,
+                    args: Array<string>,
+                    cwd: string,
+                    serialization: 'json' | 'advanced',
+                    silent: boolean,
+                    stdio: Array<any>,
+                    uid: number,
+                    gid: number,
+                    inspectPort: number | () => number,
+                    windowsHide: boolean,
+                    ...
+                  }
+                */
+        ClusterSettings(context) {},
+
+        /*
+                declare type ClusterSettingsOpt = {
+                    execArgv?: Array<string>,
+                    exec?: string,
+                    args?: Array<string>,
+                    cwd?: string,
+                    serialization?: 'json' | 'advanced',
+                    silent?: boolean,
+                    stdio?: Array<any>,
+                    uid?: number,
+                    gid?: number,
+                    inspectPort?: number | () => number,
+                    windowsHide?: boolean,
+                    ...
+                  }
+                */
+        ClusterSettingsOpt(context) {},
+
+        /*
+                declare class Worker extends events$EventEmitter {
+                    id: number;
+                    process: child_process$ChildProcess;
+                    suicide: boolean;
+
+                    disconnect(): void;
+                    isConnected(): boolean;
+                    isDead(): boolean;
+                    kill(signal?: string): void;
+                    send(
+                      message: Object,
+                      sendHandleOrCallback?: child_process$Handle | Function,
+                      callback?: Function,
+                    ): boolean;
+                  }
+                */
+        Worker(context) {},
+
+        /*
                 declare class Cluster extends events$EventEmitter {
                     isMaster: boolean;
                     isWorker: boolean;
-                    settings: {
-                      execArgv: Array<string>,
-                      exec: string,
-                      args: Array<string>,
-                      silent: boolean,
-                      stdio: Array<any>,
-                      uid: number,
-                      gid: number,
-                      ...
-                    };
-                    worker: cluster$Worker;
-                    workers: Object;
+                    settings: ClusterSettings;
+                    worker: Worker;
+                    workers: { [id: number]: Worker };
 
                     disconnect(callback?: () => void): void;
-                    fork(env?: Object): cluster$Worker;
-                    setupMaster(settings?: cluster$setupMasterOpts): void;
+                    fork(env?: Object): Worker;
+                    setupMaster(settings?: ClusterSettingsOpt): void;
                   }
                 */
         Cluster(context) {},
@@ -1183,8 +1245,17 @@ export default {
                     salt: string | Buffer,
                     iterations: number,
                     keylen: number,
-                    digestOrCallback: string | ((err: ?Error, derivedKey: Buffer) => void),
-                    callback?: (err: ?Error, derivedKey: Buffer) => void
+                    digest: string,
+                    callback: (err: ?Error, derivedKey: Buffer) => void
+                  ): void;
+                */
+        /*
+                declare function pbkdf2(
+                    password: string | Buffer,
+                    salt: string | Buffer,
+                    iterations: number,
+                    keylen: number,
+                    callback: (err: ?Error, derivedKey: Buffer) => void
                   ): void;
                 */
         pbkdf2(context) {},
@@ -1199,6 +1270,37 @@ export default {
                   ): Buffer;
                 */
         pbkdf2Sync(context) {},
+
+        /*
+                declare function scrypt(
+                    password: string | Buffer,
+                    salt: string | Buffer,
+                    keylen: number,
+                    options: {|N?: number, r?: number, p?: number, maxmem?: number|}
+                        | {|cost?: number, blockSize?: number, parallelization?: number, maxmem?: number|},
+                    callback: (err: ?Error, derivedKey: Buffer) => void
+                  ): void;
+                */
+        /*
+                declare function scrypt(
+                    password: string | Buffer,
+                    salt: string | Buffer,
+                    keylen: number,
+                    callback: (err: ?Error, derivedKey: Buffer) => void
+                  ): void;
+                */
+        scrypt(context) {},
+
+        /*
+                declare function scryptSync(
+                    password: string | Buffer,
+                    salt: string | Buffer,
+                    keylen: number,
+                    options?: {|N?: number, r?: number, p?: number, maxmem?: number|}
+                        | {|cost?: number, blockSize?: number, parallelization?: number, maxmem?: number|},
+                  ): Buffer;
+                */
+        scryptSync(context) {},
 
         /*
                 declare function privateDecrypt(
@@ -1255,14 +1357,14 @@ export default {
         randomBytes(context) {},
 
         /*
-                declare function randomFillSync(buffer: Buffer): void
+                declare function randomFillSync(buffer: Buffer | $TypedArray | DataView): void
                 */
         /*
-                declare function randomFillSync(buffer: Buffer, offset: number): void
+                declare function randomFillSync(buffer: Buffer | $TypedArray | DataView, offset: number): void
                 */
         /*
                 declare function randomFillSync(
-                    buffer: Buffer,
+                    buffer: Buffer | $TypedArray | DataView,
                     offset: number,
                     size: number
                   ): void
@@ -1271,20 +1373,20 @@ export default {
 
         /*
                 declare function randomFill(
-                    buffer: Buffer,
+                    buffer: Buffer | $TypedArray | DataView,
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void
                 */
         /*
                 declare function randomFill(
-                    buffer: Buffer,
+                    buffer: Buffer | $TypedArray | DataView,
                     offset: number,
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void
                 */
         /*
                 declare function randomFill(
-                    buffer: Buffer,
+                    buffer: Buffer | $TypedArray | DataView,
                     offset: number,
                     size: number,
                     callback: (err: ?Error, buffer: Buffer) => void
@@ -1626,24 +1728,40 @@ export default {
 
         /*
                 declare class FSWatcher extends events$EventEmitter {
-                    close(): void
+                    close(): void;
                   }
                 */
         FSWatcher(context) {},
 
         /*
                 declare class ReadStream extends stream$Readable {
-                    close(): void
+                    close(): void;
                   }
                 */
         ReadStream(context) {},
 
         /*
                 declare class WriteStream extends stream$Writable {
-                    close(): void
+                    close(): void;
+                    bytesWritten: number;
                   }
                 */
         WriteStream(context) {},
+
+        /*
+                declare class Dirent {
+                    name: string | Buffer;
+
+                    isBlockDevice(): boolean;
+                    isCharacterDevice(): boolean;
+                    isDirectory(): boolean;
+                    isFIFO(): boolean;
+                    isFile(): boolean;
+                    isSocket(): boolean;
+                    isSymbolicLink(): boolean;
+                  }
+                */
+        Dirent(context) {},
 
         /*
                 declare function rename(oldPath: string, newPath: string, callback?: (err: ?ErrnoError) => void): void;
@@ -1781,7 +1899,7 @@ export default {
         symlink(context) {},
 
         /*
-                declare function symlinkSync(srcpath: string, dstpath: string, type: string): void;
+                declare function symlinkSync(srcpath: string, dstpath: string, type?: string): void;
                 */
         symlinkSync(context) {},
 
@@ -1856,8 +1974,15 @@ export default {
         /*
                 declare function readdir(
                     path: string,
-                    options: string | { encoding: string, ... },
+                    options: string | { encoding?: string, withFileTypes?: false, ... },
                     callback: (err: ?ErrnoError, files: Array<string>) => void
+                  ): void;
+                */
+        /*
+                declare function readdir(
+                    path: string,
+                    options: { encoding?: string, withFileTypes?: true, ... },
+                    callback: (err: ?ErrnoError, files: Array<Dirent>) => void
                   ): void;
                 */
         /*
@@ -1871,8 +1996,14 @@ export default {
         /*
                 declare function readdirSync(
                     path: string,
-                    options?: string | { encoding: string, ... }
+                    options?: string | { encoding?: string, withFileTypes?: false, ... }
                   ): Array<string>;
+                */
+        /*
+                declare function readdirSync(
+                    path: string,
+                    options?: string | { encoding?: string, withFileTypes?: true, ... }
+                  ): Array<Dirent>;
                 */
         readdirSync(context) {},
 
@@ -2403,7 +2534,11 @@ export default {
                     lchmod(path: FSPromisePath, mode: number): Promise<void>,
                     lchown(path: FSPromisePath, uid: number, guid: number): Promise<void>,
                     link(existingPath: FSPromisePath, newPath: FSPromisePath): Promise<void>,
-                    mkdir(path: FSPromisePath, mode?: number): Promise<void>,
+                    mkdir(path: FSPromisePath, mode?: number | {
+                      recursive?: boolean,
+                      mode?: number,
+                      ...
+                    }): Promise<void>,
                     mkdtemp(prefix: string, options: EncodingOptions): Promise<string>,
                     open(path: FSPromisePath, flags?: string | number, mode?: number): Promise<FileHandle>,
                     read<T: Buffer | Uint8Array>(
@@ -3255,26 +3390,47 @@ export default {
 
       exports: {
         /*
-                declare function parse(
-                    urlStr: string,
-                    parseQueryString?: boolean,
-                    slashesDenoteHost?: boolean
-                  ): {
-                    protocol?: string,
-                    slashes?: boolean,
-                    auth?: string,
-                    host?: string,
-                    port?: string,
-                    hostname?: string,
-                    hash?: string,
-                    search?: string,
-                    // null | string | Object
-                    query?: any,
-                    pathname?: string,
-                    path?: string,
+                declare type Url = {|
+                    protocol: string | null,
+                    slashes: boolean | null,
+                    auth: string | null,
+                    host: string | null,
+                    port: string | null,
+                    hostname: string | null,
+                    hash: string | null,
+                    search: string | null,
+                    query: string | null | { [string]: string, ... },
+                    pathname: string | null,
+                    path: string | null,
                     href: string,
-                    ...
-                  };
+                  |}
+                */
+        Url(context) {},
+
+        /*
+                declare type UrlWithStringQuery = {|
+                    ...Url,
+                    query: string | null
+                  |}
+                */
+        UrlWithStringQuery(context) {},
+
+        /*
+                declare type UrlWithParsedQuery = {|
+                    ...Url,
+                    query: { [string]: string, ... }
+                  |}
+                */
+        UrlWithParsedQuery(context) {},
+
+        /*
+                declare function parse(urlStr: string, parseQueryString: true, slashesDenoteHost?: boolean): UrlWithParsedQuery;
+                */
+        /*
+                declare function parse(urlStr: string, parseQueryString?: false | void, slashesDenoteHost?: boolean): UrlWithStringQuery;
+                */
+        /*
+                declare function parse(urlStr: string, parseQueryString?: boolean, slashesDenoteHost?: boolean): Url;
                 */
         parse(context) {},
 
@@ -3304,7 +3460,7 @@ export default {
         pathToFileURL(context) {},
 
         /*
-                declare function fileURLToPath(path: url$urlObject | string): url$urlObject;
+                declare function fileURLToPath(path: url$urlObject | string): string;
                 */
         fileURLToPath(context) {},
 
@@ -3314,7 +3470,7 @@ export default {
                     append(name: string, value: string): void;
                     delete(name: string): void;
                     entries(): Iterator<[string, string]>;
-                    forEach(fn: (value: string, name: string, searchParams: URLSearchParams) => void, thisArg?: any): void;
+                    forEach<This>(fn: (this : This, value: string, name: string, searchParams: URLSearchParams) => void, thisArg?: This): void;
                     get(name: string): string | null;
                     getAll(name: string): string[];
                     has(name: string): boolean;
@@ -3451,7 +3607,7 @@ export default {
         Script(context) {},
 
         /*
-                declare function createContext(sandbox?: { [key: string]: any, ... }, options?: vm$CreateContextOptions): vm$Context;
+                declare function createContext(sandbox?: interface { [key: string]: any }, options?: vm$CreateContextOptions): vm$Context;
                 */
         createContext(context) {},
 
@@ -3751,6 +3907,70 @@ export default {
                     Z_MIN_LEVEL: number,
                     Z_MIN_MEMLEVEL: number,
                     Z_MIN_WINDOWBITS: number,
+
+                    BROTLI_DECODE: number,
+                    BROTLI_ENCODE: number,
+                    BROTLI_OPERATION_PROCESS: number,
+                    BROTLI_OPERATION_FLUSH: number,
+                    BROTLI_OPERATION_FINISH: number,
+                    BROTLI_OPERATION_EMIT_METADATA: number,
+                    BROTLI_PARAM_MODE: number,
+                    BROTLI_MODE_GENERIC: number,
+                    BROTLI_MODE_TEXT: number,
+                    BROTLI_MODE_FONT: number,
+                    BROTLI_DEFAULT_MODE: number,
+                    BROTLI_PARAM_QUALITY: number,
+                    BROTLI_MIN_QUALITY: number,
+                    BROTLI_MAX_QUALITY: number,
+                    BROTLI_DEFAULT_QUALITY: number,
+                    BROTLI_PARAM_LGWIN: number,
+                    BROTLI_MIN_WINDOW_BITS: number,
+                    BROTLI_MAX_WINDOW_BITS: number,
+                    BROTLI_LARGE_MAX_WINDOW_BITS: number,
+                    BROTLI_DEFAULT_WINDOW: number,
+                    BROTLI_PARAM_LGBLOCK: number,
+                    BROTLI_MIN_INPUT_BLOCK_BITS: number,
+                    BROTLI_MAX_INPUT_BLOCK_BITS: number,
+                    BROTLI_PARAM_DISABLE_LITERAL_CONTEXT_MODELING: number,
+                    BROTLI_PARAM_SIZE_HINT: number,
+                    BROTLI_PARAM_LARGE_WINDOW: number,
+                    BROTLI_PARAM_NPOSTFIX: number,
+                    BROTLI_PARAM_NDIRECT: number,
+                    BROTLI_DECODER_RESULT_ERROR: number,
+                    BROTLI_DECODER_RESULT_SUCCESS: number,
+                    BROTLI_DECODER_RESULT_NEEDS_MORE_INPUT: number,
+                    BROTLI_DECODER_RESULT_NEEDS_MORE_OUTPUT: number,
+                    BROTLI_DECODER_PARAM_DISABLE_RING_BUFFER_REALLOCATION: number,
+                    BROTLI_DECODER_PARAM_LARGE_WINDOW: number,
+                    BROTLI_DECODER_NO_ERROR: number,
+                    BROTLI_DECODER_SUCCESS: number,
+                    BROTLI_DECODER_NEEDS_MORE_INPUT: number,
+                    BROTLI_DECODER_NEEDS_MORE_OUTPUT: number,
+                    BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_NIBBLE: number,
+                    BROTLI_DECODER_ERROR_FORMAT_RESERVED: number,
+                    BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_META_NIBBLE: number,
+                    BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_ALPHABET: number,
+                    BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_SAME: number,
+                    BROTLI_DECODER_ERROR_FORMAT_CL_SPACE: number,
+                    BROTLI_DECODER_ERROR_FORMAT_HUFFMAN_SPACE: number,
+                    BROTLI_DECODER_ERROR_FORMAT_CONTEXT_MAP_REPEAT: number,
+                    BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_1: number,
+                    BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2: number,
+                    BROTLI_DECODER_ERROR_FORMAT_TRANSFORM: number,
+                    BROTLI_DECODER_ERROR_FORMAT_DICTIONARY: number,
+                    BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS: number,
+                    BROTLI_DECODER_ERROR_FORMAT_PADDING_1: number,
+                    BROTLI_DECODER_ERROR_FORMAT_PADDING_2: number,
+                    BROTLI_DECODER_ERROR_FORMAT_DISTANCE: number,
+                    BROTLI_DECODER_ERROR_DICTIONARY_NOT_SET: number,
+                    BROTLI_DECODER_ERROR_INVALID_ARGUMENTS: number,
+                    BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MODES: number,
+                    BROTLI_DECODER_ERROR_ALLOC_TREE_GROUPS: number,
+                    BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MAP: number,
+                    BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_1: number,
+                    BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: number,
+                    BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: number,
+                    BROTLI_DECODER_ERROR_UNREACHABL: number,
                     ...
                   };
                 */
@@ -3778,6 +3998,16 @@ export default {
                   }
                 */
         Zlib(context) {},
+
+        /*
+                declare class BrotliCompress extends Zlib {}
+                */
+        BrotliCompress(context) {},
+
+        /*
+                declare class BrotliDecompress extends Zlib {}
+                */
+        BrotliDecompress(context) {},
 
         /*
                 declare class Deflate extends Zlib {}
@@ -3815,6 +4045,16 @@ export default {
         Unzip(context) {},
 
         /*
+                declare function createBrotliCompress(options?: zlib$brotliOptions): BrotliCompress;
+                */
+        createBrotliCompress(context) {},
+
+        /*
+                declare function createBrotliDecompress(options?: zlib$brotliOptions): BrotliDecompress;
+                */
+        createBrotliDecompress(context) {},
+
+        /*
                 declare function createDeflate(options?: zlib$options): Deflate;
                 */
         createDeflate(context) {},
@@ -3848,6 +4088,26 @@ export default {
                 declare function createUnzip(options?: zlib$options): Unzip;
                 */
         createUnzip(context) {},
+
+        /*
+                declare var brotliCompress: zlib$brotliAsyncFn;
+                */
+        brotliCompress(context) {},
+
+        /*
+                declare var brotliCompressSync: zlib$brotliSyncFn;
+                */
+        brotliCompressSync(context) {},
+
+        /*
+                declare var brotliDeompress: zlib$brotliAsyncFn;
+                */
+        brotliDeompress(context) {},
+
+        /*
+                declare var brotliDecompressSync: zlib$brotliSyncFn;
+                */
+        brotliDecompressSync(context) {},
 
         /*
                 declare var deflate: zlib$asyncFn;
@@ -3931,6 +4191,31 @@ export default {
         AssertionError(context) {},
 
         /*
+                declare type AssertStrict = {
+                    (value: any, message?: string): void;
+                    ok(value: any, message?: string): void;
+                    fail(message?: string | Error): void;
+                    // deprecated since v10.15
+                    fail(actual: any, expected: any, message: string, operator: string): void;
+                    equal(actual: any, expected: any, message?: string): void;
+                    notEqual(actual: any, expected: any, message?: string): void;
+                    deepEqual(actual: any, expected: any, message?: string): void;
+                    notDeepEqual(actual: any, expected: any, message?: string): void;
+                    throws(
+                      block: Function,
+                      error?: Function | RegExp | (err: any) => boolean,
+                      message?: string
+                    ): void;
+                    doesNotThrow(block: Function, message?: string): void;
+                    ifError(value: any): void;
+                    AssertionError: typeof AssertionError;
+                    strict: AssertStrict;
+                    ...
+                  }
+                */
+        AssertStrict(context) {},
+
+        /*
                 declare module.exports: {
                     (value: any, message?: string): void,
                     ok(value: any, message?: string): void,
@@ -3953,6 +4238,7 @@ export default {
                     doesNotThrow(block: Function, message?: string): void,
                     ifError(value: any): void,
                     AssertionError: typeof AssertionError,
+                    strict: AssertStrict;
                     ...
                   }
                 */
@@ -4033,7 +4319,7 @@ export default {
 
         /*
                 declare class Recoverable extends SyntaxError {
-                    constructor(err: Error): Recoverable;
+                    constructor(err: Error): void;
                   }
                 */
         Recoverable(context) {},

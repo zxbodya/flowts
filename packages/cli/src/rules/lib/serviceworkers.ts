@@ -79,7 +79,7 @@ export default {
         }
         */
     ServiceWorker(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -89,7 +89,7 @@ export default {
         }
         */
     NavigationPreloadState(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -101,7 +101,7 @@ export default {
         }
         */
     NavigationPreloadManager(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -112,7 +112,7 @@ export default {
         }
         */
     PushSubscriptionJSON(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -126,7 +126,7 @@ export default {
         }
         */
     PushSubscription(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -138,7 +138,7 @@ export default {
         }
         */
     PushManager(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -158,7 +158,7 @@ export default {
         }
         */
     ServiceWorkerRegistration(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -166,7 +166,7 @@ export default {
           +controller: ?ServiceWorker,
           +ready: Promise<ServiceWorkerRegistration>,
 
-          getRegistration(clientURL: string): Promise<?ServiceWorkerRegistration>,
+          getRegistration(clientURL?: string): Promise<ServiceWorkerRegistration | void>,
           getRegistrations(): Promise<Iterator<ServiceWorkerRegistration>>,
           register(
             scriptURL: string,
@@ -180,7 +180,7 @@ export default {
         }
         */
     ServiceWorkerContainer(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -192,9 +192,7 @@ export default {
           source: ?(ServiceWorker | MessagePort),
         }
         */
-    ServiceWorkerMessageEvent(context) {
-      context.lib('dom');
-    },
+    ServiceWorkerMessageEvent(context) {},
 
     /*
         declare class ExtendableMessageEvent extends ExtendableEvent {
@@ -227,7 +225,7 @@ export default {
         }
         */
     Cache(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -240,7 +238,7 @@ export default {
         }
         */
     CacheStorage(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -252,7 +250,7 @@ export default {
         declare var caches: CacheStorage;
         */
     caches(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -289,7 +287,7 @@ export default {
         declare var onmessage: ?EventHandler;
         */
     onmessage(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
   },
 

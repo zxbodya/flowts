@@ -7,9 +7,7 @@ export default {
           indexedDB: IDBFactory;
         }
         */
-    IDBEnvironment(context) {
-      context.lib('dom');
-    },
+    IDBEnvironment(context) {},
 
     /*
         declare interface IDBFactory {
@@ -19,7 +17,7 @@ export default {
         }
         */
     IDBFactory(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -34,7 +32,7 @@ export default {
         }
         */
     IDBRequest(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -44,7 +42,7 @@ export default {
         }
         */
     IDBOpenDBRequest(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -59,7 +57,7 @@ export default {
           transaction(storeNames: string|string[], mode?: 'readonly'|'readwrite'|'versionchange'): IDBTransaction;
           name: string;
           version: number;
-          objectStoreNames: string[];
+          objectStoreNames: DOMStringList;
           onabort: (e: any) => mixed;
           onclose: (e: any) => mixed;
           onerror: (e: any) => mixed;
@@ -67,7 +65,7 @@ export default {
         }
         */
     IDBDatabase(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -84,7 +82,7 @@ export default {
         }
         */
     IDBTransaction(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -112,7 +110,7 @@ export default {
         }
         */
     IDBObjectStore(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -130,7 +128,7 @@ export default {
         }
         */
     IDBIndex(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -146,7 +144,7 @@ export default {
         }
         */
     IDBKeyRange(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -162,7 +160,7 @@ export default {
         }
         */
     IDBCursor(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
 
     /*
@@ -171,7 +169,7 @@ export default {
         }
         */
     IDBCursorWithValue(context) {
-      context.lib('webworker');
+      context.lib('dom');
     },
   },
 

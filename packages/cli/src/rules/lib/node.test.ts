@@ -24,6 +24,23 @@ describe('lib/node.js', () => {
       });
     });
 
+    describe('Node$Buffer', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 extends Node$Buffer {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('child_process$Error', () => {
       test('variable', () => {
         expect(
@@ -59,26 +76,6 @@ describe('lib/node.js', () => {
             new child_process$ChildProcess();
             
             class A1 extends child_process$ChildProcess {};
-          `)
-        ).toMatchSnapshot();
-      });
-    });
-
-    describe('cluster$Worker', () => {
-      test('variable', () => {
-        expect(
-          transform(`
-            var a = cluster$Worker;
-          `)
-        ).toMatchSnapshot();
-      });
-
-      test('generated - class', () => {
-        expect(
-          transform(`
-            new cluster$Worker();
-            
-            class A1 extends cluster$Worker {};
           `)
         ).toMatchSnapshot();
       });
@@ -1580,6 +1577,170 @@ describe('lib/node.js', () => {
     });
 
     describe('cluster', () => {
+      describe('ClusterSettings', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { ClusterSettings } from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { ClusterSettings } from "cluster";
+            
+            class A1 extends ClusterSettings {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "cluster";
+            
+            class A1 extends M.ClusterSettings {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { ClusterSettings as t } from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { ClusterSettings as t } from "cluster";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('ClusterSettingsOpt', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { ClusterSettingsOpt } from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { ClusterSettingsOpt } from "cluster";
+            
+            class A1 extends ClusterSettingsOpt {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "cluster";
+            
+            class A1 extends M.ClusterSettingsOpt {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { ClusterSettingsOpt as t } from "cluster";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { ClusterSettingsOpt as t } from "cluster";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('Worker', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Worker;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { Worker } from "cluster";
+            
+            new Worker();
+            
+            class A1 extends Worker {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "cluster";
+            
+            new M.Worker();
+            
+            class A1 extends M.Worker {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { Worker as t } from "cluster";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('Cluster', () => {
         test('variable', () => {
           expect(
@@ -3069,6 +3230,164 @@ describe('lib/node.js', () => {
           expect(
             transform(`
             import { pbkdf2Sync as t } from "crypto";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('scrypt', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = scrypt;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { scrypt } from "crypto";
+            
+            new scrypt();
+            
+            class A1 extends scrypt {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { scrypt } from "crypto";
+            
+            scrypt();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "crypto";
+            
+            new M.scrypt();
+            
+            class A1 extends M.scrypt {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "crypto";
+            
+            M.scrypt();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { scrypt as t } from "crypto";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { scrypt as t } from "crypto";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('scryptSync', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = scryptSync;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { scryptSync } from "crypto";
+            
+            new scryptSync();
+            
+            class A1 extends scryptSync {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { scryptSync } from "crypto";
+            
+            scryptSync();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "crypto";
+            
+            new M.scryptSync();
+            
+            class A1 extends M.scryptSync {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "crypto";
+            
+            M.scryptSync();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { scryptSync as t } from "crypto";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { scryptSync as t } from "crypto";
             
             t();
             
@@ -5369,6 +5688,52 @@ describe('lib/node.js', () => {
           expect(
             transform(`
             import { WriteStream as t } from "fs";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('Dirent', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = Dirent;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { Dirent } from "fs";
+            
+            new Dirent();
+            
+            class A1 extends Dirent {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "fs";
+            
+            new M.Dirent();
+            
+            class A1 extends M.Dirent {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { Dirent as t } from "fs";
             
             new t();
             
@@ -17791,6 +18156,183 @@ describe('lib/node.js', () => {
     });
 
     describe('url', () => {
+      describe('Url', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { Url } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { Url } from "url";
+            
+            class A1 extends Url {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+            class A1 extends M.Url {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { Url as t } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { Url as t } from "url";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('UrlWithStringQuery', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { UrlWithStringQuery } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { UrlWithStringQuery } from "url";
+            
+            class A1 extends UrlWithStringQuery {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+            class A1 extends M.UrlWithStringQuery {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { UrlWithStringQuery as t } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { UrlWithStringQuery as t } from "url";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('UrlWithParsedQuery', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { UrlWithParsedQuery } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { UrlWithParsedQuery } from "url";
+            
+            class A1 extends UrlWithParsedQuery {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "url";
+            
+            class A1 extends M.UrlWithParsedQuery {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { UrlWithParsedQuery as t } from "url";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { UrlWithParsedQuery as t } from "url";
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('parse', () => {
         test('variable', () => {
           expect(
@@ -20541,6 +21083,98 @@ describe('lib/node.js', () => {
         });
       });
 
+      describe('BrotliCompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = BrotliCompress;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { BrotliCompress } from "zlib";
+            
+            new BrotliCompress();
+            
+            class A1 extends BrotliCompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            new M.BrotliCompress();
+            
+            class A1 extends M.BrotliCompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { BrotliCompress as t } from "zlib";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('BrotliDecompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = BrotliDecompress;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { BrotliDecompress } from "zlib";
+            
+            new BrotliDecompress();
+            
+            class A1 extends BrotliDecompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            new M.BrotliDecompress();
+            
+            class A1 extends M.BrotliDecompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { BrotliDecompress as t } from "zlib";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('Deflate', () => {
         test('variable', () => {
           expect(
@@ -20858,6 +21492,164 @@ describe('lib/node.js', () => {
             new t();
             
             class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('createBrotliCompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createBrotliCompress;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { createBrotliCompress } from "zlib";
+            
+            new createBrotliCompress();
+            
+            class A1 extends createBrotliCompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { createBrotliCompress } from "zlib";
+            
+            createBrotliCompress();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            new M.createBrotliCompress();
+            
+            class A1 extends M.createBrotliCompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            M.createBrotliCompress();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { createBrotliCompress as t } from "zlib";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { createBrotliCompress as t } from "zlib";
+            
+            t();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('createBrotliDecompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = createBrotliDecompress;
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class', () => {
+          expect(
+            transform(`
+            import { createBrotliDecompress } from "zlib";
+            
+            new createBrotliDecompress();
+            
+            class A1 extends createBrotliDecompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable', () => {
+          expect(
+            transform(`
+            import { createBrotliDecompress } from "zlib";
+            
+            createBrotliDecompress();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            new M.createBrotliDecompress();
+            
+            class A1 extends M.createBrotliDecompress {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "zlib";
+            
+            M.createBrotliDecompress();
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - class - import renamed', () => {
+          expect(
+            transform(`
+            import { createBrotliDecompress as t } from "zlib";
+            
+            new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - callable - import renamed', () => {
+          expect(
+            transform(`
+            import { createBrotliDecompress as t } from "zlib";
+            
+            t();
+            
           `)
           ).toMatchSnapshot();
         });
@@ -21416,6 +22208,46 @@ describe('lib/node.js', () => {
         });
       });
 
+      describe('brotliCompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = brotliCompress;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('brotliCompressSync', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = brotliCompressSync;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('brotliDeompress', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = brotliDeompress;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('brotliDecompressSync', () => {
+        test('variable', () => {
+          expect(
+            transform(`
+            var a = brotliDecompressSync;
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
       describe('deflate', () => {
         test('variable', () => {
           expect(
@@ -21597,6 +22429,65 @@ describe('lib/node.js', () => {
             import { AssertionError as t } from "assert";
             
             new t();
+            
+            class A1 extends t {};
+          `)
+          ).toMatchSnapshot();
+        });
+      });
+
+      describe('AssertStrict', () => {
+        test('generated - type', () => {
+          expect(
+            transform(`
+            import { AssertStrict } from "assert";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { AssertStrict } from "assert";
+            
+            class A1 extends AssertStrict {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "assert";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "assert";
+            
+            class A1 extends M.AssertStrict {};
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - type - import renamed', () => {
+          expect(
+            transform(`
+            import { AssertStrict as t } from "assert";
+            
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { AssertStrict as t } from "assert";
             
             class A1 extends t {};
           `)

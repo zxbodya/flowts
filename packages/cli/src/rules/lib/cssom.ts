@@ -25,7 +25,7 @@ export default {
         }
         */
     StyleSheetList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -40,7 +40,7 @@ export default {
         }
         */
     MediaList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -154,7 +154,7 @@ export default {
         }
         */
     CSSRuleList(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -472,7 +472,7 @@ export default {
         }
         */
     CSSStyleDeclaration(context) {
-      context.lib('dom.iterable');
+      context.lib('dom');
     },
 
     /*
@@ -497,7 +497,7 @@ export default {
 
     /*
         declare class DocumentTimeline extends AnimationTimeline {
-          constructor(options?: DocumentTimelineOptions): DocumentTimeline;
+          constructor(options?: DocumentTimelineOptions): void;
         }
         */
     DocumentTimeline(context) {
@@ -521,8 +521,8 @@ export default {
             target: Element | null,
             keyframes: Keyframe[] | PropertyIndexedKeyframes | null,
             options?: number | KeyframeEffectOptions,
-          ): KeyframeEffect;
-          constructor(source: KeyframeEffect): KeyframeEffect;
+          ): void;
+          constructor(source: KeyframeEffect): void;
 
           target: Element | null;
           iterationComposite: IterationCompositeOperation;
@@ -537,7 +537,7 @@ export default {
 
     /*
         declare class Animation extends EventTarget {
-          constructor(effect?: AnimationEffect | null, timeline?: AnimationTimeline | null): Animation;
+          constructor(effect?: AnimationEffect | null, timeline?: AnimationTimeline | null): void;
 
           id: string;
           effect: AnimationEffect | null;
@@ -569,7 +569,7 @@ export default {
 
     /*
         declare class AnimationPlaybackEvent extends Event {
-          constructor(type: string, animationEventInitDict?: AnimationPlaybackEvent$Init): AnimationPlaybackEvent;
+          constructor(type: string, animationEventInitDict?: AnimationPlaybackEvent$Init): void;
           +currentTime: number | null;
           +timelineTime: number | null;
         }
