@@ -175,6 +175,11 @@ const visitor: Visitor = {
                 (n.importSpecifier
                   .imported as t.Identifier).name = newExportName;
                 n.importSpecifier.local.name = newExportName;
+                // avoid recast generating "import {something as something} from …"
+                // @ts-ignore
+                n.importSpecifier.start = undefined;
+                // @ts-ignore
+                n.importSpecifier.end = undefined;
               }
             }
           }
