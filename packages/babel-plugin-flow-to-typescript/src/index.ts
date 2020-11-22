@@ -24,6 +24,7 @@ import { ArrowFunctionExpression } from './visitors/ArrowFunctionExpression';
 import { PluginOptions, PluginPass } from './types';
 import { TSModuleDeclaration } from './visitors/TSModuleDeclaration';
 import { ExportAllDeclaration } from './visitors/ExportAllDeclaration';
+import { ObjectMethod } from './visitors/ObjectMethod';
 
 const visitor: Visitor<PluginPass> = {
   Program,
@@ -53,6 +54,7 @@ const visitor: Visitor<PluginPass> = {
   NewExpression,
   ArrowFunctionExpression,
   TSModuleDeclaration,
+  ObjectMethod,
 };
 
 // tslint:disable-next-line:no-any
