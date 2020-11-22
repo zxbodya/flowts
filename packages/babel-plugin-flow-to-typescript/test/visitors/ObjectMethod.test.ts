@@ -26,3 +26,22 @@ test('getter/setter support', () => {
     }"
   `);
 });
+
+test('setter with not optional argument with optional value', () => {
+  const result = testTransform(`const Formatter = {
+    set isSplittable(isSplittable: ?boolean): void {
+    }
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const Formatter = {
+      set isSplittable(isSplittable: boolean | undefined | null) {}
+
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const Formatter = {
+        set isSplittable(isSplittable: boolean | undefined | null) {
+        }
+    }"
+  `);
+});

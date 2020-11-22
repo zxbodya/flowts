@@ -72,7 +72,7 @@ export function transformFunctionParams(
 
       if (param.typeAnnotation && t.isTypeAnnotation(param.typeAnnotation)) {
         if (t.isNullableTypeAnnotation(param.typeAnnotation.typeAnnotation)) {
-          param.optional = !hasRequiredAfter;
+          param.optional = !hasRequiredAfter && !isSetter;
           if (param.optional) {
             let tsType = convertFlowType(
               param.typeAnnotation.typeAnnotation.typeAnnotation
