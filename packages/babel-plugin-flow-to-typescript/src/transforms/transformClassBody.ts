@@ -5,7 +5,10 @@ import { transformFunctionParams } from './transformFunctionParams';
 export function transformClassBody(path: NodePath<t.ClassBody>) {
   for (const elementPath of path.get('body')) {
     if (elementPath.isClassMethod()) {
-      if (elementPath.node.kind === 'constructor') {
+      if (
+        elementPath.node.kind === 'constructor' ||
+        elementPath.node.kind === 'set'
+      ) {
         // @ts-expect-error todo babel-types
         elementPath.get('returnType').remove();
       }

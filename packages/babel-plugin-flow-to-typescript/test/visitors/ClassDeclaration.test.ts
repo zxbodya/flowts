@@ -188,3 +188,34 @@ test('class with declare field', () => {
     }"
   `);
 });
+
+test('getter/setter support in class declaration', () => {
+  const result = testTransform(`
+// @flow
+
+export default class A {
+  get a(): number { return 1; }
+  set a(value: number) {}
+  set b(value: number): number {}
+}
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "export default class A {
+      get a(): number {
+        return 1;
+      }
+
+      set a(value: number) {}
+
+      set b(value: number) {}
+
+    }"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "export default class A {
+      get a(): number { return 1; }
+      set a(value: number) {}
+      set b(value: number) {}
+    }"
+  `);
+});

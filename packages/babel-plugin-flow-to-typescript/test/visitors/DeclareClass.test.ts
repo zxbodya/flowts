@@ -18,7 +18,7 @@ test('declare class', () => {
       F: X<Z> | undefined | null;
       g(): H;
       get getterX(): string;
-      set setterY(a: boolean): number;
+      set setterY(a: boolean);
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -29,7 +29,7 @@ test('declare class', () => {
       F: X<Z> | undefined | null;
       g(): H;
       get getterX(): string;
-      set setterY(a: boolean): number;
+      set setterY(a: boolean);
     }"
   `);
 });

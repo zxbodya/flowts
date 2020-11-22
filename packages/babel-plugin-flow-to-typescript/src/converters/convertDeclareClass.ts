@@ -42,6 +42,12 @@ export function convertDeclareClass(node: t.DeclareClass) {
       converted.static = !!property.static;
       // @ts-expect-error todo improve babel types
       converted.kind = property.kind;
+      if (converted.kind === 'set') {
+        if (converted.returnType) {
+          // setter should not have return type annotation in typescript
+          converted.returnType = null;
+        }
+      }
       converted.computed = isComputed;
       bodyElements.push(converted);
     } else if (property.kind === 'init') {
