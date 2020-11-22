@@ -52,20 +52,18 @@ test('declare interface with indexer property', () => {
 });
 
 test('declare interface with internal slot', () => {
+  // todo: "[[call]](): T;" crashes babel
   const result = testTransform(`declare interface C {
-  [[foo]]: T;
-  [[bar]](): T;
+  [[call]]: T;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare interface C {
-      [foo]: T;
-      [bar](): T;
+      [call]: T;
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "declare interface C {
-      [foo]: T;
-      [bar](): T;
+      [call]: T;
     }"
   `);
 });
