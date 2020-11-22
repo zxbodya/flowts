@@ -16,9 +16,9 @@ export const Program = {
         item => item.value.trim() === '@flow'
       );
       if (commentIndex !== -1) {
-        (path.get(`body.0.leadingComments.${commentIndex}`) as NodePath<
-          Node
-        >).remove();
+        (path.get(
+          `body.0.leadingComments.${commentIndex}`
+        ) as NodePath<Node>).remove();
       }
     }
     // @ts-expect-error recast support

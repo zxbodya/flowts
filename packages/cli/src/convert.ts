@@ -228,7 +228,7 @@ export async function convert(cwd: string, opts: Options) {
       });
       rl.question('Press <enter> to write converted code:', () => {
         rl.close();
-        resolve();
+        resolve(undefined);
       });
     });
   }

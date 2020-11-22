@@ -29,9 +29,9 @@ export function transformClassDeclaration(
     );
   }
   if (node.implements) {
-    const impls = path.get('implements') as NodePath<
-      t.TSExpressionWithTypeArguments
-    >[];
+    const impls = path.get(
+      'implements'
+    ) as NodePath<t.TSExpressionWithTypeArguments>[];
     for (const impl of impls) {
       const id = convertTSEntityName(impl.node.expression);
       const typeParameters = impl.node.typeParameters

@@ -30,9 +30,9 @@ export function ClassDeclaration(
 
   const classImplements = node.implements;
   if (Array.isArray(classImplements)) {
-    const classImplements = path.get('implements') as NodePath<
-      t.ClassImplements
-    >[];
+    const classImplements = path.get(
+      'implements'
+    ) as NodePath<t.ClassImplements>[];
     if (classImplements !== null) {
       for (const classImplement of classImplements) {
         if (classImplement.isClassImplements()) {
