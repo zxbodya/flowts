@@ -12,8 +12,11 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
         // @ts-expect-error todo babel-types
         elementPath.get('returnType').remove();
       }
-      // @ts-expect-error todo babel-types
-      transformFunctionParams(elementPath.get('params'));
+      transformFunctionParams(
+        // @ts-expect-error todo babel-types
+        elementPath.get('params'),
+        elementPath.node.kind === 'set'
+      );
     }
 
     if (elementPath.isClassProperty()) {

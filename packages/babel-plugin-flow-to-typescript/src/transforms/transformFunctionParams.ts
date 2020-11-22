@@ -46,7 +46,8 @@ function cleanupPattern(pattern: t.Pattern): boolean {
 export function transformFunctionParams(
   params: Array<
     NodePath<t.Identifier | t.Pattern | t.RestElement | t.TSParameterProperty>
-  >
+  >,
+  isSetter?: boolean
 ) {
   let hasRequiredAfter = false;
   for (let i = params.length - 1; i >= 0; i--) {
@@ -89,7 +90,9 @@ export function transformFunctionParams(
             hasRequiredAfter = true;
           }
         } else {
-          if (param.optional && hasRequiredAfter) {
+          // in typescript setter value can not be optional
+          // also there can not be optional parameters before required
+          if (param.optional && (hasRequiredAfter || isSetter)) {
             param.optional = false;
             let tsType = convertFlowType(param.typeAnnotation.typeAnnotation);
             if (t.isTSFunctionType(tsType)) {

@@ -9,6 +9,7 @@ test('declare class', () => {
   g(): H;
   get getterX(): string;
   set setterY(boolean): number;
+  set setterZ(val?:boolean): boolean;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare class A<X, Y, Z> extends B<X<Y<Z>>> {
@@ -19,6 +20,7 @@ test('declare class', () => {
       g(): H;
       get getterX(): string;
       set setterY(a: boolean);
+      set setterZ(val?: boolean);
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -30,6 +32,7 @@ test('declare class', () => {
       g(): H;
       get getterX(): string;
       set setterY(a: boolean);
+      set setterZ(val?: boolean);
     }"
   `);
 });

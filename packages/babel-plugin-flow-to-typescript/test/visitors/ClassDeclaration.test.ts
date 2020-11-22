@@ -197,6 +197,7 @@ export default class A {
   get a(): number { return 1; }
   set a(value: number) {}
   set b(value: number): number {}
+  set c(value?: number) {}
 }
 `);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -209,6 +210,8 @@ export default class A {
 
       set b(value: number) {}
 
+      set c(value: number | undefined | null) {}
+
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -216,6 +219,7 @@ export default class A {
       get a(): number { return 1; }
       set a(value: number) {}
       set b(value: number) {}
+      set c(value: number | undefined | null) {}
     }"
   `);
 });
