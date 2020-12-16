@@ -1,4 +1,3 @@
-/* tslint:disable:no-empty */
 import * as t from '@babel/types';
 import { RuleSet } from '../../ruleTypes';
 

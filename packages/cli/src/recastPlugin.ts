@@ -14,7 +14,6 @@ export default () => ({
   ): t.File {
     return recast.parse(code, {
       parser: {
-        // tslint:disable-next-line:no-shadowed-variable
         parse: (code: string) => {
           return parse(code, { ...options, tokens: true });
         },

@@ -48,9 +48,9 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
       } else {
         replacement.kind = 'init';
       }
+      // @ts-expect-error todo: @babel/types
       replacement.static = node.static;
       replacement.optional = !!node.optional;
-      // @ts-ignore todo: @babel/types
       replacement.method = true;
       elementPath.replaceWith(replacement);
     }

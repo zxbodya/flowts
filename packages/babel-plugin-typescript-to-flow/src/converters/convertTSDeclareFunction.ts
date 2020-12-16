@@ -1,7 +1,9 @@
 import * as t from '@babel/types';
-import { convertFunctionTypeAnnotation } from '../converters/convertFunctionTypeAnnotation';
+import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
 
-export function convertTSDeclareFunction(node: t.TSDeclareFunction) {
+export function convertTSDeclareFunction(
+  node: t.TSDeclareFunction
+): t.DeclareFunction {
   const {
     typeParams,
     parameters,

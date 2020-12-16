@@ -1,4 +1,3 @@
-/* tslint:disable:max-classes-per-file */
 import { PluginObj, Visitor } from '@babel/core';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
@@ -126,8 +125,6 @@ const visitor: Visitor = {
 
       for (const [globalName, globalFix] of Object.entries(rules.globals)) {
         if (scope.hasGlobal(globalName)) {
-          // tslint:disable-next-line:prefer-const
-
           const references: Array<NodePath<t.Identifier>> = [];
           programPath.traverse({
             // todo: ensure only global references added

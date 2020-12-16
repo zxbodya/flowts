@@ -67,6 +67,7 @@ export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
             )
           : t.anyTypeAnnotation()
       );
+      // @ts-expect-error todo: @babel/types
       prop.static = member.static;
       prop.optional = !!member.optional;
       if (member.readonly) {
@@ -103,6 +104,7 @@ export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
             : t.anyTypeAnnotation()
         )
       );
+      // @ts-expect-error todo: @babel/types
       prop.static = member.static;
       prop.kind =
         member.kind === 'get' || member.kind === 'set' ? member.kind : 'init';

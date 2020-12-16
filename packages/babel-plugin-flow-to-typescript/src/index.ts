@@ -57,7 +57,6 @@ const visitor: Visitor<PluginPass> = {
   ObjectMethod,
 };
 
-// tslint:disable-next-line:no-any
 export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
   if (typeof opts.isJSX === 'undefined') {
     opts.isJSX = true;
@@ -66,7 +65,6 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
     name: 'babel-plugin-flow-to-typescript',
     visitor,
 
-    // tslint:disable-next-line:no-any
     manipulateOptions(_babel: any, parserOpts) {
       parserOpts.plugins.push('flow');
       if (opts.isJSX) {

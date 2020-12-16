@@ -1,6 +1,5 @@
 import { NodePath, Node } from '@babel/traverse';
 
-// tslint:disable-next-line:no-any
 export function replaceWith(
   path: NodePath<any>,
   replacement: Node | NodePath<any>

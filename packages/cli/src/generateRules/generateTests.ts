@@ -6,7 +6,7 @@ interface TypeParamsConfig {
   requiredParamsCount: number;
 }
 function getParamsConfig(
-  typeParameters: t.TypeParameterDeclaration | null
+  typeParameters: t.TypeParameterDeclaration | null | undefined
 ): TypeParamsConfig {
   let paramsCount = 0;
   let requiredParamsCount = 0;

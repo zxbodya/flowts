@@ -21,7 +21,6 @@ export function convertDeclareClass(node: t.DeclareClass) {
     }
 
     const { key, isComputed } = getPropertyKey(property);
-    // @ts-expect-error todo: property is missing in type definition
     if (property.method) {
       if (
         !t.isTSParenthesizedType(convertedProperty) ||
@@ -70,7 +69,6 @@ export function convertDeclareClass(node: t.DeclareClass) {
   // }
 
   if (node.body.indexers) {
-    // tslint:disable-next-line:prettier
     bodyElements.push(
       ...node.body.indexers.map(i => ({
         ...convertObjectTypeIndexer(i),

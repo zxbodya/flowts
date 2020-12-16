@@ -58,6 +58,7 @@ function paramsData(
     | babel.types.TSTypeParameterDeclaration
     | babel.types.Noop
     | null
+    | undefined
 ) {
   let tsTypeParameters: t.TSTypeParameter[] = [];
   if (typeParameters) {

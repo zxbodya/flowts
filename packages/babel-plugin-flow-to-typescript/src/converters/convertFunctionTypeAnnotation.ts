@@ -7,7 +7,7 @@ import { baseNodeProps } from '../utils/baseNodeProps';
 export function convertFunctionTypeAnnotation(node: t.FunctionTypeAnnotation) {
   let typeParams = undefined;
 
-  if (node.typeParameters !== null) {
+  if (node.typeParameters) {
     typeParams = {
       ...convertTypeParameterDeclaration(node.typeParameters),
       ...baseNodeProps(node.typeParameters),
@@ -21,7 +21,7 @@ export function convertFunctionTypeAnnotation(node: t.FunctionTypeAnnotation) {
   if (node.params) {
     const paramNames = node.params
       .map(_ => _.name)
-      .filter(<T>(_: null | T): _ is T => _ !== null)
+      .filter(<T>(_: null | undefined | T): _ is T => !!_)
       .map(_ => _.name);
 
     let hasRequiredAfter = false;

@@ -13,6 +13,5 @@ export interface BabelPluginPass<PluginOptions extends object> {
   filename: string | void;
 
   set(key: unknown, val: unknown): void;
-  // tslint:disable-next-line:no-any
   get(key: unknown): any;
 }
