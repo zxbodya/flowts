@@ -164,3 +164,18 @@ test('alias to array of unions', () => {
     `"type t = (\\"a\\" & \\"b\\")[];"`
   );
 });
+
+test('nullable any type annotation', () => {
+  const result = testTransform(`
+  type t1 = ?any;
+  type t2 = ?Object;
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type t1 = any;
+    type t2 = any;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type t1 = any;
+    type t2 = any;"
+  `);
+});

@@ -207,6 +207,7 @@ export function convertFlowType(node: t.FlowType): t.TSType {
     // f(): ?T {} -> f(): T | null | undefined {}
     // var x: X<?T> -> var x: X<T | null | undefined>
     // var x:?T -> var x:T | null | undefined
+    if (t.isTSAnyKeyword(tsType)) return tsType;
     return t.tsUnionType([tsType, t.tsUndefinedKeyword(), t.tsNullKeyword()]);
   }
 
