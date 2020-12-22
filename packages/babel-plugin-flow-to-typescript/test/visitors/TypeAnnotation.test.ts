@@ -114,6 +114,12 @@ test('Utility generics: $Diff', () => {
   expect(result.recast).toMatchInlineSnapshot(`"let a: Omit<X, keyof Y>;"`);
 });
 
+test('Utility generics: $Rest', () => {
+  const result = testTransform(`let a: $Rest<X, Y>;`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: Omit<X, keyof Y>;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: Omit<X, keyof Y>;"`);
+});
+
 test('Utility generics: $Diff when keys from type literal can be computed on compile time', () => {
   const result = testTransform(
     `let a: $Diff<X, {a:number, 'b':B, c():void }>;`

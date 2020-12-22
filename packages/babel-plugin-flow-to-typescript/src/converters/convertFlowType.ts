@@ -78,7 +78,10 @@ export function convertFlowType(node: t.FlowType): t.TSType {
         "Exact object type annotation in Flow is ignored. In TypeScript, it's always regarded as exact type"
       );
       return tsTypeParameters!.params[0];
-    } else if (t.isIdentifier(id) && id.name === '$Diff') {
+    } else if (
+      t.isIdentifier(id) &&
+      (id.name === '$Diff' || id.name === '$Rest')
+    ) {
       // type $Diff<X, Y> = Omit<X, keyof y>;
       const [tsX, tsY] = tsTypeParameters!.params;
 
