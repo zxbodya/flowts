@@ -55,6 +55,12 @@ const visitor: Visitor<PluginPass> = {
   ArrowFunctionExpression,
   TSModuleDeclaration,
   ObjectMethod,
+  TemplateElement(path: any) {
+    // workaround for indentation when reprinting template string with recast
+    // see packages/babel-plugin-flow-to-typescript/test/RecastWorkarounds.test.ts
+    // https://github.com/benjamn/recast/issues/833
+    path.node.original = null;
+  },
 };
 
 export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
