@@ -254,7 +254,6 @@ function collectPathsData(paths: NodePath[]) {
 
     if (path.isDeclareFunction()) {
       isVariable = true;
-      // @ts-expect-error todo babel-types
       const typeAnnotation = path.get('id').get('typeAnnotation');
       if (typeAnnotation.isTypeAnnotation()) {
         const fnTypeAnnotation = typeAnnotation.get('typeAnnotation');

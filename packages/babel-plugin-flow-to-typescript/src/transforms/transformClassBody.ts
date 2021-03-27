@@ -9,11 +9,9 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
         elementPath.node.kind === 'constructor' ||
         elementPath.node.kind === 'set'
       ) {
-        // @ts-expect-error todo babel-types
         elementPath.get('returnType').remove();
       }
       transformFunctionParams(
-        // @ts-expect-error todo babel-types
         elementPath.get('params'),
         elementPath.node.kind === 'set'
       );

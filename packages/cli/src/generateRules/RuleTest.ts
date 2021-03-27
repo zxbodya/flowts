@@ -81,7 +81,6 @@ function findJestCalls(
   const tests = new Map();
   for (const path of globalsDescribeBody.get('body') as NodePath[]) {
     if (path.isExpressionStatement()) {
-      // @ts-expect-error todo babel-types
       ifJestCall(functionName, path.get('expression'), (name, body) => {
         tests.set(name, body);
       });

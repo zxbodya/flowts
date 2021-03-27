@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { convertTSTypeParameterInstantiation } from '../converters/convertTSTypeParameterInstantiation';
 import { convertTSEntityName } from '../converters/convertTSEntityName';
 import { convertTSTypeParameterDeclaration } from '../converters/convertTSTypeParameterDeclaration';
-import { transformClassBody } from '../transforms/transformClassBody';
+import { transformClassBody } from './transformClassBody';
 import { replaceWith } from '../utils/replaceWith';
 import { convertClassTypeDeclaration } from '../converters/convertClassTypeDeclaration';
 

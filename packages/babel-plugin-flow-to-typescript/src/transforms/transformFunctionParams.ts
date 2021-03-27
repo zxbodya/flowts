@@ -82,7 +82,6 @@ export function transformFunctionParams(
             }
             const typeAnnotation = t.tsUnionType([tsType, t.tsNullKeyword()]);
             replaceWith(
-              // @ts-expect-error todo: babel types
               paramPath.get('typeAnnotation'),
               t.tsTypeAnnotation(typeAnnotation)
             );
@@ -104,7 +103,6 @@ export function transformFunctionParams(
               t.tsNullKeyword(),
             ]);
             replaceWith(
-              // @ts-expect-error todo: babel types
               paramPath.get('typeAnnotation'),
               t.tsTypeAnnotation(typeAnnotation)
             );
