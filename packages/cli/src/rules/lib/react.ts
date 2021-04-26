@@ -407,7 +407,9 @@ export default {
         /*
                 declare export type ElementProps<C> = React$ElementProps<C>;
                 */
-        ElementProps(context) {},
+        ElementProps(context) {
+          context.renameExport('ComponentProps');
+        },
 
         /*
                 declare export type ElementConfig<C> = React$ElementConfig<C>;

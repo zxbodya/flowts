@@ -556,45 +556,45 @@ let a1: ComponentProps<P0>;
 exports[`lib/react.js modules react ElementProps generated - interface - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react\\";
 
-class A1 implements M.ElementProps<P0> {}
-interface I1 extends M.ElementProps<P0> {}
+class A1 implements M.ComponentProps<P0> {}
+interface I1 extends M.ComponentProps<P0> {}
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ElementProps as t } from \\"react\\";
+"import { ComponentProps } from \\"react\\";
 
-class A1 implements t<P0> {}
-interface I1 extends t<P0> {}
+class A1 implements ComponentProps<P0> {}
+interface I1 extends ComponentProps<P0> {}
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - interface - typeParams(1) 1`] = `
-"import { ElementProps } from \\"react\\";
+"import { ComponentProps } from \\"react\\";
 
-class A1 implements ElementProps<P0> {}
-interface I1 extends ElementProps<P0> {}
+class A1 implements ComponentProps<P0> {}
+interface I1 extends ComponentProps<P0> {}
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - type - import namespace - typeParams(1) 1`] = `
 "import * as M from \\"react\\";
 
-let a1: M.ElementProps<P0>;
+let a1: M.ComponentProps<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - type - import renamed - typeParams(1) 1`] = `
-"import { ElementProps as t } from \\"react\\";
+"import { ComponentProps } from \\"react\\";
 
-let a1: t<P0>;
+let a1: ComponentProps<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - type - typeParams(1) 1`] = `
-"import { ElementProps } from \\"react\\";
+"import { ComponentProps } from \\"react\\";
 
-let a1: ElementProps<P0>;
+let a1: ComponentProps<P0>;
 "
 `;
 
