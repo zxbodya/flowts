@@ -41,7 +41,11 @@ export function convertDeclareClass(node: t.DeclareClass) {
       converted.static = !!property.static;
       // @ts-expect-error todo improve babel types
       converted.kind = property.kind;
-      if (converted.kind === 'set') {
+      if (
+        converted.kind === 'set' ||
+        // remove return type for constructor
+        (t.isIdentifier(property.key) && property.key.name === 'constructor')
+      ) {
         if (converted.returnType) {
           // setter should not have return type annotation in typescript
           converted.returnType = null;

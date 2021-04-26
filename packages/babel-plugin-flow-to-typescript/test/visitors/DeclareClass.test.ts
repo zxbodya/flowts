@@ -1,6 +1,6 @@
 import { testTransform } from '../transform';
 
-test('declare class', () => {
+test('declare class - 1', () => {
   const result = testTransform(`declare class A<X,Y,Z> extends B<X<Y<Z>>> {
   static C: D<X, Y>;
   constructor(abc: boolean): A;
@@ -14,7 +14,7 @@ test('declare class', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "declare class A<X, Y, Z> extends B<X<Y<Z>>> {
       static C: D<X, Y>;
-      constructor(abc: boolean): A;
+      constructor(abc: boolean);
       E: boolean;
       F: X<Z> | undefined | null;
       g(): H;
@@ -26,7 +26,7 @@ test('declare class', () => {
   expect(result.recast).toMatchInlineSnapshot(`
     "declare class A<X, Y, Z> extends B<X<Y<Z>>> {
       static C: D<X, Y>;
-      constructor(abc: boolean): A;
+      constructor(abc: boolean);
       E: boolean;
       F: X<Z> | undefined | null;
       g(): H;
@@ -37,7 +37,7 @@ test('declare class', () => {
   `);
 });
 
-test('declare class', () => {
+test('declare class - 2', () => {
   const result = testTransform(`declare class A extends B implements C {
   static +C: D;
   +F: D;
@@ -56,7 +56,7 @@ test('declare class', () => {
   `);
 });
 
-test('declare class', () => {
+test('declare class - 3', () => {
   const result = testTransform(`declare class A extends B implements C {
   // 123
   static C: D;
