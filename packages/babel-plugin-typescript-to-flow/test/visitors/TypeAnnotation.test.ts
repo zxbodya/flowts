@@ -248,7 +248,8 @@ test('Function type (param)', () => {
 });
 
 test('Function type (multi param)', () => {
-  const result = testTransform(`function test(arg1: string, arg2: number): string {
+  const result =
+    testTransform(`function test(arg1: string, arg2: number): string {
   return arg1;
 }`);
   const flow = `function test(arg1: string, arg2: number): string { return arg1; }`;
@@ -370,7 +371,8 @@ test('Generic Function type', () => {
 });
 
 test('Function type (rest param)', () => {
-  const result = testTransform(`function test(value: number, ...arg2: Array<string>): number {
+  const result =
+    testTransform(`function test(value: number, ...arg2: Array<string>): number {
   return value;
 }`);
   const flow = `function test(value: number, ...arg2: Array<string>): number { return value; }`;

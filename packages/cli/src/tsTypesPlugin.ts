@@ -169,8 +169,8 @@ const visitor: Visitor = {
               n.local = newExportName;
               if (n.importSpecifier) {
                 // todo: revisit if typecast is OK
-                (n.importSpecifier
-                  .imported as t.Identifier).name = newExportName;
+                (n.importSpecifier.imported as t.Identifier).name =
+                  newExportName;
                 n.importSpecifier.local.name = newExportName;
                 // avoid recast generating "import {something as something} from …"
                 // @ts-ignore
@@ -193,7 +193,8 @@ const visitor: Visitor = {
 
       class NamespaceImportContext
         extends BaseContext
-        implements NamedFixContext {
+        implements NamedFixContext
+      {
         public moduleName: string;
         private oldName: string;
         constructor(

@@ -36,9 +36,10 @@ const recastTransformDts = createTransform([
   recastPlugin,
 ]);
 
-export function testTransformDts(
-  code: string
-): { babel: string; recast: string } {
+export function testTransformDts(code: string): {
+  babel: string;
+  recast: string;
+} {
   return {
     babel: babelTransformDts(code),
     recast: recastTransformDts(code),

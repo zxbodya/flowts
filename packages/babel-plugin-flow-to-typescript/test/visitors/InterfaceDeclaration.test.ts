@@ -65,7 +65,8 @@ test('interface decl implement', () => {
 });
 
 test('interface decl implement params', () => {
-  const result = testTransform(`interface Something<A> implements Another<A, B> {
+  const result =
+    testTransform(`interface Something<A> implements Another<A, B> {
   something: string;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -81,7 +82,8 @@ test('interface decl implement params', () => {
 });
 
 test('interface decl implement extend', () => {
-  const result = testTransform(`interface Something extends What implements Another {
+  const result =
+    testTransform(`interface Something extends What implements Another {
   something: string;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -97,7 +99,8 @@ test('interface decl implement extend', () => {
 });
 
 test('interface decl implement extend params', () => {
-  const result = testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
+  const result =
+    testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something: string;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
@@ -113,7 +116,8 @@ test('interface decl implement extend params', () => {
 });
 
 test('interface decl method', () => {
-  const result = testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
+  const result =
+    testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something(): string;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`

@@ -12,9 +12,8 @@ export function convertDeclareFunction(node: t.DeclareFunction) {
     throw new Error('typeAnnotation is not FunctionTypeAnnotation');
   }
 
-  const { typeParams, parameters, returnType } = convertFunctionTypeAnnotation(
-    typeAnnotation
-  );
+  const { typeParams, parameters, returnType } =
+    convertFunctionTypeAnnotation(typeAnnotation);
   const id = { ...t.identifier(node.id.name), ...baseNodeProps(node.id) };
   return t.tsDeclareFunction(id, typeParams, parameters, returnType);
 }

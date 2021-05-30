@@ -10,11 +10,8 @@ export function convertObjectTypeInternalSlot(
     if (!t.isFunctionTypeAnnotation(property.value)) {
       throw new Error('FunctionTypeAnnotation expected');
     }
-    const {
-      typeParams,
-      parameters,
-      returnType,
-    } = convertFunctionTypeAnnotation(property.value);
+    const { typeParams, parameters, returnType } =
+      convertFunctionTypeAnnotation(property.value);
     const methodSignature = t.tsMethodSignature(
       property.id,
       typeParams,

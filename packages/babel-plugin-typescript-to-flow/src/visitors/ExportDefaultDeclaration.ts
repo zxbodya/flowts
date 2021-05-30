@@ -12,12 +12,8 @@ export function ExportDefaultDeclaration(
   if (!state.opts.isAmbientContext) return;
   const srcDeclaration = path.node.declaration;
   if (t.isTSDeclareFunction(srcDeclaration)) {
-    const {
-      typeParams,
-      parameters,
-      rest,
-      returnType,
-    } = convertFunctionTypeAnnotation(srcDeclaration);
+    const { typeParams, parameters, rest, returnType } =
+      convertFunctionTypeAnnotation(srcDeclaration);
 
     const id = t.identifier(srcDeclaration?.id?.name || 'fn');
     id.typeAnnotation = t.typeAnnotation(

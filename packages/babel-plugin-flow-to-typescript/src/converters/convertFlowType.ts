@@ -263,11 +263,8 @@ export function convertFlowType(node: t.FlowType): t.TSType {
   }
 
   if (t.isFunctionTypeAnnotation(node)) {
-    const {
-      typeParams,
-      parameters,
-      returnType,
-    } = convertFunctionTypeAnnotation(node);
+    const { typeParams, parameters, returnType } =
+      convertFunctionTypeAnnotation(node);
     return t.tsFunctionType(typeParams, parameters, returnType);
   }
 

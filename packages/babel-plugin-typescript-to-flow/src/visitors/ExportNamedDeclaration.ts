@@ -23,12 +23,8 @@ export function ExportNamedDeclaration(
     );
   } else if (t.isTSDeclareFunction(srcDeclaration)) {
     // todo: copypaste from ExportDefaultDeclaration.ts
-    const {
-      typeParams,
-      parameters,
-      rest,
-      returnType,
-    } = convertFunctionTypeAnnotation(srcDeclaration);
+    const { typeParams, parameters, rest, returnType } =
+      convertFunctionTypeAnnotation(srcDeclaration);
 
     const id = t.identifier(srcDeclaration.id!.name);
     id.typeAnnotation = t.typeAnnotation(

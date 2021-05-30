@@ -28,12 +28,8 @@ export function convertTSInterfaceDeclaration(
       })
     : [];
 
-  const {
-    properties,
-    indexers,
-    callProperties,
-    internalSlots,
-  } = convertTSTypeElements(node.body.body);
+  const { properties, indexers, callProperties, internalSlots } =
+    convertTSTypeElements(node.body.body);
   const body = t.objectTypeAnnotation(
     properties,
     indexers,

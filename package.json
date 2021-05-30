@@ -14,14 +14,14 @@
     "build": "tsc -b"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.25.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "lerna": "^4.0.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.4"
+    "prettier": "^2.3.1",
+    "typescript": "^4.3.2"
   },
   "prettier": {
     "singleQuote": true,

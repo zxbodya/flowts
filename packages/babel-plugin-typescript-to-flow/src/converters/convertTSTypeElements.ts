@@ -4,21 +4,16 @@ import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
 import { convertKey } from './convertKey';
 
 export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
-  const properties: Array<
-    t.ObjectTypeProperty | t.ObjectTypeSpreadProperty
-  > = [];
+  const properties: Array<t.ObjectTypeProperty | t.ObjectTypeSpreadProperty> =
+    [];
   const indexers: Array<t.ObjectTypeIndexer> = [];
   const callProperties: Array<t.ObjectTypeCallProperty> = [];
   const internalSlots: Array<t.ObjectTypeInternalSlot> = [];
 
   for (const member of elements) {
     if (t.isTSCallSignatureDeclaration(member)) {
-      const {
-        typeParams,
-        parameters,
-        rest,
-        returnType,
-      } = convertFunctionTypeAnnotation(member);
+      const { typeParams, parameters, rest, returnType } =
+        convertFunctionTypeAnnotation(member);
 
       callProperties.push(
         t.objectTypeCallProperty(
@@ -51,12 +46,8 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
     if (t.isTSMethodSignature(member)) {
       const key = convertKey(member.key);
 
-      const {
-        typeParams,
-        parameters,
-        rest,
-        returnType,
-      } = convertFunctionTypeAnnotation(member);
+      const { typeParams, parameters, rest, returnType } =
+        convertFunctionTypeAnnotation(member);
 
       const prop = t.objectTypeProperty(
         key,

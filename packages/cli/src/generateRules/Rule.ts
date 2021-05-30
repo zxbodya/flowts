@@ -282,11 +282,11 @@ export class Rule {
       );
 
       this.modulesObjPath.node.properties.push(moduleNode);
-      const moduleObj = (this.modulesObjPath.get('properties')[
-        this.modulesObjPath.node.properties.length - 1
-      ] as NodePath<t.ObjectProperty>).get(
-        'value'
-      ) as NodePath<t.ObjectExpression>;
+      const moduleObj = (
+        this.modulesObjPath.get('properties')[
+          this.modulesObjPath.node.properties.length - 1
+        ] as NodePath<t.ObjectProperty>
+      ).get('value') as NodePath<t.ObjectExpression>;
 
       moduleRules = getModuleDescr(moduleObj);
       this.moduleRules.set(moduleName, moduleRules);

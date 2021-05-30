@@ -4,12 +4,8 @@ import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
 export function convertTSDeclareFunction(
   node: t.TSDeclareFunction
 ): t.DeclareFunction {
-  const {
-    typeParams,
-    parameters,
-    rest,
-    returnType,
-  } = convertFunctionTypeAnnotation(node);
+  const { typeParams, parameters, rest, returnType } =
+    convertFunctionTypeAnnotation(node);
 
   const id = t.identifier(node.id!.name);
   id.typeAnnotation = t.typeAnnotation(

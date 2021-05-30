@@ -51,7 +51,8 @@ test('interface extend few others', () => {
 });
 
 test('interface extend few others with params', () => {
-  const result = testTransform(`interface Something<A> extends What<Yes>, Another<A, B> {
+  const result =
+    testTransform(`interface Something<A> extends What<Yes>, Another<A, B> {
   something: string;
 }`);
   expect(result.babel).toMatchInlineSnapshot(`

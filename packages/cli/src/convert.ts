@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
-import jestDiff from 'jest-diff';
+import { diff as jestDiff } from 'jest-diff';
 import { detectOptions } from './detectOptions';
 import recastPlugin from './recastPlugin';
 import tsTypesPlugin from './tsTypesPlugin';

@@ -16,9 +16,9 @@ export const Program = {
         item => item.value.trim() === '@flow'
       );
       if (commentIndex !== -1) {
-        (path.get(
-          `body.0.leadingComments.${commentIndex}`
-        ) as NodePath<Node>).remove();
+        (
+          path.get(`body.0.leadingComments.${commentIndex}`) as NodePath<Node>
+        ).remove();
       }
     }
     // @ts-expect-error recast support
@@ -188,9 +188,11 @@ export const Program = {
           if (t.isExportNamedDeclaration(exp.node)) {
             const specifier = t.identifier(
               // todo: might be add more specific type info for `func` to avoid typecast
-              (exp.node.declaration! as
-                | t.FunctionDeclaration
-                | t.TSDeclareFunction).id!.name
+              (
+                exp.node.declaration! as
+                  | t.FunctionDeclaration
+                  | t.TSDeclareFunction
+              ).id!.name
             );
             exp.replaceWithMultiple([
               exp.node.declaration!,

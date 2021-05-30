@@ -47,9 +47,8 @@ export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
       ),
     ];
   }
-  const properties: Array<
-    t.ObjectTypeProperty | t.ObjectTypeSpreadProperty
-  > = [];
+  const properties: Array<t.ObjectTypeProperty | t.ObjectTypeSpreadProperty> =
+    [];
   const indexers: Array<t.ObjectTypeIndexer> = [];
   const callProperties: Array<t.ObjectTypeCallProperty> = [];
   const internalSlots: Array<t.ObjectTypeInternalSlot> = [];
@@ -83,12 +82,8 @@ export function convertClassTypeDeclaration(node: t.ClassDeclaration) {
           ? t.stringLiteral(member.key.value + '')
           : null;
 
-      const {
-        typeParams,
-        parameters,
-        rest,
-        returnType,
-      } = convertFunctionTypeAnnotation(member);
+      const { typeParams, parameters, rest, returnType } =
+        convertFunctionTypeAnnotation(member);
       const prop = t.objectTypeProperty(
         // @ts-ignore
         key,

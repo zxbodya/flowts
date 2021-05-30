@@ -22,23 +22,17 @@ interface ModuleDeclaration extends BaseDeclaration<t.TSModuleDeclaration> {
 
 class Declarations {
   classes: Map<string, ParametrizedDeclaration<t.ClassDeclaration>> = new Map();
-  functions: Map<
-    string,
-    Array<ParametrizedDeclaration<t.TSDeclareFunction>>
-  > = new Map();
+  functions: Map<string, Array<ParametrizedDeclaration<t.TSDeclareFunction>>> =
+    new Map();
   interfaces: Map<
     string,
     Array<ParametrizedDeclaration<t.TSInterfaceDeclaration>>
   > = new Map();
   modules: Map<string, ModuleDeclaration> = new Map();
-  types: Map<
-    string,
-    ParametrizedDeclaration<t.TSTypeAliasDeclaration>
-  > = new Map();
-  variables: Map<
-    string,
-    Array<BaseDeclaration<t.VariableDeclarator>>
-  > = new Map();
+  types: Map<string, ParametrizedDeclaration<t.TSTypeAliasDeclaration>> =
+    new Map();
+  variables: Map<string, Array<BaseDeclaration<t.VariableDeclarator>>> =
+    new Map();
 
   allNames: Set<string> = new Set();
   update() {

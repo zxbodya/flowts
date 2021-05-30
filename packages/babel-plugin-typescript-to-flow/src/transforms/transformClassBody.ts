@@ -20,12 +20,8 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
 
     if (t.isTSDeclareMethod(node)) {
       // todo: might be not used
-      const {
-        typeParams,
-        parameters,
-        rest,
-        returnType,
-      } = convertFunctionTypeAnnotation(node);
+      const { typeParams, parameters, rest, returnType } =
+        convertFunctionTypeAnnotation(node);
       let key: t.Identifier | t.StringLiteral;
       if (t.isIdentifier(node.key)) {
         key = t.identifier(node.key.name);

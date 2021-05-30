@@ -5,11 +5,8 @@ export function convertObjectTypeCallProperty(
   callProperty: t.ObjectTypeCallProperty
 ) {
   if (t.isFunctionTypeAnnotation(callProperty.value)) {
-    const {
-      typeParams,
-      parameters,
-      returnType,
-    } = convertFunctionTypeAnnotation(callProperty.value);
+    const { typeParams, parameters, returnType } =
+      convertFunctionTypeAnnotation(callProperty.value);
 
     return t.tsCallSignatureDeclaration(typeParams, parameters, returnType);
   } else {
