@@ -3,6 +3,7 @@ import * as prettier from 'prettier';
 import { sharedParserPlugins } from '../sharedParserPlugins';
 import removeImportExtensionPlugin from '../removeImportExtensionPlugin';
 import removeExportAllTypePlugin from './removeExportAllTypePlugin';
+import removeEmptyExportPlugin from './removeEmptyExportPlugin';
 
 // self verification
 //  - remove types
@@ -82,7 +83,7 @@ export function verify(
     configFile: false,
     filename: target,
     comments: false,
-    plugins: [],
+    plugins: [removeEmptyExportPlugin],
     parserOpts: {
       plugins: [...jsxPlugin, ...sharedParserPlugins],
     },

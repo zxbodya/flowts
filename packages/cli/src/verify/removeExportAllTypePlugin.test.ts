@@ -14,6 +14,14 @@ import 'a.css';
 class C extends Component {}
 export type * from './somewhere';
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import { Component } from \\"react\\";
+      import R from \\"react-dom\\";
+      import \\"a.css\\";
+
+      class C extends Component {}
+      export * from \\"./somewhere\\";
+      "
+    `);
   });
 });
