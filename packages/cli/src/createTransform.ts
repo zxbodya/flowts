@@ -31,7 +31,7 @@ export function createTransform(
         'babel.transformSync returned null, probably configuration issue'
       );
     }
-    prettierConfig.parser = 'typescript';
+    prettierConfig.parser = 'babel-ts';
     return prettier.format(transformResult.code as string, prettierConfig);
   };
 }

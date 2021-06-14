@@ -281,7 +281,7 @@ async function main(
   }
 
   const prettierConfig = (await prettier.resolveConfig('./')) || {};
-  prettierConfig.parser = 'typescript';
+  prettierConfig.parser = 'babel-ts';
 
   const ruleCode = rule.print(prettierConfig);
   const testCode = ruleTest.print(prettierConfig);

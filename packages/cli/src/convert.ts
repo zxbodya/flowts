@@ -165,7 +165,7 @@ export async function convert(cwd: string, opts: Options) {
       if (opts.prettier) {
         const prettierConfig =
           (await prettier.resolveConfig(targetFilePath)) || {};
-        prettierConfig.parser = 'typescript';
+        prettierConfig.parser = 'babel-ts';
 
         result = prettier.format(result, prettierConfig);
       }
