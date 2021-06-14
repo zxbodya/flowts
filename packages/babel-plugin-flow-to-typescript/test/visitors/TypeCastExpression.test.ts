@@ -49,3 +49,17 @@ test('typecast on arrow function expression in object property', () => {
     };"
   `);
 });
+
+test('typecast in export default', () => {
+  const result = testTransform(
+    `export default (function(){ return 1} : (()=>number));`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+    "export default (function () {
+      return 1;
+    } as () => number);"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"export default (function(){ return 1} as () => number);"`
+  );
+});
