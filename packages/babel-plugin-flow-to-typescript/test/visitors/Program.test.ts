@@ -14,6 +14,34 @@ export default a;`);
   `);
 });
 
+test('program flow strict comment single line', () => {
+  const result = testTransform(`// @flow strict
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
+test('program flow strict-local comment single line', () => {
+  const result = testTransform(`// @flow strict-local
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
 test('program flow comment block statement', () => {
   const result = testTransform(`/* @flow */
 const a = 55;
@@ -26,6 +54,103 @@ export default a;`);
     "const a = 55;
     export default a;"
   `);
+});
+
+test('program flow strict comment block statement', () => {
+  const result = testTransform(`/* @flow strict */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
+test('program flow strict-local comment block statement', () => {
+  const result = testTransform(`/* @flow strict-local */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+});
+
+test('program flow multiline comment block statement', () => {
+  const result = testTransform(`/*
+  * Test
+  * @flow
+  */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
+});
+
+test('program flow strict multiline comment block statement', () => {
+  const result = testTransform(`/*
+  * Test
+  * @flow strict
+  */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
+});
+
+test('program flow strict-local multiline comment block statement', () => {
+  const result = testTransform(`/*
+  * Test
+  * @flow strict-local
+  */
+const a = 55;
+export default a;`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"/*
+   Test
+  */
+const a = 55;
+export default a;"
+`);
 });
 
 test('program flow comment with license', () => {

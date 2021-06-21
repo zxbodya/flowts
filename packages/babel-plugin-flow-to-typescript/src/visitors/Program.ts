@@ -1,36 +1,47 @@
 import * as t from '@babel/types';
-import { NodePath, Node } from '@babel/traverse';
+import { NodePath } from '@babel/traverse';
 import helperTypes from '../helperTypes';
 import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 
+const removeFlowHeader = (comments: t.Comment[], pragma: string) => {
+  const commentIndex = comments.findIndex(item => item.value.trim() === pragma);
+  if (commentIndex !== -1) {
+    comments.splice(commentIndex, 1);
+  }
+
+  comments
+    .filter((item: t.Comment) => item.value.includes(`* ${pragma}`))
+    .filter((item: t.Comment) => item.loc.start !== item.loc.end)
+    .forEach((comment: t.Comment) => {
+      const parts = comment.value.split('*');
+      parts.splice(
+        parts.findIndex(part => part === `* ${pragma}`),
+        1
+      );
+      comment.value = parts.join('');
+    });
+};
 export const Program = {
   enter(path: NodePath<t.Program>) {
     const [firstNode] = path.node.body;
+    const flowPragma = ['@flow', '@flow strict', '@flow strict-local'];
 
     if (
       firstNode &&
       firstNode.leadingComments &&
       firstNode.leadingComments.length
     ) {
-      const commentIndex = firstNode.leadingComments.findIndex(
-        item => item.value.trim() === '@flow'
+      flowPragma.forEach(pragma =>
+        // @ts-expect-error recast support
+        removeFlowHeader(firstNode.leadingComments, pragma)
       );
-      if (commentIndex !== -1) {
-        (
-          path.get(`body.0.leadingComments.${commentIndex}`) as NodePath<Node>
-        ).remove();
-      }
     }
     // @ts-expect-error recast support
     if (firstNode && firstNode.comments && firstNode.comments.length) {
-      // @ts-expect-error recast support
-      const commentIndex = firstNode.comments.findIndex(
-        (item: any) => item.value.trim() === '@flow'
-      );
-      if (commentIndex !== -1) {
+      flowPragma.forEach(pragma =>
         // @ts-expect-error recast support
-        firstNode.comments.splice(commentIndex, 1);
-      }
+        removeFlowHeader(firstNode.comments, pragma)
+      );
     }
   },
   exit(path: NodePath<t.Program>) {
