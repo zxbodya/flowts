@@ -43,6 +43,7 @@ const visitor: Visitor<PluginPass> = {
   DeclareFunction,
   FunctionDeclaration,
   CallExpression,
+  OptionalCallExpression: CallExpression,
   DeclareVariable,
   DeclareTypeAlias,
   DeclareInterface,
