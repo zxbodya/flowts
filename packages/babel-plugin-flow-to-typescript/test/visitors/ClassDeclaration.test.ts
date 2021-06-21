@@ -223,3 +223,48 @@ export default class A {
     }"
   `);
 });
+
+test('private properties and methods in class declaration', () => {
+  const result = testTransform(`
+// @flow
+
+export default class A {
+  get #a(): number {
+    return 1;
+  }
+  set #a(value: number) {}
+  set #b(value: number): number {}
+  set #c(value?: number) {}
+  #d: number;
+  #s: ?string;
+}
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"export default class A {
+  get #a(): number {
+    return 1;
+  }
+
+  set #a(value: number) {}
+
+  set #b(value: number) {}
+
+  set #c(value: number | undefined | null) {}
+
+  #d: number;
+  #s: string | undefined | null;
+}"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"export default class A {
+  get #a(): number {
+    return 1;
+  }
+  set #a(value: number) {}
+  set #b(value: number) {}
+  set #c(value: number | undefined | null) {}
+  #d: number;
+  #s: string | undefined | null;
+}"
+`);
+});

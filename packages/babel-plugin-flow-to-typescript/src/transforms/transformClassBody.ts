@@ -1,40 +1,41 @@
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import { transformFunctionParams } from './transformFunctionParams';
+import { convertFlowType } from '../converters/convertFlowType';
+import { baseNodeProps } from '../utils/baseNodeProps';
+import { convertTypeAnnotation } from '../converters/convertTypeAnnotation';
 
 export function transformClassBody(path: NodePath<t.ClassBody>) {
   for (const elementPath of path.get('body')) {
-    if (elementPath.isClassMethod()) {
-      if (
-        elementPath.node.kind === 'constructor' ||
-        elementPath.node.kind === 'set'
-      ) {
-        elementPath.get('returnType').remove();
+    const elementNode = elementPath.node;
+    if (t.isClassMethod(elementNode) || t.isClassPrivateMethod(elementNode)) {
+      if (elementNode.kind === 'constructor' || elementNode.kind === 'set') {
+        elementNode.returnType = null;
       }
       transformFunctionParams(
+        // @ts-expect-error already checked above to have correct type
         elementPath.get('params'),
-        elementPath.node.kind === 'set'
+        elementNode.kind === 'set'
       );
     }
 
-    if (elementPath.isClassProperty()) {
-      // @ts-expect-error todo: missing proppery in babel
-      const variance = elementPath.node.variance;
+    if (
+      t.isClassProperty(elementNode) ||
+      t.isClassPrivateProperty(elementNode)
+    ) {
+      // @ts-expect-error todo: missing property in babel
+      const variance = elementNode.variance;
       if (variance) {
-        elementPath.node.readonly = variance && variance.kind === 'plus';
         // @ts-expect-error
-        elementPath.node.variance = null;
+        elementNode.readonly = variance && variance.kind === 'plus';
+        // @ts-expect-error
+        elementNode.variance = null;
+      }
+      if (t.isTypeAnnotation(elementNode.typeAnnotation)) {
+        elementNode.typeAnnotation = convertTypeAnnotation(
+          elementNode.typeAnnotation
+        );
       }
     }
-
-    // todo: commented out because it is not yet in ts
-    // todo: missing method in babel
-    // if (isClassPrivateMethod(elementPath.node)) {
-    // }
-
-    // todo: missing method in babel
-    // if (isClassPrivateProperty(elementPath.node)) {
-    //   elementPath.node.variance = null;
-    // }
   }
 }
