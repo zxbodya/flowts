@@ -15,3 +15,10 @@ createPlugin<*, mixed>();`);
     `"createPlugin<any, unknown>();"`
   );
 });
+
+test('empty type arguments', () => {
+  const result = testTransform(`// @flow
+createPlugin<>();`);
+  expect(result.babel).toMatchInlineSnapshot(`"createPlugin();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"createPlugin();"`);
+});

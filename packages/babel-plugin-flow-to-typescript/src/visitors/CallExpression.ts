@@ -9,6 +9,8 @@ export function CallExpression(path: NodePath<t.CallExpression>) {
       path.node.typeArguments
     );
     path.node.typeArguments = null;
-    replaceWith(path.get('typeParameters'), typeParameters);
+    if (typeParameters.params.length) {
+      replaceWith(path.get('typeParameters'), typeParameters);
+    }
   }
 }
