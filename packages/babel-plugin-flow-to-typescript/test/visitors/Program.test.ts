@@ -94,14 +94,14 @@ const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"
 `);
     expect(result.recast).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"
@@ -117,14 +117,14 @@ const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"
 `);
     expect(result.recast).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"
@@ -140,14 +140,14 @@ const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"
 `);
     expect(result.recast).toMatchInlineSnapshot(`
 "/*
-   Test
+  * Test
   */
 const a = 55;
 export default a;"

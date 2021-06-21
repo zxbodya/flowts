@@ -3,45 +3,40 @@ import { NodePath } from '@babel/traverse';
 import helperTypes from '../helperTypes';
 import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 
-const removeFlowHeader = (comments: t.Comment[], pragma: string) => {
-  const commentIndex = comments.findIndex(item => item.value.trim() === pragma);
+const FLOW_PRAGMA_LINE_EXP = /^\s*\*?\s*@flow(?: strict| strict-local)?\s*$/;
+
+const removeFlowHeader = (comments: t.Comment[]) => {
+  const commentIndex = comments.findIndex(item =>
+    FLOW_PRAGMA_LINE_EXP.test(item.value)
+  );
   if (commentIndex !== -1) {
     comments.splice(commentIndex, 1);
   }
 
   comments
-    .filter((item: t.Comment) => item.value.includes(`* ${pragma}`))
-    .filter((item: t.Comment) => item.loc.start !== item.loc.end)
+    .filter((item: t.Comment) => /@flow/.test(item.value))
     .forEach((comment: t.Comment) => {
-      const parts = comment.value.split('*');
-      parts.splice(
-        parts.findIndex(part => part === `* ${pragma}`),
-        1
-      );
-      comment.value = parts.join('');
+      comment.value = comment.value
+        .split('\n')
+        .filter(value => !FLOW_PRAGMA_LINE_EXP.test(value))
+        .join('\n');
     });
 };
 export const Program = {
   enter(path: NodePath<t.Program>) {
     const [firstNode] = path.node.body;
-    const flowPragma = ['@flow', '@flow strict', '@flow strict-local'];
-
     if (
       firstNode &&
       firstNode.leadingComments &&
       firstNode.leadingComments.length
     ) {
-      flowPragma.forEach(pragma =>
-        // @ts-expect-error recast support
-        removeFlowHeader(firstNode.leadingComments, pragma)
-      );
+      // @ts-expect-error recast support
+      removeFlowHeader(firstNode.leadingComments);
     }
     // @ts-expect-error recast support
     if (firstNode && firstNode.comments && firstNode.comments.length) {
-      flowPragma.forEach(pragma =>
-        // @ts-expect-error recast support
-        removeFlowHeader(firstNode.comments, pragma)
-      );
+      // @ts-expect-error recast support
+      removeFlowHeader(firstNode.comments);
     }
   },
   exit(path: NodePath<t.Program>) {
