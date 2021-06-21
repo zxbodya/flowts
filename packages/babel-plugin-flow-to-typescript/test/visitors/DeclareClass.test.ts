@@ -144,3 +144,19 @@ test('async iterable class', () => {
     }"
   `);
 });
+
+test('type parameters on class constructor (probably a mistake - but valid syntax in flow)', () => {
+  const result = testTransform(`declare class A<T> {
+  constructor<T>(): A;
+}`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"declare class A<T> {
+  constructor();
+}"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"declare class A<T> {
+  constructor();
+}"
+`);
+});

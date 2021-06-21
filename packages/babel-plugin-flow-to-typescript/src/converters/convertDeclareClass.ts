@@ -50,6 +50,11 @@ export function convertDeclareClass(node: t.DeclareClass) {
           // setter should not have return type annotation in typescript
           converted.returnType = null;
         }
+        if (converted.typeParameters) {
+          // todo: add warning
+          // there should be no type parameters on constructor in typescript
+          converted.typeParameters = null;
+        }
       }
       converted.computed = isComputed;
       bodyElements.push(converted);
