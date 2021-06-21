@@ -25,6 +25,7 @@ import { PluginOptions, PluginPass } from './types';
 import { TSModuleDeclaration } from './visitors/TSModuleDeclaration';
 import { ExportAllDeclaration } from './visitors/ExportAllDeclaration';
 import { ObjectMethod } from './visitors/ObjectMethod';
+import { DeclareExportAllDeclaration } from './visitors/DeclareExportAllDeclaration';
 
 const visitor: Visitor<PluginPass> = {
   Program,
@@ -49,6 +50,7 @@ const visitor: Visitor<PluginPass> = {
   DeclareModuleExports,
   DeclareModule,
   DeclareExportDeclaration,
+  DeclareExportAllDeclaration,
   NewExpression,
   ArrowFunctionExpression,
   TSModuleDeclaration,
