@@ -40,6 +40,7 @@ export async function convert(cwd: string, opts: Options) {
       const targetFilePath = path.join(cwd, targetFileName);
 
       const flowSyntax = babel.transformSync(source, {
+        compact: false,
         babelrc: false,
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlow, { isAmbientContext }]],

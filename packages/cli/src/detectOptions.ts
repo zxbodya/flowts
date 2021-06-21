@@ -9,6 +9,7 @@ export interface SourceOptions {
 
 export function detectOptions(source: string, filename: string): SourceOptions {
   const flowAst = babel.parseSync(source, {
+    compact: false,
     babelrc: false,
     configFile: false,
     ast: true,

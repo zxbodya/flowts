@@ -113,6 +113,7 @@ export async function convert(cwd: string, opts: Options) {
       }
 
       const tsSyntax = babel.transformSync(source, {
+        compact: false,
         babelrc: false,
         configFile: false,
         filename: sourceFilePath,
@@ -138,6 +139,7 @@ export async function convert(cwd: string, opts: Options) {
       };
 
       const ts = babel.transformSync(tsSyntax.code as string, {
+        compact: false,
         babelrc: false,
         configFile: false,
         filename: targetFilePath,
