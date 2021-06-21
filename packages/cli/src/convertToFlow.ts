@@ -45,6 +45,7 @@ export async function convert(cwd: string, opts: Options) {
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlow, { isAmbientContext }]],
         parserOpts: {
+          allowReturnOutsideFunction: true,
           plugins: ['typescript', ...sharedParserPlugins],
         },
       });

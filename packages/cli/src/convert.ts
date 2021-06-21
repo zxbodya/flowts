@@ -119,6 +119,7 @@ export async function convert(cwd: string, opts: Options) {
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
         parserOpts: {
+          allowReturnOutsideFunction: true,
           plugins: [...sharedParserPlugins],
         },
       });
@@ -149,6 +150,7 @@ export async function convert(cwd: string, opts: Options) {
           [removeImportExtensionPlugin, { isConvertedFile }],
         ],
         parserOpts: {
+          allowReturnOutsideFunction: true,
           plugins: [
             'typescript',
             ...(isJSX ? ['jsx' as const] : []),

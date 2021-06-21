@@ -34,6 +34,7 @@ export function verify(
       [require.resolve('@babel/preset-flow'), { allowDeclareFields: true }],
     ],
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
     },
   });
@@ -51,6 +52,7 @@ export function verify(
     comments: false,
     plugins: [[removeImportExtensionPlugin, { isConvertedFile }]],
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: [...jsxPlugin, ...sharedParserPlugins],
     },
   });
@@ -72,6 +74,7 @@ export function verify(
       ],
     ],
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: ['typescript', ...jsxPlugin, ...sharedParserPlugins],
     },
   });
@@ -89,6 +92,7 @@ export function verify(
     comments: false,
     plugins: [removeEmptyExportPlugin],
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: [...jsxPlugin, ...sharedParserPlugins],
     },
   });

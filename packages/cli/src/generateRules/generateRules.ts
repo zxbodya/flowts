@@ -48,6 +48,7 @@ async function main(
     ast: true,
     plugins: [recastPlugin],
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: ['flow', ...sharedParserPlugins],
     },
     filename: inputPath,

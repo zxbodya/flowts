@@ -14,6 +14,7 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     configFile: false,
     ast: true,
     parserOpts: {
+      allowReturnOutsideFunction: true,
       plugins: ['flow', 'jsx', ...sharedParserPlugins],
     },
     filename,
