@@ -1,52 +1,179 @@
 import { testTransform } from '../transform';
 
-test('program flow comment single line', () => {
-  const result = testTransform(`// @flow
+describe('flow comment', () => {
+  test('single line comment', () => {
+    const result = testTransform(`// @flow
 const a = 55;
 export default a;`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "const a = 55;
     export default a;"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "const a = 55;
     export default a;"
   `);
-});
+  });
 
-test('program flow comment block statement', () => {
-  const result = testTransform(`/* @flow */
+  test('program flow strict comment single line', () => {
+    const result = testTransform(`// @flow strict
 const a = 55;
 export default a;`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "const a = 55;
     export default a;"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "const a = 55;
     export default a;"
   `);
-});
+  });
 
-test('program flow comment with license', () => {
-  const result = testTransform(`// @license MIT
+  test('program flow strict-local comment single line', () => {
+    const result = testTransform(`// @flow strict-local
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+    expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  });
+
+  test('program flow comment block statement', () => {
+    const result = testTransform(`/* @flow */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+    expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  });
+
+  test('program flow strict comment block statement', () => {
+    const result = testTransform(`/* @flow strict */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+    expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  });
+
+  test('program flow strict-local comment block statement', () => {
+    const result = testTransform(`/* @flow strict-local */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+    expect(result.recast).toMatchInlineSnapshot(`
+    "const a = 55;
+    export default a;"
+  `);
+  });
+
+  test('program flow multiline comment block statement', () => {
+    const result = testTransform(`/*
+  * Test
+  * @flow
+  */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+    expect(result.recast).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+  });
+
+  test('program flow strict multiline comment block statement', () => {
+    const result = testTransform(`/*
+  * Test
+  * @flow strict
+  */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+    expect(result.recast).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+  });
+
+  test('program flow strict-local multiline comment block statement', () => {
+    const result = testTransform(`/*
+  * Test
+  * @flow strict-local
+  */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+    expect(result.recast).toMatchInlineSnapshot(`
+"/*
+  * Test
+  */
+const a = 55;
+export default a;"
+`);
+  });
+
+  test('program flow comment with license', () => {
+    const result = testTransform(`// @license MIT
 /* @flow */
 const a = 55;
 export default a;`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "// @license MIT
     const a = 55;
     export default a;"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "// @license MIT
     const a = 55;
     export default a;"
   `);
+  });
 });
-
-test('helper types', () => {
-  const result = testTransform(`
+describe('helper types', () => {
+  test('helper types', () => {
+    const result = testTransform(`
 let a: $ObjMap<A,B>;
 let b: $TupleMap<A,B>;
 let c: $ObjMapi<A,B>;
@@ -58,7 +185,7 @@ let h: $Call<A,B,C,D,E>;
 let i: $Call<A,B,C,D,E,F>;
 let j: $Call<A,B,C,D,E,F,G>;
 `);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "type $ObjMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
     type $TupleMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
     type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = { [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never };
@@ -78,7 +205,7 @@ let j: $Call<A,B,C,D,E,F,G>;
     let i: $Call5<A, B, C, D, E, F>;
     let j: $Call<A, B, C, D, E, F, G>;"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "type $ObjMap<T extends {}, F extends (v: any) => any> = {
       [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
     };
@@ -107,17 +234,17 @@ let j: $Call<A,B,C,D,E,F,G>;
     let i: $Call5<A, B, C, D, E, F>;
     let j: $Call<A, B, C, D, E, F, G>;"
   `);
-});
+  });
 
-test('call helper type', () => {
-  const result = testTransform(`
+  test('call helper type', () => {
+    const result = testTransform(`
 type A = string | Class<React.Component<*, *>> | any;
 type B = Class<{
   +scope: TagsType => void,
 }>;
 type C = Class<A>;
 `);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "type A = string | {
       new (...args: any): React.Component<any, any>;
     } | any;
@@ -130,7 +257,8 @@ type C = Class<A>;
       new (...args: any): A;
     };"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+
+    expect(result.recast).toMatchInlineSnapshot(`
     "type A = string | {
       new (...args: any): React.Component<any, any>
     } | any;
@@ -145,10 +273,11 @@ type C = Class<A>;
       new (...args: any): A
     };"
   `);
+  });
 });
-
-test('function overrides', () => {
-  const result = testTransform(`
+describe('function overrides', () => {
+  test('simple', () => {
+    const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 declare function didYouMean(
   subMessage: string,
@@ -156,75 +285,75 @@ declare function didYouMean(
 ): string;
 
 function didYouMean(firstArg, secondArg?): string { }`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string;
     function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
 
     function didYouMean(firstArg, secondArg?): string {}"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string
     function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
 
     function didYouMean(firstArg, secondArg?): string { }"
   `);
-});
+  });
 
-test('function overrides - default export', () => {
-  const result = testTransform(`
+  test('default export', () => {
+    const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export default function didYouMean(firstArg, secondArg?): string { }`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string;
 
     function didYouMean(firstArg, secondArg?): string {}
 
     export default didYouMean;"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string
     function didYouMean(firstArg, secondArg?): string { }
     export default didYouMean;"
   `);
-});
+  });
 
-test('function overrides - named export', () => {
-  const result = testTransform(`
+  test('named export', () => {
+    const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string;
 
     function didYouMean(firstArg, secondArg?): string {}
 
     export { didYouMean };"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string
     function didYouMean(firstArg, secondArg?): string { }
     export { didYouMean };"
   `);
-});
-test('function overrides - named export', () => {
-  const result = testTransform(`
+  });
+  test('named export', () => {
+    const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string;
 
     function didYouMean(firstArg, secondArg?): string {}
 
     export { didYouMean };"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string
     function didYouMean(firstArg, secondArg?): string { }
     export { didYouMean };"
   `);
-});
+  });
 
-test('function overrides - exports mix', () => {
-  const result = testTransform(`
+  test('exports mix', () => {
+    const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 declare export function didYouMean(
   subMessage: string,
@@ -232,7 +361,7 @@ declare export function didYouMean(
 ): string;
 
 export function didYouMean(firstArg, secondArg?): string { }`);
-  expect(result.babel).toMatchInlineSnapshot(`
+    expect(result.babel).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string;
     function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
 
@@ -240,10 +369,11 @@ export function didYouMean(firstArg, secondArg?): string { }`);
 
     export { didYouMean };"
   `);
-  expect(result.recast).toMatchInlineSnapshot(`
+    expect(result.recast).toMatchInlineSnapshot(`
     "function didYouMean(suggestions: ReadonlyArray<string>): string
     function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
     function didYouMean(firstArg, secondArg?): string { }
     export { didYouMean };"
   `);
+  });
 });
