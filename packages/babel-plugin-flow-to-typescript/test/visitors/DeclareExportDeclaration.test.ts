@@ -86,3 +86,38 @@ test('declare export interface', () => {
     }"
   `);
 });
+
+test('declare export outside of module', () => {
+  const result = testTransform(`// @flow
+
+declare export var init: Promise<void>;
+declare export function hashString(s: string): string;
+declare export function hashBuffer(b: Buffer): string;
+declare export class Hash {
+  writeString(s: string): void;
+  writeBuffer(b: Buffer): void;
+  finish(): string;
+}
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"export declare var init: Promise<void>;
+export declare function hashString(s: string): string;
+export declare function hashBuffer(b: Buffer): string;
+export declare class Hash {
+  writeString(s: string): void;
+  writeBuffer(b: Buffer): void;
+  finish(): string;
+}"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"export declare var init: Promise<void>;
+export declare function hashString(s: string): string;
+export declare function hashBuffer(b: Buffer): string;
+
+export declare class Hash {
+  writeString(s: string): void;
+  writeBuffer(b: Buffer): void;
+  finish(): string;
+}"
+`);
+});

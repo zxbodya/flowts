@@ -8,9 +8,11 @@ import { convertDeclareTypeAlias } from '../converters/convertDeclareTypeAlias';
 import { convertDeclareClass } from '../converters/convertDeclareClass';
 import { replaceWith } from '../utils/replaceWith';
 import { convertInterfaceDeclaration } from '../converters/convertInterfaceDeclaration';
+import { PluginPass } from '../types';
 
 export function DeclareExportDeclaration(
-  path: NodePath<t.DeclareExportDeclaration>
+  path: NodePath<t.DeclareExportDeclaration>,
+  state: PluginPass
 ) {
   const node = path.node;
 
@@ -51,14 +53,19 @@ export function DeclareExportDeclaration(
     let declaration = null;
     if (t.isDeclareVariable(node.declaration)) {
       declaration = convertDeclareVariable(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
     } else if (t.isDeclareFunction(node.declaration)) {
       declaration = convertDeclareFunction(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
     } else if (t.isTypeAlias(node.declaration)) {
       declaration = convertDeclareTypeAlias(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
     } else if (t.isDeclareClass(node.declaration)) {
       declaration = convertDeclareClass(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
     } else if (t.isInterfaceDeclaration(node.declaration)) {
       declaration = convertInterfaceDeclaration(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
     } else {
       throw path.buildCodeFrameError(`DeclareExportDeclaration not converted`);
     }
