@@ -1,5 +1,5 @@
 import * as babel from '@babel/core';
-import * as fs from 'fs';
+import { promises as fs } from 'fs';
 import * as globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
@@ -29,7 +29,7 @@ export async function convert(cwd: string, opts: Options) {
   for (const file of files) {
     spinner.info(file);
     const filepath = path.join(cwd, file);
-    const source = fs.readFileSync(filepath, { encoding: 'utf8' });
+    const source = await fs.readFile(filepath, { encoding: 'utf8' });
 
     try {
       const isAmbientContext = /\.d\.ts$/i.test(file);
@@ -39,7 +39,7 @@ export async function convert(cwd: string, opts: Options) {
       const sourceFilePath = path.join(cwd, file);
       const targetFilePath = path.join(cwd, targetFileName);
 
-      const flowSyntax = babel.transformSync(source, {
+      const flowSyntax = await babel.transformAsync(source, {
         compact: false,
         babelrc: false,
         filename: sourceFilePath,
@@ -52,7 +52,7 @@ export async function convert(cwd: string, opts: Options) {
 
       if (flowSyntax === null) {
         throw new Error(
-          'babel.transformSync returned null - probably there is some configuration error'
+          'babel.transformAsync returned null - probably there is some configuration error'
         );
       }
 
@@ -72,7 +72,7 @@ export async function convert(cwd: string, opts: Options) {
         result = prettier.format(result, prettierConfig);
       }
 
-      fs.writeFileSync(targetFilePath, result);
+      await fs.writeFile(targetFilePath, result);
 
       // todo: add verification step ensuring ast except type is not changed
       // while focusing on definition files this can be skipped

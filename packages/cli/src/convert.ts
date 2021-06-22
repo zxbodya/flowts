@@ -1,6 +1,6 @@
 import * as babel from '@babel/core';
 import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
-import * as fs from 'fs';
+import { promises as fs } from 'fs';
 import * as globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
@@ -44,7 +44,7 @@ export async function convert(cwd: string, opts: Options) {
   for (const file of files) {
     try {
       const filepath = path.join(cwd, file);
-      const source = fs.readFileSync(filepath, { encoding: 'utf8' });
+      const source = await fs.readFile(filepath, { encoding: 'utf8' });
 
       const { isJSX, isFlow } = detectOptions(source, file);
 
@@ -112,7 +112,7 @@ export async function convert(cwd: string, opts: Options) {
         continue;
       }
 
-      const tsSyntax = babel.transformSync(source, {
+      const tsSyntax = await babel.transformAsync(source, {
         compact: false,
         babelrc: false,
         configFile: false,
@@ -126,7 +126,7 @@ export async function convert(cwd: string, opts: Options) {
 
       if (tsSyntax === null) {
         throw new Error(
-          'babel.transformSync returned null - probably there is some configuration error'
+          'babel.transformAsync returned null - probably there is some configuration error'
         );
       }
 
@@ -139,7 +139,7 @@ export async function convert(cwd: string, opts: Options) {
         return requestedFileInfo && requestedFileInfo.isConverted;
       };
 
-      const ts = babel.transformSync(tsSyntax.code as string, {
+      const ts = await babel.transformAsync(tsSyntax.code as string, {
         compact: false,
         babelrc: false,
         configFile: false,
@@ -218,7 +218,7 @@ export async function convert(cwd: string, opts: Options) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
     if (!opts.allowJs || isTyped) {
-      fs.renameSync(sourceFilePath, targetFilePath);
+      await fs.rename(sourceFilePath, targetFilePath);
     }
     currentCount += 1;
   }
@@ -251,9 +251,9 @@ export async function convert(cwd: string, opts: Options) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
     if (isTyped) {
-      fs.writeFileSync(targetFilePath, result);
+      await fs.writeFile(targetFilePath, result);
       if (!isValid) {
-        fs.writeFileSync(sourceFilePath, source);
+        await fs.writeFile(sourceFilePath, source);
       }
     }
     currentCount += 1;
