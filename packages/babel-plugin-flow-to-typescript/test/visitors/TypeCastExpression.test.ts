@@ -63,3 +63,15 @@ test('typecast in export default', () => {
     `"export default (function(){ return 1} as () => number);"`
   );
 });
+
+test('typecast in call expression', () => {
+  const result = testTransform(
+    `
+// @flow
+
+let a = (b: any)<T>();
+`
+  );
+  expect(result.babel).toMatchInlineSnapshot(`"let a = (b as any)<T>();"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a = (b as any)<T>();"`);
+});
