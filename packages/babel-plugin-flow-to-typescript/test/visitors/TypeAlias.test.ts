@@ -179,3 +179,12 @@ test('nullable any type annotation', () => {
     type t2 = any;"
   `);
 });
+
+test('works fine when getting identifier instead of type', () => {
+  // there is a bug in babel - once that is fixed - this can be removed
+  const result = testTransform(`
+  type t1 = function;
+`);
+  expect(result.babel).toMatchInlineSnapshot(`"type t1 = Function;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type t1 = Function;"`);
+});

@@ -277,5 +277,17 @@ export function convertFlowType(node: t.FlowType): t.TSType {
     return t.tsSymbolKeyword();
   }
 
+  if (t.isIdentifier(node)) {
+    console.warn(
+      `unexpected identifier with name "${
+        (node as any).name
+      }" used as type annotation. This is bug in babel parser. Using it as type name`
+    );
+    if ((node as any).name === 'function') {
+      (node as any).name = 'Function';
+    }
+    return convertFlowType(t.genericTypeAnnotation(node));
+  }
+
   throw new Error(`Unsupported flow type FlowType(type=${node.type})`);
 }
