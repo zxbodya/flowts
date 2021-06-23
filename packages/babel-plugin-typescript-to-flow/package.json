@@ -40,7 +40,7 @@
     "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
-    "@zxbodya/recast": "^0.20.5",
+    "@zxbodya/recast": "^0.20.7",
     "codecov": "^3.8.2",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
