@@ -160,3 +160,22 @@ test('type parameters on class constructor (probably a mistake - but valid synta
 }"
 `);
 });
+
+test('declare class with QualifiedTypeIdentifier in extends', () => {
+  const result = testTransform(`
+// @flow
+declare module 'redux-form' {
+  declare export class Field<P> extends React.Component<FieldProps<P>, void> {}
+}
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+"declare module 'redux-form' {
+  export class Field<P> extends React.Component<FieldProps<P>, void> {}
+}"
+`);
+  expect(result.recast).toMatchInlineSnapshot(`
+"declare module 'redux-form' {
+  export class Field<P> extends React.Component<FieldProps<P>, void> {}
+}"
+`);
+});

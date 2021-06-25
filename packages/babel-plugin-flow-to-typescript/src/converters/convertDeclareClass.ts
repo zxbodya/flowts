@@ -6,6 +6,7 @@ import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { convertInterfaceExtends } from './convertInterfaceExtends';
 import { convertTypeParameterDeclaration } from './convertTypeParameterDeclaration';
 import { getPropertyKey } from './getPropertyKey';
+import { convertFlowIdentifierToExpression } from './convertFlowIdentifierToExpression';
 
 export function convertDeclareClass(node: t.DeclareClass) {
   const bodyElements: t.ClassBody['body'] = [];
@@ -102,20 +103,27 @@ export function convertDeclareClass(node: t.DeclareClass) {
       );
     }
 
-    const firstExtend = convertInterfaceExtends(node.extends[0]);
-    if (t.isIdentifier(firstExtend.expression)) {
+    const firstExtend = node.extends[0];
+    if (firstExtend) {
+      const typeParameterParams = firstExtend.typeParameters?.params || [];
+      superTypeParameters = typeParameterParams.length
+        ? {
+            ...t.tsTypeParameterInstantiation(
+              typeParameterParams.map(item => ({
+                ...convertFlowType(item),
+                ...baseNodeProps(item),
+              }))
+            ),
+            ...(firstExtend.typeParameters
+              ? baseNodeProps(firstExtend.typeParameters)
+              : null),
+          }
+        : null;
+
       superClass = {
-        ...firstExtend.expression,
+        ...convertFlowIdentifierToExpression(firstExtend.id),
         ...baseNodeProps(node.extends[0].id),
       };
-      if (firstExtend.typeParameters && node.extends[0].typeParameters) {
-        superTypeParameters = {
-          ...firstExtend.typeParameters,
-          ...baseNodeProps(node.extends[0].typeParameters),
-        };
-      }
-    } else {
-      throw new Error('not implemented');
     }
   }
 
