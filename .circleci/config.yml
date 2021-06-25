@@ -40,7 +40,6 @@ jobs:
       - run: yarn run lint --quiet
       - run: ./node_modules/.bin/tsc -b
       - run: ./node_modules/.bin/lerna run cover -- --runInBand
-      - run: ./node_modules/.bin/lerna run report-coverage
 
   node-latest:
     <<: *base

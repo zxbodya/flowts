@@ -9,7 +9,6 @@
   "version": "0.11.19",
   "scripts": {
     "cover": "jest --coverage",
-    "report-coverage": "codecov",
     "test": "jest",
     "clean": "rimraf dist",
     "prepublishOnly": "yarn run clean && tsc -b --force",
@@ -41,7 +40,6 @@
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "@zxbodya/recast": "0.20.7",
-    "codecov": "^3.8.2",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "jest": "^27.0.4",

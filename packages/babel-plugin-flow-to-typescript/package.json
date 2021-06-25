@@ -9,7 +9,6 @@
   "version": "0.11.19",
   "scripts": {
     "cover": "jest --coverage",
-    "report-coverage": "codecov",
     "test": "jest",
     "clean": "rimraf dist",
     "prepublishOnly": "yarn run clean && tsc -b --force",
@@ -39,7 +38,6 @@
     "@types/babel__traverse": "7.11.1",
     "@types/jest": "^26.0.23",
     "@zxbodya/recast": "0.20.7",
-    "codecov": "^3.8.2",
     "jest": "^27.0.4",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.2"
