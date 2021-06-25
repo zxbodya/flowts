@@ -29,6 +29,10 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     );
   }
 
+  // workaround to have "scope.hub"
+  // @ts-ignore
+  new babel.File({ filename }, { code: source, ast: flowAst });
+
   traverse(flowAst, {
     JSX() {
       isJSX = true;
