@@ -38,7 +38,7 @@
     "@babel/preset-typescript": "^7.14.5",
     "@types/babel__traverse": "7.11.1",
     "@types/jest": "^26.0.23",
-    "@zxbodya/recast": "^0.20.8",
+    "@zxbodya/recast": "0.20.7",
     "codecov": "^3.8.2",
     "jest": "^27.0.4",
     "rimraf": "^3.0.2",
