@@ -107,22 +107,26 @@ export const Program = {
       else body[0].insertBefore(helperTypes[helperName]);
     });
 
-    // function overrides
+    // function overloading
     const funcByName = new Map<
       string,
       {
         decl: Array<NodePath<t.TSDeclareFunction>>;
         impl: Array<NodePath<t.FunctionDeclaration>>;
-        exp: Array<
-          NodePath<t.ExportDefaultDeclaration | t.ExportNamedDeclaration>
-        >;
+        isDefaultExport: boolean;
+        isNamedExport: boolean;
       }
     >();
 
     function getFunc(name: string) {
       let func = funcByName.get(name);
       if (!func) {
-        func = { decl: [], impl: [], exp: [] };
+        func = {
+          decl: [],
+          impl: [],
+          isDefaultExport: false,
+          isNamedExport: false,
+        };
         funcByName.set(name, func);
       }
       return func;
@@ -161,8 +165,8 @@ export const Program = {
         // @ts-expect-error todo: traverse types
         const maybeFunc = visitPossiblyFuncPath(st.get('declaration'));
         if (maybeFunc) {
-          // @ts-expect-error todo: traverse types
-          maybeFunc.exp.push(st);
+          maybeFunc.isDefaultExport = t.isExportDefaultDeclaration(st.node);
+          maybeFunc.isNamedExport = t.isExportNamedDeclaration(st.node);
         }
       }
     }
@@ -172,43 +176,16 @@ export const Program = {
       if (func.impl.length && func.decl.length) {
         for (const decl of func.decl) {
           decl.node.declare = false;
-        }
-        // separate declaration from export if overrides are present, and not everything is exported
-        if (
-          func.exp.length > 0 &&
-          func.exp.length !== func.impl.length + func.decl.length
-        ) {
-          // last export - to split it into declaration and export
-          const exp = func.exp[func.exp.length - 1];
-          // other declarations - to remove `export` keyword from them
-          const expToRemove = func.exp.slice(0, func.exp.length - 1);
-          if (t.isExportDefaultDeclaration(exp.node)) {
-            exp.replaceWithMultiple([
-              exp.node.declaration!,
-              t.exportDefaultDeclaration(
-                // @ts-expect-error
-                t.identifier(exp.node.declaration.id.name)
-              ),
-            ]);
+          // add missing export statements for function overload declarations
+          if (func.isNamedExport) {
+            if (!t.isExportNamedDeclaration(decl.parent)) {
+              decl.replaceWith(t.exportNamedDeclaration(decl.node));
+            }
           }
-          if (t.isExportNamedDeclaration(exp.node)) {
-            const specifier = t.identifier(
-              // todo: might be add more specific type info for `func` to avoid typecast
-              (
-                exp.node.declaration! as
-                  | t.FunctionDeclaration
-                  | t.TSDeclareFunction
-              ).id!.name
-            );
-            exp.replaceWithMultiple([
-              exp.node.declaration!,
-              t.exportNamedDeclaration(null, [
-                t.exportSpecifier(specifier, specifier),
-              ]),
-            ]);
-          }
-          for (const otherExp of expToRemove) {
-            otherExp.replaceWith(otherExp.node.declaration!);
+          if (func.isDefaultExport) {
+            if (!t.isExportDefaultDeclaration(decl.parent)) {
+              decl.replaceWith(t.exportDefaultDeclaration(decl.node));
+            }
           }
         }
       }

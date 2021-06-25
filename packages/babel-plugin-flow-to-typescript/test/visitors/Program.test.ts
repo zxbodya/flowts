@@ -275,7 +275,8 @@ type C = Class<A>;
   `);
   });
 });
-describe('function overrides', () => {
+
+describe('function overloading', () => {
   test('simple', () => {
     const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
@@ -304,17 +305,13 @@ function didYouMean(firstArg, secondArg?): string { }`);
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export default function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string;
-
-    function didYouMean(firstArg, secondArg?): string {}
-
-    export default didYouMean;"
-  `);
+"export default function didYouMean(suggestions: ReadonlyArray<string>): string;
+export default function didYouMean(firstArg, secondArg?): string {}"
+`);
     expect(result.recast).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string
-    function didYouMean(firstArg, secondArg?): string { }
-    export default didYouMean;"
-  `);
+"export default function didYouMean(suggestions: ReadonlyArray<string>): string;
+export default function didYouMean(firstArg, secondArg?): string { }"
+`);
   });
 
   test('named export', () => {
@@ -322,34 +319,26 @@ export default function didYouMean(firstArg, secondArg?): string { }`);
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string;
-
-    function didYouMean(firstArg, secondArg?): string {}
-
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string {}"
+`);
     expect(result.recast).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string
-    function didYouMean(firstArg, secondArg?): string { }
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string { }"
+`);
   });
   test('named export', () => {
     const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string;
-
-    function didYouMean(firstArg, secondArg?): string {}
-
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string {}"
+`);
     expect(result.recast).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string
-    function didYouMean(firstArg, secondArg?): string { }
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string { }"
+`);
   });
 
   test('exports mix', () => {
@@ -362,18 +351,15 @@ declare export function didYouMean(
 
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string;
-    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
-
-    function didYouMean(firstArg, secondArg?): string {}
-
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+export function didYouMean(firstArg, secondArg?): string {}"
+`);
     expect(result.recast).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string
-    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
-    function didYouMean(firstArg, secondArg?): string { }
-    export { didYouMean };"
-  `);
+"export function didYouMean(suggestions: ReadonlyArray<string>): string;
+export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+
+export function didYouMean(firstArg, secondArg?): string { }"
+`);
   });
 });
