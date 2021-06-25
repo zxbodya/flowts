@@ -8,6 +8,7 @@ export interface Options {
   readonly recast: boolean;
   readonly prettier: boolean;
   readonly allowJs: boolean;
+  readonly gitignore: boolean;
   readonly include: string;
   readonly exclude: string[];
   readonly interactiveRename: boolean;
@@ -25,6 +26,11 @@ program
   .description('Flow to TypeScript migration tool')
   .option('-R, --no-recast', 'use babel generator instead of recast', false)
   .option('-P, --no-prettier', 'do not run prettier on converted code', false)
+  .option(
+    '--no-gitignore',
+    'also convert files which are listed in gitignore files',
+    false
+  )
   .usage('[options] ./path/to/project')
   .option(
     '--no-allow-js',

@@ -28,7 +28,7 @@ export async function convert(cwd: string, opts: Options) {
     onlyFiles: true,
     dot: true,
     ignore: ['**/node_modules/**', ...opts.exclude],
-    gitignore: true,
+    gitignore: opts.gitignore,
   });
 
   type FileInfo = {
