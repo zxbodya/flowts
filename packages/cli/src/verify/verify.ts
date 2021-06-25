@@ -50,7 +50,10 @@ export function verify(
     configFile: false,
     filename,
     comments: false,
-    plugins: [[removeImportExtensionPlugin, { isConvertedFile }]],
+    plugins: [
+      [removeImportExtensionPlugin, { isConvertedFile }],
+      removeEmptyExportPlugin,
+    ],
     parserOpts: {
       allowReturnOutsideFunction: true,
       plugins: [...jsxPlugin, ...sharedParserPlugins],
