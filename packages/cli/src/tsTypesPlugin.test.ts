@@ -82,6 +82,22 @@ export default class Trace {
       "
     `);
   });
+  test('does not add duplicated import when not type import is present', () => {
+    expect(
+      transform(`
+import { Component } from 'react';
+
+export function test(value: React$Component<unknown, unknown>) {}
+export function print(component: Component<any>) {}
+`)
+    ).toMatchInlineSnapshot(`
+      "import { Component } from \\"react\\";
+
+      export function test(value: Component<unknown, unknown>) {}
+      export function print(component: Component<any>) {}
+      "
+    `);
+  });
 });
 
 // todo:

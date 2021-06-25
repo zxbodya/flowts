@@ -342,6 +342,20 @@ const visitor: Visitor = {
               }
               break;
             }
+            // check if the type is already imported as value (this can happen for classes for example)
+            if (
+              !t.isImportNamespaceSpecifier(id.specifiers[0]) &&
+              id.importKind === 'value'
+            ) {
+              for (const sp of newNamedSpecifiers) {
+                if (
+                  id.specifiers.some(esp => esp.local.name === sp.local.name)
+                ) {
+                  added = true;
+                }
+              }
+              break;
+            }
           }
           if (!added) {
             const newImport = t.importDeclaration(
