@@ -258,6 +258,15 @@ export async function convert(cwd: string, opts: Options) {
     }
     currentCount += 1;
   }
+
+  const toReview = results
+    .filter(r => !r.isValid && r.isTyped)
+    .map(r => r.sourceFilePath);
+  if (toReview.length) {
+    spinner.warn(`Files to review:
+${toReview.join('\n')}
+`);
+  }
   // count stats about converted code base
   let cloc = 0;
   for (const { isTyped, source, isValid } of results) {
