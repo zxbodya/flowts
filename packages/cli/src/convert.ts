@@ -172,11 +172,20 @@ export async function convert(cwd: string, opts: Options) {
 
       let result = ts.code as string;
       if (opts.prettier) {
-        const prettierConfig =
-          (await prettier.resolveConfig(targetFilePath)) || {};
-        prettierConfig.parser = 'babel-ts';
+        try {
+          const prettierConfig =
+            (await prettier.resolveConfig(targetFilePath)) || {};
+          prettierConfig.parser = 'babel-ts';
 
-        result = prettier.format(result, prettierConfig);
+          result = prettier.format(result, prettierConfig);
+        } catch (e) {
+          // retry using different parser - this can be helpful with flow type comments in some edge cases
+          const prettierConfig =
+            (await prettier.resolveConfig(targetFilePath)) || {};
+          prettierConfig.parser = 'typescript';
+
+          result = prettier.format(result, prettierConfig);
+        }
       }
 
       const verificationResult = verify(
