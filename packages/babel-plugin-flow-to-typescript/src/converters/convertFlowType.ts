@@ -4,6 +4,7 @@ import { convertFlowIdentifier } from './convertFlowIdentifier';
 import { convertFunctionTypeAnnotation } from './convertFunctionTypeAnnotation';
 import { baseNodeProps } from '../utils/baseNodeProps';
 import { convertObjectTypeAnnotation } from './convertObjectTypeAnnotation';
+import { convertInterfaceExtends } from './convertInterfaceExtends';
 
 export function convertFlowType(node: t.FlowType): t.TSType {
   if (t.isAnyTypeAnnotation(node)) {
@@ -289,5 +290,22 @@ export function convertFlowType(node: t.FlowType): t.TSType {
     return convertFlowType(t.genericTypeAnnotation(node));
   }
 
+  if (t.isInterfaceTypeAnnotation(node)) {
+    const objectType = convertObjectTypeAnnotation(node.body);
+    if (!node.extends || node.extends.length === 0) {
+      return objectType;
+    } else {
+      return t.tsIntersectionType([
+        objectType,
+        ...node.extends.map(v => {
+          let tsType: any = convertInterfaceExtends(v);
+          if (t.isTSFunctionType(tsType)) {
+            tsType = t.tsParenthesizedType(tsType);
+          }
+          return { ...tsType, ...baseNodeProps(v) };
+        }),
+      ]);
+    }
+  }
   throw new Error(`Unsupported flow type FlowType(type=${node.type})`);
 }

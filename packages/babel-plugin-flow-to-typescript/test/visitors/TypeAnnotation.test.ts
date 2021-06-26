@@ -682,3 +682,55 @@ test('SymbolTypeAnnotation', () => {
     `"const symbols: Array<symbol> = Object.getOwnPropertySymbols(node);"`
   );
 });
+
+describe('InterfaceTypeAnnotation', () => {
+  test('simple', () => {
+    const result = testTransform(
+      `
+// @flow
+
+let start: interface {
+  line: number,
+  column: number,
+};
+    `
+    );
+    expect(result.babel).toMatchInlineSnapshot(`
+      "let start: {
+        line: number;
+        column: number;
+      };"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "let start: {
+        line: number,
+        column: number
+      };"
+    `);
+  });
+
+  test('simple', () => {
+    const result = testTransform(
+      `
+// @flow
+
+let start: interface extends B,C {
+  line: number,
+  column: number,
+};
+    `
+    );
+    expect(result.babel).toMatchInlineSnapshot(`
+"let start: {
+  line: number;
+  column: number;
+} & B & C;"
+`);
+    expect(result.recast).toMatchInlineSnapshot(`
+"let start: {
+  line: number,
+  column: number
+} & B & C;"
+`);
+  });
+});
