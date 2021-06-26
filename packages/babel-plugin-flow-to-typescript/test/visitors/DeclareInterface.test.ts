@@ -91,14 +91,14 @@ declare interface A {
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "/**
-     * bla bla bla
-     */
-    declare interface A {
-     // fields
-     props: Props;
-     // state
-     state: State;
-    }"
-  `);
+"/**
+ * bla bla bla
+ */
+declare interface A {
+  // fields
+  props: Props;
+  // state
+  state: State;
+}"
+`);
 });
