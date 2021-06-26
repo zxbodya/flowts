@@ -2,7 +2,7 @@
 
 exports[`detectOptions detects @flow comment 1`] = `
 Object {
-  "isFlow": false,
+  "isFlow": true,
   "isJSX": false,
 }
 `;
@@ -30,7 +30,7 @@ Object {
 
 exports[`detectOptions use file extension to detect jsx 1`] = `
 Object {
-  "isFlow": false,
+  "isFlow": true,
   "isJSX": true,
 }
 `;
