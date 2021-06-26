@@ -1,7 +1,7 @@
 import * as babel from '@babel/core';
 import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
 import { promises as fs } from 'fs';
-import * as globby from 'globby';
+import globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
 import { diff as jestDiff } from 'jest-diff';
@@ -23,7 +23,7 @@ export async function convert(cwd: string, opts: Options) {
     transformPlugins.push(recastPlugin);
   }
 
-  const files = globby.sync(opts.include, {
+  const files = await globby(opts.include, {
     cwd,
     onlyFiles: true,
     dot: true,
@@ -40,8 +40,12 @@ export async function convert(cwd: string, opts: Options) {
   };
 
   const filesInfo = new Map<string, FileInfo>();
-  spinner.info('analysing source files');
+  spinner.info('detecting options for the files');
+  let totalStr = `${files.length}`;
+  let currentCount = 0;
   for (const file of files) {
+    const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
+    spinner.start(`[${currentStr}/${totalStr}] ${file}`);
     try {
       const filepath = path.join(cwd, file);
       const source = await fs.readFile(filepath, { encoding: 'utf8' });
@@ -64,6 +68,7 @@ export async function convert(cwd: string, opts: Options) {
       console.error(e);
       spinner.start();
     }
+    currentCount += 1;
   }
   spinner.succeed('finished analysing source files');
   spinner.info('converting code to TypeScript');
@@ -76,8 +81,8 @@ export async function convert(cwd: string, opts: Options) {
     isValid: boolean;
   }> = [];
 
-  let totalStr = `${files.length}`;
-  let currentCount = 0;
+  totalStr = `${files.length}`;
+  currentCount = 0;
   for (const file of files) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${file}`);
