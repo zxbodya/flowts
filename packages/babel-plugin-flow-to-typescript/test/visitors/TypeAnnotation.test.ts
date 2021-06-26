@@ -721,16 +721,22 @@ let start: interface extends B,C {
     `
     );
     expect(result.babel).toMatchInlineSnapshot(`
-"let start: {
-  line: number;
-  column: number;
-} & B & C;"
-`);
+      "let start: {
+        line: number;
+        column: number;
+      } & B & C;"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"let start: {
-  line: number,
-  column: number
-} & B & C;"
-`);
+      "let start: {
+        line: number,
+        column: number
+      } & B & C;"
+    `);
   });
+});
+
+test('function array type', () => {
+  const result = testTransform(`let a: ((t2: T)=> T)[]`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: ((t2: T) => T)[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: ((t2: T) => T)[]"`);
 });

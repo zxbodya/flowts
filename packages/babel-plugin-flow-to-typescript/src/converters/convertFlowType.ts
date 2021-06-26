@@ -17,7 +17,9 @@ export function convertFlowType(node: t.FlowType): t.TSType {
       ...baseNodeProps(node.elementType),
     };
     return t.tsArrayType(
-      t.isTSUnionType(elementType) || t.isTSIntersectionType(elementType)
+      t.isTSUnionType(elementType) ||
+        t.isTSIntersectionType(elementType) ||
+        t.isTSFunctionType(elementType)
         ? t.tsParenthesizedType(elementType)
         : elementType
     );
