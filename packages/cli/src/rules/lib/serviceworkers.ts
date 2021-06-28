@@ -10,9 +10,7 @@ export default {
           navigate(url: string): Promise<WindowClient>,
         }
         */
-    WindowClient(context) {
-      context.lib('webworker');
-    },
+    WindowClient(context) {},
 
     /*
         declare class Client {
@@ -23,18 +21,14 @@ export default {
           postMessage(message: any, transfer?: Iterator<any> | Array<any>): void,
         }
         */
-    Client(context) {
-      context.lib('webworker');
-    },
+    Client(context) {},
 
     /*
         declare class ExtendableEvent extends Event {
           waitUntil(f: Promise<mixed>): void,
         }
         */
-    ExtendableEvent(context) {
-      context.lib('webworker');
-    },
+    ExtendableEvent(context) {},
 
     /*
         declare class InstallEvent extends ExtendableEvent {
@@ -52,9 +46,7 @@ export default {
           preloadResponse: Promise<?Response>,
         }
         */
-    FetchEvent(context) {
-      context.lib('webworker');
-    },
+    FetchEvent(context) {},
 
     /*
         declare class Clients {
@@ -64,9 +56,7 @@ export default {
           claim(): Promise<void>,
         }
         */
-    Clients(context) {
-      context.lib('webworker');
-    },
+    Clients(context) {},
 
     /*
         declare class ServiceWorker extends EventTarget {
@@ -78,9 +68,7 @@ export default {
           onstatechange?: EventHandler,
         }
         */
-    ServiceWorker(context) {
-      context.lib('dom');
-    },
+    ServiceWorker(context) {},
 
     /*
         declare class NavigationPreloadState {
@@ -88,9 +76,7 @@ export default {
           headerValue: string,
         }
         */
-    NavigationPreloadState(context) {
-      context.lib('dom');
-    },
+    NavigationPreloadState(context) {},
 
     /*
         declare class NavigationPreloadManager {
@@ -100,9 +86,7 @@ export default {
           getState: Promise<NavigationPreloadState>,
         }
         */
-    NavigationPreloadManager(context) {
-      context.lib('dom');
-    },
+    NavigationPreloadManager(context) {},
 
     /*
         declare class PushSubscriptionJSON {
@@ -111,9 +95,7 @@ export default {
           keys: { [string]: string, ... };
         }
         */
-    PushSubscriptionJSON(context) {
-      context.lib('dom');
-    },
+    PushSubscriptionJSON(context) {},
 
     /*
         declare class PushSubscription {
@@ -125,9 +107,7 @@ export default {
           unsubscribe(): Promise<boolean>,
         }
         */
-    PushSubscription(context) {
-      context.lib('dom');
-    },
+    PushSubscription(context) {},
 
     /*
         declare class PushManager {
@@ -137,9 +117,7 @@ export default {
           permissionState(options?: PushSubscriptionOptions): Promise<'granted' | 'denied' | 'prompt'>,
         }
         */
-    PushManager(context) {
-      context.lib('dom');
-    },
+    PushManager(context) {},
 
     /*
         declare class ServiceWorkerRegistration extends EventTarget {
@@ -157,9 +135,7 @@ export default {
           onupdatefound?: EventHandler,
         }
         */
-    ServiceWorkerRegistration(context) {
-      context.lib('dom');
-    },
+    ServiceWorkerRegistration(context) {},
 
     /*
         declare class ServiceWorkerContainer extends EventTarget {
@@ -179,9 +155,7 @@ export default {
           onmessageerror?: EventHandler,
         }
         */
-    ServiceWorkerContainer(context) {
-      context.lib('dom');
-    },
+    ServiceWorkerContainer(context) {},
 
     /*
         declare class ServiceWorkerMessageEvent extends Event {
@@ -203,9 +177,7 @@ export default {
           source: ?(ServiceWorker | MessagePort),
         }
         */
-    ExtendableMessageEvent(context) {
-      context.lib('webworker');
-    },
+    ExtendableMessageEvent(context) {},
 
     /*
         declare class Cache {
@@ -224,9 +196,7 @@ export default {
           ): Promise<Array<Request>>,
         }
         */
-    Cache(context) {
-      context.lib('dom');
-    },
+    Cache(context) {},
 
     /*
         declare class CacheStorage {
@@ -237,9 +207,7 @@ export default {
           keys(): Promise<Array<string>>,
         }
         */
-    CacheStorage(context) {
-      context.lib('dom');
-    },
+    CacheStorage(context) {},
 
     /*
         declare var clients: Clients;
@@ -249,9 +217,7 @@ export default {
     /*
         declare var caches: CacheStorage;
         */
-    caches(context) {
-      context.lib('dom');
-    },
+    caches(context) {},
 
     /*
         declare var registration: ServiceWorkerRegistration;
@@ -286,9 +252,7 @@ export default {
     /*
         declare var onmessage: ?EventHandler;
         */
-    onmessage(context) {
-      context.lib('dom');
-    },
+    onmessage(context) {},
   },
 
   modules: {},

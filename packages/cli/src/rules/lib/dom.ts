@@ -19,9 +19,7 @@ export default {
           stream(): ReadableStream,
         }
         */
-    Blob(context) {
-      context.lib('dom');
-    },
+    Blob(context) {},
 
     /*
         declare class FileReader extends EventTarget {
@@ -44,9 +42,7 @@ export default {
           readAsText(blob: Blob, encoding?: string): void;
         }
         */
-    FileReader(context) {
-      context.lib('dom');
-    },
+    FileReader(context) {},
 
     /*
         declare type FilePropertyBag = {
@@ -55,9 +51,7 @@ export default {
                ...
         };
         */
-    FilePropertyBag(context) {
-      context.lib('dom');
-    },
+    FilePropertyBag(context) {},
 
     /*
         declare class File extends Blob {
@@ -70,9 +64,7 @@ export default {
           name: string;
         }
         */
-    File(context) {
-      context.lib('dom');
-    },
+    File(context) {},
 
     /*
         declare class FileList {
@@ -82,9 +74,7 @@ export default {
           [index: number]: File;
         }
         */
-    FileList(context) {
-      context.lib('dom');
-    },
+    FileList(context) {},
 
     /*
         declare class DataTransfer {
@@ -99,9 +89,7 @@ export default {
           types: Array<string>; // readonly
         }
         */
-    DataTransfer(context) {
-      context.lib('dom');
-    },
+    DataTransfer(context) {},
 
     /*
         declare class DataTransferItemList {
@@ -114,9 +102,7 @@ export default {
           clear(): void;
         }
         */
-    DataTransferItemList(context) {
-      context.lib('dom');
-    },
+    DataTransferItemList(context) {},
 
     /*
         declare class DataTransferItem {
@@ -132,16 +118,12 @@ export default {
           webkitGetAsEntry(): void | () => any;
         }
         */
-    DataTransferItem(context) {
-      context.lib('dom');
-    },
+    DataTransferItem(context) {},
 
     /*
         declare type DOMStringMap = { [key:string]: string, ... }
         */
-    DOMStringMap(context) {
-      context.lib('dom');
-    },
+    DOMStringMap(context) {},
 
     /*
         declare class DOMStringList {
@@ -151,25 +133,19 @@ export default {
           contains(string): boolean;
         }
         */
-    DOMStringList(context) {
-      context.lib('dom');
-    },
+    DOMStringList(context) {},
 
     /*
         declare class DOMError {
           name: string;
         }
         */
-    DOMError(context) {
-      context.lib('dom');
-    },
+    DOMError(context) {},
 
     /*
         declare type ElementDefinitionOptions = { extends?: string, ... }
         */
-    ElementDefinitionOptions(context) {
-      context.lib('dom');
-    },
+    ElementDefinitionOptions(context) {},
 
     /*
         declare interface CustomElementRegistry {
@@ -178,9 +154,7 @@ export default {
           whenDefined(name: string): Promise<void>;
         }
         */
-    CustomElementRegistry(context) {
-      context.lib('dom');
-    },
+    CustomElementRegistry(context) {},
 
     /*
         declare interface ShadowRoot extends DocumentFragment {
@@ -190,16 +164,12 @@ export default {
           +mode: ShadowRootMode;
         }
         */
-    ShadowRoot(context) {
-      context.lib('dom');
-    },
+    ShadowRoot(context) {},
 
     /*
         declare type ShadowRootMode = 'open'|'closed';
         */
-    ShadowRootMode(context) {
-      context.lib('dom');
-    },
+    ShadowRootMode(context) {},
 
     /*
         declare type ShadowRootInit = {
@@ -208,9 +178,7 @@ export default {
                ...
         }
         */
-    ShadowRootInit(context) {
-      context.lib('dom');
-    },
+    ShadowRootInit(context) {},
 
     /*
         declare type ScrollToOptions = {
@@ -220,9 +188,7 @@ export default {
           ...
         }
         */
-    ScrollToOptions(context) {
-      context.lib('dom');
-    },
+    ScrollToOptions(context) {},
 
     /*
         declare class EventTarget {
@@ -306,9 +272,7 @@ export default {
           initEvent(eventTypeArg: string, canBubbleArg: boolean, cancelableArg: boolean): void;
         }
         */
-    EventTarget(context) {
-      context.lib('dom');
-    },
+    EventTarget(context) {},
 
     /*
         declare class Event {
@@ -415,9 +379,7 @@ export default {
           ): void;
         }
         */
-    Event(context) {
-      context.lib('dom');
-    },
+    Event(context) {},
 
     /*
         declare class CustomEvent extends Event {
@@ -433,9 +395,7 @@ export default {
           ): CustomEvent;
         }
         */
-    CustomEvent(context) {
-      context.lib('dom');
-    },
+    CustomEvent(context) {},
 
     /*
         declare class UIEvent extends Event {
@@ -443,9 +403,7 @@ export default {
           view: any;
         }
         */
-    UIEvent(context) {
-      context.lib('dom');
-    },
+    UIEvent(context) {},
 
     /*
         declare class CompositionEvent extends UIEvent {
@@ -453,9 +411,7 @@ export default {
           locale: string,
         }
         */
-    CompositionEvent(context) {
-      context.lib('dom');
-    },
+    CompositionEvent(context) {},
 
     /*
         declare class MouseEvent extends UIEvent {
@@ -486,18 +442,14 @@ export default {
           getModifierState(keyArg: string): boolean;
         }
         */
-    MouseEvent(context) {
-      context.lib('dom');
-    },
+    MouseEvent(context) {},
 
     /*
         declare class FocusEvent extends UIEvent {
           relatedTarget: ?EventTarget;
         }
         */
-    FocusEvent(context) {
-      context.lib('dom');
-    },
+    FocusEvent(context) {},
 
     /*
         declare class WheelEvent extends MouseEvent {
@@ -507,18 +459,14 @@ export default {
           deltaMode: 0x00 | 0x01 | 0x02; // readonly
         }
         */
-    WheelEvent(context) {
-      context.lib('dom');
-    },
+    WheelEvent(context) {},
 
     /*
         declare class DragEvent extends MouseEvent {
           dataTransfer: ?DataTransfer; // readonly
         }
         */
-    DragEvent(context) {
-      context.lib('dom');
-    },
+    DragEvent(context) {},
 
     /*
         declare class PointerEvent extends MouseEvent {
@@ -538,9 +486,7 @@ export default {
           isPrimary: boolean;
         }
         */
-    PointerEvent(context) {
-      context.lib('dom');
-    },
+    PointerEvent(context) {},
 
     /*
         declare class ProgressEvent extends Event {
@@ -559,9 +505,7 @@ export default {
           ): void;
         }
         */
-    ProgressEvent(context) {
-      context.lib('dom');
-    },
+    ProgressEvent(context) {},
 
     /*
         declare class PromiseRejectionEvent extends Event {
@@ -569,9 +513,7 @@ export default {
           reason: any;
         }
         */
-    PromiseRejectionEvent(context) {
-      context.lib('dom');
-    },
+    PromiseRejectionEvent(context) {},
 
     /*
         declare class PageTransitionEvent extends Event {
@@ -579,9 +521,7 @@ export default {
           +persisted: boolean;
         }
         */
-    PageTransitionEvent(context) {
-      context.lib('dom');
-    },
+    PageTransitionEvent(context) {},
 
     /*
         declare class MessageEvent extends Event {
@@ -591,9 +531,7 @@ export default {
           source: WindowProxy;
         }
         */
-    MessageEvent(context) {
-      context.lib('dom');
-    },
+    MessageEvent(context) {},
 
     /*
         declare class EventSource extends EventTarget {
@@ -610,9 +548,7 @@ export default {
           close: () => void;
         }
         */
-    EventSource(context) {
-      context.lib('dom');
-    },
+    EventSource(context) {},
 
     /*
         declare class KeyboardEvent extends UIEvent {
@@ -633,9 +569,7 @@ export default {
           which: number;
         }
         */
-    KeyboardEvent(context) {
-      context.lib('dom');
-    },
+    KeyboardEvent(context) {},
 
     /*
         declare class InputEvent extends UIEvent {
@@ -644,9 +578,7 @@ export default {
           +isComposing: boolean;
         }
         */
-    InputEvent(context) {
-      context.lib('dom');
-    },
+    InputEvent(context) {},
 
     /*
         declare class AnimationEvent extends Event {
@@ -665,9 +597,7 @@ export default {
           ) => void;
         }
         */
-    AnimationEvent(context) {
-      context.lib('dom');
-    },
+    AnimationEvent(context) {},
 
     /*
         declare class ErrorEvent extends Event {
@@ -690,9 +620,7 @@ export default {
           +error: any;
         }
         */
-    ErrorEvent(context) {
-      context.lib('dom');
-    },
+    ErrorEvent(context) {},
 
     /*
         declare class BroadcastChannel extends EventTarget {
@@ -705,9 +633,7 @@ export default {
           close(): void;
         }
         */
-    BroadcastChannel(context) {
-      context.lib('dom');
-    },
+    BroadcastChannel(context) {},
 
     /*
         declare class Touch {
@@ -721,9 +647,7 @@ export default {
           target: EventTarget,
         }
         */
-    Touch(context) {
-      context.lib('dom');
-    },
+    Touch(context) {},
 
     /*
         declare class TouchList {
@@ -733,9 +657,7 @@ export default {
           [index: number]: Touch,
         }
         */
-    TouchList(context) {
-      context.lib('dom');
-    },
+    TouchList(context) {},
 
     /*
         declare class TouchEvent extends UIEvent {
@@ -748,9 +670,7 @@ export default {
           touches: TouchList,
         }
         */
-    TouchEvent(context) {
-      context.lib('dom');
-    },
+    TouchEvent(context) {},
 
     /*
         declare class StorageEvent extends Event {
@@ -761,9 +681,7 @@ export default {
           storageArea: ?Storage,
         }
         */
-    StorageEvent(context) {
-      context.lib('dom');
-    },
+    StorageEvent(context) {},
 
     /*
         declare class ClipboardEvent extends Event {
@@ -771,9 +689,7 @@ export default {
           +clipboardData: ?DataTransfer; // readonly
         }
         */
-    ClipboardEvent(context) {
-      context.lib('dom');
-    },
+    ClipboardEvent(context) {},
 
     /*
         declare class TransitionEvent extends Event {
@@ -784,18 +700,14 @@ export default {
           +pseudoElement: string; // readonly
         }
         */
-    TransitionEvent(context) {
-      context.lib('dom');
-    },
+    TransitionEvent(context) {},
 
     /*
         declare class BeforeUnloadEvent extends Event {
           returnValue: string,
         }
         */
-    BeforeUnloadEvent(context) {
-      context.lib('dom');
-    },
+    BeforeUnloadEvent(context) {},
 
     /*
         declare class Node extends EventTarget {
@@ -853,9 +765,7 @@ export default {
           outerText?: string;
         }
         */
-    Node(context) {
-      context.lib('dom');
-    },
+    Node(context) {},
 
     /*
         declare class NodeList<T> {
@@ -870,9 +780,7 @@ export default {
           values(): Iterator<T>;
         }
         */
-    NodeList(context) {
-      context.lib('dom');
-    },
+    NodeList(context) {},
 
     /*
         declare class NamedNodeMap {
@@ -888,9 +796,7 @@ export default {
           setNamedItemNS(arg: Attr): Attr;
         }
         */
-    NamedNodeMap(context) {
-      context.lib('dom');
-    },
+    NamedNodeMap(context) {},
 
     /*
         declare class Attr extends Node {
@@ -904,9 +810,7 @@ export default {
           localName: string;
         }
         */
-    Attr(context) {
-      context.lib('dom');
-    },
+    Attr(context) {},
 
     /*
         declare class HTMLCollection<+Elem: HTMLElement> {
@@ -917,9 +821,7 @@ export default {
           [index: number | string]: Elem;
         }
         */
-    HTMLCollection(context) {
-      context.lib('dom');
-    },
+    HTMLCollection(context) {},
 
     /*
         declare class Document extends Node {
@@ -1442,9 +1344,7 @@ export default {
           getElementById(elementId: string): HTMLElement | null;
         }
         */
-    Document(context) {
-      context.lib('dom');
-    },
+    Document(context) {},
 
     /*
         declare class DocumentFragment extends Node {
@@ -1463,9 +1363,7 @@ export default {
           getElementById(elementId: string): HTMLElement | null;
         }
         */
-    DocumentFragment(context) {
-      context.lib('dom');
-    },
+    DocumentFragment(context) {},
 
     /*
         declare class Selection {
@@ -1493,9 +1391,7 @@ export default {
           toString(): string;
         }
         */
-    Selection(context) {
-      context.lib('dom');
-    },
+    Selection(context) {},
 
     /*
         declare class Range { // extension
@@ -1533,16 +1429,12 @@ export default {
           static END_TO_START: number;
         }
         */
-    Range(context) {
-      context.lib('dom');
-    },
+    Range(context) {},
 
     /*
         declare var document: Document;
         */
-    document(context) {
-      context.lib('dom');
-    },
+    document(context) {},
 
     /*
         declare class DOMTokenList {
@@ -1561,9 +1453,7 @@ export default {
           values(): Iterator<string>;
         }
         */
-    DOMTokenList(context) {
-      context.lib('dom');
-    },
+    DOMTokenList(context) {},
 
     /*
         declare class Element extends Node implements Animatable {
@@ -1887,9 +1777,7 @@ export default {
           remove(): void;
         }
         */
-    Element(context) {
-      context.lib('dom');
-    },
+    Element(context) {},
 
     /*
         declare class HTMLElement extends Element {
@@ -1993,9 +1881,7 @@ export default {
           translate: boolean;
         }
         */
-    HTMLElement(context) {
-      context.lib('dom');
-    },
+    HTMLElement(context) {},
 
     /*
         declare class HTMLSlotElement extends HTMLElement {
@@ -2003,9 +1889,7 @@ export default {
           assignedNodes(options?: { flatten: boolean, ... }): Node[];
         }
         */
-    HTMLSlotElement(context) {
-      context.lib('dom');
-    },
+    HTMLSlotElement(context) {},
 
     /*
         declare class HTMLTableElement extends HTMLElement {
@@ -2024,27 +1908,21 @@ export default {
           deleteRow(index: number): void;
         }
         */
-    HTMLTableElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableElement(context) {},
 
     /*
         declare class HTMLTableCaptionElement extends HTMLElement {
 
         }
         */
-    HTMLTableCaptionElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableCaptionElement(context) {},
 
     /*
         declare class HTMLTableColElement extends HTMLElement {
           span: number;
         }
         */
-    HTMLTableColElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableColElement(context) {},
 
     /*
         declare class HTMLTableSectionElement extends HTMLElement {
@@ -2053,9 +1931,7 @@ export default {
           deleteRow(index: number): void;
         }
         */
-    HTMLTableSectionElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableSectionElement(context) {},
 
     /*
         declare class HTMLTableCellElement extends HTMLElement {
@@ -2064,9 +1940,7 @@ export default {
           +cellIndex: number;
         }
         */
-    HTMLTableCellElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableCellElement(context) {},
 
     /*
         declare class HTMLTableRowElement extends HTMLElement {
@@ -2078,9 +1952,7 @@ export default {
           insertCell(index?: number): HTMLTableCellElement;
         }
         */
-    HTMLTableRowElement(context) {
-      context.lib('dom');
-    },
+    HTMLTableRowElement(context) {},
 
     /*
         declare class HTMLMenuElement extends HTMLElement {
@@ -2088,9 +1960,7 @@ export default {
           setCompact(compact: bool): void;
         }
         */
-    HTMLMenuElement(context) {
-      context.lib('dom');
-    },
+    HTMLMenuElement(context) {},
 
     /*
         declare class HTMLBaseElement extends HTMLElement {
@@ -2098,36 +1968,28 @@ export default {
           target: string;
         }
         */
-    HTMLBaseElement(context) {
-      context.lib('dom');
-    },
+    HTMLBaseElement(context) {},
 
     /*
         declare class HTMLTemplateElement extends HTMLElement {
           content: DocumentFragment;
         }
         */
-    HTMLTemplateElement(context) {
-      context.lib('dom');
-    },
+    HTMLTemplateElement(context) {},
 
     /*
         declare class CanvasGradient {
           addColorStop(offset: number, color: string): void;
         }
         */
-    CanvasGradient(context) {
-      context.lib('dom');
-    },
+    CanvasGradient(context) {},
 
     /*
         declare class CanvasPattern {
           setTransform(matrix: SVGMatrix): void;
         }
         */
-    CanvasPattern(context) {
-      context.lib('dom');
-    },
+    CanvasPattern(context) {},
 
     /*
         declare class ImageBitmap {
@@ -2136,9 +1998,7 @@ export default {
           height: number;
         }
         */
-    ImageBitmap(context) {
-      context.lib('dom');
-    },
+    ImageBitmap(context) {},
 
     /*
         declare class HitRegionOptions {
@@ -2185,9 +2045,7 @@ export default {
           mRotate(angle: number): SVGMatrix;
         }
         */
-    SVGMatrix(context) {
-      context.lib('dom');
-    },
+    SVGMatrix(context) {},
 
     /*
         declare class TextMetrics {
@@ -2208,9 +2066,7 @@ export default {
           ideographicBaseline: number;
         }
         */
-    TextMetrics(context) {
-      context.lib('dom');
-    },
+    TextMetrics(context) {},
 
     /*
         declare class Path2D {
@@ -2237,9 +2093,7 @@ export default {
           rect(x: number, y: number, w: number, h: number): void;
         }
         */
-    Path2D(context) {
-      context.lib('dom');
-    },
+    Path2D(context) {},
 
     /*
         declare class ImageData {
@@ -2254,9 +2108,7 @@ export default {
           constructor(width: number, height: number): void;
         }
         */
-    ImageData(context) {
-      context.lib('dom');
-    },
+    ImageData(context) {},
 
     /*
         declare class CanvasRenderingContext2D {
@@ -2383,9 +2235,7 @@ export default {
           ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
         }
         */
-    CanvasRenderingContext2D(context) {
-      context.lib('dom');
-    },
+    CanvasRenderingContext2D(context) {},
 
     /*
         declare class WebGLRenderingContext {
@@ -3213,18 +3063,14 @@ export default {
           viewport(x: number, y: number, width: number, height: number): void;
         }
         */
-    WebGLRenderingContext(context) {
-      context.lib('dom');
-    },
+    WebGLRenderingContext(context) {},
 
     /*
         declare class WebGLContextEvent extends Event {
           statusMessage: string;
         }
         */
-    WebGLContextEvent(context) {
-      context.lib('dom');
-    },
+    WebGLContextEvent(context) {},
 
     /*
         declare class HTMLCanvasElement extends HTMLElement {
@@ -3240,18 +3086,14 @@ export default {
           captureStream(frameRate?: number): CanvasCaptureMediaStream;
         }
         */
-    HTMLCanvasElement(context) {
-      context.lib('dom');
-    },
+    HTMLCanvasElement(context) {},
 
     /*
         declare class HTMLDetailsElement extends HTMLElement {
           open: boolean;
         }
         */
-    HTMLDetailsElement(context) {
-      context.lib('dom');
-    },
+    HTMLDetailsElement(context) {},
 
     /*
         declare class HTMLFormElement extends HTMLElement {
@@ -3273,9 +3115,7 @@ export default {
           submit(): void;
         }
         */
-    HTMLFormElement(context) {
-      context.lib('dom');
-    },
+    HTMLFormElement(context) {},
 
     /*
         declare class HTMLFieldSetElement extends HTMLElement {
@@ -3289,18 +3129,14 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLFieldSetElement(context) {
-      context.lib('dom');
-    },
+    HTMLFieldSetElement(context) {},
 
     /*
         declare class HTMLLegendElement extends HTMLElement {
           form: HTMLFormElement | null; // readonly
         }
         */
-    HTMLLegendElement(context) {
-      context.lib('dom');
-    },
+    HTMLLegendElement(context) {},
 
     /*
         declare class HTMLIFrameElement extends HTMLElement {
@@ -3319,9 +3155,7 @@ export default {
           width: string;
         }
         */
-    HTMLIFrameElement(context) {
-      context.lib('dom');
-    },
+    HTMLIFrameElement(context) {},
 
     /*
         declare class HTMLImageElement extends HTMLElement {
@@ -3341,18 +3175,14 @@ export default {
           width: number;
         }
         */
-    HTMLImageElement(context) {
-      context.lib('dom');
-    },
+    HTMLImageElement(context) {},
 
     /*
         declare class Image extends HTMLImageElement {
           constructor(width?: number, height?: number): void;
         }
         */
-    Image(context) {
-      context.lib('dom');
-    },
+    Image(context) {},
 
     /*
         declare class MediaError {
@@ -3364,9 +3194,7 @@ export default {
           message: ?string;
         }
         */
-    MediaError(context) {
-      context.lib('dom');
-    },
+    MediaError(context) {},
 
     /*
         declare class TimeRanges {
@@ -3375,18 +3203,14 @@ export default {
           end(index: number): number;
         }
         */
-    TimeRanges(context) {
-      context.lib('dom');
-    },
+    TimeRanges(context) {},
 
     /*
         declare class Audio extends HTMLAudioElement {
           constructor(URLString?: string): void;
         }
         */
-    Audio(context) {
-      context.lib('dom');
-    },
+    Audio(context) {},
 
     /*
         declare class AudioTrack {
@@ -3460,9 +3284,7 @@ export default {
           onexit: (ev: any) => any;
         }
         */
-    TextTrackCue(context) {
-      context.lib('dom');
-    },
+    TextTrackCue(context) {},
 
     /*
         declare class TextTrackCueList {
@@ -3472,9 +3294,7 @@ export default {
           getCueById(id: string): ?TextTrackCue;
         }
         */
-    TextTrackCueList(context) {
-      context.lib('dom');
-    },
+    TextTrackCueList(context) {},
 
     /*
         declare class TextTrack extends EventTarget {
@@ -3493,9 +3313,7 @@ export default {
           oncuechange: (ev: any) => any;
         }
         */
-    TextTrack(context) {
-      context.lib('dom');
-    },
+    TextTrack(context) {},
 
     /*
         declare class TextTrackList extends EventTarget {
@@ -3506,9 +3324,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    TextTrackList(context) {
-      context.lib('dom');
-    },
+    TextTrackList(context) {},
 
     /*
         declare class MediaKeyStatusMap<BufferDataSource, MediaKeyStatus> {
@@ -3522,9 +3338,7 @@ export default {
           values(): Iterator<MediaKeyStatus>;
         }
         */
-    MediaKeyStatusMap(context) {
-      context.lib('dom');
-    },
+    MediaKeyStatusMap(context) {},
 
     /*
         declare class MediaKeySession extends EventTarget {
@@ -3543,9 +3357,7 @@ export default {
           onmessage: (ev: any) => any;
         }
         */
-    MediaKeySession(context) {
-      context.lib('dom');
-    },
+    MediaKeySession(context) {},
 
     /*
         declare class MediaKeys {
@@ -3553,9 +3365,7 @@ export default {
           setServerCertificate(serverCertificate: BufferDataSource): Promise<boolean>;
         }
         */
-    MediaKeys(context) {
-      context.lib('dom');
-    },
+    MediaKeys(context) {},
 
     /*
         declare class HTMLMediaElement extends HTMLElement {
@@ -3625,17 +3435,13 @@ export default {
           setMediakeys?: (mediakeys: ?MediaKeys) => Promise<?MediaKeys>;
         }
         */
-    HTMLMediaElement(context) {
-      context.lib('dom');
-    },
+    HTMLMediaElement(context) {},
 
     /*
         declare class HTMLAudioElement extends HTMLMediaElement {
         }
         */
-    HTMLAudioElement(context) {
-      context.lib('dom');
-    },
+    HTMLAudioElement(context) {},
 
     /*
         declare class HTMLVideoElement extends HTMLMediaElement {
@@ -3646,9 +3452,7 @@ export default {
           poster: string;
         }
         */
-    HTMLVideoElement(context) {
-      context.lib('dom');
-    },
+    HTMLVideoElement(context) {},
 
     /*
         declare class HTMLSourceElement extends HTMLElement {
@@ -3661,9 +3465,7 @@ export default {
             media: string;
         }
         */
-    HTMLSourceElement(context) {
-      context.lib('dom');
-    },
+    HTMLSourceElement(context) {},
 
     /*
         declare class ValidityState {
@@ -3680,9 +3482,7 @@ export default {
           valid: boolean;
         }
         */
-    ValidityState(context) {
-      context.lib('dom');
-    },
+    ValidityState(context) {},
 
     /*
         declare class HTMLInputElement extends HTMLElement {
@@ -3758,9 +3558,7 @@ export default {
           stepUp(stepIncrement?: number): void;
         }
         */
-    HTMLInputElement(context) {
-      context.lib('dom');
-    },
+    HTMLInputElement(context) {},
 
     /*
         declare class HTMLButtonElement extends HTMLElement {
@@ -3780,9 +3578,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLButtonElement(context) {
-      context.lib('dom');
-    },
+    HTMLButtonElement(context) {},
 
     /*
         declare class HTMLTextAreaElement extends HTMLElement {
@@ -3819,9 +3615,7 @@ export default {
           setSelectionRange(start: number, end: number, direction?: SelectionDirection): void;
         }
         */
-    HTMLTextAreaElement(context) {
-      context.lib('dom');
-    },
+    HTMLTextAreaElement(context) {},
 
     /*
         declare class HTMLSelectElement extends HTMLElement {
@@ -3852,9 +3646,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLSelectElement(context) {
-      context.lib('dom');
-    },
+    HTMLSelectElement(context) {},
 
     /*
         declare class HTMLOptionsCollection extends HTMLCollection<HTMLOptionElement> {
@@ -3863,9 +3655,7 @@ export default {
           remove(index: number): void;
         }
         */
-    HTMLOptionsCollection(context) {
-      context.lib('dom');
-    },
+    HTMLOptionsCollection(context) {},
 
     /*
         declare class HTMLOptionElement extends HTMLElement {
@@ -3879,9 +3669,7 @@ export default {
           value: string;
         }
         */
-    HTMLOptionElement(context) {
-      context.lib('dom');
-    },
+    HTMLOptionElement(context) {},
 
     /*
         declare class HTMLOptGroupElement extends HTMLElement {
@@ -3889,9 +3677,7 @@ export default {
           label: string;
         }
         */
-    HTMLOptGroupElement(context) {
-      context.lib('dom');
-    },
+    HTMLOptGroupElement(context) {},
 
     /*
         declare class HTMLAnchorElement extends HTMLElement {
@@ -3920,9 +3706,7 @@ export default {
           username: string;
         }
         */
-    HTMLAnchorElement(context) {
-      context.lib('dom');
-    },
+    HTMLAnchorElement(context) {},
 
     /*
         declare class HTMLLabelElement extends HTMLElement {
@@ -3931,9 +3715,7 @@ export default {
           control: HTMLElement | null;
         }
         */
-    HTMLLabelElement(context) {
-      context.lib('dom');
-    },
+    HTMLLabelElement(context) {},
 
     /*
         declare class HTMLLinkElement extends HTMLElement {
@@ -3947,9 +3729,7 @@ export default {
           as: string;
         }
         */
-    HTMLLinkElement(context) {
-      context.lib('dom');
-    },
+    HTMLLinkElement(context) {},
 
     /*
         declare class HTMLScriptElement extends HTMLElement {
@@ -3962,9 +3742,7 @@ export default {
           type: string;
         }
         */
-    HTMLScriptElement(context) {
-      context.lib('dom');
-    },
+    HTMLScriptElement(context) {},
 
     /*
         declare class HTMLStyleElement extends HTMLElement {
@@ -3975,88 +3753,64 @@ export default {
           type: string;
         }
         */
-    HTMLStyleElement(context) {
-      context.lib('dom');
-    },
+    HTMLStyleElement(context) {},
 
     /*
         declare class HTMLParagraphElement extends HTMLElement {
           align: 'left' | 'center' | 'right' | 'justify'; // deprecated in HTML 4.01
         }
         */
-    HTMLParagraphElement(context) {
-      context.lib('dom');
-    },
+    HTMLParagraphElement(context) {},
 
     /*
         declare class HTMLHtmlElement extends HTMLElement {}
         */
-    HTMLHtmlElement(context) {
-      context.lib('dom');
-    },
+    HTMLHtmlElement(context) {},
 
     /*
         declare class HTMLBodyElement extends HTMLElement {}
         */
-    HTMLBodyElement(context) {
-      context.lib('dom');
-    },
+    HTMLBodyElement(context) {},
 
     /*
         declare class HTMLHeadElement extends HTMLElement {}
         */
-    HTMLHeadElement(context) {
-      context.lib('dom');
-    },
+    HTMLHeadElement(context) {},
 
     /*
         declare class HTMLDivElement extends HTMLElement {}
         */
-    HTMLDivElement(context) {
-      context.lib('dom');
-    },
+    HTMLDivElement(context) {},
 
     /*
         declare class HTMLSpanElement extends HTMLElement {}
         */
-    HTMLSpanElement(context) {
-      context.lib('dom');
-    },
+    HTMLSpanElement(context) {},
 
     /*
         declare class HTMLAppletElement extends HTMLElement {}
         */
-    HTMLAppletElement(context) {
-      context.lib('dom');
-    },
+    HTMLAppletElement(context) {},
 
     /*
         declare class HTMLHeadingElement extends HTMLElement {}
         */
-    HTMLHeadingElement(context) {
-      context.lib('dom');
-    },
+    HTMLHeadingElement(context) {},
 
     /*
         declare class HTMLHRElement extends HTMLElement {}
         */
-    HTMLHRElement(context) {
-      context.lib('dom');
-    },
+    HTMLHRElement(context) {},
 
     /*
         declare class HTMLBRElement extends HTMLElement {}
         */
-    HTMLBRElement(context) {
-      context.lib('dom');
-    },
+    HTMLBRElement(context) {},
 
     /*
         declare class HTMLDListElement extends HTMLElement {}
         */
-    HTMLDListElement(context) {
-      context.lib('dom');
-    },
+    HTMLDListElement(context) {},
 
     /*
         declare class HTMLAreaElement extends HTMLElement {
@@ -4071,27 +3825,21 @@ export default {
           referrerPolicy: string;
         }
         */
-    HTMLAreaElement(context) {
-      context.lib('dom');
-    },
+    HTMLAreaElement(context) {},
 
     /*
         declare class HTMLDataElement extends HTMLElement {
           value: string;
         }
         */
-    HTMLDataElement(context) {
-      context.lib('dom');
-    },
+    HTMLDataElement(context) {},
 
     /*
         declare class HTMLDataListElement extends HTMLElement {
           options: HTMLCollection<HTMLOptionElement>;
         }
         */
-    HTMLDataListElement(context) {
-      context.lib('dom');
-    },
+    HTMLDataListElement(context) {},
 
     /*
         declare class HTMLDialogElement extends HTMLElement {
@@ -4102,9 +3850,7 @@ export default {
           close(returnValue: ?string): void;
         }
         */
-    HTMLDialogElement(context) {
-      context.lib('dom');
-    },
+    HTMLDialogElement(context) {},
 
     /*
         declare class HTMLEmbedElement extends HTMLElement {
@@ -4115,9 +3861,7 @@ export default {
           getSVGDocument(): ?Document;
         }
         */
-    HTMLEmbedElement(context) {
-      context.lib('dom');
-    },
+    HTMLEmbedElement(context) {},
 
     /*
         declare class HTMLMapElement extends HTMLElement {
@@ -4126,9 +3870,7 @@ export default {
           name: string;
         }
         */
-    HTMLMapElement(context) {
-      context.lib('dom');
-    },
+    HTMLMapElement(context) {},
 
     /*
         declare class HTMLMeterElement extends HTMLElement {
@@ -4141,9 +3883,7 @@ export default {
           labels: NodeList<HTMLLabelElement>;
         }
         */
-    HTMLMeterElement(context) {
-      context.lib('dom');
-    },
+    HTMLMeterElement(context) {},
 
     /*
         declare class HTMLModElement extends HTMLElement {
@@ -4151,9 +3891,7 @@ export default {
           dateTime: string;
         }
         */
-    HTMLModElement(context) {
-      context.lib('dom');
-    },
+    HTMLModElement(context) {},
 
     /*
         declare class HTMLObjectElement extends HTMLElement {
@@ -4176,9 +3914,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLObjectElement(context) {
-      context.lib('dom');
-    },
+    HTMLObjectElement(context) {},
 
     /*
         declare class HTMLOutputElement extends HTMLElement {
@@ -4197,9 +3933,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLOutputElement(context) {
-      context.lib('dom');
-    },
+    HTMLOutputElement(context) {},
 
     /*
         declare class HTMLParamElement extends HTMLElement {
@@ -4207,9 +3941,7 @@ export default {
           value: string;
         }
         */
-    HTMLParamElement(context) {
-      context.lib('dom');
-    },
+    HTMLParamElement(context) {},
 
     /*
         declare class HTMLProgressElement extends HTMLElement {
@@ -4219,34 +3951,26 @@ export default {
           value: number;
         }
         */
-    HTMLProgressElement(context) {
-      context.lib('dom');
-    },
+    HTMLProgressElement(context) {},
 
     /*
         declare class HTMLPictureElement extends HTMLElement {}
         */
-    HTMLPictureElement(context) {
-      context.lib('dom');
-    },
+    HTMLPictureElement(context) {},
 
     /*
         declare class HTMLTimeElement extends HTMLElement {
           dateTime: string;
         }
         */
-    HTMLTimeElement(context) {
-      context.lib('dom');
-    },
+    HTMLTimeElement(context) {},
 
     /*
         declare class HTMLTitleElement extends HTMLElement {
           text: string;
         }
         */
-    HTMLTitleElement(context) {
-      context.lib('dom');
-    },
+    HTMLTitleElement(context) {},
 
     /*
         declare class HTMLTrackElement extends HTMLElement {
@@ -4264,18 +3988,14 @@ export default {
           track: TextTrack;
         }
         */
-    HTMLTrackElement(context) {
-      context.lib('dom');
-    },
+    HTMLTrackElement(context) {},
 
     /*
         declare class HTMLQuoteElement extends HTMLElement {
           cite: string;
         }
         */
-    HTMLQuoteElement(context) {
-      context.lib('dom');
-    },
+    HTMLQuoteElement(context) {},
 
     /*
         declare class HTMLOListElement extends HTMLElement {
@@ -4284,32 +4004,24 @@ export default {
           type: string;
         }
         */
-    HTMLOListElement(context) {
-      context.lib('dom');
-    },
+    HTMLOListElement(context) {},
 
     /*
         declare class HTMLUListElement extends HTMLElement {}
         */
-    HTMLUListElement(context) {
-      context.lib('dom');
-    },
+    HTMLUListElement(context) {},
 
     /*
         declare class HTMLLIElement extends HTMLElement {
           value: number;
         }
         */
-    HTMLLIElement(context) {
-      context.lib('dom');
-    },
+    HTMLLIElement(context) {},
 
     /*
         declare class HTMLPreElement extends HTMLElement {}
         */
-    HTMLPreElement(context) {
-      context.lib('dom');
-    },
+    HTMLPreElement(context) {},
 
     /*
         declare class HTMLMetaElement extends HTMLElement {
@@ -4318,16 +4030,12 @@ export default {
           name: string;
         }
         */
-    HTMLMetaElement(context) {
-      context.lib('dom');
-    },
+    HTMLMetaElement(context) {},
 
     /*
         declare class HTMLUnknownElement extends HTMLElement {}
         */
-    HTMLUnknownElement(context) {
-      context.lib('dom');
-    },
+    HTMLUnknownElement(context) {},
 
     /*
         declare class TextRange {
@@ -4382,9 +4090,7 @@ export default {
           height: number;
         }
         */
-    ClientRect(context) {
-      context.lib('dom');
-    },
+    ClientRect(context) {},
 
     /*
         declare class ClientRectList { // extension
@@ -4394,9 +4100,7 @@ export default {
           [index: number]: ClientRect;
         }
         */
-    ClientRectList(context) {
-      context.lib('dom');
-    },
+    ClientRectList(context) {},
 
     /*
         declare class DOMImplementation {
@@ -4408,9 +4112,7 @@ export default {
           createHTMLDocument(title?: string): Document;
         }
         */
-    DOMImplementation(context) {
-      context.lib('dom');
-    },
+    DOMImplementation(context) {},
 
     /*
         declare class DocumentType extends Node {
@@ -4428,9 +4130,7 @@ export default {
           remove(): void;
         }
         */
-    DocumentType(context) {
-      context.lib('dom');
-    },
+    DocumentType(context) {},
 
     /*
         declare class CharacterData extends Node {
@@ -4449,9 +4149,7 @@ export default {
           remove(): void;
         }
         */
-    CharacterData(context) {
-      context.lib('dom');
-    },
+    CharacterData(context) {},
 
     /*
         declare class Text extends CharacterData {
@@ -4461,18 +4159,14 @@ export default {
           replaceWholeText(content: string): Text;
         }
         */
-    Text(context) {
-      context.lib('dom');
-    },
+    Text(context) {},
 
     /*
         declare class Comment extends CharacterData {
           text: string;
         }
         */
-    Comment(context) {
-      context.lib('dom');
-    },
+    Comment(context) {},
 
     /*
         declare class URL {
@@ -4495,9 +4189,7 @@ export default {
           username: string;
         }
         */
-    URL(context) {
-      context.lib('dom');
-    },
+    URL(context) {},
 
     /*
         declare class MediaSource extends EventTarget {
@@ -4512,9 +4204,7 @@ export default {
           static isTypeSupported(type: string): bool;
         }
         */
-    MediaSource(context) {
-      context.lib('dom');
-    },
+    MediaSource(context) {},
 
     /*
         declare class SourceBuffer extends EventTarget {
@@ -4537,9 +4227,7 @@ export default {
           trackDefaults: TrackDefaultList;
         }
         */
-    SourceBuffer(context) {
-      context.lib('dom');
-    },
+    SourceBuffer(context) {},
 
     /*
         declare class SourceBufferList extends EventTarget {
@@ -4548,9 +4236,7 @@ export default {
           length: number;
         }
         */
-    SourceBufferList(context) {
-      context.lib('dom');
-    },
+    SourceBufferList(context) {},
 
     /*
         declare class Storage {
@@ -4563,9 +4249,7 @@ export default {
           [name: string]: ?string;
         }
         */
-    Storage(context) {
-      context.lib('dom');
-    },
+    Storage(context) {},
 
     /*
         declare class TrackDefaultList {
@@ -4607,9 +4291,7 @@ export default {
           acceptNode: NodeFilterCallback;
         }
         */
-    NodeFilter(context) {
-      context.lib('dom');
-    },
+    NodeFilter(context) {},
 
     /*
         declare class NodeIterator<RootNodeT, WhatToShowT> {
@@ -4624,9 +4306,7 @@ export default {
           nextNode(): WhatToShowT | null;
         }
         */
-    NodeIterator(context) {
-      context.lib('dom');
-    },
+    NodeIterator(context) {},
 
     /*
         declare class TreeWalker<RootNodeT, WhatToShowT> {
@@ -4644,51 +4324,37 @@ export default {
           nextNode(): WhatToShowT | null;
         }
         */
-    TreeWalker(context) {
-      context.lib('dom');
-    },
+    TreeWalker(context) {},
 
     /*
         declare type WindowProxy = any;
         */
-    WindowProxy(context) {
-      context.lib('dom');
-    },
+    WindowProxy(context) {},
 
     /*
         declare function alert(message?: any): void;
         */
-    alert(context) {
-      context.lib('dom');
-    },
+    alert(context) {},
 
     /*
         declare function prompt(message?: any, value?: any): string;
         */
-    prompt(context) {
-      context.lib('dom');
-    },
+    prompt(context) {},
 
     /*
         declare function close(): void;
         */
-    close(context) {
-      context.lib('dom');
-    },
+    close(context) {},
 
     /*
         declare function confirm(message?: string): boolean;
         */
-    confirm(context) {
-      context.lib('dom');
-    },
+    confirm(context) {},
 
     /*
         declare function getComputedStyle(elt: Element, pseudoElt?: string): CSSStyleDeclaration;
         */
-    getComputedStyle(context) {
-      context.lib('dom');
-    },
+    getComputedStyle(context) {},
 
     /*
         declare opaque type AnimationFrameID;
@@ -4698,16 +4364,12 @@ export default {
     /*
         declare function requestAnimationFrame(callback: (timestamp: number) => void): AnimationFrameID;
         */
-    requestAnimationFrame(context) {
-      context.lib('dom');
-    },
+    requestAnimationFrame(context) {},
 
     /*
         declare function cancelAnimationFrame(requestId: AnimationFrameID): void;
         */
-    cancelAnimationFrame(context) {
-      context.lib('dom');
-    },
+    cancelAnimationFrame(context) {},
 
     /*
         declare opaque type IdleCallbackID;
@@ -4734,93 +4396,67 @@ export default {
     /*
         declare var localStorage: Storage;
         */
-    localStorage(context) {
-      context.lib('dom');
-    },
+    localStorage(context) {},
 
     /*
         declare function focus(): void;
         */
-    focus(context) {
-      context.lib('dom');
-    },
+    focus(context) {},
 
     /*
         declare function onfocus(ev: Event): any;
         */
-    onfocus(context) {
-      context.lib('dom');
-    },
+    onfocus(context) {},
 
     /*
         declare function onmessage(ev: MessageEvent): any;
         */
-    onmessage(context) {
-      context.lib('dom');
-    },
+    onmessage(context) {},
 
     /*
         declare function open(url?: string, target?: string, features?: string, replace?: boolean): any;
         */
-    open(context) {
-      context.lib('dom');
-    },
+    open(context) {},
 
     /*
         declare var parent: WindowProxy;
         */
-    parent(context) {
-      context.lib('dom');
-    },
+    parent(context) {},
 
     /*
         declare function print(): void;
         */
-    print(context) {
-      context.lib('dom');
-    },
+    print(context) {},
 
     /*
         declare var self: any;
         */
-    self(context) {
-      context.lib('dom');
-    },
+    self(context) {},
 
     /*
         declare var sessionStorage: Storage;
         */
-    sessionStorage(context) {
-      context.lib('dom');
-    },
+    sessionStorage(context) {},
 
     /*
         declare var status: string;
         */
-    status(context) {
-      context.lib('dom');
-    },
+    status(context) {},
 
     /*
         declare var top: WindowProxy;
         */
-    top(context) {
-      context.lib('dom');
-    },
+    top(context) {},
 
     /*
         declare function getSelection(): Selection | null;
         */
-    getSelection(context) {
-      context.lib('dom');
-    },
+    getSelection(context) {},
 
     /*
         declare var customElements: CustomElementRegistry;
         */
-    customElements(context) {
-      context.lib('dom');
-    },
+    customElements(context) {},
 
     /*
         declare function scroll(x: number, y: number): void;
@@ -4828,9 +4464,7 @@ export default {
     /*
         declare function scroll(options: ScrollToOptions): void;
         */
-    scroll(context) {
-      context.lib('dom');
-    },
+    scroll(context) {},
 
     /*
         declare function scrollTo(x: number, y: number): void;
@@ -4838,9 +4472,7 @@ export default {
     /*
         declare function scrollTo(options: ScrollToOptions): void;
         */
-    scrollTo(context) {
-      context.lib('dom');
-    },
+    scrollTo(context) {},
 
     /*
         declare function scrollBy(x: number, y: number): void;
@@ -4848,9 +4480,7 @@ export default {
     /*
         declare function scrollBy(options: ScrollToOptions): void;
         */
-    scrollBy(context) {
-      context.lib('dom');
-    },
+    scrollBy(context) {},
 
     /*
         declare class Notification extends EventTarget {
@@ -4883,9 +4513,7 @@ export default {
           close(): void;
         }
         */
-    Notification(context) {
-      context.lib('dom');
-    },
+    Notification(context) {},
   },
 
   modules: {},

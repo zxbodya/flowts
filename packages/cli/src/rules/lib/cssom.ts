@@ -13,9 +13,7 @@ export default {
           +type: string;
         }
         */
-    StyleSheet(context) {
-      context.lib('dom');
-    },
+    StyleSheet(context) {},
 
     /*
         declare class StyleSheetList {
@@ -24,9 +22,7 @@ export default {
           [index: number]: StyleSheet;
         }
         */
-    StyleSheetList(context) {
-      context.lib('dom');
-    },
+    StyleSheetList(context) {},
 
     /*
         declare class MediaList {
@@ -39,9 +35,7 @@ export default {
           [index: number]: string;
         }
         */
-    MediaList(context) {
-      context.lib('dom');
-    },
+    MediaList(context) {},
 
     /*
         declare class CSSStyleSheet extends StyleSheet {
@@ -51,9 +45,7 @@ export default {
           insertRule(rule: string, index: number): number;
         }
         */
-    CSSStyleSheet(context) {
-      context.lib('dom');
-    },
+    CSSStyleSheet(context) {},
 
     /*
         declare class CSSGroupingRule extends CSSRule {
@@ -62,27 +54,21 @@ export default {
           insertRule(rule: string, index: number): number;
         }
         */
-    CSSGroupingRule(context) {
-      context.lib('dom');
-    },
+    CSSGroupingRule(context) {},
 
     /*
         declare class CSSConditionRule extends CSSGroupingRule {
           conditionText: string;
         }
         */
-    CSSConditionRule(context) {
-      context.lib('dom');
-    },
+    CSSConditionRule(context) {},
 
     /*
         declare class CSSMediaRule extends CSSConditionRule {
           +media: MediaList;
         }
         */
-    CSSMediaRule(context) {
-      context.lib('dom');
-    },
+    CSSMediaRule(context) {},
 
     /*
         declare class CSSStyleRule extends CSSRule {
@@ -90,9 +76,7 @@ export default {
           +style: CSSStyleDeclaration;
         }
         */
-    CSSStyleRule(context) {
-      context.lib('dom');
-    },
+    CSSStyleRule(context) {},
 
     /*
         declare class CSSRule {
@@ -118,9 +102,7 @@ export default {
           static REGION_STYLE_RULE: number;
         }
         */
-    CSSRule(context) {
-      context.lib('dom');
-    },
+    CSSRule(context) {},
 
     /*
         declare class CSSKeyframeRule extends CSSRule {
@@ -128,9 +110,7 @@ export default {
           +style: CSSStyleDeclaration;
         }
         */
-    CSSKeyframeRule(context) {
-      context.lib('dom');
-    },
+    CSSKeyframeRule(context) {},
 
     /*
         declare class CSSKeyframesRule extends CSSRule {
@@ -141,9 +121,7 @@ export default {
           findRule(select: string): CSSKeyframeRule | null;
         }
         */
-    CSSKeyframesRule(context) {
-      context.lib('dom');
-    },
+    CSSKeyframesRule(context) {},
 
     /*
         declare class CSSRuleList {
@@ -153,9 +131,7 @@ export default {
           [index: number]: CSSRule;
         }
         */
-    CSSRuleList(context) {
-      context.lib('dom');
-    },
+    CSSRuleList(context) {},
 
     /*
         declare class CSSStyleDeclaration {
@@ -471,9 +447,7 @@ export default {
           setPropertyPriority(property: string, priority: string): void;
         }
         */
-    CSSStyleDeclaration(context) {
-      context.lib('dom');
-    },
+    CSSStyleDeclaration(context) {},
 
     /*
         declare class TransitionEvent extends Event {
@@ -482,27 +456,21 @@ export default {
           propertyName: string; // readonly
         }
         */
-    TransitionEvent(context) {
-      context.lib('dom');
-    },
+    TransitionEvent(context) {},
 
     /*
         declare class AnimationTimeline {
           +currentTime: number | null;
         }
         */
-    AnimationTimeline(context) {
-      context.lib('dom');
-    },
+    AnimationTimeline(context) {},
 
     /*
         declare class DocumentTimeline extends AnimationTimeline {
           constructor(options?: DocumentTimelineOptions): void;
         }
         */
-    DocumentTimeline(context) {
-      context.lib('dom');
-    },
+    DocumentTimeline(context) {},
 
     /*
         declare class AnimationEffect {
@@ -511,9 +479,7 @@ export default {
           updateTiming(timing?: OptionalEffectTiming): void;
         }
         */
-    AnimationEffect(context) {
-      context.lib('dom');
-    },
+    AnimationEffect(context) {},
 
     /*
         declare class KeyframeEffect extends AnimationEffect {
@@ -531,9 +497,7 @@ export default {
           setKeyframes(keyframes: Keyframe[] | PropertyIndexedKeyframes | null): void;
         }
         */
-    KeyframeEffect(context) {
-      context.lib('dom');
-    },
+    KeyframeEffect(context) {},
 
     /*
         declare class Animation extends EventTarget {
@@ -563,9 +527,7 @@ export default {
           commitStyles(): void;
         }
         */
-    Animation(context) {
-      context.lib('dom');
-    },
+    Animation(context) {},
 
     /*
         declare class AnimationPlaybackEvent extends Event {
@@ -574,9 +536,7 @@ export default {
           +timelineTime: number | null;
         }
         */
-    AnimationPlaybackEvent(context) {
-      context.lib('dom');
-    },
+    AnimationPlaybackEvent(context) {},
   },
 
   modules: {},

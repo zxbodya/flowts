@@ -7,9 +7,7 @@ export default {
           encode(buffer: string, options?: TextEncodeOptions): Uint8Array,
         }
         */
-    TextEncoder(context) {
-      context.lib('dom');
-    },
+    TextEncoder(context) {},
 
     /*
         declare class ReadableStreamController {
@@ -27,9 +25,7 @@ export default {
           error(error: Error): void,
         }
         */
-    ReadableStreamController(context) {
-      context.lib('dom');
-    },
+    ReadableStreamController(context) {},
 
     /*
         declare class ReadableStreamBYOBRequest {
@@ -71,9 +67,7 @@ export default {
           releaseLock(): void,
         }
         */
-    ReadableStreamReader(context) {
-      context.lib('dom');
-    },
+    ReadableStreamReader(context) {},
 
     /*
         declare interface UnderlyingSource {
@@ -85,9 +79,7 @@ export default {
           cancel?: (reason: string) => ?Promise<void>,
         }
         */
-    UnderlyingSource(context) {
-      context.lib('dom');
-    },
+    UnderlyingSource(context) {},
 
     /*
         declare class TransformStream {
@@ -95,9 +87,7 @@ export default {
           writable: WritableStream,
         }
         */
-    TransformStream(context) {
-      context.lib('dom');
-    },
+    TransformStream(context) {},
 
     /*
         declare class ReadableStream {
@@ -115,9 +105,7 @@ export default {
           tee(): [ReadableStream, ReadableStream],
         }
         */
-    ReadableStream(context) {
-      context.lib('dom');
-    },
+    ReadableStream(context) {},
 
     /*
         declare interface WritableStreamController {
@@ -137,9 +125,7 @@ export default {
           write?: (chunk: any, controller: WritableStreamController) => ?Promise<void>,
         }
         */
-    UnderlyingSink(context) {
-      context.lib('dom');
-    },
+    UnderlyingSink(context) {},
 
     /*
         declare interface WritableStreamWriter {
@@ -168,9 +154,7 @@ export default {
           getWriter(): WritableStreamWriter,
         }
         */
-    WritableStream(context) {
-      context.lib('dom');
-    },
+    WritableStream(context) {},
   },
 
   modules: {},

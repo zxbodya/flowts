@@ -29,23 +29,17 @@ export default {
           onmozorientationchange?: (...args: any[]) => mixed;
         }
         */
-    Screen(context) {
-      context.lib('dom');
-    },
+    Screen(context) {},
 
     /*
         declare var screen: Screen;
         */
-    screen(context) {
-      context.lib('dom');
-    },
+    screen(context) {},
 
     /*
         declare var window: any;
         */
-    window(context) {
-      context.lib('dom');
-    },
+    window(context) {},
 
     /*
         declare class PermissionStatus extends EventTarget {
@@ -53,9 +47,7 @@ export default {
           +state: PermissionState;
         }
         */
-    PermissionStatus(context) {
-      context.lib('dom');
-    },
+    PermissionStatus(context) {},
 
     /*
         declare class Permissions {
@@ -69,9 +61,7 @@ export default {
           ): Promise<PermissionStatus>;
         }
         */
-    Permissions(context) {
-      context.lib('dom');
-    },
+    Permissions(context) {},
 
     /*
         declare class MIDIMessageEvent extends Event {
@@ -150,9 +140,7 @@ export default {
             userAgent: string;
         }
         */
-    NavigatorID(context) {
-      context.lib('dom');
-    },
+    NavigatorID(context) {},
 
     /*
         declare class NavigatorLanguage {
@@ -160,9 +148,7 @@ export default {
             +languages: $ReadOnlyArray<string>;
         }
         */
-    NavigatorLanguage(context) {
-      context.lib('dom');
-    },
+    NavigatorLanguage(context) {},
 
     /*
         declare class NavigatorContentUtils {
@@ -170,18 +156,14 @@ export default {
             registerProtocolHandler(protocol: string, uri: string, title: string): void;
         }
         */
-    NavigatorContentUtils(context) {
-      context.lib('dom');
-    },
+    NavigatorContentUtils(context) {},
 
     /*
         declare class NavigatorCookies {
             +cookieEnabled: boolean;
         }
         */
-    NavigatorCookies(context) {
-      context.lib('dom');
-    },
+    NavigatorCookies(context) {},
 
     /*
         declare class NavigatorPlugins {
@@ -190,27 +172,21 @@ export default {
             javaEnabled(): boolean;
         }
         */
-    NavigatorPlugins(context) {
-      context.lib('dom');
-    },
+    NavigatorPlugins(context) {},
 
     /*
         declare class NavigatorOnLine {
             +onLine: boolean;
         }
         */
-    NavigatorOnLine(context) {
-      context.lib('dom');
-    },
+    NavigatorOnLine(context) {},
 
     /*
         declare class NavigatorConcurrentHardware {
             +hardwareConcurrency: number;
         }
         */
-    NavigatorConcurrentHardware(context) {
-      context.lib('dom');
-    },
+    NavigatorConcurrentHardware(context) {},
 
     /*
         declare class Navigator mixins
@@ -268,9 +244,7 @@ export default {
             oscpu: string;
         }
         */
-    Navigator(context) {
-      context.lib('dom');
-    },
+    Navigator(context) {},
 
     /*
         declare class Clipboard extends EventTarget {
@@ -280,16 +254,12 @@ export default {
             writeText(data: string): Promise<void>;
         }
         */
-    Clipboard(context) {
-      context.lib('dom');
-    },
+    Clipboard(context) {},
 
     /*
         declare var navigator: Navigator;
         */
-    navigator(context) {
-      context.lib('dom');
-    },
+    navigator(context) {},
 
     /*
         declare class MimeType {
@@ -299,9 +269,7 @@ export default {
             enabledPlugin: Plugin;
         }
         */
-    MimeType(context) {
-      context.lib('dom');
-    },
+    MimeType(context) {},
 
     /*
         declare class MimeTypeArray {
@@ -311,9 +279,7 @@ export default {
             [key: number | string]: MimeType;
         }
         */
-    MimeTypeArray(context) {
-      context.lib('dom');
-    },
+    MimeTypeArray(context) {},
 
     /*
         declare class Plugin {
@@ -327,9 +293,7 @@ export default {
             [key: number | string]: MimeType;
         }
         */
-    Plugin(context) {
-      context.lib('dom');
-    },
+    Plugin(context) {},
 
     /*
         declare class PluginArray {
@@ -340,16 +304,12 @@ export default {
             [key: number | string]: Plugin;
         }
         */
-    PluginArray(context) {
-      context.lib('dom');
-    },
+    PluginArray(context) {},
 
     /*
         declare type DOMHighResTimeStamp = number;
         */
-    DOMHighResTimeStamp(context) {
-      context.lib('dom');
-    },
+    DOMHighResTimeStamp(context) {},
 
     /*
         declare class PerformanceTiming {
@@ -376,9 +336,7 @@ export default {
             unloadEventStart: number;
         }
         */
-    PerformanceTiming(context) {
-      context.lib('dom');
-    },
+    PerformanceTiming(context) {},
 
     /*
         declare class PerformanceNavigation {
@@ -391,9 +349,7 @@ export default {
             redirectCount: number;
         }
         */
-    PerformanceNavigation(context) {
-      context.lib('dom');
-    },
+    PerformanceNavigation(context) {},
 
     /*
         declare class PerformanceEntry {
@@ -404,9 +360,7 @@ export default {
             toJSON(): string;
         }
         */
-    PerformanceEntry(context) {
-      context.lib('dom');
-    },
+    PerformanceEntry(context) {},
 
     /*
         declare class PerformanceResourceTiming extends PerformanceEntry {
@@ -429,9 +383,7 @@ export default {
             decodedBodySize: number;
         }
         */
-    PerformanceResourceTiming(context) {
-      context.lib('dom');
-    },
+    PerformanceResourceTiming(context) {},
 
     /*
         declare class PerformanceNavigationTiming extends PerformanceResourceTiming {
@@ -447,9 +399,7 @@ export default {
             redirectCount: number;
         }
         */
-    PerformanceNavigationTiming(context) {
-      context.lib('dom');
-    },
+    PerformanceNavigationTiming(context) {},
 
     /*
         declare class Performance {
@@ -471,16 +421,12 @@ export default {
             toJSON(): string;
         }
         */
-    Performance(context) {
-      context.lib('dom');
-    },
+    Performance(context) {},
 
     /*
         declare var performance: Performance;
         */
-    performance(context) {
-      context.lib('dom');
-    },
+    performance(context) {},
 
     /*
         declare interface PerformanceObserverEntryList {
@@ -489,9 +435,7 @@ export default {
           getEntriesByName(name: string, type: ?string): PerformanceEntryList;
         }
         */
-    PerformanceObserverEntryList(context) {
-      context.lib('dom');
-    },
+    PerformanceObserverEntryList(context) {},
 
     /*
         declare class PerformanceObserver {
@@ -504,9 +448,7 @@ export default {
           static supportedEntryTypes: string[];
         }
         */
-    PerformanceObserver(context) {
-      context.lib('dom');
-    },
+    PerformanceObserver(context) {},
 
     /*
         declare class History {
@@ -520,16 +462,12 @@ export default {
             replaceState(statedata: any, title: string, url?: string): void;
         }
         */
-    History(context) {
-      context.lib('dom');
-    },
+    History(context) {},
 
     /*
         declare var history: History;
         */
-    history(context) {
-      context.lib('dom');
-    },
+    history(context) {},
 
     /*
         declare class Location {
@@ -549,25 +487,19 @@ export default {
             toString(): string;
         }
         */
-    Location(context) {
-      context.lib('dom');
-    },
+    Location(context) {},
 
     /*
         declare var location: Location;
         */
-    location(context) {
-      context.lib('dom');
-    },
+    location(context) {},
 
     /*
         declare class DOMParser {
             parseFromString(source: string, mimeType: string): Document;
         }
         */
-    DOMParser(context) {
-      context.lib('dom');
-    },
+    DOMParser(context) {},
 
     /*
         declare class FormData {
@@ -592,9 +524,7 @@ export default {
             entries(): Iterator<[string, FormDataEntryValue]>;
         }
         */
-    FormData(context) {
-      context.lib('dom');
-    },
+    FormData(context) {},
 
     /*
         declare class MutationRecord {
@@ -609,9 +539,7 @@ export default {
             oldValue: ?string;
         }
         */
-    MutationRecord(context) {
-      context.lib('dom');
-    },
+    MutationRecord(context) {},
 
     /*
         declare type MutationObserverInit = MutationObserverInitRequired & {
@@ -622,9 +550,7 @@ export default {
           ...
         }
         */
-    MutationObserverInit(context) {
-      context.lib('dom');
-    },
+    MutationObserverInit(context) {},
 
     /*
         declare class MutationObserver {
@@ -634,9 +560,7 @@ export default {
             disconnect(): void;
         }
         */
-    MutationObserver(context) {
-      context.lib('dom');
-    },
+    MutationObserver(context) {},
 
     /*
         declare class DOMRectReadOnly {
@@ -658,9 +582,7 @@ export default {
           +y: number;
         }
         */
-    DOMRectReadOnly(context) {
-      context.lib('dom');
-    },
+    DOMRectReadOnly(context) {},
 
     /*
         declare class DOMRect extends DOMRectReadOnly {
@@ -681,9 +603,7 @@ export default {
           y: number;
         }
         */
-    DOMRect(context) {
-      context.lib('dom');
-    },
+    DOMRect(context) {},
 
     /*
         declare class DOMRectList {
@@ -693,9 +613,7 @@ export default {
           [index: number]: DOMRect;
         }
         */
-    DOMRectList(context) {
-      context.lib('dom');
-    },
+    DOMRectList(context) {},
 
     /*
         declare type IntersectionObserverEntry = {
@@ -709,9 +627,7 @@ export default {
           ...
         };
         */
-    IntersectionObserverEntry(context) {
-      context.lib('dom');
-    },
+    IntersectionObserverEntry(context) {},
 
     /*
         declare type IntersectionObserverCallback = (
@@ -719,9 +635,7 @@ export default {
             observer: IntersectionObserver,
         ) => mixed;
         */
-    IntersectionObserverCallback(context) {
-      context.lib('dom');
-    },
+    IntersectionObserverCallback(context) {},
 
     /*
         declare type IntersectionObserverOptions = {
@@ -745,9 +659,7 @@ export default {
             disconnect(): void,
         }
         */
-    IntersectionObserver(context) {
-      context.lib('dom');
-    },
+    IntersectionObserver(context) {},
 
     /*
         declare class ResizeObserverEntry {
@@ -755,9 +667,7 @@ export default {
             contentRect: DOMRectReadOnly;
         }
         */
-    ResizeObserverEntry(context) {
-      context.lib('dom');
-    },
+    ResizeObserverEntry(context) {},
 
     /*
         declare class ResizeObserver {
@@ -767,9 +677,7 @@ export default {
             disconnect(): void;
         }
         */
-    ResizeObserver(context) {
-      context.lib('dom');
-    },
+    ResizeObserver(context) {},
 
     /*
         declare var NodeFilter: {
@@ -793,9 +701,7 @@ export default {
           ...
         };
         */
-    NodeFilter(context) {
-      context.lib('dom');
-    },
+    NodeFilter(context) {},
 
     /*
         declare class CloseEvent extends Event {
@@ -804,9 +710,7 @@ export default {
             wasClean: boolean;
         }
         */
-    CloseEvent(context) {
-      context.lib('dom');
-    },
+    CloseEvent(context) {},
 
     /*
         declare class WebSocket extends EventTarget {
@@ -836,9 +740,7 @@ export default {
             CLOSED: 3;
         }
         */
-    WebSocket(context) {
-      context.lib('dom');
-    },
+    WebSocket(context) {},
 
     /*
         declare class Worker extends EventTarget {
@@ -850,9 +752,7 @@ export default {
             terminate(): void;
         }
         */
-    Worker(context) {
-      context.lib('dom');
-    },
+    Worker(context) {},
 
     /*
         declare class SharedWorker extends EventTarget {
@@ -862,16 +762,12 @@ export default {
             onerror: (ev: any) => mixed;
         }
         */
-    SharedWorker(context) {
-      context.lib('dom');
-    },
+    SharedWorker(context) {},
 
     /*
         declare function importScripts(...urls: Array<string>): void;
         */
-    importScripts(context) {
-      context.lib('webworker');
-    },
+    importScripts(context) {},
 
     /*
         declare class WorkerGlobalScope extends EventTarget {
@@ -888,9 +784,7 @@ export default {
             onunhandledrejection: (ev: PromiseRejectionEvent) => mixed;
         }
         */
-    WorkerGlobalScope(context) {
-      context.lib('webworker');
-    },
+    WorkerGlobalScope(context) {},
 
     /*
         declare class DedicatedWorkerGlobalScope extends WorkerGlobalScope {
@@ -899,9 +793,7 @@ export default {
             postMessage(message: any, transfer?: Iterable<any>): void;
         }
         */
-    DedicatedWorkerGlobalScope(context) {
-      context.lib('webworker');
-    },
+    DedicatedWorkerGlobalScope(context) {},
 
     /*
         declare class SharedWorkerGlobalScope extends WorkerGlobalScope {
@@ -909,9 +801,7 @@ export default {
             onconnect: (ev: MessageEvent) => mixed;
         }
         */
-    SharedWorkerGlobalScope(context) {
-      context.lib('webworker');
-    },
+    SharedWorkerGlobalScope(context) {},
 
     /*
         declare class WorkerLocation {
@@ -925,9 +815,7 @@ export default {
             hash: string;
         }
         */
-    WorkerLocation(context) {
-      context.lib('webworker');
-    },
+    WorkerLocation(context) {},
 
     /*
         declare class WorkerNavigator mixins
@@ -938,9 +826,7 @@ export default {
             permissions: Permissions;
           }
         */
-    WorkerNavigator(context) {
-      context.lib('webworker');
-    },
+    WorkerNavigator(context) {},
 
     /*
         declare class XDomainRequest {
@@ -1005,9 +891,7 @@ export default {
             statics: { create(): XMLHttpRequest, ... }
         }
         */
-    XMLHttpRequest(context) {
-      context.lib('dom');
-    },
+    XMLHttpRequest(context) {},
 
     /*
         declare class XMLHttpRequestEventTarget extends EventTarget {
@@ -1020,18 +904,14 @@ export default {
             onloadend: ProgressEventHandler;
         }
         */
-    XMLHttpRequestEventTarget(context) {
-      context.lib('dom');
-    },
+    XMLHttpRequestEventTarget(context) {},
 
     /*
         declare class XMLSerializer {
             serializeToString(target: Node): string;
         }
         */
-    XMLSerializer(context) {
-      context.lib('dom');
-    },
+    XMLSerializer(context) {},
 
     /*
         declare class Geolocation {
@@ -1048,9 +928,7 @@ export default {
             clearWatch(id: number): void;
         }
         */
-    Geolocation(context) {
-      context.lib('dom');
-    },
+    Geolocation(context) {},
 
     /*
         declare class Position {
@@ -1093,9 +971,7 @@ export default {
           +outputBuffer: AudioBuffer;
         }
         */
-    AudioProcessingEvent(context) {
-      context.lib('dom');
-    },
+    AudioProcessingEvent(context) {},
 
     /*
         declare class OfflineAudioCompletionEvent extends Event {
@@ -1104,9 +980,7 @@ export default {
           +renderedBuffer: AudioBuffer;
         }
         */
-    OfflineAudioCompletionEvent(context) {
-      context.lib('dom');
-    },
+    OfflineAudioCompletionEvent(context) {},
 
     /*
         declare class BaseAudioContext extends EventTarget {
@@ -1145,9 +1019,7 @@ export default {
           decodeAudioData(arrayBuffer: ArrayBuffer): Promise<AudioBuffer>;
         }
         */
-    BaseAudioContext(context) {
-      context.lib('dom');
-    },
+    BaseAudioContext(context) {},
 
     /*
         declare class AudioTimestamp {
@@ -1155,9 +1027,7 @@ export default {
           performanceTime: number;
         }
         */
-    AudioTimestamp(context) {
-      context.lib('dom');
-    },
+    AudioTimestamp(context) {},
 
     /*
         declare class AudioContext extends BaseAudioContext {
@@ -1173,9 +1043,7 @@ export default {
           createMediaStreamDestination(): MediaStreamAudioDestinationNode;
         }
         */
-    AudioContext(context) {
-      context.lib('dom');
-    },
+    AudioContext(context) {},
 
     /*
         declare class OfflineAudioContext extends BaseAudioContext {
@@ -1185,9 +1053,7 @@ export default {
           oncomplete: (ev: OfflineAudioCompletionEvent) => mixed;
         }
         */
-    OfflineAudioContext(context) {
-      context.lib('dom');
-    },
+    OfflineAudioContext(context) {},
 
     /*
         declare class AudioNode extends EventTarget {
@@ -1202,9 +1068,7 @@ export default {
           disconnect(destination?: AudioNode, output?: number, input?: number): void;
         }
         */
-    AudioNode(context) {
-      context.lib('dom');
-    },
+    AudioNode(context) {},
 
     /*
         declare class AudioParam extends AudioNode {
@@ -1218,18 +1082,14 @@ export default {
           cancelScheduledValues(startTime: number): this;
         }
         */
-    AudioParam(context) {
-      context.lib('dom');
-    },
+    AudioParam(context) {},
 
     /*
         declare class AudioDestinationNode extends AudioNode {
           maxChannelCount: number;
         }
         */
-    AudioDestinationNode(context) {
-      context.lib('dom');
-    },
+    AudioDestinationNode(context) {},
 
     /*
         declare class AudioListener extends AudioNode {
@@ -1246,9 +1106,7 @@ export default {
           setOrientation(x: number, y: number, z: number, xUp: number, yUp: number, zUp: number): void;
         }
         */
-    AudioListener(context) {
-      context.lib('dom');
-    },
+    AudioListener(context) {},
 
     /*
         declare class AudioBuffer {
@@ -1261,9 +1119,7 @@ export default {
           copyToChannel(source: Float32Array, channelNumber: number, startInChannel?: number): void;
         }
         */
-    AudioBuffer(context) {
-      context.lib('dom');
-    },
+    AudioBuffer(context) {},
 
     /*
         declare class AudioBufferSourceNode extends AudioNode {
@@ -1278,9 +1134,7 @@ export default {
           stop(when?: number): void;
         }
         */
-    AudioBufferSourceNode(context) {
-      context.lib('dom');
-    },
+    AudioBufferSourceNode(context) {},
 
     /*
         declare class CanvasCaptureMediaStream extends MediaStream {
@@ -1299,9 +1153,7 @@ export default {
           getUserMedia: (constraints: MediaStreamConstraints) => Promise<MediaStream>;
         }
         */
-    MediaDevices(context) {
-      context.lib('dom');
-    },
+    MediaDevices(context) {},
 
     /*
         declare class MediaDeviceInfo {
@@ -1311,9 +1163,7 @@ export default {
           +label: string;
         }
         */
-    MediaDeviceInfo(context) {
-      context.lib('dom');
-    },
+    MediaDeviceInfo(context) {},
 
     /*
         declare class MediaRecorder extends EventTarget {
@@ -1363,9 +1213,7 @@ export default {
           removeTrack(track: MediaStreamTrack): void;
         }
         */
-    MediaStream(context) {
-      context.lib('dom');
-    },
+    MediaStream(context) {},
 
     /*
         declare class MediaStreamTrack extends EventTarget {
@@ -1390,48 +1238,36 @@ export default {
           stop(): void;
         }
         */
-    MediaStreamTrack(context) {
-      context.lib('dom');
-    },
+    MediaStreamTrack(context) {},
 
     /*
         declare class MediaStreamTrackEvent extends Event {
           track: MediaStreamTrack;
         }
         */
-    MediaStreamTrackEvent(context) {
-      context.lib('dom');
-    },
+    MediaStreamTrackEvent(context) {},
 
     /*
         declare class MediaElementAudioSourceNode extends AudioNode {}
         */
-    MediaElementAudioSourceNode(context) {
-      context.lib('dom');
-    },
+    MediaElementAudioSourceNode(context) {},
 
     /*
         declare class MediaStreamAudioSourceNode extends AudioNode {}
         */
-    MediaStreamAudioSourceNode(context) {
-      context.lib('dom');
-    },
+    MediaStreamAudioSourceNode(context) {},
 
     /*
         declare class MediaStreamTrackAudioSourceNode extends AudioNode {}
         */
-    MediaStreamTrackAudioSourceNode(context) {
-      context.lib('dom');
-    },
+    MediaStreamTrackAudioSourceNode(context) {},
 
     /*
         declare class MediaStreamAudioDestinationNode extends AudioNode {
           stream: MediaStream;
         }
         */
-    MediaStreamAudioDestinationNode(context) {
-      context.lib('dom');
-    },
+    MediaStreamAudioDestinationNode(context) {},
 
     /*
         declare class ScriptProcessorNode extends AudioNode {
@@ -1439,9 +1275,7 @@ export default {
           onaudioprocess: (ev: AudioProcessingEvent) => mixed;
         }
         */
-    ScriptProcessorNode(context) {
-      context.lib('dom');
-    },
+    ScriptProcessorNode(context) {},
 
     /*
         declare class AnalyserNode extends AudioNode {
@@ -1456,9 +1290,7 @@ export default {
           getByteTimeDomainData(array: Uint8Array): Uint8Array;
         }
         */
-    AnalyserNode(context) {
-      context.lib('dom');
-    },
+    AnalyserNode(context) {},
 
     /*
         declare class BiquadFilterNode extends AudioNode {
@@ -1470,23 +1302,17 @@ export default {
           getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array): void;
         }
         */
-    BiquadFilterNode(context) {
-      context.lib('dom');
-    },
+    BiquadFilterNode(context) {},
 
     /*
         declare class ChannelMergerNode extends AudioNode {}
         */
-    ChannelMergerNode(context) {
-      context.lib('dom');
-    },
+    ChannelMergerNode(context) {},
 
     /*
         declare class ChannelSplitterNode extends AudioNode {}
         */
-    ChannelSplitterNode(context) {
-      context.lib('dom');
-    },
+    ChannelSplitterNode(context) {},
 
     /*
         declare class ConstantSourceNode extends AudioNode {
@@ -1497,9 +1323,7 @@ export default {
           stop(when?: number): void;
         }
         */
-    ConstantSourceNode(context) {
-      context.lib('dom');
-    },
+    ConstantSourceNode(context) {},
 
     /*
         declare class ConvolverNode extends AudioNode {
@@ -1507,18 +1331,14 @@ export default {
           normalize: bool;
         }
         */
-    ConvolverNode(context) {
-      context.lib('dom');
-    },
+    ConvolverNode(context) {},
 
     /*
         declare class DelayNode extends AudioNode {
           delayTime: number;
         }
         */
-    DelayNode(context) {
-      context.lib('dom');
-    },
+    DelayNode(context) {},
 
     /*
         declare class DynamicsCompressorNode extends AudioNode {
@@ -1530,27 +1350,21 @@ export default {
           release: AudioParam;
         }
         */
-    DynamicsCompressorNode(context) {
-      context.lib('dom');
-    },
+    DynamicsCompressorNode(context) {},
 
     /*
         declare class GainNode extends AudioNode {
           gain: AudioParam;
         }
         */
-    GainNode(context) {
-      context.lib('dom');
-    },
+    GainNode(context) {},
 
     /*
         declare class IIRFilterNode extends AudioNode {
           getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array): void;
         }
         */
-    IIRFilterNode(context) {
-      context.lib('dom');
-    },
+    IIRFilterNode(context) {},
 
     /*
         declare class OscillatorNode extends AudioNode {
@@ -1563,18 +1377,14 @@ export default {
           onended: (ev: any) => mixed;
         }
         */
-    OscillatorNode(context) {
-      context.lib('dom');
-    },
+    OscillatorNode(context) {},
 
     /*
         declare class StereoPannerNode extends AudioNode {
           pan: AudioParam;
         }
         */
-    StereoPannerNode(context) {
-      context.lib('dom');
-    },
+    StereoPannerNode(context) {},
 
     /*
         declare class PannerNode extends AudioNode {
@@ -1590,16 +1400,12 @@ export default {
           setOrientation(x: number, y: number, z: number): void;
         }
         */
-    PannerNode(context) {
-      context.lib('dom');
-    },
+    PannerNode(context) {},
 
     /*
         declare class PeriodicWave extends AudioNode {}
         */
-    PeriodicWave(context) {
-      context.lib('dom');
-    },
+    PeriodicWave(context) {},
 
     /*
         declare class WaveShaperNode extends AudioNode {
@@ -1607,9 +1413,7 @@ export default {
           oversample: 'none'|'2x'|'4x';
         }
         */
-    WaveShaperNode(context) {
-      context.lib('dom');
-    },
+    WaveShaperNode(context) {},
 
     /*
         declare class Headers {
@@ -1626,9 +1430,7 @@ export default {
             values(): Iterator<string>;
         }
         */
-    Headers(context) {
-      context.lib('dom');
-    },
+    Headers(context) {},
 
     /*
         declare class URLSearchParams {
@@ -1646,9 +1448,7 @@ export default {
             values(): Iterator<string>;
         }
         */
-    URLSearchParams(context) {
-      context.lib('dom');
-    },
+    URLSearchParams(context) {},
 
     /*
         declare class Response {
@@ -1677,9 +1477,7 @@ export default {
             text(): Promise<string>;
         }
         */
-    Response(context) {
-      context.lib('dom');
-    },
+    Response(context) {},
 
     /*
         declare class Request {
@@ -1709,9 +1507,7 @@ export default {
             text(): Promise<string>;
         }
         */
-    Request(context) {
-      context.lib('dom');
-    },
+    Request(context) {},
 
     /*
         declare class AbortController {
@@ -1720,9 +1516,7 @@ export default {
             abort(): void;
         }
         */
-    AbortController(context) {
-      context.lib('dom');
-    },
+    AbortController(context) {},
 
     /*
         declare class AbortSignal extends EventTarget {
@@ -1730,16 +1524,12 @@ export default {
             onabort: (event: any) => mixed;
         }
         */
-    AbortSignal(context) {
-      context.lib('dom');
-    },
+    AbortSignal(context) {},
 
     /*
         declare function fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;
         */
-    fetch(context) {
-      context.lib('dom');
-    },
+    fetch(context) {},
 
     /*
         declare class TextEncoder {
@@ -1748,9 +1538,7 @@ export default {
           encoding: TextEncoder$availableEncodings;
         }
         */
-    TextEncoder(context) {
-      context.lib('dom');
-    },
+    TextEncoder(context) {},
 
     /*
         declare class TextDecoder {
@@ -1761,9 +1549,7 @@ export default {
           decode(buffer?: ArrayBuffer | $ArrayBufferView, options?: { stream: bool, ... }): string;
         }
         */
-    TextDecoder(context) {
-      context.lib('dom');
-    },
+    TextDecoder(context) {},
 
     /*
         declare class MessagePort extends EventTarget {
@@ -1775,9 +1561,7 @@ export default {
           onmessageerror: null | (ev: MessageEvent) => mixed;
         }
         */
-    MessagePort(context) {
-      context.lib('dom');
-    },
+    MessagePort(context) {},
 
     /*
         declare class MessageChannel {
@@ -1785,9 +1569,7 @@ export default {
           port2: MessagePort;
         }
         */
-    MessageChannel(context) {
-      context.lib('dom');
-    },
+    MessageChannel(context) {},
 
     /*
         declare class VRDisplay extends EventTarget {
@@ -1809,9 +1591,7 @@ export default {
           submitFrame(): void;
         }
         */
-    VRDisplay(context) {
-      context.lib('dom');
-    },
+    VRDisplay(context) {},
 
     /*
         declare class VRFrameData {
@@ -1823,9 +1603,7 @@ export default {
           timestamp: number;
         }
         */
-    VRFrameData(context) {
-      context.lib('dom');
-    },
+    VRFrameData(context) {},
 
     /*
         declare class VRDisplayEvent extends Event {
@@ -1834,9 +1612,7 @@ export default {
           reason?: VRDisplayEventReason;
         }
         */
-    VRDisplayEvent(context) {
-      context.lib('dom');
-    },
+    VRDisplayEvent(context) {},
 
     /*
         declare class MediaQueryListEvent {
@@ -1844,9 +1620,7 @@ export default {
           media: string;
         }
         */
-    MediaQueryListEvent(context) {
-      context.lib('dom');
-    },
+    MediaQueryListEvent(context) {},
 
     /*
         declare type MediaQueryListListener = MediaQueryListEvent => void;
@@ -1862,16 +1636,12 @@ export default {
           onchange: MediaQueryListListener;
         }
         */
-    MediaQueryList(context) {
-      context.lib('dom');
-    },
+    MediaQueryList(context) {},
 
     /*
         declare var matchMedia: string => MediaQueryList;
         */
-    matchMedia(context) {
-      context.lib('dom');
-    },
+    matchMedia(context) {},
 
     /*
         declare type CredMgmtCredentialRequestOptions = {
@@ -1929,16 +1699,12 @@ export default {
           getVoices(): Array<SpeechSynthesisVoice>;
         }
         */
-    SpeechSynthesis(context) {
-      context.lib('dom');
-    },
+    SpeechSynthesis(context) {},
 
     /*
         declare var speechSynthesis: SpeechSynthesis;
         */
-    speechSynthesis(context) {
-      context.lib('dom');
-    },
+    speechSynthesis(context) {},
 
     /*
         declare class SpeechSynthesisUtterance extends EventTarget {
@@ -1960,9 +1726,7 @@ export default {
           onboundary: ?((ev: SpeechSynthesisEvent) => mixed);
         }
         */
-    SpeechSynthesisUtterance(context) {
-      context.lib('dom');
-    },
+    SpeechSynthesisUtterance(context) {},
 
     /*
         declare class SpeechSynthesisEvent extends Event {
@@ -1975,9 +1739,7 @@ export default {
           name: string;
         }
         */
-    SpeechSynthesisEvent(context) {
-      context.lib('dom');
-    },
+    SpeechSynthesisEvent(context) {},
 
     /*
         declare class SpeechSynthesisErrorEvent extends SpeechSynthesisEvent {
@@ -1985,9 +1747,7 @@ export default {
           +error: SpeechSynthesisErrorCode;
         }
         */
-    SpeechSynthesisErrorEvent(context) {
-      context.lib('dom');
-    },
+    SpeechSynthesisErrorEvent(context) {},
 
     /*
         declare class SpeechSynthesisVoice {
@@ -1998,9 +1758,7 @@ export default {
           +default: boolean;
         }
         */
-    SpeechSynthesisVoice(context) {
-      context.lib('dom');
-    },
+    SpeechSynthesisVoice(context) {},
 
     /*
         declare class SpeechGrammar {
@@ -2010,9 +1768,7 @@ export default {
           weight?: number;
         }
         */
-    SpeechGrammar(context) {
-      context.lib('dom');
-    },
+    SpeechGrammar(context) {},
 
     /*
         declare class SpeechGrammarList {
@@ -2023,9 +1779,7 @@ export default {
           addFromString(string: string, weight?: number): void;
         }
         */
-    SpeechGrammarList(context) {
-      context.lib('dom');
-    },
+    SpeechGrammarList(context) {},
 
     /*
         declare class SpeechRecognitionAlternative {
@@ -2033,9 +1787,7 @@ export default {
           +confidence: number;
         }
         */
-    SpeechRecognitionAlternative(context) {
-      context.lib('dom');
-    },
+    SpeechRecognitionAlternative(context) {},
 
     /*
         declare class SpeechRecognitionResult {
@@ -2045,9 +1797,7 @@ export default {
           item(index: number): SpeechRecognitionAlternative;
         }
         */
-    SpeechRecognitionResult(context) {
-      context.lib('dom');
-    },
+    SpeechRecognitionResult(context) {},
 
     /*
         declare class SpeechRecognitionResultList {
@@ -2056,9 +1806,7 @@ export default {
           item(index: number): SpeechRecognitionResult;
         }
         */
-    SpeechRecognitionResultList(context) {
-      context.lib('dom');
-    },
+    SpeechRecognitionResultList(context) {},
 
     /*
         declare class SpeechRecognitionEvent extends Event {
@@ -2070,9 +1818,7 @@ export default {
           +results: SpeechRecognitionResultList;
         }
         */
-    SpeechRecognitionEvent(context) {
-      context.lib('dom');
-    },
+    SpeechRecognitionEvent(context) {},
 
     /*
         declare class SpeechRecognitionErrorEvent extends SpeechRecognitionEvent {
@@ -2081,9 +1827,7 @@ export default {
           +message: string;
         }
         */
-    SpeechRecognitionErrorEvent(context) {
-      context.lib('dom');
-    },
+    SpeechRecognitionErrorEvent(context) {},
 
     /*
         declare class SpeechRecognition extends EventTarget {
@@ -2112,9 +1856,7 @@ export default {
           stop(): void;
         }
         */
-    SpeechRecognition(context) {
-      context.lib('dom');
-    },
+    SpeechRecognition(context) {},
   },
 
   modules: {},

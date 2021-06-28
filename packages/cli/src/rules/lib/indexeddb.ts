@@ -16,9 +16,7 @@ export default {
           cmp(a: any, b: any): -1|0|1;
         }
         */
-    IDBFactory(context) {
-      context.lib('dom');
-    },
+    IDBFactory(context) {},
 
     /*
         declare interface IDBRequest extends EventTarget {
@@ -31,9 +29,7 @@ export default {
           onsuccess: (e: any) => mixed;
         }
         */
-    IDBRequest(context) {
-      context.lib('dom');
-    },
+    IDBRequest(context) {},
 
     /*
         declare interface IDBOpenDBRequest extends IDBRequest {
@@ -41,9 +37,7 @@ export default {
           onupgradeneeded: (e: any) => mixed;
         }
         */
-    IDBOpenDBRequest(context) {
-      context.lib('dom');
-    },
+    IDBOpenDBRequest(context) {},
 
     /*
         declare interface IDBDatabase extends EventTarget {
@@ -64,9 +58,7 @@ export default {
           onversionchange: (e: any) => mixed;
         }
         */
-    IDBDatabase(context) {
-      context.lib('dom');
-    },
+    IDBDatabase(context) {},
 
     /*
         declare interface IDBTransaction extends EventTarget {
@@ -81,9 +73,7 @@ export default {
           onerror: (e: any) => mixed;
         }
         */
-    IDBTransaction(context) {
-      context.lib('dom');
-    },
+    IDBTransaction(context) {},
 
     /*
         declare interface IDBObjectStore {
@@ -109,9 +99,7 @@ export default {
           transaction : IDBTransaction;
         }
         */
-    IDBObjectStore(context) {
-      context.lib('dom');
-    },
+    IDBObjectStore(context) {},
 
     /*
         declare interface IDBIndex extends EventTarget {
@@ -127,9 +115,7 @@ export default {
           unique: bool;
         }
         */
-    IDBIndex(context) {
-      context.lib('dom');
-    },
+    IDBIndex(context) {},
 
     /*
         declare interface IDBKeyRange {
@@ -143,9 +129,7 @@ export default {
           upperOpen: bool;
         }
         */
-    IDBKeyRange(context) {
-      context.lib('dom');
-    },
+    IDBKeyRange(context) {},
 
     /*
         declare interface IDBCursor {
@@ -159,18 +143,14 @@ export default {
           primaryKey: any;
         }
         */
-    IDBCursor(context) {
-      context.lib('dom');
-    },
+    IDBCursor(context) {},
 
     /*
         declare interface IDBCursorWithValue extends IDBCursor {
           value: any;
         }
         */
-    IDBCursorWithValue(context) {
-      context.lib('dom');
-    },
+    IDBCursorWithValue(context) {},
   },
 
   modules: {},

@@ -5,16 +5,12 @@ export default {
     /*
         declare var NaN: number;
         */
-    NaN(context) {
-      context.lib('es5');
-    },
+    NaN(context) {},
 
     /*
         declare var Infinity: number;
         */
-    Infinity(context) {
-      context.lib('es5');
-    },
+    Infinity(context) {},
 
     /*
         declare var undefined: void;
@@ -24,58 +20,42 @@ export default {
     /*
         declare function parseInt(string: mixed, radix?: number): number;
         */
-    parseInt(context) {
-      context.lib('es5');
-    },
+    parseInt(context) {},
 
     /*
         declare function parseFloat(string: mixed): number;
         */
-    parseFloat(context) {
-      context.lib('es5');
-    },
+    parseFloat(context) {},
 
     /*
         declare function isNaN(number: mixed): boolean;
         */
-    isNaN(context) {
-      context.lib('es5');
-    },
+    isNaN(context) {},
 
     /*
         declare function isFinite(number: mixed): boolean;
         */
-    isFinite(context) {
-      context.lib('es5');
-    },
+    isFinite(context) {},
 
     /*
         declare function decodeURI(encodedURI: string): string;
         */
-    decodeURI(context) {
-      context.lib('es5');
-    },
+    decodeURI(context) {},
 
     /*
         declare function decodeURIComponent(encodedURIComponent: string): string;
         */
-    decodeURIComponent(context) {
-      context.lib('es5');
-    },
+    decodeURIComponent(context) {},
 
     /*
         declare function encodeURI(uri: string): string;
         */
-    encodeURI(context) {
-      context.lib('es5');
-    },
+    encodeURI(context) {},
 
     /*
         declare function encodeURIComponent(uriComponent: string): string;
         */
-    encodeURIComponent(context) {
-      context.lib('es5');
-    },
+    encodeURIComponent(context) {},
 
     /*
         declare class Object {
@@ -229,9 +209,7 @@ export default {
             valueOf(): mixed;
         }
         */
-    Object(context) {
-      context.lib('es5');
-    },
+    Object(context) {},
 
     /*
         declare opaque type $SymbolHasInstance: symbol;
@@ -386,9 +364,7 @@ export default {
           valueOf(): ?symbol;
         }
         */
-    Symbol(context) {
-      context.lib('es5');
-    },
+    Symbol(context) {},
 
     /*
         declare class Function {
@@ -406,9 +382,7 @@ export default {
             name: string;
         }
         */
-    Function(context) {
-      context.lib('es5');
-    },
+    Function(context) {},
 
     /*
         declare class Boolean {
@@ -419,9 +393,7 @@ export default {
             toString(): string;
         }
         */
-    Boolean(context) {
-      context.lib('es5');
-    },
+    Boolean(context) {},
 
     /*
         declare class Number {
@@ -531,9 +503,7 @@ export default {
             valueOf(): number;
         }
         */
-    Number(context) {
-      context.lib('es5');
-    },
+    Number(context) {},
 
     /*
         declare var Math: {
@@ -740,9 +710,7 @@ export default {
             ...
         };
         */
-    Math(context) {
-      context.lib('es5');
-    },
+    Math(context) {},
 
     /*
         declare class $ReadOnlyArray<+T> {
@@ -1121,9 +1089,7 @@ export default {
             static of<T>(...values: Array<T>): Array<T>;
         }
         */
-    Array(context) {
-      context.lib('es5');
-    },
+    Array(context) {},
 
     /*
         declare class String {
@@ -1332,9 +1298,7 @@ export default {
             static raw(callSite: $Shape<{ raw: string, ... }>, ...substitutions: any[]): string;
         }
         */
-    String(context) {
-      context.lib('es5');
-    },
+    String(context) {},
 
     /*
         declare class RegExp {
@@ -1392,9 +1356,7 @@ export default {
             +[key: $SymbolMatch | $SymbolMatchAll]: (str: string) => Iterator<RegExp$matchResult>
         }
         */
-    RegExp(context) {
-      context.lib('es5');
-    },
+    RegExp(context) {},
 
     /*
         declare class Date {
@@ -1585,9 +1547,7 @@ export default {
             [key: $SymbolToPrimitive]: (hint: 'string' | 'default' | 'number') => string | number;
         }
         */
-    Date(context) {
-      context.lib('es5');
-    },
+    Date(context) {},
 
     /*
         declare class CallSite {
@@ -1635,63 +1595,49 @@ export default {
             static prepareStackTrace: (err: Error, stack: CallSite[]) => mixed;
         }
         */
-    Error(context) {
-      context.lib('es5');
-    },
+    Error(context) {},
 
     /*
         declare class EvalError extends Error {
             static (message?:string):Error;
         }
         */
-    EvalError(context) {
-      context.lib('es5');
-    },
+    EvalError(context) {},
 
     /*
         declare class RangeError extends Error {
             static (message?:string):Error;
         }
         */
-    RangeError(context) {
-      context.lib('es5');
-    },
+    RangeError(context) {},
 
     /*
         declare class ReferenceError extends Error {
             static (message?:string):Error;
         }
         */
-    ReferenceError(context) {
-      context.lib('es5');
-    },
+    ReferenceError(context) {},
 
     /*
         declare class SyntaxError extends Error {
             static (message?:string):Error;
         }
         */
-    SyntaxError(context) {
-      context.lib('es5');
-    },
+    SyntaxError(context) {},
 
     /*
         declare class TypeError extends Error {
             static (message?:string):Error;
         }
         */
-    TypeError(context) {
-      context.lib('es5');
-    },
+    TypeError(context) {},
 
     /*
         declare class URIError extends Error {
             static (message?:string):Error;
         }
         */
-    URIError(context) {
-      context.lib('es5');
-    },
+    URIError(context) {},
 
     /*
         declare class JSON {
@@ -1726,9 +1672,7 @@ export default {
             ): string | void;
         }
         */
-    JSON(context) {
-      context.lib('es5');
-    },
+    JSON(context) {},
 
     /*
         declare function $iterate<T>(p: Iterable<T>): T;
@@ -1791,9 +1735,7 @@ export default {
             static +[key: $SymbolSpecies]: any;
         }
         */
-    Map(context) {
-      context.lib('es2015.collection');
-    },
+    Map(context) {},
 
     /*
         declare class $ReadOnlyWeakMap<K: interface {} | $ReadOnlyArray<mixed>, +V> {
@@ -1812,9 +1754,7 @@ export default {
             set(key: K, value: V): WeakMap<K, V>;
         }
         */
-    WeakMap(context) {
-      context.lib('es2015.collection');
-    },
+    WeakMap(context) {},
 
     /*
         declare class $ReadOnlySet<T> {
@@ -1864,9 +1804,7 @@ export default {
             static +[key: $SymbolSpecies]: (...any) => any; // This would the Set constructor, can't think of a way to correctly type this
         }
         */
-    Set(context) {
-      context.lib('es2015.collection');
-    },
+    Set(context) {},
 
     /*
         declare class $ReadOnlyWeakSet<T: {...} | $ReadOnlyArray<any>> {
@@ -1883,9 +1821,7 @@ export default {
             has(value: T): boolean;
         }
         */
-    WeakSet(context) {
-      context.lib('es2015.collection');
-    },
+    WeakSet(context) {},
 
     /*
         declare class Promise<+R> {
@@ -1980,9 +1916,7 @@ export default {
             static race<T, Elem: Promise<T> | T>(promises: Iterable<Elem>): Promise<T>;
         }
         */
-    Promise(context) {
-      context.lib('es5');
-    },
+    Promise(context) {},
 
     /*
         declare function $await<T>(p: Promise<T> | T): T;
@@ -1998,9 +1932,7 @@ export default {
             static +[key: $SymbolSpecies]: Class<this>;
         }
         */
-    ArrayBuffer(context) {
-      context.lib('es5');
-    },
+    ArrayBuffer(context) {},
 
     /*
         declare class $TypedArray {
@@ -2253,65 +2185,47 @@ export default {
     /*
         declare class Int8Array extends $TypedArray {}
         */
-    Int8Array(context) {
-      context.lib('es5');
-    },
+    Int8Array(context) {},
 
     /*
         declare class Uint8Array extends $TypedArray {}
         */
-    Uint8Array(context) {
-      context.lib('es5');
-    },
+    Uint8Array(context) {},
 
     /*
         declare class Uint8ClampedArray extends $TypedArray {}
         */
-    Uint8ClampedArray(context) {
-      context.lib('es5');
-    },
+    Uint8ClampedArray(context) {},
 
     /*
         declare class Int16Array extends $TypedArray {}
         */
-    Int16Array(context) {
-      context.lib('es5');
-    },
+    Int16Array(context) {},
 
     /*
         declare class Uint16Array extends $TypedArray {}
         */
-    Uint16Array(context) {
-      context.lib('es5');
-    },
+    Uint16Array(context) {},
 
     /*
         declare class Int32Array extends $TypedArray {}
         */
-    Int32Array(context) {
-      context.lib('es5');
-    },
+    Int32Array(context) {},
 
     /*
         declare class Uint32Array extends $TypedArray {}
         */
-    Uint32Array(context) {
-      context.lib('es5');
-    },
+    Uint32Array(context) {},
 
     /*
         declare class Float32Array extends $TypedArray {}
         */
-    Float32Array(context) {
-      context.lib('es5');
-    },
+    Float32Array(context) {},
 
     /*
         declare class Float64Array extends $TypedArray {}
         */
-    Float64Array(context) {
-      context.lib('es5');
-    },
+    Float64Array(context) {},
 
     /*
         declare class DataView {
@@ -2429,37 +2343,27 @@ export default {
             setFloat64(byteOffset: number, value: number, littleEndian?: boolean): void;
         }
         */
-    DataView(context) {
-      context.lib('es5');
-    },
+    DataView(context) {},
 
     /*
         declare function btoa(rawString: string): string;
         */
-    btoa(context) {
-      context.lib('dom');
-    },
+    btoa(context) {},
 
     /*
         declare function atob(encodedString: string): string;
         */
-    atob(context) {
-      context.lib('dom');
-    },
+    atob(context) {},
 
     /*
         declare function escape(str: string): string;
         */
-    escape(context) {
-      context.lib('es5');
-    },
+    escape(context) {},
 
     /*
         declare function unescape(str: string): string;
         */
-    unescape(context) {
-      context.lib('es5');
-    },
+    unescape(context) {},
 
     /*
         declare opaque type TimeoutID;
@@ -2474,16 +2378,12 @@ export default {
     /*
         declare function clearInterval(intervalId: ?IntervalID): void;
         */
-    clearInterval(context) {
-      context.lib('dom');
-    },
+    clearInterval(context) {},
 
     /*
         declare function clearTimeout(timeoutId: ?TimeoutID): void;
         */
-    clearTimeout(context) {
-      context.lib('dom');
-    },
+    clearTimeout(context) {},
 
     /*
         declare function setTimeout<TArguments: Array<mixed>>(
@@ -2492,9 +2392,7 @@ export default {
           ...args: TArguments
         ): TimeoutID;
         */
-    setTimeout(context) {
-      context.lib('dom');
-    },
+    setTimeout(context) {},
 
     /*
         declare function setInterval<TArguments: Array<mixed>>(
@@ -2503,9 +2401,7 @@ export default {
           ...args: TArguments
         ): IntervalID;
         */
-    setInterval(context) {
-      context.lib('dom');
-    },
+    setInterval(context) {},
 
     /*
         declare var Reflect: {
@@ -2534,9 +2430,7 @@ export default {
           static revocable(target: T, handler: Proxy$traps<T>): Proxy$revocable<T>;
         }
         */
-    Proxy(context) {
-      context.lib('es2015.proxy');
-    },
+    Proxy(context) {},
 
     /*
         declare var global: any;
@@ -2607,9 +2501,7 @@ export default {
             ...
         };
         */
-    console(context) {
-      context.lib('dom');
-    },
+    console(context) {},
 
     /*
         declare class SharedArrayBuffer {
@@ -2627,9 +2519,7 @@ export default {
           +[key: $SymbolToStringTag]: 'SharedArrayBuffer';
         }
         */
-    SharedArrayBuffer(context) {
-      context.lib('es2017.sharedmemory');
-    },
+    SharedArrayBuffer(context) {},
 
     /*
         declare var Atomics: {
@@ -2712,9 +2602,7 @@ export default {
           ...
         };
         */
-    Atomics(context) {
-      context.lib('es2017.sharedmemory');
-    },
+    Atomics(context) {},
   },
 
   modules: {},
