@@ -7,7 +7,7 @@ export default {
           encode(buffer: string, options?: TextEncodeOptions): Uint8Array,
         }
         */
-    TextEncoder(context) {},
+    TextEncoder: false,
 
     /*
         declare class ReadableStreamController {
@@ -25,7 +25,7 @@ export default {
           error(error: Error): void,
         }
         */
-    ReadableStreamController(context) {},
+    ReadableStreamController: false,
 
     /*
         declare class ReadableStreamBYOBRequest {
@@ -37,7 +37,7 @@ export default {
           respondWithNewView(view: $TypedArray): ?any,
         }
         */
-    ReadableStreamBYOBRequest(context) {},
+    ReadableStreamBYOBRequest: false,
 
     /*
         declare class ReadableByteStreamController extends ReadableStreamController {
@@ -50,7 +50,7 @@ export default {
           byobRequest: ReadableStreamBYOBRequest,
         }
         */
-    ReadableByteStreamController(context) {},
+    ReadableByteStreamController: false,
 
     /*
         declare class ReadableStreamReader {
@@ -67,7 +67,7 @@ export default {
           releaseLock(): void,
         }
         */
-    ReadableStreamReader(context) {},
+    ReadableStreamReader: false,
 
     /*
         declare interface UnderlyingSource {
@@ -79,7 +79,7 @@ export default {
           cancel?: (reason: string) => ?Promise<void>,
         }
         */
-    UnderlyingSource(context) {},
+    UnderlyingSource: false,
 
     /*
         declare class TransformStream {
@@ -87,7 +87,7 @@ export default {
           writable: WritableStream,
         }
         */
-    TransformStream(context) {},
+    TransformStream: false,
 
     /*
         declare class ReadableStream {
@@ -105,14 +105,14 @@ export default {
           tee(): [ReadableStream, ReadableStream],
         }
         */
-    ReadableStream(context) {},
+    ReadableStream: false,
 
     /*
         declare interface WritableStreamController {
           error(error: Error): void,
         }
         */
-    WritableStreamController(context) {},
+    WritableStreamController: false,
 
     /*
         declare interface UnderlyingSink {
@@ -125,7 +125,7 @@ export default {
           write?: (chunk: any, controller: WritableStreamController) => ?Promise<void>,
         }
         */
-    UnderlyingSink(context) {},
+    UnderlyingSink: false,
 
     /*
         declare interface WritableStreamWriter {
@@ -139,7 +139,7 @@ export default {
           write(chunk: any): Promise<any>,
         }
         */
-    WritableStreamWriter(context) {},
+    WritableStreamWriter: false,
 
     /*
         declare class WritableStream {
@@ -154,7 +154,7 @@ export default {
           getWriter(): WritableStreamWriter,
         }
         */
-    WritableStream(context) {},
+    WritableStream: false,
   },
 
   modules: {},

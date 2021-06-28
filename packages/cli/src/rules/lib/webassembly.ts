@@ -7,7 +7,7 @@ export default {
           (): mixed;
         }
         */
-    ExportedFunctionExoticObject(context) {},
+    ExportedFunctionExoticObject: false,
 
     /*
         declare class WebAssembly$Module {
@@ -27,7 +27,7 @@ export default {
           static customSections(moduleObject: WebAssembly$Module, sectionName: string): Array<ArrayBuffer>;
         }
         */
-    WebAssembly$Module(context) {},
+    WebAssembly$Module: false,
 
     /*
         declare class WebAssembly$Instance {
@@ -36,7 +36,7 @@ export default {
           +exports: { [exportedFunction: string]: ExportedFunctionExoticObject, ... };
         }
         */
-    WebAssembly$Instance(context) {},
+    WebAssembly$Instance: false,
 
     /*
         declare class WebAssembly$Memory {
@@ -47,7 +47,7 @@ export default {
           grow(delta: number): number;
         }
         */
-    WebAssembly$Memory(context) {},
+    WebAssembly$Memory: false,
 
     /*
         declare class WebAssembly$Table {
@@ -60,22 +60,22 @@ export default {
           set(index: number, value: ExportedFunctionExoticObject): void;
         }
         */
-    WebAssembly$Table(context) {},
+    WebAssembly$Table: false,
 
     /*
         declare class WebAssembly$CompileError extends Error {}
         */
-    WebAssembly$CompileError(context) {},
+    WebAssembly$CompileError: false,
 
     /*
         declare class WebAssembly$LinkError extends Error {}
         */
-    WebAssembly$LinkError(context) {},
+    WebAssembly$LinkError: false,
 
     /*
         declare class WebAssembly$RuntimeError extends Error {}
         */
-    WebAssembly$RuntimeError(context) {},
+    WebAssembly$RuntimeError: false,
 
     /*
         declare function WebAssembly$instantiate(bufferSource: BufferSource, importObject?: ImportObject): Promise<ResultObject>;
@@ -83,7 +83,7 @@ export default {
     /*
         declare function WebAssembly$instantiate(moduleObject: WebAssembly$Module, importObject?: ImportObject): Promise<WebAssembly$Instance>;
         */
-    WebAssembly$instantiate(context) {},
+    WebAssembly$instantiate: false,
 
     /*
         declare var WebAssembly: {
@@ -103,7 +103,7 @@ export default {
           ...
         }
         */
-    WebAssembly(context) {},
+    WebAssembly: false,
   },
 
   modules: {},

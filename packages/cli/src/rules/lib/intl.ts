@@ -12,7 +12,7 @@ export default {
           ...
         }
         */
-    Intl(context) {},
+    Intl: false,
 
     /*
         declare class Intl$Collator {
@@ -42,7 +42,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$Collator(context) {},
+    Intl$Collator: false,
 
     /*
         declare type Intl$CollatorOptions = {
@@ -55,7 +55,7 @@ export default {
           ...
         }
         */
-    Intl$CollatorOptions(context) {},
+    Intl$CollatorOptions: false,
 
     /*
         declare class Intl$DateTimeFormat {
@@ -98,7 +98,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$DateTimeFormat(context) {},
+    Intl$DateTimeFormat: false,
 
     /*
         declare type Intl$DateTimeFormatOptions = {
@@ -118,7 +118,7 @@ export default {
           ...
         }
         */
-    Intl$DateTimeFormatOptions(context) {},
+    Intl$DateTimeFormatOptions: false,
 
     /*
         declare class Intl$NumberFormat {
@@ -152,7 +152,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$NumberFormat(context) {},
+    Intl$NumberFormat: false,
 
     /*
         declare type Intl$NumberFormatOptions = {
@@ -169,7 +169,7 @@ export default {
           ...
         }
         */
-    Intl$NumberFormatOptions(context) {},
+    Intl$NumberFormatOptions: false,
 
     /*
         declare class Intl$PluralRules {
@@ -195,7 +195,7 @@ export default {
           static supportedLocalesOf (locales?: Intl$Locales): Intl$Locale[];
         }
         */
-    Intl$PluralRules(context) {},
+    Intl$PluralRules: false,
 
     /*
         declare type Intl$PluralRulesOptions = {
@@ -209,7 +209,7 @@ export default {
           ...
         }
         */
-    Intl$PluralRulesOptions(context) {},
+    Intl$PluralRulesOptions: false,
   },
 
   modules: {},

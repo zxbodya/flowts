@@ -94,12 +94,12 @@ export default {
           static isEncoding(encoding: string): boolean;
         }
         */
-    Buffer(context) {},
+    Buffer: false,
 
     /*
         declare type Node$Buffer = typeof Buffer;
         */
-    Node$Buffer(context) {},
+    Node$Buffer: false,
 
     /*
         declare class child_process$Error extends Error {
@@ -113,7 +113,7 @@ export default {
           cmd: string,
         }
         */
-    child_process$Error(context) {},
+    child_process$Error: false,
 
     /*
         declare class child_process$ChildProcess extends events$EventEmitter {
@@ -173,7 +173,7 @@ export default {
           ): Buffer;
         }
         */
-    crypto$Cipher(context) {},
+    crypto$Cipher: false,
 
     /*
         declare class crypto$ECDH {
@@ -203,7 +203,7 @@ export default {
           setPrivateKey(private_key: string, encoding: crypto$ECDH$Encoding): void
         }
         */
-    crypto$ECDH(context) {},
+    crypto$ECDH: false,
 
     /*
         declare class crypto$Decipher extends stream$Duplex {
@@ -235,7 +235,7 @@ export default {
           ): Buffer;
         }
         */
-    crypto$Decipher(context) {},
+    crypto$Decipher: false,
 
     /*
         declare class crypto$Hash extends stream$Duplex {
@@ -246,7 +246,7 @@ export default {
           'binary'): crypto$Hash;
         }
         */
-    crypto$Hash(context) {},
+    crypto$Hash: false,
 
     /*
         declare class crypto$Hmac extends stream$Duplex {
@@ -257,7 +257,7 @@ export default {
           'binary'): crypto$Hmac;
         }
         */
-    crypto$Hmac(context) {},
+    crypto$Hmac: false,
 
     /*
         declare class crypto$Sign extends stream$Writable {
@@ -326,7 +326,7 @@ export default {
           unref(): void;
         }
         */
-    dgram$Socket(context) {},
+    dgram$Socket: false,
 
     /*
         declare class events$EventEmitter {
@@ -369,7 +369,7 @@ export default {
           run(fn: Function): void;
         }
         */
-    domain$Domain(context) {},
+    domain$Domain: false,
 
     /*
         declare class http$Agent<+SocketT = net$Socket> {
@@ -821,22 +821,22 @@ export default {
     /*
         declare class vm$Context {}
         */
-    vm$Context(context) {},
+    vm$Context: false,
 
     /*
         declare class $SymbolReplModeMagic mixins Symbol {}
         */
-    $SymbolReplModeMagic(context) {},
+    $SymbolReplModeMagic: false,
 
     /*
         declare class $SymbolReplModeSloppy mixins Symbol {}
         */
-    $SymbolReplModeSloppy(context) {},
+    $SymbolReplModeSloppy: false,
 
     /*
         declare class $SymbolReplModeStrict mixins Symbol {}
         */
-    $SymbolReplModeStrict(context) {},
+    $SymbolReplModeStrict: false,
 
     /*
         declare class Process extends events$EventEmitter {
@@ -915,69 +915,65 @@ export default {
           };
         }
         */
-    Process(context) {},
+    Process: false,
 
     /*
         declare var process: Process;
         */
-    process(context) {},
+    process: false,
 
     /*
         declare var __filename: string;
         */
-    __filename(context) {},
+    __filename: false,
 
     /*
         declare var __dirname: string;
         */
-    __dirname(context) {},
+    __dirname: false,
 
     /*
         declare function setImmediate(callback: ((...args: Array<any>) => mixed), ...args: Array<any>): Object;
         */
-    setImmediate(context) {},
+    setImmediate: false,
 
     /*
         declare function clearImmediate(immediateObject: any): Object;
         */
-    clearImmediate(context) {},
+    clearImmediate: false,
   },
 
   modules: {
     buffer: {
-      libs: [],
-
       exports: {
         /*
                 declare var kMaxLength: number;
                 */
-        kMaxLength(context) {},
+        kMaxLength: false,
 
         /*
                 declare var INSPECT_MAX_BYTES: number;
                 */
-        INSPECT_MAX_BYTES(context) {},
+        INSPECT_MAX_BYTES: false,
 
         /*
                 declare function transcode(source: Node$Buffer, fromEnc: buffer$Encoding, toEnc: buffer$Encoding): Node$Buffer;
                 */
-        transcode(context) {},
+        transcode: false,
 
         /*
                 declare var Buffer: Node$Buffer;
                 */
-        Buffer(context) {},
+        Buffer: false,
       },
     },
 
     child_process: {
-      libs: [],
-
       exports: {
         /*
                 declare var ChildProcess: typeof child_process$ChildProcess;
                 */
-        ChildProcess(context) {},
+        ChildProcess: false,
 
         /*
                 declare function exec(
@@ -986,7 +982,7 @@ export default {
                     callback?: child_process$execCallback
                   ): child_process$ChildProcess;
                 */
-        exec(context) {},
+        exec: false,
 
         /*
                 declare function execSync(
@@ -1000,7 +996,7 @@ export default {
                     options?: child_process$execSyncOpts
                   ): Buffer;
                 */
-        execSync(context) {},
+        execSync: false,
 
         /*
                 declare function execFile(
@@ -1011,7 +1007,7 @@ export default {
                     callback?: child_process$execFileCallback
                   ): child_process$ChildProcess;
                 */
-        execFile(context) {},
+        execFile: false,
 
         /*
                 declare function execFileSync(
@@ -1020,7 +1016,7 @@ export default {
                     options?: child_process$execFileSyncOpts
                   ): Buffer | string;
                 */
-        execFileSync(context) {},
+        execFileSync: false,
 
         /*
                 declare function fork(
@@ -1029,7 +1025,7 @@ export default {
                     options?: child_process$forkOpts
                   ): child_process$ChildProcess;
                 */
-        fork(context) {},
+        fork: false,
 
         /*
                 declare function spawn(
@@ -1038,7 +1034,7 @@ export default {
                     options?: child_process$spawnOpts
                   ): child_process$ChildProcess;
                 */
-        spawn(context) {},
+        spawn: false,
 
         /*
                 declare function spawnSync(
@@ -1047,13 +1043,11 @@ export default {
                     options?: child_process$spawnSyncOpts
                   ): child_process$spawnSyncRet;
                 */
-        spawnSync(context) {},
+        spawnSync: false,
       },
     },
 
     cluster: {
-      libs: [],
-
       exports: {
         /*
                 declare type ClusterSettings = {
@@ -1071,7 +1065,7 @@ export default {
                     ...
                   }
                 */
-        ClusterSettings(context) {},
+        ClusterSettings: false,
 
         /*
                 declare type ClusterSettingsOpt = {
@@ -1089,7 +1083,7 @@ export default {
                     ...
                   }
                 */
-        ClusterSettingsOpt(context) {},
+        ClusterSettingsOpt: false,
 
         /*
                 declare class Worker extends events$EventEmitter {
@@ -1108,7 +1102,7 @@ export default {
                     ): boolean;
                   }
                 */
-        Worker(context) {},
+        Worker: false,
 
         /*
                 declare class Cluster extends events$EventEmitter {
@@ -1123,38 +1117,36 @@ export default {
                     setupMaster(settings?: ClusterSettingsOpt): void;
                   }
                 */
-        Cluster(context) {},
+        Cluster: false,
 
         /*
                 declare module.exports: Cluster;
                 */
-        default(context) {},
+        default: false,
       },
     },
 
     crypto: {
-      libs: [],
-
       exports: {
         /*
                 declare var DEFAULT_ENCODING: string;
                 */
-        DEFAULT_ENCODING(context) {},
+        DEFAULT_ENCODING: false,
 
         /*
                 declare class Sign extends crypto$Sign {}
                 */
-        Sign(context) {},
+        Sign: false,
 
         /*
                 declare class Verify extends crypto$Verify {}
                 */
-        Verify(context) {},
+        Verify: false,
 
         /*
                 declare function createCipher(algorithm: string, password: string | Buffer): crypto$Cipher;
                 */
-        createCipher(context) {},
+        createCipher: false,
 
         /*
                 declare function createCipheriv(
@@ -1163,19 +1155,19 @@ export default {
                     iv: string | Buffer
                   ): crypto$Cipher;
                 */
-        createCipheriv(context) {},
+        createCipheriv: false,
 
         /*
                 declare function createCredentials(
                     details?: crypto$createCredentialsDetails
                   ): crypto$Credentials
                 */
-        createCredentials(context) {},
+        createCredentials: false,
 
         /*
                 declare function createDecipher(algorithm: string, password: string | Buffer): crypto$Decipher;
                 */
-        createDecipher(context) {},
+        createDecipher: false,
 
         /*
                 declare function createDecipheriv(
@@ -1184,7 +1176,7 @@ export default {
                     iv: string | Buffer
                   ): crypto$Decipher;
                 */
-        createDecipheriv(context) {},
+        createDecipheriv: false,
 
         /*
                 declare function createDiffieHellman(prime_length: number): crypto$DiffieHellman;
@@ -1192,52 +1184,52 @@ export default {
         /*
                 declare function createDiffieHellman(prime: number, encoding?: string): crypto$DiffieHellman;
                 */
-        createDiffieHellman(context) {},
+        createDiffieHellman: false,
 
         /*
                 declare function createECDH(curveName: string): crypto$ECDH;
                 */
-        createECDH(context) {},
+        createECDH: false,
 
         /*
                 declare function createHash(algorithm: string): crypto$Hash;
                 */
-        createHash(context) {},
+        createHash: false,
 
         /*
                 declare function createHmac(algorithm: string, key: string | Buffer): crypto$Hmac;
                 */
-        createHmac(context) {},
+        createHmac: false,
 
         /*
                 declare function createSign(algorithm: string): crypto$Sign;
                 */
-        createSign(context) {},
+        createSign: false,
 
         /*
                 declare function createVerify(algorithm: string): crypto$Verify;
                 */
-        createVerify(context) {},
+        createVerify: false,
 
         /*
                 declare function getCiphers(): Array<string>;
                 */
-        getCiphers(context) {},
+        getCiphers: false,
 
         /*
                 declare function getCurves(): Array<string>;
                 */
-        getCurves(context) {},
+        getCurves: false,
 
         /*
                 declare function getDiffieHellman(group_name: string): crypto$DiffieHellman;
                 */
-        getDiffieHellman(context) {},
+        getDiffieHellman: false,
 
         /*
                 declare function getHashes(): Array<string>;
                 */
-        getHashes(context) {},
+        getHashes: false,
 
         /*
                 declare function pbkdf2(
@@ -1258,7 +1250,7 @@ export default {
                     callback: (err: ?Error, derivedKey: Buffer) => void
                   ): void;
                 */
-        pbkdf2(context) {},
+        pbkdf2: false,
 
         /*
                 declare function pbkdf2Sync(
@@ -1269,7 +1261,7 @@ export default {
                     digest?: string
                   ): Buffer;
                 */
-        pbkdf2Sync(context) {},
+        pbkdf2Sync: false,
 
         /*
                 declare function scrypt(
@@ -1289,7 +1281,7 @@ export default {
                     callback: (err: ?Error, derivedKey: Buffer) => void
                   ): void;
                 */
-        scrypt(context) {},
+        scrypt: false,
 
         /*
                 declare function scryptSync(
@@ -1300,7 +1292,7 @@ export default {
                         | {|cost?: number, blockSize?: number, parallelization?: number, maxmem?: number|},
                   ): Buffer;
                 */
-        scryptSync(context) {},
+        scryptSync: false,
 
         /*
                 declare function privateDecrypt(
@@ -1308,7 +1300,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        privateDecrypt(context) {},
+        privateDecrypt: false,
 
         /*
                 declare function privateEncrypt(
@@ -1316,7 +1308,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        privateEncrypt(context) {},
+        privateEncrypt: false,
 
         /*
                 declare function publicDecrypt(
@@ -1324,7 +1316,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        publicDecrypt(context) {},
+        publicDecrypt: false,
 
         /*
                 declare function publicEncrypt(
@@ -1332,7 +1324,7 @@ export default {
                     buffer: Buffer
                   ): Buffer;
                 */
-        publicEncrypt(context) {},
+        publicEncrypt: false,
 
         /*
                 declare function pseudoRandomBytes(size: number, UNUSED: void): Buffer;
@@ -1343,7 +1335,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void;
                 */
-        pseudoRandomBytes(context) {},
+        pseudoRandomBytes: false,
 
         /*
                 declare function randomBytes(size: number, UNUSED: void): Buffer;
@@ -1354,7 +1346,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void;
                 */
-        randomBytes(context) {},
+        randomBytes: false,
 
         /*
                 declare function randomFillSync(buffer: Buffer | $TypedArray | DataView): void
@@ -1369,7 +1361,7 @@ export default {
                     size: number
                   ): void
                 */
-        randomFillSync(context) {},
+        randomFillSync: false,
 
         /*
                 declare function randomFill(
@@ -1392,7 +1384,7 @@ export default {
                     callback: (err: ?Error, buffer: Buffer) => void
                   ): void
                 */
-        randomFill(context) {},
+        randomFill: false,
 
         /*
                 declare function timingSafeEqual(
@@ -1400,13 +1392,11 @@ export default {
                     b: Buffer | $TypedArray | DataView
                   ): boolean;
                 */
-        timingSafeEqual(context) {},
+        timingSafeEqual: false,
       },
     },
 
     dgram: {
-      libs: [],
-
       exports: {
         /*
                 declare function createSocket(
@@ -1414,143 +1404,141 @@ export default {
                     callback?: () => void
                   ): dgram$Socket;
                 */
-        createSocket(context) {},
+        createSocket: false,
       },
     },
 
     dns: {
-      libs: [],
-
       exports: {
         /*
                 declare var ADDRGETNETWORKPARAMS: string;
                 */
-        ADDRGETNETWORKPARAMS(context) {},
+        ADDRGETNETWORKPARAMS: false,
 
         /*
                 declare var BADFAMILY: string;
                 */
-        BADFAMILY(context) {},
+        BADFAMILY: false,
 
         /*
                 declare var BADFLAGS: string;
                 */
-        BADFLAGS(context) {},
+        BADFLAGS: false,
 
         /*
                 declare var BADHINTS: string;
                 */
-        BADHINTS(context) {},
+        BADHINTS: false,
 
         /*
                 declare var BADQUERY: string;
                 */
-        BADQUERY(context) {},
+        BADQUERY: false,
 
         /*
                 declare var BADNAME: string;
                 */
-        BADNAME(context) {},
+        BADNAME: false,
 
         /*
                 declare var BADRESP: string;
                 */
-        BADRESP(context) {},
+        BADRESP: false,
 
         /*
                 declare var BADSTR: string;
                 */
-        BADSTR(context) {},
+        BADSTR: false,
 
         /*
                 declare var CANCELLED: string;
                 */
-        CANCELLED(context) {},
+        CANCELLED: false,
 
         /*
                 declare var CONNREFUSED: string;
                 */
-        CONNREFUSED(context) {},
+        CONNREFUSED: false,
 
         /*
                 declare var DESTRUCTION: string;
                 */
-        DESTRUCTION(context) {},
+        DESTRUCTION: false,
 
         /*
                 declare var EOF: string;
                 */
-        EOF(context) {},
+        EOF: false,
 
         /*
                 declare var FILE: string;
                 */
-        FILE(context) {},
+        FILE: false,
 
         /*
                 declare var FORMER: string;
                 */
-        FORMER(context) {},
+        FORMER: false,
 
         /*
                 declare var LOADIPHLPAPI: string;
                 */
-        LOADIPHLPAPI(context) {},
+        LOADIPHLPAPI: false,
 
         /*
                 declare var NODATA: string;
                 */
-        NODATA(context) {},
+        NODATA: false,
 
         /*
                 declare var NOMEM: string;
                 */
-        NOMEM(context) {},
+        NOMEM: false,
 
         /*
                 declare var NONAME: string;
                 */
-        NONAME(context) {},
+        NONAME: false,
 
         /*
                 declare var NOTFOUND: string;
                 */
-        NOTFOUND(context) {},
+        NOTFOUND: false,
 
         /*
                 declare var NOTIMP: string;
                 */
-        NOTIMP(context) {},
+        NOTIMP: false,
 
         /*
                 declare var NOTINITIALIZED: string;
                 */
-        NOTINITIALIZED(context) {},
+        NOTINITIALIZED: false,
 
         /*
                 declare var REFUSED: string;
                 */
-        REFUSED(context) {},
+        REFUSED: false,
 
         /*
                 declare var SERVFAIL: string;
                 */
-        SERVFAIL(context) {},
+        SERVFAIL: false,
 
         /*
                 declare var TIMEOUT: string;
                 */
-        TIMEOUT(context) {},
+        TIMEOUT: false,
 
         /*
                 declare var ADDRCONFIG: number;
                 */
-        ADDRCONFIG(context) {},
+        ADDRCONFIG: false,
 
         /*
                 declare var V4MAPPED: number;
                 */
-        V4MAPPED(context) {},
+        V4MAPPED: false,
 
         /*
                 declare type LookupOptions = {
@@ -1561,7 +1549,7 @@ export default {
                     ...
                   };
                 */
-        LookupOptions(context) {},
+        LookupOptions: false,
 
         /*
                 declare function lookup(
@@ -1576,7 +1564,7 @@ export default {
                     callback: (err: ?Error, address: string, family: number) => void
                   ): void;
                 */
-        lookup(context) {},
+        lookup: false,
 
         /*
                 declare function resolve(
@@ -1585,7 +1573,7 @@ export default {
                     callback?: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve(context) {},
+        resolve: false,
 
         /*
                 declare function resolve4(
@@ -1593,7 +1581,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve4(context) {},
+        resolve4: false,
 
         /*
                 declare function resolve6(
@@ -1601,7 +1589,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolve6(context) {},
+        resolve6: false,
 
         /*
                 declare function resolveCname(
@@ -1609,7 +1597,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveCname(context) {},
+        resolveCname: false,
 
         /*
                 declare function resolveMx(
@@ -1617,7 +1605,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveMx(context) {},
+        resolveMx: false,
 
         /*
                 declare function resolveNs(
@@ -1625,7 +1613,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveNs(context) {},
+        resolveNs: false,
 
         /*
                 declare function resolveSrv(
@@ -1633,7 +1621,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveSrv(context) {},
+        resolveSrv: false,
 
         /*
                 declare function resolveTxt(
@@ -1641,7 +1629,7 @@ export default {
                     callback: (err: ?Error, addresses: Array<any>) => void
                   ): void;
                 */
-        resolveTxt(context) {},
+        resolveTxt: false,
 
         /*
                 declare function reverse(
@@ -1649,7 +1637,7 @@ export default {
                     callback: (err: ?Error, domains: Array<any>) => void
                   ): void;
                 */
-        reverse(context) {},
+        reverse: false,
 
         /*
                 declare function timingSafeEqual(
@@ -1657,42 +1645,36 @@ export default {
                     b: Buffer | $TypedArray | DataView
                   ): boolean;
                 */
-        timingSafeEqual(context) {},
+        timingSafeEqual: false,
       },
     },
 
     events: {
-      libs: [],
-
       exports: {
         /*
                 declare class EventEmitter extends events$EventEmitter {
                     static EventEmitter: typeof EventEmitter;
                   }
                 */
-        EventEmitter(context) {},
+        EventEmitter: false,
 
         /*
                 declare module.exports: typeof EventEmitter;
                 */
-        default(context) {},
+        default: false,
       },
     },
 
     domain: {
-      libs: [],
-
       exports: {
         /*
                 declare function create(): domain$Domain;
                 */
-        create(context) {},
+        create: false,
       },
     },
 
     fs: {
-      libs: [],
-
       exports: {
         /*
                 declare class Stats {
@@ -1724,21 +1706,21 @@ export default {
                     isSocket(): boolean;
                   }
                 */
-        Stats(context) {},
+        Stats: false,
 
         /*
                 declare class FSWatcher extends events$EventEmitter {
                     close(): void;
                   }
                 */
-        FSWatcher(context) {},
+        FSWatcher: false,
 
         /*
                 declare class ReadStream extends stream$Readable {
                     close(): void;
                   }
                 */
-        ReadStream(context) {},
+        ReadStream: false,
 
         /*
                 declare class WriteStream extends stream$Writable {
@@ -1746,7 +1728,7 @@ export default {
                     bytesWritten: number;
                   }
                 */
-        WriteStream(context) {},
+        WriteStream: false,
 
         /*
                 declare class Dirent {
@@ -1761,187 +1743,187 @@ export default {
                     isSymbolicLink(): boolean;
                   }
                 */
-        Dirent(context) {},
+        Dirent: false,
 
         /*
                 declare function rename(oldPath: string, newPath: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        rename(context) {},
+        rename: false,
 
         /*
                 declare function renameSync(oldPath: string, newPath: string): void;
                 */
-        renameSync(context) {},
+        renameSync: false,
 
         /*
                 declare function ftruncate(fd: number, len: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        ftruncate(context) {},
+        ftruncate: false,
 
         /*
                 declare function ftruncateSync(fd: number, len: number): void;
                 */
-        ftruncateSync(context) {},
+        ftruncateSync: false,
 
         /*
                 declare function truncate(path: string, len: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        truncate(context) {},
+        truncate: false,
 
         /*
                 declare function truncateSync(path: string, len: number): void;
                 */
-        truncateSync(context) {},
+        truncateSync: false,
 
         /*
                 declare function chown(path: string, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        chown(context) {},
+        chown: false,
 
         /*
                 declare function chownSync(path: string, uid: number, gid: number): void;
                 */
-        chownSync(context) {},
+        chownSync: false,
 
         /*
                 declare function fchown(fd: number, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fchown(context) {},
+        fchown: false,
 
         /*
                 declare function fchownSync(fd: number, uid: number, gid: number): void;
                 */
-        fchownSync(context) {},
+        fchownSync: false,
 
         /*
                 declare function lchown(path: string, uid: number, gid: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        lchown(context) {},
+        lchown: false,
 
         /*
                 declare function lchownSync(path: string, uid: number, gid: number): void;
                 */
-        lchownSync(context) {},
+        lchownSync: false,
 
         /*
                 declare function chmod(path: string, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        chmod(context) {},
+        chmod: false,
 
         /*
                 declare function chmodSync(path: string, mode: number | string): void;
                 */
-        chmodSync(context) {},
+        chmodSync: false,
 
         /*
                 declare function fchmod(fd: number, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fchmod(context) {},
+        fchmod: false,
 
         /*
                 declare function fchmodSync(fd: number, mode: number | string): void;
                 */
-        fchmodSync(context) {},
+        fchmodSync: false,
 
         /*
                 declare function lchmod(path: string, mode: number | string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        lchmod(context) {},
+        lchmod: false,
 
         /*
                 declare function lchmodSync(path: string, mode: number | string): void;
                 */
-        lchmodSync(context) {},
+        lchmodSync: false,
 
         /*
                 declare function stat(path: string, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        stat(context) {},
+        stat: false,
 
         /*
                 declare function statSync(path: string): Stats;
                 */
-        statSync(context) {},
+        statSync: false,
 
         /*
                 declare function fstat(fd: number, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        fstat(context) {},
+        fstat: false,
 
         /*
                 declare function fstatSync(fd: number): Stats;
                 */
-        fstatSync(context) {},
+        fstatSync: false,
 
         /*
                 declare function lstat(path: string, callback?: (err: ?ErrnoError, stats: Stats) => any): void;
                 */
-        lstat(context) {},
+        lstat: false,
 
         /*
                 declare function lstatSync(path: string): Stats;
                 */
-        lstatSync(context) {},
+        lstatSync: false,
 
         /*
                 declare function link(srcpath: string, dstpath: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        link(context) {},
+        link: false,
 
         /*
                 declare function linkSync(srcpath: string, dstpath: string): void;
                 */
-        linkSync(context) {},
+        linkSync: false,
 
         /*
                 declare function symlink(srcpath: string, dtspath: string, type?: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        symlink(context) {},
+        symlink: false,
 
         /*
                 declare function symlinkSync(srcpath: string, dstpath: string, type?: string): void;
                 */
-        symlinkSync(context) {},
+        symlinkSync: false,
 
         /*
                 declare function readlink(path: string, callback: (err: ?ErrnoError, linkString: string) => void): void;
                 */
-        readlink(context) {},
+        readlink: false,
 
         /*
                 declare function readlinkSync(path: string): string;
                 */
-        readlinkSync(context) {},
+        readlinkSync: false,
 
         /*
                 declare function realpath(path: string, cache?: Object, callback?: (err: ?ErrnoError, resolvedPath: string) => void): void;
                 */
-        realpath(context) {},
+        realpath: false,
 
         /*
                 declare function realpathSync(path: string, cache?: Object): string;
                 */
-        realpathSync(context) {},
+        realpathSync: false,
 
         /*
                 declare function unlink(path: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        unlink(context) {},
+        unlink: false,
 
         /*
                 declare function unlinkSync(path: string): void;
                 */
-        unlinkSync(context) {},
+        unlinkSync: false,
 
         /*
                 declare function rmdir(path: string, callback?: (err: ?ErrnoError) => void): void;
                 */
-        rmdir(context) {},
+        rmdir: false,
 
         /*
                 declare function rmdirSync(path: string): void;
                 */
-        rmdirSync(context) {},
+        rmdirSync: false,
 
         /*
                 declare function mkdir(path: string, mode?: number | {
@@ -1950,7 +1932,7 @@ export default {
                     ...
                   }, callback?: (err: ?ErrnoError) => void): void;
                 */
-        mkdir(context) {},
+        mkdir: false,
 
         /*
                 declare function mkdirSync(path: string, mode?: number | {
@@ -1959,17 +1941,17 @@ export default {
                     ...
                   }): void;
                 */
-        mkdirSync(context) {},
+        mkdirSync: false,
 
         /*
                 declare function mkdtemp(prefix: string, callback: (err: ?ErrnoError, folderPath: string) => void): void;
                 */
-        mkdtemp(context) {},
+        mkdtemp: false,
 
         /*
                 declare function mkdtempSync(prefix: string): string;
                 */
-        mkdtempSync(context) {},
+        mkdtempSync: false,
 
         /*
                 declare function readdir(
@@ -1991,7 +1973,7 @@ export default {
                     callback: (err: ?ErrnoError, files: Array<string>) => void
                   ): void;
                 */
-        readdir(context) {},
+        readdir: false,
 
         /*
                 declare function readdirSync(
@@ -2005,17 +1987,17 @@ export default {
                     options?: string | { encoding?: string, withFileTypes?: true, ... }
                   ): Array<Dirent>;
                 */
-        readdirSync(context) {},
+        readdirSync: false,
 
         /*
                 declare function close(fd: number, callback: (err: ?ErrnoError) => void): void;
                 */
-        close(context) {},
+        close: false,
 
         /*
                 declare function closeSync(fd: number): void;
                 */
-        closeSync(context) {},
+        closeSync: false,
 
         /*
                 declare function open(
@@ -2032,42 +2014,42 @@ export default {
                     callback: (err: ?ErrnoError, fd: number) => void
                   ): void;
                 */
-        open(context) {},
+        open: false,
 
         /*
                 declare function openSync(path: string | Buffer, flags: string | number, mode?: number): number;
                 */
-        openSync(context) {},
+        openSync: false,
 
         /*
                 declare function utimes(path: string, atime: number, mtime: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        utimes(context) {},
+        utimes: false,
 
         /*
                 declare function utimesSync(path: string, atime: number, mtime: number): void;
                 */
-        utimesSync(context) {},
+        utimesSync: false,
 
         /*
                 declare function futimes(fd: number, atime: number, mtime: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        futimes(context) {},
+        futimes: false,
 
         /*
                 declare function futimesSync(fd: number, atime: number, mtime: number): void;
                 */
-        futimesSync(context) {},
+        futimesSync: false,
 
         /*
                 declare function fsync(fd: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        fsync(context) {},
+        fsync: false,
 
         /*
                 declare function fsyncSync(fd: number): void;
                 */
-        fsyncSync(context) {},
+        fsyncSync: false,
 
         /*
                 declare function write(
@@ -2127,7 +2109,7 @@ export default {
                     callback: (err: ?ErrnoError, write: number, str: string) => void
                   ): void;
                 */
-        write(context) {},
+        write: false,
 
         /*
                 declare function writeSync(
@@ -2168,7 +2150,7 @@ export default {
                     position?: number,
                   ): number;
                 */
-        writeSync(context) {},
+        writeSync: false,
 
         /*
                 declare function read(
@@ -2180,7 +2162,7 @@ export default {
                     callback: (err: ?ErrnoError, bytesRead: number, buffer: Buffer) => void
                   ): void;
                 */
-        read(context) {},
+        read: false,
 
         /*
                 declare function readSync(
@@ -2191,7 +2173,7 @@ export default {
                     position: number
                   ): number;
                 */
-        readSync(context) {},
+        readSync: false,
 
         /*
                 declare function readFile(
@@ -2224,7 +2206,7 @@ export default {
                     callback: (err: ?ErrnoError, data: Buffer) => void
                   ): void;
                 */
-        readFile(context) {},
+        readFile: false,
 
         /*
                 declare function readFileSync(
@@ -2251,7 +2233,7 @@ export default {
                     ...
                   }): Buffer;
                 */
-        readFileSync(context) {},
+        readFileSync: false,
 
         /*
                 declare function writeFile(
@@ -2273,7 +2255,7 @@ export default {
                     callback?: (err: ?ErrnoError) => void
                   ): void;
                 */
-        writeFile(context) {},
+        writeFile: false,
 
         /*
                 declare function writeFileSync(
@@ -2287,7 +2269,7 @@ export default {
                     }
                   ): void;
                 */
-        writeFileSync(context) {},
+        writeFileSync: false,
 
         /*
                 declare function appendFile(
@@ -2309,7 +2291,7 @@ export default {
                     callback: (err: ?ErrnoError) => void
                   ): void;
                 */
-        appendFile(context) {},
+        appendFile: false,
 
         /*
                 declare function appendFileSync(
@@ -2323,92 +2305,92 @@ export default {
                     }
                   ): void;
                 */
-        appendFileSync(context) {},
+        appendFileSync: false,
 
         /*
                 declare function watchFile(filename: string, options?: Object, listener?: (curr: Stats, prev: Stats) => void): void;
                 */
-        watchFile(context) {},
+        watchFile: false,
 
         /*
                 declare function unwatchFile(filename: string, listener?: (curr: Stats, prev: Stats) => void): void;
                 */
-        unwatchFile(context) {},
+        unwatchFile: false,
 
         /*
                 declare function watch(filename: string, options?: Object, listener?: (event: string, filename: string) => void): FSWatcher;
                 */
-        watch(context) {},
+        watch: false,
 
         /*
                 declare function exists(path: string, callback?: (exists: boolean) => void): void;
                 */
-        exists(context) {},
+        exists: false,
 
         /*
                 declare function existsSync(path: string): boolean;
                 */
-        existsSync(context) {},
+        existsSync: false,
 
         /*
                 declare function access(path: string, mode?: number, callback?: (err: ?ErrnoError) => void): void;
                 */
-        access(context) {},
+        access: false,
 
         /*
                 declare function accessSync(path: string, mode?: number): void;
                 */
-        accessSync(context) {},
+        accessSync: false,
 
         /*
                 declare function createReadStream(path: string, options?: Object): ReadStream;
                 */
-        createReadStream(context) {},
+        createReadStream: false,
 
         /*
                 declare function createWriteStream(path: string, options?: Object): WriteStream;
                 */
-        createWriteStream(context) {},
+        createWriteStream: false,
 
         /*
                 declare function fdatasync(fd: number, callback: (err: ?ErrnoError) => void): void;
                 */
-        fdatasync(context) {},
+        fdatasync: false,
 
         /*
                 declare function fdatasyncSync(fd: number): void;
                 */
-        fdatasyncSync(context) {},
+        fdatasyncSync: false,
 
         /*
                 declare function copyFile(src: string, dest: string, flags?: number, callback: (err: ErrnoError) => void): void;
                 */
-        copyFile(context) {},
+        copyFile: false,
 
         /*
                 declare function copyFileSync(src: string, dest: string, flags?: number): void;
                 */
-        copyFileSync(context) {},
+        copyFileSync: false,
 
         /*
                 declare var F_OK: number;
                 */
-        F_OK(context) {},
+        F_OK: false,
 
         /*
                 declare var R_OK: number;
                 */
-        R_OK(context) {},
+        R_OK: false,
 
         /*
                 declare var W_OK: number;
                 */
-        W_OK(context) {},
+        W_OK: false,
 
         /*
                 declare var X_OK: number;
                 */
-        X_OK(context) {},
+        X_OK: false,
 
         /*
                 declare var constants: {
@@ -2458,29 +2440,29 @@ export default {
                     ...
                   };
                 */
-        constants(context) {},
+        constants: false,
 
         /*
                 declare type BufferEncoding =
                     | 'buffer'
                     | { encoding: 'buffer', ... };
                 */
-        BufferEncoding(context) {},
+        BufferEncoding: false,
 
         /*
                 declare type EncodingOptions = { encoding?: string, ... };
                 */
-        EncodingOptions(context) {},
+        EncodingOptions: false,
 
         /*
                 declare type EncodingFlag = EncodingOptions & { flag?: string, ... };
                 */
-        EncodingFlag(context) {},
+        EncodingFlag: false,
 
         /*
                 declare type WriteOptions = EncodingFlag & { mode?: number, ... };
                 */
-        WriteOptions(context) {},
+        WriteOptions: false,
 
         /*
                 declare class FileHandle {
@@ -2510,12 +2492,12 @@ export default {
                     writeFile(data: string | Buffer | Uint8Array, options: WriteOptions | string): Promise<void>;
                   }
                 */
-        FileHandle(context) {},
+        FileHandle: false,
 
         /*
                 declare type FSPromisePath = string | Buffer | URL;
                 */
-        FSPromisePath(context) {},
+        FSPromisePath: false,
 
         /*
                 declare class FSPromise {
@@ -2584,52 +2566,50 @@ export default {
                     ): Promise<void>,
                   }
                 */
-        FSPromise(context) {},
+        FSPromise: false,
 
         /*
                 declare var promises: FSPromise;
                 */
-        promises(context) {},
+        promises: false,
       },
     },
 
     http: {
-      libs: [],
-
       exports: {
         /*
                 declare class Server extends http$Server {}
                 */
-        Server(context) {},
+        Server: false,
 
         /*
                 declare class Agent extends http$Agent<net$Socket> {
                     createConnection(options: net$connectOptions, callback?: Function): net$Socket;
                   }
                 */
-        Agent(context) {},
+        Agent: false,
 
         /*
                 declare class ClientRequest extends http$ClientRequest<net$Socket> {}
                 */
-        ClientRequest(context) {},
+        ClientRequest: false,
 
         /*
                 declare class IncomingMessage extends http$IncomingMessage<net$Socket> {}
                 */
-        IncomingMessage(context) {},
+        IncomingMessage: false,
 
         /*
                 declare class ServerResponse extends http$ServerResponse {}
                 */
-        ServerResponse(context) {},
+        ServerResponse: false,
 
         /*
                 declare function createServer(
                     requestListener?: (request: IncomingMessage, response: ServerResponse) => void
                   ): Server;
                 */
-        createServer(context) {},
+        createServer: false,
 
         /*
                 declare function request(
@@ -2644,7 +2624,7 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        request(context) {},
+        request: false,
 
         /*
                 declare function get(
@@ -2659,33 +2639,31 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        get(context) {},
+        get: false,
 
         /*
                 declare var METHODS: Array<string>;
                 */
-        METHODS(context) {},
+        METHODS: false,
 
         /*
                 declare var STATUS_CODES: { [key: number]: string, ... };
                 */
-        STATUS_CODES(context) {},
+        STATUS_CODES: false,
 
         /*
                 declare var globalAgent: Agent;
                 */
-        globalAgent(context) {},
+        globalAgent: false,
       },
     },
 
     https: {
-      libs: [],
-
       exports: {
         /*
                 declare class Server extends https$Server {}
                 */
-        Server(context) {},
+        Server: false,
 
         /*
                 declare class Agent extends http$Agent<tls$TLSSocket> {
@@ -2694,22 +2672,22 @@ export default {
                     createConnection(options: tls$connectOptions): tls$TLSSocket;
                   }
                 */
-        Agent(context) {},
+        Agent: false,
 
         /*
                 declare class ClientRequest extends http$ClientRequest<tls$TLSSocket> {}
                 */
-        ClientRequest(context) {},
+        ClientRequest: false,
 
         /*
                 declare class IncomingMessage extends http$IncomingMessage<tls$TLSSocket> {}
                 */
-        IncomingMessage(context) {},
+        IncomingMessage: false,
 
         /*
                 declare class ServerResponse extends http$ServerResponse {}
                 */
-        ServerResponse(context) {},
+        ServerResponse: false,
 
         /*
                 declare function createServer(
@@ -2717,7 +2695,7 @@ export default {
                     requestListener?: (request: IncomingMessage, response: ServerResponse) => void
                   ): Server;
                 */
-        createServer(context) {},
+        createServer: false,
 
         /*
                 declare function request(
@@ -2732,7 +2710,7 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        request(context) {},
+        request: false,
 
         /*
                 declare function get(
@@ -2747,48 +2725,46 @@ export default {
                     callback?: (response: IncomingMessage) => void
                   ): ClientRequest;
                 */
-        get(context) {},
+        get: false,
 
         /*
                 declare var globalAgent: Agent;
                 */
-        globalAgent(context) {},
+        globalAgent: false,
       },
     },
 
     net: {
-      libs: [],
-
       exports: {
         /*
                 declare class Server extends net$Server {}
                 */
-        Server(context) {},
+        Server: false,
 
         /*
                 declare class Socket extends net$Socket {}
                 */
-        Socket(context) {},
+        Socket: false,
 
         /*
                 declare function isIP(input: string): number;
                 */
-        isIP(context) {},
+        isIP: false,
 
         /*
                 declare function isIPv4(input: string): boolean;
                 */
-        isIPv4(context) {},
+        isIPv4: false,
 
         /*
                 declare function isIPv6(input: string): boolean;
                 */
-        isIPv6(context) {},
+        isIPv6: false,
 
         /*
                 declare type connectionListener = (socket: Socket) => any;
                 */
-        connectionListener(context) {},
+        connectionListener: false,
 
         /*
                 declare function createServer(
@@ -2800,12 +2776,12 @@ export default {
                     connectionListener?: connectionListener,
                   ): Server;
                 */
-        createServer(context) {},
+        createServer: false,
 
         /*
                 declare type connectListener = () => any;
                 */
-        connectListener(context) {},
+        connectListener: false,
 
         /*
                 declare function connect(
@@ -2814,7 +2790,7 @@ export default {
                     connectListener?: connectListener,
                   ): Socket;
                 */
-        connect(context) {},
+        connect: false,
 
         /*
                 declare function createConnection(
@@ -2823,83 +2799,81 @@ export default {
                     connectListener?: connectListener,
                   ): Socket;
                 */
-        createConnection(context) {},
+        createConnection: false,
       },
     },
 
     os: {
-      libs: [],
-
       exports: {
         /*
                 declare function arch(): "x64"|"arm"|"ia32";
                 */
-        arch(context) {},
+        arch: false,
 
         /*
                 declare function cpus(): Array<os$CPU>;
                 */
-        cpus(context) {},
+        cpus: false,
 
         /*
                 declare function endianness(): "BE"|"LE";
                 */
-        endianness(context) {},
+        endianness: false,
 
         /*
                 declare function freemem(): number;
                 */
-        freemem(context) {},
+        freemem: false,
 
         /*
                 declare function homedir(): string;
                 */
-        homedir(context) {},
+        homedir: false,
 
         /*
                 declare function hostname(): string;
                 */
-        hostname(context) {},
+        hostname: false,
 
         /*
                 declare function loadavg(): [number, number, number];
                 */
-        loadavg(context) {},
+        loadavg: false,
 
         /*
                 declare function networkInterfaces(): { [ifName: string]: Array<os$NetIFAddr>, ... };
                 */
-        networkInterfaces(context) {},
+        networkInterfaces: false,
 
         /*
                 declare function platform(): string;
                 */
-        platform(context) {},
+        platform: false,
 
         /*
                 declare function release(): string;
                 */
-        release(context) {},
+        release: false,
 
         /*
                 declare function tmpdir(): string;
                 */
-        tmpdir(context) {},
+        tmpdir: false,
 
         /*
                 declare function totalmem(): number;
                 */
-        totalmem(context) {},
+        totalmem: false,
 
         /*
                 declare function type(): string;
                 */
-        type(context) {},
+        type: false,
 
         /*
                 declare function uptime(): number;
                 */
-        uptime(context) {},
+        uptime: false,
 
         /*
                 declare function userInfo(options: { encoding: 'buffer', ... }): os$UserInfo$buffer;
@@ -2907,68 +2881,66 @@ export default {
         /*
                 declare function userInfo(options?: { encoding: 'utf8', ... }): os$UserInfo$string;
                 */
-        userInfo(context) {},
+        userInfo: false,
 
         /*
                 declare var EOL: string;
                 */
-        EOL(context) {},
+        EOL: false,
       },
     },
 
     path: {
-      libs: [],
-
       exports: {
         /*
                 declare function normalize(path: string): string;
                 */
-        normalize(context) {},
+        normalize: false,
 
         /*
                 declare function join(...parts: Array<string>): string;
                 */
-        join(context) {},
+        join: false,
 
         /*
                 declare function resolve(...parts: Array<string>): string;
                 */
-        resolve(context) {},
+        resolve: false,
 
         /*
                 declare function isAbsolute(path: string): boolean;
                 */
-        isAbsolute(context) {},
+        isAbsolute: false,
 
         /*
                 declare function relative(from: string, to: string): string;
                 */
-        relative(context) {},
+        relative: false,
 
         /*
                 declare function dirname(path: string): string;
                 */
-        dirname(context) {},
+        dirname: false,
 
         /*
                 declare function basename(path: string, ext?: string): string;
                 */
-        basename(context) {},
+        basename: false,
 
         /*
                 declare function extname(path: string): string;
                 */
-        extname(context) {},
+        extname: false,
 
         /*
                 declare var sep: string;
                 */
-        sep(context) {},
+        sep: false,
 
         /*
                 declare var delimiter: string;
                 */
-        delimiter(context) {},
+        delimiter: false,
 
         /*
                 declare function parse(pathString: string): {
@@ -2980,7 +2952,7 @@ export default {
                     ...
                   };
                 */
-        parse(context) {},
+        parse: false,
 
         /*
                 declare function format(pathObject: {
@@ -2992,43 +2964,41 @@ export default {
                     ...
                   }): string;
                 */
-        format(context) {},
+        format: false,
 
         /*
                 declare var posix: any;
                 */
-        posix(context) {},
+        posix: false,
 
         /*
                 declare var win32: any;
                 */
-        win32(context) {},
+        win32: false,
       },
     },
 
     punycode: {
-      libs: [],
-
       exports: {
         /*
                 declare function decode(string: string): string;
                 */
-        decode(context) {},
+        decode: false,
 
         /*
                 declare function encode(string: string): string;
                 */
-        encode(context) {},
+        encode: false,
 
         /*
                 declare function toASCII(domain: string): string;
                 */
-        toASCII(context) {},
+        toASCII: false,
 
         /*
                 declare function toUnicode(domain: string): string;
                 */
-        toUnicode(context) {},
+        toUnicode: false,
 
         /*
                 declare var ucs2: {
@@ -3037,18 +3007,16 @@ export default {
                     ...
                   };
                 */
-        ucs2(context) {},
+        ucs2: false,
 
         /*
                 declare var version : string;
                 */
-        version(context) {},
+        version: false,
       },
     },
 
     querystring: {
-      libs: [],
-
       exports: {
         /*
                 declare function stringify(
@@ -3058,7 +3026,7 @@ export default {
                     options?: { encodeURIComponent?: (str: string) => string, ... }
                   ): string;
                 */
-        stringify(context) {},
+        stringify: false,
 
         /*
                 declare function parse(
@@ -3072,38 +3040,36 @@ export default {
                     }
                   ): any;
                 */
-        parse(context) {},
+        parse: false,
 
         /*
                 declare function escape(str: string): string;
                 */
-        escape(context) {},
+        escape: false,
 
         /*
                 declare function unescape(str: string, decodeSpaces?: boolean): string;
                 */
-        unescape(context) {},
+        unescape: false,
       },
     },
 
     readline: {
-      libs: [],
-
       exports: {
         /*
                 declare var Interface : typeof readline$Interface;
                 */
-        Interface(context) {},
+        Interface: false,
 
         /*
                 declare function clearLine(stream: stream$Stream, dir: -1 | 1 | 0): void;
                 */
-        clearLine(context) {},
+        clearLine: false,
 
         /*
                 declare function clearScreenDown(stream: stream$Stream): void;
                 */
-        clearScreenDown(context) {},
+        clearScreenDown: false,
 
         /*
                 declare function createInterface(opts: {
@@ -3119,58 +3085,56 @@ export default {
                     ...
                   }): readline$Interface;
                 */
-        createInterface(context) {},
+        createInterface: false,
 
         /*
                 declare function cursorTo(stream: stream$Stream, x?: number, y?: number): void;
                 */
-        cursorTo(context) {},
+        cursorTo: false,
 
         /*
                 declare function moveCursor(stream: stream$Stream, dx: number, dy: number): void;
                 */
-        moveCursor(context) {},
+        moveCursor: false,
 
         /*
                 declare function emitKeypressEvents(stream: stream$Stream, readlineInterface?: readline$Interface): void;
                 */
-        emitKeypressEvents(context) {},
+        emitKeypressEvents: false,
       },
     },
 
     stream: {
-      libs: [],
-
       exports: {
         /*
                 declare var Stream : typeof stream$Stream
                 */
-        Stream(context) {},
+        Stream: false,
 
         /*
                 declare var Readable : typeof stream$Readable
                 */
-        Readable(context) {},
+        Readable: false,
 
         /*
                 declare var Writable : typeof stream$Writable
                 */
-        Writable(context) {},
+        Writable: false,
 
         /*
                 declare var Duplex : typeof stream$Duplex
                 */
-        Duplex(context) {},
+        Duplex: false,
 
         /*
                 declare var Transform : typeof stream$Transform
                 */
-        Transform(context) {},
+        Transform: false,
 
         /*
                 declare var PassThrough : typeof stream$PassThrough
                 */
-        PassThrough(context) {},
+        PassThrough: false,
 
         /*
                 declare function finished(
@@ -3190,7 +3154,7 @@ export default {
                     callback: (error?: Error) => void,
                   ): () => void;
                 */
-        finished(context) {},
+        finished: false,
 
         /*
                 declare function pipeline<T: stream$Writable>(
@@ -3255,120 +3219,114 @@ export default {
                     cb: (error?: Error) => void,
                   ): stream$Stream;
                 */
-        pipeline(context) {},
+        pipeline: false,
       },
     },
 
     tty: {
-      libs: [],
-
       exports: {
         /*
                 declare function isatty(fd : number) : boolean;
                 */
-        isatty(context) {},
+        isatty: false,
 
         /*
                 declare function setRawMode(mode : boolean) : void;
                 */
-        setRawMode(context) {},
+        setRawMode: false,
 
         /*
                 declare var ReadStream : typeof tty$ReadStream
                 */
-        ReadStream(context) {},
+        ReadStream: false,
 
         /*
                 declare var WriteStream : typeof tty$WriteStream
                 */
-        WriteStream(context) {},
+        WriteStream: false,
       },
     },
 
     string_decoder: {
-      libs: [],
-
       exports: {
         /*
                 declare var StringDecoder : typeof string_decoder$StringDecoder;
                 */
-        StringDecoder(context) {},
+        StringDecoder: false,
       },
     },
 
     tls: {
-      libs: [],
-
       exports: {
         /*
                 declare var CLIENT_RENEG_LIMIT: number;
                 */
-        CLIENT_RENEG_LIMIT(context) {},
+        CLIENT_RENEG_LIMIT: false,
 
         /*
                 declare var CLIENT_RENEG_WINDOW: number;
                 */
-        CLIENT_RENEG_WINDOW(context) {},
+        CLIENT_RENEG_WINDOW: false,
 
         /*
                 declare var SLAB_BUFFER_SIZE: number;
                 */
-        SLAB_BUFFER_SIZE(context) {},
+        SLAB_BUFFER_SIZE: false,
 
         /*
                 declare var DEFAULT_CIPHERS: string;
                 */
-        DEFAULT_CIPHERS(context) {},
+        DEFAULT_CIPHERS: false,
 
         /*
                 declare var DEFAULT_ECDH_CURVE: string;
                 */
-        DEFAULT_ECDH_CURVE(context) {},
+        DEFAULT_ECDH_CURVE: false,
 
         /*
                 declare function getCiphers(): Array<string>;
                 */
-        getCiphers(context) {},
+        getCiphers: false,
 
         /*
                 declare function convertNPNProtocols(NPNProtocols: Array<string>, out: Object): void;
                 */
-        convertNPNProtocols(context) {},
+        convertNPNProtocols: false,
 
         /*
                 declare function checkServerIdentity(servername: string, cert: string): Error | void;
                 */
-        checkServerIdentity(context) {},
+        checkServerIdentity: false,
 
         /*
                 declare function parseCertString(s: string): Object;
                 */
-        parseCertString(context) {},
+        parseCertString: false,
 
         /*
                 declare function createSecureContext(details: Object): Object;
                 */
-        createSecureContext(context) {},
+        createSecureContext: false,
 
         /*
                 declare var SecureContext: Object;
                 */
-        SecureContext(context) {},
+        SecureContext: false,
 
         /*
                 declare var TLSSocket: typeof tls$TLSSocket;
                 */
-        TLSSocket(context) {},
+        TLSSocket: false,
 
         /*
                 declare var Server: typeof tls$Server;
                 */
-        Server(context) {},
+        Server: false,
 
         /*
                 declare function createServer(options: Object, secureConnectionListener?: Function): tls$Server;
                 */
-        createServer(context) {},
+        createServer: false,
 
         /*
                 declare function connect(options: tls$connectOptions, callback?: Function): tls$TLSSocket;
@@ -3376,18 +3334,16 @@ export default {
         /*
                 declare function connect(port: number, host?: string, options?: tls$connectOptions, callback?: Function): tls$TLSSocket;
                 */
-        connect(context) {},
+        connect: false,
 
         /*
                 declare function createSecurePair(context?: Object, isServer?: boolean, requestCert?: boolean, rejectUnauthorized?: boolean, options?: Object): Object;
                 */
-        createSecurePair(context) {},
+        createSecurePair: false,
       },
     },
 
     url: {
-      libs: [],
-
       exports: {
         /*
                 declare type Url = {|
@@ -3405,7 +3361,7 @@ export default {
                     href: string,
                   |}
                 */
-        Url(context) {},
+        Url: false,
 
         /*
                 declare type UrlWithStringQuery = {|
@@ -3413,7 +3369,7 @@ export default {
                     query: string | null
                   |}
                 */
-        UrlWithStringQuery(context) {},
+        UrlWithStringQuery: false,
 
         /*
                 declare type UrlWithParsedQuery = {|
@@ -3421,7 +3377,7 @@ export default {
                     query: { [string]: string, ... }
                   |}
                 */
-        UrlWithParsedQuery(context) {},
+        UrlWithParsedQuery: false,
 
         /*
                 declare function parse(urlStr: string, parseQueryString: true, slashesDenoteHost?: boolean): UrlWithParsedQuery;
@@ -3432,37 +3388,37 @@ export default {
         /*
                 declare function parse(urlStr: string, parseQueryString?: boolean, slashesDenoteHost?: boolean): Url;
                 */
-        parse(context) {},
+        parse: false,
 
         /*
                 declare function format(urlObj: url$urlObject): string;
                 */
-        format(context) {},
+        format: false,
 
         /*
                 declare function resolve(from: string, to: string): string;
                 */
-        resolve(context) {},
+        resolve: false,
 
         /*
                 declare function domainToASCII(domain: string): string;
                 */
-        domainToASCII(context) {},
+        domainToASCII: false,
 
         /*
                 declare function domainToUnicode(domain: string): string;
                 */
-        domainToUnicode(context) {},
+        domainToUnicode: false,
 
         /*
                 declare function pathToFileURL(path: string): url$urlObject;
                 */
-        pathToFileURL(context) {},
+        pathToFileURL: false,
 
         /*
                 declare function fileURLToPath(path: url$urlObject | string): string;
                 */
-        fileURLToPath(context) {},
+        fileURLToPath: false,
 
         /*
                 declare class URLSearchParams {
@@ -3482,7 +3438,7 @@ export default {
                     @@iterator(): Iterator<[string, string]>;
                   }
                 */
-        URLSearchParams(context) {},
+        URLSearchParams: false,
 
         /*
                 declare class URL {
@@ -3503,73 +3459,71 @@ export default {
                     toJSON(): string;
                   }
                 */
-        URL(context) {},
+        URL: false,
       },
     },
 
     util: {
-      libs: [],
-
       exports: {
         /*
                 declare function debuglog(section: string): (data: any, ...args: any) => void;
                 */
-        debuglog(context) {},
+        debuglog: false,
 
         /*
                 declare function format(format: string, ...placeholders: any): string;
                 */
-        format(context) {},
+        format: false,
 
         /*
                 declare function log(string: string): void;
                 */
-        log(context) {},
+        log: false,
 
         /*
                 declare function inspect(object: any, options?: util$InspectOptions): string;
                 */
-        inspect(context) {},
+        inspect: false,
 
         /*
                 declare function isArray(object: any): boolean;
                 */
-        isArray(context) {},
+        isArray: false,
 
         /*
                 declare function isRegExp(object: any): boolean;
                 */
-        isRegExp(context) {},
+        isRegExp: false,
 
         /*
                 declare function isDate(object: any): boolean;
                 */
-        isDate(context) {},
+        isDate: false,
 
         /*
                 declare function isError(object: any): boolean;
                 */
-        isError(context) {},
+        isError: false,
 
         /*
                 declare function inherits(constructor: Function, superConstructor: Function): void;
                 */
-        inherits(context) {},
+        inherits: false,
 
         /*
                 declare function deprecate(f: Function, string: string): Function;
                 */
-        deprecate(context) {},
+        deprecate: false,
 
         /*
                 declare function promisify(f: Function): Function;
                 */
-        promisify(context) {},
+        promisify: false,
 
         /*
                 declare function callbackify(f: Function): Function;
                 */
-        callbackify(context) {},
+        callbackify: false,
 
         /*
                 declare class TextDecoder {
@@ -3584,7 +3538,7 @@ export default {
                     ignoreBOM: boolean;
                   }
                 */
-        TextDecoder(context) {},
+        TextDecoder: false,
 
         /*
                 declare class TextEncoder {
@@ -3593,274 +3547,270 @@ export default {
                     encoding: string;
                   }
                 */
-        TextEncoder(context) {},
+        TextEncoder: false,
       },
     },
 
     vm: {
-      libs: [],
-
       exports: {
         /*
                 declare var Script: typeof vm$Script;
                 */
-        Script(context) {},
+        Script: false,
 
         /*
                 declare function createContext(sandbox?: interface { [key: string]: any }, options?: vm$CreateContextOptions): vm$Context;
                 */
-        createContext(context) {},
+        createContext: false,
 
         /*
                 declare function isContext(sandbox: { [key: string]: any, ... }): boolean;
                 */
-        isContext(context) {},
+        isContext: false,
 
         /*
                 declare function runInContext(code: string, contextifiedSandbox: vm$Context, options?: vm$ScriptOptions | string): any;
                 */
-        runInContext(context) {},
+        runInContext: false,
 
         /*
                 declare function runInDebugContext(code: string): any;
                 */
-        runInDebugContext(context) {},
+        runInDebugContext: false,
 
         /*
                 declare function runInNewContext(code: string, sandbox?: { [key: string]: any, ... }, options?: vm$ScriptOptions | string): any;
                 */
-        runInNewContext(context) {},
+        runInNewContext: false,
 
         /*
                 declare function runInThisContext(code: string, options?: vm$ScriptOptions | string): any;
                 */
-        runInThisContext(context) {},
+        runInThisContext: false,
 
         /*
                 declare function compileFunction(code: string, params: string[], options: vm$CompileFunctionOptions): Function;
                 */
-        compileFunction(context) {},
+        compileFunction: false,
       },
     },
 
     zlib: {
-      libs: [],
-
       exports: {
         /*
                 declare var Z_NO_FLUSH: number;
                 */
-        Z_NO_FLUSH(context) {},
+        Z_NO_FLUSH: false,
 
         /*
                 declare var Z_PARTIAL_FLUSH: number;
                 */
-        Z_PARTIAL_FLUSH(context) {},
+        Z_PARTIAL_FLUSH: false,
 
         /*
                 declare var Z_SYNC_FLUSH: number;
                 */
-        Z_SYNC_FLUSH(context) {},
+        Z_SYNC_FLUSH: false,
 
         /*
                 declare var Z_FULL_FLUSH: number;
                 */
-        Z_FULL_FLUSH(context) {},
+        Z_FULL_FLUSH: false,
 
         /*
                 declare var Z_FINISH: number;
                 */
-        Z_FINISH(context) {},
+        Z_FINISH: false,
 
         /*
                 declare var Z_BLOCK: number;
                 */
-        Z_BLOCK(context) {},
+        Z_BLOCK: false,
 
         /*
                 declare var Z_TREES: number;
                 */
-        Z_TREES(context) {},
+        Z_TREES: false,
 
         /*
                 declare var Z_OK: number;
                 */
-        Z_OK(context) {},
+        Z_OK: false,
 
         /*
                 declare var Z_STREAM_END: number;
                 */
-        Z_STREAM_END(context) {},
+        Z_STREAM_END: false,
 
         /*
                 declare var Z_NEED_DICT: number;
                 */
-        Z_NEED_DICT(context) {},
+        Z_NEED_DICT: false,
 
         /*
                 declare var Z_ERRNO: number;
                 */
-        Z_ERRNO(context) {},
+        Z_ERRNO: false,
 
         /*
                 declare var Z_STREAM_ERROR: number;
                 */
-        Z_STREAM_ERROR(context) {},
+        Z_STREAM_ERROR: false,
 
         /*
                 declare var Z_DATA_ERROR: number;
                 */
-        Z_DATA_ERROR(context) {},
+        Z_DATA_ERROR: false,
 
         /*
                 declare var Z_MEM_ERROR: number;
                 */
-        Z_MEM_ERROR(context) {},
+        Z_MEM_ERROR: false,
 
         /*
                 declare var Z_BUF_ERROR: number;
                 */
-        Z_BUF_ERROR(context) {},
+        Z_BUF_ERROR: false,
 
         /*
                 declare var Z_VERSION_ERROR: number;
                 */
-        Z_VERSION_ERROR(context) {},
+        Z_VERSION_ERROR: false,
 
         /*
                 declare var Z_NO_COMPRESSION: number;
                 */
-        Z_NO_COMPRESSION(context) {},
+        Z_NO_COMPRESSION: false,
 
         /*
                 declare var Z_BEST_SPEED: number;
                 */
-        Z_BEST_SPEED(context) {},
+        Z_BEST_SPEED: false,
 
         /*
                 declare var Z_BEST_COMPRESSION: number;
                 */
-        Z_BEST_COMPRESSION(context) {},
+        Z_BEST_COMPRESSION: false,
 
         /*
                 declare var Z_DEFAULT_COMPRESSION: number;
                 */
-        Z_DEFAULT_COMPRESSION(context) {},
+        Z_DEFAULT_COMPRESSION: false,
 
         /*
                 declare var Z_FILTERED: number;
                 */
-        Z_FILTERED(context) {},
+        Z_FILTERED: false,
 
         /*
                 declare var Z_HUFFMAN_ONLY: number;
                 */
-        Z_HUFFMAN_ONLY(context) {},
+        Z_HUFFMAN_ONLY: false,
 
         /*
                 declare var Z_RLE: number;
                 */
-        Z_RLE(context) {},
+        Z_RLE: false,
 
         /*
                 declare var Z_FIXED: number;
                 */
-        Z_FIXED(context) {},
+        Z_FIXED: false,
 
         /*
                 declare var Z_DEFAULT_STRATEGY: number;
                 */
-        Z_DEFAULT_STRATEGY(context) {},
+        Z_DEFAULT_STRATEGY: false,
 
         /*
                 declare var Z_BINARY: number;
                 */
-        Z_BINARY(context) {},
+        Z_BINARY: false,
 
         /*
                 declare var Z_TEXT: number;
                 */
-        Z_TEXT(context) {},
+        Z_TEXT: false,
 
         /*
                 declare var Z_ASCII: number;
                 */
-        Z_ASCII(context) {},
+        Z_ASCII: false,
 
         /*
                 declare var Z_UNKNOWN: number;
                 */
-        Z_UNKNOWN(context) {},
+        Z_UNKNOWN: false,
 
         /*
                 declare var Z_DEFLATED: number;
                 */
-        Z_DEFLATED(context) {},
+        Z_DEFLATED: false,
 
         /*
                 declare var Z_NULL: number;
                 */
-        Z_NULL(context) {},
+        Z_NULL: false,
 
         /*
                 declare var Z_DEFAULT_CHUNK: number;
                 */
-        Z_DEFAULT_CHUNK(context) {},
+        Z_DEFAULT_CHUNK: false,
 
         /*
                 declare var Z_DEFAULT_LEVEL: number;
                 */
-        Z_DEFAULT_LEVEL(context) {},
+        Z_DEFAULT_LEVEL: false,
 
         /*
                 declare var Z_DEFAULT_MEMLEVEL: number;
                 */
-        Z_DEFAULT_MEMLEVEL(context) {},
+        Z_DEFAULT_MEMLEVEL: false,
 
         /*
                 declare var Z_DEFAULT_WINDOWBITS: number;
                 */
-        Z_DEFAULT_WINDOWBITS(context) {},
+        Z_DEFAULT_WINDOWBITS: false,
 
         /*
                 declare var Z_MAX_CHUNK: number;
                 */
-        Z_MAX_CHUNK(context) {},
+        Z_MAX_CHUNK: false,
 
         /*
                 declare var Z_MAX_LEVEL: number;
                 */
-        Z_MAX_LEVEL(context) {},
+        Z_MAX_LEVEL: false,
 
         /*
                 declare var Z_MAX_MEMLEVEL: number;
                 */
-        Z_MAX_MEMLEVEL(context) {},
+        Z_MAX_MEMLEVEL: false,
 
         /*
                 declare var Z_MAX_WINDOWBITS: number;
                 */
-        Z_MAX_WINDOWBITS(context) {},
+        Z_MAX_WINDOWBITS: false,
 
         /*
                 declare var Z_MIN_CHUNK: number;
                 */
-        Z_MIN_CHUNK(context) {},
+        Z_MIN_CHUNK: false,
 
         /*
                 declare var Z_MIN_LEVEL: number;
                 */
-        Z_MIN_LEVEL(context) {},
+        Z_MIN_LEVEL: false,
 
         /*
                 declare var Z_MIN_MEMLEVEL: number;
                 */
-        Z_MIN_MEMLEVEL(context) {},
+        Z_MIN_MEMLEVEL: false,
 
         /*
                 declare var Z_MIN_WINDOWBITS: number;
                 */
-        Z_MIN_WINDOWBITS(context) {},
+        Z_MIN_WINDOWBITS: false,
 
         /*
                 declare var constants: {
@@ -3974,7 +3924,7 @@ export default {
                     ...
                   };
                 */
-        constants(context) {},
+        constants: false,
 
         /*
                 declare var codes: {
@@ -3990,205 +3940,203 @@ export default {
                     ...
                   };
                 */
-        codes(context) {},
+        codes: false,
 
         /*
                 declare class Zlib extends stream$Duplex {
                     // TODO
                   }
                 */
-        Zlib(context) {},
+        Zlib: false,
 
         /*
                 declare class BrotliCompress extends Zlib {}
                 */
-        BrotliCompress(context) {},
+        BrotliCompress: false,
 
         /*
                 declare class BrotliDecompress extends Zlib {}
                 */
-        BrotliDecompress(context) {},
+        BrotliDecompress: false,
 
         /*
                 declare class Deflate extends Zlib {}
                 */
-        Deflate(context) {},
+        Deflate: false,
 
         /*
                 declare class Inflate extends Zlib {}
                 */
-        Inflate(context) {},
+        Inflate: false,
 
         /*
                 declare class Gzip extends Zlib {}
                 */
-        Gzip(context) {},
+        Gzip: false,
 
         /*
                 declare class Gunzip extends Zlib {}
                 */
-        Gunzip(context) {},
+        Gunzip: false,
 
         /*
                 declare class DeflateRaw extends Zlib {}
                 */
-        DeflateRaw(context) {},
+        DeflateRaw: false,
 
         /*
                 declare class InflateRaw extends Zlib {}
                 */
-        InflateRaw(context) {},
+        InflateRaw: false,
 
         /*
                 declare class Unzip extends Zlib {}
                 */
-        Unzip(context) {},
+        Unzip: false,
 
         /*
                 declare function createBrotliCompress(options?: zlib$brotliOptions): BrotliCompress;
                 */
-        createBrotliCompress(context) {},
+        createBrotliCompress: false,
 
         /*
                 declare function createBrotliDecompress(options?: zlib$brotliOptions): BrotliDecompress;
                 */
-        createBrotliDecompress(context) {},
+        createBrotliDecompress: false,
 
         /*
                 declare function createDeflate(options?: zlib$options): Deflate;
                 */
-        createDeflate(context) {},
+        createDeflate: false,
 
         /*
                 declare function createInflate(options?: zlib$options): Inflate;
                 */
-        createInflate(context) {},
+        createInflate: false,
 
         /*
                 declare function createDeflateRaw(options?: zlib$options): DeflateRaw;
                 */
-        createDeflateRaw(context) {},
+        createDeflateRaw: false,
 
         /*
                 declare function createInflateRaw(options?: zlib$options): InflateRaw;
                 */
-        createInflateRaw(context) {},
+        createInflateRaw: false,
 
         /*
                 declare function createGzip(options?: zlib$options): Gzip;
                 */
-        createGzip(context) {},
+        createGzip: false,
 
         /*
                 declare function createGunzip(options?: zlib$options): Gunzip;
                 */
-        createGunzip(context) {},
+        createGunzip: false,
 
         /*
                 declare function createUnzip(options?: zlib$options): Unzip;
                 */
-        createUnzip(context) {},
+        createUnzip: false,
 
         /*
                 declare var brotliCompress: zlib$brotliAsyncFn;
                 */
-        brotliCompress(context) {},
+        brotliCompress: false,
 
         /*
                 declare var brotliCompressSync: zlib$brotliSyncFn;
                 */
-        brotliCompressSync(context) {},
+        brotliCompressSync: false,
 
         /*
                 declare var brotliDeompress: zlib$brotliAsyncFn;
                 */
-        brotliDeompress(context) {},
+        brotliDeompress: false,
 
         /*
                 declare var brotliDecompressSync: zlib$brotliSyncFn;
                 */
-        brotliDecompressSync(context) {},
+        brotliDecompressSync: false,
 
         /*
                 declare var deflate: zlib$asyncFn;
                 */
-        deflate(context) {},
+        deflate: false,
 
         /*
                 declare var deflateSync: zlib$syncFn;
                 */
-        deflateSync(context) {},
+        deflateSync: false,
 
         /*
                 declare var gzip: zlib$asyncFn;
                 */
-        gzip(context) {},
+        gzip: false,
 
         /*
                 declare var gzipSync: zlib$syncFn;
                 */
-        gzipSync(context) {},
+        gzipSync: false,
 
         /*
                 declare var deflateRaw: zlib$asyncFn;
                 */
-        deflateRaw(context) {},
+        deflateRaw: false,
 
         /*
                 declare var deflateRawSync: zlib$syncFn;
                 */
-        deflateRawSync(context) {},
+        deflateRawSync: false,
 
         /*
                 declare var unzip: zlib$asyncFn;
                 */
-        unzip(context) {},
+        unzip: false,
 
         /*
                 declare var unzipSync: zlib$syncFn;
                 */
-        unzipSync(context) {},
+        unzipSync: false,
 
         /*
                 declare var inflate: zlib$asyncFn;
                 */
-        inflate(context) {},
+        inflate: false,
 
         /*
                 declare var inflateSync: zlib$syncFn;
                 */
-        inflateSync(context) {},
+        inflateSync: false,
 
         /*
                 declare var gunzip: zlib$asyncFn;
                 */
-        gunzip(context) {},
+        gunzip: false,
 
         /*
                 declare var gunzipSync: zlib$syncFn;
                 */
-        gunzipSync(context) {},
+        gunzipSync: false,
 
         /*
                 declare var inflateRaw: zlib$asyncFn;
                 */
-        inflateRaw(context) {},
+        inflateRaw: false,
 
         /*
                 declare var inflateRawSync: zlib$syncFn;
                 */
-        inflateRawSync(context) {},
+        inflateRawSync: false,
       },
     },
 
     assert: {
-      libs: [],
-
       exports: {
         /*
                 declare class AssertionError extends Error {}
                 */
-        AssertionError(context) {},
+        AssertionError: false,
 
         /*
                 declare type AssertStrict = {
@@ -4213,7 +4161,7 @@ export default {
                     ...
                   }
                 */
-        AssertStrict(context) {},
+        AssertStrict: false,
 
         /*
                 declare module.exports: {
@@ -4242,49 +4190,45 @@ export default {
                     ...
                   }
                 */
-        default(context) {},
+        default: false,
       },
     },
 
     v8: {
-      libs: [],
-
       exports: {
         /*
                 declare function getHeapStatistics() : HeapStatistics;
                 */
-        getHeapStatistics(context) {},
+        getHeapStatistics: false,
 
         /*
                 declare function getHeapSpaceStatistics() : Array<HeapSpaceStatistics>
                 */
-        getHeapSpaceStatistics(context) {},
+        getHeapSpaceStatistics: false,
 
         /*
                 declare function setFlagsFromString(flags: string) : void;
                 */
-        setFlagsFromString(context) {},
+        setFlagsFromString: false,
       },
     },
 
     repl: {
-      libs: [],
-
       exports: {
         /*
                 declare var REPL_MODE_MAGIC: $SymbolReplModeMagic;
                 */
-        REPL_MODE_MAGIC(context) {},
+        REPL_MODE_MAGIC: false,
 
         /*
                 declare var REPL_MODE_SLOPPY: $SymbolReplModeSloppy;
                 */
-        REPL_MODE_SLOPPY(context) {},
+        REPL_MODE_SLOPPY: false,
 
         /*
                 declare var REPL_MODE_STRICT: $SymbolReplModeStrict;
                 */
-        REPL_MODE_STRICT(context) {},
+        REPL_MODE_STRICT: false,
 
         /*
                 declare class REPLServer extends readline$Interface {
@@ -4293,7 +4237,7 @@ export default {
                     displayPrompt(preserveCursor?: boolean): void;
                   }
                 */
-        REPLServer(context) {},
+        REPLServer: false,
 
         /*
                 declare function start(prompt: string): REPLServer;
@@ -4315,14 +4259,14 @@ export default {
                     ...
                   }): REPLServer;
                 */
-        start(context) {},
+        start: false,
 
         /*
                 declare class Recoverable extends SyntaxError {
                     constructor(err: Error): void;
                   }
                 */
-        Recoverable(context) {},
+        Recoverable: false,
       },
     },
   },

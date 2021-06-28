@@ -733,7 +733,7 @@ export default {
           ...
         };
         */
-    $JSXIntrinsics(context) {},
+    $JSXIntrinsics: false,
   },
 
   modules: {},

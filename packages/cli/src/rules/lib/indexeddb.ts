@@ -7,7 +7,7 @@ export default {
           indexedDB: IDBFactory;
         }
         */
-    IDBEnvironment(context) {},
+    IDBEnvironment: false,
 
     /*
         declare interface IDBFactory {
@@ -16,7 +16,7 @@ export default {
           cmp(a: any, b: any): -1|0|1;
         }
         */
-    IDBFactory(context) {},
+    IDBFactory: false,
 
     /*
         declare interface IDBRequest extends EventTarget {
@@ -29,7 +29,7 @@ export default {
           onsuccess: (e: any) => mixed;
         }
         */
-    IDBRequest(context) {},
+    IDBRequest: false,
 
     /*
         declare interface IDBOpenDBRequest extends IDBRequest {
@@ -37,7 +37,7 @@ export default {
           onupgradeneeded: (e: any) => mixed;
         }
         */
-    IDBOpenDBRequest(context) {},
+    IDBOpenDBRequest: false,
 
     /*
         declare interface IDBDatabase extends EventTarget {
@@ -58,7 +58,7 @@ export default {
           onversionchange: (e: any) => mixed;
         }
         */
-    IDBDatabase(context) {},
+    IDBDatabase: false,
 
     /*
         declare interface IDBTransaction extends EventTarget {
@@ -73,7 +73,7 @@ export default {
           onerror: (e: any) => mixed;
         }
         */
-    IDBTransaction(context) {},
+    IDBTransaction: false,
 
     /*
         declare interface IDBObjectStore {
@@ -99,7 +99,7 @@ export default {
           transaction : IDBTransaction;
         }
         */
-    IDBObjectStore(context) {},
+    IDBObjectStore: false,
 
     /*
         declare interface IDBIndex extends EventTarget {
@@ -115,7 +115,7 @@ export default {
           unique: bool;
         }
         */
-    IDBIndex(context) {},
+    IDBIndex: false,
 
     /*
         declare interface IDBKeyRange {
@@ -129,7 +129,7 @@ export default {
           upperOpen: bool;
         }
         */
-    IDBKeyRange(context) {},
+    IDBKeyRange: false,
 
     /*
         declare interface IDBCursor {
@@ -143,14 +143,14 @@ export default {
           primaryKey: any;
         }
         */
-    IDBCursor(context) {},
+    IDBCursor: false,
 
     /*
         declare interface IDBCursorWithValue extends IDBCursor {
           value: any;
         }
         */
-    IDBCursorWithValue(context) {},
+    IDBCursorWithValue: false,
   },
 
   modules: {},

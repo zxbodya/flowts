@@ -13,7 +13,7 @@ export default {
           +type: string;
         }
         */
-    StyleSheet(context) {},
+    StyleSheet: false,
 
     /*
         declare class StyleSheetList {
@@ -22,7 +22,7 @@ export default {
           [index: number]: StyleSheet;
         }
         */
-    StyleSheetList(context) {},
+    StyleSheetList: false,
 
     /*
         declare class MediaList {
@@ -35,7 +35,7 @@ export default {
           [index: number]: string;
         }
         */
-    MediaList(context) {},
+    MediaList: false,
 
     /*
         declare class CSSStyleSheet extends StyleSheet {
@@ -45,7 +45,7 @@ export default {
           insertRule(rule: string, index: number): number;
         }
         */
-    CSSStyleSheet(context) {},
+    CSSStyleSheet: false,
 
     /*
         declare class CSSGroupingRule extends CSSRule {
@@ -54,21 +54,21 @@ export default {
           insertRule(rule: string, index: number): number;
         }
         */
-    CSSGroupingRule(context) {},
+    CSSGroupingRule: false,
 
     /*
         declare class CSSConditionRule extends CSSGroupingRule {
           conditionText: string;
         }
         */
-    CSSConditionRule(context) {},
+    CSSConditionRule: false,
 
     /*
         declare class CSSMediaRule extends CSSConditionRule {
           +media: MediaList;
         }
         */
-    CSSMediaRule(context) {},
+    CSSMediaRule: false,
 
     /*
         declare class CSSStyleRule extends CSSRule {
@@ -76,7 +76,7 @@ export default {
           +style: CSSStyleDeclaration;
         }
         */
-    CSSStyleRule(context) {},
+    CSSStyleRule: false,
 
     /*
         declare class CSSRule {
@@ -102,7 +102,7 @@ export default {
           static REGION_STYLE_RULE: number;
         }
         */
-    CSSRule(context) {},
+    CSSRule: false,
 
     /*
         declare class CSSKeyframeRule extends CSSRule {
@@ -110,7 +110,7 @@ export default {
           +style: CSSStyleDeclaration;
         }
         */
-    CSSKeyframeRule(context) {},
+    CSSKeyframeRule: false,
 
     /*
         declare class CSSKeyframesRule extends CSSRule {
@@ -121,7 +121,7 @@ export default {
           findRule(select: string): CSSKeyframeRule | null;
         }
         */
-    CSSKeyframesRule(context) {},
+    CSSKeyframesRule: false,
 
     /*
         declare class CSSRuleList {
@@ -131,7 +131,7 @@ export default {
           [index: number]: CSSRule;
         }
         */
-    CSSRuleList(context) {},
+    CSSRuleList: false,
 
     /*
         declare class CSSStyleDeclaration {
@@ -447,7 +447,7 @@ export default {
           setPropertyPriority(property: string, priority: string): void;
         }
         */
-    CSSStyleDeclaration(context) {},
+    CSSStyleDeclaration: false,
 
     /*
         declare class TransitionEvent extends Event {
@@ -456,21 +456,21 @@ export default {
           propertyName: string; // readonly
         }
         */
-    TransitionEvent(context) {},
+    TransitionEvent: false,
 
     /*
         declare class AnimationTimeline {
           +currentTime: number | null;
         }
         */
-    AnimationTimeline(context) {},
+    AnimationTimeline: false,
 
     /*
         declare class DocumentTimeline extends AnimationTimeline {
           constructor(options?: DocumentTimelineOptions): void;
         }
         */
-    DocumentTimeline(context) {},
+    DocumentTimeline: false,
 
     /*
         declare class AnimationEffect {
@@ -479,7 +479,7 @@ export default {
           updateTiming(timing?: OptionalEffectTiming): void;
         }
         */
-    AnimationEffect(context) {},
+    AnimationEffect: false,
 
     /*
         declare class KeyframeEffect extends AnimationEffect {
@@ -497,7 +497,7 @@ export default {
           setKeyframes(keyframes: Keyframe[] | PropertyIndexedKeyframes | null): void;
         }
         */
-    KeyframeEffect(context) {},
+    KeyframeEffect: false,
 
     /*
         declare class Animation extends EventTarget {
@@ -527,7 +527,7 @@ export default {
           commitStyles(): void;
         }
         */
-    Animation(context) {},
+    Animation: false,
 
     /*
         declare class AnimationPlaybackEvent extends Event {
@@ -536,7 +536,7 @@ export default {
           +timelineTime: number | null;
         }
         */
-    AnimationPlaybackEvent(context) {},
+    AnimationPlaybackEvent: false,
   },
 
   modules: {},

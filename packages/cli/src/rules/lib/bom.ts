@@ -29,17 +29,17 @@ export default {
           onmozorientationchange?: (...args: any[]) => mixed;
         }
         */
-    Screen(context) {},
+    Screen: false,
 
     /*
         declare var screen: Screen;
         */
-    screen(context) {},
+    screen: false,
 
     /*
         declare var window: any;
         */
-    window(context) {},
+    window: false,
 
     /*
         declare class PermissionStatus extends EventTarget {
@@ -47,7 +47,7 @@ export default {
           +state: PermissionState;
         }
         */
-    PermissionStatus(context) {},
+    PermissionStatus: false,
 
     /*
         declare class Permissions {
@@ -61,7 +61,7 @@ export default {
           ): Promise<PermissionStatus>;
         }
         */
-    Permissions(context) {},
+    Permissions: false,
 
     /*
         declare class MIDIMessageEvent extends Event {
@@ -69,7 +69,7 @@ export default {
           +data: Uint8Array;
         }
         */
-    MIDIMessageEvent(context) {},
+    MIDIMessageEvent: false,
 
     /*
         declare class MIDIConnectionEvent extends Event {
@@ -77,7 +77,7 @@ export default {
           +port: MIDIPort;
         }
         */
-    MIDIConnectionEvent(context) {},
+    MIDIConnectionEvent: false,
 
     /*
         declare class MIDIPort extends EventTarget {
@@ -93,14 +93,14 @@ export default {
           close(): Promise<MIDIPort>;
         }
         */
-    MIDIPort(context) {},
+    MIDIPort: false,
 
     /*
         declare class MIDIInput extends MIDIPort {
           onmidimessage: ?((ev: MIDIMessageEvent) => mixed);
         }
         */
-    MIDIInput(context) {},
+    MIDIInput: false,
 
     /*
         declare class MIDIOutput extends MIDIPort {
@@ -108,17 +108,17 @@ export default {
           clear(): void;
         }
         */
-    MIDIOutput(context) {},
+    MIDIOutput: false,
 
     /*
         declare class MIDIInputMap extends $ReadOnlyMap<string, MIDIInput> {}
         */
-    MIDIInputMap(context) {},
+    MIDIInputMap: false,
 
     /*
         declare class MIDIOutputMap extends $ReadOnlyMap<string, MIDIOutput> {}
         */
-    MIDIOutputMap(context) {},
+    MIDIOutputMap: false,
 
     /*
         declare class MIDIAccess extends EventTarget {
@@ -128,7 +128,7 @@ export default {
           onstatechange: ?((ev: MIDIConnectionEvent) => mixed);
         }
         */
-    MIDIAccess(context) {},
+    MIDIAccess: false,
 
     /*
         declare class NavigatorID {
@@ -140,7 +140,7 @@ export default {
             userAgent: string;
         }
         */
-    NavigatorID(context) {},
+    NavigatorID: false,
 
     /*
         declare class NavigatorLanguage {
@@ -148,7 +148,7 @@ export default {
             +languages: $ReadOnlyArray<string>;
         }
         */
-    NavigatorLanguage(context) {},
+    NavigatorLanguage: false,
 
     /*
         declare class NavigatorContentUtils {
@@ -156,14 +156,14 @@ export default {
             registerProtocolHandler(protocol: string, uri: string, title: string): void;
         }
         */
-    NavigatorContentUtils(context) {},
+    NavigatorContentUtils: false,
 
     /*
         declare class NavigatorCookies {
             +cookieEnabled: boolean;
         }
         */
-    NavigatorCookies(context) {},
+    NavigatorCookies: false,
 
     /*
         declare class NavigatorPlugins {
@@ -172,21 +172,21 @@ export default {
             javaEnabled(): boolean;
         }
         */
-    NavigatorPlugins(context) {},
+    NavigatorPlugins: false,
 
     /*
         declare class NavigatorOnLine {
             +onLine: boolean;
         }
         */
-    NavigatorOnLine(context) {},
+    NavigatorOnLine: false,
 
     /*
         declare class NavigatorConcurrentHardware {
             +hardwareConcurrency: number;
         }
         */
-    NavigatorConcurrentHardware(context) {},
+    NavigatorConcurrentHardware: false,
 
     /*
         declare class Navigator mixins
@@ -244,7 +244,7 @@ export default {
             oscpu: string;
         }
         */
-    Navigator(context) {},
+    Navigator: false,
 
     /*
         declare class Clipboard extends EventTarget {
@@ -254,12 +254,12 @@ export default {
             writeText(data: string): Promise<void>;
         }
         */
-    Clipboard(context) {},
+    Clipboard: false,
 
     /*
         declare var navigator: Navigator;
         */
-    navigator(context) {},
+    navigator: false,
 
     /*
         declare class MimeType {
@@ -269,7 +269,7 @@ export default {
             enabledPlugin: Plugin;
         }
         */
-    MimeType(context) {},
+    MimeType: false,
 
     /*
         declare class MimeTypeArray {
@@ -279,7 +279,7 @@ export default {
             [key: number | string]: MimeType;
         }
         */
-    MimeTypeArray(context) {},
+    MimeTypeArray: false,
 
     /*
         declare class Plugin {
@@ -293,7 +293,7 @@ export default {
             [key: number | string]: MimeType;
         }
         */
-    Plugin(context) {},
+    Plugin: false,
 
     /*
         declare class PluginArray {
@@ -304,12 +304,12 @@ export default {
             [key: number | string]: Plugin;
         }
         */
-    PluginArray(context) {},
+    PluginArray: false,
 
     /*
         declare type DOMHighResTimeStamp = number;
         */
-    DOMHighResTimeStamp(context) {},
+    DOMHighResTimeStamp: false,
 
     /*
         declare class PerformanceTiming {
@@ -336,7 +336,7 @@ export default {
             unloadEventStart: number;
         }
         */
-    PerformanceTiming(context) {},
+    PerformanceTiming: false,
 
     /*
         declare class PerformanceNavigation {
@@ -349,7 +349,7 @@ export default {
             redirectCount: number;
         }
         */
-    PerformanceNavigation(context) {},
+    PerformanceNavigation: false,
 
     /*
         declare class PerformanceEntry {
@@ -360,7 +360,7 @@ export default {
             toJSON(): string;
         }
         */
-    PerformanceEntry(context) {},
+    PerformanceEntry: false,
 
     /*
         declare class PerformanceResourceTiming extends PerformanceEntry {
@@ -383,7 +383,7 @@ export default {
             decodedBodySize: number;
         }
         */
-    PerformanceResourceTiming(context) {},
+    PerformanceResourceTiming: false,
 
     /*
         declare class PerformanceNavigationTiming extends PerformanceResourceTiming {
@@ -399,7 +399,7 @@ export default {
             redirectCount: number;
         }
         */
-    PerformanceNavigationTiming(context) {},
+    PerformanceNavigationTiming: false,
 
     /*
         declare class Performance {
@@ -421,12 +421,12 @@ export default {
             toJSON(): string;
         }
         */
-    Performance(context) {},
+    Performance: false,
 
     /*
         declare var performance: Performance;
         */
-    performance(context) {},
+    performance: false,
 
     /*
         declare interface PerformanceObserverEntryList {
@@ -435,7 +435,7 @@ export default {
           getEntriesByName(name: string, type: ?string): PerformanceEntryList;
         }
         */
-    PerformanceObserverEntryList(context) {},
+    PerformanceObserverEntryList: false,
 
     /*
         declare class PerformanceObserver {
@@ -448,7 +448,7 @@ export default {
           static supportedEntryTypes: string[];
         }
         */
-    PerformanceObserver(context) {},
+    PerformanceObserver: false,
 
     /*
         declare class History {
@@ -462,12 +462,12 @@ export default {
             replaceState(statedata: any, title: string, url?: string): void;
         }
         */
-    History(context) {},
+    History: false,
 
     /*
         declare var history: History;
         */
-    history(context) {},
+    history: false,
 
     /*
         declare class Location {
@@ -487,19 +487,19 @@ export default {
             toString(): string;
         }
         */
-    Location(context) {},
+    Location: false,
 
     /*
         declare var location: Location;
         */
-    location(context) {},
+    location: false,
 
     /*
         declare class DOMParser {
             parseFromString(source: string, mimeType: string): Document;
         }
         */
-    DOMParser(context) {},
+    DOMParser: false,
 
     /*
         declare class FormData {
@@ -524,7 +524,7 @@ export default {
             entries(): Iterator<[string, FormDataEntryValue]>;
         }
         */
-    FormData(context) {},
+    FormData: false,
 
     /*
         declare class MutationRecord {
@@ -539,7 +539,7 @@ export default {
             oldValue: ?string;
         }
         */
-    MutationRecord(context) {},
+    MutationRecord: false,
 
     /*
         declare type MutationObserverInit = MutationObserverInitRequired & {
@@ -550,7 +550,7 @@ export default {
           ...
         }
         */
-    MutationObserverInit(context) {},
+    MutationObserverInit: false,
 
     /*
         declare class MutationObserver {
@@ -560,7 +560,7 @@ export default {
             disconnect(): void;
         }
         */
-    MutationObserver(context) {},
+    MutationObserver: false,
 
     /*
         declare class DOMRectReadOnly {
@@ -582,7 +582,7 @@ export default {
           +y: number;
         }
         */
-    DOMRectReadOnly(context) {},
+    DOMRectReadOnly: false,
 
     /*
         declare class DOMRect extends DOMRectReadOnly {
@@ -603,7 +603,7 @@ export default {
           y: number;
         }
         */
-    DOMRect(context) {},
+    DOMRect: false,
 
     /*
         declare class DOMRectList {
@@ -613,7 +613,7 @@ export default {
           [index: number]: DOMRect;
         }
         */
-    DOMRectList(context) {},
+    DOMRectList: false,
 
     /*
         declare type IntersectionObserverEntry = {
@@ -627,7 +627,7 @@ export default {
           ...
         };
         */
-    IntersectionObserverEntry(context) {},
+    IntersectionObserverEntry: false,
 
     /*
         declare type IntersectionObserverCallback = (
@@ -635,7 +635,7 @@ export default {
             observer: IntersectionObserver,
         ) => mixed;
         */
-    IntersectionObserverCallback(context) {},
+    IntersectionObserverCallback: false,
 
     /*
         declare type IntersectionObserverOptions = {
@@ -645,7 +645,7 @@ export default {
           ...
         };
         */
-    IntersectionObserverOptions(context) {},
+    IntersectionObserverOptions: false,
 
     /*
         declare class IntersectionObserver {
@@ -659,7 +659,7 @@ export default {
             disconnect(): void,
         }
         */
-    IntersectionObserver(context) {},
+    IntersectionObserver: false,
 
     /*
         declare class ResizeObserverEntry {
@@ -667,7 +667,7 @@ export default {
             contentRect: DOMRectReadOnly;
         }
         */
-    ResizeObserverEntry(context) {},
+    ResizeObserverEntry: false,
 
     /*
         declare class ResizeObserver {
@@ -677,7 +677,7 @@ export default {
             disconnect(): void;
         }
         */
-    ResizeObserver(context) {},
+    ResizeObserver: false,
 
     /*
         declare var NodeFilter: {
@@ -701,7 +701,7 @@ export default {
           ...
         };
         */
-    NodeFilter(context) {},
+    NodeFilter: false,
 
     /*
         declare class CloseEvent extends Event {
@@ -710,7 +710,7 @@ export default {
             wasClean: boolean;
         }
         */
-    CloseEvent(context) {},
+    CloseEvent: false,
 
     /*
         declare class WebSocket extends EventTarget {
@@ -740,7 +740,7 @@ export default {
             CLOSED: 3;
         }
         */
-    WebSocket(context) {},
+    WebSocket: false,
 
     /*
         declare class Worker extends EventTarget {
@@ -752,7 +752,7 @@ export default {
             terminate(): void;
         }
         */
-    Worker(context) {},
+    Worker: false,
 
     /*
         declare class SharedWorker extends EventTarget {
@@ -762,12 +762,12 @@ export default {
             onerror: (ev: any) => mixed;
         }
         */
-    SharedWorker(context) {},
+    SharedWorker: false,
 
     /*
         declare function importScripts(...urls: Array<string>): void;
         */
-    importScripts(context) {},
+    importScripts: false,
 
     /*
         declare class WorkerGlobalScope extends EventTarget {
@@ -784,7 +784,7 @@ export default {
             onunhandledrejection: (ev: PromiseRejectionEvent) => mixed;
         }
         */
-    WorkerGlobalScope(context) {},
+    WorkerGlobalScope: false,
 
     /*
         declare class DedicatedWorkerGlobalScope extends WorkerGlobalScope {
@@ -793,7 +793,7 @@ export default {
             postMessage(message: any, transfer?: Iterable<any>): void;
         }
         */
-    DedicatedWorkerGlobalScope(context) {},
+    DedicatedWorkerGlobalScope: false,
 
     /*
         declare class SharedWorkerGlobalScope extends WorkerGlobalScope {
@@ -801,7 +801,7 @@ export default {
             onconnect: (ev: MessageEvent) => mixed;
         }
         */
-    SharedWorkerGlobalScope(context) {},
+    SharedWorkerGlobalScope: false,
 
     /*
         declare class WorkerLocation {
@@ -815,7 +815,7 @@ export default {
             hash: string;
         }
         */
-    WorkerLocation(context) {},
+    WorkerLocation: false,
 
     /*
         declare class WorkerNavigator mixins
@@ -826,7 +826,7 @@ export default {
             permissions: Permissions;
           }
         */
-    WorkerNavigator(context) {},
+    WorkerNavigator: false,
 
     /*
         declare class XDomainRequest {
@@ -844,7 +844,7 @@ export default {
             statics: { create(): XDomainRequest, ... }
         }
         */
-    XDomainRequest(context) {},
+    XDomainRequest: false,
 
     /*
         declare class XMLHttpRequest extends EventTarget {
@@ -891,7 +891,7 @@ export default {
             statics: { create(): XMLHttpRequest, ... }
         }
         */
-    XMLHttpRequest(context) {},
+    XMLHttpRequest: false,
 
     /*
         declare class XMLHttpRequestEventTarget extends EventTarget {
@@ -904,14 +904,14 @@ export default {
             onloadend: ProgressEventHandler;
         }
         */
-    XMLHttpRequestEventTarget(context) {},
+    XMLHttpRequestEventTarget: false,
 
     /*
         declare class XMLSerializer {
             serializeToString(target: Node): string;
         }
         */
-    XMLSerializer(context) {},
+    XMLSerializer: false,
 
     /*
         declare class Geolocation {
@@ -928,7 +928,7 @@ export default {
             clearWatch(id: number): void;
         }
         */
-    Geolocation(context) {},
+    Geolocation: false,
 
     /*
         declare class Position {
@@ -936,7 +936,7 @@ export default {
             timestamp: number;
         }
         */
-    Position(context) {},
+    Position: false,
 
     /*
         declare class Coordinates {
@@ -949,7 +949,7 @@ export default {
             speed?: number;
         }
         */
-    Coordinates(context) {},
+    Coordinates: false,
 
     /*
         declare class PositionError {
@@ -960,7 +960,7 @@ export default {
             TIMEOUT: 3;
         }
         */
-    PositionError(context) {},
+    PositionError: false,
 
     /*
         declare class AudioProcessingEvent extends Event {
@@ -971,7 +971,7 @@ export default {
           +outputBuffer: AudioBuffer;
         }
         */
-    AudioProcessingEvent(context) {},
+    AudioProcessingEvent: false,
 
     /*
         declare class OfflineAudioCompletionEvent extends Event {
@@ -980,7 +980,7 @@ export default {
           +renderedBuffer: AudioBuffer;
         }
         */
-    OfflineAudioCompletionEvent(context) {},
+    OfflineAudioCompletionEvent: false,
 
     /*
         declare class BaseAudioContext extends EventTarget {
@@ -1019,7 +1019,7 @@ export default {
           decodeAudioData(arrayBuffer: ArrayBuffer): Promise<AudioBuffer>;
         }
         */
-    BaseAudioContext(context) {},
+    BaseAudioContext: false,
 
     /*
         declare class AudioTimestamp {
@@ -1027,7 +1027,7 @@ export default {
           performanceTime: number;
         }
         */
-    AudioTimestamp(context) {},
+    AudioTimestamp: false,
 
     /*
         declare class AudioContext extends BaseAudioContext {
@@ -1043,7 +1043,7 @@ export default {
           createMediaStreamDestination(): MediaStreamAudioDestinationNode;
         }
         */
-    AudioContext(context) {},
+    AudioContext: false,
 
     /*
         declare class OfflineAudioContext extends BaseAudioContext {
@@ -1053,7 +1053,7 @@ export default {
           oncomplete: (ev: OfflineAudioCompletionEvent) => mixed;
         }
         */
-    OfflineAudioContext(context) {},
+    OfflineAudioContext: false,
 
     /*
         declare class AudioNode extends EventTarget {
@@ -1068,7 +1068,7 @@ export default {
           disconnect(destination?: AudioNode, output?: number, input?: number): void;
         }
         */
-    AudioNode(context) {},
+    AudioNode: false,
 
     /*
         declare class AudioParam extends AudioNode {
@@ -1082,14 +1082,14 @@ export default {
           cancelScheduledValues(startTime: number): this;
         }
         */
-    AudioParam(context) {},
+    AudioParam: false,
 
     /*
         declare class AudioDestinationNode extends AudioNode {
           maxChannelCount: number;
         }
         */
-    AudioDestinationNode(context) {},
+    AudioDestinationNode: false,
 
     /*
         declare class AudioListener extends AudioNode {
@@ -1106,7 +1106,7 @@ export default {
           setOrientation(x: number, y: number, z: number, xUp: number, yUp: number, zUp: number): void;
         }
         */
-    AudioListener(context) {},
+    AudioListener: false,
 
     /*
         declare class AudioBuffer {
@@ -1119,7 +1119,7 @@ export default {
           copyToChannel(source: Float32Array, channelNumber: number, startInChannel?: number): void;
         }
         */
-    AudioBuffer(context) {},
+    AudioBuffer: false,
 
     /*
         declare class AudioBufferSourceNode extends AudioNode {
@@ -1134,7 +1134,7 @@ export default {
           stop(when?: number): void;
         }
         */
-    AudioBufferSourceNode(context) {},
+    AudioBufferSourceNode: false,
 
     /*
         declare class CanvasCaptureMediaStream extends MediaStream {
@@ -1142,7 +1142,7 @@ export default {
           requestFrame(): void;
         }
         */
-    CanvasCaptureMediaStream(context) {},
+    CanvasCaptureMediaStream: false,
 
     /*
         declare class MediaDevices extends EventTarget {
@@ -1153,7 +1153,7 @@ export default {
           getUserMedia: (constraints: MediaStreamConstraints) => Promise<MediaStream>;
         }
         */
-    MediaDevices(context) {},
+    MediaDevices: false,
 
     /*
         declare class MediaDeviceInfo {
@@ -1163,7 +1163,7 @@ export default {
           +label: string;
         }
         */
-    MediaDeviceInfo(context) {},
+    MediaDeviceInfo: false,
 
     /*
         declare class MediaRecorder extends EventTarget {
@@ -1192,7 +1192,7 @@ export default {
           static isTypeSupported(type: string): boolean;
         }
         */
-    MediaRecorder(context) {},
+    MediaRecorder: false,
 
     /*
         declare class MediaStream extends EventTarget {
@@ -1213,7 +1213,7 @@ export default {
           removeTrack(track: MediaStreamTrack): void;
         }
         */
-    MediaStream(context) {},
+    MediaStream: false,
 
     /*
         declare class MediaStreamTrack extends EventTarget {
@@ -1238,36 +1238,36 @@ export default {
           stop(): void;
         }
         */
-    MediaStreamTrack(context) {},
+    MediaStreamTrack: false,
 
     /*
         declare class MediaStreamTrackEvent extends Event {
           track: MediaStreamTrack;
         }
         */
-    MediaStreamTrackEvent(context) {},
+    MediaStreamTrackEvent: false,
 
     /*
         declare class MediaElementAudioSourceNode extends AudioNode {}
         */
-    MediaElementAudioSourceNode(context) {},
+    MediaElementAudioSourceNode: false,
 
     /*
         declare class MediaStreamAudioSourceNode extends AudioNode {}
         */
-    MediaStreamAudioSourceNode(context) {},
+    MediaStreamAudioSourceNode: false,
 
     /*
         declare class MediaStreamTrackAudioSourceNode extends AudioNode {}
         */
-    MediaStreamTrackAudioSourceNode(context) {},
+    MediaStreamTrackAudioSourceNode: false,
 
     /*
         declare class MediaStreamAudioDestinationNode extends AudioNode {
           stream: MediaStream;
         }
         */
-    MediaStreamAudioDestinationNode(context) {},
+    MediaStreamAudioDestinationNode: false,
 
     /*
         declare class ScriptProcessorNode extends AudioNode {
@@ -1275,7 +1275,7 @@ export default {
           onaudioprocess: (ev: AudioProcessingEvent) => mixed;
         }
         */
-    ScriptProcessorNode(context) {},
+    ScriptProcessorNode: false,
 
     /*
         declare class AnalyserNode extends AudioNode {
@@ -1290,7 +1290,7 @@ export default {
           getByteTimeDomainData(array: Uint8Array): Uint8Array;
         }
         */
-    AnalyserNode(context) {},
+    AnalyserNode: false,
 
     /*
         declare class BiquadFilterNode extends AudioNode {
@@ -1302,17 +1302,17 @@ export default {
           getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array): void;
         }
         */
-    BiquadFilterNode(context) {},
+    BiquadFilterNode: false,
 
     /*
         declare class ChannelMergerNode extends AudioNode {}
         */
-    ChannelMergerNode(context) {},
+    ChannelMergerNode: false,
 
     /*
         declare class ChannelSplitterNode extends AudioNode {}
         */
-    ChannelSplitterNode(context) {},
+    ChannelSplitterNode: false,
 
     /*
         declare class ConstantSourceNode extends AudioNode {
@@ -1323,7 +1323,7 @@ export default {
           stop(when?: number): void;
         }
         */
-    ConstantSourceNode(context) {},
+    ConstantSourceNode: false,
 
     /*
         declare class ConvolverNode extends AudioNode {
@@ -1331,14 +1331,14 @@ export default {
           normalize: bool;
         }
         */
-    ConvolverNode(context) {},
+    ConvolverNode: false,
 
     /*
         declare class DelayNode extends AudioNode {
           delayTime: number;
         }
         */
-    DelayNode(context) {},
+    DelayNode: false,
 
     /*
         declare class DynamicsCompressorNode extends AudioNode {
@@ -1350,21 +1350,21 @@ export default {
           release: AudioParam;
         }
         */
-    DynamicsCompressorNode(context) {},
+    DynamicsCompressorNode: false,
 
     /*
         declare class GainNode extends AudioNode {
           gain: AudioParam;
         }
         */
-    GainNode(context) {},
+    GainNode: false,
 
     /*
         declare class IIRFilterNode extends AudioNode {
           getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array): void;
         }
         */
-    IIRFilterNode(context) {},
+    IIRFilterNode: false,
 
     /*
         declare class OscillatorNode extends AudioNode {
@@ -1377,14 +1377,14 @@ export default {
           onended: (ev: any) => mixed;
         }
         */
-    OscillatorNode(context) {},
+    OscillatorNode: false,
 
     /*
         declare class StereoPannerNode extends AudioNode {
           pan: AudioParam;
         }
         */
-    StereoPannerNode(context) {},
+    StereoPannerNode: false,
 
     /*
         declare class PannerNode extends AudioNode {
@@ -1400,12 +1400,12 @@ export default {
           setOrientation(x: number, y: number, z: number): void;
         }
         */
-    PannerNode(context) {},
+    PannerNode: false,
 
     /*
         declare class PeriodicWave extends AudioNode {}
         */
-    PeriodicWave(context) {},
+    PeriodicWave: false,
 
     /*
         declare class WaveShaperNode extends AudioNode {
@@ -1413,7 +1413,7 @@ export default {
           oversample: 'none'|'2x'|'4x';
         }
         */
-    WaveShaperNode(context) {},
+    WaveShaperNode: false,
 
     /*
         declare class Headers {
@@ -1430,7 +1430,7 @@ export default {
             values(): Iterator<string>;
         }
         */
-    Headers(context) {},
+    Headers: false,
 
     /*
         declare class URLSearchParams {
@@ -1448,7 +1448,7 @@ export default {
             values(): Iterator<string>;
         }
         */
-    URLSearchParams(context) {},
+    URLSearchParams: false,
 
     /*
         declare class Response {
@@ -1477,7 +1477,7 @@ export default {
             text(): Promise<string>;
         }
         */
-    Response(context) {},
+    Response: false,
 
     /*
         declare class Request {
@@ -1507,7 +1507,7 @@ export default {
             text(): Promise<string>;
         }
         */
-    Request(context) {},
+    Request: false,
 
     /*
         declare class AbortController {
@@ -1516,7 +1516,7 @@ export default {
             abort(): void;
         }
         */
-    AbortController(context) {},
+    AbortController: false,
 
     /*
         declare class AbortSignal extends EventTarget {
@@ -1524,12 +1524,12 @@ export default {
             onabort: (event: any) => mixed;
         }
         */
-    AbortSignal(context) {},
+    AbortSignal: false,
 
     /*
         declare function fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;
         */
-    fetch(context) {},
+    fetch: false,
 
     /*
         declare class TextEncoder {
@@ -1538,7 +1538,7 @@ export default {
           encoding: TextEncoder$availableEncodings;
         }
         */
-    TextEncoder(context) {},
+    TextEncoder: false,
 
     /*
         declare class TextDecoder {
@@ -1549,7 +1549,7 @@ export default {
           decode(buffer?: ArrayBuffer | $ArrayBufferView, options?: { stream: bool, ... }): string;
         }
         */
-    TextDecoder(context) {},
+    TextDecoder: false,
 
     /*
         declare class MessagePort extends EventTarget {
@@ -1561,7 +1561,7 @@ export default {
           onmessageerror: null | (ev: MessageEvent) => mixed;
         }
         */
-    MessagePort(context) {},
+    MessagePort: false,
 
     /*
         declare class MessageChannel {
@@ -1569,7 +1569,7 @@ export default {
           port2: MessagePort;
         }
         */
-    MessageChannel(context) {},
+    MessageChannel: false,
 
     /*
         declare class VRDisplay extends EventTarget {
@@ -1591,7 +1591,7 @@ export default {
           submitFrame(): void;
         }
         */
-    VRDisplay(context) {},
+    VRDisplay: false,
 
     /*
         declare class VRFrameData {
@@ -1603,7 +1603,7 @@ export default {
           timestamp: number;
         }
         */
-    VRFrameData(context) {},
+    VRFrameData: false,
 
     /*
         declare class VRDisplayEvent extends Event {
@@ -1612,7 +1612,7 @@ export default {
           reason?: VRDisplayEventReason;
         }
         */
-    VRDisplayEvent(context) {},
+    VRDisplayEvent: false,
 
     /*
         declare class MediaQueryListEvent {
@@ -1620,12 +1620,12 @@ export default {
           media: string;
         }
         */
-    MediaQueryListEvent(context) {},
+    MediaQueryListEvent: false,
 
     /*
         declare type MediaQueryListListener = MediaQueryListEvent => void;
         */
-    MediaQueryListListener(context) {},
+    MediaQueryListListener: false,
 
     /*
         declare class MediaQueryList extends EventTarget {
@@ -1636,12 +1636,12 @@ export default {
           onchange: MediaQueryListListener;
         }
         */
-    MediaQueryList(context) {},
+    MediaQueryList: false,
 
     /*
         declare var matchMedia: string => MediaQueryList;
         */
-    matchMedia(context) {},
+    matchMedia: false,
 
     /*
         declare type CredMgmtCredentialRequestOptions = {
@@ -1650,12 +1650,12 @@ export default {
           ...
         }
         */
-    CredMgmtCredentialRequestOptions(context) {},
+    CredMgmtCredentialRequestOptions: false,
 
     /*
         declare type CredMgmtCredentialCreationOptions = { signal: AbortSignal, ... }
         */
-    CredMgmtCredentialCreationOptions(context) {},
+    CredMgmtCredentialCreationOptions: false,
 
     /*
         declare interface CredMgmtCredential {
@@ -1663,14 +1663,14 @@ export default {
           type: string;
         }
         */
-    CredMgmtCredential(context) {},
+    CredMgmtCredential: false,
 
     /*
         declare interface CredMgmtPasswordCredential extends CredMgmtCredential {
           password: string;
         }
         */
-    CredMgmtPasswordCredential(context) {},
+    CredMgmtPasswordCredential: false,
 
     /*
         declare interface CredMgmtCredentialsContainer {
@@ -1682,7 +1682,7 @@ export default {
           preventSilentAccess(): Promise<void>;
         }
         */
-    CredMgmtCredentialsContainer(context) {},
+    CredMgmtCredentialsContainer: false,
 
     /*
         declare class SpeechSynthesis extends EventTarget {
@@ -1699,12 +1699,12 @@ export default {
           getVoices(): Array<SpeechSynthesisVoice>;
         }
         */
-    SpeechSynthesis(context) {},
+    SpeechSynthesis: false,
 
     /*
         declare var speechSynthesis: SpeechSynthesis;
         */
-    speechSynthesis(context) {},
+    speechSynthesis: false,
 
     /*
         declare class SpeechSynthesisUtterance extends EventTarget {
@@ -1726,7 +1726,7 @@ export default {
           onboundary: ?((ev: SpeechSynthesisEvent) => mixed);
         }
         */
-    SpeechSynthesisUtterance(context) {},
+    SpeechSynthesisUtterance: false,
 
     /*
         declare class SpeechSynthesisEvent extends Event {
@@ -1739,7 +1739,7 @@ export default {
           name: string;
         }
         */
-    SpeechSynthesisEvent(context) {},
+    SpeechSynthesisEvent: false,
 
     /*
         declare class SpeechSynthesisErrorEvent extends SpeechSynthesisEvent {
@@ -1747,7 +1747,7 @@ export default {
           +error: SpeechSynthesisErrorCode;
         }
         */
-    SpeechSynthesisErrorEvent(context) {},
+    SpeechSynthesisErrorEvent: false,
 
     /*
         declare class SpeechSynthesisVoice {
@@ -1758,7 +1758,7 @@ export default {
           +default: boolean;
         }
         */
-    SpeechSynthesisVoice(context) {},
+    SpeechSynthesisVoice: false,
 
     /*
         declare class SpeechGrammar {
@@ -1768,7 +1768,7 @@ export default {
           weight?: number;
         }
         */
-    SpeechGrammar(context) {},
+    SpeechGrammar: false,
 
     /*
         declare class SpeechGrammarList {
@@ -1779,7 +1779,7 @@ export default {
           addFromString(string: string, weight?: number): void;
         }
         */
-    SpeechGrammarList(context) {},
+    SpeechGrammarList: false,
 
     /*
         declare class SpeechRecognitionAlternative {
@@ -1787,7 +1787,7 @@ export default {
           +confidence: number;
         }
         */
-    SpeechRecognitionAlternative(context) {},
+    SpeechRecognitionAlternative: false,
 
     /*
         declare class SpeechRecognitionResult {
@@ -1797,7 +1797,7 @@ export default {
           item(index: number): SpeechRecognitionAlternative;
         }
         */
-    SpeechRecognitionResult(context) {},
+    SpeechRecognitionResult: false,
 
     /*
         declare class SpeechRecognitionResultList {
@@ -1806,7 +1806,7 @@ export default {
           item(index: number): SpeechRecognitionResult;
         }
         */
-    SpeechRecognitionResultList(context) {},
+    SpeechRecognitionResultList: false,
 
     /*
         declare class SpeechRecognitionEvent extends Event {
@@ -1818,7 +1818,7 @@ export default {
           +results: SpeechRecognitionResultList;
         }
         */
-    SpeechRecognitionEvent(context) {},
+    SpeechRecognitionEvent: false,
 
     /*
         declare class SpeechRecognitionErrorEvent extends SpeechRecognitionEvent {
@@ -1827,7 +1827,7 @@ export default {
           +message: string;
         }
         */
-    SpeechRecognitionErrorEvent(context) {},
+    SpeechRecognitionErrorEvent: false,
 
     /*
         declare class SpeechRecognition extends EventTarget {
@@ -1856,7 +1856,7 @@ export default {
           stop(): void;
         }
         */
-    SpeechRecognition(context) {},
+    SpeechRecognition: false,
   },
 
   modules: {},

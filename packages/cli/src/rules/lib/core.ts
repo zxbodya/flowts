@@ -5,57 +5,57 @@ export default {
     /*
         declare var NaN: number;
         */
-    NaN(context) {},
+    NaN: false,
 
     /*
         declare var Infinity: number;
         */
-    Infinity(context) {},
+    Infinity: false,
 
     /*
         declare var undefined: void;
         */
-    undefined(context) {},
+    undefined: false,
 
     /*
         declare function parseInt(string: mixed, radix?: number): number;
         */
-    parseInt(context) {},
+    parseInt: false,
 
     /*
         declare function parseFloat(string: mixed): number;
         */
-    parseFloat(context) {},
+    parseFloat: false,
 
     /*
         declare function isNaN(number: mixed): boolean;
         */
-    isNaN(context) {},
+    isNaN: false,
 
     /*
         declare function isFinite(number: mixed): boolean;
         */
-    isFinite(context) {},
+    isFinite: false,
 
     /*
         declare function decodeURI(encodedURI: string): string;
         */
-    decodeURI(context) {},
+    decodeURI: false,
 
     /*
         declare function decodeURIComponent(encodedURIComponent: string): string;
         */
-    decodeURIComponent(context) {},
+    decodeURIComponent: false,
 
     /*
         declare function encodeURI(uri: string): string;
         */
-    encodeURI(context) {},
+    encodeURI: false,
 
     /*
         declare function encodeURIComponent(uriComponent: string): string;
         */
-    encodeURIComponent(context) {},
+    encodeURIComponent: false,
 
     /*
         declare class Object {
@@ -209,67 +209,67 @@ export default {
             valueOf(): mixed;
         }
         */
-    Object(context) {},
+    Object: false,
 
     /*
         declare opaque type $SymbolHasInstance: symbol;
         */
-    $SymbolHasInstance(context) {},
+    $SymbolHasInstance: false,
 
     /*
         declare opaque type $SymboIsConcatSpreadable: symbol;
         */
-    $SymboIsConcatSpreadable(context) {},
+    $SymboIsConcatSpreadable: false,
 
     /*
         declare opaque type $SymbolIterator: symbol;
         */
-    $SymbolIterator(context) {},
+    $SymbolIterator: false,
 
     /*
         declare opaque type $SymbolMatch: symbol;
         */
-    $SymbolMatch(context) {},
+    $SymbolMatch: false,
 
     /*
         declare opaque type $SymbolMatchAll: symbol;
         */
-    $SymbolMatchAll(context) {},
+    $SymbolMatchAll: false,
 
     /*
         declare opaque type $SymbolReplace: symbol;
         */
-    $SymbolReplace(context) {},
+    $SymbolReplace: false,
 
     /*
         declare opaque type $SymbolSearch: symbol;
         */
-    $SymbolSearch(context) {},
+    $SymbolSearch: false,
 
     /*
         declare opaque type $SymbolSpecies: symbol;
         */
-    $SymbolSpecies(context) {},
+    $SymbolSpecies: false,
 
     /*
         declare opaque type $SymbolSplit: symbol;
         */
-    $SymbolSplit(context) {},
+    $SymbolSplit: false,
 
     /*
         declare opaque type $SymbolToPrimitive: symbol;
         */
-    $SymbolToPrimitive(context) {},
+    $SymbolToPrimitive: false,
 
     /*
         declare opaque type $SymbolToStringTag: symbol;
         */
-    $SymbolToStringTag(context) {},
+    $SymbolToStringTag: false,
 
     /*
         declare opaque type $SymbolUnscopables: symbol;
         */
-    $SymbolUnscopables(context) {},
+    $SymbolUnscopables: false,
 
     /*
         declare class Symbol {
@@ -364,7 +364,7 @@ export default {
           valueOf(): ?symbol;
         }
         */
-    Symbol(context) {},
+    Symbol: false,
 
     /*
         declare class Function {
@@ -382,7 +382,7 @@ export default {
             name: string;
         }
         */
-    Function(context) {},
+    Function: false,
 
     /*
         declare class Boolean {
@@ -393,7 +393,7 @@ export default {
             toString(): string;
         }
         */
-    Boolean(context) {},
+    Boolean: false,
 
     /*
         declare class Number {
@@ -503,7 +503,7 @@ export default {
             valueOf(): number;
         }
         */
-    Number(context) {},
+    Number: false,
 
     /*
         declare var Math: {
@@ -710,7 +710,7 @@ export default {
             ...
         };
         */
-    Math(context) {},
+    Math: false,
 
     /*
         declare class $ReadOnlyArray<+T> {
@@ -898,7 +898,7 @@ export default {
             +length: number;
         }
         */
-    $ReadOnlyArray(context) {},
+    $ReadOnlyArray: false,
 
     /*
         declare class Array<T> extends $ReadOnlyArray<T> {
@@ -1089,7 +1089,7 @@ export default {
             static of<T>(...values: Array<T>): Array<T>;
         }
         */
-    Array(context) {},
+    Array: false,
 
     /*
         declare class String {
@@ -1298,7 +1298,7 @@ export default {
             static raw(callSite: $Shape<{ raw: string, ... }>, ...substitutions: any[]): string;
         }
         */
-    String(context) {},
+    String: false,
 
     /*
         declare class RegExp {
@@ -1356,7 +1356,7 @@ export default {
             +[key: $SymbolMatch | $SymbolMatchAll]: (str: string) => Iterator<RegExp$matchResult>
         }
         */
-    RegExp(context) {},
+    RegExp: false,
 
     /*
         declare class Date {
@@ -1547,7 +1547,7 @@ export default {
             [key: $SymbolToPrimitive]: (hint: 'string' | 'default' | 'number') => string | number;
         }
         */
-    Date(context) {},
+    Date: false,
 
     /*
         declare class CallSite {
@@ -1568,7 +1568,7 @@ export default {
             toString(): string;
         }
         */
-    CallSite(context) {},
+    CallSite: false,
 
     /*
         declare class Error {
@@ -1595,49 +1595,49 @@ export default {
             static prepareStackTrace: (err: Error, stack: CallSite[]) => mixed;
         }
         */
-    Error(context) {},
+    Error: false,
 
     /*
         declare class EvalError extends Error {
             static (message?:string):Error;
         }
         */
-    EvalError(context) {},
+    EvalError: false,
 
     /*
         declare class RangeError extends Error {
             static (message?:string):Error;
         }
         */
-    RangeError(context) {},
+    RangeError: false,
 
     /*
         declare class ReferenceError extends Error {
             static (message?:string):Error;
         }
         */
-    ReferenceError(context) {},
+    ReferenceError: false,
 
     /*
         declare class SyntaxError extends Error {
             static (message?:string):Error;
         }
         */
-    SyntaxError(context) {},
+    SyntaxError: false,
 
     /*
         declare class TypeError extends Error {
             static (message?:string):Error;
         }
         */
-    TypeError(context) {},
+    TypeError: false,
 
     /*
         declare class URIError extends Error {
             static (message?:string):Error;
         }
         */
-    URIError(context) {},
+    URIError: false,
 
     /*
         declare class JSON {
@@ -1672,17 +1672,17 @@ export default {
             ): string | void;
         }
         */
-    JSON(context) {},
+    JSON: false,
 
     /*
         declare function $iterate<T>(p: Iterable<T>): T;
         */
-    $iterate(context) {},
+    $iterate: false,
 
     /*
         declare function $asyncIterator<T>(p: AsyncIterable<T>): T;
         */
-    $asyncIterator(context) {},
+    $asyncIterator: false,
 
     /*
         declare class $ReadOnlyMap<K, +V> {
@@ -1705,7 +1705,7 @@ export default {
             values(): Iterator<V>;
         }
         */
-    $ReadOnlyMap(context) {},
+    $ReadOnlyMap: false,
 
     /*
         declare class Map<K, V> extends $ReadOnlyMap<K, V> {
@@ -1735,7 +1735,7 @@ export default {
             static +[key: $SymbolSpecies]: any;
         }
         */
-    Map(context) {},
+    Map: false,
 
     /*
         declare class $ReadOnlyWeakMap<K: interface {} | $ReadOnlyArray<mixed>, +V> {
@@ -1743,7 +1743,7 @@ export default {
             has(key: K): boolean;
         }
         */
-    $ReadOnlyWeakMap(context) {},
+    $ReadOnlyWeakMap: false,
 
     /*
         declare class WeakMap<K: interface {} | $ReadOnlyArray<mixed>, V> extends $ReadOnlyWeakMap<K, V> {
@@ -1754,7 +1754,7 @@ export default {
             set(key: K, value: V): WeakMap<K, V>;
         }
         */
-    WeakMap(context) {},
+    WeakMap: false,
 
     /*
         declare class $ReadOnlySet<T> {
@@ -1776,7 +1776,7 @@ export default {
             values(): Iterator<T>;
         }
         */
-    $ReadOnlySet(context) {},
+    $ReadOnlySet: false,
 
     /*
         declare class Set<T> extends $ReadOnlySet<T> {
@@ -1804,14 +1804,14 @@ export default {
             static +[key: $SymbolSpecies]: (...any) => any; // This would the Set constructor, can't think of a way to correctly type this
         }
         */
-    Set(context) {},
+    Set: false,
 
     /*
         declare class $ReadOnlyWeakSet<T: {...} | $ReadOnlyArray<any>> {
             has(value: T): boolean;
         }
         */
-    $ReadOnlyWeakSet(context) {},
+    $ReadOnlyWeakSet: false,
 
     /*
         declare class WeakSet<T: {...} | $ReadOnlyArray<any>> extends $ReadOnlyWeakSet<T> {
@@ -1821,7 +1821,7 @@ export default {
             has(value: T): boolean;
         }
         */
-    WeakSet(context) {},
+    WeakSet: false,
 
     /*
         declare class Promise<+R> {
@@ -1916,12 +1916,12 @@ export default {
             static race<T, Elem: Promise<T> | T>(promises: Iterable<Elem>): Promise<T>;
         }
         */
-    Promise(context) {},
+    Promise: false,
 
     /*
         declare function $await<T>(p: Promise<T> | T): T;
         */
-    $await(context) {},
+    $await: false,
 
     /*
         declare class ArrayBuffer {
@@ -1932,7 +1932,7 @@ export default {
             static +[key: $SymbolSpecies]: Class<this>;
         }
         */
-    ArrayBuffer(context) {},
+    ArrayBuffer: false,
 
     /*
         declare class $TypedArray {
@@ -2180,52 +2180,52 @@ export default {
             values(): Iterator<number>;
         }
         */
-    $TypedArray(context) {},
+    $TypedArray: false,
 
     /*
         declare class Int8Array extends $TypedArray {}
         */
-    Int8Array(context) {},
+    Int8Array: false,
 
     /*
         declare class Uint8Array extends $TypedArray {}
         */
-    Uint8Array(context) {},
+    Uint8Array: false,
 
     /*
         declare class Uint8ClampedArray extends $TypedArray {}
         */
-    Uint8ClampedArray(context) {},
+    Uint8ClampedArray: false,
 
     /*
         declare class Int16Array extends $TypedArray {}
         */
-    Int16Array(context) {},
+    Int16Array: false,
 
     /*
         declare class Uint16Array extends $TypedArray {}
         */
-    Uint16Array(context) {},
+    Uint16Array: false,
 
     /*
         declare class Int32Array extends $TypedArray {}
         */
-    Int32Array(context) {},
+    Int32Array: false,
 
     /*
         declare class Uint32Array extends $TypedArray {}
         */
-    Uint32Array(context) {},
+    Uint32Array: false,
 
     /*
         declare class Float32Array extends $TypedArray {}
         */
-    Float32Array(context) {},
+    Float32Array: false,
 
     /*
         declare class Float64Array extends $TypedArray {}
         */
-    Float64Array(context) {},
+    Float64Array: false,
 
     /*
         declare class DataView {
@@ -2343,47 +2343,47 @@ export default {
             setFloat64(byteOffset: number, value: number, littleEndian?: boolean): void;
         }
         */
-    DataView(context) {},
+    DataView: false,
 
     /*
         declare function btoa(rawString: string): string;
         */
-    btoa(context) {},
+    btoa: false,
 
     /*
         declare function atob(encodedString: string): string;
         */
-    atob(context) {},
+    atob: false,
 
     /*
         declare function escape(str: string): string;
         */
-    escape(context) {},
+    escape: false,
 
     /*
         declare function unescape(str: string): string;
         */
-    unescape(context) {},
+    unescape: false,
 
     /*
         declare opaque type TimeoutID;
         */
-    TimeoutID(context) {},
+    TimeoutID: false,
 
     /*
         declare opaque type IntervalID;
         */
-    IntervalID(context) {},
+    IntervalID: false,
 
     /*
         declare function clearInterval(intervalId: ?IntervalID): void;
         */
-    clearInterval(context) {},
+    clearInterval: false,
 
     /*
         declare function clearTimeout(timeoutId: ?TimeoutID): void;
         */
-    clearTimeout(context) {},
+    clearTimeout: false,
 
     /*
         declare function setTimeout<TArguments: Array<mixed>>(
@@ -2392,7 +2392,7 @@ export default {
           ...args: TArguments
         ): TimeoutID;
         */
-    setTimeout(context) {},
+    setTimeout: false,
 
     /*
         declare function setInterval<TArguments: Array<mixed>>(
@@ -2401,7 +2401,7 @@ export default {
           ...args: TArguments
         ): IntervalID;
         */
-    setInterval(context) {},
+    setInterval: false,
 
     /*
         declare var Reflect: {
@@ -2421,7 +2421,7 @@ export default {
             ...
         }
         */
-    Reflect(context) {},
+    Reflect: false,
 
     /*
         declare class Proxy<T> {
@@ -2430,12 +2430,12 @@ export default {
           static revocable(target: T, handler: Proxy$traps<T>): Proxy$revocable<T>;
         }
         */
-    Proxy(context) {},
+    Proxy: false,
 
     /*
         declare var global: any;
         */
-    global(context) {},
+    global: false,
 
     /*
         declare var module: {
@@ -2450,7 +2450,7 @@ export default {
             ...
         };
         */
-    module(context) {},
+    module: false,
 
     /*
         declare var require: {
@@ -2461,17 +2461,17 @@ export default {
             ...
         };
         */
-    require(context) {},
+    require: false,
 
     /*
         declare var exports: any;
         */
-    exports(context) {},
+    exports: false,
 
     /*
         declare opaque type $Flow$ModuleRef<+T>;
         */
-    $Flow$ModuleRef(context) {},
+    $Flow$ModuleRef: false,
 
     /*
         declare var console: {
@@ -2501,7 +2501,7 @@ export default {
             ...
         };
         */
-    console(context) {},
+    console: false,
 
     /*
         declare class SharedArrayBuffer {
@@ -2519,7 +2519,7 @@ export default {
           +[key: $SymbolToStringTag]: 'SharedArrayBuffer';
         }
         */
-    SharedArrayBuffer(context) {},
+    SharedArrayBuffer: false,
 
     /*
         declare var Atomics: {
@@ -2602,7 +2602,7 @@ export default {
           ...
         };
         */
-    Atomics(context) {},
+    Atomics: false,
   },
 
   modules: {},

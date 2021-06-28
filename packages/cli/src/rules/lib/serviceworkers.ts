@@ -10,7 +10,7 @@ export default {
           navigate(url: string): Promise<WindowClient>,
         }
         */
-    WindowClient(context) {},
+    WindowClient: false,
 
     /*
         declare class Client {
@@ -21,21 +21,21 @@ export default {
           postMessage(message: any, transfer?: Iterator<any> | Array<any>): void,
         }
         */
-    Client(context) {},
+    Client: false,
 
     /*
         declare class ExtendableEvent extends Event {
           waitUntil(f: Promise<mixed>): void,
         }
         */
-    ExtendableEvent(context) {},
+    ExtendableEvent: false,
 
     /*
         declare class InstallEvent extends ExtendableEvent {
           registerForeignFetch(options: ForeignFetchOptions): void,
         }
         */
-    InstallEvent(context) {},
+    InstallEvent: false,
 
     /*
         declare class FetchEvent extends ExtendableEvent {
@@ -46,7 +46,7 @@ export default {
           preloadResponse: Promise<?Response>,
         }
         */
-    FetchEvent(context) {},
+    FetchEvent: false,
 
     /*
         declare class Clients {
@@ -56,7 +56,7 @@ export default {
           claim(): Promise<void>,
         }
         */
-    Clients(context) {},
+    Clients: false,
 
     /*
         declare class ServiceWorker extends EventTarget {
@@ -68,7 +68,7 @@ export default {
           onstatechange?: EventHandler,
         }
         */
-    ServiceWorker(context) {},
+    ServiceWorker: false,
 
     /*
         declare class NavigationPreloadState {
@@ -76,7 +76,7 @@ export default {
           headerValue: string,
         }
         */
-    NavigationPreloadState(context) {},
+    NavigationPreloadState: false,
 
     /*
         declare class NavigationPreloadManager {
@@ -86,7 +86,7 @@ export default {
           getState: Promise<NavigationPreloadState>,
         }
         */
-    NavigationPreloadManager(context) {},
+    NavigationPreloadManager: false,
 
     /*
         declare class PushSubscriptionJSON {
@@ -95,7 +95,7 @@ export default {
           keys: { [string]: string, ... };
         }
         */
-    PushSubscriptionJSON(context) {},
+    PushSubscriptionJSON: false,
 
     /*
         declare class PushSubscription {
@@ -107,7 +107,7 @@ export default {
           unsubscribe(): Promise<boolean>,
         }
         */
-    PushSubscription(context) {},
+    PushSubscription: false,
 
     /*
         declare class PushManager {
@@ -117,7 +117,7 @@ export default {
           permissionState(options?: PushSubscriptionOptions): Promise<'granted' | 'denied' | 'prompt'>,
         }
         */
-    PushManager(context) {},
+    PushManager: false,
 
     /*
         declare class ServiceWorkerRegistration extends EventTarget {
@@ -135,7 +135,7 @@ export default {
           onupdatefound?: EventHandler,
         }
         */
-    ServiceWorkerRegistration(context) {},
+    ServiceWorkerRegistration: false,
 
     /*
         declare class ServiceWorkerContainer extends EventTarget {
@@ -155,7 +155,7 @@ export default {
           onmessageerror?: EventHandler,
         }
         */
-    ServiceWorkerContainer(context) {},
+    ServiceWorkerContainer: false,
 
     /*
         declare class ServiceWorkerMessageEvent extends Event {
@@ -166,7 +166,7 @@ export default {
           source: ?(ServiceWorker | MessagePort),
         }
         */
-    ServiceWorkerMessageEvent(context) {},
+    ServiceWorkerMessageEvent: false,
 
     /*
         declare class ExtendableMessageEvent extends ExtendableEvent {
@@ -177,7 +177,7 @@ export default {
           source: ?(ServiceWorker | MessagePort),
         }
         */
-    ExtendableMessageEvent(context) {},
+    ExtendableMessageEvent: false,
 
     /*
         declare class Cache {
@@ -196,7 +196,7 @@ export default {
           ): Promise<Array<Request>>,
         }
         */
-    Cache(context) {},
+    Cache: false,
 
     /*
         declare class CacheStorage {
@@ -207,52 +207,52 @@ export default {
           keys(): Promise<Array<string>>,
         }
         */
-    CacheStorage(context) {},
+    CacheStorage: false,
 
     /*
         declare var clients: Clients;
         */
-    clients(context) {},
+    clients: false,
 
     /*
         declare var caches: CacheStorage;
         */
-    caches(context) {},
+    caches: false,
 
     /*
         declare var registration: ServiceWorkerRegistration;
         */
-    registration(context) {},
+    registration: false,
 
     /*
         declare function skipWaiting(): Promise<void>;
         */
-    skipWaiting(context) {},
+    skipWaiting: false,
 
     /*
         declare var onactivate: ?EventHandler;
         */
-    onactivate(context) {},
+    onactivate: false,
 
     /*
         declare var oninstall: ?EventHandler;
         */
-    oninstall(context) {},
+    oninstall: false,
 
     /*
         declare var onfetch: ?EventHandler;
         */
-    onfetch(context) {},
+    onfetch: false,
 
     /*
         declare var onforeignfetch: ?EventHandler;
         */
-    onforeignfetch(context) {},
+    onforeignfetch: false,
 
     /*
         declare var onmessage: ?EventHandler;
         */
-    onmessage(context) {},
+    onmessage: false,
   },
 
   modules: {},

@@ -128,7 +128,7 @@ export default {
           state: State;
         }
         */
-    LegacyReactComponent(context) {},
+    LegacyReactComponent: false,
 
     /*
         declare type React$AbstractComponentStatics = {
@@ -140,7 +140,7 @@ export default {
           ...
         };
         */
-    React$AbstractComponentStatics(context) {},
+    React$AbstractComponentStatics: false,
 
     /*
         declare type React$StatelessFunctionalComponent<Props> = {
@@ -234,28 +234,26 @@ export default {
     /*
         declare type React$FragmentType = ({ children?: React$Node, ... }) => React$Node;
         */
-    React$FragmentType(context) {},
+    React$FragmentType: false,
   },
 
   modules: {
     react: {
-      libs: [],
-
       exports: {
         /*
                 declare export var DOM: any;
                 */
-        DOM(context) {},
+        DOM: false,
 
         /*
                 declare export var PropTypes: ReactPropTypes;
                 */
-        PropTypes(context) {},
+        PropTypes: false,
 
         /*
                 declare export var version: string;
                 */
-        version(context) {},
+        version: false,
 
         /*
                 declare export function checkPropTypes<V>(
@@ -266,12 +264,12 @@ export default {
                     getStack: ?(() => ?string)
                   ) : void;
                 */
-        checkPropTypes(context) {},
+        checkPropTypes: false,
 
         /*
                 declare export var createClass: React$CreateClass;
                 */
-        createClass(context) {},
+        createClass: false,
 
         /*
                 declare export function createContext<T>(
@@ -279,45 +277,45 @@ export default {
                     calculateChangedBits: ?(a: T, b: T) => number,
                   ): React$Context<T>;
                 */
-        createContext(context) {},
+        createContext: false,
 
         /*
                 declare export var createElement: React$CreateElement;
                 */
-        createElement(context) {},
+        createElement: false,
 
         /*
                 declare export var cloneElement: React$CloneElement;
                 */
-        cloneElement(context) {},
+        cloneElement: false,
 
         /*
                 declare export function createFactory<ElementType: React$ElementType>(
                     type: ElementType,
                   ): React$ElementFactory<ElementType>;
                 */
-        createFactory(context) {},
+        createFactory: false,
 
         /*
                 declare export function createRef<T>(
                   ): {|current: null | T|};
                 */
-        createRef(context) {},
+        createRef: false,
 
         /*
                 declare export function isValidElement(element: any): boolean;
                 */
-        isValidElement(context) {},
+        isValidElement: false,
 
         /*
                 declare export var Component: typeof React$Component;
                 */
-        Component(context) {},
+        Component: false,
 
         /*
                 declare export var PureComponent: typeof React$PureComponent;
                 */
-        PureComponent(context) {},
+        PureComponent: false,
 
         /*
                 declare export type StatelessFunctionalComponent<P> =
@@ -330,7 +328,7 @@ export default {
         /*
                 declare export type ComponentType<-P> = React$ComponentType<P>;
                 */
-        ComponentType(context) {},
+        ComponentType: false,
 
         /*
                 declare export type AbstractComponent<
@@ -345,12 +343,12 @@ export default {
         /*
                 declare export type MixedElement = React$MixedElement;
                 */
-        MixedElement(context) {},
+        MixedElement: false,
 
         /*
                 declare export type ElementType = React$ElementType;
                 */
-        ElementType(context) {},
+        ElementType: false,
 
         /*
                 declare export type Element<+C> = React$Element<C>;
@@ -362,17 +360,17 @@ export default {
         /*
                 declare export var Fragment: React$FragmentType;
                 */
-        Fragment(context) {},
+        Fragment: false,
 
         /*
                 declare export type Key = React$Key;
                 */
-        Key(context) {},
+        Key: false,
 
         /*
                 declare export type Ref<C> = React$Ref<C>;
                 */
-        Ref(context) {},
+        Ref: false,
 
         /*
                 declare export type Node = React$Node;
@@ -384,32 +382,32 @@ export default {
         /*
                 declare export type TransportObject = React$TransportObject;
                 */
-        TransportObject(context) {},
+        TransportObject: false,
 
         /*
                 declare export type TransportValue = React$TransportValue;
                 */
-        TransportValue(context) {},
+        TransportValue: false,
 
         /*
                 declare export type Context<T> = React$Context<T>;
                 */
-        Context(context) {},
+        Context: false,
 
         /*
                 declare export type Portal = React$Portal;
                 */
-        Portal(context) {},
+        Portal: false,
 
         /*
                 declare export var ConcurrentMode: ({ children?: React$Node, ... }) => React$Node;
                 */
-        ConcurrentMode(context) {},
+        ConcurrentMode: false,
 
         /*
                 declare export var StrictMode: ({ children?: React$Node, ... }) => React$Node;
                 */
-        StrictMode(context) {},
+        StrictMode: false,
 
         /*
                 declare export var Suspense: React$ComponentType<{
@@ -418,7 +416,7 @@ export default {
                     ...
                   }>;
                 */
-        Suspense(context) {},
+        Suspense: false,
 
         /*
                 declare export type ElementProps<C> = React$ElementProps<C>;
@@ -444,7 +442,7 @@ export default {
         /*
                 declare export type Config<Props, DefaultProps> = React$Config<Props, DefaultProps>;
                 */
-        Config(context) {},
+        Config: false,
 
         /*
                 declare export type ChildrenArray<+T> = $ReadOnlyArray<ChildrenArray<T>> | T;
@@ -472,7 +470,7 @@ export default {
                     ...
                   };
                 */
-        Children(context) {},
+        Children: false,
 
         /*
                 declare export function forwardRef<Config, Instance>(
@@ -510,36 +508,36 @@ export default {
                     equal?: (Config, Config) => boolean,
                   ): React$AbstractComponent<Config, Instance>;
                 */
-        memo(context) {},
+        memo: false,
 
         /*
                 declare export function lazy<Config, Instance = mixed>(
                     component: () => Promise<{ default: React$AbstractComponent<Config, Instance>, ... }>,
                   ): React$AbstractComponent<Config, Instance>;
                 */
-        lazy(context) {},
+        lazy: false,
 
         /*
                 declare type MaybeCleanUpFn = void | (() => void);
                 */
-        MaybeCleanUpFn(context) {},
+        MaybeCleanUpFn: false,
 
         /*
                 declare export function useContext<T>(context: React$Context<T>): T;
                 */
-        useContext(context) {},
+        useContext: false,
 
         /*
                 declare export function useState<S>(
                     initialState: (() => S) | S,
                   ): [S, ((S => S) | S) => void];
                 */
-        useState(context) {},
+        useState: false,
 
         /*
                 declare type Dispatch<A> = (A) => void;
                 */
-        Dispatch(context) {},
+        Dispatch: false,
 
         /*
                 declare export function useReducer<S, A>(
@@ -561,17 +559,17 @@ export default {
                     init: (I) => S,
                   ): [S, Dispatch<A>];
                 */
-        useReducer(context) {},
+        useReducer: false,
 
         /*
                 declare export function useRef<T>(initialValue: T): {|current: T|};
                 */
-        useRef(context) {},
+        useRef: false,
 
         /*
                 declare export function useDebugValue(value: any): void;
                 */
-        useDebugValue(context) {},
+        useDebugValue: false,
 
         /*
                 declare export function useEffect(
@@ -579,7 +577,7 @@ export default {
                     inputs?: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useEffect(context) {},
+        useEffect: false,
 
         /*
                 declare export function useLayoutEffect(
@@ -587,7 +585,7 @@ export default {
                     inputs?: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useLayoutEffect(context) {},
+        useLayoutEffect: false,
 
         /*
                 declare export function useCallback<T: (...args: $ReadOnlyArray<empty>) => mixed>(
@@ -595,7 +593,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): T;
                 */
-        useCallback(context) {},
+        useCallback: false,
 
         /*
                 declare export function useMemo<T>(
@@ -603,7 +601,7 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): T;
                 */
-        useMemo(context) {},
+        useMemo: false,
 
         /*
                 declare export function useImperativeHandle<T>(
@@ -612,22 +610,22 @@ export default {
                     inputs: ?$ReadOnlyArray<mixed>,
                   ): void;
                 */
-        useImperativeHandle(context) {},
+        useImperativeHandle: false,
 
         /*
                 declare export function useDeferredValue<T>(value: T): T;
                 */
-        useDeferredValue(context) {},
+        useDeferredValue: false,
 
         /*
                 declare export function useTransition(): [boolean, (() => void) => void];
                 */
-        useTransition(context) {},
+        useTransition: false,
 
         /*
                 declare export function startTransition(() => void): void;
                 */
-        startTransition(context) {},
+        startTransition: false,
 
         /*
                 declare export type Interaction = {
@@ -636,7 +634,7 @@ export default {
                     ...
                   };
                 */
-        Interaction(context) {},
+        Interaction: false,
 
         /*
                 declare type ProfilerOnRenderFnType = (
@@ -649,7 +647,7 @@ export default {
                     interactions: Set<Interaction>,
                   ) => void;
                 */
-        ProfilerOnRenderFnType(context) {},
+        ProfilerOnRenderFnType: false,
 
         /*
                 declare export var Profiler: React$AbstractComponent<{|
@@ -658,14 +656,14 @@ export default {
                     onRender: ProfilerOnRenderFnType,
                   |}, void>;
                 */
-        Profiler(context) {},
+        Profiler: false,
 
         /*
                 declare type TimeoutConfig = {|
                     timeoutMs: number,
                   |};
                 */
-        TimeoutConfig(context) {},
+        TimeoutConfig: false,
 
         /*
                 declare export default {|
@@ -705,41 +703,37 @@ export default {
                     +startTransition: typeof startTransition,
                   |};
                 */
-        default(context) {},
+        default: false,
       },
     },
 
     React: {
-      libs: [],
-
       exports: {
         /*
                 declare module.exports: $Exports<'react'>;
                 */
-        default(context) {},
+        default: false,
       },
     },
 
     '#flow-internal-react-server-module': {
-      libs: [],
-
       exports: {
         /*
                 declare export var createElement: React$CreateElement;
                 */
-        createElement(context) {},
+        createElement: false,
 
         /*
                 declare export type Node = React$Node;
                 */
-        Node(context) {},
+        Node: false,
 
         /*
                 declare export default {|
                     +createElement: typeof createElement,
                   |};
                 */
-        default(context) {},
+        default: false,
       },
     },
   },

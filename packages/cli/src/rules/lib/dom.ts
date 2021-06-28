@@ -19,7 +19,7 @@ export default {
           stream(): ReadableStream,
         }
         */
-    Blob(context) {},
+    Blob: false,
 
     /*
         declare class FileReader extends EventTarget {
@@ -42,7 +42,7 @@ export default {
           readAsText(blob: Blob, encoding?: string): void;
         }
         */
-    FileReader(context) {},
+    FileReader: false,
 
     /*
         declare type FilePropertyBag = {
@@ -51,7 +51,7 @@ export default {
                ...
         };
         */
-    FilePropertyBag(context) {},
+    FilePropertyBag: false,
 
     /*
         declare class File extends Blob {
@@ -64,7 +64,7 @@ export default {
           name: string;
         }
         */
-    File(context) {},
+    File: false,
 
     /*
         declare class FileList {
@@ -74,7 +74,7 @@ export default {
           [index: number]: File;
         }
         */
-    FileList(context) {},
+    FileList: false,
 
     /*
         declare class DataTransfer {
@@ -89,7 +89,7 @@ export default {
           types: Array<string>; // readonly
         }
         */
-    DataTransfer(context) {},
+    DataTransfer: false,
 
     /*
         declare class DataTransferItemList {
@@ -102,7 +102,7 @@ export default {
           clear(): void;
         }
         */
-    DataTransferItemList(context) {},
+    DataTransferItemList: false,
 
     /*
         declare class DataTransferItem {
@@ -118,12 +118,12 @@ export default {
           webkitGetAsEntry(): void | () => any;
         }
         */
-    DataTransferItem(context) {},
+    DataTransferItem: false,
 
     /*
         declare type DOMStringMap = { [key:string]: string, ... }
         */
-    DOMStringMap(context) {},
+    DOMStringMap: false,
 
     /*
         declare class DOMStringList {
@@ -133,19 +133,19 @@ export default {
           contains(string): boolean;
         }
         */
-    DOMStringList(context) {},
+    DOMStringList: false,
 
     /*
         declare class DOMError {
           name: string;
         }
         */
-    DOMError(context) {},
+    DOMError: false,
 
     /*
         declare type ElementDefinitionOptions = { extends?: string, ... }
         */
-    ElementDefinitionOptions(context) {},
+    ElementDefinitionOptions: false,
 
     /*
         declare interface CustomElementRegistry {
@@ -154,7 +154,7 @@ export default {
           whenDefined(name: string): Promise<void>;
         }
         */
-    CustomElementRegistry(context) {},
+    CustomElementRegistry: false,
 
     /*
         declare interface ShadowRoot extends DocumentFragment {
@@ -164,12 +164,12 @@ export default {
           +mode: ShadowRootMode;
         }
         */
-    ShadowRoot(context) {},
+    ShadowRoot: false,
 
     /*
         declare type ShadowRootMode = 'open'|'closed';
         */
-    ShadowRootMode(context) {},
+    ShadowRootMode: false,
 
     /*
         declare type ShadowRootInit = {
@@ -178,7 +178,7 @@ export default {
                ...
         }
         */
-    ShadowRootInit(context) {},
+    ShadowRootInit: false,
 
     /*
         declare type ScrollToOptions = {
@@ -188,7 +188,7 @@ export default {
           ...
         }
         */
-    ScrollToOptions(context) {},
+    ScrollToOptions: false,
 
     /*
         declare class EventTarget {
@@ -272,7 +272,7 @@ export default {
           initEvent(eventTypeArg: string, canBubbleArg: boolean, cancelableArg: boolean): void;
         }
         */
-    EventTarget(context) {},
+    EventTarget: false,
 
     /*
         declare class Event {
@@ -379,7 +379,7 @@ export default {
           ): void;
         }
         */
-    Event(context) {},
+    Event: false,
 
     /*
         declare class CustomEvent extends Event {
@@ -395,7 +395,7 @@ export default {
           ): CustomEvent;
         }
         */
-    CustomEvent(context) {},
+    CustomEvent: false,
 
     /*
         declare class UIEvent extends Event {
@@ -403,7 +403,7 @@ export default {
           view: any;
         }
         */
-    UIEvent(context) {},
+    UIEvent: false,
 
     /*
         declare class CompositionEvent extends UIEvent {
@@ -411,7 +411,7 @@ export default {
           locale: string,
         }
         */
-    CompositionEvent(context) {},
+    CompositionEvent: false,
 
     /*
         declare class MouseEvent extends UIEvent {
@@ -442,14 +442,14 @@ export default {
           getModifierState(keyArg: string): boolean;
         }
         */
-    MouseEvent(context) {},
+    MouseEvent: false,
 
     /*
         declare class FocusEvent extends UIEvent {
           relatedTarget: ?EventTarget;
         }
         */
-    FocusEvent(context) {},
+    FocusEvent: false,
 
     /*
         declare class WheelEvent extends MouseEvent {
@@ -459,14 +459,14 @@ export default {
           deltaMode: 0x00 | 0x01 | 0x02; // readonly
         }
         */
-    WheelEvent(context) {},
+    WheelEvent: false,
 
     /*
         declare class DragEvent extends MouseEvent {
           dataTransfer: ?DataTransfer; // readonly
         }
         */
-    DragEvent(context) {},
+    DragEvent: false,
 
     /*
         declare class PointerEvent extends MouseEvent {
@@ -486,7 +486,7 @@ export default {
           isPrimary: boolean;
         }
         */
-    PointerEvent(context) {},
+    PointerEvent: false,
 
     /*
         declare class ProgressEvent extends Event {
@@ -505,7 +505,7 @@ export default {
           ): void;
         }
         */
-    ProgressEvent(context) {},
+    ProgressEvent: false,
 
     /*
         declare class PromiseRejectionEvent extends Event {
@@ -513,7 +513,7 @@ export default {
           reason: any;
         }
         */
-    PromiseRejectionEvent(context) {},
+    PromiseRejectionEvent: false,
 
     /*
         declare class PageTransitionEvent extends Event {
@@ -521,7 +521,7 @@ export default {
           +persisted: boolean;
         }
         */
-    PageTransitionEvent(context) {},
+    PageTransitionEvent: false,
 
     /*
         declare class MessageEvent extends Event {
@@ -531,7 +531,7 @@ export default {
           source: WindowProxy;
         }
         */
-    MessageEvent(context) {},
+    MessageEvent: false,
 
     /*
         declare class EventSource extends EventTarget {
@@ -548,7 +548,7 @@ export default {
           close: () => void;
         }
         */
-    EventSource(context) {},
+    EventSource: false,
 
     /*
         declare class KeyboardEvent extends UIEvent {
@@ -569,7 +569,7 @@ export default {
           which: number;
         }
         */
-    KeyboardEvent(context) {},
+    KeyboardEvent: false,
 
     /*
         declare class InputEvent extends UIEvent {
@@ -578,7 +578,7 @@ export default {
           +isComposing: boolean;
         }
         */
-    InputEvent(context) {},
+    InputEvent: false,
 
     /*
         declare class AnimationEvent extends Event {
@@ -597,7 +597,7 @@ export default {
           ) => void;
         }
         */
-    AnimationEvent(context) {},
+    AnimationEvent: false,
 
     /*
         declare class ErrorEvent extends Event {
@@ -620,7 +620,7 @@ export default {
           +error: any;
         }
         */
-    ErrorEvent(context) {},
+    ErrorEvent: false,
 
     /*
         declare class BroadcastChannel extends EventTarget {
@@ -633,7 +633,7 @@ export default {
           close(): void;
         }
         */
-    BroadcastChannel(context) {},
+    BroadcastChannel: false,
 
     /*
         declare class Touch {
@@ -647,7 +647,7 @@ export default {
           target: EventTarget,
         }
         */
-    Touch(context) {},
+    Touch: false,
 
     /*
         declare class TouchList {
@@ -657,7 +657,7 @@ export default {
           [index: number]: Touch,
         }
         */
-    TouchList(context) {},
+    TouchList: false,
 
     /*
         declare class TouchEvent extends UIEvent {
@@ -670,7 +670,7 @@ export default {
           touches: TouchList,
         }
         */
-    TouchEvent(context) {},
+    TouchEvent: false,
 
     /*
         declare class StorageEvent extends Event {
@@ -681,7 +681,7 @@ export default {
           storageArea: ?Storage,
         }
         */
-    StorageEvent(context) {},
+    StorageEvent: false,
 
     /*
         declare class ClipboardEvent extends Event {
@@ -689,7 +689,7 @@ export default {
           +clipboardData: ?DataTransfer; // readonly
         }
         */
-    ClipboardEvent(context) {},
+    ClipboardEvent: false,
 
     /*
         declare class TransitionEvent extends Event {
@@ -700,14 +700,14 @@ export default {
           +pseudoElement: string; // readonly
         }
         */
-    TransitionEvent(context) {},
+    TransitionEvent: false,
 
     /*
         declare class BeforeUnloadEvent extends Event {
           returnValue: string,
         }
         */
-    BeforeUnloadEvent(context) {},
+    BeforeUnloadEvent: false,
 
     /*
         declare class Node extends EventTarget {
@@ -765,7 +765,7 @@ export default {
           outerText?: string;
         }
         */
-    Node(context) {},
+    Node: false,
 
     /*
         declare class NodeList<T> {
@@ -780,7 +780,7 @@ export default {
           values(): Iterator<T>;
         }
         */
-    NodeList(context) {},
+    NodeList: false,
 
     /*
         declare class NamedNodeMap {
@@ -796,7 +796,7 @@ export default {
           setNamedItemNS(arg: Attr): Attr;
         }
         */
-    NamedNodeMap(context) {},
+    NamedNodeMap: false,
 
     /*
         declare class Attr extends Node {
@@ -810,7 +810,7 @@ export default {
           localName: string;
         }
         */
-    Attr(context) {},
+    Attr: false,
 
     /*
         declare class HTMLCollection<+Elem: HTMLElement> {
@@ -821,7 +821,7 @@ export default {
           [index: number | string]: Elem;
         }
         */
-    HTMLCollection(context) {},
+    HTMLCollection: false,
 
     /*
         declare class Document extends Node {
@@ -1344,7 +1344,7 @@ export default {
           getElementById(elementId: string): HTMLElement | null;
         }
         */
-    Document(context) {},
+    Document: false,
 
     /*
         declare class DocumentFragment extends Node {
@@ -1363,7 +1363,7 @@ export default {
           getElementById(elementId: string): HTMLElement | null;
         }
         */
-    DocumentFragment(context) {},
+    DocumentFragment: false,
 
     /*
         declare class Selection {
@@ -1391,7 +1391,7 @@ export default {
           toString(): string;
         }
         */
-    Selection(context) {},
+    Selection: false,
 
     /*
         declare class Range { // extension
@@ -1429,12 +1429,12 @@ export default {
           static END_TO_START: number;
         }
         */
-    Range(context) {},
+    Range: false,
 
     /*
         declare var document: Document;
         */
-    document(context) {},
+    document: false,
 
     /*
         declare class DOMTokenList {
@@ -1453,7 +1453,7 @@ export default {
           values(): Iterator<string>;
         }
         */
-    DOMTokenList(context) {},
+    DOMTokenList: false,
 
     /*
         declare class Element extends Node implements Animatable {
@@ -1777,7 +1777,7 @@ export default {
           remove(): void;
         }
         */
-    Element(context) {},
+    Element: false,
 
     /*
         declare class HTMLElement extends Element {
@@ -1881,7 +1881,7 @@ export default {
           translate: boolean;
         }
         */
-    HTMLElement(context) {},
+    HTMLElement: false,
 
     /*
         declare class HTMLSlotElement extends HTMLElement {
@@ -1889,7 +1889,7 @@ export default {
           assignedNodes(options?: { flatten: boolean, ... }): Node[];
         }
         */
-    HTMLSlotElement(context) {},
+    HTMLSlotElement: false,
 
     /*
         declare class HTMLTableElement extends HTMLElement {
@@ -1908,21 +1908,21 @@ export default {
           deleteRow(index: number): void;
         }
         */
-    HTMLTableElement(context) {},
+    HTMLTableElement: false,
 
     /*
         declare class HTMLTableCaptionElement extends HTMLElement {
 
         }
         */
-    HTMLTableCaptionElement(context) {},
+    HTMLTableCaptionElement: false,
 
     /*
         declare class HTMLTableColElement extends HTMLElement {
           span: number;
         }
         */
-    HTMLTableColElement(context) {},
+    HTMLTableColElement: false,
 
     /*
         declare class HTMLTableSectionElement extends HTMLElement {
@@ -1931,7 +1931,7 @@ export default {
           deleteRow(index: number): void;
         }
         */
-    HTMLTableSectionElement(context) {},
+    HTMLTableSectionElement: false,
 
     /*
         declare class HTMLTableCellElement extends HTMLElement {
@@ -1940,7 +1940,7 @@ export default {
           +cellIndex: number;
         }
         */
-    HTMLTableCellElement(context) {},
+    HTMLTableCellElement: false,
 
     /*
         declare class HTMLTableRowElement extends HTMLElement {
@@ -1952,7 +1952,7 @@ export default {
           insertCell(index?: number): HTMLTableCellElement;
         }
         */
-    HTMLTableRowElement(context) {},
+    HTMLTableRowElement: false,
 
     /*
         declare class HTMLMenuElement extends HTMLElement {
@@ -1960,7 +1960,7 @@ export default {
           setCompact(compact: bool): void;
         }
         */
-    HTMLMenuElement(context) {},
+    HTMLMenuElement: false,
 
     /*
         declare class HTMLBaseElement extends HTMLElement {
@@ -1968,28 +1968,28 @@ export default {
           target: string;
         }
         */
-    HTMLBaseElement(context) {},
+    HTMLBaseElement: false,
 
     /*
         declare class HTMLTemplateElement extends HTMLElement {
           content: DocumentFragment;
         }
         */
-    HTMLTemplateElement(context) {},
+    HTMLTemplateElement: false,
 
     /*
         declare class CanvasGradient {
           addColorStop(offset: number, color: string): void;
         }
         */
-    CanvasGradient(context) {},
+    CanvasGradient: false,
 
     /*
         declare class CanvasPattern {
           setTransform(matrix: SVGMatrix): void;
         }
         */
-    CanvasPattern(context) {},
+    CanvasPattern: false,
 
     /*
         declare class ImageBitmap {
@@ -1998,7 +1998,7 @@ export default {
           height: number;
         }
         */
-    ImageBitmap(context) {},
+    ImageBitmap: false,
 
     /*
         declare class HitRegionOptions {
@@ -2012,7 +2012,7 @@ export default {
           role: ?string;
         }
         */
-    HitRegionOptions(context) {},
+    HitRegionOptions: false,
 
     /*
         declare class CanvasDrawingStyles {
@@ -2033,7 +2033,7 @@ export default {
           direction: string;
         }
         */
-    CanvasDrawingStyles(context) {},
+    CanvasDrawingStyles: false,
 
     /*
         declare class SVGMatrix {
@@ -2045,7 +2045,7 @@ export default {
           mRotate(angle: number): SVGMatrix;
         }
         */
-    SVGMatrix(context) {},
+    SVGMatrix: false,
 
     /*
         declare class TextMetrics {
@@ -2066,7 +2066,7 @@ export default {
           ideographicBaseline: number;
         }
         */
-    TextMetrics(context) {},
+    TextMetrics: false,
 
     /*
         declare class Path2D {
@@ -2093,7 +2093,7 @@ export default {
           rect(x: number, y: number, w: number, h: number): void;
         }
         */
-    Path2D(context) {},
+    Path2D: false,
 
     /*
         declare class ImageData {
@@ -2108,7 +2108,7 @@ export default {
           constructor(width: number, height: number): void;
         }
         */
-    ImageData(context) {},
+    ImageData: false,
 
     /*
         declare class CanvasRenderingContext2D {
@@ -2235,7 +2235,7 @@ export default {
           ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
         }
         */
-    CanvasRenderingContext2D(context) {},
+    CanvasRenderingContext2D: false,
 
     /*
         declare class WebGLRenderingContext {
@@ -3063,14 +3063,14 @@ export default {
           viewport(x: number, y: number, width: number, height: number): void;
         }
         */
-    WebGLRenderingContext(context) {},
+    WebGLRenderingContext: false,
 
     /*
         declare class WebGLContextEvent extends Event {
           statusMessage: string;
         }
         */
-    WebGLContextEvent(context) {},
+    WebGLContextEvent: false,
 
     /*
         declare class HTMLCanvasElement extends HTMLElement {
@@ -3086,14 +3086,14 @@ export default {
           captureStream(frameRate?: number): CanvasCaptureMediaStream;
         }
         */
-    HTMLCanvasElement(context) {},
+    HTMLCanvasElement: false,
 
     /*
         declare class HTMLDetailsElement extends HTMLElement {
           open: boolean;
         }
         */
-    HTMLDetailsElement(context) {},
+    HTMLDetailsElement: false,
 
     /*
         declare class HTMLFormElement extends HTMLElement {
@@ -3115,7 +3115,7 @@ export default {
           submit(): void;
         }
         */
-    HTMLFormElement(context) {},
+    HTMLFormElement: false,
 
     /*
         declare class HTMLFieldSetElement extends HTMLElement {
@@ -3129,14 +3129,14 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLFieldSetElement(context) {},
+    HTMLFieldSetElement: false,
 
     /*
         declare class HTMLLegendElement extends HTMLElement {
           form: HTMLFormElement | null; // readonly
         }
         */
-    HTMLLegendElement(context) {},
+    HTMLLegendElement: false,
 
     /*
         declare class HTMLIFrameElement extends HTMLElement {
@@ -3155,7 +3155,7 @@ export default {
           width: string;
         }
         */
-    HTMLIFrameElement(context) {},
+    HTMLIFrameElement: false,
 
     /*
         declare class HTMLImageElement extends HTMLElement {
@@ -3175,14 +3175,14 @@ export default {
           width: number;
         }
         */
-    HTMLImageElement(context) {},
+    HTMLImageElement: false,
 
     /*
         declare class Image extends HTMLImageElement {
           constructor(width?: number, height?: number): void;
         }
         */
-    Image(context) {},
+    Image: false,
 
     /*
         declare class MediaError {
@@ -3194,7 +3194,7 @@ export default {
           message: ?string;
         }
         */
-    MediaError(context) {},
+    MediaError: false,
 
     /*
         declare class TimeRanges {
@@ -3203,14 +3203,14 @@ export default {
           end(index: number): number;
         }
         */
-    TimeRanges(context) {},
+    TimeRanges: false,
 
     /*
         declare class Audio extends HTMLAudioElement {
           constructor(URLString?: string): void;
         }
         */
-    Audio(context) {},
+    Audio: false,
 
     /*
         declare class AudioTrack {
@@ -3221,7 +3221,7 @@ export default {
           enabled: boolean;
         }
         */
-    AudioTrack(context) {},
+    AudioTrack: false,
 
     /*
         declare class AudioTrackList extends EventTarget {
@@ -3235,7 +3235,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    AudioTrackList(context) {},
+    AudioTrackList: false,
 
     /*
         declare class VideoTrack {
@@ -3246,7 +3246,7 @@ export default {
           selected: boolean;
         }
         */
-    VideoTrack(context) {},
+    VideoTrack: false,
 
     /*
         declare class VideoTrackList extends EventTarget {
@@ -3260,7 +3260,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    VideoTrackList(context) {},
+    VideoTrackList: false,
 
     /*
         declare class TextTrackCue extends EventTarget {
@@ -3284,7 +3284,7 @@ export default {
           onexit: (ev: any) => any;
         }
         */
-    TextTrackCue(context) {},
+    TextTrackCue: false,
 
     /*
         declare class TextTrackCueList {
@@ -3294,7 +3294,7 @@ export default {
           getCueById(id: string): ?TextTrackCue;
         }
         */
-    TextTrackCueList(context) {},
+    TextTrackCueList: false,
 
     /*
         declare class TextTrack extends EventTarget {
@@ -3313,7 +3313,7 @@ export default {
           oncuechange: (ev: any) => any;
         }
         */
-    TextTrack(context) {},
+    TextTrack: false,
 
     /*
         declare class TextTrackList extends EventTarget {
@@ -3324,7 +3324,7 @@ export default {
           onremovetrack: (ev: any) => any;
         }
         */
-    TextTrackList(context) {},
+    TextTrackList: false,
 
     /*
         declare class MediaKeyStatusMap<BufferDataSource, MediaKeyStatus> {
@@ -3338,7 +3338,7 @@ export default {
           values(): Iterator<MediaKeyStatus>;
         }
         */
-    MediaKeyStatusMap(context) {},
+    MediaKeyStatusMap: false,
 
     /*
         declare class MediaKeySession extends EventTarget {
@@ -3357,7 +3357,7 @@ export default {
           onmessage: (ev: any) => any;
         }
         */
-    MediaKeySession(context) {},
+    MediaKeySession: false,
 
     /*
         declare class MediaKeys {
@@ -3365,7 +3365,7 @@ export default {
           setServerCertificate(serverCertificate: BufferDataSource): Promise<boolean>;
         }
         */
-    MediaKeys(context) {},
+    MediaKeys: false,
 
     /*
         declare class HTMLMediaElement extends HTMLElement {
@@ -3435,13 +3435,13 @@ export default {
           setMediakeys?: (mediakeys: ?MediaKeys) => Promise<?MediaKeys>;
         }
         */
-    HTMLMediaElement(context) {},
+    HTMLMediaElement: false,
 
     /*
         declare class HTMLAudioElement extends HTMLMediaElement {
         }
         */
-    HTMLAudioElement(context) {},
+    HTMLAudioElement: false,
 
     /*
         declare class HTMLVideoElement extends HTMLMediaElement {
@@ -3452,7 +3452,7 @@ export default {
           poster: string;
         }
         */
-    HTMLVideoElement(context) {},
+    HTMLVideoElement: false,
 
     /*
         declare class HTMLSourceElement extends HTMLElement {
@@ -3465,7 +3465,7 @@ export default {
             media: string;
         }
         */
-    HTMLSourceElement(context) {},
+    HTMLSourceElement: false,
 
     /*
         declare class ValidityState {
@@ -3482,7 +3482,7 @@ export default {
           valid: boolean;
         }
         */
-    ValidityState(context) {},
+    ValidityState: false,
 
     /*
         declare class HTMLInputElement extends HTMLElement {
@@ -3558,7 +3558,7 @@ export default {
           stepUp(stepIncrement?: number): void;
         }
         */
-    HTMLInputElement(context) {},
+    HTMLInputElement: false,
 
     /*
         declare class HTMLButtonElement extends HTMLElement {
@@ -3578,7 +3578,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLButtonElement(context) {},
+    HTMLButtonElement: false,
 
     /*
         declare class HTMLTextAreaElement extends HTMLElement {
@@ -3615,7 +3615,7 @@ export default {
           setSelectionRange(start: number, end: number, direction?: SelectionDirection): void;
         }
         */
-    HTMLTextAreaElement(context) {},
+    HTMLTextAreaElement: false,
 
     /*
         declare class HTMLSelectElement extends HTMLElement {
@@ -3646,7 +3646,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLSelectElement(context) {},
+    HTMLSelectElement: false,
 
     /*
         declare class HTMLOptionsCollection extends HTMLCollection<HTMLOptionElement> {
@@ -3655,7 +3655,7 @@ export default {
           remove(index: number): void;
         }
         */
-    HTMLOptionsCollection(context) {},
+    HTMLOptionsCollection: false,
 
     /*
         declare class HTMLOptionElement extends HTMLElement {
@@ -3669,7 +3669,7 @@ export default {
           value: string;
         }
         */
-    HTMLOptionElement(context) {},
+    HTMLOptionElement: false,
 
     /*
         declare class HTMLOptGroupElement extends HTMLElement {
@@ -3677,7 +3677,7 @@ export default {
           label: string;
         }
         */
-    HTMLOptGroupElement(context) {},
+    HTMLOptGroupElement: false,
 
     /*
         declare class HTMLAnchorElement extends HTMLElement {
@@ -3706,7 +3706,7 @@ export default {
           username: string;
         }
         */
-    HTMLAnchorElement(context) {},
+    HTMLAnchorElement: false,
 
     /*
         declare class HTMLLabelElement extends HTMLElement {
@@ -3715,7 +3715,7 @@ export default {
           control: HTMLElement | null;
         }
         */
-    HTMLLabelElement(context) {},
+    HTMLLabelElement: false,
 
     /*
         declare class HTMLLinkElement extends HTMLElement {
@@ -3729,7 +3729,7 @@ export default {
           as: string;
         }
         */
-    HTMLLinkElement(context) {},
+    HTMLLinkElement: false,
 
     /*
         declare class HTMLScriptElement extends HTMLElement {
@@ -3742,7 +3742,7 @@ export default {
           type: string;
         }
         */
-    HTMLScriptElement(context) {},
+    HTMLScriptElement: false,
 
     /*
         declare class HTMLStyleElement extends HTMLElement {
@@ -3753,64 +3753,64 @@ export default {
           type: string;
         }
         */
-    HTMLStyleElement(context) {},
+    HTMLStyleElement: false,
 
     /*
         declare class HTMLParagraphElement extends HTMLElement {
           align: 'left' | 'center' | 'right' | 'justify'; // deprecated in HTML 4.01
         }
         */
-    HTMLParagraphElement(context) {},
+    HTMLParagraphElement: false,
 
     /*
         declare class HTMLHtmlElement extends HTMLElement {}
         */
-    HTMLHtmlElement(context) {},
+    HTMLHtmlElement: false,
 
     /*
         declare class HTMLBodyElement extends HTMLElement {}
         */
-    HTMLBodyElement(context) {},
+    HTMLBodyElement: false,
 
     /*
         declare class HTMLHeadElement extends HTMLElement {}
         */
-    HTMLHeadElement(context) {},
+    HTMLHeadElement: false,
 
     /*
         declare class HTMLDivElement extends HTMLElement {}
         */
-    HTMLDivElement(context) {},
+    HTMLDivElement: false,
 
     /*
         declare class HTMLSpanElement extends HTMLElement {}
         */
-    HTMLSpanElement(context) {},
+    HTMLSpanElement: false,
 
     /*
         declare class HTMLAppletElement extends HTMLElement {}
         */
-    HTMLAppletElement(context) {},
+    HTMLAppletElement: false,
 
     /*
         declare class HTMLHeadingElement extends HTMLElement {}
         */
-    HTMLHeadingElement(context) {},
+    HTMLHeadingElement: false,
 
     /*
         declare class HTMLHRElement extends HTMLElement {}
         */
-    HTMLHRElement(context) {},
+    HTMLHRElement: false,
 
     /*
         declare class HTMLBRElement extends HTMLElement {}
         */
-    HTMLBRElement(context) {},
+    HTMLBRElement: false,
 
     /*
         declare class HTMLDListElement extends HTMLElement {}
         */
-    HTMLDListElement(context) {},
+    HTMLDListElement: false,
 
     /*
         declare class HTMLAreaElement extends HTMLElement {
@@ -3825,21 +3825,21 @@ export default {
           referrerPolicy: string;
         }
         */
-    HTMLAreaElement(context) {},
+    HTMLAreaElement: false,
 
     /*
         declare class HTMLDataElement extends HTMLElement {
           value: string;
         }
         */
-    HTMLDataElement(context) {},
+    HTMLDataElement: false,
 
     /*
         declare class HTMLDataListElement extends HTMLElement {
           options: HTMLCollection<HTMLOptionElement>;
         }
         */
-    HTMLDataListElement(context) {},
+    HTMLDataListElement: false,
 
     /*
         declare class HTMLDialogElement extends HTMLElement {
@@ -3850,7 +3850,7 @@ export default {
           close(returnValue: ?string): void;
         }
         */
-    HTMLDialogElement(context) {},
+    HTMLDialogElement: false,
 
     /*
         declare class HTMLEmbedElement extends HTMLElement {
@@ -3861,7 +3861,7 @@ export default {
           getSVGDocument(): ?Document;
         }
         */
-    HTMLEmbedElement(context) {},
+    HTMLEmbedElement: false,
 
     /*
         declare class HTMLMapElement extends HTMLElement {
@@ -3870,7 +3870,7 @@ export default {
           name: string;
         }
         */
-    HTMLMapElement(context) {},
+    HTMLMapElement: false,
 
     /*
         declare class HTMLMeterElement extends HTMLElement {
@@ -3883,7 +3883,7 @@ export default {
           labels: NodeList<HTMLLabelElement>;
         }
         */
-    HTMLMeterElement(context) {},
+    HTMLMeterElement: false,
 
     /*
         declare class HTMLModElement extends HTMLElement {
@@ -3891,7 +3891,7 @@ export default {
           dateTime: string;
         }
         */
-    HTMLModElement(context) {},
+    HTMLModElement: false,
 
     /*
         declare class HTMLObjectElement extends HTMLElement {
@@ -3914,7 +3914,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLObjectElement(context) {},
+    HTMLObjectElement: false,
 
     /*
         declare class HTMLOutputElement extends HTMLElement {
@@ -3933,7 +3933,7 @@ export default {
           setCustomValidity(error: string): void;
         }
         */
-    HTMLOutputElement(context) {},
+    HTMLOutputElement: false,
 
     /*
         declare class HTMLParamElement extends HTMLElement {
@@ -3941,7 +3941,7 @@ export default {
           value: string;
         }
         */
-    HTMLParamElement(context) {},
+    HTMLParamElement: false,
 
     /*
         declare class HTMLProgressElement extends HTMLElement {
@@ -3951,26 +3951,26 @@ export default {
           value: number;
         }
         */
-    HTMLProgressElement(context) {},
+    HTMLProgressElement: false,
 
     /*
         declare class HTMLPictureElement extends HTMLElement {}
         */
-    HTMLPictureElement(context) {},
+    HTMLPictureElement: false,
 
     /*
         declare class HTMLTimeElement extends HTMLElement {
           dateTime: string;
         }
         */
-    HTMLTimeElement(context) {},
+    HTMLTimeElement: false,
 
     /*
         declare class HTMLTitleElement extends HTMLElement {
           text: string;
         }
         */
-    HTMLTitleElement(context) {},
+    HTMLTitleElement: false,
 
     /*
         declare class HTMLTrackElement extends HTMLElement {
@@ -3988,14 +3988,14 @@ export default {
           track: TextTrack;
         }
         */
-    HTMLTrackElement(context) {},
+    HTMLTrackElement: false,
 
     /*
         declare class HTMLQuoteElement extends HTMLElement {
           cite: string;
         }
         */
-    HTMLQuoteElement(context) {},
+    HTMLQuoteElement: false,
 
     /*
         declare class HTMLOListElement extends HTMLElement {
@@ -4004,24 +4004,24 @@ export default {
           type: string;
         }
         */
-    HTMLOListElement(context) {},
+    HTMLOListElement: false,
 
     /*
         declare class HTMLUListElement extends HTMLElement {}
         */
-    HTMLUListElement(context) {},
+    HTMLUListElement: false,
 
     /*
         declare class HTMLLIElement extends HTMLElement {
           value: number;
         }
         */
-    HTMLLIElement(context) {},
+    HTMLLIElement: false,
 
     /*
         declare class HTMLPreElement extends HTMLElement {}
         */
-    HTMLPreElement(context) {},
+    HTMLPreElement: false,
 
     /*
         declare class HTMLMetaElement extends HTMLElement {
@@ -4030,12 +4030,12 @@ export default {
           name: string;
         }
         */
-    HTMLMetaElement(context) {},
+    HTMLMetaElement: false,
 
     /*
         declare class HTMLUnknownElement extends HTMLElement {}
         */
-    HTMLUnknownElement(context) {},
+    HTMLUnknownElement: false,
 
     /*
         declare class TextRange {
@@ -4078,7 +4078,7 @@ export default {
           queryCommandEnabled(cmdID: string): boolean;
         }
         */
-    TextRange(context) {},
+    TextRange: false,
 
     /*
         declare class ClientRect { // extension
@@ -4090,7 +4090,7 @@ export default {
           height: number;
         }
         */
-    ClientRect(context) {},
+    ClientRect: false,
 
     /*
         declare class ClientRectList { // extension
@@ -4100,7 +4100,7 @@ export default {
           [index: number]: ClientRect;
         }
         */
-    ClientRectList(context) {},
+    ClientRectList: false,
 
     /*
         declare class DOMImplementation {
@@ -4112,7 +4112,7 @@ export default {
           createHTMLDocument(title?: string): Document;
         }
         */
-    DOMImplementation(context) {},
+    DOMImplementation: false,
 
     /*
         declare class DocumentType extends Node {
@@ -4130,7 +4130,7 @@ export default {
           remove(): void;
         }
         */
-    DocumentType(context) {},
+    DocumentType: false,
 
     /*
         declare class CharacterData extends Node {
@@ -4149,7 +4149,7 @@ export default {
           remove(): void;
         }
         */
-    CharacterData(context) {},
+    CharacterData: false,
 
     /*
         declare class Text extends CharacterData {
@@ -4159,14 +4159,14 @@ export default {
           replaceWholeText(content: string): Text;
         }
         */
-    Text(context) {},
+    Text: false,
 
     /*
         declare class Comment extends CharacterData {
           text: string;
         }
         */
-    Comment(context) {},
+    Comment: false,
 
     /*
         declare class URL {
@@ -4189,7 +4189,7 @@ export default {
           username: string;
         }
         */
-    URL(context) {},
+    URL: false,
 
     /*
         declare class MediaSource extends EventTarget {
@@ -4204,7 +4204,7 @@ export default {
           static isTypeSupported(type: string): bool;
         }
         */
-    MediaSource(context) {},
+    MediaSource: false,
 
     /*
         declare class SourceBuffer extends EventTarget {
@@ -4227,7 +4227,7 @@ export default {
           trackDefaults: TrackDefaultList;
         }
         */
-    SourceBuffer(context) {},
+    SourceBuffer: false,
 
     /*
         declare class SourceBufferList extends EventTarget {
@@ -4236,7 +4236,7 @@ export default {
           length: number;
         }
         */
-    SourceBufferList(context) {},
+    SourceBufferList: false,
 
     /*
         declare class Storage {
@@ -4249,7 +4249,7 @@ export default {
           [name: string]: ?string;
         }
         */
-    Storage(context) {},
+    Storage: false,
 
     /*
         declare class TrackDefaultList {
@@ -4257,7 +4257,7 @@ export default {
           length: number;
         }
         */
-    TrackDefaultList(context) {},
+    TrackDefaultList: false,
 
     /*
         declare class TrackDefault {
@@ -4268,7 +4268,7 @@ export default {
           kinds: Array<string>;
         }
         */
-    TrackDefault(context) {},
+    TrackDefault: false,
 
     /*
         declare class NodeFilter {
@@ -4291,7 +4291,7 @@ export default {
           acceptNode: NodeFilterCallback;
         }
         */
-    NodeFilter(context) {},
+    NodeFilter: false,
 
     /*
         declare class NodeIterator<RootNodeT, WhatToShowT> {
@@ -4306,7 +4306,7 @@ export default {
           nextNode(): WhatToShowT | null;
         }
         */
-    NodeIterator(context) {},
+    NodeIterator: false,
 
     /*
         declare class TreeWalker<RootNodeT, WhatToShowT> {
@@ -4324,57 +4324,57 @@ export default {
           nextNode(): WhatToShowT | null;
         }
         */
-    TreeWalker(context) {},
+    TreeWalker: false,
 
     /*
         declare type WindowProxy = any;
         */
-    WindowProxy(context) {},
+    WindowProxy: false,
 
     /*
         declare function alert(message?: any): void;
         */
-    alert(context) {},
+    alert: false,
 
     /*
         declare function prompt(message?: any, value?: any): string;
         */
-    prompt(context) {},
+    prompt: false,
 
     /*
         declare function close(): void;
         */
-    close(context) {},
+    close: false,
 
     /*
         declare function confirm(message?: string): boolean;
         */
-    confirm(context) {},
+    confirm: false,
 
     /*
         declare function getComputedStyle(elt: Element, pseudoElt?: string): CSSStyleDeclaration;
         */
-    getComputedStyle(context) {},
+    getComputedStyle: false,
 
     /*
         declare opaque type AnimationFrameID;
         */
-    AnimationFrameID(context) {},
+    AnimationFrameID: false,
 
     /*
         declare function requestAnimationFrame(callback: (timestamp: number) => void): AnimationFrameID;
         */
-    requestAnimationFrame(context) {},
+    requestAnimationFrame: false,
 
     /*
         declare function cancelAnimationFrame(requestId: AnimationFrameID): void;
         */
-    cancelAnimationFrame(context) {},
+    cancelAnimationFrame: false,
 
     /*
         declare opaque type IdleCallbackID;
         */
-    IdleCallbackID(context) {},
+    IdleCallbackID: false,
 
     /*
         declare function requestIdleCallback(
@@ -4386,77 +4386,77 @@ export default {
           opts?: { timeout: number, ... },
         ): IdleCallbackID;
         */
-    requestIdleCallback(context) {},
+    requestIdleCallback: false,
 
     /*
         declare function cancelIdleCallback(id: IdleCallbackID): void;
         */
-    cancelIdleCallback(context) {},
+    cancelIdleCallback: false,
 
     /*
         declare var localStorage: Storage;
         */
-    localStorage(context) {},
+    localStorage: false,
 
     /*
         declare function focus(): void;
         */
-    focus(context) {},
+    focus: false,
 
     /*
         declare function onfocus(ev: Event): any;
         */
-    onfocus(context) {},
+    onfocus: false,
 
     /*
         declare function onmessage(ev: MessageEvent): any;
         */
-    onmessage(context) {},
+    onmessage: false,
 
     /*
         declare function open(url?: string, target?: string, features?: string, replace?: boolean): any;
         */
-    open(context) {},
+    open: false,
 
     /*
         declare var parent: WindowProxy;
         */
-    parent(context) {},
+    parent: false,
 
     /*
         declare function print(): void;
         */
-    print(context) {},
+    print: false,
 
     /*
         declare var self: any;
         */
-    self(context) {},
+    self: false,
 
     /*
         declare var sessionStorage: Storage;
         */
-    sessionStorage(context) {},
+    sessionStorage: false,
 
     /*
         declare var status: string;
         */
-    status(context) {},
+    status: false,
 
     /*
         declare var top: WindowProxy;
         */
-    top(context) {},
+    top: false,
 
     /*
         declare function getSelection(): Selection | null;
         */
-    getSelection(context) {},
+    getSelection: false,
 
     /*
         declare var customElements: CustomElementRegistry;
         */
-    customElements(context) {},
+    customElements: false,
 
     /*
         declare function scroll(x: number, y: number): void;
@@ -4464,7 +4464,7 @@ export default {
     /*
         declare function scroll(options: ScrollToOptions): void;
         */
-    scroll(context) {},
+    scroll: false,
 
     /*
         declare function scrollTo(x: number, y: number): void;
@@ -4472,7 +4472,7 @@ export default {
     /*
         declare function scrollTo(options: ScrollToOptions): void;
         */
-    scrollTo(context) {},
+    scrollTo: false,
 
     /*
         declare function scrollBy(x: number, y: number): void;
@@ -4480,7 +4480,7 @@ export default {
     /*
         declare function scrollBy(options: ScrollToOptions): void;
         */
-    scrollBy(context) {},
+    scrollBy: false,
 
     /*
         declare class Notification extends EventTarget {
@@ -4513,7 +4513,7 @@ export default {
           close(): void;
         }
         */
-    Notification(context) {},
+    Notification: false,
   },
 
   modules: {},
