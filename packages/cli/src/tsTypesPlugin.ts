@@ -122,7 +122,7 @@ const visitor: Visitor = {
       }
 
       for (const [globalName, globalFix] of Object.entries(rules.globals)) {
-        if (scope.hasGlobal(globalName)) {
+        if (globalFix && scope.hasGlobal(globalName)) {
           const references: Array<NodePath<t.Identifier>> = [];
           programPath.traverse({
             // todo: ensure only global references added

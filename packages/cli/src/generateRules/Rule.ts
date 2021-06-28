@@ -29,8 +29,10 @@ function print(
   return prettier.format(code.code, prettierConfig);
 }
 
-function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>) {
-  let libsPath: NodePath<t.ArrayExpression> | undefined;
+function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>): {
+  exports: Map<any, any>;
+  exportsPath: NodePath<t.ObjectExpression>;
+} {
   let exportsPath: NodePath<t.ObjectExpression> | undefined;
   for (const prop of moduleObj.get('properties')) {
     if (!prop.isObjectProperty()) {
@@ -46,14 +48,6 @@ function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>) {
       : key.isStringLiteral()
       ? key.node.value
       : undefined;
-    if (keyName === 'libs') {
-      if (!value.isArrayExpression()) {
-        throw value.buildCodeFrameError(
-          'only array expression is supported for "libs" property'
-        );
-      }
-      libsPath = value;
-    }
     if (keyName === 'exports') {
       if (!value.isObjectExpression()) {
         throw value.buildCodeFrameError(
@@ -62,10 +56,6 @@ function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>) {
       }
       exportsPath = value;
     }
-  }
-
-  if (!libsPath) {
-    throw moduleObj.buildCodeFrameError('libs definition not found');
   }
 
   if (!exportsPath) {
@@ -83,7 +73,6 @@ function getModuleDescr(moduleObj: NodePath<t.ObjectExpression>) {
   }
 
   return {
-    libsPath: libsPath,
     exportsPath: exportsPath,
     exports: moduleRules,
   };
@@ -98,7 +87,6 @@ export class Rule {
   private moduleRules: Map<
     string,
     {
-      libsPath: NodePath<t.ArrayExpression>;
       exportsPath: NodePath<t.ObjectExpression>;
       exports: Map<string, NodePath<t.ObjectMethod>>;
     }
@@ -197,7 +185,6 @@ export class Rule {
     const modulesRules = new Map<
       string,
       {
-        libsPath: NodePath<t.ArrayExpression>;
         exportsPath: NodePath<t.ObjectExpression>;
         exports: Map<string, NodePath<t.ObjectMethod>>;
       }
@@ -249,15 +236,23 @@ export class Rule {
     fix: t.Statement[],
     comments: Array<{ type: string; value: string }>
   ) {
-    const method = {
-      ...t.objectMethod(
-        'method',
-        t.stringLiteral(declarationName),
-        [t.identifier('context')],
-        t.blockStatement(fix)
-      ),
-      comments,
-    };
+    const method = fix.length
+      ? {
+          ...t.objectMethod(
+            'method',
+            t.stringLiteral(declarationName),
+            [t.identifier('context')],
+            t.blockStatement(fix)
+          ),
+          comments,
+        }
+      : {
+          ...t.objectProperty(
+            t.stringLiteral(declarationName),
+            t.booleanLiteral(false)
+          ),
+          comments,
+        };
     this.globalsObjPath.node.properties.push(method);
     const methodPath = this.globalsObjPath.get('properties')[
       this.globalsObjPath.node.properties.length - 1
@@ -276,7 +271,6 @@ export class Rule {
       const moduleNode = t.objectProperty(
         t.stringLiteral(moduleName),
         t.objectExpression([
-          t.objectProperty(t.stringLiteral('libs'), t.arrayExpression([])),
           t.objectProperty(t.stringLiteral('exports'), t.objectExpression([])),
         ])
       );
@@ -291,17 +285,25 @@ export class Rule {
       moduleRules = getModuleDescr(moduleObj);
       this.moduleRules.set(moduleName, moduleRules);
     }
-    const method = {
-      ...t.objectMethod(
-        'method',
-        t.stringLiteral(declarationName),
-        [t.identifier('context')],
-        t.blockStatement(fix)
-      ),
-      comments,
-    };
+    const fixProperty = fix.length
+      ? {
+          ...t.objectMethod(
+            'method',
+            t.stringLiteral(declarationName),
+            [t.identifier('context')],
+            t.blockStatement(fix)
+          ),
+          comments,
+        }
+      : {
+          ...t.objectProperty(
+            t.stringLiteral(declarationName),
+            t.booleanLiteral(false)
+          ),
+          comments,
+        };
 
-    moduleRules.exportsPath.node.properties.push(method);
+    moduleRules.exportsPath.node.properties.push(fixProperty);
     const methodPath = moduleRules.exportsPath.get('properties')[
       moduleRules.exportsPath.node.properties.length - 1
     ] as NodePath<t.ObjectMethod>;

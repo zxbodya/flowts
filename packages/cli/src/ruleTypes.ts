@@ -17,15 +17,12 @@ export interface NamedFixContext {
 
 export interface RuleSet {
   globals: {
-    [k: string]: (context: GlobalFixContext) => void;
+    [k: string]: false | ((context: GlobalFixContext) => void);
   };
   modules: {
     [k: string]: {
-      // typings package to install for module
-      types?: string;
-      // libs: string[];
       exports: {
-        [k: string]: (context: NamedFixContext) => void;
+        [k: string]: false | ((context: NamedFixContext) => void);
       };
     };
   };
