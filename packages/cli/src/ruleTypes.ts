@@ -1,7 +1,6 @@
 import { NodePath } from '@babel/traverse';
 
 export interface GlobalFixContext {
-  lib(...libs: string[]): void;
   // import from typescript module
   import(moduleName: string, exportName: string): void;
   // import form other flow module which is also to be fixed

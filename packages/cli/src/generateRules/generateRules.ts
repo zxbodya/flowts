@@ -6,22 +6,11 @@ import * as t from '@babel/types';
 import * as fs from 'fs';
 import * as prettier from 'prettier';
 
-import { tsLibDefinitions } from '../tsLibDefinitions';
 import { Rule } from './Rule';
 import { generateGlobalTests, generateModuleTests } from './generateTests';
 import { RuleTest } from './RuleTest';
 
 type Declarations = Map<string, { paths: NodePath[]; fix: t.Statement[] }>;
-
-const libGlobalsIndex = new Map<string, string>();
-
-tsLibDefinitions.forEach(tsLibDefinition =>
-  tsLibDefinition.declarations.allNames.forEach(key => {
-    if (!libGlobalsIndex.has(key)) {
-      libGlobalsIndex.set(key, tsLibDefinition.name as string);
-    }
-  })
-);
 
 const sharedParserPlugins = [
   'jsx',
@@ -34,8 +23,7 @@ const sharedParserPlugins = [
 async function main(
   inputPath: string,
   outputPath: string,
-  referenceName: string,
-  isLib: boolean
+  referenceName: string
 ) {
   console.log(`generating rules stub for ${inputPath}`);
 
@@ -209,23 +197,6 @@ async function main(
   }
 
   for (const [globalName, state] of globals) {
-    if (isLib) {
-      const libName = libGlobalsIndex.get(globalName);
-      if (libName) {
-        state.fix.push(
-          t.expressionStatement(
-            t.callExpression(
-              t.memberExpression(
-                t.identifier('context'),
-                t.identifier('lib'),
-                false
-              ),
-              [t.stringLiteral(libName)]
-            )
-          )
-        );
-      }
-    }
     // console.log(globals, modules);
     // very often globals are re-exported as aliases in modules below
     const parts = globalName.split('$');
@@ -295,7 +266,7 @@ async function main(
   fs.writeFileSync(outputPath.replace(/\.ts$/, '.test.ts'), testCode);
 }
 
-main(process.argv[2], process.argv[3], process.argv[4], true).then(
+main(process.argv[2], process.argv[3], process.argv[4]).then(
   () => {
     console.log('done');
   },
