@@ -235,6 +235,10 @@ export default {
         declare type React$FragmentType = ({ children?: React$Node, ... }) => React$Node;
         */
     React$FragmentType: false,
+
+    React$ElementRef(context) {
+      context.importFlow('react', 'ElementRef');
+    },
   },
 
   modules: {
