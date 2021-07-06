@@ -5,6 +5,12 @@
       "path": "./packages/babel-plugin-flow-to-typescript"
     },
     {
+      "path": "./packages/babel-plugin-typescript-to-flow"
+    },
+    {
+      "path": "./packages/babel-plugin-recast"
+    },
+    {
       "path": "./packages/cli"
     },
     {

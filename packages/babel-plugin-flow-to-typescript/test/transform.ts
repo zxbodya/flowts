@@ -1,6 +1,6 @@
 import * as babel from '@babel/core';
 import plugin from '../src';
-import recastPlugin from './recastPlugin';
+import recastPlugin from '@flowts/babel-plugin-recast';
 
 function createTransform(plugins: any[]) {
   return function transform(code: string): string {

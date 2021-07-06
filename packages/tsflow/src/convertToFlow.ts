@@ -3,7 +3,7 @@ import { promises as fs } from 'fs';
 import * as globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
-import recastPlugin from './recastPlugin';
+import recastPlugin from '@flowts/babel-plugin-recast';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
 import tsToFlow from 'babel-plugin-typescript-to-flow';

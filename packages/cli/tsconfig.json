@@ -13,6 +13,9 @@
     },
     {
       "path": "../babel-plugin-typescript-to-flow"
+    },
+    {
+      "path": "../babel-plugin-recast"
     }
   ]
 }

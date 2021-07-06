@@ -6,7 +6,7 @@ import * as path from 'path';
 import * as prettier from 'prettier';
 import { diff as jestDiff } from 'jest-diff';
 import { detectOptions } from './detectOptions';
-import recastPlugin from './recastPlugin';
+import recastPlugin from '@flowts/babel-plugin-recast';
 import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
 import { Options } from './cli';

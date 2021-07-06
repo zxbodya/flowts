@@ -1,6 +1,6 @@
 import * as babel from '@babel/core';
 import * as prettier from 'prettier';
-import recastPlugin from './recastPlugin';
+import recastPlugin from '@flowts/babel-plugin-recast';
 import { PluginItem } from '@babel/core';
 import { Options } from 'prettier';
 
