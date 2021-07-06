@@ -11,7 +11,7 @@
       "path": "./packages/babel-plugin-recast"
     },
     {
-      "path": "./packages/cli"
+      "path": "./packages/flowts"
     },
     {
       "path": "./packages/babel-plugin-typescript-to-flow"
