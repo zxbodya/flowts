@@ -1,0 +1,65 @@
+{
+  "name": "tsflow",
+  "version": "0.11.21",
+  "description": "Utility script to convert typescript code to flow",
+  "bin": {
+    "tsflow": "./bin/tsflow.js"
+  },
+  "scripts": {
+    "cover": "jest --coverage",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run clean && tsc -b --force",
+    "build": "tsc -b",
+    "ts-node": "ts-node"
+  },
+  "files": [
+    "bin/*",
+    "dist/*",
+    "readme.md"
+  ],
+  "keywords": [],
+  "author": "Bogdan Savluk <savluk.bogdan@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/zxbodya/flowts/tree/master/packages/tsflow",
+  "dependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-flow-strip-types": "^7.14.5",
+    "@babel/plugin-transform-typescript": "^7.14.6",
+    "@babel/preset-flow": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/traverse": "^7.14.5",
+    "@babel/types": "^7.14.5",
+    "@zxbodya/recast": "0.20.9",
+    "babel-plugin-typescript-to-flow": "^0.11.20",
+    "commander": "^8.0.0",
+    "globby": "^11.0.3",
+    "jest-diff": "^27.0.6",
+    "ora": "^5.4.1",
+    "prettier": "^2.3.2",
+    "source-map-support": "^0.5.19",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@types/babel__core": "^7.1.14",
+    "@types/babel__traverse": "7.14.0",
+    "@types/glob": "^7.1.2",
+    "@types/jest": "^26.0.23",
+    "@types/ora": "^3.2.0",
+    "@types/prettier": "^2.3.1",
+    "jest": "^27.0.6",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "dist"
+    ]
+  }
+}

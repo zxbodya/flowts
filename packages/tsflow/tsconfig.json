@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../babel-plugin-flow-to-typescript"
+    },
+    {
+      "path": "../babel-plugin-typescript-to-flow"
+    }
+  ]
+}

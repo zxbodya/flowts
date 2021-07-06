@@ -56,6 +56,8 @@ Rarely, but sometimes:
 
 ## TypeScript to Flow (work in progress - consider this experimental)
 
+`npm install -g tsflow`
+
 Currently, focused mostly on definition files - see more details in [babel-plugin-typescript-to-flow](packages/babel-plugin-typescript-to-flow) readme. 
 
 Generates `.js`/`.js.flow` files, without removing original `.ts`/`.d.ts` files.   
