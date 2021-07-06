@@ -6,6 +6,15 @@
     },
     {
       "path": "./packages/cli"
+    },
+    {
+      "path": "./packages/babel-plugin-typescript-to-flow"
+    },
+    {
+      "path": "./packages/tsflow"
+    },
+    {
+      "path": "./packages/babel-plugin-recast"
     }
   ]
 }

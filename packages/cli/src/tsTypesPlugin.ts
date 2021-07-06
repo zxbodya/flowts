@@ -249,7 +249,7 @@ const visitor: Visitor = {
                     new NamespaceImportContext(
                       moduleName,
                       path.parent.right.name,
-                      [path.parentPath]
+                      [path.parentPath!]
                     )
                   );
                 }
@@ -266,7 +266,7 @@ const visitor: Visitor = {
                     new NamespaceImportContext(
                       moduleName,
                       path.parent.property.name,
-                      [path.parentPath]
+                      [path.parentPath!]
                     )
                   );
                 }

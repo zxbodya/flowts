@@ -151,7 +151,7 @@ function getModuleRulesDescribe(
   const placeholderTest = target.tests.get(noDescribesTest);
   if (placeholderTest) {
     // arrow expression - expression statement
-    placeholderTest.parentPath.parentPath.remove();
+    placeholderTest.parentPath.parentPath!.remove();
     target.tests.delete(noDescribesTest);
   }
   return moduleDescribe;
@@ -190,7 +190,7 @@ function getRulesDescribe(
   const placeholderTest = target.tests.get(noDescribesTest);
   if (placeholderTest) {
     // arrow expression - expression statement
-    placeholderTest.parentPath.parentPath.remove();
+    placeholderTest.parentPath!.parentPath!.remove();
     target.tests.delete(noDescribesTest);
   }
   return ruleTests;
@@ -200,7 +200,7 @@ function refreshTests(rulesDescribe: RuleDescribe) {
   rulesDescribe.tests = findJestCalls('test', rulesDescribe.path);
   const noTest = rulesDescribe.tests.get(HAS_NO_TEST);
   if (rulesDescribe.tests.size > 1 && noTest) {
-    noTest.parentPath.parentPath.remove();
+    noTest.parentPath.parentPath!.remove();
     rulesDescribe.tests.delete(HAS_NO_TEST);
   }
 }

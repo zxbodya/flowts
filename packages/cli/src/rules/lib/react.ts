@@ -487,6 +487,7 @@ export default {
         forwardRef(context) {
           for (const path of context.referencePaths) {
             if (
+              path.parentPath &&
               path.parentPath.isCallExpression() &&
               path.parentPath.node.typeParameters
             ) {
