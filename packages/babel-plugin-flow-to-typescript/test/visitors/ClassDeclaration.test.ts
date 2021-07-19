@@ -63,12 +63,10 @@ test('Classes with decorators are transformed', () => {
     export class C extends React.Component<?string, ?(string | boolean)> {}
     `
   );
-  expect(result.babel).toMatchInlineSnapshot(
-    `
-    "export @injectIntel
-    class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}"
-    `
-  );
+  expect(result.babel).toMatchInlineSnapshot(`
+"@injectIntel
+export class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}"
+`);
   expect(result.recast).toMatchInlineSnapshot(
     `
     "@injectIntel
