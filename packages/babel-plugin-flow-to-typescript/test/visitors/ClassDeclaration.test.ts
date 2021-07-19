@@ -56,6 +56,25 @@ test('Extending class declaration types are transformed', () => {
   );
 });
 
+test('Classes with decorators are transformed', () => {
+  const result = testTransform(
+    `
+    @injectIntel
+    export class C extends React.Component<?string, ?(string | boolean)> {}
+    `
+  );
+  expect(result.babel).toMatchInlineSnapshot(`
+"@injectIntel
+export class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}"
+`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `
+    "@injectIntel
+    export class C extends React.Component<string | undefined | null, string | boolean | undefined | null> {}"
+    `
+  );
+});
+
 test('Class declaration types are transformed', () => {
   const result = testTransform(
     `class C implements Something<?string, ?(string | boolean)> {}`

@@ -7,6 +7,9 @@ function createTransform(plugins: any[]) {
     const result = babel.transformSync(code.trim(), {
       babelrc: false,
       configFile: false,
+      generatorOpts: {
+        decoratorsBeforeExport: true,
+      },
       plugins,
     });
     if (result === null) {

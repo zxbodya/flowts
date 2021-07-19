@@ -154,6 +154,9 @@ export async function convert(cwd: string, opts: Options) {
           [tsTypesPlugin, { isJSX }],
           [removeImportExtensionPlugin, { isConvertedFile }],
         ],
+        generatorOpts: {
+          decoratorsBeforeExport: true,
+        },
         parserOpts: {
           allowReturnOutsideFunction: true,
           plugins: [
