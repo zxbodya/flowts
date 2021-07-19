@@ -81,6 +81,7 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
       parserOpts.plugins.push('objectRestSpread');
       parserOpts.plugins.push('optionalChaining');
       parserOpts.plugins.push('nullishCoalescingOperator');
+      parserOpts.plugins.push('decorators-legacy');
       parserOpts.plugins.push('dynamicImport');
       parserOpts.allowReturnOutsideFunction = true;
     },
