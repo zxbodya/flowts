@@ -1,6 +1,6 @@
 {
   "name": "tsflow",
-  "version": "0.12.1",
+  "version": "0.12.3",
   "description": "Utility script to convert typescript code to flow",
   "bin": {
     "tsflow": "./bin/tsflow.js"
