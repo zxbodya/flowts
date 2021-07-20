@@ -123,6 +123,9 @@ export async function convert(cwd: string, opts: Options) {
         configFile: false,
         filename: sourceFilePath,
         plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
+        generatorOpts: {
+          decoratorsBeforeExport: true,
+        },
         parserOpts: {
           allowReturnOutsideFunction: true,
           plugins: [...sharedParserPlugins],
