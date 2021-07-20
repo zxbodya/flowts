@@ -6,7 +6,7 @@ export const sharedParserPlugins: ParserPlugin[] = [
   'classProperties',
   'classPrivateProperties',
   'classPrivateMethods',
-  'decorators-legacy',
+  ['decorators', { decoratorsBeforeExport: true }],
   'doExpressions',
   'dynamicImport',
   'exportDefaultFrom',
