@@ -33,6 +33,9 @@ export function verify(
     presets: [
       [require.resolve('@babel/preset-flow'), { allowDeclareFields: true }],
     ],
+    generatorOpts: {
+      decoratorsBeforeExport: true,
+    },
     parserOpts: {
       allowReturnOutsideFunction: true,
       plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
@@ -50,6 +53,9 @@ export function verify(
     configFile: false,
     filename,
     comments: false,
+    generatorOpts: {
+      decoratorsBeforeExport: true,
+    },
     plugins: [
       [removeImportExtensionPlugin, { isConvertedFile }],
       removeEmptyExportPlugin,
@@ -70,6 +76,9 @@ export function verify(
     babelrc: false,
     configFile: false,
     filename: target,
+    generatorOpts: {
+      decoratorsBeforeExport: true,
+    },
     presets: [
       [
         require.resolve('@babel/preset-typescript'),
@@ -94,6 +103,9 @@ export function verify(
     filename: target,
     comments: false,
     plugins: [removeEmptyExportPlugin],
+    generatorOpts: {
+      decoratorsBeforeExport: true,
+    },
     parserOpts: {
       allowReturnOutsideFunction: true,
       plugins: [...jsxPlugin, ...sharedParserPlugins],
