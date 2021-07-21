@@ -47,20 +47,18 @@ test('with more comments', () => {
     `type A/*0*/</* 1 */T/* 2 */=/* 3 */F/* 4 */>/*5*/= T`
   );
   expect(result.babel).toMatchInlineSnapshot(`
-    "type A
-    /*0*/
-    <
-    /* 1 */
-    T =
-    /* 2 */
-
-    /* 3 */
-    F
-    /* 4 */
-    >
-    /*5*/
-    = T;"
-  `);
+"type A
+/*0*/
+<
+/* 1 */
+T =
+/* 3 */
+F
+/* 4 */
+>
+/*5*/
+= T;"
+`);
   expect(result.recast).toMatchInlineSnapshot(
     `"type A/*0*/</* 1 */T = /* 2 *//* 3 */F/* 4 */>/*5*/ = T;"`
   );
