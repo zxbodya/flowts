@@ -1,8 +1,6 @@
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import { transformFunctionParams } from './transformFunctionParams';
-import { convertFlowType } from '../converters/convertFlowType';
-import { baseNodeProps } from '../utils/baseNodeProps';
 import { convertTypeAnnotation } from '../converters/convertTypeAnnotation';
 
 export function transformClassBody(path: NodePath<t.ClassBody>) {
@@ -23,12 +21,9 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
       t.isClassProperty(elementNode) ||
       t.isClassPrivateProperty(elementNode)
     ) {
-      // @ts-expect-error todo: missing property in babel
       const variance = elementNode.variance;
       if (variance) {
-        // @ts-expect-error
         elementNode.readonly = variance && variance.kind === 'plus';
-        // @ts-expect-error
         elementNode.variance = null;
       }
       if (t.isTypeAnnotation(elementNode.typeAnnotation)) {
