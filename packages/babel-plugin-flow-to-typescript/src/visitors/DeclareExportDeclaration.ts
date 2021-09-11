@@ -9,6 +9,7 @@ import { convertDeclareClass } from '../converters/convertDeclareClass';
 import { replaceWith } from '../utils/replaceWith';
 import { convertInterfaceDeclaration } from '../converters/convertInterfaceDeclaration';
 import { PluginPass } from '../types';
+import { convertDeclareOpaqueType } from '../converters/convertDeclareOpaqueType';
 
 export function DeclareExportDeclaration(
   path: NodePath<t.DeclareExportDeclaration>,
@@ -66,7 +67,10 @@ export function DeclareExportDeclaration(
     } else if (t.isInterfaceDeclaration(node.declaration)) {
       declaration = convertInterfaceDeclaration(node.declaration);
       declaration.declare = !state.get('isModuleDeclaration');
-    } else {
+    } else if (t.isDeclareOpaqueType(node.declaration)) {
+      declaration = convertDeclareOpaqueType(node.declaration);
+      declaration.declare = !state.get('isModuleDeclaration');
+    } else if (node.declaration) {
       throw path.buildCodeFrameError(`DeclareExportDeclaration not converted`);
     }
     replacement = t.exportNamedDeclaration(
