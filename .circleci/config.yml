@@ -44,4 +44,4 @@ jobs:
   node-latest:
     <<: *base
     docker:
-      - image: node:latest
+      - image: node:16.8
