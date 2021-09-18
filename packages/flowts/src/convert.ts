@@ -81,6 +81,7 @@ export async function convert(cwd: string, opts: Options) {
     isValid: boolean;
   }> = [];
 
+  const prettierConfigWarnings = new Set<string>();
   totalStr = `${files.length}`;
   currentCount = 0;
   for (const file of files) {
@@ -178,19 +179,37 @@ export async function convert(cwd: string, opts: Options) {
 
       let result = ts.code as string;
       if (opts.prettier) {
+        let prettierConfig: prettier.Options = {};
+        let configFile: string | null | undefined;
         try {
-          const prettierConfig =
-            (await prettier.resolveConfig(targetFilePath)) || {};
-          prettierConfig.parser = 'babel-ts';
+          configFile = await prettier.resolveConfigFile(targetFilePath);
+          prettierConfig = (await prettier.resolveConfig(targetFilePath)) || {};
+        } catch (e) {
+          if (!configFile) {
+            spinner.warn(
+              `failed to find prettier config for ${targetFilePath}`
+            );
+          } else {
+            if (!prettierConfigWarnings.has(configFile)) {
+              spinner.warn(`failed to load prettier config ${configFile}`);
+              prettierConfigWarnings.add(configFile);
+            }
+          }
+        }
 
+        try {
+          prettierConfig.parser = 'babel-ts';
           result = prettier.format(result, prettierConfig);
         } catch (e) {
           // retry using different parser - this can be helpful with flow type comments in some edge cases
-          const prettierConfig =
-            (await prettier.resolveConfig(targetFilePath)) || {};
           prettierConfig.parser = 'typescript';
 
-          result = prettier.format(result, prettierConfig);
+          try {
+            result = prettier.format(result, prettierConfig);
+          } catch (e) {
+            spinner.warn('prettier formatting failed');
+            console.error(e);
+          }
         }
       }
 
