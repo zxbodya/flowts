@@ -986,21 +986,52 @@ describe('lib/bom.js', () => {
       });
     });
 
-    describe('ResizeObserverEntry', () => {
-      test('variable', () => {
+    describe('ResizeObserverSize', () => {
+      test('generated - type', () => {
         expect(
           transform(`
-            var a = ResizeObserverEntry;
           `)
         ).toMatchSnapshot();
       });
 
-      test('generated - class', () => {
+      test('generated - interface', () => {
         expect(
           transform(`
-            new ResizeObserverEntry();
-            
+            class A1 extends ResizeObserverSize {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('ResizeObserverEntry', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
             class A1 extends ResizeObserverEntry {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
+    describe('ResizeObserverOptions', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 extends ResizeObserverOptions {};
           `)
         ).toMatchSnapshot();
       });

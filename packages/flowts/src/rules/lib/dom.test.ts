@@ -3702,6 +3702,16 @@ describe('lib/dom.js', () => {
       });
     });
 
+    describe('devicePixelRatio', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = devicePixelRatio;
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('focus', () => {
       test('variable', () => {
         expect(

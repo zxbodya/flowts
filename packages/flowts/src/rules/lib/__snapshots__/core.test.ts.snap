@@ -947,6 +947,26 @@ exports[`lib/core.js globals parseInt variable 1`] = `
 "
 `;
 
+exports[`lib/core.js globals queueMicrotask generated - callable - typeParams(1) 1`] = `
+"queueMicrotask();
+
+let a1 = queueMicrotask<P0>();
+"
+`;
+
+exports[`lib/core.js globals queueMicrotask generated - class - typeParams(1) 1`] = `
+"new queueMicrotask();
+
+class A1 extends queueMicrotask<P0> {}
+let a1 = new queueMicrotask<P0>();
+"
+`;
+
+exports[`lib/core.js globals queueMicrotask variable 1`] = `
+"var a = queueMicrotask;
+"
+`;
+
 exports[`lib/core.js globals require variable 1`] = `
 "var a = require;
 "

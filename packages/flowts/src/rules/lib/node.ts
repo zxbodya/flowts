@@ -2500,7 +2500,7 @@ export default {
         FSPromisePath: false,
 
         /*
-                declare class FSPromise {
+                declare type FSPromise = {
                     access(path: FSPromisePath, mode?: number): Promise<void>,
                     appendFile(path: FSPromisePath | FileHandle, data: string | Buffer, options: WriteOptions | string): Promise<void>,
                     chmod(path: FSPromisePath, mode: number): Promise<void>,
@@ -2535,12 +2535,15 @@ export default {
                       ...
                     }>,
                     readdir(path: FSPromisePath, options?: string | EncodingOptions): Promise<string[]>,
-                    readFile(path: FSPromisePath | FileHandle, options: string): Promise<string>,
-                    readFile(path: FSPromisePath | FileHandle, options?: EncodingFlag): Promise<Buffer>,
-                    readlink(path: FSPromisePath, options: BufferEncoding): Promise<Buffer>,
-                    readlink(path: FSPromisePath, options?: string | EncodingOptions): Promise<string>,
-                    realpath(path: FSPromisePath, options: BufferEncoding): Promise<Buffer>,
-                    realpath(path: FSPromisePath, options?: string | EncodingOptions): Promise<string>,
+                    readFile:
+                      & ((path: FSPromisePath | FileHandle, options: string) => Promise<string>)
+                      & ((path: FSPromisePath | FileHandle, options?: EncodingFlag) => Promise<Buffer>),
+                    readlink:
+                      & ((path: FSPromisePath, options: BufferEncoding) => Promise<Buffer>)
+                      & ((path: FSPromisePath, options?: string | EncodingOptions) => Promise<string>),
+                    realpath:
+                      & ((path: FSPromisePath, options: BufferEncoding) => Promise<Buffer>)
+                      & ((path: FSPromisePath, options?: string | EncodingOptions) => Promise<string>),
                     rename(oldPath: FSPromisePath, newPath: FSPromisePath): Promise<void>,
                     rmdir(path: FSPromisePath): Promise<void>,
                     stat(path: FSPromisePath): Promise<Stats>,
@@ -2564,6 +2567,7 @@ export default {
                       data: string | Buffer | Uint8Array,
                       options?: string | WriteOptions
                     ): Promise<void>,
+                    ...
                   }
                 */
         FSPromise: false,
@@ -2731,6 +2735,15 @@ export default {
                 declare var globalAgent: Agent;
                 */
         globalAgent: false,
+      },
+    },
+
+    module: {
+      exports: {
+        /*
+                declare module.exports: module$Module;
+                */
+        default: false,
       },
     },
 

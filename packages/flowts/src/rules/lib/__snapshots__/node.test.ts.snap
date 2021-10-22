@@ -3813,35 +3813,39 @@ exports[`lib/node.js modules fs F_OK variable 1`] = `
 "
 `;
 
-exports[`lib/node.js modules fs FSPromise generated - class - import namespace 1`] = `
+exports[`lib/node.js modules fs FSPromise generated - interface - import namespace 1`] = `
 "import * as M from \\"fs\\";
-
-new M.FSPromise();
 
 class A1 extends M.FSPromise {}
 "
 `;
 
-exports[`lib/node.js modules fs FSPromise generated - class - import renamed 1`] = `
+exports[`lib/node.js modules fs FSPromise generated - interface - import renamed 1`] = `
 "import { FSPromise as t } from \\"fs\\";
-
-new t();
 
 class A1 extends t {}
 "
 `;
 
-exports[`lib/node.js modules fs FSPromise generated - class 1`] = `
+exports[`lib/node.js modules fs FSPromise generated - interface 1`] = `
 "import { FSPromise } from \\"fs\\";
-
-new FSPromise();
 
 class A1 extends FSPromise {}
 "
 `;
 
-exports[`lib/node.js modules fs FSPromise variable 1`] = `
-"var a = FSPromise;
+exports[`lib/node.js modules fs FSPromise generated - type - import namespace 1`] = `
+"import * as M from \\"fs\\";
+"
+`;
+
+exports[`lib/node.js modules fs FSPromise generated - type - import renamed 1`] = `
+"import { FSPromise as t } from \\"fs\\";
+"
+`;
+
+exports[`lib/node.js modules fs FSPromise generated - type 1`] = `
+"import { FSPromise } from \\"fs\\";
 "
 `;
 

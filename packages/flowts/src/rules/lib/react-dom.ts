@@ -28,9 +28,9 @@ export default {
     },
 
     /*
-        declare class SyntheticAnimationEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticEvent<T> {
+        declare class SyntheticAnimationEvent<+T: EventTarget = EventTarget>
+          extends SyntheticEvent<T>
+        {
           animationName: string;
           elapsedTime: number;
           pseudoElement: string;
@@ -41,9 +41,9 @@ export default {
     },
 
     /*
-        declare class SyntheticClipboardEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticEvent<T> {
+        declare class SyntheticClipboardEvent<+T: EventTarget = EventTarget>
+          extends SyntheticEvent<T>
+        {
           clipboardData: any;
         }
         */
@@ -52,9 +52,9 @@ export default {
     },
 
     /*
-        declare class SyntheticCompositionEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticEvent<T> {
+        declare class SyntheticCompositionEvent<+T: EventTarget = EventTarget>
+          extends SyntheticEvent<T>
+        {
           data: any;
         }
         */
@@ -63,9 +63,9 @@ export default {
     },
 
     /*
-        declare class SyntheticInputEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticEvent<T> {
+        declare class SyntheticInputEvent<+T: EventTarget = EventTarget>
+          extends SyntheticEvent<T>
+        {
           +target: HTMLInputElement;
           data: any;
         }
@@ -75,10 +75,9 @@ export default {
     },
 
     /*
-        declare class SyntheticUIEvent<
-          +T: EventTarget = EventTarget,
-          +E: Event = Event,
-        > extends SyntheticEvent<T, E> {
+        declare class SyntheticUIEvent<+T: EventTarget = EventTarget, +E: Event = Event>
+          extends SyntheticEvent<T, E>
+        {
           detail: number;
           view: any;
         }
@@ -88,9 +87,9 @@ export default {
     },
 
     /*
-        declare class SyntheticFocusEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticUIEvent<T> {
+        declare class SyntheticFocusEvent<+T: EventTarget = EventTarget>
+          extends SyntheticUIEvent<T>
+        {
           relatedTarget: EventTarget;
         }
         */
@@ -99,9 +98,9 @@ export default {
     },
 
     /*
-        declare class SyntheticKeyboardEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticUIEvent<T, KeyboardEvent> {
+        declare class SyntheticKeyboardEvent<+T: EventTarget = EventTarget>
+          extends SyntheticUIEvent<T, KeyboardEvent>
+        {
           altKey: boolean;
           charCode: number;
           ctrlKey: boolean;
@@ -122,9 +121,11 @@ export default {
 
     /*
         declare class SyntheticMouseEvent<
-          +T: EventTarget = EventTarget,
-          +E: Event = MouseEvent,
-        > extends SyntheticUIEvent<T, E> {
+            +T: EventTarget = EventTarget,
+            +E: Event = MouseEvent
+          >
+          extends SyntheticUIEvent<T, E>
+        {
           altKey: boolean;
           button: number;
           buttons: number;
@@ -146,9 +147,9 @@ export default {
     },
 
     /*
-        declare class SyntheticDragEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticMouseEvent<T, DragEvent> {
+        declare class SyntheticDragEvent<+T: EventTarget = EventTarget>
+          extends SyntheticMouseEvent<T, DragEvent>
+        {
           dataTransfer: any;
         }
         */
@@ -157,9 +158,9 @@ export default {
     },
 
     /*
-        declare class SyntheticWheelEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticMouseEvent<T, WheelEvent> {
+        declare class SyntheticWheelEvent<+T: EventTarget = EventTarget>
+          extends SyntheticMouseEvent<T, WheelEvent>
+        {
           deltaMode: number;
           deltaX: number;
           deltaY: number;
@@ -171,9 +172,9 @@ export default {
     },
 
     /*
-        declare class SyntheticPointerEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticMouseEvent<T, PointerEvent> {
+        declare class SyntheticPointerEvent<+T: EventTarget = EventTarget>
+          extends SyntheticMouseEvent<T, PointerEvent>
+        {
           pointerId: number;
           width: number;
           height: number;
@@ -191,9 +192,9 @@ export default {
     },
 
     /*
-        declare class SyntheticTouchEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticUIEvent<T, TouchEvent> {
+        declare class SyntheticTouchEvent<+T: EventTarget = EventTarget>
+          extends SyntheticUIEvent<T, TouchEvent>
+        {
           altKey: boolean;
           changedTouches: any;
           ctrlKey: boolean;
@@ -209,9 +210,9 @@ export default {
     },
 
     /*
-        declare class SyntheticTransitionEvent<
-          +T: EventTarget = EventTarget,
-        > extends SyntheticEvent<T> {
+        declare class SyntheticTransitionEvent<+T: EventTarget = EventTarget>
+          extends SyntheticEvent<T>
+        {
           propertyName: string;
           elapsedTime: number;
           pseudoElement: string;

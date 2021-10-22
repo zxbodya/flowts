@@ -2116,6 +2116,11 @@ exports[`lib/dom.js globals customElements variable 1`] = `
 "
 `;
 
+exports[`lib/dom.js globals devicePixelRatio variable 1`] = `
+"var a = devicePixelRatio;
+"
+`;
+
 exports[`lib/dom.js globals document variable 1`] = `
 "var a = document;
 "

@@ -4399,6 +4399,11 @@ export default {
     localStorage: false,
 
     /*
+        declare var devicePixelRatio: number;
+        */
+    devicePixelRatio: false,
+
+    /*
         declare function focus(): void;
         */
     focus: false,

@@ -1181,17 +1181,26 @@ exports[`lib/bom.js globals ResizeObserver variable 1`] = `
 "
 `;
 
-exports[`lib/bom.js globals ResizeObserverEntry generated - class 1`] = `
-"new ResizeObserverEntry();
-
-class A1 extends ResizeObserverEntry {}
+exports[`lib/bom.js globals ResizeObserverEntry generated - interface 1`] = `
+"class A1 extends ResizeObserverEntry {}
 "
 `;
 
-exports[`lib/bom.js globals ResizeObserverEntry variable 1`] = `
-"var a = ResizeObserverEntry;
+exports[`lib/bom.js globals ResizeObserverEntry generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals ResizeObserverOptions generated - interface 1`] = `
+"class A1 extends ResizeObserverOptions {}
 "
 `;
+
+exports[`lib/bom.js globals ResizeObserverOptions generated - type 1`] = `""`;
+
+exports[`lib/bom.js globals ResizeObserverSize generated - interface 1`] = `
+"class A1 extends ResizeObserverSize {}
+"
+`;
+
+exports[`lib/bom.js globals ResizeObserverSize generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals Response generated - class 1`] = `
 "new Response();

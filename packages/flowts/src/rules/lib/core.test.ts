@@ -1670,6 +1670,38 @@ describe('lib/core.js', () => {
       });
     });
 
+    describe('queueMicrotask', () => {
+      test('variable', () => {
+        expect(
+          transform(`
+            var a = queueMicrotask;
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - class - typeParams(1)', () => {
+        expect(
+          transform(`
+            new queueMicrotask();
+            
+            class A1 extends queueMicrotask<P0> {}
+            let a1 = new queueMicrotask<P0>();
+            
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - callable - typeParams(1)', () => {
+        expect(
+          transform(`
+            queueMicrotask();
+            
+            let a1 = queueMicrotask<P0>();
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('Reflect', () => {
       test('variable', () => {
         expect(

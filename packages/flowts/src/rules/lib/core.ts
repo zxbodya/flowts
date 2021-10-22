@@ -2404,6 +2404,13 @@ export default {
     setInterval: false,
 
     /*
+        declare function queueMicrotask<TArguments: Array<mixed>>(
+          callback: (...args: TArguments) => mixed,
+        ): void;
+        */
+    queueMicrotask: false,
+
+    /*
         declare var Reflect: {
             apply(target: (...any) => any, thisArg?: any, argumentsList?: Array<any>): any,
             construct(target: (...any) => any, argumentsList?: Array<any>, newTarget?: any): any,
@@ -2446,7 +2453,9 @@ export default {
             loaded: boolean,
             parent: any,
             children: Array<any>,
-            builtinModules: Array<string>,
+            path: string,
+            paths: Array<string>,
+            isPreloading: boolean,
             ...
         };
         */

@@ -12060,44 +12060,57 @@ describe('lib/node.js', () => {
       });
 
       describe('FSPromise', () => {
-        test('variable', () => {
-          expect(
-            transform(`
-            var a = FSPromise;
-          `)
-          ).toMatchSnapshot();
-        });
-
-        test('generated - class', () => {
+        test('generated - type', () => {
           expect(
             transform(`
             import { FSPromise } from "fs";
             
-            new FSPromise();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface', () => {
+          expect(
+            transform(`
+            import { FSPromise } from "fs";
             
             class A1 extends FSPromise {};
           `)
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import namespace', () => {
+        test('generated - type - import namespace', () => {
           expect(
             transform(`
             import * as M from "fs";
             
-            new M.FSPromise();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import namespace', () => {
+          expect(
+            transform(`
+            import * as M from "fs";
             
             class A1 extends M.FSPromise {};
           `)
           ).toMatchSnapshot();
         });
 
-        test('generated - class - import renamed', () => {
+        test('generated - type - import renamed', () => {
           expect(
             transform(`
             import { FSPromise as t } from "fs";
             
-            new t();
+          `)
+          ).toMatchSnapshot();
+        });
+
+        test('generated - interface - import renamed', () => {
+          expect(
+            transform(`
+            import { FSPromise as t } from "fs";
             
             class A1 extends t {};
           `)
@@ -13091,6 +13104,12 @@ describe('lib/node.js', () => {
           `)
           ).toMatchSnapshot();
         });
+      });
+    });
+
+    describe('module', () => {
+      describe('default', () => {
+        test('has no test', () => {});
       });
     });
 
