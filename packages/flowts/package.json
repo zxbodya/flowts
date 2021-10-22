@@ -10,8 +10,7 @@
     "test": "jest",
     "clean": "rimraf dist",
     "prepublishOnly": "yarn run clean && tsc -b --force",
-    "build": "tsc -b",
-    "ts-node": "ts-node"
+    "build": "tsc -b"
   },
   "files": [
     "bin/*",
@@ -55,7 +54,7 @@
     "@types/prettier": "^2.4.1",
     "jest": "^27.3.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.3.1"
+    "tsm": "^2.1.2"
   },
   "jest": {
     "testEnvironment": "node",
