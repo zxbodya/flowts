@@ -19,6 +19,7 @@ const visitor: Visitor = {
       interface NamedImport extends BaseImport {
         importSpecifier?: t.ImportSpecifier;
         imported: string;
+        toRemove?: boolean;
       }
       interface DefaultImport extends BaseImport {
         importDefaultSpecifier?: t.ImportDefaultSpecifier;
@@ -82,14 +83,11 @@ const visitor: Visitor = {
         }
       }
 
-      abstract class BaseContext {
+      class BaseContext implements GlobalFixContext {
         public referencePaths: NodePath<any>[];
         constructor(references: NodePath<any>[]) {
           this.referencePaths = references;
         }
-      }
-
-      class GlobalContext extends BaseContext implements GlobalFixContext {
         public import(moduleName: string, exportName: string): void {
           let moduleState = importState.get(moduleName);
           if (!moduleState) {
@@ -102,12 +100,21 @@ const visitor: Visitor = {
             };
             importState.set(moduleName, moduleState);
           }
-          moduleState.named.push({
-            imported: exportName,
-            local: exportName,
-            referencePaths: this.referencePaths,
-          });
-
+          let added = false;
+          for (const n of moduleState.named) {
+            if (n.local === exportName && n.imported === exportName) {
+              n.referencePaths = [...n.referencePaths, ...this.referencePaths];
+              added = true;
+              break;
+            }
+          }
+          if (!added) {
+            moduleState.named.push({
+              imported: exportName,
+              local: exportName,
+              referencePaths: this.referencePaths,
+            });
+          }
           for (const path of this.referencePaths) {
             if (path.isIdentifier()) {
               path.node.name = exportName;
@@ -136,7 +143,7 @@ const visitor: Visitor = {
             },
           });
 
-          const context = new GlobalContext(references);
+          const context = new BaseContext(references);
           globalFix(context);
         }
       }
@@ -156,31 +163,13 @@ const visitor: Visitor = {
         }
 
         public renameExport(newExportName: string): void {
+          this.import(this.moduleName, newExportName);
+
           const moduleState = importState.get(this.moduleName)!;
           for (const n of moduleState.named) {
             if (n.imported === this.oldName) {
-              n.imported = newExportName;
-              // todo: theoretically conflicts are possible
-              n.local = newExportName;
-              if (n.importSpecifier) {
-                // todo: revisit if typecast is OK
-                (n.importSpecifier.imported as t.Identifier).name =
-                  newExportName;
-                n.importSpecifier.local.name = newExportName;
-                // avoid recast generating "import {something as something} from …"
-                // @ts-ignore
-                n.importSpecifier.start = undefined;
-                // @ts-ignore
-                n.importSpecifier.end = undefined;
-              }
-            }
-          }
-
-          for (const path of this.referencePaths) {
-            if (path.isIdentifier()) {
-              path.node.name = newExportName;
-            } else {
-              throw new Error('Unexpected reference of type' + path.node.type);
+              n.toRemove = true;
+              n.referencePaths = [];
             }
           }
         }
@@ -291,6 +280,17 @@ const visitor: Visitor = {
       }
 
       for (const [moduleName, moduleState] of importState) {
+        // remove renamed import specifiers
+        for (const n of moduleState.named) {
+          if (n.toRemove) {
+            for (const id of moduleState.importDeclarations) {
+              id.specifiers = id.specifiers.filter(
+                is => is !== n.importSpecifier
+              );
+            }
+          }
+        }
+
         for (const ni of moduleState.namespace) {
           if (!ni.importNamespaceSpecifier) {
             const namespaceSpecifier = t.importNamespaceSpecifier(
@@ -323,7 +323,8 @@ const visitor: Visitor = {
           let added = false;
           for (const id of moduleState.importDeclarations) {
             if (
-              !t.isImportNamespaceSpecifier(id.specifiers[0]) &&
+              (id.specifiers.length === 0 ||
+                !t.isImportNamespaceSpecifier(id.specifiers[0])) &&
               id.importKind === 'type'
             ) {
               for (const sp of newNamedSpecifiers) {
@@ -335,7 +336,9 @@ const visitor: Visitor = {
                 }
                 added = true;
               }
-              break;
+              if (added) {
+                break;
+              }
             }
             // check if the type is already imported as value (this can happen for classes for example)
             if (
@@ -349,7 +352,9 @@ const visitor: Visitor = {
                   added = true;
                 }
               }
-              break;
+              if (added) {
+                break;
+              }
             }
           }
           if (!added) {
@@ -394,6 +399,13 @@ const visitor: Visitor = {
             moduleState.importDeclarations.add(newImport);
             insertImport(newImport);
           }
+        }
+      }
+
+      // remove empty type imports
+      for (const im of imports) {
+        if (im.node.importKind === 'type' && im.node.specifiers.length === 0) {
+          im.remove();
         }
       }
     },

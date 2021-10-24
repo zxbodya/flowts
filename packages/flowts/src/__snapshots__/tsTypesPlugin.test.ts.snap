@@ -31,7 +31,7 @@ let a = 0;
 `;
 
 exports[`tsTypesPlugin rename imported 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 type A = ReactNode;
 "
 `;

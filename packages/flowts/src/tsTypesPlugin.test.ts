@@ -18,7 +18,7 @@ class C extends Component {}
   test('rename imported', () => {
     expect(
       transform(`
-import { Node } from 'react';
+import type { Node } from 'react';
 type A = Node;
 `)
     ).toMatchSnapshot();
@@ -95,6 +95,63 @@ export function print(component: Component<any>) {}
 
       export function test(value: Component<unknown, unknown>) {}
       export function print(component: Component<any>) {}
+      "
+    `);
+  });
+
+  test('does not create duplicate imports when few types are mapped to the same name', () => {
+    expect(
+      transform(`
+import type { AbstractComponent, ComponentType } from 'react';
+export type A = AbstractComponent;
+export type B = ComponentType;
+`)
+    ).toMatchInlineSnapshot(`
+      "import type { ComponentType } from \\"react\\";
+      export type A = ComponentType;
+      export type B = ComponentType;
+      "
+    `);
+  });
+  test('works correctly when mixing globals and imports for the same types named differently', () => {
+    expect(
+      transform(`
+import type { Node, Element } from 'react';
+export type A = React$Node;
+export type B = React$Element;
+export type C = Node;
+export type D = Element;
+`)
+    ).toMatchInlineSnapshot(`
+      "import type { ReactNode, ReactElement } from \\"react\\";
+      export type A = ReactNode;
+      export type B = ReactElement;
+      export type C = ReactNode;
+      export type D = ReactElement;
+      "
+    `);
+  });
+
+  test('make sure old import is reused instead of adding additional', () => {
+    expect(
+      transform(`
+import React, { Component } from "react";
+import type { Element } from "react";
+`)
+    ).toMatchInlineSnapshot(`
+      "import React, { Component } from \\"react\\";
+      import type { ReactElement } from \\"react\\";
+      "
+    `);
+  });
+  test('does not create empty import statements', () => {
+    expect(
+      transform(`
+import type { Node } from "react";
+import type { Element } from "react";
+`)
+    ).toMatchInlineSnapshot(`
+      "import type { ReactNode, ReactElement } from \\"react\\";
       "
     `);
   });

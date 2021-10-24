@@ -14,7 +14,7 @@ export default {
           | Iterable<?React$Node>;
         */
     React$Node(context) {
-      context.import('react', 'Node');
+      context.import('react', 'ReactNode');
     },
 
     /*
@@ -152,7 +152,7 @@ export default {
         };
         */
     React$StatelessFunctionalComponent(context) {
-      context.import('react', 'StatelessFunctionalComponent');
+      context.import('react', 'FunctionComponent');
     },
 
     /*
@@ -180,7 +180,7 @@ export default {
         |};
         */
     React$Element(context) {
-      context.import('react', 'Element');
+      context.import('react', 'ReactElement');
     },
 
     /*

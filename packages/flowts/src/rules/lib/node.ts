@@ -718,14 +718,14 @@ export default {
            * Clears the current line of this `WriteStream` in a direction identified by `dir`.
            *
            * TODO: takes a callback and returns `boolean` in v12+
-           
+
           clearLine(dir: -1 | 0 | 1): void;
           columns : number;
           *
            * Moves this WriteStream's cursor to the specified position
            *
            * TODO: takes a callback and returns `boolean` in v12+
-           
+
           cursorTo(
             x: number,
             y?: number
@@ -735,7 +735,7 @@ export default {
            * Moves this WriteStream's cursor relative to its current position
            *
            * TODO: takes a callback and returns `boolean` in v12+
-           
+
           moveCursor(dx: number, dy: number): void;
           rows : number;
         }
