@@ -85,14 +85,14 @@ exports[`lib/streams.js globals TransformStream variable 1`] = `
 `;
 
 exports[`lib/streams.js globals UnderlyingSink generated - interface 1`] = `
-"class A1 extends UnderlyingSink {}
+"class A1 implements UnderlyingSink {}
 "
 `;
 
 exports[`lib/streams.js globals UnderlyingSink generated - type 1`] = `""`;
 
 exports[`lib/streams.js globals UnderlyingSource generated - interface 1`] = `
-"class A1 extends UnderlyingSource {}
+"class A1 implements UnderlyingSource {}
 "
 `;
 
@@ -111,14 +111,14 @@ exports[`lib/streams.js globals WritableStream variable 1`] = `
 `;
 
 exports[`lib/streams.js globals WritableStreamController generated - interface 1`] = `
-"class A1 extends WritableStreamController {}
+"class A1 implements WritableStreamController {}
 "
 `;
 
 exports[`lib/streams.js globals WritableStreamController generated - type 1`] = `""`;
 
 exports[`lib/streams.js globals WritableStreamWriter generated - interface 1`] = `
-"class A1 extends WritableStreamWriter {}
+"class A1 implements WritableStreamWriter {}
 "
 `;
 

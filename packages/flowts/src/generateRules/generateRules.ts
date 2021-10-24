@@ -209,7 +209,7 @@ async function main(
             t.callExpression(
               t.memberExpression(
                 t.identifier('context'),
-                t.identifier('importFlow'),
+                t.identifier('import'),
                 false
               ),
               [t.stringLiteral(moduleName), t.stringLiteral(exportName)]

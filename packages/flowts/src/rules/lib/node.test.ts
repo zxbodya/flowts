@@ -35,7 +35,7 @@ describe('lib/node.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends Node$Buffer {};
+            class A1 implements Node$Buffer {};
           `)
         ).toMatchSnapshot();
       });
@@ -1581,7 +1581,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { ClusterSettings } from "cluster";
+            import type { ClusterSettings } from "cluster";
             
           `)
           ).toMatchSnapshot();
@@ -1590,9 +1590,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { ClusterSettings } from "cluster";
+            import type { ClusterSettings } from "cluster";
             
-            class A1 extends ClusterSettings {};
+            class A1 implements ClusterSettings {};
           `)
           ).toMatchSnapshot();
         });
@@ -1611,7 +1611,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "cluster";
             
-            class A1 extends M.ClusterSettings {};
+            class A1 implements M.ClusterSettings {};
           `)
           ).toMatchSnapshot();
         });
@@ -1619,7 +1619,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { ClusterSettings as t } from "cluster";
+            import type { ClusterSettings as t } from "cluster";
             
           `)
           ).toMatchSnapshot();
@@ -1628,9 +1628,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { ClusterSettings as t } from "cluster";
+            import type { ClusterSettings as t } from "cluster";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1640,7 +1640,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { ClusterSettingsOpt } from "cluster";
+            import type { ClusterSettingsOpt } from "cluster";
             
           `)
           ).toMatchSnapshot();
@@ -1649,9 +1649,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { ClusterSettingsOpt } from "cluster";
+            import type { ClusterSettingsOpt } from "cluster";
             
-            class A1 extends ClusterSettingsOpt {};
+            class A1 implements ClusterSettingsOpt {};
           `)
           ).toMatchSnapshot();
         });
@@ -1670,7 +1670,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "cluster";
             
-            class A1 extends M.ClusterSettingsOpt {};
+            class A1 implements M.ClusterSettingsOpt {};
           `)
           ).toMatchSnapshot();
         });
@@ -1678,7 +1678,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { ClusterSettingsOpt as t } from "cluster";
+            import type { ClusterSettingsOpt as t } from "cluster";
             
           `)
           ).toMatchSnapshot();
@@ -1687,9 +1687,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { ClusterSettingsOpt as t } from "cluster";
+            import type { ClusterSettingsOpt as t } from "cluster";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -4454,7 +4454,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { LookupOptions } from "dns";
+            import type { LookupOptions } from "dns";
             
           `)
           ).toMatchSnapshot();
@@ -4463,9 +4463,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { LookupOptions } from "dns";
+            import type { LookupOptions } from "dns";
             
-            class A1 extends LookupOptions {};
+            class A1 implements LookupOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -4484,7 +4484,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "dns";
             
-            class A1 extends M.LookupOptions {};
+            class A1 implements M.LookupOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -4492,7 +4492,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { LookupOptions as t } from "dns";
+            import type { LookupOptions as t } from "dns";
             
           `)
           ).toMatchSnapshot();
@@ -4501,9 +4501,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { LookupOptions as t } from "dns";
+            import type { LookupOptions as t } from "dns";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -11722,7 +11722,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { BufferEncoding } from "fs";
+            import type { BufferEncoding } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11731,9 +11731,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { BufferEncoding } from "fs";
+            import type { BufferEncoding } from "fs";
             
-            class A1 extends BufferEncoding {};
+            class A1 implements BufferEncoding {};
           `)
           ).toMatchSnapshot();
         });
@@ -11752,7 +11752,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.BufferEncoding {};
+            class A1 implements M.BufferEncoding {};
           `)
           ).toMatchSnapshot();
         });
@@ -11760,7 +11760,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { BufferEncoding as t } from "fs";
+            import type { BufferEncoding as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11769,9 +11769,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { BufferEncoding as t } from "fs";
+            import type { BufferEncoding as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -11781,7 +11781,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { EncodingOptions } from "fs";
+            import type { EncodingOptions } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11790,9 +11790,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { EncodingOptions } from "fs";
+            import type { EncodingOptions } from "fs";
             
-            class A1 extends EncodingOptions {};
+            class A1 implements EncodingOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -11811,7 +11811,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.EncodingOptions {};
+            class A1 implements M.EncodingOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -11819,7 +11819,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { EncodingOptions as t } from "fs";
+            import type { EncodingOptions as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11828,9 +11828,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { EncodingOptions as t } from "fs";
+            import type { EncodingOptions as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -11840,7 +11840,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { EncodingFlag } from "fs";
+            import type { EncodingFlag } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11849,9 +11849,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { EncodingFlag } from "fs";
+            import type { EncodingFlag } from "fs";
             
-            class A1 extends EncodingFlag {};
+            class A1 implements EncodingFlag {};
           `)
           ).toMatchSnapshot();
         });
@@ -11870,7 +11870,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.EncodingFlag {};
+            class A1 implements M.EncodingFlag {};
           `)
           ).toMatchSnapshot();
         });
@@ -11878,7 +11878,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { EncodingFlag as t } from "fs";
+            import type { EncodingFlag as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11887,9 +11887,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { EncodingFlag as t } from "fs";
+            import type { EncodingFlag as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -11899,7 +11899,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { WriteOptions } from "fs";
+            import type { WriteOptions } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11908,9 +11908,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { WriteOptions } from "fs";
+            import type { WriteOptions } from "fs";
             
-            class A1 extends WriteOptions {};
+            class A1 implements WriteOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -11929,7 +11929,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.WriteOptions {};
+            class A1 implements M.WriteOptions {};
           `)
           ).toMatchSnapshot();
         });
@@ -11937,7 +11937,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { WriteOptions as t } from "fs";
+            import type { WriteOptions as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -11946,9 +11946,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { WriteOptions as t } from "fs";
+            import type { WriteOptions as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -12004,7 +12004,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { FSPromisePath } from "fs";
+            import type { FSPromisePath } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -12013,9 +12013,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { FSPromisePath } from "fs";
+            import type { FSPromisePath } from "fs";
             
-            class A1 extends FSPromisePath {};
+            class A1 implements FSPromisePath {};
           `)
           ).toMatchSnapshot();
         });
@@ -12034,7 +12034,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.FSPromisePath {};
+            class A1 implements M.FSPromisePath {};
           `)
           ).toMatchSnapshot();
         });
@@ -12042,7 +12042,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { FSPromisePath as t } from "fs";
+            import type { FSPromisePath as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -12051,9 +12051,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { FSPromisePath as t } from "fs";
+            import type { FSPromisePath as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -12063,7 +12063,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { FSPromise } from "fs";
+            import type { FSPromise } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -12072,9 +12072,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { FSPromise } from "fs";
+            import type { FSPromise } from "fs";
             
-            class A1 extends FSPromise {};
+            class A1 implements FSPromise {};
           `)
           ).toMatchSnapshot();
         });
@@ -12093,7 +12093,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "fs";
             
-            class A1 extends M.FSPromise {};
+            class A1 implements M.FSPromise {};
           `)
           ).toMatchSnapshot();
         });
@@ -12101,7 +12101,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { FSPromise as t } from "fs";
+            import type { FSPromise as t } from "fs";
             
           `)
           ).toMatchSnapshot();
@@ -12110,9 +12110,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { FSPromise as t } from "fs";
+            import type { FSPromise as t } from "fs";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -13447,7 +13447,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { connectionListener } from "net";
+            import type { connectionListener } from "net";
             
           `)
           ).toMatchSnapshot();
@@ -13456,9 +13456,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { connectionListener } from "net";
+            import type { connectionListener } from "net";
             
-            class A1 extends connectionListener {};
+            class A1 implements connectionListener {};
           `)
           ).toMatchSnapshot();
         });
@@ -13477,7 +13477,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "net";
             
-            class A1 extends M.connectionListener {};
+            class A1 implements M.connectionListener {};
           `)
           ).toMatchSnapshot();
         });
@@ -13485,7 +13485,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { connectionListener as t } from "net";
+            import type { connectionListener as t } from "net";
             
           `)
           ).toMatchSnapshot();
@@ -13494,9 +13494,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { connectionListener as t } from "net";
+            import type { connectionListener as t } from "net";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -13585,7 +13585,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { connectListener } from "net";
+            import type { connectListener } from "net";
             
           `)
           ).toMatchSnapshot();
@@ -13594,9 +13594,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { connectListener } from "net";
+            import type { connectListener } from "net";
             
-            class A1 extends connectListener {};
+            class A1 implements connectListener {};
           `)
           ).toMatchSnapshot();
         });
@@ -13615,7 +13615,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "net";
             
-            class A1 extends M.connectListener {};
+            class A1 implements M.connectListener {};
           `)
           ).toMatchSnapshot();
         });
@@ -13623,7 +13623,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { connectListener as t } from "net";
+            import type { connectListener as t } from "net";
             
           `)
           ).toMatchSnapshot();
@@ -13632,9 +13632,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { connectListener as t } from "net";
+            import type { connectListener as t } from "net";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -18179,7 +18179,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Url } from "url";
+            import type { Url } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18188,9 +18188,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Url } from "url";
+            import type { Url } from "url";
             
-            class A1 extends Url {};
+            class A1 implements Url {};
           `)
           ).toMatchSnapshot();
         });
@@ -18209,7 +18209,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "url";
             
-            class A1 extends M.Url {};
+            class A1 implements M.Url {};
           `)
           ).toMatchSnapshot();
         });
@@ -18217,7 +18217,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Url as t } from "url";
+            import type { Url as t } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18226,9 +18226,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Url as t } from "url";
+            import type { Url as t } from "url";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -18238,7 +18238,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { UrlWithStringQuery } from "url";
+            import type { UrlWithStringQuery } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18247,9 +18247,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { UrlWithStringQuery } from "url";
+            import type { UrlWithStringQuery } from "url";
             
-            class A1 extends UrlWithStringQuery {};
+            class A1 implements UrlWithStringQuery {};
           `)
           ).toMatchSnapshot();
         });
@@ -18268,7 +18268,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "url";
             
-            class A1 extends M.UrlWithStringQuery {};
+            class A1 implements M.UrlWithStringQuery {};
           `)
           ).toMatchSnapshot();
         });
@@ -18276,7 +18276,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { UrlWithStringQuery as t } from "url";
+            import type { UrlWithStringQuery as t } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18285,9 +18285,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { UrlWithStringQuery as t } from "url";
+            import type { UrlWithStringQuery as t } from "url";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -18297,7 +18297,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { UrlWithParsedQuery } from "url";
+            import type { UrlWithParsedQuery } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18306,9 +18306,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { UrlWithParsedQuery } from "url";
+            import type { UrlWithParsedQuery } from "url";
             
-            class A1 extends UrlWithParsedQuery {};
+            class A1 implements UrlWithParsedQuery {};
           `)
           ).toMatchSnapshot();
         });
@@ -18327,7 +18327,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "url";
             
-            class A1 extends M.UrlWithParsedQuery {};
+            class A1 implements M.UrlWithParsedQuery {};
           `)
           ).toMatchSnapshot();
         });
@@ -18335,7 +18335,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { UrlWithParsedQuery as t } from "url";
+            import type { UrlWithParsedQuery as t } from "url";
             
           `)
           ).toMatchSnapshot();
@@ -18344,9 +18344,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { UrlWithParsedQuery as t } from "url";
+            import type { UrlWithParsedQuery as t } from "url";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -22459,7 +22459,7 @@ describe('lib/node.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { AssertStrict } from "assert";
+            import type { AssertStrict } from "assert";
             
           `)
           ).toMatchSnapshot();
@@ -22468,9 +22468,9 @@ describe('lib/node.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { AssertStrict } from "assert";
+            import type { AssertStrict } from "assert";
             
-            class A1 extends AssertStrict {};
+            class A1 implements AssertStrict {};
           `)
           ).toMatchSnapshot();
         });
@@ -22489,7 +22489,7 @@ describe('lib/node.js', () => {
             transform(`
             import * as M from "assert";
             
-            class A1 extends M.AssertStrict {};
+            class A1 implements M.AssertStrict {};
           `)
           ).toMatchSnapshot();
         });
@@ -22497,7 +22497,7 @@ describe('lib/node.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { AssertStrict as t } from "assert";
+            import type { AssertStrict as t } from "assert";
             
           `)
           ).toMatchSnapshot();
@@ -22506,9 +22506,9 @@ describe('lib/node.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { AssertStrict as t } from "assert";
+            import type { AssertStrict as t } from "assert";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });

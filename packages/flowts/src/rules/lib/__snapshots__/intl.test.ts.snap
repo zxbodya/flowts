@@ -18,7 +18,7 @@ exports[`lib/intl.js globals Intl$Collator variable 1`] = `
 `;
 
 exports[`lib/intl.js globals Intl$CollatorOptions generated - interface 1`] = `
-"class A1 extends Intl$CollatorOptions {}
+"class A1 implements Intl$CollatorOptions {}
 "
 `;
 
@@ -37,7 +37,7 @@ exports[`lib/intl.js globals Intl$DateTimeFormat variable 1`] = `
 `;
 
 exports[`lib/intl.js globals Intl$DateTimeFormatOptions generated - interface 1`] = `
-"class A1 extends Intl$DateTimeFormatOptions {}
+"class A1 implements Intl$DateTimeFormatOptions {}
 "
 `;
 
@@ -56,7 +56,7 @@ exports[`lib/intl.js globals Intl$NumberFormat variable 1`] = `
 `;
 
 exports[`lib/intl.js globals Intl$NumberFormatOptions generated - interface 1`] = `
-"class A1 extends Intl$NumberFormatOptions {}
+"class A1 implements Intl$NumberFormatOptions {}
 "
 `;
 
@@ -75,7 +75,7 @@ exports[`lib/intl.js globals Intl$PluralRules variable 1`] = `
 `;
 
 exports[`lib/intl.js globals Intl$PluralRulesOptions generated - interface 1`] = `
-"class A1 extends Intl$PluralRulesOptions {}
+"class A1 implements Intl$PluralRulesOptions {}
 "
 `;
 

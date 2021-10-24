@@ -15,7 +15,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBEnvironment {};
+            class A1 implements IDBEnvironment {};
           `)
         ).toMatchSnapshot();
       });
@@ -32,7 +32,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBFactory {};
+            class A1 implements IDBFactory {};
           `)
         ).toMatchSnapshot();
       });
@@ -49,7 +49,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBRequest {};
+            class A1 implements IDBRequest {};
           `)
         ).toMatchSnapshot();
       });
@@ -66,7 +66,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBOpenDBRequest {};
+            class A1 implements IDBOpenDBRequest {};
           `)
         ).toMatchSnapshot();
       });
@@ -83,7 +83,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBDatabase {};
+            class A1 implements IDBDatabase {};
           `)
         ).toMatchSnapshot();
       });
@@ -100,7 +100,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBTransaction {};
+            class A1 implements IDBTransaction {};
           `)
         ).toMatchSnapshot();
       });
@@ -117,7 +117,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBObjectStore {};
+            class A1 implements IDBObjectStore {};
           `)
         ).toMatchSnapshot();
       });
@@ -134,7 +134,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBIndex {};
+            class A1 implements IDBIndex {};
           `)
         ).toMatchSnapshot();
       });
@@ -151,7 +151,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBKeyRange {};
+            class A1 implements IDBKeyRange {};
           `)
         ).toMatchSnapshot();
       });
@@ -168,7 +168,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBCursor {};
+            class A1 implements IDBCursor {};
           `)
         ).toMatchSnapshot();
       });
@@ -185,7 +185,7 @@ describe('lib/indexeddb.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IDBCursorWithValue {};
+            class A1 implements IDBCursorWithValue {};
           `)
         ).toMatchSnapshot();
       });

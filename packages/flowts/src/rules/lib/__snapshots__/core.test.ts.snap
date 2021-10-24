@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`lib/core.js globals $Flow$ModuleRef generated - interface 1`] = `
-"class A1 extends $Flow$ModuleRef {}
+"class A1 implements $Flow$ModuleRef {}
 "
 `;
 
@@ -73,84 +73,84 @@ exports[`lib/core.js globals $ReadOnlyWeakSet variable 1`] = `
 `;
 
 exports[`lib/core.js globals $SymboIsConcatSpreadable generated - interface 1`] = `
-"class A1 extends $SymboIsConcatSpreadable {}
+"class A1 implements $SymboIsConcatSpreadable {}
 "
 `;
 
 exports[`lib/core.js globals $SymboIsConcatSpreadable generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolHasInstance generated - interface 1`] = `
-"class A1 extends $SymbolHasInstance {}
+"class A1 implements $SymbolHasInstance {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolHasInstance generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolIterator generated - interface 1`] = `
-"class A1 extends $SymbolIterator {}
+"class A1 implements $SymbolIterator {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolIterator generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolMatch generated - interface 1`] = `
-"class A1 extends $SymbolMatch {}
+"class A1 implements $SymbolMatch {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolMatch generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolMatchAll generated - interface 1`] = `
-"class A1 extends $SymbolMatchAll {}
+"class A1 implements $SymbolMatchAll {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolMatchAll generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolReplace generated - interface 1`] = `
-"class A1 extends $SymbolReplace {}
+"class A1 implements $SymbolReplace {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolReplace generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolSearch generated - interface 1`] = `
-"class A1 extends $SymbolSearch {}
+"class A1 implements $SymbolSearch {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolSearch generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolSpecies generated - interface 1`] = `
-"class A1 extends $SymbolSpecies {}
+"class A1 implements $SymbolSpecies {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolSpecies generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolSplit generated - interface 1`] = `
-"class A1 extends $SymbolSplit {}
+"class A1 implements $SymbolSplit {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolSplit generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolToPrimitive generated - interface 1`] = `
-"class A1 extends $SymbolToPrimitive {}
+"class A1 implements $SymbolToPrimitive {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolToPrimitive generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolToStringTag generated - interface 1`] = `
-"class A1 extends $SymbolToStringTag {}
+"class A1 implements $SymbolToStringTag {}
 "
 `;
 
 exports[`lib/core.js globals $SymbolToStringTag generated - type 1`] = `""`;
 
 exports[`lib/core.js globals $SymbolUnscopables generated - interface 1`] = `
-"class A1 extends $SymbolUnscopables {}
+"class A1 implements $SymbolUnscopables {}
 "
 `;
 
@@ -408,7 +408,7 @@ exports[`lib/core.js globals Int32Array variable 1`] = `
 `;
 
 exports[`lib/core.js globals IntervalID generated - interface 1`] = `
-"class A1 extends IntervalID {}
+"class A1 implements IntervalID {}
 "
 `;
 
@@ -602,7 +602,7 @@ exports[`lib/core.js globals SyntaxError variable 1`] = `
 `;
 
 exports[`lib/core.js globals TimeoutID generated - interface 1`] = `
-"class A1 extends TimeoutID {}
+"class A1 implements TimeoutID {}
 "
 `;
 

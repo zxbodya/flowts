@@ -1,77 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`lib/indexeddb.js globals IDBCursor generated - interface 1`] = `
-"class A1 extends IDBCursor {}
+"class A1 implements IDBCursor {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBCursor generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBCursorWithValue generated - interface 1`] = `
-"class A1 extends IDBCursorWithValue {}
+"class A1 implements IDBCursorWithValue {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBCursorWithValue generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBDatabase generated - interface 1`] = `
-"class A1 extends IDBDatabase {}
+"class A1 implements IDBDatabase {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBDatabase generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBEnvironment generated - interface 1`] = `
-"class A1 extends IDBEnvironment {}
+"class A1 implements IDBEnvironment {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBEnvironment generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBFactory generated - interface 1`] = `
-"class A1 extends IDBFactory {}
+"class A1 implements IDBFactory {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBFactory generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBIndex generated - interface 1`] = `
-"class A1 extends IDBIndex {}
+"class A1 implements IDBIndex {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBIndex generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBKeyRange generated - interface 1`] = `
-"class A1 extends IDBKeyRange {}
+"class A1 implements IDBKeyRange {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBKeyRange generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBObjectStore generated - interface 1`] = `
-"class A1 extends IDBObjectStore {}
+"class A1 implements IDBObjectStore {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBObjectStore generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBOpenDBRequest generated - interface 1`] = `
-"class A1 extends IDBOpenDBRequest {}
+"class A1 implements IDBOpenDBRequest {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBOpenDBRequest generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBRequest generated - interface 1`] = `
-"class A1 extends IDBRequest {}
+"class A1 implements IDBRequest {}
 "
 `;
 
 exports[`lib/indexeddb.js globals IDBRequest generated - type 1`] = `""`;
 
 exports[`lib/indexeddb.js globals IDBTransaction generated - interface 1`] = `
-"class A1 extends IDBTransaction {}
+"class A1 implements IDBTransaction {}
 "
 `;
 

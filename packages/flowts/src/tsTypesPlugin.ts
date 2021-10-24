@@ -116,9 +116,6 @@ const visitor: Visitor = {
             }
           }
         }
-        public importFlow(moduleName: string, exportName: string): void {
-          this.import(moduleName, exportName);
-        }
       }
 
       for (const [globalName, globalFix] of Object.entries(rules.globals)) {

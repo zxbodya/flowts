@@ -140,7 +140,7 @@ export default {
         }
         */
     child_process$ChildProcess(context) {
-      context.importFlow('child_process', 'ChildProcess');
+      context.import('child_process', 'ChildProcess');
     },
 
     /*
@@ -276,7 +276,7 @@ export default {
         }
         */
     crypto$Sign(context) {
-      context.importFlow('crypto', 'Sign');
+      context.import('crypto', 'Sign');
     },
 
     /*
@@ -294,7 +294,7 @@ export default {
         }
         */
     crypto$Verify(context) {
-      context.importFlow('crypto', 'Verify');
+      context.import('crypto', 'Verify');
     },
 
     /*
@@ -352,7 +352,7 @@ export default {
         }
         */
     events$EventEmitter(context) {
-      context.importFlow('events', 'EventEmitter');
+      context.import('events', 'EventEmitter');
     },
 
     /*
@@ -389,7 +389,7 @@ export default {
         }
         */
     http$Agent(context) {
-      context.importFlow('http', 'Agent');
+      context.import('http', 'Agent');
     },
 
     /*
@@ -410,7 +410,7 @@ export default {
         }
         */
     http$IncomingMessage(context) {
-      context.importFlow('http', 'IncomingMessage');
+      context.import('http', 'IncomingMessage');
     },
 
     /*
@@ -429,7 +429,7 @@ export default {
         }
         */
     http$ClientRequest(context) {
-      context.importFlow('http', 'ClientRequest');
+      context.import('http', 'ClientRequest');
     },
 
     /*
@@ -457,7 +457,7 @@ export default {
         }
         */
     http$ServerResponse(context) {
-      context.importFlow('http', 'ServerResponse');
+      context.import('http', 'ServerResponse');
     },
 
     /*
@@ -489,7 +489,7 @@ export default {
         }
         */
     http$Server(context) {
-      context.importFlow('http', 'Server');
+      context.import('http', 'Server');
     },
 
     /*
@@ -519,7 +519,7 @@ export default {
         }
         */
     https$Server(context) {
-      context.importFlow('https', 'Server');
+      context.import('https', 'Server');
     },
 
     /*
@@ -560,7 +560,7 @@ export default {
         }
         */
     net$Socket(context) {
-      context.importFlow('net', 'Socket');
+      context.import('net', 'Socket');
     },
 
     /*
@@ -579,7 +579,7 @@ export default {
         }
         */
     net$Server(context) {
-      context.importFlow('net', 'Server');
+      context.import('net', 'Server');
     },
 
     /*
@@ -601,14 +601,14 @@ export default {
         }
         */
     readline$Interface(context) {
-      context.importFlow('readline', 'Interface');
+      context.import('readline', 'Interface');
     },
 
     /*
         declare class stream$Stream extends events$EventEmitter {}
         */
     stream$Stream(context) {
-      context.importFlow('stream', 'Stream');
+      context.import('stream', 'Stream');
     },
 
     /*
@@ -636,7 +636,7 @@ export default {
         }
         */
     stream$Readable(context) {
-      context.importFlow('stream', 'Readable');
+      context.import('stream', 'Readable');
     },
 
     /*
@@ -665,7 +665,7 @@ export default {
         }
         */
     stream$Writable(context) {
-      context.importFlow('stream', 'Writable');
+      context.import('stream', 'Writable');
     },
 
     /*
@@ -674,7 +674,7 @@ export default {
         }
         */
     stream$Duplex(context) {
-      context.importFlow('stream', 'Duplex');
+      context.import('stream', 'Duplex');
     },
 
     /*
@@ -689,14 +689,14 @@ export default {
         }
         */
     stream$Transform(context) {
-      context.importFlow('stream', 'Transform');
+      context.import('stream', 'Transform');
     },
 
     /*
         declare class stream$PassThrough extends stream$Transform {}
         */
     stream$PassThrough(context) {
-      context.importFlow('stream', 'PassThrough');
+      context.import('stream', 'PassThrough');
     },
 
     /*
@@ -708,7 +708,7 @@ export default {
         }
         */
     tty$ReadStream(context) {
-      context.importFlow('tty', 'ReadStream');
+      context.import('tty', 'ReadStream');
     },
 
     /*
@@ -741,7 +741,7 @@ export default {
         }
         */
     tty$WriteStream(context) {
-      context.importFlow('tty', 'WriteStream');
+      context.import('tty', 'WriteStream');
     },
 
     /*
@@ -752,7 +752,7 @@ export default {
         }
         */
     string_decoder$StringDecoder(context) {
-      context.importFlow('string_decoder', 'StringDecoder');
+      context.import('string_decoder', 'StringDecoder');
     },
 
     /*
@@ -784,7 +784,7 @@ export default {
         }
         */
     tls$TLSSocket(context) {
-      context.importFlow('tls', 'TLSSocket');
+      context.import('tls', 'TLSSocket');
     },
 
     /*
@@ -799,7 +799,7 @@ export default {
         }
         */
     tls$Server(context) {
-      context.importFlow('tls', 'Server');
+      context.import('tls', 'Server');
     },
 
     /*
@@ -815,7 +815,7 @@ export default {
         }
         */
     vm$Script(context) {
-      context.importFlow('vm', 'Script');
+      context.import('vm', 'Script');
     },
 
     /*

@@ -297,7 +297,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolHasInstance {};
+            class A1 implements $SymbolHasInstance {};
           `)
         ).toMatchSnapshot();
       });
@@ -314,7 +314,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymboIsConcatSpreadable {};
+            class A1 implements $SymboIsConcatSpreadable {};
           `)
         ).toMatchSnapshot();
       });
@@ -331,7 +331,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolIterator {};
+            class A1 implements $SymbolIterator {};
           `)
         ).toMatchSnapshot();
       });
@@ -348,7 +348,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolMatch {};
+            class A1 implements $SymbolMatch {};
           `)
         ).toMatchSnapshot();
       });
@@ -365,7 +365,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolMatchAll {};
+            class A1 implements $SymbolMatchAll {};
           `)
         ).toMatchSnapshot();
       });
@@ -382,7 +382,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolReplace {};
+            class A1 implements $SymbolReplace {};
           `)
         ).toMatchSnapshot();
       });
@@ -399,7 +399,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolSearch {};
+            class A1 implements $SymbolSearch {};
           `)
         ).toMatchSnapshot();
       });
@@ -416,7 +416,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolSpecies {};
+            class A1 implements $SymbolSpecies {};
           `)
         ).toMatchSnapshot();
       });
@@ -433,7 +433,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolSplit {};
+            class A1 implements $SymbolSplit {};
           `)
         ).toMatchSnapshot();
       });
@@ -450,7 +450,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolToPrimitive {};
+            class A1 implements $SymbolToPrimitive {};
           `)
         ).toMatchSnapshot();
       });
@@ -467,7 +467,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolToStringTag {};
+            class A1 implements $SymbolToStringTag {};
           `)
         ).toMatchSnapshot();
       });
@@ -484,7 +484,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $SymbolUnscopables {};
+            class A1 implements $SymbolUnscopables {};
           `)
         ).toMatchSnapshot();
       });
@@ -1525,7 +1525,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends TimeoutID {};
+            class A1 implements TimeoutID {};
           `)
         ).toMatchSnapshot();
       });
@@ -1542,7 +1542,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IntervalID {};
+            class A1 implements IntervalID {};
           `)
         ).toMatchSnapshot();
       });
@@ -1785,7 +1785,7 @@ describe('lib/core.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $Flow$ModuleRef {};
+            class A1 implements $Flow$ModuleRef {};
           `)
         ).toMatchSnapshot();
       });

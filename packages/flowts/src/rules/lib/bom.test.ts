@@ -525,7 +525,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends DOMHighResTimeStamp {};
+            class A1 implements DOMHighResTimeStamp {};
           `)
         ).toMatchSnapshot();
       });
@@ -672,7 +672,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends PerformanceObserverEntryList {};
+            class A1 implements PerformanceObserverEntryList {};
           `)
         ).toMatchSnapshot();
       });
@@ -829,7 +829,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends MutationObserverInit {};
+            class A1 implements MutationObserverInit {};
           `)
         ).toMatchSnapshot();
       });
@@ -926,7 +926,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IntersectionObserverEntry {};
+            class A1 implements IntersectionObserverEntry {};
           `)
         ).toMatchSnapshot();
       });
@@ -943,7 +943,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IntersectionObserverCallback {};
+            class A1 implements IntersectionObserverCallback {};
           `)
         ).toMatchSnapshot();
       });
@@ -960,7 +960,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IntersectionObserverOptions {};
+            class A1 implements IntersectionObserverOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -997,7 +997,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ResizeObserverSize {};
+            class A1 implements ResizeObserverSize {};
           `)
         ).toMatchSnapshot();
       });
@@ -1014,7 +1014,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ResizeObserverEntry {};
+            class A1 implements ResizeObserverEntry {};
           `)
         ).toMatchSnapshot();
       });
@@ -1031,7 +1031,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ResizeObserverOptions {};
+            class A1 implements ResizeObserverOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -2536,7 +2536,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends MediaQueryListListener {};
+            class A1 implements MediaQueryListListener {};
           `)
         ).toMatchSnapshot();
       });
@@ -2583,7 +2583,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CredMgmtCredentialRequestOptions {};
+            class A1 implements CredMgmtCredentialRequestOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -2600,7 +2600,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CredMgmtCredentialCreationOptions {};
+            class A1 implements CredMgmtCredentialCreationOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -2617,7 +2617,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CredMgmtCredential {};
+            class A1 implements CredMgmtCredential {};
           `)
         ).toMatchSnapshot();
       });
@@ -2634,7 +2634,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CredMgmtPasswordCredential {};
+            class A1 implements CredMgmtPasswordCredential {};
           `)
         ).toMatchSnapshot();
       });
@@ -2651,7 +2651,7 @@ describe('lib/bom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CredMgmtCredentialsContainer {};
+            class A1 implements CredMgmtCredentialsContainer {};
           `)
         ).toMatchSnapshot();
       });

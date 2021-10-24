@@ -265,42 +265,42 @@ exports[`lib/bom.js globals Coordinates variable 1`] = `
 `;
 
 exports[`lib/bom.js globals CredMgmtCredential generated - interface 1`] = `
-"class A1 extends CredMgmtCredential {}
+"class A1 implements CredMgmtCredential {}
 "
 `;
 
 exports[`lib/bom.js globals CredMgmtCredential generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals CredMgmtCredentialCreationOptions generated - interface 1`] = `
-"class A1 extends CredMgmtCredentialCreationOptions {}
+"class A1 implements CredMgmtCredentialCreationOptions {}
 "
 `;
 
 exports[`lib/bom.js globals CredMgmtCredentialCreationOptions generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals CredMgmtCredentialRequestOptions generated - interface 1`] = `
-"class A1 extends CredMgmtCredentialRequestOptions {}
+"class A1 implements CredMgmtCredentialRequestOptions {}
 "
 `;
 
 exports[`lib/bom.js globals CredMgmtCredentialRequestOptions generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals CredMgmtCredentialsContainer generated - interface 1`] = `
-"class A1 extends CredMgmtCredentialsContainer {}
+"class A1 implements CredMgmtCredentialsContainer {}
 "
 `;
 
 exports[`lib/bom.js globals CredMgmtCredentialsContainer generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals CredMgmtPasswordCredential generated - interface 1`] = `
-"class A1 extends CredMgmtPasswordCredential {}
+"class A1 implements CredMgmtPasswordCredential {}
 "
 `;
 
 exports[`lib/bom.js globals CredMgmtPasswordCredential generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals DOMHighResTimeStamp generated - interface 1`] = `
-"class A1 extends DOMHighResTimeStamp {}
+"class A1 implements DOMHighResTimeStamp {}
 "
 `;
 
@@ -475,21 +475,21 @@ exports[`lib/bom.js globals IntersectionObserver variable 1`] = `
 `;
 
 exports[`lib/bom.js globals IntersectionObserverCallback generated - interface 1`] = `
-"class A1 extends IntersectionObserverCallback {}
+"class A1 implements IntersectionObserverCallback {}
 "
 `;
 
 exports[`lib/bom.js globals IntersectionObserverCallback generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals IntersectionObserverEntry generated - interface 1`] = `
-"class A1 extends IntersectionObserverEntry {}
+"class A1 implements IntersectionObserverEntry {}
 "
 `;
 
 exports[`lib/bom.js globals IntersectionObserverEntry generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals IntersectionObserverOptions generated - interface 1`] = `
-"class A1 extends IntersectionObserverOptions {}
+"class A1 implements IntersectionObserverOptions {}
 "
 `;
 
@@ -664,7 +664,7 @@ exports[`lib/bom.js globals MediaQueryListEvent variable 1`] = `
 `;
 
 exports[`lib/bom.js globals MediaQueryListListener generated - interface 1`] = `
-"class A1 extends MediaQueryListListener {}
+"class A1 implements MediaQueryListListener {}
 "
 `;
 
@@ -815,7 +815,7 @@ exports[`lib/bom.js globals MutationObserver variable 1`] = `
 `;
 
 exports[`lib/bom.js globals MutationObserverInit generated - interface 1`] = `
-"class A1 extends MutationObserverInit {}
+"class A1 implements MutationObserverInit {}
 "
 `;
 
@@ -1043,7 +1043,7 @@ exports[`lib/bom.js globals PerformanceObserver variable 1`] = `
 `;
 
 exports[`lib/bom.js globals PerformanceObserverEntryList generated - interface 1`] = `
-"class A1 extends PerformanceObserverEntryList {}
+"class A1 implements PerformanceObserverEntryList {}
 "
 `;
 
@@ -1182,21 +1182,21 @@ exports[`lib/bom.js globals ResizeObserver variable 1`] = `
 `;
 
 exports[`lib/bom.js globals ResizeObserverEntry generated - interface 1`] = `
-"class A1 extends ResizeObserverEntry {}
+"class A1 implements ResizeObserverEntry {}
 "
 `;
 
 exports[`lib/bom.js globals ResizeObserverEntry generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals ResizeObserverOptions generated - interface 1`] = `
-"class A1 extends ResizeObserverOptions {}
+"class A1 implements ResizeObserverOptions {}
 "
 `;
 
 exports[`lib/bom.js globals ResizeObserverOptions generated - type 1`] = `""`;
 
 exports[`lib/bom.js globals ResizeObserverSize generated - interface 1`] = `
-"class A1 extends ResizeObserverSize {}
+"class A1 implements ResizeObserverSize {}
 "
 `;
 

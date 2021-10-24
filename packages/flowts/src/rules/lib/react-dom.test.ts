@@ -346,7 +346,7 @@ describe('lib/react-dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends $JSXIntrinsics {};
+            class A1 implements $JSXIntrinsics {};
           `)
         ).toMatchSnapshot();
       });

@@ -14,7 +14,7 @@ export default {
           | Iterable<?React$Node>;
         */
     React$Node(context) {
-      context.importFlow('react', 'Node');
+      context.import('react', 'Node');
     },
 
     /*
@@ -93,7 +93,7 @@ export default {
         }
         */
     React$Component(context) {
-      context.importFlow('react', 'Component');
+      context.import('react', 'Component');
     },
 
     /*
@@ -108,7 +108,7 @@ export default {
         }
         */
     React$PureComponent(context) {
-      context.importFlow('react', 'PureComponent');
+      context.import('react', 'PureComponent');
     },
 
     /*
@@ -152,14 +152,14 @@ export default {
         };
         */
     React$StatelessFunctionalComponent(context) {
-      context.importFlow('react', 'StatelessFunctionalComponent');
+      context.import('react', 'StatelessFunctionalComponent');
     },
 
     /*
         declare type React$ComponentType<-Config> = React$AbstractComponent<Config, mixed>;
         */
     React$ComponentType(context) {
-      context.importFlow('react', 'ComponentType');
+      context.import('react', 'ComponentType');
     },
 
     /*
@@ -168,7 +168,7 @@ export default {
           | React$AbstractComponent<empty, mixed>;
         */
     React$ElementType(context) {
-      context.importFlow('react', 'ElementType');
+      context.import('react', 'ElementType');
     },
 
     /*
@@ -180,21 +180,21 @@ export default {
         |};
         */
     React$Element(context) {
-      context.importFlow('react', 'Element');
+      context.import('react', 'Element');
     },
 
     /*
         declare type React$MixedElement = React$Element<React$ElementType>;
         */
     React$MixedElement(context) {
-      context.importFlow('react', 'MixedElement');
+      context.import('react', 'MixedElement');
     },
 
     /*
         declare type React$Key = string | number;
         */
     React$Key(context) {
-      context.importFlow('react', 'Key');
+      context.import('react', 'Key');
     },
 
     /*
@@ -204,7 +204,7 @@ export default {
           | number | string;
         */
     React$Ref(context) {
-      context.importFlow('react', 'Ref');
+      context.import('react', 'Ref');
     },
 
     /*
@@ -221,14 +221,14 @@ export default {
         }
         */
     React$Context(context) {
-      context.importFlow('react', 'Context');
+      context.import('react', 'Context');
     },
 
     /*
         declare opaque type React$Portal;
         */
     React$Portal(context) {
-      context.importFlow('react', 'Portal');
+      context.import('react', 'Portal');
     },
 
     /*
@@ -237,7 +237,7 @@ export default {
     React$FragmentType: false,
 
     React$ElementRef(context) {
-      context.importFlow('react', 'ElementRef');
+      context.import('react', 'ElementRef');
     },
   },
 

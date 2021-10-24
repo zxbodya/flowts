@@ -15,7 +15,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$Node {};
+            class A1 implements React$Node {};
           `)
         ).toMatchSnapshot();
       });
@@ -104,7 +104,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$AbstractComponentStatics {};
+            class A1 implements React$AbstractComponentStatics {};
           `)
         ).toMatchSnapshot();
       });
@@ -161,7 +161,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$ElementType {};
+            class A1 implements React$ElementType {};
           `)
         ).toMatchSnapshot();
       });
@@ -198,7 +198,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$MixedElement {};
+            class A1 implements React$MixedElement {};
           `)
         ).toMatchSnapshot();
       });
@@ -215,7 +215,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$Key {};
+            class A1 implements React$Key {};
           `)
         ).toMatchSnapshot();
       });
@@ -272,7 +272,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$Portal {};
+            class A1 implements React$Portal {};
           `)
         ).toMatchSnapshot();
       });
@@ -289,7 +289,7 @@ describe('lib/react.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends React$FragmentType {};
+            class A1 implements React$FragmentType {};
           `)
         ).toMatchSnapshot();
       });
@@ -813,7 +813,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { StatelessFunctionalComponent } from "react";
+            import type { StatelessFunctionalComponent } from "react";
             
             let a1: StatelessFunctionalComponent<P0>;
           `)
@@ -823,7 +823,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { StatelessFunctionalComponent } from "react";
+            import type { StatelessFunctionalComponent } from "react";
             
             class A1 implements StatelessFunctionalComponent<P0> {}
             interface I1 extends StatelessFunctionalComponent<P0> {}
@@ -857,7 +857,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { StatelessFunctionalComponent as t } from "react";
+            import type { StatelessFunctionalComponent as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -867,7 +867,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { StatelessFunctionalComponent as t } from "react";
+            import type { StatelessFunctionalComponent as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -881,7 +881,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { ComponentType } from "react";
+            import type { ComponentType } from "react";
             
             let a1: ComponentType<P0>;
           `)
@@ -891,7 +891,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { ComponentType } from "react";
+            import type { ComponentType } from "react";
             
             class A1 implements ComponentType<P0> {}
             interface I1 extends ComponentType<P0> {}
@@ -925,7 +925,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ComponentType as t } from "react";
+            import type { ComponentType as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -935,7 +935,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ComponentType as t } from "react";
+            import type { ComponentType as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -949,7 +949,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1 - 2)', () => {
           expect(
             transform(`
-            import { AbstractComponent } from "react";
+            import type { AbstractComponent } from "react";
             
             let a1: AbstractComponent<P0>;
             let a2: AbstractComponent<P0, P1>;
@@ -960,7 +960,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1 - 2)', () => {
           expect(
             transform(`
-            import { AbstractComponent } from "react";
+            import type { AbstractComponent } from "react";
             
             class A1 implements AbstractComponent<P0> {}
             interface I1 extends AbstractComponent<P0> {}
@@ -1001,7 +1001,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
-            import { AbstractComponent as t } from "react";
+            import type { AbstractComponent as t } from "react";
             
             let a1: t<P0>;
             let a2: t<P0, P1>;
@@ -1012,7 +1012,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1 - 2)', () => {
           expect(
             transform(`
-            import { AbstractComponent as t } from "react";
+            import type { AbstractComponent as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1029,7 +1029,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { MixedElement } from "react";
+            import type { MixedElement } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1038,9 +1038,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { MixedElement } from "react";
+            import type { MixedElement } from "react";
             
-            class A1 extends MixedElement {};
+            class A1 implements MixedElement {};
           `)
           ).toMatchSnapshot();
         });
@@ -1059,7 +1059,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.MixedElement {};
+            class A1 implements M.MixedElement {};
           `)
           ).toMatchSnapshot();
         });
@@ -1067,7 +1067,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { MixedElement as t } from "react";
+            import type { MixedElement as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1076,9 +1076,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { MixedElement as t } from "react";
+            import type { MixedElement as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1088,7 +1088,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { ElementType } from "react";
+            import type { ElementType } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1097,9 +1097,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { ElementType } from "react";
+            import type { ElementType } from "react";
             
-            class A1 extends ElementType {};
+            class A1 implements ElementType {};
           `)
           ).toMatchSnapshot();
         });
@@ -1118,7 +1118,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.ElementType {};
+            class A1 implements M.ElementType {};
           `)
           ).toMatchSnapshot();
         });
@@ -1126,7 +1126,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { ElementType as t } from "react";
+            import type { ElementType as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1135,9 +1135,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { ElementType as t } from "react";
+            import type { ElementType as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1147,7 +1147,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { Element } from "react";
+            import type { Element } from "react";
             
             let a1: Element<P0>;
           `)
@@ -1157,7 +1157,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { Element } from "react";
+            import type { Element } from "react";
             
             class A1 implements Element<P0> {}
             interface I1 extends Element<P0> {}
@@ -1191,7 +1191,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Element as t } from "react";
+            import type { Element as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1201,7 +1201,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Element as t } from "react";
+            import type { Element as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1225,7 +1225,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Key } from "react";
+            import type { Key } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1234,9 +1234,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Key } from "react";
+            import type { Key } from "react";
             
-            class A1 extends Key {};
+            class A1 implements Key {};
           `)
           ).toMatchSnapshot();
         });
@@ -1255,7 +1255,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.Key {};
+            class A1 implements M.Key {};
           `)
           ).toMatchSnapshot();
         });
@@ -1263,7 +1263,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Key as t } from "react";
+            import type { Key as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1272,9 +1272,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Key as t } from "react";
+            import type { Key as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1284,7 +1284,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { Ref } from "react";
+            import type { Ref } from "react";
             
             let a1: Ref<P0>;
           `)
@@ -1294,7 +1294,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { Ref } from "react";
+            import type { Ref } from "react";
             
             class A1 implements Ref<P0> {}
             interface I1 extends Ref<P0> {}
@@ -1328,7 +1328,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Ref as t } from "react";
+            import type { Ref as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1338,7 +1338,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Ref as t } from "react";
+            import type { Ref as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1352,7 +1352,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Node } from "react";
+            import type { Node } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1361,9 +1361,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Node } from "react";
+            import type { Node } from "react";
             
-            class A1 extends Node {};
+            class A1 implements Node {};
           `)
           ).toMatchSnapshot();
         });
@@ -1382,7 +1382,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.Node {};
+            class A1 implements M.Node {};
           `)
           ).toMatchSnapshot();
         });
@@ -1390,7 +1390,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Node as t } from "react";
+            import type { Node as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1399,9 +1399,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Node as t } from "react";
+            import type { Node as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1411,7 +1411,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { TransportObject } from "react";
+            import type { TransportObject } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1420,9 +1420,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { TransportObject } from "react";
+            import type { TransportObject } from "react";
             
-            class A1 extends TransportObject {};
+            class A1 implements TransportObject {};
           `)
           ).toMatchSnapshot();
         });
@@ -1441,7 +1441,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.TransportObject {};
+            class A1 implements M.TransportObject {};
           `)
           ).toMatchSnapshot();
         });
@@ -1449,7 +1449,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { TransportObject as t } from "react";
+            import type { TransportObject as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1458,9 +1458,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { TransportObject as t } from "react";
+            import type { TransportObject as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1470,7 +1470,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { TransportValue } from "react";
+            import type { TransportValue } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1479,9 +1479,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { TransportValue } from "react";
+            import type { TransportValue } from "react";
             
-            class A1 extends TransportValue {};
+            class A1 implements TransportValue {};
           `)
           ).toMatchSnapshot();
         });
@@ -1500,7 +1500,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.TransportValue {};
+            class A1 implements M.TransportValue {};
           `)
           ).toMatchSnapshot();
         });
@@ -1508,7 +1508,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { TransportValue as t } from "react";
+            import type { TransportValue as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1517,9 +1517,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { TransportValue as t } from "react";
+            import type { TransportValue as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1529,7 +1529,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { Context } from "react";
+            import type { Context } from "react";
             
             let a1: Context<P0>;
           `)
@@ -1539,7 +1539,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { Context } from "react";
+            import type { Context } from "react";
             
             class A1 implements Context<P0> {}
             interface I1 extends Context<P0> {}
@@ -1573,7 +1573,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Context as t } from "react";
+            import type { Context as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1583,7 +1583,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Context as t } from "react";
+            import type { Context as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1597,7 +1597,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Portal } from "react";
+            import type { Portal } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1606,9 +1606,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Portal } from "react";
+            import type { Portal } from "react";
             
-            class A1 extends Portal {};
+            class A1 implements Portal {};
           `)
           ).toMatchSnapshot();
         });
@@ -1627,7 +1627,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.Portal {};
+            class A1 implements M.Portal {};
           `)
           ).toMatchSnapshot();
         });
@@ -1635,7 +1635,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Portal as t } from "react";
+            import type { Portal as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -1644,9 +1644,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Portal as t } from "react";
+            import type { Portal as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -1686,7 +1686,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementProps } from "react";
+            import type { ElementProps } from "react";
             
             let a1: ElementProps<P0>;
           `)
@@ -1696,7 +1696,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementProps } from "react";
+            import type { ElementProps } from "react";
             
             class A1 implements ElementProps<P0> {}
             interface I1 extends ElementProps<P0> {}
@@ -1730,7 +1730,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementProps as t } from "react";
+            import type { ElementProps as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1740,7 +1740,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementProps as t } from "react";
+            import type { ElementProps as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1754,7 +1754,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementConfig } from "react";
+            import type { ElementConfig } from "react";
             
             let a1: ElementConfig<P0>;
           `)
@@ -1764,7 +1764,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementConfig } from "react";
+            import type { ElementConfig } from "react";
             
             class A1 implements ElementConfig<P0> {}
             interface I1 extends ElementConfig<P0> {}
@@ -1798,7 +1798,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementConfig as t } from "react";
+            import type { ElementConfig as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1808,7 +1808,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementConfig as t } from "react";
+            import type { ElementConfig as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1822,7 +1822,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementRef } from "react";
+            import type { ElementRef } from "react";
             
             let a1: ElementRef<P0>;
           `)
@@ -1832,7 +1832,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementRef } from "react";
+            import type { ElementRef } from "react";
             
             class A1 implements ElementRef<P0> {}
             interface I1 extends ElementRef<P0> {}
@@ -1866,7 +1866,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementRef as t } from "react";
+            import type { ElementRef as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -1876,7 +1876,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ElementRef as t } from "react";
+            import type { ElementRef as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -1890,7 +1890,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(2)', () => {
           expect(
             transform(`
-            import { Config } from "react";
+            import type { Config } from "react";
             
             let a1: Config<P0, P1>;
           `)
@@ -1900,7 +1900,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(2)', () => {
           expect(
             transform(`
-            import { Config } from "react";
+            import type { Config } from "react";
             
             class A1 implements Config<P0, P1> {}
             interface I1 extends Config<P0, P1> {}
@@ -1934,7 +1934,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(2)', () => {
           expect(
             transform(`
-            import { Config as t } from "react";
+            import type { Config as t } from "react";
             
             let a1: t<P0, P1>;
           `)
@@ -1944,7 +1944,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(2)', () => {
           expect(
             transform(`
-            import { Config as t } from "react";
+            import type { Config as t } from "react";
             
             class A1 implements t<P0, P1> {}
             interface I1 extends t<P0, P1> {}
@@ -1958,7 +1958,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { ChildrenArray } from "react";
+            import type { ChildrenArray } from "react";
             
             let a1: ChildrenArray<P0>;
           `)
@@ -1968,7 +1968,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { ChildrenArray } from "react";
+            import type { ChildrenArray } from "react";
             
             class A1 implements ChildrenArray<P0> {}
             interface I1 extends ChildrenArray<P0> {}
@@ -2002,7 +2002,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ChildrenArray as t } from "react";
+            import type { ChildrenArray as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -2012,7 +2012,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { ChildrenArray as t } from "react";
+            import type { ChildrenArray as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -2324,7 +2324,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { MaybeCleanUpFn } from "react";
+            import type { MaybeCleanUpFn } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -2333,9 +2333,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { MaybeCleanUpFn } from "react";
+            import type { MaybeCleanUpFn } from "react";
             
-            class A1 extends MaybeCleanUpFn {};
+            class A1 implements MaybeCleanUpFn {};
           `)
           ).toMatchSnapshot();
         });
@@ -2354,7 +2354,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.MaybeCleanUpFn {};
+            class A1 implements M.MaybeCleanUpFn {};
           `)
           ).toMatchSnapshot();
         });
@@ -2362,7 +2362,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { MaybeCleanUpFn as t } from "react";
+            import type { MaybeCleanUpFn as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -2371,9 +2371,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { MaybeCleanUpFn as t } from "react";
+            import type { MaybeCleanUpFn as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -2559,7 +2559,7 @@ describe('lib/react.js', () => {
         test('generated - type - typeParams(1)', () => {
           expect(
             transform(`
-            import { Dispatch } from "react";
+            import type { Dispatch } from "react";
             
             let a1: Dispatch<P0>;
           `)
@@ -2569,7 +2569,7 @@ describe('lib/react.js', () => {
         test('generated - interface - typeParams(1)', () => {
           expect(
             transform(`
-            import { Dispatch } from "react";
+            import type { Dispatch } from "react";
             
             class A1 implements Dispatch<P0> {}
             interface I1 extends Dispatch<P0> {}
@@ -2603,7 +2603,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Dispatch as t } from "react";
+            import type { Dispatch as t } from "react";
             
             let a1: t<P0>;
           `)
@@ -2613,7 +2613,7 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed - typeParams(1)', () => {
           expect(
             transform(`
-            import { Dispatch as t } from "react";
+            import type { Dispatch as t } from "react";
             
             class A1 implements t<P0> {}
             interface I1 extends t<P0> {}
@@ -3628,7 +3628,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Interaction } from "react";
+            import type { Interaction } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3637,9 +3637,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Interaction } from "react";
+            import type { Interaction } from "react";
             
-            class A1 extends Interaction {};
+            class A1 implements Interaction {};
           `)
           ).toMatchSnapshot();
         });
@@ -3658,7 +3658,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.Interaction {};
+            class A1 implements M.Interaction {};
           `)
           ).toMatchSnapshot();
         });
@@ -3666,7 +3666,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Interaction as t } from "react";
+            import type { Interaction as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3675,9 +3675,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Interaction as t } from "react";
+            import type { Interaction as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -3687,7 +3687,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { ProfilerOnRenderFnType } from "react";
+            import type { ProfilerOnRenderFnType } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3696,9 +3696,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { ProfilerOnRenderFnType } from "react";
+            import type { ProfilerOnRenderFnType } from "react";
             
-            class A1 extends ProfilerOnRenderFnType {};
+            class A1 implements ProfilerOnRenderFnType {};
           `)
           ).toMatchSnapshot();
         });
@@ -3717,7 +3717,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.ProfilerOnRenderFnType {};
+            class A1 implements M.ProfilerOnRenderFnType {};
           `)
           ).toMatchSnapshot();
         });
@@ -3725,7 +3725,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { ProfilerOnRenderFnType as t } from "react";
+            import type { ProfilerOnRenderFnType as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3734,9 +3734,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { ProfilerOnRenderFnType as t } from "react";
+            import type { ProfilerOnRenderFnType as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -3756,7 +3756,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { TimeoutConfig } from "react";
+            import type { TimeoutConfig } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3765,9 +3765,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { TimeoutConfig } from "react";
+            import type { TimeoutConfig } from "react";
             
-            class A1 extends TimeoutConfig {};
+            class A1 implements TimeoutConfig {};
           `)
           ).toMatchSnapshot();
         });
@@ -3786,7 +3786,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "react";
             
-            class A1 extends M.TimeoutConfig {};
+            class A1 implements M.TimeoutConfig {};
           `)
           ).toMatchSnapshot();
         });
@@ -3794,7 +3794,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { TimeoutConfig as t } from "react";
+            import type { TimeoutConfig as t } from "react";
             
           `)
           ).toMatchSnapshot();
@@ -3803,9 +3803,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { TimeoutConfig as t } from "react";
+            import type { TimeoutConfig as t } from "react";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });
@@ -3837,7 +3837,7 @@ describe('lib/react.js', () => {
         test('generated - type', () => {
           expect(
             transform(`
-            import { Node } from "#flow-internal-react-server-module";
+            import type { Node } from "#flow-internal-react-server-module";
             
           `)
           ).toMatchSnapshot();
@@ -3846,9 +3846,9 @@ describe('lib/react.js', () => {
         test('generated - interface', () => {
           expect(
             transform(`
-            import { Node } from "#flow-internal-react-server-module";
+            import type { Node } from "#flow-internal-react-server-module";
             
-            class A1 extends Node {};
+            class A1 implements Node {};
           `)
           ).toMatchSnapshot();
         });
@@ -3867,7 +3867,7 @@ describe('lib/react.js', () => {
             transform(`
             import * as M from "#flow-internal-react-server-module";
             
-            class A1 extends M.Node {};
+            class A1 implements M.Node {};
           `)
           ).toMatchSnapshot();
         });
@@ -3875,7 +3875,7 @@ describe('lib/react.js', () => {
         test('generated - type - import renamed', () => {
           expect(
             transform(`
-            import { Node as t } from "#flow-internal-react-server-module";
+            import type { Node as t } from "#flow-internal-react-server-module";
             
           `)
           ).toMatchSnapshot();
@@ -3884,9 +3884,9 @@ describe('lib/react.js', () => {
         test('generated - interface - import renamed', () => {
           expect(
             transform(`
-            import { Node as t } from "#flow-internal-react-server-module";
+            import type { Node as t } from "#flow-internal-react-server-module";
             
-            class A1 extends t {};
+            class A1 implements t {};
           `)
           ).toMatchSnapshot();
         });

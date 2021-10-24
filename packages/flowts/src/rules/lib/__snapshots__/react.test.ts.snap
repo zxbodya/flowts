@@ -14,7 +14,7 @@ exports[`lib/react.js globals LegacyReactComponent variable 1`] = `
 `;
 
 exports[`lib/react.js globals React$AbstractComponentStatics generated - interface 1`] = `
-"class A1 extends React$AbstractComponentStatics {}
+"class A1 implements React$AbstractComponentStatics {}
 "
 `;
 
@@ -79,14 +79,14 @@ let a1: ReactElement<P0>;
 
 exports[`lib/react.js globals React$ElementType generated - interface 1`] = `
 "import type { ElementType } from \\"react\\";
-class A1 extends ElementType {}
+class A1 implements ElementType {}
 "
 `;
 
 exports[`lib/react.js globals React$ElementType generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$FragmentType generated - interface 1`] = `
-"class A1 extends React$FragmentType {}
+"class A1 implements React$FragmentType {}
 "
 `;
 
@@ -94,7 +94,7 @@ exports[`lib/react.js globals React$FragmentType generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$Key generated - interface 1`] = `
 "import type { Key } from \\"react\\";
-class A1 extends Key {}
+class A1 implements Key {}
 "
 `;
 
@@ -102,7 +102,7 @@ exports[`lib/react.js globals React$Key generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$MixedElement generated - interface 1`] = `
 "import type { MixedElement } from \\"react\\";
-class A1 extends MixedElement {}
+class A1 implements MixedElement {}
 "
 `;
 
@@ -110,7 +110,7 @@ exports[`lib/react.js globals React$MixedElement generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$Node generated - interface 1`] = `
 "import type { ReactNode } from \\"react\\";
-class A1 extends ReactNode {}
+class A1 implements ReactNode {}
 "
 `;
 
@@ -118,7 +118,7 @@ exports[`lib/react.js globals React$Node generated - type 1`] = `""`;
 
 exports[`lib/react.js globals React$Portal generated - interface 1`] = `
 "import type { Portal } from \\"react\\";
-class A1 extends Portal {}
+class A1 implements Portal {}
 "
 `;
 
@@ -171,21 +171,21 @@ let a1: FunctionComponent<P0>;
 exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface - import namespace 1`] = `
 "import * as M from \\"#flow-internal-react-server-module\\";
 
-class A1 extends M.Node {}
+class A1 implements M.Node {}
 "
 `;
 
 exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface - import renamed 1`] = `
-"import { Node as t } from \\"#flow-internal-react-server-module\\";
+"import type { Node as t } from \\"#flow-internal-react-server-module\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules #flow-internal-react-server-module Node generated - interface 1`] = `
-"import { Node } from \\"#flow-internal-react-server-module\\";
+"import type { Node } from \\"#flow-internal-react-server-module\\";
 
-class A1 extends Node {}
+class A1 implements Node {}
 "
 `;
 
@@ -195,12 +195,12 @@ exports[`lib/react.js modules #flow-internal-react-server-module Node generated 
 `;
 
 exports[`lib/react.js modules #flow-internal-react-server-module Node generated - type - import renamed 1`] = `
-"import { Node as t } from \\"#flow-internal-react-server-module\\";
+"import type { Node as t } from \\"#flow-internal-react-server-module\\";
 "
 `;
 
 exports[`lib/react.js modules #flow-internal-react-server-module Node generated - type 1`] = `
-"import { Node } from \\"#flow-internal-react-server-module\\";
+"import type { Node } from \\"#flow-internal-react-server-module\\";
 "
 `;
 
@@ -221,7 +221,7 @@ interface I2 extends M.ComponentType<P0, P1> {}
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - interface - import renamed - typeParams(1 - 2) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 class A1 implements ComponentType<P0> {}
 interface I1 extends ComponentType<P0> {}
@@ -232,7 +232,7 @@ interface I2 extends ComponentType<P0, P1> {}
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - interface - typeParams(1 - 2) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 class A1 implements ComponentType<P0> {}
 interface I1 extends ComponentType<P0> {}
@@ -251,7 +251,7 @@ let a2: M.ComponentType<P0, P1>;
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - type - import renamed - typeParams(1 - 2) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 let a1: ComponentType<P0>;
 let a2: ComponentType<P0, P1>;
@@ -259,7 +259,7 @@ let a2: ComponentType<P0, P1>;
 `;
 
 exports[`lib/react.js modules react AbstractComponent generated - type - typeParams(1 - 2) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 let a1: ComponentType<P0>;
 let a2: ComponentType<P0, P1>;
@@ -280,7 +280,7 @@ interface I1 extends M.ChildrenArray<P0> {}
 `;
 
 exports[`lib/react.js modules react ChildrenArray generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ChildrenArray as t } from \\"react\\";
+"import type { ChildrenArray as t } from \\"react\\";
 
 class A1 implements t<P0> {}
 interface I1 extends t<P0> {}
@@ -288,7 +288,7 @@ interface I1 extends t<P0> {}
 `;
 
 exports[`lib/react.js modules react ChildrenArray generated - interface - typeParams(1) 1`] = `
-"import { ChildrenArray } from \\"react\\";
+"import type { ChildrenArray } from \\"react\\";
 
 class A1 implements ChildrenArray<P0> {}
 interface I1 extends ChildrenArray<P0> {}
@@ -303,14 +303,14 @@ let a1: M.ChildrenArray<P0>;
 `;
 
 exports[`lib/react.js modules react ChildrenArray generated - type - import renamed - typeParams(1) 1`] = `
-"import { ChildrenArray as t } from \\"react\\";
+"import type { ChildrenArray as t } from \\"react\\";
 
 let a1: t<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ChildrenArray generated - type - typeParams(1) 1`] = `
-"import { ChildrenArray } from \\"react\\";
+"import type { ChildrenArray } from \\"react\\";
 
 let a1: ChildrenArray<P0>;
 "
@@ -330,7 +330,7 @@ interface I1 extends M.ComponentType<P0> {}
 `;
 
 exports[`lib/react.js modules react ComponentType generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ComponentType as t } from \\"react\\";
+"import type { ComponentType as t } from \\"react\\";
 
 class A1 implements t<P0> {}
 interface I1 extends t<P0> {}
@@ -338,7 +338,7 @@ interface I1 extends t<P0> {}
 `;
 
 exports[`lib/react.js modules react ComponentType generated - interface - typeParams(1) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 class A1 implements ComponentType<P0> {}
 interface I1 extends ComponentType<P0> {}
@@ -353,14 +353,14 @@ let a1: M.ComponentType<P0>;
 `;
 
 exports[`lib/react.js modules react ComponentType generated - type - import renamed - typeParams(1) 1`] = `
-"import { ComponentType as t } from \\"react\\";
+"import type { ComponentType as t } from \\"react\\";
 
 let a1: t<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ComponentType generated - type - typeParams(1) 1`] = `
-"import { ComponentType } from \\"react\\";
+"import type { ComponentType } from \\"react\\";
 
 let a1: ComponentType<P0>;
 "
@@ -380,7 +380,7 @@ interface I1 extends M.Config<P0, P1> {}
 `;
 
 exports[`lib/react.js modules react Config generated - interface - import renamed - typeParams(2) 1`] = `
-"import { Config as t } from \\"react\\";
+"import type { Config as t } from \\"react\\";
 
 class A1 implements t<P0, P1> {}
 interface I1 extends t<P0, P1> {}
@@ -388,7 +388,7 @@ interface I1 extends t<P0, P1> {}
 `;
 
 exports[`lib/react.js modules react Config generated - interface - typeParams(2) 1`] = `
-"import { Config } from \\"react\\";
+"import type { Config } from \\"react\\";
 
 class A1 implements Config<P0, P1> {}
 interface I1 extends Config<P0, P1> {}
@@ -403,14 +403,14 @@ let a1: M.Config<P0, P1>;
 `;
 
 exports[`lib/react.js modules react Config generated - type - import renamed - typeParams(2) 1`] = `
-"import { Config as t } from \\"react\\";
+"import type { Config as t } from \\"react\\";
 
 let a1: t<P0, P1>;
 "
 `;
 
 exports[`lib/react.js modules react Config generated - type - typeParams(2) 1`] = `
-"import { Config } from \\"react\\";
+"import type { Config } from \\"react\\";
 
 let a1: Config<P0, P1>;
 "
@@ -425,7 +425,7 @@ interface I1 extends M.Context<P0> {}
 `;
 
 exports[`lib/react.js modules react Context generated - interface - import renamed - typeParams(1) 1`] = `
-"import { Context as t } from \\"react\\";
+"import type { Context as t } from \\"react\\";
 
 class A1 implements t<P0> {}
 interface I1 extends t<P0> {}
@@ -433,7 +433,7 @@ interface I1 extends t<P0> {}
 `;
 
 exports[`lib/react.js modules react Context generated - interface - typeParams(1) 1`] = `
-"import { Context } from \\"react\\";
+"import type { Context } from \\"react\\";
 
 class A1 implements Context<P0> {}
 interface I1 extends Context<P0> {}
@@ -448,14 +448,14 @@ let a1: M.Context<P0>;
 `;
 
 exports[`lib/react.js modules react Context generated - type - import renamed - typeParams(1) 1`] = `
-"import { Context as t } from \\"react\\";
+"import type { Context as t } from \\"react\\";
 
 let a1: t<P0>;
 "
 `;
 
 exports[`lib/react.js modules react Context generated - type - typeParams(1) 1`] = `
-"import { Context } from \\"react\\";
+"import type { Context } from \\"react\\";
 
 let a1: Context<P0>;
 "
@@ -475,7 +475,7 @@ interface I1 extends M.Dispatch<P0> {}
 `;
 
 exports[`lib/react.js modules react Dispatch generated - interface - import renamed - typeParams(1) 1`] = `
-"import { Dispatch as t } from \\"react\\";
+"import type { Dispatch as t } from \\"react\\";
 
 class A1 implements t<P0> {}
 interface I1 extends t<P0> {}
@@ -483,7 +483,7 @@ interface I1 extends t<P0> {}
 `;
 
 exports[`lib/react.js modules react Dispatch generated - interface - typeParams(1) 1`] = `
-"import { Dispatch } from \\"react\\";
+"import type { Dispatch } from \\"react\\";
 
 class A1 implements Dispatch<P0> {}
 interface I1 extends Dispatch<P0> {}
@@ -498,14 +498,14 @@ let a1: M.Dispatch<P0>;
 `;
 
 exports[`lib/react.js modules react Dispatch generated - type - import renamed - typeParams(1) 1`] = `
-"import { Dispatch as t } from \\"react\\";
+"import type { Dispatch as t } from \\"react\\";
 
 let a1: t<P0>;
 "
 `;
 
 exports[`lib/react.js modules react Dispatch generated - type - typeParams(1) 1`] = `
-"import { Dispatch } from \\"react\\";
+"import type { Dispatch } from \\"react\\";
 
 let a1: Dispatch<P0>;
 "
@@ -520,7 +520,7 @@ interface I1 extends M.ReactElement<P0> {}
 `;
 
 exports[`lib/react.js modules react Element generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ReactElement } from \\"react\\";
+"import type { ReactElement } from \\"react\\";
 
 class A1 implements ReactElement<P0> {}
 interface I1 extends ReactElement<P0> {}
@@ -528,7 +528,7 @@ interface I1 extends ReactElement<P0> {}
 `;
 
 exports[`lib/react.js modules react Element generated - interface - typeParams(1) 1`] = `
-"import { ReactElement } from \\"react\\";
+"import type { ReactElement } from \\"react\\";
 
 class A1 implements ReactElement<P0> {}
 interface I1 extends ReactElement<P0> {}
@@ -543,14 +543,14 @@ let a1: M.ReactElement<P0>;
 `;
 
 exports[`lib/react.js modules react Element generated - type - import renamed - typeParams(1) 1`] = `
-"import { ReactElement } from \\"react\\";
+"import type { ReactElement } from \\"react\\";
 
 let a1: ReactElement<P0>;
 "
 `;
 
 exports[`lib/react.js modules react Element generated - type - typeParams(1) 1`] = `
-"import { ReactElement } from \\"react\\";
+"import type { ReactElement } from \\"react\\";
 
 let a1: ReactElement<P0>;
 "
@@ -565,7 +565,7 @@ interface I1 extends M.ComponentProps<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementConfig generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 class A1 implements ComponentProps<P0> {}
 interface I1 extends ComponentProps<P0> {}
@@ -573,7 +573,7 @@ interface I1 extends ComponentProps<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementConfig generated - interface - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 class A1 implements ComponentProps<P0> {}
 interface I1 extends ComponentProps<P0> {}
@@ -588,14 +588,14 @@ let a1: M.ComponentProps<P0>;
 `;
 
 exports[`lib/react.js modules react ElementConfig generated - type - import renamed - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 let a1: ComponentProps<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ElementConfig generated - type - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 let a1: ComponentProps<P0>;
 "
@@ -610,7 +610,7 @@ interface I1 extends M.ComponentProps<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementProps generated - interface - import renamed - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 class A1 implements ComponentProps<P0> {}
 interface I1 extends ComponentProps<P0> {}
@@ -618,7 +618,7 @@ interface I1 extends ComponentProps<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementProps generated - interface - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 class A1 implements ComponentProps<P0> {}
 interface I1 extends ComponentProps<P0> {}
@@ -633,14 +633,14 @@ let a1: M.ComponentProps<P0>;
 `;
 
 exports[`lib/react.js modules react ElementProps generated - type - import renamed - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 let a1: ComponentProps<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ElementProps generated - type - typeParams(1) 1`] = `
-"import { ComponentProps } from \\"react\\";
+"import type { ComponentProps } from \\"react\\";
 
 let a1: ComponentProps<P0>;
 "
@@ -655,7 +655,7 @@ interface I1 extends M.RefObject<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementRef generated - interface - import renamed - typeParams(1) 1`] = `
-"import { RefObject } from \\"react\\";
+"import type { RefObject } from \\"react\\";
 
 class A1 implements RefObject<P0> {}
 interface I1 extends RefObject<P0> {}
@@ -663,7 +663,7 @@ interface I1 extends RefObject<P0> {}
 `;
 
 exports[`lib/react.js modules react ElementRef generated - interface - typeParams(1) 1`] = `
-"import { RefObject } from \\"react\\";
+"import type { RefObject } from \\"react\\";
 
 class A1 implements RefObject<P0> {}
 interface I1 extends RefObject<P0> {}
@@ -678,14 +678,14 @@ let a1: M.RefObject<P0>;
 `;
 
 exports[`lib/react.js modules react ElementRef generated - type - import renamed - typeParams(1) 1`] = `
-"import { RefObject } from \\"react\\";
+"import type { RefObject } from \\"react\\";
 
 let a1: RefObject<P0>;
 "
 `;
 
 exports[`lib/react.js modules react ElementRef generated - type - typeParams(1) 1`] = `
-"import { RefObject } from \\"react\\";
+"import type { RefObject } from \\"react\\";
 
 let a1: RefObject<P0>;
 "
@@ -694,21 +694,21 @@ let a1: RefObject<P0>;
 exports[`lib/react.js modules react ElementType generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.ElementType {}
+class A1 implements M.ElementType {}
 "
 `;
 
 exports[`lib/react.js modules react ElementType generated - interface - import renamed 1`] = `
-"import { ElementType as t } from \\"react\\";
+"import type { ElementType as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react ElementType generated - interface 1`] = `
-"import { ElementType } from \\"react\\";
+"import type { ElementType } from \\"react\\";
 
-class A1 extends ElementType {}
+class A1 implements ElementType {}
 "
 `;
 
@@ -718,12 +718,12 @@ exports[`lib/react.js modules react ElementType generated - type - import namesp
 `;
 
 exports[`lib/react.js modules react ElementType generated - type - import renamed 1`] = `
-"import { ElementType as t } from \\"react\\";
+"import type { ElementType as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react ElementType generated - type 1`] = `
-"import { ElementType } from \\"react\\";
+"import type { ElementType } from \\"react\\";
 "
 `;
 
@@ -735,21 +735,21 @@ exports[`lib/react.js modules react Fragment variable 1`] = `
 exports[`lib/react.js modules react Interaction generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.Interaction {}
+class A1 implements M.Interaction {}
 "
 `;
 
 exports[`lib/react.js modules react Interaction generated - interface - import renamed 1`] = `
-"import { Interaction as t } from \\"react\\";
+"import type { Interaction as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react Interaction generated - interface 1`] = `
-"import { Interaction } from \\"react\\";
+"import type { Interaction } from \\"react\\";
 
-class A1 extends Interaction {}
+class A1 implements Interaction {}
 "
 `;
 
@@ -759,33 +759,33 @@ exports[`lib/react.js modules react Interaction generated - type - import namesp
 `;
 
 exports[`lib/react.js modules react Interaction generated - type - import renamed 1`] = `
-"import { Interaction as t } from \\"react\\";
+"import type { Interaction as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Interaction generated - type 1`] = `
-"import { Interaction } from \\"react\\";
+"import type { Interaction } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Key generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.Key {}
+class A1 implements M.Key {}
 "
 `;
 
 exports[`lib/react.js modules react Key generated - interface - import renamed 1`] = `
-"import { Key as t } from \\"react\\";
+"import type { Key as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react Key generated - interface 1`] = `
-"import { Key } from \\"react\\";
+"import type { Key } from \\"react\\";
 
-class A1 extends Key {}
+class A1 implements Key {}
 "
 `;
 
@@ -795,33 +795,33 @@ exports[`lib/react.js modules react Key generated - type - import namespace 1`] 
 `;
 
 exports[`lib/react.js modules react Key generated - type - import renamed 1`] = `
-"import { Key as t } from \\"react\\";
+"import type { Key as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Key generated - type 1`] = `
-"import { Key } from \\"react\\";
+"import type { Key } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.MaybeCleanUpFn {}
+class A1 implements M.MaybeCleanUpFn {}
 "
 `;
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - interface - import renamed 1`] = `
-"import { MaybeCleanUpFn as t } from \\"react\\";
+"import type { MaybeCleanUpFn as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - interface 1`] = `
-"import { MaybeCleanUpFn } from \\"react\\";
+"import type { MaybeCleanUpFn } from \\"react\\";
 
-class A1 extends MaybeCleanUpFn {}
+class A1 implements MaybeCleanUpFn {}
 "
 `;
 
@@ -831,33 +831,33 @@ exports[`lib/react.js modules react MaybeCleanUpFn generated - type - import nam
 `;
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - type - import renamed 1`] = `
-"import { MaybeCleanUpFn as t } from \\"react\\";
+"import type { MaybeCleanUpFn as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react MaybeCleanUpFn generated - type 1`] = `
-"import { MaybeCleanUpFn } from \\"react\\";
+"import type { MaybeCleanUpFn } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react MixedElement generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.MixedElement {}
+class A1 implements M.MixedElement {}
 "
 `;
 
 exports[`lib/react.js modules react MixedElement generated - interface - import renamed 1`] = `
-"import { MixedElement as t } from \\"react\\";
+"import type { MixedElement as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react MixedElement generated - interface 1`] = `
-"import { MixedElement } from \\"react\\";
+"import type { MixedElement } from \\"react\\";
 
-class A1 extends MixedElement {}
+class A1 implements MixedElement {}
 "
 `;
 
@@ -867,33 +867,33 @@ exports[`lib/react.js modules react MixedElement generated - type - import names
 `;
 
 exports[`lib/react.js modules react MixedElement generated - type - import renamed 1`] = `
-"import { MixedElement as t } from \\"react\\";
+"import type { MixedElement as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react MixedElement generated - type 1`] = `
-"import { MixedElement } from \\"react\\";
+"import type { MixedElement } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Node generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.ReactNode {}
+class A1 implements M.ReactNode {}
 "
 `;
 
 exports[`lib/react.js modules react Node generated - interface - import renamed 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 
-class A1 extends ReactNode {}
+class A1 implements ReactNode {}
 "
 `;
 
 exports[`lib/react.js modules react Node generated - interface 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 
-class A1 extends ReactNode {}
+class A1 implements ReactNode {}
 "
 `;
 
@@ -903,33 +903,33 @@ exports[`lib/react.js modules react Node generated - type - import namespace 1`]
 `;
 
 exports[`lib/react.js modules react Node generated - type - import renamed 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Node generated - type 1`] = `
-"import { ReactNode } from \\"react\\";
+"import type { ReactNode } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Portal generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.Portal {}
+class A1 implements M.Portal {}
 "
 `;
 
 exports[`lib/react.js modules react Portal generated - interface - import renamed 1`] = `
-"import { Portal as t } from \\"react\\";
+"import type { Portal as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react Portal generated - interface 1`] = `
-"import { Portal } from \\"react\\";
+"import type { Portal } from \\"react\\";
 
-class A1 extends Portal {}
+class A1 implements Portal {}
 "
 `;
 
@@ -939,12 +939,12 @@ exports[`lib/react.js modules react Portal generated - type - import namespace 1
 `;
 
 exports[`lib/react.js modules react Portal generated - type - import renamed 1`] = `
-"import { Portal as t } from \\"react\\";
+"import type { Portal as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react Portal generated - type 1`] = `
-"import { Portal } from \\"react\\";
+"import type { Portal } from \\"react\\";
 "
 `;
 
@@ -956,21 +956,21 @@ exports[`lib/react.js modules react Profiler variable 1`] = `
 exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.ProfilerOnRenderFnType {}
+class A1 implements M.ProfilerOnRenderFnType {}
 "
 `;
 
 exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface - import renamed 1`] = `
-"import { ProfilerOnRenderFnType as t } from \\"react\\";
+"import type { ProfilerOnRenderFnType as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react ProfilerOnRenderFnType generated - interface 1`] = `
-"import { ProfilerOnRenderFnType } from \\"react\\";
+"import type { ProfilerOnRenderFnType } from \\"react\\";
 
-class A1 extends ProfilerOnRenderFnType {}
+class A1 implements ProfilerOnRenderFnType {}
 "
 `;
 
@@ -980,12 +980,12 @@ exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type - im
 `;
 
 exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type - import renamed 1`] = `
-"import { ProfilerOnRenderFnType as t } from \\"react\\";
+"import type { ProfilerOnRenderFnType as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react ProfilerOnRenderFnType generated - type 1`] = `
-"import { ProfilerOnRenderFnType } from \\"react\\";
+"import type { ProfilerOnRenderFnType } from \\"react\\";
 "
 `;
 
@@ -1008,7 +1008,7 @@ interface I1 extends M.Ref<P0> {}
 `;
 
 exports[`lib/react.js modules react Ref generated - interface - import renamed - typeParams(1) 1`] = `
-"import { Ref as t } from \\"react\\";
+"import type { Ref as t } from \\"react\\";
 
 class A1 implements t<P0> {}
 interface I1 extends t<P0> {}
@@ -1016,7 +1016,7 @@ interface I1 extends t<P0> {}
 `;
 
 exports[`lib/react.js modules react Ref generated - interface - typeParams(1) 1`] = `
-"import { Ref } from \\"react\\";
+"import type { Ref } from \\"react\\";
 
 class A1 implements Ref<P0> {}
 interface I1 extends Ref<P0> {}
@@ -1031,14 +1031,14 @@ let a1: M.Ref<P0>;
 `;
 
 exports[`lib/react.js modules react Ref generated - type - import renamed - typeParams(1) 1`] = `
-"import { Ref as t } from \\"react\\";
+"import type { Ref as t } from \\"react\\";
 
 let a1: t<P0>;
 "
 `;
 
 exports[`lib/react.js modules react Ref generated - type - typeParams(1) 1`] = `
-"import { Ref } from \\"react\\";
+"import type { Ref } from \\"react\\";
 
 let a1: Ref<P0>;
 "
@@ -1053,7 +1053,7 @@ interface I1 extends M.FunctionComponent<P0> {}
 `;
 
 exports[`lib/react.js modules react StatelessFunctionalComponent generated - interface - import renamed - typeParams(1) 1`] = `
-"import { FunctionComponent } from \\"react\\";
+"import type { FunctionComponent } from \\"react\\";
 
 class A1 implements FunctionComponent<P0> {}
 interface I1 extends FunctionComponent<P0> {}
@@ -1061,7 +1061,7 @@ interface I1 extends FunctionComponent<P0> {}
 `;
 
 exports[`lib/react.js modules react StatelessFunctionalComponent generated - interface - typeParams(1) 1`] = `
-"import { FunctionComponent } from \\"react\\";
+"import type { FunctionComponent } from \\"react\\";
 
 class A1 implements FunctionComponent<P0> {}
 interface I1 extends FunctionComponent<P0> {}
@@ -1076,14 +1076,14 @@ let a1: M.FunctionComponent<P0>;
 `;
 
 exports[`lib/react.js modules react StatelessFunctionalComponent generated - type - import renamed - typeParams(1) 1`] = `
-"import { FunctionComponent } from \\"react\\";
+"import type { FunctionComponent } from \\"react\\";
 
 let a1: FunctionComponent<P0>;
 "
 `;
 
 exports[`lib/react.js modules react StatelessFunctionalComponent generated - type - typeParams(1) 1`] = `
-"import { FunctionComponent } from \\"react\\";
+"import type { FunctionComponent } from \\"react\\";
 
 let a1: FunctionComponent<P0>;
 "
@@ -1102,21 +1102,21 @@ exports[`lib/react.js modules react Suspense variable 1`] = `
 exports[`lib/react.js modules react TimeoutConfig generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.TimeoutConfig {}
+class A1 implements M.TimeoutConfig {}
 "
 `;
 
 exports[`lib/react.js modules react TimeoutConfig generated - interface - import renamed 1`] = `
-"import { TimeoutConfig as t } from \\"react\\";
+"import type { TimeoutConfig as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react TimeoutConfig generated - interface 1`] = `
-"import { TimeoutConfig } from \\"react\\";
+"import type { TimeoutConfig } from \\"react\\";
 
-class A1 extends TimeoutConfig {}
+class A1 implements TimeoutConfig {}
 "
 `;
 
@@ -1126,33 +1126,33 @@ exports[`lib/react.js modules react TimeoutConfig generated - type - import name
 `;
 
 exports[`lib/react.js modules react TimeoutConfig generated - type - import renamed 1`] = `
-"import { TimeoutConfig as t } from \\"react\\";
+"import type { TimeoutConfig as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react TimeoutConfig generated - type 1`] = `
-"import { TimeoutConfig } from \\"react\\";
+"import type { TimeoutConfig } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react TransportObject generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.TransportObject {}
+class A1 implements M.TransportObject {}
 "
 `;
 
 exports[`lib/react.js modules react TransportObject generated - interface - import renamed 1`] = `
-"import { TransportObject as t } from \\"react\\";
+"import type { TransportObject as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react TransportObject generated - interface 1`] = `
-"import { TransportObject } from \\"react\\";
+"import type { TransportObject } from \\"react\\";
 
-class A1 extends TransportObject {}
+class A1 implements TransportObject {}
 "
 `;
 
@@ -1162,33 +1162,33 @@ exports[`lib/react.js modules react TransportObject generated - type - import na
 `;
 
 exports[`lib/react.js modules react TransportObject generated - type - import renamed 1`] = `
-"import { TransportObject as t } from \\"react\\";
+"import type { TransportObject as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react TransportObject generated - type 1`] = `
-"import { TransportObject } from \\"react\\";
+"import type { TransportObject } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react TransportValue generated - interface - import namespace 1`] = `
 "import * as M from \\"react\\";
 
-class A1 extends M.TransportValue {}
+class A1 implements M.TransportValue {}
 "
 `;
 
 exports[`lib/react.js modules react TransportValue generated - interface - import renamed 1`] = `
-"import { TransportValue as t } from \\"react\\";
+"import type { TransportValue as t } from \\"react\\";
 
-class A1 extends t {}
+class A1 implements t {}
 "
 `;
 
 exports[`lib/react.js modules react TransportValue generated - interface 1`] = `
-"import { TransportValue } from \\"react\\";
+"import type { TransportValue } from \\"react\\";
 
-class A1 extends TransportValue {}
+class A1 implements TransportValue {}
 "
 `;
 
@@ -1198,12 +1198,12 @@ exports[`lib/react.js modules react TransportValue generated - type - import nam
 `;
 
 exports[`lib/react.js modules react TransportValue generated - type - import renamed 1`] = `
-"import { TransportValue as t } from \\"react\\";
+"import type { TransportValue as t } from \\"react\\";
 "
 `;
 
 exports[`lib/react.js modules react TransportValue generated - type 1`] = `
-"import { TransportValue } from \\"react\\";
+"import type { TransportValue } from \\"react\\";
 "
 `;
 

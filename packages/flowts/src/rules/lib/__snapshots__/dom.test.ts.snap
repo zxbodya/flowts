@@ -13,7 +13,7 @@ exports[`lib/dom.js globals AnimationEvent variable 1`] = `
 `;
 
 exports[`lib/dom.js globals AnimationFrameID generated - interface 1`] = `
-"class A1 extends AnimationFrameID {}
+"class A1 implements AnimationFrameID {}
 "
 `;
 
@@ -224,7 +224,7 @@ exports[`lib/dom.js globals CompositionEvent variable 1`] = `
 `;
 
 exports[`lib/dom.js globals CustomElementRegistry generated - interface 1`] = `
-"class A1 extends CustomElementRegistry {}
+"class A1 implements CustomElementRegistry {}
 "
 `;
 
@@ -279,7 +279,7 @@ exports[`lib/dom.js globals DOMStringList variable 1`] = `
 `;
 
 exports[`lib/dom.js globals DOMStringMap generated - interface 1`] = `
-"class A1 extends DOMStringMap {}
+"class A1 implements DOMStringMap {}
 "
 `;
 
@@ -394,7 +394,7 @@ exports[`lib/dom.js globals Element variable 1`] = `
 `;
 
 exports[`lib/dom.js globals ElementDefinitionOptions generated - interface 1`] = `
-"class A1 extends ElementDefinitionOptions {}
+"class A1 implements ElementDefinitionOptions {}
 "
 `;
 
@@ -473,7 +473,7 @@ exports[`lib/dom.js globals FileList variable 1`] = `
 `;
 
 exports[`lib/dom.js globals FilePropertyBag generated - interface 1`] = `
-"class A1 extends FilePropertyBag {}
+"class A1 implements FilePropertyBag {}
 "
 `;
 
@@ -1345,7 +1345,7 @@ exports[`lib/dom.js globals HitRegionOptions variable 1`] = `
 `;
 
 exports[`lib/dom.js globals IdleCallbackID generated - interface 1`] = `
-"class A1 extends IdleCallbackID {}
+"class A1 implements IdleCallbackID {}
 "
 `;
 
@@ -1655,7 +1655,7 @@ exports[`lib/dom.js globals SVGMatrix variable 1`] = `
 `;
 
 exports[`lib/dom.js globals ScrollToOptions generated - interface 1`] = `
-"class A1 extends ScrollToOptions {}
+"class A1 implements ScrollToOptions {}
 "
 `;
 
@@ -1674,21 +1674,21 @@ exports[`lib/dom.js globals Selection variable 1`] = `
 `;
 
 exports[`lib/dom.js globals ShadowRoot generated - interface 1`] = `
-"class A1 extends ShadowRoot {}
+"class A1 implements ShadowRoot {}
 "
 `;
 
 exports[`lib/dom.js globals ShadowRoot generated - type 1`] = `""`;
 
 exports[`lib/dom.js globals ShadowRootInit generated - interface 1`] = `
-"class A1 extends ShadowRootInit {}
+"class A1 implements ShadowRootInit {}
 "
 `;
 
 exports[`lib/dom.js globals ShadowRootInit generated - type 1`] = `""`;
 
 exports[`lib/dom.js globals ShadowRootMode generated - interface 1`] = `
-"class A1 extends ShadowRootMode {}
+"class A1 implements ShadowRootMode {}
 "
 `;
 
@@ -2020,7 +2020,7 @@ exports[`lib/dom.js globals WheelEvent variable 1`] = `
 `;
 
 exports[`lib/dom.js globals WindowProxy generated - interface 1`] = `
-"class A1 extends WindowProxy {}
+"class A1 implements WindowProxy {}
 "
 `;
 

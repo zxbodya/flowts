@@ -3,8 +3,6 @@ import { NodePath } from '@babel/traverse';
 export interface GlobalFixContext {
   // import from typescript module
   import(moduleName: string, exportName: string): void;
-  // import form other flow module which is also to be fixed
-  importFlow(moduleName: string, exportName: string): void;
   // references to all identifiers with usign export or global
   referencePaths: NodePath[];
 }

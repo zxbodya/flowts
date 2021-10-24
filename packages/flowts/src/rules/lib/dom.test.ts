@@ -55,7 +55,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends FilePropertyBag {};
+            class A1 implements FilePropertyBag {};
           `)
         ).toMatchSnapshot();
       });
@@ -172,7 +172,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends DOMStringMap {};
+            class A1 implements DOMStringMap {};
           `)
         ).toMatchSnapshot();
       });
@@ -229,7 +229,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ElementDefinitionOptions {};
+            class A1 implements ElementDefinitionOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -246,7 +246,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends CustomElementRegistry {};
+            class A1 implements CustomElementRegistry {};
           `)
         ).toMatchSnapshot();
       });
@@ -263,7 +263,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ShadowRoot {};
+            class A1 implements ShadowRoot {};
           `)
         ).toMatchSnapshot();
       });
@@ -280,7 +280,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ShadowRootMode {};
+            class A1 implements ShadowRootMode {};
           `)
         ).toMatchSnapshot();
       });
@@ -297,7 +297,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ShadowRootInit {};
+            class A1 implements ShadowRootInit {};
           `)
         ).toMatchSnapshot();
       });
@@ -314,7 +314,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends ScrollToOptions {};
+            class A1 implements ScrollToOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -3391,7 +3391,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends WindowProxy {};
+            class A1 implements WindowProxy {};
           `)
         ).toMatchSnapshot();
       });
@@ -3553,7 +3553,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends AnimationFrameID {};
+            class A1 implements AnimationFrameID {};
           `)
         ).toMatchSnapshot();
       });
@@ -3628,7 +3628,7 @@ describe('lib/dom.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends IdleCallbackID {};
+            class A1 implements IdleCallbackID {};
           `)
         ).toMatchSnapshot();
       });

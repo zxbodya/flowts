@@ -45,7 +45,7 @@ describe('lib/intl.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends Intl$CollatorOptions {};
+            class A1 implements Intl$CollatorOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -82,7 +82,7 @@ describe('lib/intl.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends Intl$DateTimeFormatOptions {};
+            class A1 implements Intl$DateTimeFormatOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -119,7 +119,7 @@ describe('lib/intl.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends Intl$NumberFormatOptions {};
+            class A1 implements Intl$NumberFormatOptions {};
           `)
         ).toMatchSnapshot();
       });
@@ -156,7 +156,7 @@ describe('lib/intl.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends Intl$PluralRulesOptions {};
+            class A1 implements Intl$PluralRulesOptions {};
           `)
         ).toMatchSnapshot();
       });

@@ -146,7 +146,7 @@ function generateInterfaceTests(
           ''
         );
       } else {
-        testBody.push(`class A${classNameIndex} extends ${reference} {};`);
+        testBody.push(`class A${classNameIndex} implements ${reference} {};`);
       }
 
       classNameIndex += 1;
@@ -316,17 +316,21 @@ export function generateModuleTests(
   }
   const confs = [
     {
-      prepend: [`import { ${name} } from "${moduleName}";`],
+      prepend: (isType: boolean) => [
+        `import ${isType ? 'type ' : ''}{ ${name} } from "${moduleName}";`,
+      ],
       importName: name,
       prefix: '',
     },
     {
-      prepend: [`import * as M from "${moduleName}";`],
+      prepend: (isType: boolean) => [`import * as M from "${moduleName}";`],
       importName: 'M.' + name,
       prefix: ' - import namespace',
     },
     {
-      prepend: [`import { ${name} as t } from "${moduleName}";`],
+      prepend: (isType: boolean) => [
+        `import ${isType ? 'type ' : ''}{ ${name} as t } from "${moduleName}";`,
+      ],
       importName: 't',
       prefix: ' - import renamed',
     },
@@ -337,7 +341,7 @@ export function generateModuleTests(
         classes,
         `generated - class${conf.prefix}`,
         conf.importName,
-        conf.prepend
+        conf.prepend(false)
       )
     );
     tests.push(
@@ -345,7 +349,7 @@ export function generateModuleTests(
         callable,
         `generated - callable${conf.prefix}`,
         conf.importName,
-        conf.prepend
+        conf.prepend(false)
       )
     );
     tests.push(
@@ -353,7 +357,7 @@ export function generateModuleTests(
         type,
         `generated - type${conf.prefix}`,
         conf.importName,
-        conf.prepend
+        conf.prepend(true)
       )
     );
     tests.push(
@@ -361,7 +365,7 @@ export function generateModuleTests(
         type,
         `generated - interface${conf.prefix}`,
         conf.importName,
-        conf.prepend
+        conf.prepend(true)
       )
     );
   }

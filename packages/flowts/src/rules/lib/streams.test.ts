@@ -115,7 +115,7 @@ describe('lib/streams.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends UnderlyingSource {};
+            class A1 implements UnderlyingSource {};
           `)
         ).toMatchSnapshot();
       });
@@ -172,7 +172,7 @@ describe('lib/streams.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends WritableStreamController {};
+            class A1 implements WritableStreamController {};
           `)
         ).toMatchSnapshot();
       });
@@ -189,7 +189,7 @@ describe('lib/streams.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends UnderlyingSink {};
+            class A1 implements UnderlyingSink {};
           `)
         ).toMatchSnapshot();
       });
@@ -206,7 +206,7 @@ describe('lib/streams.js', () => {
       test('generated - interface', () => {
         expect(
           transform(`
-            class A1 extends WritableStreamWriter {};
+            class A1 implements WritableStreamWriter {};
           `)
         ).toMatchSnapshot();
       });
