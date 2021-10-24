@@ -69,7 +69,11 @@ export async function convert(cwd: string, opts: Options) {
           (await prettier.resolveConfig(targetFilePath)) || {};
         prettierConfig.parser = 'babel';
 
-        result = prettier.format(result, prettierConfig);
+        result = prettier.format(result, {
+          ...prettierConfig,
+          // avoid changing template strings
+          embeddedLanguageFormatting: 'off',
+        });
       }
 
       await fs.writeFile(targetFilePath, result);

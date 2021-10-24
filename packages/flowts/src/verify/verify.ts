@@ -117,8 +117,16 @@ export function verify(
     );
   }
 
-  const src = prettier.format(srcFixed.code!, { parser: 'babel' });
-  const tgt = prettier.format(resultNoTypes.code!, { parser: 'babel' });
+  const src = prettier.format(srcFixed.code!, {
+    parser: 'babel',
+    // avoid changing template strings
+    embeddedLanguageFormatting: 'off',
+  });
+  const tgt = prettier.format(resultNoTypes.code!, {
+    parser: 'babel',
+    // avoid changing template strings
+    embeddedLanguageFormatting: 'off',
+  });
 
   return { isEqual: src === tgt, src, tgt };
 }

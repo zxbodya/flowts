@@ -33,6 +33,10 @@ export function createTransform(
       );
     }
     prettierConfig.parser = 'babel-ts';
-    return prettier.format(transformResult.code as string, prettierConfig);
+    return prettier.format(transformResult.code as string, {
+      ...prettierConfig,
+      // avoid changing template strings
+      embeddedLanguageFormatting: 'off',
+    });
   };
 }

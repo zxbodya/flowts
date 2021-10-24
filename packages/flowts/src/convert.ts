@@ -199,13 +199,21 @@ export async function convert(cwd: string, opts: Options) {
 
         try {
           prettierConfig.parser = 'babel-ts';
-          result = prettier.format(result, prettierConfig);
+          result = prettier.format(result, {
+            ...prettierConfig,
+            // avoid changing template strings
+            embeddedLanguageFormatting: 'off',
+          });
         } catch (e) {
           // retry using different parser - this can be helpful with flow type comments in some edge cases
           prettierConfig.parser = 'typescript';
 
           try {
-            result = prettier.format(result, prettierConfig);
+            result = prettier.format(result, {
+              ...prettierConfig,
+              // avoid changing template strings
+              embeddedLanguageFormatting: 'off',
+            });
           } catch (e) {
             spinner.warn('prettier formatting failed');
             console.error(e);
