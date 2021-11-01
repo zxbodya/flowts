@@ -97,11 +97,14 @@ export async function convert(cwd: string, opts: Options) {
 
       const targetExt = isJSX
         ? '.tsx'
-        : /\.js\.flow$/i.test(file)
+        : /\.js\.flow|\.flow\.js$/i.test(file)
         ? '.d.ts'
         : '.ts';
 
-      const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
+      const targetFileName = file.replace(
+        /(?:\.jsx?|\.js\.flow|\.flow\.js)$/i,
+        targetExt
+      );
       const sourceFilePath = path.join(cwd, file);
       const targetFilePath = path.join(cwd, targetFileName);
 
@@ -258,18 +261,20 @@ export async function convert(cwd: string, opts: Options) {
     }
     currentCount += 1;
   }
-  spinner.info('renaming converted files');
-  totalStr = `${results.length}`;
-  currentCount = 0;
-  for (const { isTyped, sourceFilePath, targetFilePath } of results) {
-    const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
-    spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-    if (!opts.allowJs || isTyped) {
-      await fs.rename(sourceFilePath, targetFilePath);
+  if (!opts.keepSourceFiles) {
+    spinner.info('renaming converted files');
+    totalStr = `${results.length}`;
+    currentCount = 0;
+    for (const { isTyped, sourceFilePath, targetFilePath } of results) {
+      const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
+      spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
+      if (!opts.allowJs || isTyped) {
+        await fs.rename(sourceFilePath, targetFilePath);
+      }
+      currentCount += 1;
     }
-    currentCount += 1;
+    spinner.succeed('renamed converted files');
   }
-  spinner.succeed('renamed converted files');
 
   if (opts.interactiveRename) {
     await new Promise(resolve => {
@@ -322,4 +327,6 @@ ${toReview.join('\n')}
     }
   }
   spinner.succeed(`converted ${cloc} lines of code`);
+
+  return results;
 }

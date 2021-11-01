@@ -18,5 +18,6 @@ describe('detectOptions', () => {
   });
   it('use file extension to detect flow', () => {
     expect(detectOptions(`let a = 1;`, 'test.js.flow')).toMatchSnapshot();
+    expect(detectOptions(`let a = 1;`, 'test.flow.js')).toMatchSnapshot();
   });
 });

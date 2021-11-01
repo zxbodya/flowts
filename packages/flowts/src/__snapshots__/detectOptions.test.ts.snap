@@ -28,6 +28,13 @@ Object {
 }
 `;
 
+exports[`detectOptions use file extension to detect flow 2`] = `
+Object {
+  "isFlow": true,
+  "isJSX": false,
+}
+`;
+
 exports[`detectOptions use file extension to detect jsx 1`] = `
 Object {
   "isFlow": true,

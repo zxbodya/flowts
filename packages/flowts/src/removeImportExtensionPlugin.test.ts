@@ -11,6 +11,9 @@ import { Component } from 'react';
 import R from 'react-dom';
 import './a.css';
 import './a.js';
+import './b.flow.js';
+import './c.flow';
+import './d.js.flow';
 
 class C extends Component {}
 `)

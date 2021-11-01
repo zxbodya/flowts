@@ -12,6 +12,7 @@ export interface Options {
   readonly include: string;
   readonly exclude: string[];
   readonly interactiveRename: boolean;
+  readonly keepSourceFiles: boolean;
 }
 
 const program = new commander.Command();
@@ -52,6 +53,11 @@ program
     'Additional excludes glob expression (by default node_modules and files from .gitignore is excluded)',
     (a, b) => [...b, a],
     []
+  )
+  .option(
+    '--keep-source-files',
+    'Do not overwrite the Flow files after converting to TS',
+    false
   )
   .parse(process.argv);
 

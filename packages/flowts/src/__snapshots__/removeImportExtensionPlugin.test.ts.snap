@@ -5,6 +5,9 @@ exports[`removeImportExtensionPlugin imports are removed 1`] = `
 import R from \\"react-dom\\";
 import \\"./a.css\\";
 import \\"./a\\";
+import \\"./b\\";
+import \\"./c\\";
+import \\"./d\\";
 
 class C extends Component {}
 "
