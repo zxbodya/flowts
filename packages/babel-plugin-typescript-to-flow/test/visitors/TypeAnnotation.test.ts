@@ -300,7 +300,9 @@ test('function type annotation with type parameters', () => {
   expect(result.babel).toMatchInlineSnapshot(
     `"let test: <T>(a: number) => T;"`
   );
-  expect(result.recast).toMatchInlineSnapshot(`"let test: (a: number) => T;"`);
+  expect(result.recast).toMatchInlineSnapshot(
+    `"let test: <T>(a: number) => T;"`
+  );
 });
 
 test('maybe argument', () => {
