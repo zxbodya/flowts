@@ -12,6 +12,7 @@ export interface Options {
   readonly include: string;
   readonly exclude: string[];
   readonly interactiveRename: boolean;
+  readonly dryRun: boolean;
 }
 
 const program = new commander.Command();
@@ -53,6 +54,8 @@ program
     (a, b) => [...b, a],
     []
   )
+
+  .option('--dry-run', 'Do not save changes after migration', false)
   .parse(process.argv);
 
 const args = program.args;

@@ -265,7 +265,9 @@ export async function convert(cwd: string, opts: Options) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
     if (!opts.allowJs || isTyped) {
-      await fs.rename(sourceFilePath, targetFilePath);
+      if (!opts.dryRun) {
+        await fs.rename(sourceFilePath, targetFilePath);
+      }
     }
     currentCount += 1;
   }
@@ -298,9 +300,13 @@ export async function convert(cwd: string, opts: Options) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
     if (isTyped) {
-      await fs.writeFile(targetFilePath, result);
+      if (!opts.dryRun) {
+        await fs.writeFile(targetFilePath, result);
+      }
       if (!isValid) {
-        await fs.writeFile(sourceFilePath, source);
+        if (!opts.dryRun) {
+          await fs.writeFile(sourceFilePath, source);
+        }
       }
     }
     currentCount += 1;
