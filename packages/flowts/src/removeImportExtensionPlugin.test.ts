@@ -34,4 +34,24 @@ const a = import('./a.js');
       "
     `);
   });
+  test('jest.mock', () => {
+    expect(
+      transform(`
+const a = jest.mock('./a.js');
+`)
+    ).toMatchInlineSnapshot(`
+      "const a = jest.mock(\\"./a\\");
+      "
+    `);
+  });
+  test('require', () => {
+    expect(
+      transform(`
+const a = require('./a.js');
+`)
+    ).toMatchInlineSnapshot(`
+      "const a = require(\\"./a\\");
+      "
+    `);
+  });
 });

@@ -18,8 +18,28 @@ export default (
 
   const visitor: Visitor = {
     CallExpression(path) {
+      // import('something')
       if (
         t.isImport(path.node.callee) &&
+        t.isStringLiteral(path.node.arguments[0])
+      ) {
+        visit(path.node.arguments[0]);
+      }
+      // jest.mock('something', …)
+      if (
+        t.isMemberExpression(path.node.callee) &&
+        t.isIdentifier(path.node.callee.object) &&
+        path.node.callee.object.name === 'jest' &&
+        t.isIdentifier(path.node.callee.property) &&
+        path.node.callee.property.name === 'mock' &&
+        t.isStringLiteral(path.node.arguments[0])
+      ) {
+        visit(path.node.arguments[0]);
+      }
+      // require('something')
+      if (
+        t.isIdentifier(path.node.callee) &&
+        path.node.callee.name === 'require' &&
         t.isStringLiteral(path.node.arguments[0])
       ) {
         visit(path.node.arguments[0]);
