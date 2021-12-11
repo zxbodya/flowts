@@ -17,15 +17,23 @@ export default (
   }
 
   const visitor: Visitor = {
-    ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
+    CallExpression(path) {
+      if (
+        t.isImport(path.node.callee) &&
+        t.isStringLiteral(path.node.arguments[0])
+      ) {
+        visit(path.node.arguments[0]);
+      }
+    },
+    ImportDeclaration(path) {
       visit(path.node.source);
     },
-    ExportNamedDeclaration(path: NodePath<t.ExportNamedDeclaration>) {
+    ExportNamedDeclaration(path) {
       if (path.node.source) {
         visit(path.node.source);
       }
     },
-    ExportAllDeclaration(path: NodePath<t.ExportAllDeclaration>) {
+    ExportAllDeclaration(path) {
       visit(path.node.source);
     },
   };

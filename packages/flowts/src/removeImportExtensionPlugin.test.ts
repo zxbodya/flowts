@@ -24,4 +24,14 @@ class C extends Component {}
       "
     `);
   });
+  test('dynamic imports', () => {
+    expect(
+      transform(`
+const a = import('./a.js');
+`)
+    ).toMatchInlineSnapshot(`
+      "const a = import(\\"./a\\");
+      "
+    `);
+  });
 });
