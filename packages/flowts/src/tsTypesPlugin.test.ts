@@ -13,7 +13,15 @@ type B = SyntheticInputEvent<HTMLInputElement>;
 
 class C extends Component {}
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import { Component } from \\"react\\";
+      import type { ReactNode, ChangeEvent } from \\"react\\";
+      type A = ReactNode;
+      type B = ChangeEvent<HTMLInputElement>;
+
+      class C extends Component {}
+      "
+    `);
   });
   test('rename imported', () => {
     expect(
@@ -21,7 +29,11 @@ class C extends Component {}
 import type { Node } from 'react';
 type A = Node;
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import type { ReactNode } from \\"react\\";
+      type A = ReactNode;
+      "
+    `);
   });
   test('namespace and named imports can not be mixed', () => {
     expect(
@@ -29,7 +41,12 @@ type A = Node;
 import * as React from 'react';
 type A = React$Node;
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+      import type { ReactNode } from \\"react\\";
+      type A = ReactNode;
+      "
+    `);
   });
   test('rename exports used from imported namespace', () => {
     expect(
@@ -38,7 +55,12 @@ import * as React from 'react';
 type A = React.Node;
 let a = 0;
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+      type A = React.ReactNode;
+      let a = 0;
+      "
+    `);
   });
   test('forwardRef<T,P>', () => {
     expect(
@@ -48,7 +70,13 @@ let a = React.forwardRef<T,P>();
 let b = React.forwardRef<T>();
 let c = React.forwardRef();
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import * as React from \\"react\\";
+      let a = React.forwardRef<P, T>();
+      let b = React.forwardRef<{}, T>();
+      let c = React.forwardRef();
+      "
+    `);
   });
   test('import for replaced global value', () => {
     expect(
@@ -57,7 +85,13 @@ export type ButtonPropsT = {
   children?: React$Node
 }
 `)
-    ).toMatchSnapshot();
+    ).toMatchInlineSnapshot(`
+      "import type { ReactNode } from \\"react\\";
+      export type ButtonPropsT = {
+        children?: ReactNode;
+      };
+      "
+    `);
   });
   test('does not add duplicated import', () => {
     expect(
