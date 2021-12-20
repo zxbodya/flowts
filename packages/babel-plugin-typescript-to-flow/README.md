@@ -26,7 +26,7 @@ Plugin options:
 ``` 
 
 ## Why? 
-While main goal of this repository is to de the opposite (to help migrate from Flow to TypeScript),
+While main goal of this repository is to do the opposite (to help migrate from Flow to TypeScript),
 in many cases it is preferable to do so gradually.
  
 Especially when having multiple other projects depending on support for Flow.
