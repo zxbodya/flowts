@@ -1,4 +1,4 @@
-import { NodePath, PluginObj, Visitor } from '@babel/core';
+import { PluginObj, Visitor } from '@babel/core';
 import * as t from '@babel/types';
 
 export default (

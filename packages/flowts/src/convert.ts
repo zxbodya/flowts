@@ -267,6 +267,25 @@ export async function convert(cwd: string, opts: Options) {
     if (!opts.allowJs || isTyped) {
       if (!opts.dryRun) {
         await fs.rename(sourceFilePath, targetFilePath);
+        const maybeJestSnapshotPath = path.join(
+          path.dirname(sourceFilePath),
+          '__snapshots__',
+          path.basename(sourceFilePath) + '.snap'
+        );
+        let snapshotEsists = false;
+        try {
+          snapshotEsists = (await fs.stat(maybeJestSnapshotPath)).isFile();
+        } catch (e) {
+          // ignored
+        }
+        if (snapshotEsists) {
+          const targetJestSnapshotPath = path.join(
+            path.dirname(targetFilePath),
+            '__snapshots__',
+            path.basename(targetFilePath) + '.snap'
+          );
+          await fs.rename(maybeJestSnapshotPath, targetJestSnapshotPath);
+        }
       }
     }
     currentCount += 1;
