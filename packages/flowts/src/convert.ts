@@ -14,6 +14,7 @@ import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
 import readline from 'readline';
+import type { ParserPlugin } from '@babel/parser';
 
 export async function convert(cwd: string, opts: Options) {
   console.log('options:', opts);
@@ -105,40 +106,6 @@ export async function convert(cwd: string, opts: Options) {
       const sourceFilePath = path.join(cwd, file);
       const targetFilePath = path.join(cwd, targetFileName);
 
-      const isTyped = isFlow;
-      if (!isFlow) {
-        results.push({
-          isTyped,
-          sourceFilePath,
-          targetFilePath,
-          source,
-          result: source,
-          isValid: true,
-        });
-        continue;
-      }
-
-      const tsSyntax = await babel.transformAsync(source, {
-        compact: false,
-        babelrc: false,
-        configFile: false,
-        filename: sourceFilePath,
-        plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
-        generatorOpts: {
-          decoratorsBeforeExport: true,
-        },
-        parserOpts: {
-          allowReturnOutsideFunction: true,
-          plugins: [...sharedParserPlugins],
-        },
-      });
-
-      if (tsSyntax === null) {
-        throw new Error(
-          'babel.transformAsync returned null - probably there is some configuration error'
-        );
-      }
-
       const isConvertedFile = (source: string) => {
         const normalizedPath = path
           .resolve(path.dirname(sourceFilePath), source)
@@ -148,16 +115,78 @@ export async function convert(cwd: string, opts: Options) {
         return requestedFileInfo && requestedFileInfo.isConverted;
       };
 
+      const flowParserPlugins: ParserPlugin[] = [];
+      flowParserPlugins.push('flow');
+      if (isJSX) {
+        flowParserPlugins.push('jsx');
+      }
+      const codeNoExtensions = await babel.transformAsync(source, {
+        compact: false,
+        babelrc: false,
+        configFile: false,
+        filename: sourceFilePath,
+        plugins: [
+          ...transformPlugins,
+          [removeImportExtensionPlugin, { isConvertedFile }],
+        ],
+        generatorOpts: {
+          decoratorsBeforeExport: true,
+        },
+        parserOpts: {
+          allowReturnOutsideFunction: true,
+          plugins: [...sharedParserPlugins, ...flowParserPlugins],
+        },
+      });
+
+      if (codeNoExtensions === null) {
+        throw new Error(
+          'babel.transformAsync returned null - probably there is some configuration error'
+        );
+      }
+
+      const isTyped = isFlow;
+      if (!isFlow) {
+        results.push({
+          isTyped,
+          sourceFilePath,
+          targetFilePath,
+          source,
+          result: codeNoExtensions.code as string,
+          isValid: true,
+        });
+        continue;
+      }
+
+      const tsSyntax = await babel.transformAsync(
+        codeNoExtensions.code as string,
+        {
+          compact: false,
+          babelrc: false,
+          configFile: false,
+          filename: sourceFilePath,
+          plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
+          generatorOpts: {
+            decoratorsBeforeExport: true,
+          },
+          parserOpts: {
+            allowReturnOutsideFunction: true,
+            plugins: [...sharedParserPlugins, ...flowParserPlugins],
+          },
+        }
+      );
+
+      if (tsSyntax === null) {
+        throw new Error(
+          'babel.transformAsync returned null - probably there is some configuration error'
+        );
+      }
+
       const ts = await babel.transformAsync(tsSyntax.code as string, {
         compact: false,
         babelrc: false,
         configFile: false,
         filename: targetFilePath,
-        plugins: [
-          ...transformPlugins,
-          [tsTypesPlugin, { isJSX }],
-          [removeImportExtensionPlugin, { isConvertedFile }],
-        ],
+        plugins: [...transformPlugins, [tsTypesPlugin, { isJSX }]],
         generatorOpts: {
           decoratorsBeforeExport: true,
         },
@@ -264,8 +293,9 @@ export async function convert(cwd: string, opts: Options) {
   for (const { isTyped, sourceFilePath, targetFilePath } of results) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-    if (!opts.allowJs || isTyped) {
-      if (!opts.dryRun) {
+
+    if (!opts.dryRun) {
+      if (!opts.allowJs || isTyped) {
         await fs.rename(sourceFilePath, targetFilePath);
         const maybeJestSnapshotPath = path.join(
           path.dirname(sourceFilePath),
@@ -326,6 +356,10 @@ export async function convert(cwd: string, opts: Options) {
         if (!opts.dryRun) {
           await fs.writeFile(sourceFilePath, source);
         }
+      }
+    } else {
+      if (!opts.dryRun && source !== result) {
+        await fs.writeFile(sourceFilePath, result);
       }
     }
     currentCount += 1;
