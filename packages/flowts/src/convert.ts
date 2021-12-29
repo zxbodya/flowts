@@ -250,6 +250,9 @@ export async function convert(cwd: string, opts: Options) {
         }
       }
 
+      // delay to update the ui
+      await new Promise(r => setTimeout(r, 1));
+
       const verificationResult = verify(
         source,
         result,
@@ -292,9 +295,9 @@ export async function convert(cwd: string, opts: Options) {
   currentCount = 0;
   for (const { isTyped, sourceFilePath, targetFilePath } of results) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
-    spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
 
     if (!opts.dryRun) {
+      spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
       if (!opts.allowJs || isTyped) {
         await fs.rename(sourceFilePath, targetFilePath);
         const maybeJestSnapshotPath = path.join(
@@ -317,6 +320,8 @@ export async function convert(cwd: string, opts: Options) {
           await fs.rename(maybeJestSnapshotPath, targetJestSnapshotPath);
         }
       }
+      // delay to update the ui
+      await new Promise(r => setTimeout(r, 1));
     }
     currentCount += 1;
   }
@@ -347,20 +352,21 @@ export async function convert(cwd: string, opts: Options) {
     isValid,
   } of results) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
-    spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-    if (isTyped) {
-      if (!opts.dryRun) {
+    if (!opts.dryRun) {
+      spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
+      if (isTyped) {
         await fs.writeFile(targetFilePath, result);
-      }
-      if (!isValid) {
-        if (!opts.dryRun) {
+
+        if (!isValid) {
           await fs.writeFile(sourceFilePath, source);
         }
+      } else {
+        if (source !== result) {
+          await fs.writeFile(sourceFilePath, result);
+        }
       }
-    } else {
-      if (!opts.dryRun && source !== result) {
-        await fs.writeFile(sourceFilePath, result);
-      }
+      // delay to update the ui
+      await new Promise(r => setTimeout(r, 1));
     }
     currentCount += 1;
   }
