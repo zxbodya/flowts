@@ -1,8 +1,11 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
+import { PluginPass } from '../types';
 
-export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
-  // "import type" in TypeScript does not allow mixing different imports (default, namespace and named)
+export function ImportDeclaration(
+  path: NodePath<t.ImportDeclaration>,
+  state: PluginPass
+) {
   if (path.node.importKind === 'typeof') {
     const types = path.node.specifiers.map(specifier =>
       t.tsTypeAliasDeclaration(
@@ -24,6 +27,8 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
     path.replaceWithMultiple(types);
     return;
   }
+
+  // "import type" in TypeScript does not allow mixing different imports (default, namespace and named)
   if (path.node.importKind === 'type') {
     const importSpecifiers: t.ImportSpecifier[] = [];
     const importDefaultSpecifiers: t.ImportDefaultSpecifier[] = [];
@@ -59,7 +64,11 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
     for (const specifier of path.node.specifiers) {
       if (specifier.type === 'ImportSpecifier') {
         if (specifier.importKind === 'type') {
-          moveType.push(specifier);
+          if (!state.opts.legacyImports) {
+            keep.push(specifier);
+          } else {
+            moveType.push(specifier);
+          }
         } else if (specifier.importKind === 'typeof') {
           moveTypeof.push(specifier);
         } else {
@@ -68,8 +77,10 @@ export function ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
       } else {
         keep.push(specifier);
       }
-      if (specifier.type === 'ImportSpecifier') {
-        specifier.importKind = null;
+      if (state.opts.legacyImports) {
+        if (specifier.type === 'ImportSpecifier') {
+          specifier.importKind = null;
+        }
       }
     }
     const types = moveTypeof.map(specifier =>

@@ -2,6 +2,7 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import helperTypes from '../helperTypes';
 import { warnOnlyOnce } from '../utils/warnOnlyOnce';
+import { PluginPass } from '../types';
 
 const FLOW_PRAGMA_LINE_EXP = /^\s*\*?\s*@flow(?: strict| strict-local)?\s*$/;
 
@@ -39,13 +40,16 @@ export const Program = {
       removeFlowHeader(firstNode.comments);
     }
   },
-  exit(path: NodePath<t.Program>) {
+  exit(path: NodePath<t.Program>, state: PluginPass) {
     path.traverse({
       /* istanbul ignore next */
       Flow(path: NodePath<any>) {
         if (
           path.node.type === 'ImportDeclaration' ||
-          path.node.type === 'ExportNamedDeclaration'
+          path.node.type === 'ExportNamedDeclaration' ||
+          (!state.opts.legacyImports &&
+            path.node.type === 'ImportSpecifier' &&
+            path.node.importKind === 'type')
         ) {
           return;
         }

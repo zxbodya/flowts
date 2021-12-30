@@ -68,6 +68,9 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
   if (typeof opts.isJSX === 'undefined') {
     opts.isJSX = true;
   }
+  if (typeof opts.legacyImports === 'undefined') {
+    opts.legacyImports = true;
+  }
   return {
     name: 'babel-plugin-flow-to-typescript',
     visitor,
