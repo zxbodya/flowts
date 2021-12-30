@@ -5,6 +5,7 @@
   "bin": {
     "flowts": "./bin/flowts.js"
   },
+  "main": "dist/index.js",
   "scripts": {
     "cover": "jest --coverage",
     "test": "jest",
