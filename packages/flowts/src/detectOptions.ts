@@ -4,7 +4,11 @@ import { sharedParserPlugins } from './sharedParserPlugins';
 
 export interface SourceOptions {
   isJSX: boolean;
-  isFlow: boolean;
+  isDefinitionFile: boolean;
+
+  hasFlowAnnotation: boolean;
+  hasNoFlowAnnotation: boolean;
+  hasTypes: boolean;
 }
 
 export function detectOptions(source: string, filename: string): SourceOptions {
@@ -21,7 +25,10 @@ export function detectOptions(source: string, filename: string): SourceOptions {
   });
 
   let isJSX = /\.jsx$/i.test(filename);
-  let isFlow = /@flow/.test(source) || /\.js\.flow$/i.test(filename);
+  const isDefinitionFile = /\.js\.flow$/i.test(filename);
+  const hasFlowAnnotation = /@flow/.test(source);
+  const hasNoFlowAnnotation = /@noflow/.test(source);
+  let hasTypes = false;
 
   if (flowAst === null) {
     throw new Error(
@@ -38,8 +45,14 @@ export function detectOptions(source: string, filename: string): SourceOptions {
       isJSX = true;
     },
     Flow() {
-      isFlow = true;
+      hasTypes = true;
     },
   });
-  return { isJSX, isFlow };
+  return {
+    isJSX,
+    isDefinitionFile,
+    hasFlowAnnotation,
+    hasNoFlowAnnotation,
+    hasTypes,
+  };
 }

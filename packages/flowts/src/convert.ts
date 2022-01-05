@@ -60,7 +60,10 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       const filepath = path.join(cwd, file);
       const source = await fs.readFile(filepath, { encoding: 'utf8' });
 
-      const { isJSX, isFlow } = detectOptions(source, file);
+      const fileOptions = detectOptions(source, file);
+
+      const isJSX = fileOptions.isJSX;
+      const isFlow = fileOptions.hasTypes || fileOptions.isDefinitionFile;
 
       const isConverted = isFlow || !opts.allowJs;
 
