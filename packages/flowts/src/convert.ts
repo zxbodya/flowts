@@ -5,7 +5,7 @@ import globby from 'globby';
 import * as path from 'path';
 import * as prettier from 'prettier';
 import { diff as jestDiff } from 'jest-diff';
-import { detectOptions } from './detectOptions';
+import { detectOptions, SourceOptions } from './detectOptions';
 import recastPlugin from '@flowts/babel-plugin-recast';
 import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
@@ -13,6 +13,7 @@ import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
 import type { ParserPlugin } from '@babel/parser';
+import fixFlowPragmaPlugin from './fixFlowPragmaPlugin';
 
 type ConvertOptions = {
   readonly recast: boolean;
@@ -43,10 +44,10 @@ export async function convert(cwd: string, opts: ConvertOptions) {
 
   type FileInfo = {
     file: string;
-    isJSX: boolean;
     isFlow: boolean;
     source: string;
     isConverted: boolean;
+    fileOptions: SourceOptions;
   };
 
   const filesInfo = new Map<string, FileInfo>();
@@ -62,7 +63,6 @@ export async function convert(cwd: string, opts: ConvertOptions) {
 
       const fileOptions = detectOptions(source, file);
 
-      const isJSX = fileOptions.isJSX;
       const isFlow = fileOptions.hasTypes || fileOptions.isDefinitionFile;
 
       const isConverted = isFlow || !opts.allowJs;
@@ -70,9 +70,9 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       const info: FileInfo = {
         file,
         source,
-        isJSX,
         isFlow,
         isConverted,
+        fileOptions,
       };
       filesInfo.set(file, info);
     } catch (e) {
@@ -106,7 +106,12 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       continue;
     }
     try {
-      const { file, source, isJSX, isFlow } = info;
+      const {
+        file,
+        source,
+        fileOptions: { isJSX },
+        isFlow,
+      } = info;
 
       const targetExt = isJSX
         ? '.tsx'
@@ -158,14 +163,46 @@ export async function convert(cwd: string, opts: ConvertOptions) {
 
       const isTyped = isFlow;
       if (!isFlow) {
-        results.push({
-          isTyped,
-          sourceFilePath,
-          targetFilePath,
-          source,
-          result: codeNoExtensions.code as string,
-          isValid: true,
-        });
+        let code: string;
+        code = codeNoExtensions.code as string;
+        if (
+          info.fileOptions.hasFlowAnnotation ||
+          info.fileOptions.hasNoFlowAnnotation
+        ) {
+          const fixed = await babel.transformAsync(
+            codeNoExtensions.code as string,
+            {
+              compact: false,
+              babelrc: false,
+              configFile: false,
+              filename: sourceFilePath,
+              plugins: [...transformPlugins, fixFlowPragmaPlugin],
+              generatorOpts: {
+                decoratorsBeforeExport: true,
+              },
+              parserOpts: {
+                allowReturnOutsideFunction: true,
+                plugins: [...sharedParserPlugins, ...flowParserPlugins],
+              },
+            }
+          );
+
+          if (fixed === null) {
+            throw new Error(
+              'babel.transformAsync returned null - probably there is some configuration error'
+            );
+          }
+          code = fixed!.code as string;
+        }
+        if (filesInfo)
+          results.push({
+            isTyped,
+            sourceFilePath,
+            targetFilePath,
+            source,
+            result: code,
+            isValid: true,
+          });
         continue;
       }
 
