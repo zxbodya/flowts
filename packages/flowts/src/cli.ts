@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import { convert } from './convert';
+import readline from 'readline';
 
 export interface Options {
   readonly recast: boolean;
@@ -70,7 +71,30 @@ if (args.length > 1) {
   process.exit(1);
 }
 
-convert(args[0], opts).then(
+const { exclude: excludeGlobs, interactiveRename, ...restOptions } = opts;
+
+const convertOptions = {
+  ...restOptions,
+  exclude: ['**/node_modules/**', ...excludeGlobs],
+  renameHook: interactiveRename
+    ? async () => {
+        await new Promise(resolve => {
+          const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
+          });
+          rl.question('Press <enter> to write converted code:', () => {
+            rl.close();
+            resolve(undefined);
+          });
+        });
+      }
+    : async () => {
+        // do not wait - continue to writing the results
+      },
+};
+
+convert(args[0], convertOptions).then(
   () => {
     console.log('done');
     process.exit(0);

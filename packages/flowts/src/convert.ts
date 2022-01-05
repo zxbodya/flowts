@@ -9,14 +9,23 @@ import { detectOptions } from './detectOptions';
 import recastPlugin from '@flowts/babel-plugin-recast';
 import tsTypesPlugin from './tsTypesPlugin';
 import { verify } from './verify/verify';
-import { Options } from './cli';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
-import readline from 'readline';
 import type { ParserPlugin } from '@babel/parser';
 
-export async function convert(cwd: string, opts: Options) {
+type ConvertOptions = {
+  readonly recast: boolean;
+  readonly prettier: boolean;
+  readonly allowJs: boolean;
+  readonly gitignore: boolean;
+  readonly include: string;
+  readonly exclude: string[];
+  readonly dryRun: boolean;
+  renameHook?: () => Promise<void>;
+};
+
+export async function convert(cwd: string, opts: ConvertOptions) {
   console.log('options:', opts);
   const spinner = ora().start(`processing files in ${cwd}`);
   const transformPlugins = [];
@@ -28,7 +37,7 @@ export async function convert(cwd: string, opts: Options) {
     cwd,
     onlyFiles: true,
     dot: true,
-    ignore: ['**/node_modules/**', ...opts.exclude],
+    ignore: opts.exclude,
     gitignore: opts.gitignore,
   });
 
@@ -327,17 +336,8 @@ export async function convert(cwd: string, opts: Options) {
   }
   spinner.succeed('renamed converted files');
 
-  if (opts.interactiveRename) {
-    await new Promise(resolve => {
-      const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-      });
-      rl.question('Press <enter> to write converted code:', () => {
-        rl.close();
-        resolve(undefined);
-      });
-    });
+  if (opts.renameHook) {
+    await opts.renameHook();
   }
   spinner.info('writing converted files');
 
