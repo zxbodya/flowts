@@ -6,13 +6,13 @@ describe('flow comment', () => {
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow strict comment single line', () => {
@@ -20,13 +20,13 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow strict-local comment single line', () => {
@@ -34,13 +34,13 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow comment block statement', () => {
@@ -48,13 +48,13 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow strict comment block statement', () => {
@@ -62,13 +62,13 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow strict-local comment block statement', () => {
@@ -76,13 +76,13 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "const a = 55;
-    export default a;"
-  `);
+          "const a = 55;
+          export default a;"
+      `);
   });
 
   test('program flow multiline comment block statement', () => {
@@ -93,19 +93,19 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
   });
 
   test('program flow strict multiline comment block statement', () => {
@@ -116,19 +116,19 @@ export default a;"
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
   });
 
   test('program flow strict-local multiline comment block statement', () => {
@@ -139,19 +139,19 @@ export default a;"
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"/*
-  * Test
-  */
-const a = 55;
-export default a;"
-`);
+      "/*
+        * Test
+        */
+      const a = 55;
+      export default a;"
+    `);
   });
 
   test('program flow comment with license', () => {
@@ -160,17 +160,96 @@ export default a;"
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "// @license MIT
-    const a = 55;
-    export default a;"
-  `);
+          "// @license MIT
+          const a = 55;
+          export default a;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "// @license MIT
-    const a = 55;
-    export default a;"
-  `);
+          "// @license MIT
+          const a = 55;
+          export default a;"
+      `);
   });
 });
+describe('noflow comment', () => {
+  test('single line comment', () => {
+    const result = testTransform(`// @noflow
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+      "// @ts-nocheck
+      const a = 55;
+      export default a;"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "// @ts-nocheck
+      const a = 55;
+      export default a;"
+    `);
+  });
+
+  test('program flow comment block statement', () => {
+    const result = testTransform(`/* @noflow */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+      "/* @ts-nocheck */
+      const a = 55;
+      export default a;"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "/* @ts-nocheck */
+      const a = 55;
+      export default a;"
+    `);
+  });
+
+  test('program flow multiline comment block statement', () => {
+    const result = testTransform(`/*
+  * Test
+  * @noflow
+  */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+      "/*
+        * Test
+        * @ts-nocheck
+        */
+      const a = 55;
+      export default a;"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "/*
+        * Test
+        * @ts-nocheck
+        */
+      const a = 55;
+      export default a;"
+    `);
+  });
+
+  test('program flow comment with license', () => {
+    const result = testTransform(`// @license MIT
+/* @noflow */
+const a = 55;
+export default a;`);
+    expect(result.babel).toMatchInlineSnapshot(`
+      "// @license MIT
+
+      /* @ts-nocheck */
+      const a = 55;
+      export default a;"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "// @license MIT
+      /* @ts-nocheck */
+      const a = 55;
+      export default a;"
+    `);
+  });
+});
+
 describe('helper types', () => {
   test('helper types', () => {
     const result = testTransform(`
@@ -186,54 +265,54 @@ let i: $Call<A,B,C,D,E,F>;
 let j: $Call<A,B,C,D,E,F,G>;
 `);
     expect(result.babel).toMatchInlineSnapshot(`
-    "type $ObjMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
-    type $TupleMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
-    type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = { [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never };
-    type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
-    type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
-    type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
-    type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
-    type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
-    let a: $ObjMap<A, B>;
-    let b: $TupleMap<A, B>;
-    let c: $ObjMapi<A, B>;
-    let d: ReturnType<A>;
-    let e: $Call1<A, B>;
-    let f: $Call2<A, B, C>;
-    let g: $Call3<A, B, C, D>;
-    let h: $Call4<A, B, C, D, E>;
-    let i: $Call5<A, B, C, D, E, F>;
-    let j: $Call<A, B, C, D, E, F, G>;"
-  `);
+          "type $ObjMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
+          type $TupleMap<T extends {}, F extends (v: any) => any> = { [K in keyof T]: F extends (v: T[K]) => infer R ? R : never };
+          type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = { [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never };
+          type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
+          type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
+          type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
+          type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
+          type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
+          let a: $ObjMap<A, B>;
+          let b: $TupleMap<A, B>;
+          let c: $ObjMapi<A, B>;
+          let d: ReturnType<A>;
+          let e: $Call1<A, B>;
+          let f: $Call2<A, B, C>;
+          let g: $Call3<A, B, C, D>;
+          let h: $Call4<A, B, C, D, E>;
+          let i: $Call5<A, B, C, D, E, F>;
+          let j: $Call<A, B, C, D, E, F, G>;"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "type $ObjMap<T extends {}, F extends (v: any) => any> = {
-      [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
-    };
+          "type $ObjMap<T extends {}, F extends (v: any) => any> = {
+            [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
+          };
 
-    type $TupleMap<T extends {}, F extends (v: any) => any> = {
-      [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
-    };
+          type $TupleMap<T extends {}, F extends (v: any) => any> = {
+            [K in keyof T]: F extends (v: T[K]) => infer R ? R : never;
+          };
 
-    type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = {
-      [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never;
-    };
+          type $ObjMapi<T extends {}, F extends (k: any, v: any) => any> = {
+            [K in keyof T]: F extends (k: K, v: T[K]) => infer R ? R : never;
+          };
 
-    type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
-    type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
-    type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
-    type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
-    type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
-    let a: $ObjMap<A, B>;
-    let b: $TupleMap<A, B>;
-    let c: $ObjMapi<A, B>;
-    let d: ReturnType<A>;
-    let e: $Call1<A, B>;
-    let f: $Call2<A, B, C>;
-    let g: $Call3<A, B, C, D>;
-    let h: $Call4<A, B, C, D, E>;
-    let i: $Call5<A, B, C, D, E, F>;
-    let j: $Call<A, B, C, D, E, F, G>;"
-  `);
+          type $Call1<F extends (...args: any) => any, A> = F extends (a: A, ...args: any) => infer R ? R : never;
+          type $Call2<F extends (...args: any) => any, A, B> = F extends (a: A, b: B, ...args: any) => infer R ? R : never;
+          type $Call3<F extends (...args: any) => any, A, B, C> = F extends (a: A, b: B, c: C, ...args: any) => infer R ? R : never;
+          type $Call4<F extends (...args: any) => any, A, B, C, D> = F extends (a: A, b: B, c: C, d: D, ...args: any) => infer R ? R : never;
+          type $Call5<F extends (...args: any) => any, A, B, C, D, E> = F extends (a: A, b: B, c: C, d: D, d: E, ...args: any) => infer R ? R : never;
+          let a: $ObjMap<A, B>;
+          let b: $TupleMap<A, B>;
+          let c: $ObjMapi<A, B>;
+          let d: ReturnType<A>;
+          let e: $Call1<A, B>;
+          let f: $Call2<A, B, C>;
+          let g: $Call3<A, B, C, D>;
+          let h: $Call4<A, B, C, D, E>;
+          let i: $Call5<A, B, C, D, E, F>;
+          let j: $Call<A, B, C, D, E, F, G>;"
+      `);
   });
 
   test('call helper type', () => {
@@ -245,34 +324,34 @@ type B = Class<{
 type C = Class<A>;
 `);
     expect(result.babel).toMatchInlineSnapshot(`
-    "type A = string | {
-      new (...args: any): React.Component<any, any>;
-    } | any;
-    type B = {
-      new (...args: any): {
-        readonly scope: (a: TagsType) => void;
-      };
-    };
-    type C = {
-      new (...args: any): A;
-    };"
-  `);
+          "type A = string | {
+            new (...args: any): React.Component<any, any>;
+          } | any;
+          type B = {
+            new (...args: any): {
+              readonly scope: (a: TagsType) => void;
+            };
+          };
+          type C = {
+            new (...args: any): A;
+          };"
+      `);
 
     expect(result.recast).toMatchInlineSnapshot(`
-    "type A = string | {
-      new (...args: any): React.Component<any, any>
-    } | any;
+          "type A = string | {
+            new (...args: any): React.Component<any, any>
+          } | any;
 
-    type B = {
-      new (...args: any): {
-        readonly scope: (a: TagsType) => void
-      }
-    };
+          type B = {
+            new (...args: any): {
+              readonly scope: (a: TagsType) => void
+            }
+          };
 
-    type C = {
-      new (...args: any): A
-    };"
-  `);
+          type C = {
+            new (...args: any): A
+          };"
+      `);
   });
 });
 
@@ -287,17 +366,17 @@ declare function didYouMean(
 
 function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string;
-    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+          "function didYouMean(suggestions: ReadonlyArray<string>): string;
+          function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
 
-    function didYouMean(firstArg, secondArg?): string {}"
-  `);
+          function didYouMean(firstArg, secondArg?): string {}"
+      `);
     expect(result.recast).toMatchInlineSnapshot(`
-    "function didYouMean(suggestions: ReadonlyArray<string>): string
-    function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
+          "function didYouMean(suggestions: ReadonlyArray<string>): string
+          function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string
 
-    function didYouMean(firstArg, secondArg?): string { }"
-  `);
+          function didYouMean(firstArg, secondArg?): string { }"
+      `);
   });
 
   test('default export', () => {
@@ -305,13 +384,13 @@ function didYouMean(firstArg, secondArg?): string { }`);
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export default function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-"export default function didYouMean(suggestions: ReadonlyArray<string>): string;
-export default function didYouMean(firstArg, secondArg?): string {}"
-`);
+      "export default function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export default function didYouMean(firstArg, secondArg?): string {}"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"export default function didYouMean(suggestions: ReadonlyArray<string>): string;
-export default function didYouMean(firstArg, secondArg?): string { }"
-`);
+      "export default function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export default function didYouMean(firstArg, secondArg?): string { }"
+    `);
   });
 
   test('named export', () => {
@@ -319,26 +398,26 @@ export default function didYouMean(firstArg, secondArg?): string { }"
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(firstArg, secondArg?): string {}"
-`);
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(firstArg, secondArg?): string {}"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(firstArg, secondArg?): string { }"
-`);
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(firstArg, secondArg?): string { }"
+    `);
   });
   test('named export', () => {
     const result = testTransform(`
 declare function didYouMean(suggestions: $ReadOnlyArray<string>): string;
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(firstArg, secondArg?): string {}"
-`);
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(firstArg, secondArg?): string {}"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(firstArg, secondArg?): string { }"
-`);
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(firstArg, secondArg?): string { }"
+    `);
   });
 
   test('exports mix', () => {
@@ -351,15 +430,15 @@ declare export function didYouMean(
 
 export function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
-export function didYouMean(firstArg, secondArg?): string {}"
-`);
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(firstArg, secondArg?): string {}"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"export function didYouMean(suggestions: ReadonlyArray<string>): string;
-export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+      "export function didYouMean(suggestions: ReadonlyArray<string>): string;
+      export function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
 
-export function didYouMean(firstArg, secondArg?): string { }"
-`);
+      export function didYouMean(firstArg, secondArg?): string { }"
+    `);
   });
 });

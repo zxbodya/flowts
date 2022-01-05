@@ -6,7 +6,7 @@ import { PluginPass } from '../types';
 
 const FLOW_PRAGMA_LINE_EXP = /^\s*\*?\s*@flow(?: strict| strict-local)?\s*$/;
 
-const removeFlowHeader = (comments: t.Comment[]) => {
+const updateFlowPragma = (comments: t.Comment[]) => {
   const commentIndex = comments.findIndex(item =>
     FLOW_PRAGMA_LINE_EXP.test(item.value)
   );
@@ -22,6 +22,11 @@ const removeFlowHeader = (comments: t.Comment[]) => {
         .filter(value => !FLOW_PRAGMA_LINE_EXP.test(value))
         .join('\n');
     });
+  comments
+    .filter((item: t.Comment) => /@noflow/.test(item.value))
+    .forEach((comment: t.Comment) => {
+      comment.value = comment.value.replace('@noflow', '@ts-nocheck');
+    });
 };
 export const Program = {
   enter(path: NodePath<t.Program>) {
@@ -32,12 +37,12 @@ export const Program = {
       firstNode.leadingComments.length
     ) {
       // @ts-expect-error recast support
-      removeFlowHeader(firstNode.leadingComments);
+      updateFlowPragma(firstNode.leadingComments);
     }
     // @ts-expect-error recast support
     if (firstNode && firstNode.comments && firstNode.comments.length) {
       // @ts-expect-error recast support
-      removeFlowHeader(firstNode.comments);
+      updateFlowPragma(firstNode.comments);
     }
   },
   exit(path: NodePath<t.Program>, state: PluginPass) {
