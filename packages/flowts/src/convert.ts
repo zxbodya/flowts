@@ -86,7 +86,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
   spinner.succeed('finished analysing source files');
   spinner.info('converting code to TypeScript');
   const results: Array<{
-    isTyped: boolean;
+    isConverted: boolean;
     sourceFilePath: string;
     targetFilePath: string;
     source: string;
@@ -161,8 +161,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         );
       }
 
-      const isTyped = isFlow;
-      if (!isFlow) {
+      if (!isFlow && opts.allowJs) {
         let code: string;
         code = codeNoExtensions.code as string;
         if (
@@ -196,7 +195,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         }
         if (filesInfo)
           results.push({
-            isTyped,
+            isConverted: false,
             sourceFilePath,
             targetFilePath,
             source,
@@ -325,7 +324,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         isValid = false;
       }
       results.push({
-        isTyped,
+        isConverted: true,
         sourceFilePath,
         targetFilePath,
         source,
@@ -342,12 +341,12 @@ export async function convert(cwd: string, opts: ConvertOptions) {
   spinner.info('renaming converted files');
   totalStr = `${results.length}`;
   currentCount = 0;
-  for (const { isTyped, sourceFilePath, targetFilePath } of results) {
+  for (const { isConverted, sourceFilePath, targetFilePath } of results) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
 
     if (!opts.dryRun) {
       spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-      if (!opts.allowJs || isTyped) {
+      if (isConverted) {
         await fs.rename(sourceFilePath, targetFilePath);
         const maybeJestSnapshotPath = path.join(
           path.dirname(sourceFilePath),
@@ -384,7 +383,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
   totalStr = `${results.length}`;
   currentCount = 0;
   for (const {
-    isTyped,
+    isConverted,
     sourceFilePath,
     targetFilePath,
     source,
@@ -394,7 +393,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
     const currentStr = `${currentCount}`.padStart(totalStr.length, ' ');
     if (!opts.dryRun) {
       spinner.start(`[${currentStr}/${totalStr}] ${sourceFilePath}`);
-      if (isTyped) {
+      if (isConverted) {
         await fs.writeFile(targetFilePath, result);
 
         if (!isValid) {
@@ -412,7 +411,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
   }
 
   const toReview = results
-    .filter(r => !r.isValid && r.isTyped)
+    .filter(r => !r.isValid && r.isConverted)
     .map(r => r.sourceFilePath);
   if (toReview.length) {
     spinner.warn(`Files to review:
@@ -421,8 +420,8 @@ ${toReview.join('\n')}
   }
   // count stats about converted code base
   let cloc = 0;
-  for (const { isTyped, source, isValid } of results) {
-    if (isTyped && isValid) {
+  for (const { isConverted, source, isValid } of results) {
+    if (isConverted && isValid) {
       cloc += source.split(/\r\n|\r|\n/).length;
     }
   }
