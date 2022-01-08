@@ -34,7 +34,7 @@
     "@babel/types": "^7.16.0",
     "@flowts/babel-plugin-recast": "^0.14.0",
     "@zxbodya/babel-plugin-flow-to-typescript": "^0.14.0",
-    "@zxbodya/recast": "0.20.10",
+    "@zxbodya/recast": "0.21.0",
     "babel-plugin-typescript-to-flow": "^0.14.0",
     "commander": "^8.3.0",
     "globby": "^11.0.3",
