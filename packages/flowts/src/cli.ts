@@ -15,6 +15,7 @@ export interface Options {
   readonly interactiveRename: boolean;
   readonly dryRun: boolean;
   readonly legacyImports: boolean;
+  readonly keepAnnotatedJs: boolean;
 }
 
 const program = new commander.Command();
@@ -38,6 +39,11 @@ program
   .option(
     '--no-allow-js',
     'convert all JS files to TypeScript(including without Flow)',
+    false
+  )
+  .option(
+    '--keep-annotated-js',
+    'do not rename js files without types even if there is @flow/@noflow annotation',
     false
   )
   .option(

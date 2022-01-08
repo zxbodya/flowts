@@ -24,6 +24,7 @@ type ConvertOptions = {
   readonly exclude: string[];
   readonly dryRun: boolean;
   readonly legacyImports: boolean;
+  readonly keepAnnotatedJs: boolean;
   renameHook?: () => Promise<void>;
 };
 
@@ -64,7 +65,11 @@ export async function convert(cwd: string, opts: ConvertOptions) {
 
       const fileOptions = detectOptions(source, file);
 
-      const isFlow = fileOptions.hasTypes || fileOptions.isDefinitionFile;
+      const isFlow =
+        fileOptions.hasTypes ||
+        fileOptions.isDefinitionFile ||
+        (!opts.keepAnnotatedJs &&
+          (fileOptions.hasFlowAnnotation || fileOptions.hasNoFlowAnnotation));
 
       const isConverted = isFlow || !opts.allowJs;
 
