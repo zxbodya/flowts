@@ -1,5 +1,5 @@
 import * as babel from '@babel/core';
-import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
+import flowToTSPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
 import { promises as fs } from 'fs';
 import globby from 'globby';
 import * as path from 'path';
@@ -23,6 +23,7 @@ type ConvertOptions = {
   readonly include: string;
   readonly exclude: string[];
   readonly dryRun: boolean;
+  readonly legacyImports: boolean;
   renameHook?: () => Promise<void>;
 };
 
@@ -212,7 +213,10 @@ export async function convert(cwd: string, opts: ConvertOptions) {
           babelrc: false,
           configFile: false,
           filename: sourceFilePath,
-          plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
+          plugins: [
+            ...transformPlugins,
+            [flowToTSPlugin, { isJSX, legacyImports: opts.legacyImports }],
+          ],
           generatorOpts: {
             decoratorsBeforeExport: true,
           },

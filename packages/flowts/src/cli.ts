@@ -14,6 +14,7 @@ export interface Options {
   readonly exclude: string[];
   readonly interactiveRename: boolean;
   readonly dryRun: boolean;
+  readonly legacyImports: boolean;
 }
 
 const program = new commander.Command();
@@ -57,6 +58,11 @@ program
   )
 
   .option('--dry-run', 'Do not save changes after migration', false)
+  .option(
+    '--legacy-imports',
+    'Do not use mixed type/value imports allowed in TS 4.5+',
+    false
+  )
   .parse(process.argv);
 
 const args = program.args;
