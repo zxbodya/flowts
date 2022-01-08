@@ -279,14 +279,19 @@ const visitor: Visitor = {
         }
       }
 
+      const modifiedImports = new Set<t.ImportDeclaration>([]);
       for (const [moduleName, moduleState] of importState) {
         // remove renamed import specifiers
         for (const n of moduleState.named) {
           if (n.toRemove) {
             for (const id of moduleState.importDeclarations) {
-              id.specifiers = id.specifiers.filter(
+              const newSpecifiers = id.specifiers.filter(
                 is => is !== n.importSpecifier
               );
+              if (id.specifiers.length !== newSpecifiers.length) {
+                modifiedImports.add(id);
+              }
+              id.specifiers = newSpecifiers;
             }
           }
         }
@@ -404,7 +409,10 @@ const visitor: Visitor = {
 
       // remove empty type imports
       for (const im of imports) {
-        if (im.node.importKind === 'type' && im.node.specifiers.length === 0) {
+        if (
+          (im.node.importKind === 'type' || modifiedImports.has(im.node)) &&
+          im.node.specifiers.length === 0
+        ) {
           im.remove();
         }
       }

@@ -35,6 +35,19 @@ type A = Node;
       "
     `);
   });
+  test('rename imported in mixed type/value import', () => {
+    // todo: would be nice to preserve type modifier on specifier, instead of replacing the import completely
+    expect(
+      transform(`
+import { type Node } from 'react';
+type A = Node;
+`)
+    ).toMatchInlineSnapshot(`
+      "import type { ReactNode } from \\"react\\";
+      type A = ReactNode;
+      "
+    `);
+  });
   test('namespace and named imports can not be mixed', () => {
     expect(
       transform(`
