@@ -5,6 +5,10 @@ import * as path from 'path';
 import { convert } from './convert';
 import readline from 'readline';
 
+import util from 'util';
+import { exec as exec_cb } from 'child_process';
+const exec = util.promisify(exec_cb);
+
 export interface Options {
   readonly recast: boolean;
   readonly prettier: boolean;
@@ -13,6 +17,7 @@ export interface Options {
   readonly include: string;
   readonly exclude: string[];
   readonly interactiveRename: boolean;
+  readonly commitRenameCommand: string;
   readonly dryRun: boolean;
   readonly legacyImports: boolean;
   readonly keepAnnotatedJs: boolean;
@@ -52,6 +57,11 @@ program
     false
   )
   .option(
+    '--commit-rename-command <commitRenameCommand>',
+    'Command to commit file renames. To be used instead of interactive-rename',
+    ''
+  )
+  .option(
     '-i, --include <includeGlob>',
     'Glob expression of files to include, default: "**/*.{js,mjs,jsx,js.flow}"',
     '**/*.{js,mjs,jsx,js.flow}'
@@ -83,27 +93,39 @@ if (args.length > 1) {
   process.exit(1);
 }
 
-const { exclude: excludeGlobs, interactiveRename, ...restOptions } = opts;
+const {
+  exclude: excludeGlobs,
+  interactiveRename,
+  commitRenameCommand,
+  ...restOptions
+} = opts;
 
 const convertOptions = {
   ...restOptions,
   exclude: ['**/node_modules/**', ...excludeGlobs],
-  renameHook: interactiveRename
-    ? async () => {
-        await new Promise(resolve => {
-          const rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout,
-          });
-          rl.question('Press <enter> to write converted code:', () => {
-            rl.close();
-            resolve(undefined);
-          });
-        });
-      }
-    : async () => {
-        // do not wait - continue to writing the results
-      },
+  renameHook:
+    interactiveRename || commitRenameCommand
+      ? async () => {
+          if (commitRenameCommand) {
+            const { stdout, stderr } = await exec(commitRenameCommand);
+            console.log('stdout:', stdout);
+            console.log('stderr:', stderr);
+          } else {
+            await new Promise(resolve => {
+              const rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout,
+              });
+              rl.question('Press <enter> to write converted code:', () => {
+                rl.close();
+                resolve(undefined);
+              });
+            });
+          }
+        }
+      : async () => {
+          // do not wait - continue to writing the results
+        },
 };
 
 convert(args[0], convertOptions).then(
