@@ -25,7 +25,7 @@ test('argument type', () => {
 test('simple generic', () => {
   const result = testTransform(`const f = <T>(v: T): T => {};`);
   expect(result.babel).toMatchInlineSnapshot(
-    `"const f = <T extends any>(v: T): T => {};"`
+    `"const f = <T extends any,>(v: T): T => {};"`
   );
   expect(result.recast).toMatchInlineSnapshot(
     `"const f = <T extends any>(v: T): T => {};"`
@@ -84,7 +84,7 @@ test('arrow function with type parameters for JSX context', () => {
   b: B,
 ): ?T => {};`);
   expect(result.babel).toMatchInlineSnapshot(
-    `"export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
+    `"export const a = <T extends any,>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
   );
   expect(result.recast).toMatchInlineSnapshot(
     `"export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
