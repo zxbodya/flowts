@@ -27,7 +27,7 @@ program
     'use recast instead of babel generator(warning: not working correctly in some cases)',
     false
   )
-  .option('-P, --no-prettier', 'do not run prettier on converted code', false)
+  .option('-P, --no-prettier', 'do not run prettier on converted code', true)
   .usage('[options] ./path/to/project')
   // .option(
   //   '--interactive-rename',

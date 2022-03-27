@@ -33,7 +33,7 @@
     "@babel/types": "^7.16.7",
     "@zxbodya/recast": "0.21.0",
     "babel-plugin-typescript-to-flow": "^0.15.1",
-    "commander": "^8.3.0",
+    "commander": "^9.1.0",
     "globby": "^11.0.3",
     "jest-diff": "^27.4.6",
     "ora": "^5.4.1",

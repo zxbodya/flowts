@@ -33,18 +33,18 @@ program
   .name('flowts')
   .version(pkg.version)
   .description('Flow to TypeScript migration tool')
-  .option('-R, --no-recast', 'use babel generator instead of recast', false)
-  .option('-P, --no-prettier', 'do not run prettier on converted code', false)
+  .option('-R, --no-recast', 'use babel generator instead of recast', true)
+  .option('-P, --no-prettier', 'do not run prettier on converted code', true)
   .option(
     '--no-gitignore',
     'also convert files which are listed in gitignore files',
-    false
+    true
   )
   .usage('[options] ./path/to/project')
   .option(
     '--no-allow-js',
     'convert all JS files to TypeScript(including without Flow)',
-    false
+    true
   )
   .option(
     '--keep-annotated-js',
