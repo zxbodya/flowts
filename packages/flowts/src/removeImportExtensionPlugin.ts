@@ -5,14 +5,15 @@ export default (
   _babel: any,
   opts: { isConvertedFile?: (source: string) => boolean }
 ) => {
-  const hasJsExtension = (source: string) => /.*\.js$/.test(source);
+  const hasJsExtension = (source: string) =>
+    /.*\.(?:js|js\.flow)$/.test(source);
   const isConvertedFile = opts.isConvertedFile || ((source: string) => true);
 
   function visit(sourceLiteral: t.StringLiteral) {
     const source = sourceLiteral.value;
 
     if (hasJsExtension(source) && isConvertedFile(source)) {
-      sourceLiteral.value = source.replace(/\.js$/, '');
+      sourceLiteral.value = source.replace(/\.(?:js|js\.flow)$/, '');
     }
   }
 
