@@ -1,45 +1,77 @@
 import * as babel from '@babel/core';
-import tsToFlowPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
 import * as prettier from 'prettier';
 import recastPlugin from '@flowts/babel-plugin-recast';
 import tsTypesPlugin from './tsTypesPlugin';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
-import { detectOptions } from './detectOptions';
+import { detectOptions, type SourceOptions } from './detectOptions';
+import flowToTSPlugin from '@zxbodya/babel-plugin-flow-to-typescript';
+import { PluginItem } from '@babel/core';
+import { ParserPlugin } from '@babel/parser';
+
+type Logger = {
+  warn: typeof console.warn;
+};
 
 export async function convertFile(
   source: string,
-  options?: {
+  opts?: {
     sourceFilePath?: string;
     targetFilePath?: string;
     recast?: boolean;
     prettier?: boolean;
     prettierOptions?: prettier.Options;
+    fileOptions?: SourceOptions;
+    legacyImports?: boolean;
+    logger?: Logger;
+    /**
+     * Additional babel plugin codemods with type fixes to apply on converted code.
+     * Each plugin is to be run separately in order they are provided. To avoid possible conflicts.
+     *
+     * Because of the verification step after codemods - changes should be limited to changing only type annotations or comments.
+     * @param opts
+     */
+    getTypeFixesBabelPlugins?: (opts: {
+      isJSX: boolean;
+    }) => PluginItem[] | null | undefined;
+    removeImportExtensions?: boolean;
   }
 ) {
-  const sourceFilePath = options?.sourceFilePath ?? 'source.js';
-  const targetFilePath = options?.targetFilePath ?? 'target.ts';
+  const logger: Logger = opts?.logger ?? console;
+  const removeImportExtensions = opts?.removeImportExtensions ?? true;
+  const sourceFilePath = opts?.sourceFilePath ?? 'source.js';
+  const targetFilePath = opts?.targetFilePath ?? 'target.ts';
   const transformPlugins = [];
-  if (options?.recast ?? true) {
+  if (opts?.recast ?? true) {
     transformPlugins.push(recastPlugin);
   }
 
-  const fileOptions = detectOptions(source, sourceFilePath);
+  const fileOptions =
+    opts?.fileOptions || detectOptions(source, sourceFilePath);
   const isJSX = fileOptions.isJSX;
   const isConvertedFile = () => true;
 
-  const tsSyntax = await babel.transformAsync(source, {
+  const flowParserPlugins: ParserPlugin[] = [];
+  flowParserPlugins.push('flow');
+  if (isJSX) {
+    flowParserPlugins.push('jsx');
+  }
+
+  const tsSyntax = await babel.transformAsync(source as string, {
     compact: false,
     babelrc: false,
     configFile: false,
     filename: sourceFilePath,
-    plugins: [...transformPlugins, [tsToFlowPlugin, { isJSX }]],
+    plugins: [
+      ...transformPlugins,
+      [flowToTSPlugin, { isJSX, legacyImports: !!opts?.legacyImports }],
+    ],
     generatorOpts: {
       decoratorsBeforeExport: true,
     },
     parserOpts: {
       allowReturnOutsideFunction: true,
-      plugins: [...sharedParserPlugins],
+      plugins: [...sharedParserPlugins, ...flowParserPlugins],
     },
   });
 
@@ -49,66 +81,79 @@ export async function convertFile(
     );
   }
 
-  const ts = await babel.transformAsync(tsSyntax.code as string, {
-    compact: false,
-    babelrc: false,
-    configFile: false,
-    filename: targetFilePath,
-    plugins: [
-      ...transformPlugins,
-      [tsTypesPlugin, { isJSX }],
-      [removeImportExtensionPlugin, { isConvertedFile }],
-    ],
-    generatorOpts: {
-      decoratorsBeforeExport: true,
-    },
-    parserOpts: {
-      allowReturnOutsideFunction: true,
-      plugins: ['typescript', ...sharedParserPlugins],
-    },
-  });
+  const postMigrationFixes: PluginItem[] = [];
+  if (removeImportExtensions)
+    postMigrationFixes.push([removeImportExtensionPlugin, { isConvertedFile }]);
+  postMigrationFixes.push([tsTypesPlugin, { isJSX }]);
+  const additionalFixes =
+    opts?.getTypeFixesBabelPlugins && opts.getTypeFixesBabelPlugins({ isJSX });
 
-  if (ts === null) {
-    throw new Error(
-      'babel.transformSync returned null - probably there is some configuration error'
-    );
+  if (additionalFixes) postMigrationFixes.push(...additionalFixes);
+
+  let ts = tsSyntax.code as string;
+  for (const fixPlugin of postMigrationFixes) {
+    const fixResult = await babel.transformAsync(ts as string, {
+      compact: false,
+      babelrc: false,
+      configFile: false,
+      filename: targetFilePath,
+      plugins: [...transformPlugins, fixPlugin],
+      generatorOpts: {
+        decoratorsBeforeExport: true,
+      },
+      parserOpts: {
+        allowReturnOutsideFunction: true,
+        plugins: [
+          'typescript',
+          ...(isJSX ? ['jsx' as const] : []),
+          ...sharedParserPlugins,
+        ],
+      },
+    });
+
+    if (fixResult === null) {
+      throw new Error(
+        'babel.transformSync returned null - probably there is some configuration error'
+      );
+    }
+    ts = fixResult.code as string;
   }
 
-  let result = ts.code as string;
-  if (options?.prettier) {
-    let prettierOptions: prettier.Options = options?.prettierOptions ?? {};
+  let result = ts;
+  if (opts?.prettier) {
+    let prettierConfig: prettier.Options = opts?.prettierOptions ?? {};
     let configFile: string | null | undefined;
     try {
       configFile = await prettier.resolveConfigFile(targetFilePath);
-      prettierOptions = (await prettier.resolveConfig(targetFilePath)) || {};
+      prettierConfig = (await prettier.resolveConfig(targetFilePath)) || {};
     } catch (e) {
       if (!configFile) {
-        console.warn(`failed to find prettier config for ${targetFilePath}`);
+        logger.warn(`failed to find prettier config for ${targetFilePath}`);
       }
     }
 
     try {
-      prettierOptions.parser = prettierOptions.parser ?? 'babel-ts';
+      prettierConfig.parser = 'babel-ts';
       result = prettier.format(result, {
-        ...prettierOptions,
+        ...prettierConfig,
         // avoid changing template strings
         embeddedLanguageFormatting: 'off',
       });
     } catch (e) {
       // retry using different parser - this can be helpful with flow type comments in some edge cases
-      prettierOptions.parser = 'typescript';
+      prettierConfig.parser = 'typescript';
 
       try {
         result = prettier.format(result, {
-          ...prettierOptions,
+          ...prettierConfig,
           // avoid changing template strings
           embeddedLanguageFormatting: 'off',
         });
       } catch (e) {
+        logger.warn('prettier formatting failed');
         console.error(e);
       }
     }
   }
-
   return result;
 }
