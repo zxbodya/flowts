@@ -14,6 +14,7 @@ import { sharedParserPlugins } from './sharedParserPlugins';
 import ora from 'ora';
 import type { ParserPlugin } from '@babel/parser';
 import fixFlowPragmaPlugin from './fixFlowPragmaPlugin';
+import type { PluginItem } from '@babel/core';
 
 type ConvertOptions = {
   readonly recast: boolean;
@@ -26,6 +27,16 @@ type ConvertOptions = {
   readonly legacyImports: boolean;
   readonly keepAnnotatedJs: boolean;
   renameHook?: () => Promise<void>;
+  /**
+   * Additional babel plugin codemods with type fixes to apply on converted code.
+   * Each plugin is to be run separately in order they are provided. To avoid possible conflicts.
+   *
+   * Because of the verification step after codemods - changes should be limited to changing only type annotations or comments.
+   * @param opts
+   */
+  getTypeFixesBabelPlugins?: (opts: {
+    isJSX: boolean;
+  }) => PluginItem[] | null | undefined;
 };
 
 export async function convert(cwd: string, opts: ConvertOptions) {
@@ -238,32 +249,43 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         );
       }
 
-      const ts = await babel.transformAsync(tsSyntax.code as string, {
-        compact: false,
-        babelrc: false,
-        configFile: false,
-        filename: targetFilePath,
-        plugins: [...transformPlugins, [tsTypesPlugin, { isJSX }]],
-        generatorOpts: {
-          decoratorsBeforeExport: true,
-        },
-        parserOpts: {
-          allowReturnOutsideFunction: true,
-          plugins: [
-            'typescript',
-            ...(isJSX ? ['jsx' as const] : []),
-            ...sharedParserPlugins,
-          ],
-        },
-      });
+      const postMigrationFixes: PluginItem[] = [[tsTypesPlugin, { isJSX }]];
+      const additionalFixes =
+        opts.getTypeFixesBabelPlugins &&
+        opts.getTypeFixesBabelPlugins({ isJSX });
 
-      if (ts === null) {
-        throw new Error(
-          'babel.transformSync returned null - probably there is some configuration error'
-        );
+      if (additionalFixes) postMigrationFixes.push(...additionalFixes);
+
+      let ts = tsSyntax.code as string;
+      for (const fixPlugin of postMigrationFixes) {
+        const fixResult = await babel.transformAsync(tsSyntax.code as string, {
+          compact: false,
+          babelrc: false,
+          configFile: false,
+          filename: targetFilePath,
+          plugins: [...transformPlugins, fixPlugin],
+          generatorOpts: {
+            decoratorsBeforeExport: true,
+          },
+          parserOpts: {
+            allowReturnOutsideFunction: true,
+            plugins: [
+              'typescript',
+              ...(isJSX ? ['jsx' as const] : []),
+              ...sharedParserPlugins,
+            ],
+          },
+        });
+
+        if (fixResult === null) {
+          throw new Error(
+            'babel.transformSync returned null - probably there is some configuration error'
+          );
+        }
+        ts = fixResult.code as string;
       }
 
-      let result = ts.code as string;
+      let result = ts;
       if (opts.prettier) {
         let prettierConfig: prettier.Options = {};
         let configFile: string | null | undefined;
