@@ -5,6 +5,7 @@ import recastPlugin from '@flowts/babel-plugin-recast';
 import tsTypesPlugin from './tsTypesPlugin';
 import removeImportExtensionPlugin from './removeImportExtensionPlugin';
 import { sharedParserPlugins } from './sharedParserPlugins';
+import { detectOptions } from './detectOptions';
 
 export async function convertFile(
   source: string,
@@ -22,7 +23,9 @@ export async function convertFile(
   if (options?.recast ?? true) {
     transformPlugins.push(recastPlugin);
   }
-  const isJSX = false;
+
+  const fileOptions = detectOptions(source, sourceFilePath);
+  const isJSX = fileOptions.isJSX;
   const isConvertedFile = () => true;
 
   const tsSyntax = await babel.transformAsync(source, {
