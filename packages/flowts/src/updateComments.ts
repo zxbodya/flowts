@@ -5,7 +5,8 @@ import traverse from '@babel/traverse';
 
 export type CommentOperation =
   | { type: 'remove' }
-  | { type: 'replace'; code: string };
+  | { type: 'replace'; code: string }
+  | { type: 'skip' };
 
 type CommentWithOperation = { comment: t.Comment; operation: CommentOperation };
 
@@ -71,10 +72,13 @@ export function updateComments(
     },
   });
   comments = [...new Set(comments)];
-  const operations: Array<CommentWithOperation> = comments.map(comment => ({
-    comment,
-    operation: transform(comment),
-  }));
+  const operations: Array<CommentWithOperation> = comments
+    .map(comment => ({
+      comment,
+      operation: transform(comment),
+    }))
+    .filter(({ operation }) => operation.type !== 'skip');
+
   operations.sort((a, b) => a.comment.start - b.comment.start);
 
   const parts = [];

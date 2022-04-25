@@ -3,7 +3,8 @@
   "version": "0.15.4",
   "description": "Utility script to convert flow typed code to typescript",
   "bin": {
-    "flowts": "./bin/flowts.js"
+    "flowts": "./bin/flowts.js",
+    "flowts-uncomment-flow-types": "./bin/flowts-uncomment-flow-types.js"
   },
   "main": "dist/index.js",
   "scripts": {
