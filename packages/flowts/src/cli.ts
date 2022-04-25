@@ -79,6 +79,16 @@ program
     'Do not use mixed type/value imports allowed in TS 4.5+',
     false
   )
+  .option(
+    '--remove-all-import-extensions',
+    'When enabled - removes all converted file extensions in relative imports (by default only extensions for converted files are removed)',
+    false
+  )
+  .option(
+    '--keep-import-extensions',
+    'Disables removal of converted file extensions in imports for converted files(can to result in unresolved imports, if for example ".js" was in import for converted file)',
+    false
+  )
   .parse(process.argv);
 
 const args = program.args;

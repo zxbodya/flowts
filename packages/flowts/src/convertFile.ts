@@ -49,7 +49,9 @@ export async function convertFile(
   const fileOptions =
     opts?.fileOptions || detectOptions(source, sourceFilePath);
   const isJSX = fileOptions.isJSX;
-  const isConvertedFile = () => true;
+  const isConvertedFile = (source: string) => {
+    return /^\./.test(source);
+  };
 
   const flowParserPlugins: ParserPlugin[] = [];
   flowParserPlugins.push('flow');

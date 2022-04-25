@@ -20,7 +20,7 @@ export function verify(
   isJSX: boolean,
   filename: string,
   target: string,
-  isConvertedFile: (source: string) => boolean | undefined
+  isConvertedFile: false | ((source: string) => boolean | undefined)
 ) {
   const jsxPlugin = isJSX ? (['jsx'] as const) : [];
 
@@ -57,7 +57,9 @@ export function verify(
       decoratorsBeforeExport: true,
     },
     plugins: [
-      [removeImportExtensionPlugin, { isConvertedFile }],
+      ...(isConvertedFile
+        ? [[removeImportExtensionPlugin, { isConvertedFile }]]
+        : []),
       removeEmptyExportPlugin,
     ],
     parserOpts: {

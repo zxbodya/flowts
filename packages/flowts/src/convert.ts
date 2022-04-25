@@ -24,6 +24,8 @@ type ConvertOptions = {
   readonly dryRun: boolean;
   readonly legacyImports: boolean;
   readonly keepAnnotatedJs: boolean;
+  readonly removeAllImportExtensions?: boolean;
+  readonly keepImportExtensions?: boolean;
   renameHook?: () => Promise<void>;
   /**
    * Additional babel plugin codemods with type fixes to apply on converted code.
@@ -109,7 +111,6 @@ export async function convert(cwd: string, opts: ConvertOptions) {
     isValid: boolean;
   }> = [];
 
-  const prettierConfigWarnings = new Set<string>();
   totalStr = `${files.length}`;
   currentCount = 0;
   for (const file of files) {
@@ -139,6 +140,10 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       const targetFilePath = path.join(cwd, targetFileName);
 
       const isConvertedFile = (source: string) => {
+        if (opts.removeAllImportExtensions) {
+          return /^\./.test(source);
+        }
+
         const normalizedPath = path
           .resolve(path.dirname(sourceFilePath), source)
           .substr(path.resolve(cwd).length + 1);
@@ -152,23 +157,27 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       if (isJSX) {
         flowParserPlugins.push('jsx');
       }
-      const codeNoExtensions = await babel.transformAsync(source, {
-        compact: false,
-        babelrc: false,
-        configFile: false,
-        filename: sourceFilePath,
-        plugins: [
-          ...transformPlugins,
-          [removeImportExtensionPlugin, { isConvertedFile }],
-        ],
-        generatorOpts: {
-          decoratorsBeforeExport: true,
-        },
-        parserOpts: {
-          allowReturnOutsideFunction: true,
-          plugins: [...sharedParserPlugins, ...flowParserPlugins],
-        },
-      });
+      const codeNoExtensions = opts.keepImportExtensions
+        ? source
+        : ((
+            await babel.transformAsync(source, {
+              compact: false,
+              babelrc: false,
+              configFile: false,
+              filename: sourceFilePath,
+              plugins: [
+                ...transformPlugins,
+                [removeImportExtensionPlugin, { isConvertedFile }],
+              ],
+              generatorOpts: {
+                decoratorsBeforeExport: true,
+              },
+              parserOpts: {
+                allowReturnOutsideFunction: true,
+                plugins: [...sharedParserPlugins, ...flowParserPlugins],
+              },
+            })
+          )?.code as string);
 
       if (codeNoExtensions === null) {
         throw new Error(
@@ -178,28 +187,25 @@ export async function convert(cwd: string, opts: ConvertOptions) {
 
       if (!isFlow && opts.allowJs) {
         let code: string;
-        code = codeNoExtensions.code as string;
+        code = codeNoExtensions;
         if (
           info.fileOptions.hasFlowAnnotation ||
           info.fileOptions.hasNoFlowAnnotation
         ) {
-          const fixed = await babel.transformAsync(
-            codeNoExtensions.code as string,
-            {
-              compact: false,
-              babelrc: false,
-              configFile: false,
-              filename: sourceFilePath,
-              plugins: [...transformPlugins, fixFlowPragmaPlugin],
-              generatorOpts: {
-                decoratorsBeforeExport: true,
-              },
-              parserOpts: {
-                allowReturnOutsideFunction: true,
-                plugins: [...sharedParserPlugins, ...flowParserPlugins],
-              },
-            }
-          );
+          const fixed = await babel.transformAsync(codeNoExtensions, {
+            compact: false,
+            babelrc: false,
+            configFile: false,
+            filename: sourceFilePath,
+            plugins: [...transformPlugins, fixFlowPragmaPlugin],
+            generatorOpts: {
+              decoratorsBeforeExport: true,
+            },
+            parserOpts: {
+              allowReturnOutsideFunction: true,
+              plugins: [...sharedParserPlugins, ...flowParserPlugins],
+            },
+          });
 
           if (fixed === null) {
             throw new Error(
@@ -220,7 +226,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         continue;
       }
 
-      const result = await convertFile(codeNoExtensions.code as string, {
+      const result = await convertFile(codeNoExtensions, {
         sourceFilePath,
         targetFilePath,
         recast: opts.recast,
@@ -241,7 +247,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         isJSX,
         sourceFilePath,
         targetFilePath,
-        isConvertedFile
+        opts.keepImportExtensions ? false : isConvertedFile
       );
 
       let isValid = true;
