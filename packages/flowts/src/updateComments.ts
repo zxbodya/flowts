@@ -90,7 +90,10 @@ export function updateComments(
       // comment is skipped
       if (comment.type === 'CommentLine') {
         // if there is empty line to be in place of removed comment line - remove it
-        parts[parts.length - 1] = parts[parts.length - 1].replace(/\n\s*$/, '');
+        parts[parts.length - 1] = parts[parts.length - 1].replace(
+          /\n(?: |\t)*$/,
+          ''
+        );
       }
       if (comment.type === 'CommentBlock') {
         const rest = source.substring(comment.end);
@@ -98,7 +101,7 @@ export function updateComments(
         if (/^\s*\n/.test(rest)) {
           // if there is empty line to be in place of removed comment line - remove it
           parts[parts.length - 1] = parts[parts.length - 1].replace(
-            /\n\s*$/,
+            /\n(?: |\t)*$/,
             ''
           );
         }

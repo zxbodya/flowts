@@ -27,6 +27,38 @@ describe('updateComments', function () {
     `);
   });
 
+  test('keep empty lines when removing comments', () => {
+    expect(
+      updateComments(
+        `
+        // hello
+        const a = 1;
+
+        /* here */
+        export { a };
+
+        // it was
+        export default 1;
+    `,
+        () => {
+          return { type: 'remove' };
+        },
+        {
+          syntax: 'typescript',
+          isJSX: true,
+        }
+      )
+    ).toMatchInlineSnapshot(`
+      "
+              const a = 1;
+
+              export { a };
+
+              export default 1;
+          "
+    `);
+  });
+
   test('replace comments', () => {
     expect(
       updateComments(
@@ -65,7 +97,7 @@ describe('updateComments', function () {
                 PluginOptions,
               } from \\"@parcel/types\\";
               import type { SchemaEntity } from \\"@parcel/utils\\";
-
+            
               const a = 1;
               export { a };
           "
