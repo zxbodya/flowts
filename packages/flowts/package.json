@@ -1,6 +1,6 @@
 {
   "name": "flowts",
-  "version": "0.15.5",
+  "version": "0.15.6",
   "description": "Utility script to convert flow typed code to typescript",
   "bin": {
     "flowts": "./bin/flowts.js",
