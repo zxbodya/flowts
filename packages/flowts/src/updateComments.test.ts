@@ -21,11 +21,8 @@ describe('updateComments', function () {
       )
     ).toMatchInlineSnapshot(`
       "
-              
               const a = 1;
-              
               export { a };
-              
           "
     `);
   });
@@ -68,7 +65,7 @@ describe('updateComments', function () {
                 PluginOptions,
               } from \\"@parcel/types\\";
               import type { SchemaEntity } from \\"@parcel/utils\\";
-            
+
               const a = 1;
               export { a };
           "

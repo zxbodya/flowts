@@ -88,6 +88,21 @@ export function updateComments(
     parts.push(source.substring(start, comment.start));
     if (operation.type === 'remove') {
       // comment is skipped
+      if (comment.type === 'CommentLine') {
+        // if there is empty line to be in place of removed comment line - remove it
+        parts[parts.length - 1] = parts[parts.length - 1].replace(/\n\s*$/, '');
+      }
+      if (comment.type === 'CommentBlock') {
+        const rest = source.substring(comment.end);
+        // check if there are other code in the line after the comment
+        if (/^\s*\n/.test(rest)) {
+          // if there is empty line to be in place of removed comment line - remove it
+          parts[parts.length - 1] = parts[parts.length - 1].replace(
+            /\n\s*$/,
+            ''
+          );
+        }
+      }
     } else if (operation.type === 'replace') {
       // replacement
       parts.push(operation.code);
