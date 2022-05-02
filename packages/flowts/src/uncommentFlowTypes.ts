@@ -100,7 +100,7 @@ async function uncommentFlowTypes(
       const result = updateComments(
         source,
         comment => {
-          const longExp = /^(?:::|flow-include\s)\s*(.*)$/s;
+          const longExp = /^\s*(?:::|flow-include\s)\s*(.*)$/s;
           // /*::
           // type MyAlias = {
           //   foo: number,
