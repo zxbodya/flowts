@@ -31,7 +31,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "@babel/traverse": "^7.18.2",
     "@babel/types": "^7.18.2",
-    "@zxbodya/recast": "0.21.0",
+    "@zxbodya/recast": "0.21.2",
     "babel-plugin-typescript-to-flow": "^0.15.8",
     "commander": "^9.3.0",
     "globby": "^11.0.3",

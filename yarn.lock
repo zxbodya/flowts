@@ -2475,10 +2475,10 @@
     "@typescript-eslint/types" "5.26.0"
     eslint-visitor-keys "^3.3.0"
 
-"@zxbodya/recast@0.21.0":
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/@zxbodya/recast/-/recast-0.21.0.tgz#6a345a9b7a32c79359b187cd302b9385b6ffeeec"
-  integrity sha512-wmQe8f3K2T+r5FhxNsa+1bgOL00wD6taCWpi/EN6u01+WVmJvRhGdbWDhfcYOkMLQocKDmaJXqopXjw0rjWPfw==
+"@zxbodya/recast@0.21.2":
+  version "0.21.2"
+  resolved "https://registry.yarnpkg.com/@zxbodya/recast/-/recast-0.21.2.tgz#502c7ef6e6dabb53d90262521c44244080c0c2f3"
+  integrity sha512-jgERgEXJk89VmNJfK6OoJmAX4eJYGk1HD6gWrTjEOnXkGJlHJptwB9eDNBASVQk+H0Cai/LTeMrPcLwKCcrS1Q==
   dependencies:
     ast-types "0.15.2"
     esprima "~4.0.0"
