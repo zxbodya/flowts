@@ -1,7 +1,6 @@
 import { PluginObj, Visitor } from '@babel/core';
 import * as t from '@babel/types';
 
-
 const jestModuleNameUsages = new Set([
   'mock',
   'unmock',

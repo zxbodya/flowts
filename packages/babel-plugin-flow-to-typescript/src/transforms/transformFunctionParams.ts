@@ -13,7 +13,9 @@ function cleanupPattern(pattern: t.Pattern): boolean {
   if (t.isArrayPattern(pattern)) {
     for (const element of pattern.elements) {
       if (!element) continue;
+      // @ts-expect-error
       if (element.typeAnnotation) {
+        // @ts-expect-error
         element.typeAnnotation = t.noop();
         removedType = true;
       }
