@@ -39,10 +39,22 @@ const a = import('./a.js');
   test('jest.mock', () => {
     expect(
       transform(`
-const a = jest.mock('./a.js');
+jest.mock('./a.js');
+jest.unmock('./a.js');
+jest.doMock('./a.js');
+jest.dontMock('./a.js');
+jest.setMock('./a.js');
+jest.requireActual('./a.js');
+jest.requireMock('./a.js');
 `)
     ).toMatchInlineSnapshot(`
-      "const a = jest.mock(\\"./a\\");
+      "jest.mock(\\"./a\\");
+      jest.unmock(\\"./a\\");
+      jest.doMock(\\"./a\\");
+      jest.dontMock(\\"./a\\");
+      jest.setMock(\\"./a\\");
+      jest.requireActual(\\"./a\\");
+      jest.requireMock(\\"./a\\");
       "
     `);
   });

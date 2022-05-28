@@ -1,6 +1,17 @@
 import { PluginObj, Visitor } from '@babel/core';
 import * as t from '@babel/types';
 
+
+const jestModuleNameUsages = new Set([
+  'mock',
+  'unmock',
+  'doMock',
+  'dontMock',
+  'setMock',
+  'requireActual',
+  'requireMock',
+]);
+
 export default (
   _babel: any,
   opts: { isConvertedFile?: (source: string) => boolean }
@@ -32,7 +43,7 @@ export default (
         t.isIdentifier(path.node.callee.object) &&
         path.node.callee.object.name === 'jest' &&
         t.isIdentifier(path.node.callee.property) &&
-        path.node.callee.property.name === 'mock' &&
+        jestModuleNameUsages.has(path.node.callee.property.name) &&
         t.isStringLiteral(path.node.arguments[0])
       ) {
         visit(path.node.arguments[0]);
