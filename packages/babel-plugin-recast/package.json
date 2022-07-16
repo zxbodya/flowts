@@ -27,7 +27,7 @@
     "@babel/types": "^7.10.4"
   },
   "dependencies": {
-    "@zxbodya/recast": "0.21.2"
+    "@zxbodya/recast": "0.21.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
