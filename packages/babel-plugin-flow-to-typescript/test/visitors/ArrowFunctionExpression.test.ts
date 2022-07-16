@@ -70,12 +70,8 @@ test('rest parameters', () => {
 
 test('arrow function with type parameters for JSX context', () => {
   const result = testTransform(`const a = <T, R>(v: T) => v;`);
-  expect(result.babel).toMatchInlineSnapshot(
-    `"const a = <T extends any, R>(v: T) => v;"`
-  );
-  expect(result.recast).toMatchInlineSnapshot(
-    `"const a = <T extends any, R>(v: T) => v;"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"const a = <T, R>(v: T) => v;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"const a = <T, R>(v: T) => v;"`);
 });
 
 test('arrow function with type parameters for JSX context', () => {
@@ -88,6 +84,19 @@ test('arrow function with type parameters for JSX context', () => {
   );
   expect(result.recast).toMatchInlineSnapshot(
     `"export const a = <T extends any>(a: A<T> | undefined | null, b: B): T | undefined | null => {};"`
+  );
+});
+
+test('arrow function with type parameters for JSX context two type args', () => {
+  const result = testTransform(`export const a = <T,R>(
+  a?: A<T>,
+  b: R,
+): ?T => {};`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"export const a = <T, R>(a: A<T> | undefined | null, b: R): T | undefined | null => {};"`
+  );
+  expect(result.recast).toMatchInlineSnapshot(
+    `"export const a = <T, R>(a: A<T> | undefined | null, b: R): T | undefined | null => {};"`
   );
 });
 

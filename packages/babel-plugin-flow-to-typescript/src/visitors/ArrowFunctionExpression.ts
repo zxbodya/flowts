@@ -17,7 +17,7 @@ export function ArrowFunctionExpression(
     const tsTypeParameterDeclaration = convertTypeParameterDeclaration(
       path.node.typeParameters
     );
-    if (state.opts.isJSX) {
+    if (state.opts.isJSX && tsTypeParameterDeclaration.params.length === 1) {
       // workaround for tsx files to differentiate type parameters from jsx
       tsTypeParameterDeclaration.params[0].constraint = t.tsAnyKeyword();
     }
