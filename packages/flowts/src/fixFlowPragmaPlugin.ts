@@ -26,7 +26,6 @@ export default (
         firstNode.leadingComments &&
         firstNode.leadingComments.length
       ) {
-        // @ts-expect-error recast support
         updateFlowPragma(firstNode.leadingComments);
       }
       // @ts-expect-error recast support

@@ -79,7 +79,7 @@ export function updateComments(
     }))
     .filter(({ operation }) => operation.type !== 'skip');
 
-  operations.sort((a, b) => a.comment.start - b.comment.start);
+  operations.sort((a, b) => (a.comment.start ?? 0) - (b.comment?.start ?? 0));
 
   const parts = [];
   let start = 0;
@@ -96,7 +96,7 @@ export function updateComments(
         );
       }
       if (comment.type === 'CommentBlock') {
-        const rest = source.substring(comment.end);
+        const rest = source.substring(comment.end ?? 0);
         // check if there are other code in the line after the comment
         if (/^\s*\n/.test(rest)) {
           // if there is empty line to be in place of removed comment line - remove it
@@ -110,7 +110,7 @@ export function updateComments(
       // replacement
       parts.push(operation.code);
     }
-    start = comment.end;
+    start = comment.end ?? 0;
   }
   // remaining code till end of file
   parts.push(source.substring(start));

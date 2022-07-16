@@ -15,6 +15,7 @@ export function ExportDefaultDeclaration(
     const { typeParams, parameters, rest, returnType } =
       convertFunctionTypeAnnotation(srcDeclaration);
 
+    // @ts-expect-error bug in @babel/types
     const id = t.identifier(srcDeclaration?.id?.name || 'fn');
     id.typeAnnotation = t.typeAnnotation(
       t.functionTypeAnnotation(

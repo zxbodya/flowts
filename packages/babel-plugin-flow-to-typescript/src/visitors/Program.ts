@@ -3,6 +3,7 @@ import { NodePath } from '@babel/traverse';
 import helperTypes from '../helperTypes';
 import { warnOnlyOnce } from '../utils/warnOnlyOnce';
 import { PluginPass } from '../types';
+import { convertDeclareFunction } from '../converters/convertDeclareFunction';
 
 const FLOW_PRAGMA_LINE_EXP = /^\s*\*?\s*@flow(?: strict| strict-local)?\s*$/;
 
@@ -36,7 +37,6 @@ export const Program = {
       firstNode.leadingComments &&
       firstNode.leadingComments.length
     ) {
-      // @ts-expect-error recast support
       updateFlowPragma(firstNode.leadingComments);
     }
     // @ts-expect-error recast support
@@ -193,7 +193,14 @@ export const Program = {
           }
           if (func.isDefaultExport) {
             if (!t.isExportDefaultDeclaration(decl.parent)) {
-              decl.replaceWith(t.exportDefaultDeclaration(decl.node));
+              decl.replaceWith(
+                // todo: t.exportDefaultDeclaration(decl.node)
+                {
+                  type: 'ExportDefaultDeclaration',
+                  // @ts-expect-error bug in @babel/types
+                  declaration: decl.node,
+                }
+              );
             }
           }
         }
