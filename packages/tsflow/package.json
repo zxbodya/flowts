@@ -1,6 +1,6 @@
 {
   "name": "tsflow",
-  "version": "0.15.9-alpha.1",
+  "version": "0.15.9",
   "description": "Utility script to convert typescript code to flow",
   "bin": {
     "tsflow": "./bin/tsflow.js"
@@ -32,7 +32,7 @@
     "@babel/traverse": "^7.18.8",
     "@babel/types": "^7.18.8",
     "@zxbodya/recast": "0.21.3",
-    "babel-plugin-typescript-to-flow": "^0.15.9-alpha.1",
+    "babel-plugin-typescript-to-flow": "^0.15.9",
     "commander": "^9.4.0",
     "globby": "^11.0.3",
     "jest-diff": "^28.1.3",
@@ -45,7 +45,7 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
-    "@flowts/babel-plugin-recast": "^0.15.9-alpha.1",
+    "@flowts/babel-plugin-recast": "^0.15.9",
     "@types/babel__core": "^7.1.18",
     "@types/babel__traverse": "7.17.1",
     "@types/jest": "^28.1.6",
