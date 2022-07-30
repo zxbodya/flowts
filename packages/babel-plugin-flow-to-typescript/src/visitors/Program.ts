@@ -193,14 +193,7 @@ export const Program = {
           }
           if (func.isDefaultExport) {
             if (!t.isExportDefaultDeclaration(decl.parent)) {
-              decl.replaceWith(
-                // todo: t.exportDefaultDeclaration(decl.node)
-                {
-                  type: 'ExportDefaultDeclaration',
-                  // @ts-expect-error bug in @babel/types
-                  declaration: decl.node,
-                }
-              );
+              decl.replaceWith(t.exportDefaultDeclaration(decl.node));
             }
           }
         }

@@ -58,7 +58,6 @@ export function convertTSTypeElements(elements: Array<t.TSTypeElement>) {
           returnType ? returnType : t.anyTypeAnnotation()
         )
       );
-      // @ts-ignore todo: @babel-types
       prop.method = true;
       if (member.optional) {
         prop.optional = true;

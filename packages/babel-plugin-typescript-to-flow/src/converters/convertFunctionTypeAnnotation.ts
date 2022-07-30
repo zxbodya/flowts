@@ -58,7 +58,7 @@ export function convertFunctionTypeAnnotation(
       }
     } else if (t.isRestElement(param)) {
       rest = t.functionTypeParam(
-        // @ts-ignore todo:
+        // @ts-expect-error todo:
         param.argument,
         convertTSType(
           (param.typeAnnotation as t.TSTypeAnnotation).typeAnnotation

@@ -12,7 +12,6 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
     const node: t.Node = elementPath.node;
     if (t.isClassProperty(node)) {
       if (node.readonly) {
-        // @ts-ignore todo: @babel/types
         node.variance = t.variance('plus');
         node.readonly = null;
       }

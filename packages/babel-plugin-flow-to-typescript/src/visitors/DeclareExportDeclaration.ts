@@ -23,13 +23,9 @@ export function DeclareExportDeclaration(
       throw path.buildCodeFrameError('todo: declaration is missing');
     }
     if (t.isDeclareFunction(node.declaration)) {
-      // todo:
-      // replacement = t.exportDefaultDeclaration(
-      replacement = {
-        type: 'ExportDefaultDeclaration',
-        // @ts-expect-error bug in @babel/types
-        declaration: convertDeclareFunction(node.declaration),
-      };
+      replacement = t.exportDefaultDeclaration(
+        convertDeclareFunction(node.declaration)
+      );
       replaceWith(path, replacement);
     } else if (t.isDeclareClass(node.declaration)) {
       replacement = t.exportDefaultDeclaration(
