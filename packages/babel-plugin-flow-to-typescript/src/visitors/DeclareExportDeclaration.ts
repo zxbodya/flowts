@@ -44,13 +44,15 @@ export function DeclareExportDeclaration(
 
       const aliasId = t.identifier('__default');
 
+      const variableDeclaration = t.variableDeclaration('let', [
+        t.variableDeclarator({
+          ...aliasId,
+          typeAnnotation: t.tsTypeAnnotation(declaration),
+        }),
+      ]);
+      variableDeclaration.declare = !state.get('isModuleDeclaration');
       path.replaceWithMultiple([
-        t.variableDeclaration('let', [
-          t.variableDeclarator({
-            ...aliasId,
-            typeAnnotation: t.tsTypeAnnotation(declaration),
-          }),
-        ]),
+        variableDeclaration,
         t.exportDefaultDeclaration(aliasId),
       ]);
     }

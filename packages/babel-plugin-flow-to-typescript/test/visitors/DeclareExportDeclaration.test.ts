@@ -36,6 +36,21 @@ test('declare module with a bit of everything', () => {
   `);
 });
 
+test('declare export in module', () => {
+  const result = testTransform(`
+  declare export default string;
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "declare let __default: string;
+
+    export default __default;"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "declare let __default: string;
+    export default __default;"
+  `);
+});
+
 test('export default', () => {
   const result = testTransform(`declare module 'react' {
   declare export default function isValidElement(element: any): boolean;
@@ -100,24 +115,24 @@ declare export class Hash {
 }
 `);
   expect(result.babel).toMatchInlineSnapshot(`
-"export declare var init: Promise<void>;
-export declare function hashString(s: string): string;
-export declare function hashBuffer(b: Buffer): string;
-export declare class Hash {
-  writeString(s: string): void;
-  writeBuffer(b: Buffer): void;
-  finish(): string;
-}"
-`);
+    "export declare var init: Promise<void>;
+    export declare function hashString(s: string): string;
+    export declare function hashBuffer(b: Buffer): string;
+    export declare class Hash {
+      writeString(s: string): void;
+      writeBuffer(b: Buffer): void;
+      finish(): string;
+    }"
+  `);
   expect(result.recast).toMatchInlineSnapshot(`
-"export declare var init: Promise<void>;
-export declare function hashString(s: string): string;
-export declare function hashBuffer(b: Buffer): string;
+    "export declare var init: Promise<void>;
+    export declare function hashString(s: string): string;
+    export declare function hashBuffer(b: Buffer): string;
 
-export declare class Hash {
-  writeString(s: string): void;
-  writeBuffer(b: Buffer): void;
-  finish(): string;
-}"
-`);
+    export declare class Hash {
+      writeString(s: string): void;
+      writeBuffer(b: Buffer): void;
+      finish(): string;
+    }"
+  `);
 });
