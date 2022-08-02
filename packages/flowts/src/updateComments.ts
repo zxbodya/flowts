@@ -131,7 +131,11 @@ export function updateComments(
   // remaining code till end of file
   parts.push(source.substring(start));
 
-  return parts.join('');
+  let result = parts.join('');
+  if (result[0] === '\n' && source[0] !== '\n') {
+    result = result.substring(1);
+  }
+  return result;
 }
 //
 // const USELESS_FLOW_COMMENT_EXPS = [

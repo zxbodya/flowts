@@ -133,4 +133,41 @@ describe('updateComments', function () {
           "
     `);
   });
+
+  test('removing comments - no empty line at file start', () => {
+    expect(
+      updateComments(
+        `// hello
+        const a = 1;
+    `,
+        () => {
+          return { type: 'remove' };
+        },
+        {
+          syntax: 'typescript',
+          isJSX: true,
+        }
+      )
+    ).toMatchInlineSnapshot(`
+      "        const a = 1;
+          "
+    `);
+    expect(
+      updateComments(
+        `/* hello */
+        const a = 1;
+    `,
+        () => {
+          return { type: 'remove' };
+        },
+        {
+          syntax: 'typescript',
+          isJSX: true,
+        }
+      )
+    ).toMatchInlineSnapshot(`
+      "        const a = 1;
+          "
+    `);
+  });
 });
