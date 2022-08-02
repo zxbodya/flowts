@@ -83,6 +83,7 @@ export function updateComments(
 
   const parts = [];
   let start = 0;
+  let removeBrace = false;
   for (const { comment, operation } of operations) {
     // code before comment
     parts.push(source.substring(start, comment.start));
@@ -104,6 +105,16 @@ export function updateComments(
             /\n(?: |\t)*$/,
             ''
           );
+        } else {
+          // check if comment was inside jsx empty expression - {/* something */}
+          if (/^}\s*\n/.test(rest) && /{$/.test(parts[parts.length - 1])) {
+            // if there is empty line to be in place of removed comment line - remove it
+            parts[parts.length - 1] = parts[parts.length - 1].replace(
+              /\n(?: |\t)*{$/,
+              ''
+            );
+            removeBrace = true;
+          }
         }
       }
     } else if (operation.type === 'replace') {
@@ -111,6 +122,11 @@ export function updateComments(
       parts.push(operation.code);
     }
     start = comment.end ?? 0;
+    if (removeBrace) {
+      // pending "}" to be removed in jsx
+      removeBrace = false;
+      start += 1;
+    }
   }
   // remaining code till end of file
   parts.push(source.substring(start));

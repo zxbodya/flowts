@@ -103,4 +103,34 @@ describe('updateComments', function () {
           "
     `);
   });
+
+  test('removing comments in jsx', () => {
+    expect(
+      updateComments(
+        `
+        let a = (
+          <div>
+            {/* comment to remove */}
+            <Hello/>
+          </div>
+        );
+    `,
+        () => {
+          return { type: 'remove' };
+        },
+        {
+          syntax: 'typescript',
+          isJSX: true,
+        }
+      )
+    ).toMatchInlineSnapshot(`
+      "
+              let a = (
+                <div>
+                  <Hello/>
+                </div>
+              );
+          "
+    `);
+  });
 });
