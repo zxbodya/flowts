@@ -14,10 +14,15 @@ export function ClassDeclaration(
 
   const superTypeParameters = node.superTypeParameters;
   if (t.isTypeParameterInstantiation(superTypeParameters)) {
-    replaceWith(
-      path.get('superTypeParameters') as NodePath,
-      convertTypeParameterInstantiation(superTypeParameters)
-    );
+    if (superTypeParameters.params.length) {
+      replaceWith(
+        path.get('superTypeParameters') as NodePath,
+        convertTypeParameterInstantiation(superTypeParameters)
+      );
+    } else {
+      // empty node.superTypeParameters is not valid in typescript and so has to be removed
+      node.superTypeParameters = null;
+    }
   }
 
   const typeParameters = node.typeParameters;

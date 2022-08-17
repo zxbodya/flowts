@@ -64,15 +64,13 @@ test('Classes with decorators are transformed', () => {
     `
   );
   expect(result.babel).toMatchInlineSnapshot(`
-"@injectIntel
-export class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}"
-`);
-  expect(result.recast).toMatchInlineSnapshot(
-    `
+    "@injectIntel
+    export class C extends React.Component<string | undefined | null, (string | boolean) | undefined | null> {}"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
     "@injectIntel
     export class C extends React.Component<string | undefined | null, string | boolean | undefined | null> {}"
-    `
-  );
+    `);
 });
 
 test('Class declaration types are transformed', () => {
@@ -259,31 +257,41 @@ export default class A {
 }
 `);
   expect(result.babel).toMatchInlineSnapshot(`
-"export default class A {
-  get #a(): number {
-    return 1;
-  }
+    "export default class A {
+      get #a(): number {
+        return 1;
+      }
 
-  set #a(value: number) {}
+      set #a(value: number) {}
 
-  set #b(value: number) {}
+      set #b(value: number) {}
 
-  set #c(value: number | undefined | null) {}
+      set #c(value: number | undefined | null) {}
 
-  #d: number;
-  #s: string | undefined | null;
-}"
-`);
+      #d: number;
+      #s: string | undefined | null;
+    }"
+  `);
   expect(result.recast).toMatchInlineSnapshot(`
-"export default class A {
-  get #a(): number {
-    return 1;
-  }
-  set #a(value: number) {}
-  set #b(value: number) {}
-  set #c(value: number | undefined | null) {}
-  #d: number;
-  #s: string | undefined | null;
-}"
+    "export default class A {
+      get #a(): number {
+        return 1;
+      }
+      set #a(value: number) {}
+      set #b(value: number) {}
+      set #c(value: number | undefined | null) {}
+      #d: number;
+      #s: string | undefined | null;
+    }"
+  `);
+});
+
+test('remove empty superTypeParametersInstantiation', () => {
+  const result = testTransform(`
+// @flow
+
+class A extends B<> {}
 `);
+  expect(result.babel).toMatchInlineSnapshot(`"class A extends B {}"`);
+  expect(result.recast).toMatchInlineSnapshot(`"class A extends B {}"`);
 });
