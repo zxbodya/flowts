@@ -27,6 +27,7 @@ import { ExportAllDeclaration } from './visitors/ExportAllDeclaration';
 import { ObjectMethod } from './visitors/ObjectMethod';
 import { DeclareExportAllDeclaration } from './visitors/DeclareExportAllDeclaration';
 import { Pattern } from './visitors/Pattern';
+import { ForOfStatement } from './visitors/ForOfStatement';
 
 const visitor: Visitor<PluginPass> = {
   Program,
@@ -64,6 +65,7 @@ const visitor: Visitor<PluginPass> = {
     path.node.original = null;
   },
   Pattern,
+  ForOfStatement,
 };
 
 export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
