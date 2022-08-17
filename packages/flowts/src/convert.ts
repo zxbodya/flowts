@@ -258,7 +258,12 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         );
         const changes = jestDiff(
           verificationResult.src,
-          verificationResult.tgt
+          verificationResult.tgt,
+          {
+            contextLines: 5,
+            // show smaller diff of issues found instead of complete file diff
+            expand: false,
+          }
         );
         console.log(changes);
         isValid = false;
