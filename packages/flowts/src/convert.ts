@@ -233,7 +233,20 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         prettier: opts.prettier,
         fileOptions: info.fileOptions,
         legacyImports: opts.legacyImports,
-        logger: spinner,
+        logger: {
+          warn(mesage) {
+            spinner.warn(sourceFilePath);
+            spinner.warn(mesage);
+          },
+          log(mesage) {
+            spinner.info(sourceFilePath);
+            spinner.info(mesage);
+          },
+          error(mesage) {
+            spinner.fail(sourceFilePath);
+            spinner.fail(mesage);
+          },
+        },
         getTypeFixesBabelPlugins: opts.getTypeFixesBabelPlugins,
         removeImportExtensions: false,
       });

@@ -11,6 +11,8 @@ import { ParserPlugin } from '@babel/parser';
 
 type Logger = {
   warn: typeof console.warn;
+  log: typeof console.warn;
+  error: typeof console.warn;
 };
 
 export async function convertFile(
@@ -66,7 +68,7 @@ export async function convertFile(
     filename: sourceFilePath,
     plugins: [
       ...transformPlugins,
-      [flowToTSPlugin, { isJSX, legacyImports: !!opts?.legacyImports }],
+      [flowToTSPlugin, { isJSX, legacyImports: !!opts?.legacyImports, logger }],
     ],
     generatorOpts: {
       decoratorsBeforeExport: true,
