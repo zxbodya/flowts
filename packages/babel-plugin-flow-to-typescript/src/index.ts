@@ -26,6 +26,7 @@ import { TSModuleDeclaration } from './visitors/TSModuleDeclaration';
 import { ExportAllDeclaration } from './visitors/ExportAllDeclaration';
 import { ObjectMethod } from './visitors/ObjectMethod';
 import { DeclareExportAllDeclaration } from './visitors/DeclareExportAllDeclaration';
+import { Pattern } from './visitors/Pattern';
 
 const visitor: Visitor<PluginPass> = {
   Program,
@@ -62,6 +63,7 @@ const visitor: Visitor<PluginPass> = {
     // https://github.com/benjamn/recast/issues/833
     path.node.original = null;
   },
+  Pattern,
 };
 
 export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
