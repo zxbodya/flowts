@@ -1,10 +1,10 @@
 import * as t from '@babel/types';
 
-export function cleanupPattern(pattern: t.Pattern): boolean {
-  let removedType = false;
+export function cleanupPattern(pattern: t.Pattern): false | t.Node[] {
+  let result: false | t.Node[] = false;
   if (t.isAssignmentPattern(pattern)) {
     if (t.isPattern(pattern.left)) {
-      removedType = removedType || cleanupPattern(pattern.left);
+      result = result || cleanupPattern(pattern.left);
     }
   }
   if (t.isArrayPattern(pattern)) {
@@ -14,10 +14,11 @@ export function cleanupPattern(pattern: t.Pattern): boolean {
       if (element.typeAnnotation) {
         // @ts-expect-error
         element.typeAnnotation = t.noop();
-        removedType = true;
+        if (!result) result = [];
+        result.push(element);
       }
       if (t.isPattern(element)) {
-        removedType = cleanupPattern(element) || removedType;
+        result = cleanupPattern(element) || result;
       }
     }
   }
@@ -26,18 +27,19 @@ export function cleanupPattern(pattern: t.Pattern): boolean {
       if (t.isRestElement(prop)) {
         if (prop.typeAnnotation) {
           prop.typeAnnotation = t.noop();
-          removedType = true;
+          if (!result) result = [];
+          result.push(prop);
         }
         if (t.isPattern(prop.argument)) {
-          removedType = cleanupPattern(prop.argument) || removedType;
+          result = cleanupPattern(prop.argument) || result;
         }
       }
       if (t.isObjectProperty(prop)) {
         if (t.isPattern(prop.value)) {
-          removedType = cleanupPattern(prop.value) || removedType;
+          result = cleanupPattern(prop.value) || result;
         }
       }
     }
   }
-  return removedType;
+  return result;
 }

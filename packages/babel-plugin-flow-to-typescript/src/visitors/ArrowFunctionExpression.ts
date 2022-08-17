@@ -3,11 +3,13 @@ import { NodePath } from '@babel/traverse';
 import { convertTypeParameterDeclaration } from '../converters/convertTypeParameterDeclaration';
 import { transformFunctionParams } from '../transforms/transformFunctionParams';
 import { replaceWith } from '../utils/replaceWith';
+import { PluginPass } from '../types';
 
 export function ArrowFunctionExpression(
-  path: NodePath<t.ArrowFunctionExpression>
+  path: NodePath<t.ArrowFunctionExpression>,
+  state: PluginPass
 ) {
-  transformFunctionParams(path.get('params'));
+  transformFunctionParams(path.get('params'), undefined, state);
   if (path.node.predicate) {
     delete path.node.predicate;
   }

@@ -10,7 +10,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lint": "eslint './packages/**/*.{ts,js,tsx,jsx}'",
+    "lint": "eslint './packages/**/*.{ts,js,tsx,jsx}' --quiet",
     "build": "tsc -b",
     "test": "./node_modules/.bin/lerna run test"
   },

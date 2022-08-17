@@ -7,7 +7,7 @@ export function ObjectMethod(
   path: NodePath<t.ObjectMethod>,
   state: PluginPass
 ) {
-  transformFunctionParams(path.get('params'), path.node.kind === 'set');
+  transformFunctionParams(path.get('params'), path.node.kind === 'set', state);
   if (path.node.kind === 'set' && path.node.returnType) {
     path.node.returnType = null;
   }

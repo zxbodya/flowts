@@ -3,12 +3,14 @@ import * as t from '@babel/types';
 import { convertFlowType } from '../converters/convertFlowType';
 import { replaceWith } from '../utils/replaceWith';
 import { cleanupPattern } from './cleanupPattern';
+import { PluginPass } from '../types';
 
 export function transformFunctionParams(
   params: Array<
     NodePath<t.Identifier | t.Pattern | t.RestElement | t.TSParameterProperty>
   >,
-  isSetter?: boolean
+  isSetter: boolean | undefined,
+  state: PluginPass
 ) {
   let hasRequiredAfter = false;
   for (let i = params.length - 1; i >= 0; i--) {
@@ -24,8 +26,11 @@ export function transformFunctionParams(
       if (!paramPath.isAssignmentPattern()) {
         hasRequiredAfter = true;
       }
-      if (cleanupPattern(paramPath.node)) {
-        console.warn('Ignoring types inside pattern argument');
+      const removed = cleanupPattern(paramPath.node);
+      if (removed) {
+        for (const r of removed) {
+          state.get('logger').warn(r, 'Ignoring types inside a pattern');
+        }
       }
     }
     if (paramPath.isIdentifier()) {

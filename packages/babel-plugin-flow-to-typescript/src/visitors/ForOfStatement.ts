@@ -1,12 +1,19 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
+import { PluginPass } from '../types';
 
-export function ForOfStatement(path: NodePath<t.ForOfStatement>) {
+export function ForOfStatement(
+  path: NodePath<t.ForOfStatement>,
+  state: PluginPass
+) {
   if (t.isVariableDeclaration(path.node.left)) {
-    for (const decl of path.node.left.declarations) {
+    for (let i = 0, l = path.node.left.declarations.length; i < l; i += 1) {
+      const decl = path.node.left.declarations[i];
       if (t.isIdentifier(decl.id) && decl.id.typeAnnotation) {
         decl.id.typeAnnotation = t.noop();
-        console.warn('Ignoring types inside left in ForOfStatement');
+        state
+          .get('logger')
+          .warn(decl, 'Ignoring types inside left in ForOfStatement');
       }
     }
   }

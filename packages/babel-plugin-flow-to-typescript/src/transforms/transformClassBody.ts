@@ -2,8 +2,12 @@ import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import { transformFunctionParams } from './transformFunctionParams';
 import { convertTypeAnnotation } from '../converters/convertTypeAnnotation';
+import { PluginPass } from '../types';
 
-export function transformClassBody(path: NodePath<t.ClassBody>) {
+export function transformClassBody(
+  path: NodePath<t.ClassBody>,
+  state: PluginPass
+) {
   for (const elementPath of path.get('body')) {
     const elementNode = elementPath.node;
     if (t.isClassMethod(elementNode) || t.isClassPrivateMethod(elementNode)) {
@@ -13,7 +17,8 @@ export function transformClassBody(path: NodePath<t.ClassBody>) {
       transformFunctionParams(
         // @ts-expect-error already checked above to have correct type
         elementPath.get('params'),
-        elementNode.kind === 'set'
+        elementNode.kind === 'set',
+        state
       );
     }
 

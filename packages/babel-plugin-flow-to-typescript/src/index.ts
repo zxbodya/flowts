@@ -1,4 +1,6 @@
-import { PluginObj, Visitor } from '@babel/core';
+import { BabelFile, PluginObj, Visitor } from '@babel/core';
+import * as t from '@babel/types';
+import { codeFrameColumns } from '@babel/code-frame';
 import { ImportDeclaration } from './visitors/ImportDeclaration';
 import { OpaqueType } from './visitors/OpaqueType';
 import { TypeAnnotation } from './visitors/TypeAnnotation';
@@ -91,6 +93,53 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
       parserOpts.plugins.push(['decorators', { decoratorsBeforeExport: true }]);
       parserOpts.plugins.push('dynamicImport');
       parserOpts.allowReturnOutsideFunction = true;
+    },
+    pre(this: PluginPass, file: BabelFile) {
+      const logger = this.opts.logger || {
+        error: console.error.bind(console),
+        warn: console.log.bind(console),
+        log: console.log.bind(console),
+      };
+      const oldMessages = new Set<string>();
+      function createLogger(log: (message: string) => void) {
+        return (node: t.Node, message: string) => {
+          const loc = node && node.loc;
+
+          const highlightCode: boolean = file.opts.highlightCode ?? true;
+
+          let msg = message;
+          if (loc) {
+            msg +=
+              '\n' +
+              codeFrameColumns(
+                file.code,
+                {
+                  start: {
+                    line: loc.start.line,
+                    column: loc.start.column + 1,
+                  },
+                  end:
+                    loc.end && loc.start.line === loc.end.line
+                      ? {
+                          line: loc.end.line,
+                          column: loc.end.column + 1,
+                        }
+                      : undefined,
+                },
+                { highlightCode }
+              );
+          }
+          if (!oldMessages.has(msg)) {
+            log(msg);
+            oldMessages.add(msg);
+          }
+        };
+      }
+      this.set('logger', {
+        error: createLogger(logger.error),
+        warn: createLogger(logger.warn),
+        log: createLogger(logger.log),
+      });
     },
   } as PluginObj<PluginPass>;
 };

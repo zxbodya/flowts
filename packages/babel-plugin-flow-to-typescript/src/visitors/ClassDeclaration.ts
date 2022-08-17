@@ -6,9 +6,11 @@ import { convertTypeParameterInstantiation } from '../converters/convertTypePara
 import { convertTypeParameterDeclaration } from '../converters/convertTypeParameterDeclaration';
 import { replaceWith } from '../utils/replaceWith';
 import { transformClassBody } from '../transforms/transformClassBody';
+import { PluginPass } from '../types';
 
 export function ClassDeclaration(
-  path: NodePath<t.ClassDeclaration | t.ClassExpression>
+  path: NodePath<t.ClassDeclaration | t.ClassExpression>,
+  state: PluginPass
 ) {
   const node = path.node;
 
@@ -50,5 +52,5 @@ export function ClassDeclaration(
     }
   }
 
-  transformClassBody(path.get('body') as NodePath<t.ClassBody>);
+  transformClassBody(path.get('body') as NodePath<t.ClassBody>, state);
 }
