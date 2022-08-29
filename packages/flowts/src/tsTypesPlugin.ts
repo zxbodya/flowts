@@ -137,7 +137,18 @@ const visitor: Visitor = {
       for (const [globalName, globalFix] of Object.entries(rules.globals)) {
         if (globalFix && scope.hasGlobal(globalName)) {
           const references: Array<NodePath<t.Identifier>> = [];
+          let skip = false;
           programPath.traverse({
+            TSInterfaceDeclaration(path: NodePath<t.TSInterfaceDeclaration>) {
+              if (path.node.id.name === globalName) {
+                skip = true;
+              }
+            },
+            TSTypeAliasDeclaration(path: NodePath<t.TSTypeAliasDeclaration>) {
+              if (path.node.id.name === globalName) {
+                skip = true;
+              }
+            },
             // todo: ensure only global references added
             Identifier(path: NodePath<t.Identifier>) {
               if (path.node.name === globalName) {
@@ -152,8 +163,10 @@ const visitor: Visitor = {
             },
           });
 
-          const context = new BaseContext(references);
-          globalFix(context);
+          if (!skip) {
+            const context = new BaseContext(references);
+            globalFix(context);
+          }
         }
       }
 
