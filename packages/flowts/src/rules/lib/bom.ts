@@ -673,30 +673,30 @@ export default {
         declare interface ResizeObserverEntry {
           *
            * The Element whose size has changed.
-           
+
           +target: Element;
           *
            * Element's content rect when ResizeObserverCallback is invoked.
            *
            * Legacy, may be deprecated in the future.
-           
+
           +contentRect: DOMRectReadOnly;
           *
            * An array containing the Element's border box size when
            * ResizeObserverCallback is invoked.
-           
+
           +borderBoxSize: $ReadOnlyArray<ResizeObserverSize>;
           *
            * An array containing the Element's content rect size when
            * ResizeObserverCallback is invoked.
-           
+
           +contentBoxSize: $ReadOnlyArray<ResizeObserverSize>;
           *
            * An array containing the Element's content rect size in integral device
            * pixels when ResizeObserverCallback is invoked.
            *
            * Not implemented in Firefox or Safari as of July 2021
-           
+
           +devicePixelContentBoxSize?: $ReadOnlyArray<ResizeObserverSize> | void;
         }
         */
@@ -715,11 +715,11 @@ export default {
           constructor(callback: (entries: ResizeObserverEntry[], observer: ResizeObserver) => mixed): void;
           *
            * Adds target to the list of observed elements.
-           
+
           observe(target: Element, options?: ResizeObserverOptions): void;
           *
            * Removes target from the list of observed elements.
-           
+
           unobserve(target: Element): void;
           disconnect(): void;
         }
@@ -1496,6 +1496,28 @@ export default {
         }
         */
     URLSearchParams: false,
+
+    /*
+        declare type RequestOptions = {
+          body?: ?BodyInit,
+          cache?: CacheType,
+          credentials?: CredentialsType,
+          headers?: HeadersInit,
+          integrity?: string,
+          keepalive?: boolean,
+          method?: string,
+          mode?: ModeType,
+          redirect?: RedirectType,
+          referrer?: string,
+          referrerPolicy?: ReferrerPolicyType,
+          signal?: ?AbortSignal,
+          window?: any,
+          ...
+        }
+        */
+    RequestOptions(context) {
+      context.renameGlobal('RequestInit');
+    },
 
     /*
         declare class Response {

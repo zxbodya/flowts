@@ -1169,6 +1169,13 @@ exports[`lib/bom.js globals Request variable 1`] = `
 "
 `;
 
+exports[`lib/bom.js globals RequestOptions generated - interface 1`] = `
+"class A1 implements RequestInit {}
+"
+`;
+
+exports[`lib/bom.js globals RequestOptions generated - type 1`] = `""`;
+
 exports[`lib/bom.js globals ResizeObserver generated - class 1`] = `
 "new ResizeObserver();
 

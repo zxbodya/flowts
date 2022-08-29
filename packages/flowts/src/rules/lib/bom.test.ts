@@ -2256,6 +2256,23 @@ describe('lib/bom.js', () => {
       });
     });
 
+    describe('RequestOptions', () => {
+      test('generated - type', () => {
+        expect(
+          transform(`
+          `)
+        ).toMatchSnapshot();
+      });
+
+      test('generated - interface', () => {
+        expect(
+          transform(`
+            class A1 implements RequestOptions {};
+          `)
+        ).toMatchSnapshot();
+      });
+    });
+
     describe('Response', () => {
       test('variable', () => {
         expect(
