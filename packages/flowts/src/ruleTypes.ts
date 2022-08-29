@@ -3,6 +3,7 @@ import { NodePath } from '@babel/traverse';
 export interface GlobalFixContext {
   // import from typescript module
   import(moduleName: string, exportName: string): void;
+  renameGlobal(newName: string): void;
   // references to all identifiers with usign export or global
   referencePaths: NodePath[];
 }

@@ -123,6 +123,15 @@ const visitor: Visitor = {
             }
           }
         }
+        public renameGlobal(newName: string): void {
+          for (const path of this.referencePaths) {
+            if (path.isIdentifier()) {
+              path.node.name = newName;
+            } else {
+              throw new Error('Unexpected reference of type' + path.node.type);
+            }
+          }
+        }
       }
 
       for (const [globalName, globalFix] of Object.entries(rules.globals)) {
