@@ -129,11 +129,8 @@ export async function convert(cwd: string, opts: ConvertOptions) {
         isFlow,
       } = info;
 
-      const targetExt = isJSX
-        ? '.tsx'
-        : /\.js\.flow$/i.test(file)
-        ? '.d.ts'
-        : '.ts';
+      const isDefinitionFile = /\.js\.flow$/i.test(file);
+      const targetExt = isJSX ? '.tsx' : isDefinitionFile ? '.d.ts' : '.ts';
 
       const targetFileName = file.replace(/(?:\.jsx?|\.js\.flow)$/i, targetExt);
       const sourceFilePath = path.join(cwd, file);
@@ -254,33 +251,36 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       // delay to update the ui
       await new Promise(r => setTimeout(r, 1));
 
-      const verificationResult = verify(
-        source,
-        result,
-        isJSX,
-        sourceFilePath,
-        targetFilePath,
-        opts.keepImportExtensions ? false : isConvertedFile
-      );
-
       let isValid = true;
-      if (!verificationResult.isEqual) {
-        spinner.fail(targetFilePath);
-        spinner.fail(
-          'verification failed, diff after stripping type annotations:'
+      if (!isDefinitionFile) {
+        // verify only actual sources, but skip it for definition files
+        const verificationResult = verify(
+          source,
+          result,
+          isJSX,
+          sourceFilePath,
+          targetFilePath,
+          opts.keepImportExtensions ? false : isConvertedFile
         );
-        const changes = jestDiff(
-          verificationResult.src,
-          verificationResult.tgt,
-          {
-            contextLines: 5,
-            // show smaller diff of issues found instead of complete file diff
-            expand: false,
-          }
-        );
-        console.log(changes);
-        isValid = false;
+        if (!verificationResult.isEqual) {
+          spinner.fail(targetFilePath);
+          spinner.fail(
+            'verification failed, diff after stripping type annotations:'
+          );
+          const changes = jestDiff(
+            verificationResult.src,
+            verificationResult.tgt,
+            {
+              contextLines: 5,
+              // show smaller diff of issues found instead of complete file diff
+              expand: false,
+            }
+          );
+          console.log(changes);
+          isValid = false;
+        }
       }
+
       results.push({
         isConverted: true,
         sourceFilePath,
