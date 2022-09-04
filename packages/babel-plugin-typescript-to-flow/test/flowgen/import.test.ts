@@ -7,7 +7,7 @@ type B = import('react').ReactNode;
 `;
   const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
-"declare type A = $Exports<\\"react\\">;
-declare type B = $PropertyType<$Exports<\\"react\\">, \\"ReactNode\\">;"
-`);
+    "declare type A = $Exports<"react">;
+    declare type B = $PropertyType<$Exports<"react">, "ReactNode">;"
+  `);
 });

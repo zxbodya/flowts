@@ -18,7 +18,7 @@ test('export declare constant', () => {
 };`);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare export var STATE_CHANGE_TYPE: {
-      +expand: \\"expand\\"
+      +expand: "expand"
     };"
   `);
   //expect(result.babel).toMatchInlineSnapshot();

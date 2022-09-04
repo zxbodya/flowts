@@ -40,14 +40,14 @@ test('preserves comments within typedefs', () => {
     "type Props = {
       children?: React.Node;
       // The vertical alignment of the content before it starts to scroll
-      verticalAlignWithoutScroll?: \\"top\\" | \\"center\\";
+      verticalAlignWithoutScroll?: "top" | "center";
     };"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type Props = {
       children?: React.Node
       // The vertical alignment of the content before it starts to scroll
-      verticalAlignWithoutScroll?: \\"top\\" | \\"center\\"
+      verticalAlignWithoutScroll?: "top" | "center"
     };"
   `);
 });
@@ -147,22 +147,14 @@ test('iterable object type', () => {
 
 test('alias to array of unions', () => {
   const result = testTransform(`type t = ("a" | "b")[];`);
-  expect(result.babel).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" | \\"b\\")[];"`
-  );
-  expect(result.recast).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" | \\"b\\")[];"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"type t = ("a" | "b")[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type t = ("a" | "b")[];"`);
 });
 
 test('alias to array of unions', () => {
   const result = testTransform(`type t = ("a" & "b")[];`);
-  expect(result.babel).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" & \\"b\\")[];"`
-  );
-  expect(result.recast).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" & \\"b\\")[];"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"type t = ("a" & "b")[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type t = ("a" & "b")[];"`);
 });
 
 test('nullable any type annotation', () => {

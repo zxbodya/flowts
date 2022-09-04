@@ -12,8 +12,8 @@ it('should handle union strings', () => {
 
   expect(result.babel).toMatchInlineSnapshot(`
     "declare interface MyObj {
-      state?: \\"APPROVED\\" | \\"REQUEST_CHANGES\\" | \\"COMMENT\\" | \\"PENDING\\"
+      state?: "APPROVED" | "REQUEST_CHANGES" | "COMMENT" | "PENDING"
     }
-    declare type CompletionsTriggerCharacter = \\"\\\\\\"\\" | \\"'\\";"
+    declare type CompletionsTriggerCharacter = "\\"" | "'";"
   `);
 });

@@ -16,9 +16,9 @@ export type { Something };`);
 test('export type from', () => {
   const result = testTransform(`export type { B } from "./mod";`);
   expect(result.babel).toMatchInlineSnapshot(
-    `"export type { B } from \\"./mod\\";"`
+    `"export type { B } from "./mod";"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"export type { B } from \\"./mod\\";"`
+    `"export type { B } from "./mod";"`
   );
 });

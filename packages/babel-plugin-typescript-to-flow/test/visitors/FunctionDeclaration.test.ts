@@ -96,10 +96,10 @@ test('maybe function argument type with pattern after it', () => {
 test('function with default param value', () => {
   const result = testTransform(`function a(c: string = "v") {}`);
   expect(result.babel).toMatchInlineSnapshot(
-    `"function a(c: string = \\"v\\") {}"`
+    `"function a(c: string = "v") {}"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"function a(c: string = \\"v\\") {}"`
+    `"function a(c: string = "v") {}"`
   );
 });
 

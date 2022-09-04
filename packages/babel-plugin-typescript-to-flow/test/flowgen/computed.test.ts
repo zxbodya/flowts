@@ -156,34 +156,34 @@ it('should handle string literals', () => {
 
   expect(result.babel).toMatchInlineSnapshot(`
     "declare type A = {
-      \\"foo\\"?(): any,
-      +\\"foo\\"?: () => any,
-      \\"foo\\"(): any,
-      +\\"foo\\": () => any,
-      \\"foo\\"?: any,
-      +\\"foo\\"?: any,
-      \\"foo\\": any,
-      +\\"foo\\": any,
+      "foo"?(): any,
+      +"foo"?: () => any,
+      "foo"(): any,
+      +"foo": () => any,
+      "foo"?: any,
+      +"foo"?: any,
+      "foo": any,
+      +"foo": any,
     };
     declare class B {
-      \\"foo\\"(): any,
-      +\\"foo\\"?: () => any,
-      \\"foo\\"(): any,
-      +\\"foo\\": () => any,
-      \\"foo\\"?: any,
-      +\\"foo\\"?: any,
-      \\"foo\\": any,
-      +\\"foo\\": any,
+      "foo"(): any,
+      +"foo"?: () => any,
+      "foo"(): any,
+      +"foo": () => any,
+      "foo"?: any,
+      +"foo"?: any,
+      "foo": any,
+      +"foo": any,
     }
     declare interface C {
-      \\"foo\\"?(): any,
-      +\\"foo\\"?: () => any,
-      \\"foo\\"(): any,
-      +\\"foo\\": () => any,
-      \\"foo\\"?: any,
-      +\\"foo\\"?: any,
-      \\"foo\\": any,
-      +\\"foo\\": any,
+      "foo"?(): any,
+      +"foo"?: () => any,
+      "foo"(): any,
+      +"foo": () => any,
+      "foo"?: any,
+      +"foo"?: any,
+      "foo": any,
+      +"foo": any,
     }"
   `);
 });
@@ -225,37 +225,37 @@ xit('should approximate unsupported keys', () => {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare type A = {
-  [typeof Foo]: (() => any) | void,
-  +[typeof Foo]: (() => any) | void,
-  [typeof Foo]: () => any,
-  +[typeof Foo]: () => any,
-  [typeof Foo]: any | void,
-  +[typeof Foo]: any | void,
-  [typeof Foo]: any,
-  +[typeof Foo]: any,
-  ...
-};
-declare class B {
-  [typeof Foo]: (() => any) | void;
-  +[typeof Foo]: (() => any) | void;
-  [typeof Foo]: () => any;
-  +[typeof Foo]: () => any;
-  [typeof Foo]: any | void;
-  +[typeof Foo]: any | void;
-  [typeof Foo]: any;
-  +[typeof Foo]: any;
-}
-declare interface C {
-  [typeof Foo]: (() => any) | void;
-  +[typeof Foo]: (() => any) | void;
-  [typeof Foo]: () => any;
-  +[typeof Foo]: () => any;
-  [typeof Foo]: any | void;
-  +[typeof Foo]: any | void;
-  [typeof Foo]: any;
-  +[typeof Foo]: any;
-}
-"
-`);
+    "declare type A = {
+      [typeof Foo]: (() => any) | void,
+      +[typeof Foo]: (() => any) | void,
+      [typeof Foo]: () => any,
+      +[typeof Foo]: () => any,
+      [typeof Foo]: any | void,
+      +[typeof Foo]: any | void,
+      [typeof Foo]: any,
+      +[typeof Foo]: any,
+      ...
+    };
+    declare class B {
+      [typeof Foo]: (() => any) | void;
+      +[typeof Foo]: (() => any) | void;
+      [typeof Foo]: () => any;
+      +[typeof Foo]: () => any;
+      [typeof Foo]: any | void;
+      +[typeof Foo]: any | void;
+      [typeof Foo]: any;
+      +[typeof Foo]: any;
+    }
+    declare interface C {
+      [typeof Foo]: (() => any) | void;
+      +[typeof Foo]: (() => any) | void;
+      [typeof Foo]: () => any;
+      +[typeof Foo]: () => any;
+      [typeof Foo]: any | void;
+      +[typeof Foo]: any | void;
+      [typeof Foo]: any;
+      +[typeof Foo]: any;
+    }
+    "
+  `);
 });

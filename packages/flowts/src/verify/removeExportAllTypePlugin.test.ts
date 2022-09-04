@@ -15,12 +15,12 @@ class C extends Component {}
 export type * from './somewhere';
 `)
     ).toMatchInlineSnapshot(`
-      "import { Component } from \\"react\\";
-      import R from \\"react-dom\\";
-      import \\"a.css\\";
+      "import { Component } from "react";
+      import R from "react-dom";
+      import "a.css";
 
       class C extends Component {}
-      export * from \\"./somewhere\\";
+      export * from "./somewhere";
       "
     `);
   });

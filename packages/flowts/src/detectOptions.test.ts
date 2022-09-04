@@ -3,7 +3,7 @@ import { detectOptions } from './detectOptions';
 describe('detectOptions', () => {
   it('detects @flow comment', () => {
     expect(detectOptions(`// @flow`, 'flow.js')).toMatchInlineSnapshot(`
-      Object {
+      {
         "hasFlowAnnotation": true,
         "hasNoFlowAnnotation": false,
         "hasTypes": false,
@@ -15,7 +15,7 @@ describe('detectOptions', () => {
   it('detects flow constructions in code', () => {
     expect(detectOptions(`let a: number = 1;`, 'test.js'))
       .toMatchInlineSnapshot(`
-      Object {
+      {
         "hasFlowAnnotation": false,
         "hasNoFlowAnnotation": false,
         "hasTypes": true,
@@ -26,7 +26,7 @@ describe('detectOptions', () => {
   });
   it('detects JSX', () => {
     expect(detectOptions(`let a = <div/>;`, 'test.js')).toMatchInlineSnapshot(`
-      Object {
+      {
         "hasFlowAnnotation": false,
         "hasNoFlowAnnotation": false,
         "hasTypes": false,
@@ -40,7 +40,7 @@ describe('detectOptions', () => {
   });
   it('use file extension to detect jsx', () => {
     expect(detectOptions(`// @flow`, 'flow.jsx')).toMatchInlineSnapshot(`
-      Object {
+      {
         "hasFlowAnnotation": true,
         "hasNoFlowAnnotation": false,
         "hasTypes": false,
@@ -51,7 +51,7 @@ describe('detectOptions', () => {
   });
   it('use file extension to detect flow', () => {
     expect(detectOptions(`let a = 1;`, 'test.js.flow')).toMatchInlineSnapshot(`
-      Object {
+      {
         "hasFlowAnnotation": false,
         "hasNoFlowAnnotation": false,
         "hasTypes": false,

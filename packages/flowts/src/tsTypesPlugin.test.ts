@@ -14,8 +14,8 @@ type B = SyntheticInputEvent<HTMLInputElement>;
 class C extends Component {}
 `)
     ).toMatchInlineSnapshot(`
-      "import { Component } from \\"react\\";
-      import type { ReactNode, ChangeEvent } from \\"react\\";
+      "import { Component } from "react";
+      import type { ReactNode, ChangeEvent } from "react";
       type A = ReactNode;
       type B = ChangeEvent<HTMLInputElement>;
 
@@ -30,7 +30,7 @@ import type { Node } from 'react';
 type A = Node;
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ReactNode } from \\"react\\";
+      "import type { ReactNode } from "react";
       type A = ReactNode;
       "
     `);
@@ -43,7 +43,7 @@ import { type Node } from 'react';
 type A = Node;
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ReactNode } from \\"react\\";
+      "import type { ReactNode } from "react";
       type A = ReactNode;
       "
     `);
@@ -55,8 +55,8 @@ import * as React from 'react';
 type A = React$Node;
 `)
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
-      import type { ReactNode } from \\"react\\";
+      "import * as React from "react";
+      import type { ReactNode } from "react";
       type A = ReactNode;
       "
     `);
@@ -69,7 +69,7 @@ type A = React.Node;
 let a = 0;
 `)
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
+      "import * as React from "react";
       type A = React.ReactNode;
       let a = 0;
       "
@@ -84,7 +84,7 @@ let b = React.forwardRef<T>();
 let c = React.forwardRef();
 `)
     ).toMatchInlineSnapshot(`
-      "import * as React from \\"react\\";
+      "import * as React from "react";
       let a = React.forwardRef<P, T>();
       let b = React.forwardRef<{}, T>();
       let c = React.forwardRef();
@@ -99,7 +99,7 @@ export type ButtonPropsT = {
 }
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ReactNode } from \\"react\\";
+      "import type { ReactNode } from "react";
       export type ButtonPropsT = {
         children?: ReactNode;
       };
@@ -119,7 +119,7 @@ export default class Trace {
 `)
     ).toMatchInlineSnapshot(`
       "// @flow
-      import type { Writable } from \\"stream\\";
+      import type { Writable } from "stream";
 
       export default class Trace {
         pipe(writable: Writable): Writable {
@@ -138,7 +138,7 @@ export function test(value: React$Component<unknown, unknown>) {}
 export function print(component: Component<any>) {}
 `)
     ).toMatchInlineSnapshot(`
-      "import { Component } from \\"react\\";
+      "import { Component } from "react";
 
       export function test(value: Component<unknown, unknown>) {}
       export function print(component: Component<any>) {}
@@ -154,7 +154,7 @@ export type A = AbstractComponent;
 export type B = ComponentType;
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ComponentType } from \\"react\\";
+      "import type { ComponentType } from "react";
       export type A = ComponentType;
       export type B = ComponentType;
       "
@@ -170,7 +170,7 @@ export type C = Node;
 export type D = Element;
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ReactNode, ReactElement } from \\"react\\";
+      "import type { ReactNode, ReactElement } from "react";
       export type A = ReactNode;
       export type B = ReactElement;
       export type C = ReactNode;
@@ -186,8 +186,8 @@ import React, { Component } from "react";
 import type { Element } from "react";
 `)
     ).toMatchInlineSnapshot(`
-      "import React, { Component } from \\"react\\";
-      import type { ReactElement } from \\"react\\";
+      "import React, { Component } from "react";
+      import type { ReactElement } from "react";
       "
     `);
   });
@@ -198,7 +198,7 @@ import type { Node } from "react";
 import type { Element } from "react";
 `)
     ).toMatchInlineSnapshot(`
-      "import type { ReactNode, ReactElement } from \\"react\\";
+      "import type { ReactNode, ReactElement } from "react";
       "
     `);
   });

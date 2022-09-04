@@ -9,12 +9,12 @@ import * as t from "@babel/types";
 import v, * as d from "typescript";`;
   const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
-    "import { GeneratorOptions } from \\"@babel/generator\\";
-    import traverse, { Visitor, NodePath } from \\"@babel/traverse\\";
-    import { Visitor as NewVisitor } from \\"@babel/traverse\\";
-    import template from \\"@babel/template\\";
-    import * as t from \\"@babel/types\\";
-    import v, * as d from \\"typescript\\";"
+    "import { GeneratorOptions } from "@babel/generator";
+    import traverse, { Visitor, NodePath } from "@babel/traverse";
+    import { Visitor as NewVisitor } from "@babel/traverse";
+    import template from "@babel/template";
+    import * as t from "@babel/types";
+    import v, * as d from "typescript";"
   `);
 });
 
@@ -55,6 +55,6 @@ type S = typeof import('http')
 `;
   const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(
-    `"declare type S = $Exports<\\"http\\">;"`
+    `"declare type S = $Exports<"http">;"`
   );
 });

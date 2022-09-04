@@ -17,11 +17,11 @@ test('declares outside of a module', () => {
 declare class A {}
 `);
   expect(result.babel).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {}
+    "declare module "React" {}
     declare class A {}"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {}
+    "declare module "React" {}
 
     declare class A {}"
   `);

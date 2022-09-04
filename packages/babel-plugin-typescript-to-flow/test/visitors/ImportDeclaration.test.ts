@@ -5,12 +5,12 @@ test('import type statement', () => {
 import type { B, C } from './mod';
 import type D from './mod';`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "import type { A } from \\"module\\";
+    "import type { A } from "module";
     import type { B, C } from './mod';
     import type D from './mod';"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "import type { A } from \\"module\\";
+    "import type { A } from "module";
     import type { B, C } from './mod';
     import type D from './mod';"
   `);
@@ -21,14 +21,14 @@ test('import type specifier', () => {
 import type { B } from "module";
 import type { D, E } from "module";`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "import A, { C } from \\"module\\";
-    import type { B } from \\"module\\";
-    import type { D, E } from \\"module\\";"
+    "import A, { C } from "module";
+    import type { B } from "module";
+    import type { D, E } from "module";"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "import A, { C } from \\"module\\";
-    import type { B } from \\"module\\";
-    import type { D, E } from \\"module\\";"
+    "import A, { C } from "module";
+    import type { B } from "module";
+    import type { D, E } from "module";"
   `);
 });
 
@@ -38,13 +38,13 @@ import A, { C } from "module";
 import type { B } from "module";`);
   expect(result.babel).toMatchInlineSnapshot(`
     "// comment
-    import A, { C } from \\"module\\";
-    import type { B } from \\"module\\";"
+    import A, { C } from "module";
+    import type { B } from "module";"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "// comment
-    import A, { C } from \\"module\\";
-    import type { B } from \\"module\\";"
+    import A, { C } from "module";
+    import type { B } from "module";"
   `);
 });
 
@@ -52,12 +52,12 @@ test('mixed type imports', () => {
   const result = testTransform(`import type A from "module";
 import type { B } from "module";`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "import type A from \\"module\\";
-    import type { B } from \\"module\\";"
+    "import type A from "module";
+    import type { B } from "module";"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "import type A from \\"module\\";
-    import type { B } from \\"module\\";"
+    "import type A from "module";
+    import type { B } from "module";"
   `);
 });
 
@@ -67,13 +67,13 @@ import type A from "module";
 import type { B } from "module";`);
   expect(result.babel).toMatchInlineSnapshot(`
     "// comment
-    import type A from \\"module\\";
-    import type { B } from \\"module\\";"
+    import type A from "module";
+    import type { B } from "module";"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "// comment
-    import type A from \\"module\\";
-    import type { B } from \\"module\\";"
+    import type A from "module";
+    import type { B } from "module";"
   `);
 });
 

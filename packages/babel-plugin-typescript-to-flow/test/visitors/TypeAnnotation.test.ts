@@ -45,8 +45,8 @@ test('numerical literal', () => {
 test('string literal', () => {
   const result = testTransform(`let a: "42";`);
   const flow = `let a: "42";`;
-  expect(result.babel).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
-  expect(result.recast).toMatchInlineSnapshot(`"let a: \\"42\\";"`);
+  expect(result.babel).toMatchInlineSnapshot(`"let a: "42";"`);
+  expect(result.recast).toMatchInlineSnapshot(`"let a: "42";"`);
 });
 
 test('Mixed type', () => {
@@ -151,22 +151,18 @@ test('Utility generics: $NonMaybeType', () => {
 
 test('Utility generics: $Exports', () => {
   const result = testTransform(`type A = import("react");`);
-  expect(result.babel).toMatchInlineSnapshot(
-    `"type A = $Exports<\\"react\\">;"`
-  );
-  expect(result.recast).toMatchInlineSnapshot(
-    `"type A = $Exports<\\"react\\">;"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"type A = $Exports<"react">;"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type A = $Exports<"react">;"`);
 });
 
 test('Utility generics: $Exports inside of $PropertyType', () => {
   const result = testTransform(`type B = import("react").ReactNode;`);
   const flow = `type B = $PropertyType<$Exports<"react">, "ReactNode">`;
   expect(result.babel).toMatchInlineSnapshot(
-    `"type B = $PropertyType<$Exports<\\"react\\">, \\"ReactNode\\">;"`
+    `"type B = $PropertyType<$Exports<"react">, "ReactNode">;"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"type B = $PropertyType<$Exports<\\"react\\">, \\"ReactNode\\">;"`
+    `"type B = $PropertyType<$Exports<"react">, "ReactNode">;"`
   );
 });
 
@@ -413,11 +409,11 @@ test('recursively qualified type', () => {
   const result = testTransform(`import * as A from "a";
 type B = A.B.C;`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "import * as A from \\"a\\";
+    "import * as A from "a";
     type B = A.B.C;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "import * as A from \\"a\\";
+    "import * as A from "a";
     type B = A.B.C;"
   `);
 });
@@ -448,11 +444,11 @@ import * as React from "react";
 import * as React from "react";`;
   expect(result.babel).toMatchInlineSnapshot(`
     "// not flow comment
-    import * as React from \\"react\\";"
+    import * as React from "react";"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "// not flow comment
-    import * as React from \\"react\\";"
+    import * as React from "react";"
   `);
 });
 

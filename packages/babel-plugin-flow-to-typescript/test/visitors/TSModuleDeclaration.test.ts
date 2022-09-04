@@ -5,12 +5,12 @@ test('declares inside of a module', () => {
   declare class A {}
 }`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {
+    "declare module "React" {
       class A {}
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {
+    "declare module "React" {
       class A {}
     }"
   `);
@@ -21,12 +21,12 @@ test('declares outside of a module', () => {
 declare class A {}
 `);
   expect(result.babel).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {}
+    "declare module "React" {}
 
     declare class A {}"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-    "declare module \\"React\\" {}
+    "declare module "React" {}
     declare class A {}"
   `);
 });

@@ -26,7 +26,7 @@ test('preserves comments within typedefs', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "type Props = {
       children?: React.Node,
-      verticalAlignWithoutScroll?: \\"top\\" | \\"center\\",
+      verticalAlignWithoutScroll?: "top" | "center",
     };"
   `);
   // expect(result.recast).toMatchInlineSnapshot();
@@ -112,21 +112,15 @@ test('iterable object type', () => {
 
 test('alias to array of unions', () => {
   const result = testTransform(`type t = ("a" | "b")[];`);
-  expect(result.babel).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" | \\"b\\")[];"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"type t = ("a" | "b")[];"`);
   // expect(result.recast).toMatchInlineSnapshot();
 });
 
 test('alias to array of intersections', () => {
   const result = testTransform(`type t = ("a" & "b")[];`);
   const flow = `type t = ("a" & "b")[];`;
-  expect(result.babel).toMatchInlineSnapshot(
-    `"type t = (\\"a\\" & \\"b\\")[];"`
-  );
-  expect(result.recast).toMatchInlineSnapshot(
-    `"type t = \\"a\\" & \\"b\\"[];"`
-  );
+  expect(result.babel).toMatchInlineSnapshot(`"type t = ("a" & "b")[];"`);
+  expect(result.recast).toMatchInlineSnapshot(`"type t = "a" & "b"[];"`);
 });
 
 test('alias to object', () => {

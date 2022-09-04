@@ -105,10 +105,10 @@ test('arrow predicate function', () => {
     `var f = (x: mixed): %checks => typeof x === "string";`
   );
   expect(result.babel).toMatchInlineSnapshot(
-    `"var f = (x: unknown) => typeof x === \\"string\\";"`
+    `"var f = (x: unknown) => typeof x === "string";"`
   );
   expect(result.recast).toMatchInlineSnapshot(
-    `"var f = (x: unknown) => typeof x === \\"string\\";"`
+    `"var f = (x: unknown) => typeof x === "string";"`
   );
 });
 

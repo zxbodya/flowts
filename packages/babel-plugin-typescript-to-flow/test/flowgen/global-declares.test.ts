@@ -9,9 +9,9 @@ declare interface ICustomMessage {
 `;
   const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ICustomMessage {
-  method(test: string): void,
-  otherMethod(literal: \\"A\\" | \\"B\\"): void,
-}"
-`);
+    "declare interface ICustomMessage {
+      method(test: string): void,
+      otherMethod(literal: "A" | "B"): void,
+    }"
+  `);
 });

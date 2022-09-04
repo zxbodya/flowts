@@ -7,12 +7,12 @@ export type Maybe<T> = {type: 'just', value: T} | {type: 'nothing'}
 `;
   const result = testTransformDts(ts);
   expect(result.babel).toMatchInlineSnapshot(`
-"export type FactoryOrValue<T> = T | (() => T);
-export type Maybe<T> = {
-  type: \\"just\\",
-  value: T,
-} | {
-  type: \\"nothing\\"
-};"
-`);
+    "export type FactoryOrValue<T> = T | (() => T);
+    export type Maybe<T> = {
+      type: "just",
+      value: T,
+    } | {
+      type: "nothing"
+    };"
+  `);
 });

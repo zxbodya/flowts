@@ -95,8 +95,8 @@ describe('updateComments', function () {
                 BundleGroup,
                 MutableBundleGraph,
                 PluginOptions,
-              } from \\"@parcel/types\\";
-              import type { SchemaEntity } from \\"@parcel/utils\\";
+              } from "@parcel/types";
+              import type { SchemaEntity } from "@parcel/utils";
             
               const a = 1;
               export { a };

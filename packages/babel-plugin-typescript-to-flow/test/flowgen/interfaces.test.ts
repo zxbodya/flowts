@@ -9,10 +9,10 @@ interface User {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface User {
-  firstName: string
-}"
-`);
+    "declare interface User {
+      firstName: string
+    }"
+  `);
   //   const result2 = compiler.compileDefinitionString(ts, {
   //     interfaceRecords: true,
   //   });
@@ -36,13 +36,13 @@ interface SpecialUser extends User {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface User {
-  firstName: string
-}
-declare interface SpecialUser extends User {
-  nice: number
-}"
-`);
+    "declare interface User {
+      firstName: string
+    }
+    declare interface SpecialUser extends User {
+      nice: number
+    }"
+  `);
   //   const result2 = compiler.compileDefinitionString(ts, {
   //     interfaceRecords: true,
   //   });
@@ -75,13 +75,13 @@ interface User {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface User {
-  firstName: string;
-  lastName: string;
-  username: string;
-}
-"
-`);
+    "declare interface User {
+      firstName: string;
+      lastName: string;
+      username: string;
+    }
+    "
+  `);
   //   const result2 = compiler.compileDefinitionString(ts, {
   //     interfaceRecords: true,
   //   });
@@ -107,13 +107,13 @@ interface Props {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface Props {
-  \\"aria-label\\": string,
-  \\"aria-labelledby\\"?: number,
-  color: string,
-  [key: string]: string,
-}"
-`);
+    "declare interface Props {
+      "aria-label": string,
+      "aria-labelledby"?: number,
+      color: string,
+      [key: string]: string,
+    }"
+  `);
 });
 
 it('should support readonly modifier', () => {
@@ -126,11 +126,11 @@ interface Helper {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface Helper {
-  +name: string,
-  +callback: () => void,
-}"
-`);
+    "declare interface Helper {
+      +name: string,
+      +callback: () => void,
+    }"
+  `);
 });
 
 // todo: call signatures
@@ -144,14 +144,14 @@ xit('should support call signature', () => {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ObjectSchemaConstructor {
-  <T: { [key: string]: any }>(
-    fields?: ObjectSchemaDefinition<T>
-  ): ObjectSchema<T>;
-  new(): ObjectSchema<{ ... }>;
-}
-"
-`);
+    "declare interface ObjectSchemaConstructor {
+      <T: { [key: string]: any }>(
+        fields?: ObjectSchemaDefinition<T>
+      ): ObjectSchema<T>;
+      new(): ObjectSchema<{ ... }>;
+    }
+    "
+  `);
 });
 
 // todo: call signatures
@@ -172,17 +172,17 @@ interface C<This, Datum> {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface Arc<This, Datum> {
-  (d: Datum, ...args: any[]): string | null;
-}
-declare interface D<This, Datum> {
-  new(d: Datum, ...args: any[]): void;
-}
-declare interface C<This, Datum> {
-  (d: Datum, ...args: any[]): any;
-}
-"
-`);
+    "declare interface Arc<This, Datum> {
+      (d: Datum, ...args: any[]): string | null;
+    }
+    declare interface D<This, Datum> {
+      new(d: Datum, ...args: any[]): void;
+    }
+    declare interface C<This, Datum> {
+      (d: Datum, ...args: any[]): any;
+    }
+    "
+  `);
 });
 
 // todo: call signatures
@@ -195,11 +195,11 @@ interface AbstractLevelDOWNConstructor {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface AbstractLevelDOWNConstructor {
-  <K, V>(location: string): AbstractLevelDOWN<K, V>;
-}
-"
-`);
+    "declare interface AbstractLevelDOWNConstructor {
+      <K, V>(location: string): AbstractLevelDOWN<K, V>;
+    }
+    "
+  `);
 });
 
 it('should support omitting generic defaults in types, classes, interfaces', () => {
@@ -220,17 +220,17 @@ declare var f: Baz<any>
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface Foo<T = Symbol, U = number> {}
-declare interface FooBar extends Foo {}
-declare type Bar<T = number, U = string> = {};
-declare class Baz<T = string, U = number> {}
-declare var a: Foo;
-declare var b: Bar;
-declare var c: Baz;
-declare var d: Foo<any>;
-declare var e: Bar<any>;
-declare var f: Baz<any>;"
-`);
+    "declare interface Foo<T = Symbol, U = number> {}
+    declare interface FooBar extends Foo {}
+    declare type Bar<T = number, U = string> = {};
+    declare class Baz<T = string, U = number> {}
+    declare var a: Foo;
+    declare var b: Bar;
+    declare var c: Baz;
+    declare var d: Foo<any>;
+    declare var e: Bar<any>;
+    declare var f: Baz<any>;"
+  `);
 });
 
 // todo:
@@ -244,12 +244,12 @@ interface Example<State> {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface Example<State> {
-  required<R>(value: any, state: State): true;
-  optional?: <R>(value: any, state: State) => false;
-}
-"
-`);
+    "declare interface Example<State> {
+      required<R>(value: any, state: State): true;
+      optional?: <R>(value: any, state: State) => false;
+    }
+    "
+  `);
 });
 
 it('should handle toString property name', () => {
@@ -261,10 +261,10 @@ interface A {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface A {
-  toString(): string
-}"
-`);
+    "declare interface A {
+      toString(): string
+    }"
+  `);
 });
 
 // todo:
@@ -279,12 +279,12 @@ interface ObjectBinding {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ObjectBinding {
-  (): void,
-  (x: {}): void,
-  (x: { a: any, b: any }): void,
-}"
-`);
+    "declare interface ObjectBinding {
+      (): void,
+      (x: {}): void,
+      (x: { a: any, b: any }): void,
+    }"
+  `);
 });
 
 // todo:
@@ -299,13 +299,13 @@ interface ArrayBinding {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ArrayBinding {
-  (): void;
-  (x: any): void;
-  (x: any): void;
-}
-"
-`);
+    "declare interface ArrayBinding {
+      (): void;
+      (x: any): void;
+      (x: any): void;
+    }
+    "
+  `);
 });
 
 // todo:
@@ -320,17 +320,17 @@ interface ObjectBinding {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ObjectBinding {
-  (): void;
-  (x: any): void;
-  (x: {
-    a: string,
-    b: number,
-    ...
-  }): void;
-}
-"
-`);
+    "declare interface ObjectBinding {
+      (): void;
+      (x: any): void;
+      (x: {
+        a: string,
+        b: number,
+        ...
+      }): void;
+    }
+    "
+  `);
 });
 
 //todo:
@@ -345,11 +345,11 @@ interface ArrayBinding {
   const result = testTransformDts(ts);
 
   expect(result.babel).toMatchInlineSnapshot(`
-"declare interface ArrayBinding {
-  (): void;
-  (x: []): void;
-  (x: [string, number]): void;
-}
-"
-`);
+    "declare interface ArrayBinding {
+      (): void;
+      (x: []): void;
+      (x: [string, number]): void;
+    }
+    "
+  `);
 });

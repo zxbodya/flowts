@@ -16,11 +16,11 @@ import './b.js.flow';
 class C extends Component {}
 `)
     ).toMatchInlineSnapshot(`
-      "import { Component } from \\"react\\";
-      import R from \\"react-dom\\";
-      import \\"./a.css\\";
-      import \\"./a\\";
-      import \\"./b\\";
+      "import { Component } from "react";
+      import R from "react-dom";
+      import "./a.css";
+      import "./a";
+      import "./b";
 
       class C extends Component {}
       "
@@ -32,7 +32,7 @@ class C extends Component {}
 const a = import('./a.js');
 `)
     ).toMatchInlineSnapshot(`
-      "const a = import(\\"./a\\");
+      "const a = import("./a");
       "
     `);
   });
@@ -48,13 +48,13 @@ jest.requireActual('./a.js');
 jest.requireMock('./a.js');
 `)
     ).toMatchInlineSnapshot(`
-      "jest.mock(\\"./a\\");
-      jest.unmock(\\"./a\\");
-      jest.doMock(\\"./a\\");
-      jest.dontMock(\\"./a\\");
-      jest.setMock(\\"./a\\");
-      jest.requireActual(\\"./a\\");
-      jest.requireMock(\\"./a\\");
+      "jest.mock("./a");
+      jest.unmock("./a");
+      jest.doMock("./a");
+      jest.dontMock("./a");
+      jest.setMock("./a");
+      jest.requireActual("./a");
+      jest.requireMock("./a");
       "
     `);
   });
@@ -64,7 +64,7 @@ jest.requireMock('./a.js');
 const a = require('./a.js');
 `)
     ).toMatchInlineSnapshot(`
-      "const a = require(\\"./a\\");
+      "const a = require("./a");
       "
     `);
   });
