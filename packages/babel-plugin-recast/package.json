@@ -6,7 +6,7 @@
     "dist/*",
     "README.md"
   ],
-  "version": "0.15.9",
+  "version": "0.15.15",
   "scripts": {
     "cover": "jest --coverage",
     "test": "jest",
