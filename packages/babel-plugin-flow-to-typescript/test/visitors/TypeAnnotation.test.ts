@@ -261,7 +261,7 @@ test('Type literal: indexer', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      [x: string]: number,
+      [x: string]: number
       [x: number]: boolean
     };"
   `);
@@ -280,7 +280,7 @@ test('Type literal: indexer without key name', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      [x: string]: number,
+      [x: string]: number
       [x: number]: boolean
     };"
   `);
@@ -324,7 +324,7 @@ test('Type literal: type literal with variance', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      readonly b: string,
+      readonly b: string
       c: number
     };"
   `);
@@ -703,7 +703,7 @@ let start: interface {
     `);
     expect(result.recast).toMatchInlineSnapshot(`
       "let start: {
-        line: number,
+        line: number
         column: number
       };"
     `);
@@ -728,7 +728,7 @@ let start: interface extends B,C {
     `);
     expect(result.recast).toMatchInlineSnapshot(`
       "let start: {
-        line: number,
+        line: number
         column: number
       } & B & C;"
     `);

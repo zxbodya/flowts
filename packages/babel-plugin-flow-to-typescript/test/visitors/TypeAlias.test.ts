@@ -45,7 +45,7 @@ test('preserves comments within typedefs', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type Props = {
-      children?: React.Node,
+      children?: React.Node
       // The vertical alignment of the content before it starts to scroll
       verticalAlignWithoutScroll?: \\"top\\" | \\"center\\"
     };"
