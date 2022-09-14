@@ -1,7 +1,7 @@
 import template from '@babel/template';
 
 const ast = template({
-  plugins: ['flow'],
+  plugins: [['flow', { enums: true }]],
 }).ast;
 
 const Pick = ast`type Pick<T: {}, K: $Keys<T>> = $ObjMapi<

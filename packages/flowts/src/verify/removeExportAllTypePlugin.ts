@@ -13,7 +13,7 @@ export default () =>
     name: 'remove-export-all-declaration-plugin',
     visitor,
     manipulateOptions(opts: any, parserOpts: any) {
-      parserOpts.plugins.push('flow');
+      parserOpts.plugins.push(['flow', { enums: true }]);
       parserOpts.plugins.push('exportDefaultFrom');
     },
   } as PluginObj);

@@ -56,7 +56,7 @@ export async function convertFile(
   };
 
   const flowParserPlugins: ParserPlugin[] = [];
-  flowParserPlugins.push('flow');
+  flowParserPlugins.push(['flow', { enums: true }]);
   if (isJSX) {
     flowParserPlugins.push('jsx');
   }

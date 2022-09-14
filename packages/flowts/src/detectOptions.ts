@@ -19,7 +19,7 @@ export function detectOptions(source: string, filename: string): SourceOptions {
     ast: true,
     parserOpts: {
       allowReturnOutsideFunction: true,
-      plugins: ['flow', 'jsx', ...sharedParserPlugins],
+      plugins: [['flow', { enums: true }], 'jsx', ...sharedParserPlugins],
     },
     filename,
   });

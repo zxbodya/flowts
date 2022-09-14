@@ -4,6 +4,7 @@ import { sharedParserPlugins } from '../sharedParserPlugins';
 import removeImportExtensionPlugin from '../removeImportExtensionPlugin';
 import removeExportAllTypePlugin from './removeExportAllTypePlugin';
 import removeEmptyExportPlugin from './removeEmptyExportPlugin';
+import removeEnumsPlugin from './removeEnumsPlugin';
 
 // self verification
 //  - remove types
@@ -29,7 +30,7 @@ export function verify(
     babelrc: false,
     configFile: false,
     filename,
-    plugins: [removeExportAllTypePlugin],
+    plugins: [removeExportAllTypePlugin, removeEnumsPlugin],
     presets: [
       [require.resolve('@babel/preset-flow'), { allowDeclareFields: true }],
     ],
@@ -38,7 +39,11 @@ export function verify(
     },
     parserOpts: {
       allowReturnOutsideFunction: true,
-      plugins: ['flow', ...jsxPlugin, ...sharedParserPlugins],
+      plugins: [
+        ['flow', { enums: true }],
+        ...jsxPlugin,
+        ...sharedParserPlugins,
+      ],
     },
   });
   if (srcFixed === null) {
@@ -81,6 +86,7 @@ export function verify(
     generatorOpts: {
       decoratorsBeforeExport: true,
     },
+    plugins: [removeEnumsPlugin],
     presets: [
       [
         require.resolve('@babel/preset-typescript'),

@@ -30,6 +30,7 @@ import { ObjectMethod } from './visitors/ObjectMethod';
 import { DeclareExportAllDeclaration } from './visitors/DeclareExportAllDeclaration';
 import { Pattern } from './visitors/Pattern';
 import { ForOfStatement } from './visitors/ForOfStatement';
+import { EnumDeclaration } from './visitors/EnumDeclaration';
 
 const visitor: Visitor<PluginPass> = {
   Program,
@@ -68,6 +69,7 @@ const visitor: Visitor<PluginPass> = {
   },
   Pattern,
   ForOfStatement,
+  EnumDeclaration,
 };
 
 export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
@@ -82,7 +84,7 @@ export default (_babel: any, opts: PluginOptions = {} as PluginOptions) => {
     visitor,
 
     manipulateOptions(_babel: any, parserOpts) {
-      parserOpts.plugins.push('flow');
+      parserOpts.plugins.push(['flow', { enums: true }]);
       if (opts.isJSX) {
         parserOpts.plugins.push('jsx');
       }

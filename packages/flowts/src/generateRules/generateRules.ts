@@ -37,7 +37,7 @@ async function main(
     plugins: [],
     parserOpts: {
       allowReturnOutsideFunction: true,
-      plugins: ['flow', ...sharedParserPlugins],
+      plugins: [['flow', { enums: true }], ...sharedParserPlugins],
     },
     filename: inputPath,
     sourceFileName: inputPath,

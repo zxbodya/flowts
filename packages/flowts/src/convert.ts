@@ -150,7 +150,7 @@ export async function convert(cwd: string, opts: ConvertOptions) {
       };
 
       const flowParserPlugins: ParserPlugin[] = [];
-      flowParserPlugins.push('flow');
+      flowParserPlugins.push(['flow', { enums: true }]);
       if (isJSX) {
         flowParserPlugins.push('jsx');
       }

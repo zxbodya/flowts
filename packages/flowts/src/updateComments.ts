@@ -41,7 +41,7 @@ export function updateComments(
     parserOpts: {
       allowReturnOutsideFunction: true,
       plugins: [
-        options.syntax === 'flow' ? 'flow' : 'typescript',
+        options.syntax === 'flow' ? ['flow', { enums: true }] : 'typescript',
         ...jsxPlugin,
         ...sharedParserPlugins,
       ],
