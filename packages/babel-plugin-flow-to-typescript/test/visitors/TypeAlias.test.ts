@@ -180,3 +180,42 @@ test('works fine when getting identifier instead of type', () => {
   expect(result.babel).toMatchInlineSnapshot(`"type t1 = Function;"`);
   expect(result.recast).toMatchInlineSnapshot(`"type t1 = Function;"`);
 });
+
+test('IndexedAccessType', () => {
+  // there is a bug in babel - once that is fixed - this can be removed
+  const result = testTransform(`
+  // @flow
+
+  type Foo = {
+    id: string,
+    name: string,
+  }
+
+  type IndexedFoo = {
+    id: Foo['id'], // IndexedAccessType
+    name: Foo['name'], // IndexedAccessType
+  }
+`);
+  expect(result.babel).toMatchInlineSnapshot(`
+    "type Foo = {
+      id: string;
+      name: string;
+    };
+    type IndexedFoo = {
+      id: Foo["id"];
+      // IndexedAccessType
+      name: Foo["name"];
+    };"
+  `);
+  expect(result.recast).toMatchInlineSnapshot(`
+    "type Foo = {
+      id: string
+      name: string
+    };
+
+    type IndexedFoo = {
+      id: Foo["id"] // IndexedAccessType
+      name: Foo["name"] // IndexedAccessType
+    };"
+  `);
+});
