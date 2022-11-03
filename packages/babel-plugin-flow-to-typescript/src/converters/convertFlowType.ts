@@ -309,5 +309,15 @@ export function convertFlowType(node: t.FlowType): t.TSType {
       ]);
     }
   }
+
+  if (t.isIndexedAccessType(node)) {
+    return {
+      ...t.tsIndexedAccessType(
+        convertFlowType(node.objectType),
+        convertFlowType(node.indexType)
+      ),
+      ...baseNodeProps(node),
+    };
+  }
   throw new Error(`Unsupported flow type FlowType(type=${node.type})`);
 }
