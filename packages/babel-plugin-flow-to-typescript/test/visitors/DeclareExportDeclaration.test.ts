@@ -42,7 +42,6 @@ test('declare export in module', () => {
 `);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare let __default: string;
-
     export default __default;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`

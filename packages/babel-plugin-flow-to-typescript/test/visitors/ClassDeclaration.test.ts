@@ -14,7 +14,6 @@ test('Class constructors: void return type annotation', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class C {
       constructor() {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -33,7 +32,6 @@ test('Class constructors: No return type annotation', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class C {
       constructor() {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -109,7 +107,6 @@ test('ThisTypeAnnotation', () => {
       bar(): this {
         return this;
       }
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -146,9 +143,7 @@ export default class A implements B {
     "export default class A implements B {
       readonly ctx: Context;
       hasLoaded: boolean;
-
       constructor() {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -168,9 +163,7 @@ test('class method parameters', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class A {
       constructor() {}
-
       method(a: number, b?: number | null, c: number = 1): void {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -190,11 +183,8 @@ test('class with declare field', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class A {
       declare descriptor: string;
-
       constructor() {}
-
       method(a: number, b?: number | null, c: number = 1): void {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -222,13 +212,9 @@ export default class A {
       get a(): number {
         return 1;
       }
-
       set a(value: number) {}
-
       set b(value: number) {}
-
       set c(value: number | undefined | null) {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -261,13 +247,9 @@ export default class A {
       get #a(): number {
         return 1;
       }
-
       set #a(value: number) {}
-
       set #b(value: number) {}
-
       set #c(value: number | undefined | null) {}
-
       #d: number;
       #s: string | undefined | null;
     }"

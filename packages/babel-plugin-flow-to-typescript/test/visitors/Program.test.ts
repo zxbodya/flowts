@@ -160,10 +160,11 @@ export default a;`);
 const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
-          "// @license MIT
-          const a = 55;
-          export default a;"
-      `);
+      "// @license MIT
+
+      const a = 55;
+      export default a;"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
           "// @license MIT
           const a = 55;
@@ -236,7 +237,6 @@ const a = 55;
 export default a;`);
     expect(result.babel).toMatchInlineSnapshot(`
       "// @license MIT
-
       /* @ts-nocheck */
       const a = 55;
       export default a;"
@@ -366,11 +366,10 @@ declare function didYouMean(
 
 function didYouMean(firstArg, secondArg?): string { }`);
     expect(result.babel).toMatchInlineSnapshot(`
-          "function didYouMean(suggestions: ReadonlyArray<string>): string;
-          function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
-
-          function didYouMean(firstArg, secondArg?): string {}"
-      `);
+      "function didYouMean(suggestions: ReadonlyArray<string>): string;
+      function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string;
+      function didYouMean(firstArg, secondArg?): string {}"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
           "function didYouMean(suggestions: ReadonlyArray<string>): string
           function didYouMean(subMessage: string, suggestions: ReadonlyArray<string>): string

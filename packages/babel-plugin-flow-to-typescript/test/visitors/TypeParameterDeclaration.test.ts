@@ -29,11 +29,9 @@ T: {} = R
 /* 2 */
 > = T;`);
   expect(result.babel).toMatchInlineSnapshot(`
-    "type A<
-    /* 1 */
+    "type A< /* 1 */
     T extends {} = R
-    /* 2 */
-    > = T;"
+    /* 2 */> = T;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type A</* 1 */
@@ -46,19 +44,9 @@ test('with more comments', () => {
   const result = testTransform(
     `type A/*0*/</* 1 */T/* 2 */=/* 3 */F/* 4 */>/*5*/= T`
   );
-  expect(result.babel).toMatchInlineSnapshot(`
-"type A
-/*0*/
-<
-/* 1 */
-T =
-/* 3 */
-F
-/* 4 */
->
-/*5*/
-= T;"
-`);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"type A /*0*/< /* 1 */T = /* 3 */F /* 4 */> /*5*/ = T;"`
+  );
   expect(result.recast).toMatchInlineSnapshot(
     `"type A/*0*/</* 1 */T = /* 2 *//* 3 */F/* 4 */>/*5*/ = T;"`
   );

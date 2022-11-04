@@ -55,17 +55,17 @@ export const StyledTableHeadCell = styled<StyledTableHeadCellPropsT>(
     });"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
-"export const StyledTableHeadCell = styled<StyledTableHeadCellPropsT>('th', () => {
-    return {
-      '::after': {
-        left: '0',
-        backgroundImage: \`
-        linear-gradient()
-      \`,
-      },
-    };
-  });"
-`);
+    "export const StyledTableHeadCell = styled<StyledTableHeadCellPropsT>('th', () => {
+        return {
+          '::after': {
+            left: '0',
+            backgroundImage: \`
+            linear-gradient()
+          \`,
+          },
+        };
+      });"
+  `);
 });
 
 describe('whitespace', () => {
@@ -82,24 +82,25 @@ const test = \`
       },\`;
 `);
     expect(result.babel).toMatchInlineSnapshot(`
-"//
-const test = \`
-    {
-    	from: {
-        	service: 'p',
-          idlService: 'p',
-      },\`;"
-`);
-    expect(result.recast).toMatchInlineSnapshot(`
-"//
+      "//
 
-const test = \`
-    {
-    	from: {
-        	service: 'p',
-          idlService: 'p',
-      },\`;"
-`);
+      const test = \`
+          {
+          	from: {
+              	service: 'p',
+                idlService: 'p',
+            },\`;"
+    `);
+    expect(result.recast).toMatchInlineSnapshot(`
+      "//
+
+      const test = \`
+          {
+          	from: {
+              	service: 'p',
+                idlService: 'p',
+            },\`;"
+    `);
   });
 
   /* eslint-disable no-irregular-whitespace */
@@ -114,18 +115,18 @@ expect(wrapper).toMatchInlineSnapshot(\`
 \`);
 `);
     expect(result.babel).toMatchInlineSnapshot(`
-"expect(wrapper).toMatchInlineSnapshot(\`
-  <Fragment>
-     
-  </Fragment>
-\`);"
-`);
+      "expect(wrapper).toMatchInlineSnapshot(\`
+        <Fragment>
+           
+        </Fragment>
+      \`);"
+    `);
     expect(result.recast).toMatchInlineSnapshot(`
-"expect(wrapper).toMatchInlineSnapshot(\`
-  <Fragment>
-     
-  </Fragment>
-\`);"
-`);
+      "expect(wrapper).toMatchInlineSnapshot(\`
+        <Fragment>
+           
+        </Fragment>
+      \`);"
+    `);
   });
 });

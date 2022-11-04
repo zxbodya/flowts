@@ -8,17 +8,9 @@ test('type case expression', () => {
 
 test('type case expression, with comments', () => {
   const result = testTransform(`(/*1*/a/*2*/:/*3*/A/*4*/);`);
-  expect(result.babel).toMatchInlineSnapshot(`
-    "(
-    /*1*/
-    a
-    /*2*/
-    as
-    /*3*/
-    A
-    /*4*/
-    );"
-  `);
+  expect(result.babel).toMatchInlineSnapshot(
+    `"( /*1*/(a /*2*/) as /*3*/A /*4*/);"`
+  );
   expect(result.recast).toMatchInlineSnapshot(`"(/*1*/a as /*3*/A/*4*/);"`);
 });
 

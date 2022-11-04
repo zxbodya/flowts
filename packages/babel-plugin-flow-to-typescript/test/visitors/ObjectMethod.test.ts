@@ -11,11 +11,8 @@ test('getter/setter support', () => {
       get a(): number {
         return 1;
       },
-
       set a(value: number) {},
-
       set b(value: number | undefined | null) {}
-
     };"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -35,7 +32,6 @@ test('setter with not optional argument with optional value', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "const Formatter = {
       set isSplittable(isSplittable: boolean | undefined | null) {}
-
     };"
   `);
   expect(result.recast).toMatchInlineSnapshot(`

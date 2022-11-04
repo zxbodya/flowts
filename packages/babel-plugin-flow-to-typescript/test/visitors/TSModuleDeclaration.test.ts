@@ -22,7 +22,6 @@ declare class A {}
 `);
   expect(result.babel).toMatchInlineSnapshot(`
     "declare module "React" {}
-
     declare class A {}"
   `);
   expect(result.recast).toMatchInlineSnapshot(`

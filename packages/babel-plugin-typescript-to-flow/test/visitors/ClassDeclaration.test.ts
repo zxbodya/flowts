@@ -14,7 +14,6 @@ test('Class constructors: void return type annotation', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class C {
       constructor() {}
-
     }"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
@@ -73,7 +72,6 @@ test('ThisTypeAnnotation', () => {
       bar(): this {
         return this;
       }
-
     }"
   `);
   // expect(result.recast).toMatchInlineSnapshot();
@@ -109,9 +107,7 @@ export default class A implements B {
     "export default class A implements B {
       +ctx: Context;
       hasLoaded: boolean;
-
       constructor() {}
-
     }"
   `);
   // expect(result.recast).toMatchInlineSnapshot();
@@ -127,9 +123,7 @@ test('class method parameters', () => {
   expect(result.babel).toMatchInlineSnapshot(`
     "class A {
       constructor() {}
-
       method(a: number, b?: number | null, c: number = 1): void {}
-
     }"
   `);
   // expect(result.recast).toMatchInlineSnapshot();
