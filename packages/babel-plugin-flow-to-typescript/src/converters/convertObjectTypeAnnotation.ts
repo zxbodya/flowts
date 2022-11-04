@@ -66,7 +66,9 @@ export function convertObjectTypeAnnotation(
   let ret: t.TSType = t.tsTypeLiteral(members);
 
   if (spreads.length > 0) {
-    spreads.unshift(ret);
+    if (ret.members.length > 0) {
+      spreads.unshift(ret);
+    }
     ret = t.tsIntersectionType(spreads);
   }
 

@@ -350,16 +350,24 @@ let b: { -[x:string]: string };`);
 });
 
 test('Type literal: type literal with spread operator', () => {
-  const result = testTransform(`let a: { b: string, ...T };`);
+  const result = testTransform(`
+    let a: { b: string, ...T };
+    let b: { ...T };
+    let c: { ...T, ...R };
+  `);
   expect(result.babel).toMatchInlineSnapshot(`
     "let a: {
       b: string;
-    } & T;"
+    } & T;
+    let b: T;
+    let c: T & R;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
       b: string
-    } & T;"
+    } & T;
+        let b: T;
+        let c: T & R;"
   `);
 });
 
