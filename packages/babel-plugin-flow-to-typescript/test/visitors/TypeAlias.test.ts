@@ -205,7 +205,8 @@ test('IndexedAccessType', () => {
       id: Foo["id"];
       // IndexedAccessType
       name: Foo["name"];
-    };"
+    } // IndexedAccessType
+    ;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type Foo = {

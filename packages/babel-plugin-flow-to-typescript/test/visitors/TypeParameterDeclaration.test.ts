@@ -30,8 +30,7 @@ T: {} = R
 > = T;`);
   expect(result.babel).toMatchInlineSnapshot(`
     "type A< /* 1 */
-    T extends {} = R
-    /* 2 */> = T;"
+    T extends {} = R /* 2 */> = T;"
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type A</* 1 */
