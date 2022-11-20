@@ -26,7 +26,7 @@ export function verify(
   const jsxPlugin = isJSX ? (['jsx'] as const) : [];
 
   let srcFixed = babel.transformSync(source, {
-    compact: false,
+    compact: true,
     babelrc: false,
     configFile: false,
     filename,
@@ -53,7 +53,7 @@ export function verify(
   }
 
   srcFixed = babel.transformSync(srcFixed.code!, {
-    compact: false,
+    compact: true,
     babelrc: false,
     configFile: false,
     filename,
@@ -79,7 +79,7 @@ export function verify(
   }
 
   let resultNoTypes = babel.transformSync(result, {
-    compact: false,
+    compact: true,
     babelrc: false,
     configFile: false,
     filename: target,
@@ -105,7 +105,7 @@ export function verify(
   }
 
   resultNoTypes = babel.transformSync(resultNoTypes.code!, {
-    compact: false,
+    compact: true,
     babelrc: false,
     configFile: false,
     filename: target,
