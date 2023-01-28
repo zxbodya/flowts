@@ -38,7 +38,7 @@ const visitor: Visitor = {
       const importState = new Map<string, ModuleState>();
 
       for (const [key, binding] of Object.entries(scope.bindings)) {
-        if (binding.kind === 'module') {
+        if (binding.kind === 'module' || binding.kind === 'unknown') {
           if (t.isImportDeclaration(binding.path.parent)) {
             const moduleName = binding.path.parent.source.value;
 
