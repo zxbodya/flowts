@@ -202,6 +202,19 @@ import type { Element } from "react";
       "
     `);
   });
+
+  test('fixes commponjs default export ', () => {
+    expect(
+      transform(`
+import React from 'react';
+let a = React.forwardRef<T,P>();
+`)
+    ).toMatchInlineSnapshot(`
+      "import React from "react";
+      let a = React.forwardRef<P, T>();
+      "
+    `);
+  });
 });
 
 // todo:

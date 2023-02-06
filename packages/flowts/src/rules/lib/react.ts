@@ -243,6 +243,7 @@ export default {
 
   modules: {
     react: {
+      commonjs: true,
       exports: {
         /*
                 declare export var DOM: any;

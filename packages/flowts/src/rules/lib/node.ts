@@ -945,6 +945,7 @@ export default {
 
   modules: {
     buffer: {
+      commonjs: true,
       exports: {
         /*
                 declare var kMaxLength: number;
@@ -969,6 +970,7 @@ export default {
     },
 
     child_process: {
+      commonjs: true,
       exports: {
         /*
                 declare var ChildProcess: typeof child_process$ChildProcess;
@@ -1048,6 +1050,7 @@ export default {
     },
 
     cluster: {
+      commonjs: true,
       exports: {
         /*
                 declare type ClusterSettings = {
@@ -1127,6 +1130,7 @@ export default {
     },
 
     crypto: {
+      commonjs: true,
       exports: {
         /*
                 declare var DEFAULT_ENCODING: string;
@@ -1397,6 +1401,7 @@ export default {
     },
 
     dgram: {
+      commonjs: true,
       exports: {
         /*
                 declare function createSocket(
@@ -1409,6 +1414,7 @@ export default {
     },
 
     dns: {
+      commonjs: true,
       exports: {
         /*
                 declare var ADDRGETNETWORKPARAMS: string;
@@ -1650,6 +1656,7 @@ export default {
     },
 
     events: {
+      commonjs: true,
       exports: {
         /*
                 declare class EventEmitter extends events$EventEmitter {
@@ -1666,6 +1673,7 @@ export default {
     },
 
     domain: {
+      commonjs: true,
       exports: {
         /*
                 declare function create(): domain$Domain;
@@ -1675,6 +1683,7 @@ export default {
     },
 
     fs: {
+      commonjs: true,
       exports: {
         /*
                 declare class Stats {
@@ -2580,6 +2589,7 @@ export default {
     },
 
     http: {
+      commonjs: true,
       exports: {
         /*
                 declare class Server extends http$Server {}
@@ -2663,6 +2673,7 @@ export default {
     },
 
     https: {
+      commonjs: true,
       exports: {
         /*
                 declare class Server extends https$Server {}
@@ -2739,6 +2750,7 @@ export default {
     },
 
     module: {
+      commonjs: true,
       exports: {
         /*
                 declare module.exports: module$Module;
@@ -2748,6 +2760,7 @@ export default {
     },
 
     net: {
+      commonjs: true,
       exports: {
         /*
                 declare class Server extends net$Server {}
@@ -2817,6 +2830,7 @@ export default {
     },
 
     os: {
+      commonjs: true,
       exports: {
         /*
                 declare function arch(): "x64"|"arm"|"ia32";
@@ -2904,6 +2918,7 @@ export default {
     },
 
     path: {
+      commonjs: true,
       exports: {
         /*
                 declare function normalize(path: string): string;
@@ -2992,6 +3007,7 @@ export default {
     },
 
     punycode: {
+      commonjs: true,
       exports: {
         /*
                 declare function decode(string: string): string;
@@ -3030,6 +3046,7 @@ export default {
     },
 
     querystring: {
+      commonjs: true,
       exports: {
         /*
                 declare function stringify(
@@ -3068,6 +3085,7 @@ export default {
     },
 
     readline: {
+      commonjs: true,
       exports: {
         /*
                 declare var Interface : typeof readline$Interface;
@@ -3118,6 +3136,7 @@ export default {
     },
 
     stream: {
+      commonjs: true,
       exports: {
         /*
                 declare var Stream : typeof stream$Stream
@@ -3237,6 +3256,7 @@ export default {
     },
 
     tty: {
+      commonjs: true,
       exports: {
         /*
                 declare function isatty(fd : number) : boolean;
@@ -3261,6 +3281,7 @@ export default {
     },
 
     string_decoder: {
+      commonjs: true,
       exports: {
         /*
                 declare var StringDecoder : typeof string_decoder$StringDecoder;
@@ -3270,6 +3291,7 @@ export default {
     },
 
     tls: {
+      commonjs: true,
       exports: {
         /*
                 declare var CLIENT_RENEG_LIMIT: number;
@@ -3357,6 +3379,7 @@ export default {
     },
 
     url: {
+      commonjs: true,
       exports: {
         /*
                 declare type Url = {|
@@ -3477,6 +3500,7 @@ export default {
     },
 
     util: {
+      commonjs: true,
       exports: {
         /*
                 declare function debuglog(section: string): (data: any, ...args: any) => void;
@@ -3565,6 +3589,7 @@ export default {
     },
 
     vm: {
+      commonjs: true,
       exports: {
         /*
                 declare var Script: typeof vm$Script;
@@ -3609,6 +3634,7 @@ export default {
     },
 
     zlib: {
+      commonjs: true,
       exports: {
         /*
                 declare var Z_NO_FLUSH: number;
@@ -4145,6 +4171,7 @@ export default {
     },
 
     assert: {
+      commonjs: true,
       exports: {
         /*
                 declare class AssertionError extends Error {}
@@ -4208,6 +4235,7 @@ export default {
     },
 
     v8: {
+      commonjs: true,
       exports: {
         /*
                 declare function getHeapStatistics() : HeapStatistics;
@@ -4227,6 +4255,7 @@ export default {
     },
 
     repl: {
+      commonjs: true,
       exports: {
         /*
                 declare var REPL_MODE_MAGIC: $SymbolReplModeMagic;

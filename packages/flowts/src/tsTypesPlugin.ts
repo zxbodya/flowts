@@ -248,7 +248,11 @@ const visitor: Visitor = {
             }
           }
 
-          for (const namedImport of moduleState.namespace) {
+          const namespaceImports = [...moduleState.namespace];
+          if (moduleRules.commonjs) {
+            namespaceImports.push(...moduleState.default);
+          }
+          for (const namedImport of namespaceImports) {
             for (const path of namedImport.referencePaths) {
               if (t.isTSQualifiedName(path.parent)) {
                 const rule = moduleRules.exports[path.parent.right.name];

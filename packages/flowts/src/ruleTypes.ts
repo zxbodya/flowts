@@ -20,6 +20,10 @@ export interface RuleSet {
   };
   modules: {
     [k: string]: {
+      /**
+       * True if module "default" export can be used instead of namespace import
+       */
+      commonjs?: boolean;
       exports: {
         [k: string]: false | ((context: NamedFixContext) => void);
       };
