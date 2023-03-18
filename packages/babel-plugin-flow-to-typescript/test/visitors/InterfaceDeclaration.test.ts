@@ -48,7 +48,8 @@ test('interface decl extend params', () => {
   `);
 });
 
-test('interface decl implement', () => {
+// not supported syntax https://github.com/babel/babel/pull/15479
+test.skip('interface decl implement', () => {
   const result = testTransform(`interface Something implements Another {
   something: string;
 }`);
@@ -64,7 +65,8 @@ test('interface decl implement', () => {
   `);
 });
 
-test('interface decl implement params', () => {
+// not supported syntax https://github.com/babel/babel/pull/15479
+test.skip('interface decl implement params', () => {
   const result =
     testTransform(`interface Something<A> implements Another<A, B> {
   something: string;
@@ -81,7 +83,8 @@ test('interface decl implement params', () => {
   `);
 });
 
-test('interface decl implement extend', () => {
+// not supported syntax https://github.com/babel/babel/pull/15479
+test.skip('interface decl implement extend', () => {
   const result =
     testTransform(`interface Something extends What implements Another {
   something: string;
@@ -98,7 +101,8 @@ test('interface decl implement extend', () => {
   `);
 });
 
-test('interface decl implement extend params', () => {
+// not supported syntax https://github.com/babel/babel/pull/15479
+test.skip('interface decl implement extend params', () => {
   const result =
     testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something: string;
@@ -115,7 +119,8 @@ test('interface decl implement extend params', () => {
   `);
 });
 
-test('interface decl method', () => {
+// not supported syntax https://github.com/babel/babel/pull/15479
+test.skip('interface decl method', () => {
   const result =
     testTransform(`interface Something<A> extends What<Yes> implements Another<A, B> {
   something(): string;
