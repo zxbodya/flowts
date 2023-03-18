@@ -67,7 +67,7 @@ export function verify(
         ? [[removeImportExtensionPlugin, { isConvertedFile }]]
         : []),
       removeEmptyExportPlugin,
-      transformTypeOnlyImports
+      transformTypeOnlyImports,
     ],
     parserOpts: {
       allowReturnOutsideFunction: true,

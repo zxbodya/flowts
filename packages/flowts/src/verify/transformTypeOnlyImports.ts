@@ -3,9 +3,14 @@ import * as t from '@babel/types';
 
 const visitor: Visitor = {
   ImportDeclaration(path) {
-    if (path.node.importKind !== 'type' && path.node.specifiers.every(s => t.isImportSpecifier(s) && (s.importKind === 'type'))) {
+    if (
+      path.node.importKind !== 'type' &&
+      path.node.specifiers.every(
+        s => t.isImportSpecifier(s) && s.importKind === 'type'
+      )
+    ) {
       path.node.importKind = 'type';
-      for(const s of path.node.specifiers){
+      for (const s of path.node.specifiers) {
         t.assertImportSpecifier(s);
         s.importKind = null;
       }

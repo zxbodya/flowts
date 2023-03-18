@@ -35,7 +35,7 @@ test('declare empty named module', () => {
   expect(result.recast).toMatchInlineSnapshot(`
     "declare module 'react' {
       let __exports: {
-        a: number
+        a: number;
       };
 
       export = __exports

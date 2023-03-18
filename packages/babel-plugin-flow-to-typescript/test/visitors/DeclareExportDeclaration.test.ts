@@ -28,7 +28,7 @@ test('declare module with a bit of everything', () => {
       export type ComponentType<P> = React$ComponentType<P>;
 
       let __default: {
-        a: number
+        a: number;
       };
 
       export default __default;

@@ -141,7 +141,7 @@ test('Utility generics: $Diff when keys from type literal can not be computed on
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: Omit<X, keyof {
-      [k: string]: B
+      [k: string]: B;
     }>;"
   `);
 });
@@ -209,7 +209,7 @@ test('Utility generics: Class', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      new (...args: any): X
+      new (...args: any): X;
     };"
   `);
 });
@@ -223,7 +223,7 @@ test('Object type: exact=true', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      a: T
+      a: T;
     };"
   `);
 });
@@ -239,9 +239,9 @@ test('Intersection type', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      x: number
+      x: number;
     } & {
-      y: string
+      y: string;
     };"
   `);
 });
@@ -259,8 +259,8 @@ test('Type literal: indexer', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      [x: string]: number
-      [x: number]: boolean
+      [x: string]: number;
+      [x: number]: boolean;
     };"
   `);
 });
@@ -278,8 +278,8 @@ test('Type literal: indexer without key name', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      [x: string]: number
-      [x: number]: boolean
+      [x: string]: number;
+      [x: number]: boolean;
     };"
   `);
 });
@@ -295,7 +295,7 @@ test('Type literal: indexer to mapped type - skip indexer', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      [x: string]: number
+      [x: string]: number;
     };"
   `);
 });
@@ -322,8 +322,8 @@ test('Type literal: type literal with variance', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      readonly b: string
-      c: number
+      readonly b: string;
+      c: number;
     };"
   `);
 });
@@ -341,10 +341,10 @@ let b: { -[x:string]: string };`);
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      readonly [x: string]: string
+      readonly [x: string]: string;
     };
     let b: {
-      [x: string]: string
+      [x: string]: string;
     };"
   `);
 });
@@ -364,7 +364,7 @@ test('Type literal: type literal with spread operator', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      b: string
+      b: string;
     } & T;
         let b: T;
         let c: T & R;"
@@ -383,8 +383,8 @@ test('Type literal: deep type literal with spread operator', () => {
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
       b: {
-        c: T
-      } & U
+        c: T;
+      } & U;
     };"
   `);
 });
@@ -408,7 +408,7 @@ test('Maybe type: type literal', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      x: string | undefined | null
+      x: string | undefined | null;
     };"
   `);
 });
@@ -422,7 +422,7 @@ test('Maybe type: type literal with optional key', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "let a: {
-      x?: string | null
+      x?: string | null;
     };"
   `);
 });
@@ -709,8 +709,8 @@ let start: interface {
     `);
     expect(result.recast).toMatchInlineSnapshot(`
       "let start: {
-        line: number
-        column: number
+        line: number;
+        column: number;
       };"
     `);
   });
@@ -734,8 +734,8 @@ let start: interface extends B,C {
     `);
     expect(result.recast).toMatchInlineSnapshot(`
       "let start: {
-        line: number
-        column: number
+        line: number;
+        column: number;
       } & B & C;"
     `);
   });

@@ -338,20 +338,20 @@ type C = Class<A>;
       `);
 
     expect(result.recast).toMatchInlineSnapshot(`
-          "type A = string | {
-            new (...args: any): React.Component<any, any>
-          } | any;
+      "type A = string | {
+        new (...args: any): React.Component<any, any>;
+      } | any;
 
-          type B = {
-            new (...args: any): {
-              readonly scope: (a: TagsType) => void
-            }
-          };
+      type B = {
+        new (...args: any): {
+          readonly scope: (a: TagsType) => void;
+        };
+      };
 
-          type C = {
-            new (...args: any): A
-          };"
-      `);
+      type C = {
+        new (...args: any): A;
+      };"
+    `);
   });
 });
 

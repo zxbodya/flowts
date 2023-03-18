@@ -13,8 +13,8 @@ test('declare interface', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "declare interface A {
-      id: string
-      type: string
+      id: string;
+      type: string;
     }"
   `);
 });
@@ -30,7 +30,7 @@ test('declare interface with call property', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "declare interface A {
-      (): void
+      (): void;
     }"
   `);
 });
@@ -46,7 +46,7 @@ test('declare interface with indexer property', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "declare interface A {
-      [k: number]: string
+      [k: number]: string;
     }"
   `);
 });
@@ -63,7 +63,7 @@ test('declare interface with internal slot', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "declare interface C {
-      [call]: T
+      [call]: T;
     }"
   `);
 });
@@ -96,9 +96,9 @@ declare interface A {
      */
     declare interface A {
       // fields
-      props: Props
+      props: Props;
       // state
-      state: State
+      state: State;
     }"
   `);
 });

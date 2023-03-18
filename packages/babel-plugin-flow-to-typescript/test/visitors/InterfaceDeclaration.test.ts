@@ -11,7 +11,7 @@ test('interface decl basic', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "interface Something {
-      something: string
+      something: string;
     }"
   `);
 });
@@ -27,7 +27,7 @@ test('interface decl extend', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "interface Something extends Another {
-      something: string
+      something: string;
     }"
   `);
 });
@@ -43,7 +43,7 @@ test('interface decl extend params', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "interface Something<A> extends Another<A, B> {
-      something: string
+      something: string;
     }"
   `);
 });
@@ -143,7 +143,7 @@ test('interface with generic method', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "interface A {
-      map<T>(fn: (node: this, index: number) => T): Array<T>
+      map<T>(fn: (node: this, index: number) => T): Array<T>;
     }"
   `);
 });
@@ -159,7 +159,7 @@ test('iterable interface', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "interface A {
-      [Symbol.iterator](): Iterator<string>
+      [Symbol.iterator](): Iterator<string>;
     }"
   `);
 });

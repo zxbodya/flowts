@@ -18,30 +18,10 @@ export function convertInterfaceDeclaration(
       ...baseNodeProps(node.typeParameters),
     };
   }
-  let extendsCombined: Array<t.InterfaceExtends | t.ClassImplements> = [];
-  if (node.extends && node.implements) {
-    if (
-      node.extends.length &&
-      node.implements.length &&
-      node.extends[0].start &&
-      node.implements[0].start &&
-      node.extends[0].start < node.implements[0].start
-    ) {
-      extendsCombined = [...node.extends, ...node.implements];
-    } else {
-      extendsCombined = [...node.implements, ...node.extends];
-    }
-  } else {
-    if (node.extends) {
-      extendsCombined = node.extends;
-    }
-    if (node.implements) {
-      extendsCombined = node.implements;
-    }
-  }
+  let extendsCombined = node.extends;
   let _extends = undefined;
 
-  if (extendsCombined.length > 0) {
+  if (extendsCombined && extendsCombined.length > 0) {
     _extends = extendsCombined.map(v => ({
       ...convertInterfaceExtends(v),
       ...baseNodeProps(v),

@@ -9,7 +9,7 @@ test('Object type alias: exact=true', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type a = {
-      a: T
+      a: T;
     };"
   `);
 });
@@ -25,7 +25,7 @@ test('maybe function type', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type a = {
-      a: (() => void) | undefined | null
+      a: (() => void) | undefined | null;
     };"
   `);
 });
@@ -45,9 +45,9 @@ test('preserves comments within typedefs', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type Props = {
-      children?: React.Node
+      children?: React.Node;
       // The vertical alignment of the content before it starts to scroll
-      verticalAlignWithoutScroll?: "top" | "center"
+      verticalAlignWithoutScroll?: "top" | "center";
     };"
   `);
 });
@@ -77,7 +77,7 @@ type T = {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type T = {
-      (b: string, a: string): string
+      (b: string, a: string): string;
     };"
   `);
 });
@@ -108,7 +108,7 @@ test('methods in object type', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "export type Cache = {
-      get(key: string): Promise<unknown>
+      get(key: string): Promise<unknown>;
     };"
   `);
 });
@@ -124,7 +124,7 @@ test('methods in object type', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "export type Cache = {
-      a: ((args: string[]) => null | false | string) & (() => string)
+      a: ((args: string[]) => null | false | string) & (() => string);
     };"
   `);
 });
@@ -140,7 +140,7 @@ test('iterable object type', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type A = {
-      [Symbol.iterator](): Iterator<string>
+      [Symbol.iterator](): Iterator<string>;
     };"
   `);
 });
@@ -210,13 +210,13 @@ test('IndexedAccessType', () => {
   `);
   expect(result.recast).toMatchInlineSnapshot(`
     "type Foo = {
-      id: string
-      name: string
+      id: string;
+      name: string;
     };
 
     type IndexedFoo = {
-      id: Foo["id"] // IndexedAccessType
-      name: Foo["name"] // IndexedAccessType
+      id: Foo["id"] // IndexedAccessType;
+      name: Foo["name"] // IndexedAccessType;
     };"
   `);
 });
