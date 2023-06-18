@@ -5,6 +5,7 @@ import removeImportExtensionPlugin from '../removeImportExtensionPlugin';
 import removeExportAllTypePlugin from './removeExportAllTypePlugin';
 import removeEmptyExportPlugin from './removeEmptyExportPlugin';
 import removeEnumsPlugin from './removeEnumsPlugin';
+import transformTypeOnlyImports from './transformTypeOnlyImports';
 
 // self verification
 //  - remove types
@@ -66,6 +67,7 @@ export function verify(
         ? [[removeImportExtensionPlugin, { isConvertedFile }]]
         : []),
       removeEmptyExportPlugin,
+      transformTypeOnlyImports
     ],
     parserOpts: {
       allowReturnOutsideFunction: true,
@@ -110,7 +112,7 @@ export function verify(
     configFile: false,
     filename: target,
     comments: false,
-    plugins: [removeEmptyExportPlugin],
+    plugins: [removeEmptyExportPlugin, transformTypeOnlyImports],
     generatorOpts: {
       decoratorsBeforeExport: true,
     },
