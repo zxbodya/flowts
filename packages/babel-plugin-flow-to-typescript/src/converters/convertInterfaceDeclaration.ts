@@ -18,7 +18,7 @@ export function convertInterfaceDeclaration(
       ...baseNodeProps(node.typeParameters),
     };
   }
-  let extendsCombined = node.extends;
+  const extendsCombined = node.extends;
   let _extends = undefined;
 
   if (extendsCombined && extendsCombined.length > 0) {
