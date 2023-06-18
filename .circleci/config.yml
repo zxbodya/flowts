@@ -34,7 +34,6 @@ jobs:
       - restore_cache: *restore-yarn-cache
       - restore_cache: *restore-node-modules-cache
       - run: yarn install
-      - run: yarn lerna bootstrap
       - save_cache: *save-node-modules-cache
       - save_cache: *save-yarn-cache
       - run: yarn run lint --quiet
