@@ -6,7 +6,7 @@
     "dist/*",
     "README.md"
   ],
-  "version": "0.15.21",
+  "version": "0.16.0",
   "scripts": {
     "cover": "jest --coverage",
     "test": "jest",
@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@flowts/babel-plugin-recast": "^0.15.21",
+    "@flowts/babel-plugin-recast": "^0.16.0",
     "@types/babel__code-frame": "^7.0.3",
     "@types/babel__traverse": "7.20.1",
     "@types/jest": "^29.5.2",
