@@ -9,10 +9,12 @@ describe('removeExportAllTypePlugin', () => {
       transform(`
 import {type A} from 'a';
 import {type B, b} from 'b';
+import {} from 'c';
 `)
     ).toMatchInlineSnapshot(`
       "import type { A } from "a";
       import { type B, b } from "b";
+      import {} from "c";
       "
     `);
   });

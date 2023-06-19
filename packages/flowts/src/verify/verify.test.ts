@@ -27,4 +27,21 @@ const Test = (): ReactElement => {
     const result = verify(flow, ts, true, 'test.js', 'test.tsx', false);
     expect(result.isEqual).toBeTruthy();
   });
+
+  test('handles whitespace after types removal', () => {
+    const flow = `
+// @flow
+import {type A} from 'a';
+import {type B, b} from 'b';
+import {} from 'c';
+`;
+    const ts = `
+import {type A} from 'a';
+import {type B, b} from 'b';
+import {} from 'c';
+`;
+
+    const result = verify(flow, ts, true, 'test.js', 'test.tsx', false);
+    expect(result.isEqual).toBeTruthy();
+  });
 });

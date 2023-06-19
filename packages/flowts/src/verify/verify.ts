@@ -66,8 +66,6 @@ export function verify(
       ...(isConvertedFile
         ? [[removeImportExtensionPlugin, { isConvertedFile }]]
         : []),
-      removeEmptyExportPlugin,
-      transformTypeOnlyImports,
     ],
     parserOpts: {
       allowReturnOutsideFunction: true,
@@ -80,7 +78,28 @@ export function verify(
     );
   }
 
-  let resultNoTypes = babel.transformSync(result, {
+  const resultFixTypeImports = babel.transformSync(result, {
+    compact: true,
+    babelrc: false,
+    configFile: false,
+    filename: target,
+    generatorOpts: {
+      decoratorsBeforeExport: true,
+    },
+    plugins: [transformTypeOnlyImports],
+    presets: [],
+    parserOpts: {
+      allowReturnOutsideFunction: true,
+      plugins: ['typescript', ...jsxPlugin, ...sharedParserPlugins],
+    },
+  });
+  if (resultFixTypeImports === null) {
+    throw new Error(
+      'result of babel transform is null, likely configuration error'
+    );
+  }
+
+  let resultNoTypes = babel.transformSync(resultFixTypeImports.code!, {
     compact: true,
     babelrc: false,
     configFile: false,
@@ -112,7 +131,7 @@ export function verify(
     configFile: false,
     filename: target,
     comments: false,
-    plugins: [removeEmptyExportPlugin, transformTypeOnlyImports],
+    plugins: [removeEmptyExportPlugin],
     generatorOpts: {
       decoratorsBeforeExport: true,
     },
