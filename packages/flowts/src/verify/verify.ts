@@ -63,6 +63,7 @@ export function verify(
       decoratorsBeforeExport: true,
     },
     plugins: [
+      removeEmptyExportPlugin,
       ...(isConvertedFile
         ? [[removeImportExtensionPlugin, { isConvertedFile }]]
         : []),
